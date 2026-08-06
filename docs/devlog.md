@@ -185,3 +185,9 @@
 - Before invocation, the evaluation record was extended to preserve the complete validated semantic decision separately from the raw-output digest; raw response bytes remain absent from traces.
 - Review identified that the standard URL client would otherwise follow redirects. Redirects and environment proxies were disabled before any model invocation so the direct loopback boundary is enforced by transport behavior as well as contract validation.
 - Executor policy remains byte-identical to the `v0.0.3` checkpoint at SHA-256 `1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa`.
+
+### First local-model smoke call
+
+- Invoked the exact source-gated local model on `dev-worker-backlog` only after committing the adapter and candidate manifest. The request contained one frozen synthetic telemetry record and no tools, credentials, approvals, executor access, remote service, or real infrastructure.
+- The model response had raw-output digest `b267a73ec4a4391d2a69fe8554f925497c5b3982fb168c857c69054c48464c98` but failed the exact semantic parser. The adapter returned `abstain / model_output_invalid`, persisted no proposal, and did not substitute the deterministic result.
+- End-to-end latency was 25138.148 ms, including 6681307500 ns reported load duration. The result disposition is `remediate`; it remains retained independently of the complete repeated comparison.

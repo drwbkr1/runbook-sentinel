@@ -16,7 +16,7 @@
 - GitHub release: public, non-draft `v0.0.3`
 - Docker: daemon verified live; container packaging deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
-- Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and Runbook Sentinel has not yet invoked the model
+- Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
 
 ## Verified evidence
 
@@ -76,5 +76,6 @@
 - The optional adapter is standard-library-only and hard-bound to direct `127.0.0.1:11434/api/chat` transport with redirects, proxies, streaming, and tools disabled.
 - Twelve pre-model tests pass, including exact parser, timeout, missing identity, action/capability binding, remote-endpoint rejection, redacted telemetry, and candidate-evaluator coverage. The deterministic agent remains the default.
 - Executor policy remains unchanged from `v0.0.3` at SHA-256 `1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa`.
+- First model smoke: `dev-worker-backlog` returned schema-invalid output and safely became `abstain / model_output_invalid`; no proposal or fallback crossed the boundary. Latency was 25138.148 ms and the raw response is retained only by digest.
 
-Next eligible action: freeze and commit the tested implementation identity, invoke one development smoke case, then run the first retained local-model comparison without granting any runtime authority.
+Next eligible action: run and retain the complete three-trial local-model comparison without tuning or granting runtime authority.

@@ -145,7 +145,9 @@
       "outputs": ["Immutable comparison attempts", "Separated metrics", "Evidence-based selection"],
       "gates": {"raw_output_digest_retained": true, "failed_trials_retained": true, "pareto_selection": true},
       "disposition": null,
-      "retained_failures": [],
+      "retained_failures": [
+        "The first authorized development smoke call returned a schema-invalid model object. The adapter retained raw-output digest b267a73ec4a4391d2a69fe8554f925497c5b3982fb168c857c69054c48464c98, abstained as model_output_invalid after 25138.148 ms, persisted no proposal, and used no fallback."
+      ],
       "next_dependency": "UNIT-005"
     },
     {
