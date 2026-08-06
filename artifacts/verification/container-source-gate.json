@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "checked_at_date": "2026-08-06",
+  "scanner": "Docker Scout CLI 1.20.4",
+  "disposition": "defer",
+  "accepted_image": null,
+  "candidates": [
+    {
+      "image": "python:3.12.13-slim-trixie",
+      "digest": "sha256:646fb0bca3dd3ea1bcc6feb72c17ed16eed6e10cffc732fcc1478bd3e7f02d7b",
+      "packages": 132,
+      "critical": 2,
+      "high": 2,
+      "finding_package": "perl 5.40.1-6",
+      "fixed_version_available": false,
+      "disposition": "exclude"
+    },
+    {
+      "image": "python:3.12.13-alpine3.23",
+      "digest": "sha256:601d3d3797e90e2534782e69c85fafb7971b43f24c7b1b079b7e48dd435e458d",
+      "packages": 52,
+      "critical": 0,
+      "high": 2,
+      "finding_package": "sqlite 3.51.2-r0",
+      "fixed_version_available": false,
+      "disposition": "exclude"
+    },
+    {
+      "image": "python:3.12.13-slim-bookworm",
+      "digest": "sha256:4766d8b510c428e595d74b9cc5bbb2fae8e26316fffb4adc89908d79aacd58a2",
+      "packages": 157,
+      "critical": 2,
+      "high": 2,
+      "finding_package": "perl 5.36.0-7+deb12u3",
+      "fixed_version_available": false,
+      "disposition": "exclude"
+    }
+  ],
+  "retained_failures": [
+    "The first three Scout operations were launched concurrently and contended on the scanner cache; those incomplete runs were rejected and rerun sequentially.",
+    "Scout reported temporary archive cleanup warnings on Windows after indexing; digest resolution and sequential vulnerability summaries still completed."
+  ],
+  "next_entry_condition": "A reviewed base image resolves to an immutable digest and has no unresolved critical or runtime-relevant high vulnerability under a current local scan."
+}

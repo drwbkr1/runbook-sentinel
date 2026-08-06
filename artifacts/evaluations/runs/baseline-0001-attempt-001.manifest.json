@@ -1,0 +1,12 @@
+{
+  "checkpoint": "baseline-0001",
+  "files": {
+    "src/runbook_sentinel/agent.py": "96e52ad405cedf697a731d95e0b80902e1f0357b733b52ab3ef00950b6d8e81a",
+    "src/runbook_sentinel/data/scenarios.json": "58f39349ed7dc3d22487baa1fffa1959c1523f1089a00cfba6312153572634f5",
+    "src/runbook_sentinel/evaluation.py": "154d4baf4f0d5f18a05b3198b4e282752138918b42c1388278908c0f431033b7",
+    "src/runbook_sentinel/policy.py": "f64747676c6ea7970e1b4476e8f3c5318995bc0d744e0bad57a0923653b08dcb",
+    "src/runbook_sentinel/retrieval.py": "72306d9fc91e52e462317aa1c11e8d5135a5625a10eaab702be7bc354024fa8f"
+  },
+  "frozen_at_utc": "2026-08-06T18:28:35Z",
+  "schema_version": "1.0"
+}

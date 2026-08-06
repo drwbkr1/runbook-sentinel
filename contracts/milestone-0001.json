@@ -1,0 +1,197 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0001",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Approved Runbook Sentinel goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "repository_bootstrap",
+      "synthetic_runtime",
+      "local_verification",
+      "local_commit"
+    ],
+    "expires_at_utc": null,
+    "user_instruction": "Approved the long-running Runbook Sentinel goal with the SRE domain, local storage under C:\\Projects, GitHub ownership under drwbkr1, and optional containers.",
+    "repository_controls": [
+      "AGENTS.md",
+      "C:\\Projects\\STORAGE_POLICY.md"
+    ],
+    "active_contract": "contracts/milestone-0001.json",
+    "verified_at_utc": "2026-08-06T18:28:35Z"
+  },
+  "scope": {
+    "objective": "Establish a portable standard-library control baseline with a deterministic synthetic SRE environment, bounded incident agent, external policy and approval boundary, frozen evaluation, and verified real interfaces.",
+    "allowed_paths": [
+      "C:\\Projects\\Active\\runbook-sentinel"
+    ],
+    "forbidden_work": [
+      "Build or store active project state in OneDrive",
+      "Connect to or mutate real operational infrastructure",
+      "Give the model credentials, approval tokens, or execution authority",
+      "Import unresolved external code, data, models, or documents",
+      "Create or change GitHub repository visibility before explicit approval"
+    ],
+    "reversible_actions": [
+      "Create repository files",
+      "Initialize local Git history",
+      "Run repository-local synthetic state",
+      "Build and run a local container after its base image passes the source gate"
+    ],
+    "stop_conditions": [
+      "Core thesis change",
+      "Security boundary weakening",
+      "No-go boundary crossing",
+      "Spend, paid service, or secret required",
+      "External asset rights or safety unresolved",
+      "Access or ownership change",
+      "Real operational infrastructure interaction",
+      "Irreversible action",
+      "Unverifiable shipment"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Goal approved and active",
+        "C:\\Projects\\Active\\runbook-sentinel did not exist before initialization",
+        "OneDrive repository contained no authoritative project history",
+        "Python 3.12 and Git are available"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": [
+        "Governing documents and portable repository exist",
+        "All tests and frozen exact graders pass",
+        "Unauthorized action, replay, and attack execution checks pass",
+        "Real CLI, API, MCP, dashboard, persistence, telemetry, clean clone, and available container surface are inspected",
+        "Status and evaluation records reconcile with live evidence"
+      ]
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Establish repository control and architecture records",
+      "depends_on": [],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "repository_bootstrap",
+      "inputs": ["Approved goal", "Local storage policy"],
+      "outputs": ["AGENTS.md", "docs", "contract"],
+      "gates": {"authority": "pass", "path": "pass"},
+      "disposition": "pass",
+      "retained_failures": [
+        "Initial contract validation failed because UNIT-001 used unsupported status active; corrected to in_progress."
+      ],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Implement deterministic bounded runtime",
+      "depends_on": ["UNIT-001"],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "synthetic_runtime",
+      "inputs": ["Architecture", "Threat model"],
+      "outputs": ["src/runbook_sentinel"],
+      "gates": {"model_has_execution": false, "real_infrastructure": false},
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Freeze evaluation and run exact graders",
+      "depends_on": ["UNIT-002"],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "local_verification",
+      "inputs": ["Synthetic scenarios", "Evaluation contract"],
+      "outputs": ["eval/manifest.json", "artifacts/evaluations/baseline-0001.json"],
+      "gates": {"frozen": true, "failed_results_retained": true},
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Validate real runtime surfaces",
+      "depends_on": ["UNIT-003"],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "local_verification",
+      "inputs": ["Passing focused tests"],
+      "outputs": ["Verification receipts"],
+      "gates": {"source_only_evidence_insufficient": true},
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Close and commit the verified local checkpoint",
+      "depends_on": ["UNIT-004"],
+      "status": "in_progress",
+      "human_gate": false,
+      "action_class": "local_commit",
+      "inputs": ["Complete evidence ledger"],
+      "outputs": ["baseline-0001 commit"],
+      "gates": {"github_publication": "gated_on_visibility"},
+      "disposition": null,
+      "retained_failures": [],
+      "next_dependency": "GitHub repository visibility decision"
+    }
+  ],
+  "verification": {
+    "changed_risks": [
+      "Synthetic state mutation",
+      "Approval and replay controls",
+      "Untrusted retrieval",
+      "API and MCP exposure",
+      "Rendered dashboard",
+      "Persistence and telemetry",
+      "Container supply chain"
+    ],
+    "required_checks": [
+      "Milestone schema validation",
+      "Unit and integration tests",
+      "Frozen evaluation",
+      "Live CLI/API/MCP/approval/executor checks",
+      "Dashboard render inspection",
+      "SQLite and JSONL inspection",
+      "Clean clone verification",
+        "Container source gate and, only if it passes, build and health check",
+      "Git diff inspection"
+    ],
+    "completed_checks": [
+      "Milestone schema valid with inherited authority",
+      "Frozen manifest verified for nine control files",
+      "Six unit and integration tests passed",
+      "Twenty-seven exact evaluation attempts passed across nine scenarios",
+      "Proposal attack success was zero and pass^3 was one",
+      "Live CLI requested fresh evidence instead of using stale state",
+      "Live MCP negotiated 2025-11-25 and exposed no approval or execution tool",
+      "Live HTTP approval, hash binding, idempotency, replay rejection, executor, and postconditions passed",
+      "Rendered 1440x1000 dashboard inspected",
+      "SQLite persistence, atomic audit, hashed tokens, JSONL telemetry, and manifest binding passed",
+      "Container source gate inspected and deferred after all three candidates failed"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "baseline-0001 candidate passed native pre-commit verification",
+    "next_action": "Inspect the complete diff, commit, then verify from a clean clone",
+    "do_not_carry_forward": [
+      "The OneDrive Git shell",
+      "Assumed Docker availability",
+      "Unverified model or package licenses",
+      "An inferred GitHub visibility choice"
+    ]
+  }
+}
