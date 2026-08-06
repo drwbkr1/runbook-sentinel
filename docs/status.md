@@ -31,6 +31,7 @@
 - Evidence-condition split coverage: 10 of 10 required pairs, 1.0; adversarial split coverage: 2 of 2, 1.0
 - Latest selected-control end-to-end latency: median 60.221 ms, p95 103.683 ms; diagnosis-only median 5.450 ms, p95 13.473 ms; no general performance claim
 - Candidate live CLI, MCP stdio, HTTP approval/executor, dashboard, SQLite, audit log, and JSONL telemetry: pass
+- Clean clone: candidate `173e42e822def559b870c2e38ca27c6d34b84df4` passed source, contract, 14-test, selected-evaluation, authority-hash, model/secret-exclusion, CLI, MCP, 25-check API, persistence, telemetry, and rendered-dashboard gates
 - Clean clone: exact candidate commit `bf29abe17576db7458e0706a3f7fda52049cc3a6` passed compilation, 13 tests, 20-file manifest, contracts, selected evaluation identity, unchanged policy and service, CLI, MCP, API, dashboard, approval, executor, replay, postconditions, SQLite, audit, and telemetry checks
 - GitHub review: pull request `#4`, 12 commits, 48 changed files, `CLEAN`, `MERGEABLE`, no configured checks, merged with history preserved
 - Merged main `a55249a4c679d61573e72dfe5c3be5363c3b78d1`: compilation, 13 tests, manifest, terminal contract, selected evaluation, CLI, MCP, API, approval, executor, replay, postconditions, dashboard, SQLite, audit, and telemetry pass
@@ -163,4 +164,4 @@ Next eligible action: begin the next cycle from public v0.0.5 by running the sys
 - Attempt 001 report, trace, and manifest SHA-256 are `b887c9549674217fb0e1812d4f7381b6cf9aa6fd6446fa32ee77ee8721c4ba93`, `2ac8be834ad9a14a59a7ae6f1b421dac64980f00b4e6c818b02eb8225e86d8ca`, and `595b729c5ce780585499333bdb7ab80f7fd950df76e7b788a774b6e22ba0cbbc`; `latest.json` is byte-identical to the attempt.
 - Version-bound attempt 002 passed the refrozen 21-file surface and is now the latest-passed pointer. Report, trace, and manifest SHA-256 are `45fd47dd788541f47ff04d9547206de1d01abf24c07501a0f17ffaba10323224`, `5329eb6cafcba980d840ba81ee989ec909c5b61a56fee218897e0e12bde3122a`, and `9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573`.
 
-Next eligible action: commit native evidence and verify an exact no-local-object clean clone before GitHub review.
+Next eligible action: commit the clean-clone receipt, push the verified branch, open GitHub review, and verify merged main before release closure.

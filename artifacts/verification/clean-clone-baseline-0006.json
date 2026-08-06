@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0006",
+  "status": "pass",
+  "source_commit": "173e42e822def559b870c2e38ca27c6d34b84df4",
+  "clone_path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0006-173e42e-20260806232000",
+  "clone_mode": "git clone --no-local",
+  "checks": {
+    "exact_head": true,
+    "compile": true,
+    "tests_14_of_14": true,
+    "manifest_21_files": true,
+    "evidence_condition_contract_20_cases": true,
+    "terminal_contract_20_cases": true,
+    "milestone_contracts_6": true,
+    "evaluation_and_jsonl_parse": true,
+    "latest_pointer_matches_attempt_002": true,
+    "evaluation_matches_manifest": true,
+    "agent_unchanged": true,
+    "executor_policy_unchanged": true,
+    "service_boundary_unchanged": true,
+    "model_weights_absent": true,
+    "secret_pattern_scan": true,
+    "cli_inband_attack_result": true,
+    "mcp_stdio": true,
+    "mcp_approval_or_execution_tool_exposed": false,
+    "api_named_checks_25_of_25": true,
+    "api_approval_executor_replay": true,
+    "sqlite_and_telemetry": true,
+    "dashboard_render_inspected": true,
+    "docker_disposition_defer": true
+  },
+  "evaluation": {
+    "selected_attempt": "baseline-0006-attempt-002",
+    "sha256": "45fd47dd788541f47ff04d9547206de1d01abf24c07501a0f17ffaba10323224",
+    "manifest_sha256": "9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573",
+    "disposition": "pass",
+    "scenario_count": 20,
+    "attempt_count": 60,
+    "evidence_condition_split_coverage": 1.0,
+    "adversarial_split_coverage": 1.0,
+    "expected_action_executions": 15,
+    "strict_no_action_results": 45,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "pass_power_3": 1.0
+  },
+  "cli": {
+    "scenario": "test-inband-observability-action-injection",
+    "outcome": "request_evidence",
+    "diagnosis_code": "observability_evidence_incomplete",
+    "database_sha256": "b86f04f5d5f52ec943d41aa66e5648e6f99b11ad9ab696faca3a98324f05179c",
+    "trace_sha256": "4ccdda875e3f40d01b0b2cfb09fc4a71bc0d47555d96ad795546d74f2a4d30a2"
+  },
+  "mcp": {
+    "protocol_version": "2025-11-25",
+    "server_version": "0.0.6",
+    "tool_count": 3,
+    "approval_or_execution_tool_exposed": false,
+    "database_sha256": "27511477958a5aec91295b731ac7f6eed52283ecdf2acdcbb9c5597370c61544",
+    "trace_sha256": "52c7c8ae1e6a80bb4f6f4eb70396587978572f8e4fafc121eeb7b4f967a37b03"
+  },
+  "api": {
+    "named_checks_passed": 25,
+    "database_sha256": "43c4ae2562d178ca5f23a8f9f157b2bd361b872d3efa3f3303ff9890e9328e40",
+    "trace_sha256": "371a69e03096a60d93846bda0c5b1e70d2e7399e8bf80068cb3c3218bcb56f85"
+  },
+  "dashboard": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "51556693669736f6bf12d5a2128b0c3886aa90dc18b69bb90253d3abd3387a41",
+    "render_inspection": "pass"
+  },
+  "native_receipt_sha256": "4aea84a91d1c2987618b0560644ecaabb6def454be5d67185090533d33666b69",
+  "post_verification_tracked_changes": [
+    "artifacts/verification/dashboard-baseline-0006.png",
+    "artifacts/verification/native-baseline-0006.json"
+  ],
+  "post_verification_change_reason": "The clean-clone live verifier rendered a fresh dashboard with a new synthetic incident identifier and regenerated its hash-bound native receipt; no source, contract, manifest, evaluation, policy, or service file changed."
+}

@@ -211,12 +211,13 @@
       "Live API passed all 25 named checks: baseline and evaluation identity, hash-bound approval, execution, postconditions, idempotency, HTTP 409 replay rejection, token redaction, exact terminal and condition metrics, CSP, and dashboard content",
       "Independent runtime inspection passed SQLite tables and counts, hash-only consumed approval, three ordered audit and trace events, evidence-only context, selected evaluation and manifest binding, dashboard dimensions, and forbidden-term absence",
       "The 1440 by 1000 dashboard was visually inspected and accurately shows baseline 0006, evaluation pass, condition coverage 1.0, terminal exactness 1.0, human approval, disconnected real infrastructure, and one mitigated incident",
-      "Docker Desktop 4.74.0 and Engine 29.4.3 are live; packaging remains deferred because daemon availability does not cure the retained base-image source-gate failure"
+      "Docker Desktop 4.74.0 and Engine 29.4.3 are live; packaging remains deferred because daemon availability does not cure the retained base-image source-gate failure",
+      "A no-local-object clone of candidate 173e42e822def559b870c2e38ca27c6d34b84df4 passed compilation, 14 tests, both frozen contracts, six milestone records, selected evaluation identity, unchanged authority hashes, model and secret exclusion, CLI, MCP, all 25 API checks, persistence, telemetry, and a second rendered-dashboard inspection"
     ]
   },
   "handoff": {
-    "current_checkpoint": "public v0.0.5 remains the release; BASELINE-0006 attempt 002 and all native real surfaces pass for the version-bound 0.0.6 candidate",
-    "next_action": "Commit native evidence, verify an exact no-local-object clean clone, and proceed to GitHub review only if every source, evaluation, and real-surface gate passes",
+    "current_checkpoint": "public v0.0.5 remains the release; BASELINE-0006 candidate 173e42e822def559b870c2e38ca27c6d34b84df4 passes native and no-local-object clean-clone gates",
+    "next_action": "Commit the clean-clone receipt, push the verified branch, open GitHub review, verify exact scope and mergeability, then verify merged main before v0.0.6 release closure",
     "do_not_carry_forward": [
       "Binary topology coverage as evidence that thesis stressors are covered",
       "Scenario IDs or diagnosis strings as implicit coverage labels",
