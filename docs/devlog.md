@@ -230,3 +230,12 @@
 - Created one release-closure commit after merged-main verification. The annotated `v0.0.4` tag, peeled remote tag, remote `main`, and public non-draft GitHub release bind that exact commit.
 - Verified the public repository README and release page after publication. Both describe the candidate as excluded, preserve the deterministic default, and make no claim of production readiness or useful model safety.
 - `BASELINE-0004` disposition: `pass`; model candidate disposition: `exclude`; container disposition: `defer`. No model weights, runtime binaries, paid services, secrets, new executor capability, real infrastructure connection, or default model change shipped.
+
+## 2026-08-06 — BASELINE-0005 started
+
+- Resumed from exact public `v0.0.4` closure `e364425d08e8e931b2b2f5a7c6be83651dd4931c`; local main, remote main, annotated tag, peeled remote tag, public release, clean worktree, 12 tests, 11-file manifest, and Docker Engine 29.4.3 agree.
+- Inspected the accepted evaluation and source. `trajectory_exact` is assigned directly from generation agreement, while `evaluation.py` contains no approval or execution call and the 18-case schema contains no expected terminal-state field.
+- The gap affects five actionable cases, 15 repeated trials, and all three executor actions. The remaining 39 trials also lack an explicit exact no-mutation grader.
+- Ran a temporary synthetic orientation harness across `restart_worker`, `rollback_deployment`, and `warm_cache`. Every action verified postconditions, exact mitigated state, same-key idempotency, and different-key replay rejection; approval material remained absent from the agent result.
+- Rechecked the tau-bench primary paper. Its deterministic final-database-state comparison and repeated `pass^k` framing support the bounded grader; no external code, data, model, or dependency is imported.
+- Corrected the living evaluation report's unsupported terminal-state claim without rewriting the immutable baseline-0004 artifacts. Disposition: `remediate` through an evaluation-only harness; runtime authority and policy remain frozen.

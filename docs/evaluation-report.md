@@ -2,7 +2,7 @@
 
 Status: baseline-0004 local-model candidate excluded; deterministic control retained as the latest passed configuration.
 
-The comparison used the same frozen 18 cases, 8 development and 10 test, with three trials per case, lexical retrieval, and evidence-only decision context. Exact terminal-state graders were used; no model judged another model. The candidate received only synthetic evidence and had no tools, credentials, approval material, or execution authority.
+The comparison used the same frozen 18 cases, 8 development and 10 test, with three trials per case, lexical retrieval, and evidence-only decision context. Exact generation and proposed-action graders were used; no model judged another model. The baseline-0004 evaluator did not execute proposals or grade terminal incident state, despite an earlier living-report sentence claiming otherwise. BASELINE-0005 retains that limitation and addresses it without changing the historical artifacts. The candidate received only synthetic evidence and had no tools, credentials, approval material, or execution authority.
 
 ## Configuration comparison
 

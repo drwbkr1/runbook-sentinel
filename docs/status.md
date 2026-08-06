@@ -2,11 +2,11 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0005-terminal-state-grading`
 - Completed milestones: `BASELINE-0001`, `BASELINE-0002`, `BASELINE-0003`, `BASELINE-0004`
 - Latest verified checkpoint: public `v0.0.4`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
-- Active milestone: next checkpoint selection from verified `v0.0.4`
-- Current unit: run the released system and select the highest-leverage measurable reliability or evaluation-coverage weakness
+- Active milestone: `BASELINE-0005`
+- Current unit: freeze exact terminal states, evaluation-harness trajectories, and authority separation before implementation
 - Disposition: baseline `pass`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -30,9 +30,9 @@
 - Latest selected-control latency: median 9.009 ms, p95 20.500 ms; no general performance claim
 - Live CLI, MCP stdio, HTTP approval/executor, dashboard, SQLite, audit log, and JSONL telemetry: candidate pass
 - Clean clone: exact baseline-0004 candidate commit `1b886c5557d311a272997866a715c2f8f815d76e` passed source gate, compilation, 12 tests, manifest, contracts, artifact hashes, unchanged policy, CLI, MCP, API, dashboard render, approval, executor, replay, SQLite, audit, and telemetry checks
-- Final branch head `c5fc8f5cdb80436af5ebead18a665b6878f8db28`: exact-clone regression pass
-- GitHub review: pull request `#2`, 4 commits, 45 changed files, `CLEAN`, `MERGEABLE`, no required checks, merged with history preserved
-- Merged main: compilation, 7 tests, manifest, contracts, unchanged policy, MCP, API, approval, executor, replay, postconditions, dashboard, SQLite, audit, and telemetry pass
+- Final release closure `e364425d08e8e931b2b2f5a7c6be83651dd4931c`: local main, remote main, annotated tag, peeled remote tag, and public release agree
+- GitHub review: pull request `#3`, 9 commits, 45 changed files, `CLEAN`, `MERGEABLE`, no required checks, merged with history preserved
+- Merged main: compilation, 12 tests, manifest, contracts, unchanged policy, MCP, API, approval, executor, replay, postconditions, dashboard, SQLite, audit, and telemetry pass
 - Container: deferred after three base images failed the source gate
 
 ## BASELINE-0002 measured gap
@@ -89,3 +89,14 @@
 - Public `v0.0.4`, remote `main`, local annotated tag, peeled remote tag, public release API, rendered README, and rendered release page agree on the exact release-closure commit.
 
 Next eligible action: begin the next cycle from public `v0.0.4`, run the accepted deterministic system, inspect traces and evaluation coverage, and freeze one bounded measurable improvement.
+
+## BASELINE-0005 measured gap
+
+- The current evaluator assigns `trajectory_exact` directly from outcome, diagnosis, and proposed-action agreement. It performs no approval or execution and does not inspect terminal incident state.
+- Five actionable cases cover all three executor capabilities and 15 repeated trials, but evaluator terminal-state coverage is 0 of 15 trials and 0 of 3 action types. The other 39 trials do not explicitly prove no mutation.
+- No frozen scenario contains an expected terminal-state or exact evaluation-harness trajectory field.
+- A separate temporary harness executed `restart_worker`, `rollback_deployment`, and `warm_cache`; all reached the expected state, verified postconditions, returned the same result under the same idempotency key, rejected a different-key replay, and kept approval material outside the agent result.
+- The baseline-0004 evaluation report's sentence claiming exact terminal-state graders is unsupported. The historical result remains retained, and the living report now identifies the limitation.
+- BASELINE-0005 will let only an isolated evaluation harness hold synthetic approval material. The API, MCP, agent/model, runtime default, action set, and policy boundary remain unchanged.
+
+Next eligible action: freeze schema 1.4 exact terminal states and harness trajectories, validate the milestone contract, and commit the specification before changing the evaluator.
