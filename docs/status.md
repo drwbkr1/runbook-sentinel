@@ -4,11 +4,13 @@
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
 - Branch: `main`
 - Completed milestone: `BASELINE-0001`
-- Latest verified checkpoint: `baseline-0001`; candidate commit `c5c78d1` passed native and clean-clone verification
-- Current unit: none; the next cycle begins from this checkpoint after the GitHub access gate
+- Latest verified checkpoint: `baseline-0001`; candidate commit `c5c78d1` and closure commit `061f0ae` passed native and clean-clone verification
+- Current unit: release-record reconciliation before `BASELINE-0002`
 - Disposition: baseline `pass`; container `defer`
 - GitHub target owner: `drwbkr1`
-- GitHub visibility: unresolved human access decision; no remote created
+- GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
+- GitHub visibility: public, explicitly selected by the user on 2026-08-06
+- GitHub `main`: live at verified closure commit `061f0aefa0a4c61e0ed14d589e2d3bcee5ec413e` before this reconciliation record
 - Docker: daemon verified live; container packaging deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none
 - Local Ollama assets: inspected but not approved or used
@@ -26,4 +28,4 @@
 - Clean clone: compilation, tests, manifest, contract, MCP, live API, dashboard render, persistence, and telemetry all pass
 - Container: deferred after three base images failed the source gate
 
-Next eligible action: decide whether the GitHub repository is private or public, publish the verified checkpoint, then begin `BASELINE-0002` from `baseline-0001`. Its first measured target is the limited nine-case synthetic scenario and fault corpus. GitHub publication remains gated on visibility.
+Next eligible action: clean-clone this release record, tag and verify `v0.0.1`, then begin `BASELINE-0002` from `baseline-0001`. Its first measured target is the limited nine-case synthetic scenario and fault corpus.

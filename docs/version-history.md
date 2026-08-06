@@ -2,4 +2,4 @@
 
 | Version | Checkpoint | Status | Evidence |
 |---|---|---|---|
-| 0.0.1 | baseline-0001 | verified locally from candidate commit `c5c78d1`; GitHub publication gated | `artifacts/evaluations/latest.json`, `artifacts/verification/native-baseline.json`, `contracts/milestone-0001.json` |
+| 0.0.1 | baseline-0001 | verified locally and published to public GitHub `main`; tag pending release-record verification | `artifacts/evaluations/latest.json`, `artifacts/verification/native-baseline.json`, `contracts/milestone-0001.json`, remote commit `061f0ae` |
