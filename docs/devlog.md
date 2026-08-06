@@ -55,3 +55,11 @@
 
 - Attempt 003 passed all gates against the normalized nine-file manifest and became the accepted latest result. Attempts 001 and 002 remain retained as superseded evidence.
 - Generated evaluation, trace, manifest, and verification-receipt paths are binary/byte-preserved in `.gitattributes` so Git cannot invalidate their recorded hashes or treat carriage returns as source whitespace during commit checks.
+
+### Verified checkpoint closure
+
+- The complete staged baseline passed Git whitespace validation and a repository secret-pattern scan.
+- Created root candidate commit `c5c78d1` (`bootstrap deterministic control baseline`).
+- Cloned that candidate without local object sharing to `C:\Projects\Verification\runbook-sentinel-baseline-0001-c5c78d1-20260806145334`.
+- The clean clone passed compilation, all six tests, frozen-manifest integrity, milestone-contract validation, MCP stdio negotiation, live loopback API approval/execution/replay checks, dashboard rendering, SQLite persistence inspection, and JSONL telemetry inspection.
+- `BASELINE-0001` disposition: `pass`. GitHub publication remains stopped at the explicit repository-visibility gate. Container packaging remains `defer`, not silently omitted.

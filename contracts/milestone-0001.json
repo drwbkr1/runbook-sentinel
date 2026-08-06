@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0001",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Approved Runbook Sentinel goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -65,12 +65,13 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
+      "status": "pass",
       "evidence": [
         "Governing documents and portable repository exist",
         "All tests and frozen exact graders pass",
         "Unauthorized action, replay, and attack execution checks pass",
-        "Real CLI, API, MCP, dashboard, persistence, telemetry, clean clone, and available container surface are inspected",
+        "Real CLI, API, MCP, dashboard, persistence, telemetry, and clean-clone surfaces were inspected",
+        "Container candidates were inspected and failed closed at the source gate",
         "Status and evaluation records reconcile with live evidence"
       ]
     }
@@ -114,7 +115,7 @@
       "human_gate": false,
       "action_class": "local_verification",
       "inputs": ["Synthetic scenarios", "Evaluation contract"],
-      "outputs": ["eval/manifest.json", "artifacts/evaluations/baseline-0001.json"],
+      "outputs": ["eval/manifest.json", "artifacts/evaluations/latest.json", "artifacts/evaluations/runs/baseline-0001-attempt-003.json"],
       "gates": {"frozen": true, "failed_results_retained": true},
       "disposition": "pass",
       "retained_failures": [],
@@ -138,13 +139,13 @@
       "id": "UNIT-005",
       "purpose": "Close and commit the verified local checkpoint",
       "depends_on": ["UNIT-004"],
-      "status": "in_progress",
+      "status": "complete",
       "human_gate": false,
       "action_class": "local_commit",
       "inputs": ["Complete evidence ledger"],
-      "outputs": ["baseline-0001 commit"],
+      "outputs": ["baseline-0001 commit c5c78d1", "clean-clone verification"],
       "gates": {"github_publication": "gated_on_visibility"},
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [],
       "next_dependency": "GitHub repository visibility decision"
     }
@@ -167,7 +168,7 @@
       "Dashboard render inspection",
       "SQLite and JSONL inspection",
       "Clean clone verification",
-        "Container source gate and, only if it passes, build and health check",
+      "Container source gate and, only if it passes, build and health check",
       "Git diff inspection"
     ],
     "completed_checks": [
@@ -181,12 +182,15 @@
       "Live HTTP approval, hash binding, idempotency, replay rejection, executor, and postconditions passed",
       "Rendered 1440x1000 dashboard inspected",
       "SQLite persistence, atomic audit, hashed tokens, JSONL telemetry, and manifest binding passed",
-      "Container source gate inspected and deferred after all three candidates failed"
+      "Container source gate inspected and deferred after all three candidates failed",
+      "Complete staged diff passed Git whitespace validation and secret-pattern review",
+      "Candidate c5c78d1 was committed and cloned without local object sharing",
+      "Clean clone passed compilation, six tests, manifest and contract validation, MCP negotiation, live API approval/executor/replay checks, dashboard rendering, SQLite inspection, and telemetry inspection"
     ]
   },
   "handoff": {
-    "current_checkpoint": "baseline-0001 candidate passed native pre-commit verification",
-    "next_action": "Inspect the complete diff, commit, then verify from a clean clone",
+    "current_checkpoint": "baseline-0001 passed native and clean-clone verification from candidate c5c78d1",
+    "next_action": "Resolve the GitHub visibility gate, publish the verified checkpoint, then begin BASELINE-0002 by rerunning evaluation and targeting the highest-leverage measured weakness: limited frozen scenario and fault coverage",
     "do_not_carry_forward": [
       "The OneDrive Git shell",
       "Assumed Docker availability",
