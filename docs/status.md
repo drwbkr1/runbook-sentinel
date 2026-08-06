@@ -118,3 +118,7 @@ Next eligible action: version the bounded checkpoint as `0.0.5`, rerun the accep
 Versioned package, API health, MCP identity, CLI default, tests, README, and dashboard now identify `0.0.5` / baseline 0005. The dashboard adds visible actual tool-trajectory and terminal-state exactness without adding approval or execution controls. The release-candidate manifest now binds 17 files, including package metadata, package version, CLI, and the evaluation driver; SHA-256 is `c8a4797dbdde2bc53ff9057bd1953bbfda925149b28c8a538f1d155334757310`.
 
 Next eligible action: commit the versioned surfaces, generate immutable attempt 002 against the exact 17-file manifest, and begin native real-surface verification only if it passes.
+
+Immutable attempt 002 passed the 17-file versioned manifest and all 54 trials, with 15/15 executions, 39/39 strict no-action results, all exact gates, median end-to-end latency 58.510 ms, and p95 108.435 ms. Report, trace, and manifest SHA-256 are `b1e3eae0cf0ea8a558a7afc5bec4f82616ff811d81006c6f6c73156d8790a3ba`, `9b8aa00f2aa2619c2fd935f54d7d2184f93d53314a140ddaa8fe70c763cf55a1`, and `c8a4797dbdde2bc53ff9057bd1953bbfda925149b28c8a538f1d155334757310`.
+
+Pre-live review then found that the API, MCP, and runtime-evidence scripts still named baseline 0004 and were outside the manifest. No live receipt was created. Attempt 002 remains a passing immutable result but is superseded for release selection. The corrected verifier scripts are being added to a 20-file manifest; a new immutable attempt is required before live verification.
