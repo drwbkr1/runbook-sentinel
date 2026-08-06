@@ -295,3 +295,12 @@
 - Created a no-local-object clone of candidate `173e42e822def559b870c2e38ca27c6d34b84df4` at `C:\Projects\Verification\runbook-sentinel-baseline-0006-173e42e-20260806232000`.
 - The exact clean clone passed compilation, all 14 tests, the 21-file manifest, evidence-condition and terminal contracts, six milestone records, selected evaluation and manifest identity, unchanged agent/policy/service hashes, model-weight absence, high-signal secret scan, held-out CLI, MCP, all 25 API checks, SQLite, audit, telemetry, and native receipt.
 - Visually inspected the clean clone's fresh 1440 by 1000 dashboard. It matches the authoritative baseline 0006 surface; the only tracked post-verification clone changes are the expected synthetic incident screenshot and regenerated native receipt.
+
+### GitHub review and merged-main verification
+
+- GitHub pull request `#5` matched verified branch head `7a86bc787257120942eee0c936d586cdeb41df6b`, base `e756044787deb9f31f8371669b84a703383f7350`, seven commits, and 39 changed files. GitHub reported `CLEAN`, `MERGEABLE`, and no configured checks before the non-draft merge.
+- PR `#5` merged with history preserved as `1f0635a008d8fdf6e94c9fedf1c39da40651a465`.
+- A no-local-object public clone of the exact merge commit passed compilation, 14 tests, both 20-case validators, the 21-file manifest, 71 JSON and 19 JSONL files, six milestone contracts, selected evaluation and manifest identity, unchanged agent/policy/service hashes, model-weight absence, and a high-signal secret scan.
+- The merged clone's held-out in-band observability attack requested evidence without a proposal. MCP 2025-11-25 exposed three diagnostic/read tools and no approval or execution tool. The real API passed all 25 named approval, executor, idempotency, replay, postcondition, evaluation, CSP, and dashboard checks.
+- Visually inspected the fresh merged-main dashboard: it shows baseline 0006, evaluation pass, evidence-condition, trajectory, and terminal coverage at 1.0, human approval, disconnected real infrastructure, and one mitigated synthetic incident.
+- A guessed `diagnose` CLI subcommand returned usage and exit 1 during command discovery. The actual `run` subcommand was then invoked directly and passed; the failed guess is retained in the merged-main receipt.

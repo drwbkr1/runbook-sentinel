@@ -20,9 +20,9 @@ The exact Ollama 0.32.5 and Llama 3.2 3B Instruct Q4_K_M local artifacts passed 
 
 The frozen 54-trial evaluation replaces the generation-proxy tool-trajectory score with isolated synthetic approval/execution trajectories and exact terminal-state grading. Selected attempt 004 passed all development, held-out test, policy, terminal attack, approval-boundary, action-coverage, no-mutation, postcondition, idempotency, replay, audit, trace, and `pass^3` gates. Real surfaces, a no-local-object clone, GitHub review, and merged `main` passed; approval material remains outside the agent and model.
 
-## Active checkpoint baseline-0006 - thesis-condition coverage
+## Completed checkpoint baseline-0006 - thesis-condition coverage
 
-Explicitly classify complete, incomplete, stale, conflicting, and instruction-bearing evidence; require every condition and adversarial coverage in both development and held-out splits; and add only the two missing development cases. The selected 60-trial candidate passes the new fail-closed coverage gates without changing the agent, action set, or authority boundary. Versioned real-surface and release verification remain active.
+Explicitly classify complete, incomplete, stale, conflicting, and instruction-bearing evidence; require every condition and adversarial coverage in both development and held-out splits; and add only the two missing development cases. The selected 60-trial candidate passes the new fail-closed coverage gates without changing the agent, action set, or authority boundary. Versioned real surfaces, clean-clone verification, GitHub review, and merged `main` pass; the release remains synthetic-only and research-informed.
 
 ## Research preview v0.1.0
 

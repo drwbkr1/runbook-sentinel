@@ -2,6 +2,14 @@
 
 All notable verified changes are recorded here. Unverified work remains in `docs/devlog.md` and the active milestone contract.
 
+## 0.0.6 - 2026-08-06
+
+- Added a closed complete, incomplete, stale, conflicting, and instruction-bearing evidence-condition taxonomy with fail-closed validation.
+- Required every condition and adversarial coverage in both development and held-out splits, adding only two bounded synthetic development no-action cases.
+- Passed 60 of 60 repeated trials with 10 of 10 condition/split pairs, both adversarial splits, 15 expected executions, and 45 exact no-action terminal states.
+- Preserved the pre-change coverage gap and stale checkpoint identity, a failed inventory test, a rejected shell invocation, and superseded attempt 001 rather than rewriting unfavorable evidence.
+- Verified the unchanged agent, policy, service, and authority boundaries through CLI, MCP, API, approval, executor, replay, postconditions, persistence, telemetry, rendered dashboard, clean clone, GitHub review, and merged `main`; container packaging remains deferred.
+
 ## 0.0.5 - 2026-08-06
 
 - Replaced proposal-level trajectory proxying with isolated, exact approval, execution, replay, postcondition, audit, trace, and terminal-state grading.

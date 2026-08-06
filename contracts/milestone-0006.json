@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0006",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -74,7 +74,7 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
+      "status": "pass",
       "evidence": [
         "Every frozen scenario has only allowed evidence-condition labels with auditable semantics",
         "Complete, incomplete, stale, conflicting, and instruction-bearing evidence each appear in development and held-out test splits",
@@ -152,15 +152,16 @@
       "id": "UNIT-005",
       "purpose": "Version, verify real surfaces, reconcile records, clean-clone, review, merge, tag, release, and verify the bounded checkpoint",
       "depends_on": ["UNIT-004"],
-      "status": "in_progress",
+      "status": "complete",
       "human_gate": false,
       "action_class": "github_push",
       "inputs": ["Passing expanded evaluation and reconciled records"],
       "outputs": ["baseline-0006 release"],
       "gates": {"public_visibility_already_authorized": true, "runtime_authority_unchanged": true},
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [
-        "A combined cleanup, CLI, and MCP shell command was rejected by local command policy before execution. Direct CLI and MCP invocations then passed without changing project behavior."
+        "A combined cleanup, CLI, and MCP shell command was rejected by local command policy before execution. Direct CLI and MCP invocations then passed without changing project behavior.",
+        "A guessed diagnose subcommand returned CLI usage and exit 1 during merged-main command discovery. The documented run subcommand then passed directly."
       ],
       "next_dependency": "Next measurable checkpoint"
     }
@@ -212,12 +213,15 @@
       "Independent runtime inspection passed SQLite tables and counts, hash-only consumed approval, three ordered audit and trace events, evidence-only context, selected evaluation and manifest binding, dashboard dimensions, and forbidden-term absence",
       "The 1440 by 1000 dashboard was visually inspected and accurately shows baseline 0006, evaluation pass, condition coverage 1.0, terminal exactness 1.0, human approval, disconnected real infrastructure, and one mitigated incident",
       "Docker Desktop 4.74.0 and Engine 29.4.3 are live; packaging remains deferred because daemon availability does not cure the retained base-image source-gate failure",
-      "A no-local-object clone of candidate 173e42e822def559b870c2e38ca27c6d34b84df4 passed compilation, 14 tests, both frozen contracts, six milestone records, selected evaluation identity, unchanged authority hashes, model and secret exclusion, CLI, MCP, all 25 API checks, persistence, telemetry, and a second rendered-dashboard inspection"
+      "A no-local-object clone of candidate 173e42e822def559b870c2e38ca27c6d34b84df4 passed compilation, 14 tests, both frozen contracts, six milestone records, selected evaluation identity, unchanged authority hashes, model and secret exclusion, CLI, MCP, all 25 API checks, persistence, telemetry, and a second rendered-dashboard inspection",
+      "GitHub pull request 5 exactly matched verified head 7a86bc787257120942eee0c936d586cdeb41df6b over base e756044787deb9f31f8371669b84a703383f7350, was CLEAN and MERGEABLE with no configured checks, and merged with history preserved as 1f0635a008d8fdf6e94c9fedf1c39da40651a465",
+      "A fresh public clone of merged main 1f0635a008d8fdf6e94c9fedf1c39da40651a465 passed compilation, 14 tests, both frozen contracts, the 21-file manifest, selected evaluation identity, authority hashes, model and secret exclusion, CLI, MCP, all 25 API checks, persistence, telemetry, and rendered-dashboard inspection",
+      "The public v0.0.6 tag, peeled remote tag, remote main, non-draft release, rendered README, and rendered release page bind the exact release-closure commit"
     ]
   },
   "handoff": {
-    "current_checkpoint": "public v0.0.5 remains the release; BASELINE-0006 candidate 173e42e822def559b870c2e38ca27c6d34b84df4 passes native and no-local-object clean-clone gates",
-    "next_action": "Commit the clean-clone receipt, push the verified branch, open GitHub review, verify exact scope and mergeability, then verify merged main before v0.0.6 release closure",
+    "current_checkpoint": "public v0.0.6 is the latest verified synthetic-only research preview; exact release reconciliation binds the closure commit, tags, remote main, public repository, non-draft release, and rendered pages",
+    "next_action": "Begin the next cycle from the exact public v0.0.6 checkpoint by running the accepted system, inspecting traces and evaluation results, and selecting one bounded measurable weakness",
     "do_not_carry_forward": [
       "Binary topology coverage as evidence that thesis stressors are covered",
       "Scenario IDs or diagnosis strings as implicit coverage labels",

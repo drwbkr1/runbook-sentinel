@@ -2,18 +2,18 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `codex/baseline-0006-evidence-condition-coverage`
-- Completed milestones: `BASELINE-0001` through `BASELINE-0005`
-- Latest verified checkpoint: public `v0.0.5`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
-- Active milestone: `BASELINE-0006`
-- Current unit: version the selected evidence-condition coverage candidate and verify all real surfaces
-- Disposition: evaluation candidate `pass`; local-model candidate `exclude`; container `defer`
+- Branch: `main`
+- Completed milestones: `BASELINE-0001` through `BASELINE-0006`
+- Latest verified checkpoint: public `v0.0.6`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
+- Active milestone: none; the next bounded checkpoint has not yet been selected
+- Current unit: begin the next evidence-driven cycle from the exact v0.0.6 closure
+- Disposition: baseline `pass`; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: pull request `#4` merged as `a55249a4c679d61573e72dfe5c3be5363c3b78d1` before the exact closure record
-- GitHub pull request: `#4`, merged with history preserved
-- GitHub release: public, non-draft `v0.0.5`
+- GitHub `main`: pull request `#5` merged as `1f0635a008d8fdf6e94c9fedf1c39da40651a465` before the exact closure record
+- GitHub pull request: `#5`, merged with history preserved
+- GitHub release: public, non-draft `v0.0.6`
 - Docker: daemon verified live; container packaging deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
 - Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
@@ -21,8 +21,8 @@
 ## Verified evidence
 
 - Contract schema: pass
-- Frozen manifest: 21 files, SHA-256 `9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573`, candidate pass
-- Tests: 14 of 14 candidate pass
+- Frozen manifest: 21 files, SHA-256 `9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573`, pass
+- Tests: 14 of 14 pass
 - Frozen evaluation: version-bound attempt 002 passed 20 scenarios, 60 attempts, 15 expected executions, and 45 strict no-action results
 - Retrieval recall@4, outcome accuracy, diagnosis accuracy, proposal exactness, actual tool-trajectory exactness, terminal-state exactness, policy compliance, benign utility, adversarial safe outcome, and `pass^3`: 1.0
 - Instruction-bearing attack-document decision exposure: 0.0
@@ -30,11 +30,10 @@
 - Terminal attack success: 0.0
 - Evidence-condition split coverage: 10 of 10 required pairs, 1.0; adversarial split coverage: 2 of 2, 1.0
 - Latest selected-control end-to-end latency: median 60.221 ms, p95 103.683 ms; diagnosis-only median 5.450 ms, p95 13.473 ms; no general performance claim
-- Candidate live CLI, MCP stdio, HTTP approval/executor, dashboard, SQLite, audit log, and JSONL telemetry: pass
+- Live CLI, MCP stdio, HTTP approval/executor, dashboard, SQLite, audit log, and JSONL telemetry: pass
 - Clean clone: candidate `173e42e822def559b870c2e38ca27c6d34b84df4` passed source, contract, 14-test, selected-evaluation, authority-hash, model/secret-exclusion, CLI, MCP, 25-check API, persistence, telemetry, and rendered-dashboard gates
-- Clean clone: exact candidate commit `bf29abe17576db7458e0706a3f7fda52049cc3a6` passed compilation, 13 tests, 20-file manifest, contracts, selected evaluation identity, unchanged policy and service, CLI, MCP, API, dashboard, approval, executor, replay, postconditions, SQLite, audit, and telemetry checks
-- GitHub review: pull request `#4`, 12 commits, 48 changed files, `CLEAN`, `MERGEABLE`, no configured checks, merged with history preserved
-- Merged main `a55249a4c679d61573e72dfe5c3be5363c3b78d1`: compilation, 13 tests, manifest, terminal contract, selected evaluation, CLI, MCP, API, approval, executor, replay, postconditions, dashboard, SQLite, audit, and telemetry pass
+- GitHub review: pull request `#5`, 7 commits, 39 changed files, `CLEAN`, `MERGEABLE`, no configured checks, merged with history preserved
+- Merged main `1f0635a008d8fdf6e94c9fedf1c39da40651a465`: fresh public clone passed compilation, 14 tests, manifest, evidence-condition and terminal contracts, selected evaluation, CLI, MCP, all 25 API checks, approval, executor, replay, postconditions, dashboard, SQLite, audit, telemetry, model-weight exclusion, and high-signal secret scan
 - Container: deferred after three base images failed the source gate
 
 ## BASELINE-0002 measured gap
@@ -164,4 +163,10 @@ Next eligible action: begin the next cycle from public v0.0.5 by running the sys
 - Attempt 001 report, trace, and manifest SHA-256 are `b887c9549674217fb0e1812d4f7381b6cf9aa6fd6446fa32ee77ee8721c4ba93`, `2ac8be834ad9a14a59a7ae6f1b421dac64980f00b4e6c818b02eb8225e86d8ca`, and `595b729c5ce780585499333bdb7ab80f7fd950df76e7b788a774b6e22ba0cbbc`; `latest.json` is byte-identical to the attempt.
 - Version-bound attempt 002 passed the refrozen 21-file surface and is now the latest-passed pointer. Report, trace, and manifest SHA-256 are `45fd47dd788541f47ff04d9547206de1d01abf24c07501a0f17ffaba10323224`, `5329eb6cafcba980d840ba81ee989ec909c5b61a56fee218897e0e12bde3122a`, and `9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573`.
 
-Next eligible action: commit the clean-clone receipt, push the verified branch, open GitHub review, and verify merged main before release closure.
+## BASELINE-0006 release closure
+
+- GitHub pull request `#5` matched verified branch head `7a86bc787257120942eee0c936d586cdeb41df6b`, was `CLEAN` and `MERGEABLE`, and merged with history preserved as `1f0635a008d8fdf6e94c9fedf1c39da40651a465`.
+- A fresh public clone of that remote merged commit passed compilation, all 14 tests, the 21-file manifest, both exact contracts, selected evaluation identity, authority hashes, held-out CLI, MCP 2025-11-25, all 25 live API checks, approval/executor/replay/postconditions, SQLite, audit, telemetry, model and secret exclusion, and rendered-dashboard inspection.
+- The public v0.0.6 tag, peeled remote tag, remote `main`, and non-draft release bind the exact release-closure commit containing these reconciled records; rendered public pages were verified after publication.
+
+Next eligible action: begin the next cycle from public v0.0.6 by running the system and selecting one bounded measurable weakness.
