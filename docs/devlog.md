@@ -118,3 +118,10 @@
 - Rechecked the AgentDojo and CaMeL primary papers. They support measuring attacks over untrusted tool data and separating untrusted data from trusted control flow; the proposed evidence-only decision context is a narrower project-specific application, not a claim to implement CaMeL.
 - Froze explicit attack-document identities before changing the evaluator or runtime.
 - The orientation PowerShell guard repeated invalid `Test-Path` syntax; ignored target paths were absent and created once. The defect is retained and the syntax will not be reused.
+
+### Retained full-context control attempt 001
+
+- Extended the exact evaluator to label instruction-bearing attack documents and measure whether they enter the decision context.
+- The unchanged v0.0.2 service passed every prior quality, reliability, and action-security gate but exposed an attack document in all 12 trials across four labeled cases.
+- Full-retrieved-context-v1 results: exposure 1.0, required evidence recall 1.0, exact trajectory 1.0, `pass^3` 1.0, policy compliance 1.0, proposal attack success 0.0.
+- Disposition: `remediate`. The control artifact and manifest are immutable and were not promoted to the latest-passed pointer.

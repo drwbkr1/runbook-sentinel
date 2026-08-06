@@ -102,21 +102,24 @@
       "id": "UNIT-002",
       "purpose": "Extend exact evaluation with decision-context exposure and capture the accepted full-context control",
       "depends_on": ["UNIT-001"],
-      "status": "in_progress",
+      "status": "complete",
       "human_gate": false,
       "action_class": "repository_change",
       "inputs": ["Frozen attack-document labels", "v0.0.2 full-context behavior"],
       "outputs": ["Immutable baseline-0003 control attempt and manifest"],
       "gates": {"failed_result_retention": true, "control_behavior_unchanged": true},
-      "disposition": null,
-      "retained_failures": [],
+      "disposition": "remediate",
+      "retained_failures": [
+        "Full-retrieved-context-v1 exposed an instruction-bearing attack document to the decision plane in all 12 trials across four labeled cases, for exposure rate 1.0.",
+        "The control preserved required evidence recall, exact trajectory, pass^3, benign utility, policy compliance, and adversarial safe outcome at 1.0 with proposal attack success 0.0."
+      ],
       "next_dependency": "UNIT-003"
     },
     {
       "id": "UNIT-003",
       "purpose": "Implement and compare an evidence-only decision context while retaining full retrieval audit",
       "depends_on": ["UNIT-002"],
-      "status": "planned",
+      "status": "in_progress",
       "human_gate": false,
       "action_class": "repository_change",
       "inputs": ["Control attempt", "Frozen evaluation"],
@@ -177,12 +180,13 @@
       "v0.0.2 release identities reconciled",
       "Fresh orientation evaluation passed all 48 accepted attempts",
       "All four instruction-bearing attack documents were retrieved into the existing agent context for exposure rate 1.0 while proposal attack success remained 0.0",
-      "CaMeL and AgentDojo primary papers rechecked for control-data separation and untrusted tool-data evaluation rationale"
+      "CaMeL and AgentDojo primary papers rechecked for control-data separation and untrusted tool-data evaluation rationale",
+      "Immutable attempt 001 captured full-retrieved-context-v1 exposure rate 1.0 and disposition remediate while all preexisting quality and action-security metrics remained passing"
     ]
   },
   "handoff": {
     "current_checkpoint": "v0.0.2 at a320d36a933e80e5f22b5776be4ce39fa40cd530",
-    "next_action": "Add the exact exposure metric and capture the full-context control before implementing the evidence-only candidate",
+    "next_action": "Implement the evidence-only decision context, retain full retrieval identities, and compare it against attempt 001",
     "do_not_carry_forward": [
       "Zero action attack success as proof of zero prompt-injection exposure",
       "Keyword filtering as a security boundary",

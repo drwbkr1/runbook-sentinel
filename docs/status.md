@@ -6,7 +6,7 @@
 - Completed milestones: `BASELINE-0001`, `BASELINE-0002`
 - Latest verified checkpoint: public `v0.0.2` at `a320d36a933e80e5f22b5776be4ce39fa40cd530`; local tag, remote tag, remote `main`, public repository, and non-draft release agree
 - Active milestone: `BASELINE-0003`
-- Current unit: add exact instruction-bearing decision-context exposure measurement and retain the full-context control
+- Current unit: implement and compare the evidence-only decision context
 - Disposition: baseline `pass`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -50,5 +50,6 @@
 - v0.0.2 retrieved all four attack documents into the context passed to the bounded agent: exposure rate 1.0.
 - Proposal attack success remained 0.0 because the deterministic agent and external policy ignore retrieved prose as authority.
 - The bounded comparison will retain full retrieval identities for audit while testing an evidence-only decision plane.
+- Full-context attempt 001: exposure 1.0 and disposition `remediate`; all prior quality and action-security gates remained passing.
 
-Next eligible action: extend the exact evaluator, capture the v0.0.2 full-context control, then implement the candidate only after that failure is retained.
+Next eligible action: implement the evidence-only decision context, preserve full retrieval audit, and rerun the identical frozen evaluation.
