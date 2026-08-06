@@ -201,7 +201,8 @@
       "Comparison disposition is exclude; deterministic-control-v2 remains the default and latest-passed evaluation pointer",
       "Release-candidate deterministic attempt 002 passed all 54 trials with exact trajectory, policy, benign utility, adversarial safe outcome, and pass^3 at 1.0; proposal attack success remained 0.0",
       "Real CLI, MCP 2025-11-25, API health and evaluation endpoints, approval, executor, idempotency, replay rejection, postconditions, rendered dashboard, SQLite state, audit log, and redacted telemetry passed natively",
-      "Docker Desktop 4.74.0 and Engine 29.4.3 are live; packaging remains explicitly deferred under the retained base-image source-gate failure"
+      "Docker Desktop 4.74.0 and Engine 29.4.3 are live; packaging remains explicitly deferred under the retained base-image source-gate failure",
+      "No-local-object clean clone of 1b886c5557d311a272997866a715c2f8f815d76e passed source gate, compilation, 12 tests, manifest, contracts, artifact hashes, unchanged policy, CLI, MCP, API, dashboard render, approval, executor, replay, SQLite, audit, and telemetry checks"
     ]
   },
   "handoff": {

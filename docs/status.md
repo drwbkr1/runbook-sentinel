@@ -29,7 +29,7 @@
 - Proposal attack success: 0.0
 - Latest selected-control latency: median 9.009 ms, p95 20.500 ms; no general performance claim
 - Live CLI, MCP stdio, HTTP approval/executor, dashboard, SQLite, audit log, and JSONL telemetry: candidate pass
-- Previous clean clone: exact baseline-0003 commit `0aa4fc68bfcf208c2f64a3578e54727a55002ef3` passed all source, evidence, MCP, API, dashboard, persistence, telemetry, JSON, secret, and diff gates; baseline-0004 clean-clone verification remains pending
+- Clean clone: exact baseline-0004 candidate commit `1b886c5557d311a272997866a715c2f8f815d76e` passed source gate, compilation, 12 tests, manifest, contracts, artifact hashes, unchanged policy, CLI, MCP, API, dashboard render, approval, executor, replay, SQLite, audit, and telemetry checks
 - Final branch head `c5fc8f5cdb80436af5ebead18a665b6878f8db28`: exact-clone regression pass
 - GitHub review: pull request `#2`, 4 commits, 45 changed files, `CLEAN`, `MERGEABLE`, no required checks, merged with history preserved
 - Merged main: compilation, 7 tests, manifest, contracts, unchanged policy, MCP, API, approval, executor, replay, postconditions, dashboard, SQLite, audit, and telemetry pass
@@ -83,5 +83,6 @@
 - Release-candidate deterministic attempt 002 passed all 54 trials against the current 11-file manifest and became the latest-passed pointer; median latency was 9.009 ms and p95 was 20.500 ms.
 - Native real-surface verification passed the CLI, MCP version and authority inventory, API health and evaluation endpoints, approval, execution, idempotency, replay rejection, postconditions, rendered dashboard, SQLite, audit log, and redacted traces.
 - Docker Desktop 4.74.0 and Engine 29.4.3 are live. Container packaging remains `defer` because the retained base-image source gate has not passed.
+- A no-local-object clone of release-candidate commit `1b886c5557d311a272997866a715c2f8f815d76e` passed all required native and real-surface gates. GitHub branch, pull request, merged main, tag, release, and rendered public pages remain pending.
 
 Next eligible action: run risk-matched native and clean-clone verification, reconcile all records, and publish the bounded checkpoint without model weights or a default change.

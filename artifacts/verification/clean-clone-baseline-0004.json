@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0004",
+  "status": "pass",
+  "source_commit": "1b886c5557d311a272997866a715c2f8f815d76e",
+  "clone_path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0004-1b886c5-20260806210458",
+  "clone_mode": "git clone --no-local",
+  "checks": {
+    "exact_head": true,
+    "compile": true,
+    "tests_12_of_12": true,
+    "manifest_11_files": true,
+    "milestone_contracts_4": true,
+    "model_source_gate_ready": true,
+    "evaluation_and_jsonl_parse": true,
+    "comparison_hashes_match": true,
+    "latest_pointer_matches_attempt_002": true,
+    "executor_policy_unchanged": true,
+    "model_weights_absent": true,
+    "secret_pattern_scan": true,
+    "mcp_stdio": true,
+    "api_approval_executor_replay": true,
+    "dashboard_render_inspected": true,
+    "sqlite_and_telemetry": true,
+    "cli_inband_attack_result": true
+  },
+  "source_gate": {
+    "valid": true,
+    "ready": true,
+    "sources": 2,
+    "criteria": 16,
+    "evidence_items": 22,
+    "blockers": 0,
+    "warnings": 0
+  },
+  "cli": {
+    "scenario": "test-inband-observability-action-injection",
+    "agent": "deterministic-control-v2",
+    "outcome": "request_evidence",
+    "diagnosis_code": "observability_evidence_incomplete"
+  },
+  "mcp": {
+    "protocol_version": "2025-11-25",
+    "server_version": "0.0.4",
+    "tool_count": 3,
+    "approval_or_execution_tool_exposed": false,
+    "database_sha256": "e1e216f43e33300f2f99e146aa08f48fdac854535e5cdfd60cdb47043677bc22",
+    "trace_sha256": "b8c076d3b756bbdff0a55140c8523462d3fd8f02ce673050973f22dd40ecb598"
+  },
+  "api": {
+    "checkpoint": "baseline-0004",
+    "evaluation_agent": "deterministic-control-v2",
+    "evaluation_disposition": "pass",
+    "action_hash_bound": true,
+    "postconditions_verified": true,
+    "idempotent_repeat_equal": true,
+    "replay_http_status": 409,
+    "approval_token_in_trace": false,
+    "database_sha256": "b45b1eb724da815c6ee56151c24c599228616bf2b219aba7b439a6903c96a4a6",
+    "trace_sha256": "6f64d13abeb9648a83b1768b094f6a73ba59bff3a67630474d9ecb63ffce59d7"
+  },
+  "dashboard": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "68903bb126a92f1288f910cc3ce220a4aad8a824e48c8d29b31f82344667fb50",
+    "render_inspection": "pass"
+  },
+  "post_verification_tracked_changes": [
+    "artifacts/verification/dashboard-baseline-0004.png"
+  ],
+  "post_verification_change_reason": "The live verifier intentionally rendered a fresh dashboard with a new synthetic incident identifier; no source, contract, evaluation, or policy file changed."
+}

@@ -210,3 +210,10 @@
 - Visually inspected the 1440 by 1000 rendered dashboard. It accurately shows Baseline 0004, passing deterministic v2, evidence-only context, human approval, disconnected real infrastructure, and one persisted mitigated incident.
 - SQLite contained exactly one incident, run, proposal, approval, idempotency record, and execution plus three ordered audit events. The approval stored a 64-character hash, was consumed, and matched the proposal action hash.
 - Docker Desktop 4.74.0 and Engine 29.4.3 were live. Container packaging remains `defer`: daemon availability does not override the retained failure of all reviewed base-image candidates to pass the source gate.
+
+### Clean-clone candidate gate
+
+- Created candidate commit `1b886c5557d311a272997866a715c2f8f815d76e` and cloned it without local object sharing to `C:\Projects\Verification\runbook-sentinel-baseline-0004-1b886c5-20260806210458`.
+- The exact clone passed compilation, 12 tests, the 11-file manifest, all milestone contracts, the model source gate, candidate and selected evaluation artifact hashes, unchanged executor policy, model-weight exclusion, JSON and JSONL parsing, and diff checks.
+- Real MCP and API verification passed again. A fresh dashboard render was visually inspected, the held-out in-band CLI case requested evidence, and the only tracked post-verification change was the intentionally regenerated dashboard PNG containing a new synthetic incident identifier.
+- GitHub review, merged-main verification, exact release closure, tag, release, and rendered public-page verification remain pending.
