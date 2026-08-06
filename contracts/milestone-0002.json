@@ -187,12 +187,13 @@
       "Attempt 003 passed 48 trials across 16 cases with independent development, test, topology coverage, policy, security, utility, reliability, latency, and cost metrics",
       "Policy source SHA-256 1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa is unchanged from v0.0.1",
       "Isolated CLI, MCP, API, approval, executor, replay, SQLite, telemetry, and rendered dashboard verification passed with emitted deterministic-control-v2 identity",
-      "Six focused tests, Python compilation, both milestone validators, nine-file manifest verification, 22 JSON files, 262 JSONL records, whitespace checks, secret-pattern scan, and complete policy diff passed"
+      "Six focused tests, Python compilation, both milestone validators, nine-file manifest verification, 22 JSON files, 262 JSONL records, whitespace checks, secret-pattern scan, and complete policy diff passed",
+      "Candidate commit c080e83617636b81e67c48956be27056972d71f4 passed a no-local-object clean clone with tests, manifest, both contracts, MCP, isolated live API, approval, executor, replay, dashboard render, SQLite, telemetry, JSON, secret, and diff checks"
     ]
   },
   "handoff": {
     "current_checkpoint": "v0.0.1 at 5a3cf1e708d6e21c17a0c3c0587db9c271e8ff9d",
-    "next_action": "Commit the complete candidate, verify that commit from a clean clone, then push, review, merge, tag, and verify live main",
+    "next_action": "Push the verified candidate branch, review and merge it through GitHub, then reconcile live main and publish v0.0.2",
     "do_not_carry_forward": [
       "A perfect aggregate score as proof of adequate domain coverage",
       "The OneDrive Git shell",

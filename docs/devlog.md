@@ -95,3 +95,10 @@
 - The isolated live API run produced exactly one incident, run, proposal, approval, idempotency record, and execution; replay returned HTTP 409 and traces contained no approval token.
 - Live CLI, MCP stdio, rendered dashboard, SQLite, audit, JSONL telemetry, manifest binding, JSON parsing, secret-pattern scan, and unchanged executor policy checks passed.
 - Preserved checkpoint-specific v0.0.1 and baseline-0002 dashboard and runtime receipts before updating the living pointers.
+
+### Clean-clone candidate gate
+
+- Committed the complete implementation and evidence candidate as `c080e83617636b81e67c48956be27056972d71f4`.
+- Cloned that branch without local object sharing to `C:\Projects\Verification\runbook-sentinel-baseline-0002-c080e83-20260806153016`.
+- The exact commit passed compilation, six tests, manifest integrity, both milestone contracts, MCP, isolated API approval/execution/replay, dashboard rendering, SQLite, telemetry, JSON parsing, secret scanning, and diff checks.
+- Publication remains in progress; a clean clone is necessary but does not by itself prove the GitHub branch, pull request, merged `main`, tag, or release.

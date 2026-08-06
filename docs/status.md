@@ -6,7 +6,7 @@
 - Completed milestone: `BASELINE-0001`
 - Latest verified checkpoint: public `v0.0.1` at `5a3cf1e708d6e21c17a0c3c0587db9c271e8ff9d`; local, remote `main`, annotated tag, and GitHub release identities agree
 - Active milestone: `BASELINE-0002`
-- Current unit: complete-diff and clean-clone verification for candidate `v0.0.2`
+- Current unit: publish and verify candidate `v0.0.2` through GitHub
 - Disposition: baseline `pass`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -43,4 +43,4 @@
 - Isolated live CLI, MCP, HTTP approval/executor, replay, dashboard, SQLite, audit, and JSONL telemetry: pass
 - Executor policy SHA-256 is unchanged from `v0.0.1`
 
-Next eligible action: commit the complete candidate, verify the exact commit from a clean clone, then publish through a reviewed GitHub pull request and verify live `main`.
+Next eligible action: push the clean-clone-verified branch, review and merge it through GitHub, reconcile live `main`, then tag and verify `v0.0.2`.
