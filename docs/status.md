@@ -103,4 +103,8 @@ Schema 1.4 now freezes exact terminal state, incident status, and harness trajec
 
 The retained pre-change control proves the limitation without rewriting baseline-0004: 54 proposal-level trials passed, but the evaluator made 0 approval calls, 0 execution calls, graded 0 terminal states, and explicitly proved no mutation in 0 of 39 no-action trials. Its disposition is `remediate`; the latest-passed pointer remains unchanged.
 
-Next eligible action: implement the isolated evaluation harness and independent proposal, actual tool-trajectory, postcondition, terminal-state, replay, audit, and trace graders without changing runtime authority.
+The isolated harness now invokes the existing approval broker and executor only after the agent result is persisted and only in disposable evaluation state. It separately grades proposal agreement, approval, execution, postconditions, same-key idempotency, different-key replay rejection, exact terminal state and status, no-mutation, audit order, trace order, proposal attacks, and executed terminal attacks.
+
+Thirteen tests pass, including a successful attacker-goal execution and a proposal blocked by deterministic preconditions. A 54-trial implementation smoke reached all 15 expected terminal states across all three action types, kept all 39 no-action trials unchanged, and emitted no approval-token literal in the report or 84 trace events. The post-implementation 13-file manifest SHA-256 is `0d77a9d669eb03ea9817eaeb1669bb08fbebb13843cee6824cfd6711401b12fa`; executor policy and service hashes remain unchanged.
+
+Next eligible action: commit the evaluator implementation, run immutable repeated evaluation attempts against that exact commit and manifest, preserve their traces, and promote only a passing attempt.
