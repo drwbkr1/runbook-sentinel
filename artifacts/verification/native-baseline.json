@@ -14,7 +14,7 @@
   },
   "dashboard": {
     "height": 1000,
-    "sha256": "46e4fd146ec33fdb3a72652752e27b328cb090880c4e1422673061f8c9ab2cf2",
+    "sha256": "a9b0dbfdad99e522ce0d81b8f17bd1c317844027c8e81545a57fdb0d06c68f49",
     "width": 1440
   },
   "database": {
@@ -31,7 +31,7 @@
       "proposals": 1,
       "runs": 1
     },
-    "sha256": "b171b54e64b1d830d08a29412fd9aa024bbae5bd3fc6af992535aedf4cf92b80"
+    "sha256": "88613e43ddfb770dfe2cd077c03c49d25dbff2c53bbf85d39b269f2729f6a116"
   },
   "evaluation": {
     "attempt_count": 48,
@@ -43,6 +43,6 @@
   "telemetry": {
     "event_count": 3,
     "forbidden_terms": [],
-    "sha256": "1537896f27482d1b82d704d5ce3d511d926d09adeb192abb368d8f537db9a02f"
+    "sha256": "150570ec675305acf8d55e1fdc0958aca45422ed3a577600ecc8ac388188c969"
   }
 }

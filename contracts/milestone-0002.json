@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0002",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2 and user-selected public GitHub visibility on 2026-08-06",
@@ -68,7 +68,7 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
+      "status": "pass",
       "evidence": [
         "All eight declared topology domains have at least one frozen case",
         "New cases exercise bounded diagnose, request-evidence, and abstain outcomes without adding actions",
@@ -149,13 +149,13 @@
       "id": "UNIT-005",
       "purpose": "Commit, push, and verify the checkpoint",
       "depends_on": ["UNIT-004"],
-      "status": "in_progress",
+      "status": "complete",
       "human_gate": false,
       "action_class": "github_push",
       "inputs": ["Complete evidence ledger"],
-      "outputs": ["baseline-0002 commit", "clean-clone receipt", "live GitHub verification"],
+      "outputs": ["candidate commit da3ba22e76ccb068a132f29e1c55c04f88f67035", "merge commit 53fc4ce1189218fc0ea13899aa8bb83552ffa4af", "clean-clone verification", "live GitHub verification"],
       "gates": {"public_visibility_already_authorized": true},
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [],
       "next_dependency": "BASELINE-0003 selection"
     }
@@ -188,12 +188,15 @@
       "Policy source SHA-256 1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa is unchanged from v0.0.1",
       "Isolated CLI, MCP, API, approval, executor, replay, SQLite, telemetry, and rendered dashboard verification passed with emitted deterministic-control-v2 identity",
       "Six focused tests, Python compilation, both milestone validators, nine-file manifest verification, 22 JSON files, 262 JSONL records, whitespace checks, secret-pattern scan, and complete policy diff passed",
-      "Candidate commit c080e83617636b81e67c48956be27056972d71f4 passed a no-local-object clean clone with tests, manifest, both contracts, MCP, isolated live API, approval, executor, replay, dashboard render, SQLite, telemetry, JSON, secret, and diff checks"
+      "Candidate commit c080e83617636b81e67c48956be27056972d71f4 passed a no-local-object clean clone with tests, manifest, both contracts, MCP, isolated live API, approval, executor, replay, dashboard render, SQLite, telemetry, JSON, secret, and diff checks",
+      "Final branch head da3ba22e76ccb068a132f29e1c55c04f88f67035 passed a no-local-object clean clone regression and contract check",
+      "GitHub pull request 1 was reviewed as CLEAN and MERGEABLE, then merged with history preserved as 53fc4ce1189218fc0ea13899aa8bb83552ffa4af",
+      "Merged local and remote main identities agreed and the real CLI, MCP, API, approval, executor, replay, dashboard, SQLite, audit, and telemetry surfaces passed again from main"
     ]
   },
   "handoff": {
-    "current_checkpoint": "v0.0.1 at 5a3cf1e708d6e21c17a0c3c0587db9c271e8ff9d",
-    "next_action": "Push the verified candidate branch, review and merge it through GitHub, then reconcile live main and publish v0.0.2",
+    "current_checkpoint": "baseline-0002 merged and verified on main at 53fc4ce1189218fc0ea13899aa8bb83552ffa4af",
+    "next_action": "Tag and verify v0.0.2, then begin BASELINE-0003 from that checkpoint by measuring retrieval attack exposure before comparing configurations",
     "do_not_carry_forward": [
       "A perfect aggregate score as proof of adequate domain coverage",
       "The OneDrive Git shell",

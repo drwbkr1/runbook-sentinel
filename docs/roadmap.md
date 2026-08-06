@@ -4,11 +4,11 @@
 
 Establish repository governance, a deterministic SRE environment, bounded control agent, approval/executor boundary, API, MCP server, dashboard, persistence, telemetry, frozen exact evaluation, container path, and clean-clone verification.
 
-## Active checkpoint baseline-0002 — topology coverage
+## Checkpoint baseline-0002 — topology coverage
 
 Expand the frozen exact suite from 9 to 16 cases, cover all eight declared SRE topology domains, add explicit coverage grading, and close adjacent non-action diagnostic gaps without adding executor capabilities.
 
-## Candidate checkpoint baseline-0003 — retrieval comparison
+## Next checkpoint baseline-0003 — retrieval comparison
 
 After source approval, compare lexical, dense BGE-M3, and a simple hybrid retriever on the same frozen splits. Select only a Pareto improvement across retrieval quality, end-to-end utility, attack exposure, latency, and cost.
 

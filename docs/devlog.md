@@ -102,3 +102,11 @@
 - Cloned that branch without local object sharing to `C:\Projects\Verification\runbook-sentinel-baseline-0002-c080e83-20260806153016`.
 - The exact commit passed compilation, six tests, manifest integrity, both milestone contracts, MCP, isolated API approval/execution/replay, dashboard rendering, SQLite, telemetry, JSON parsing, secret scanning, and diff checks.
 - Publication remains in progress; a clean clone is necessary but does not by itself prove the GitHub branch, pull request, merged `main`, tag, or release.
+
+### Verified checkpoint publication
+
+- Pushed final branch head `da3ba22e76ccb068a132f29e1c55c04f88f67035` and verified the remote branch identity.
+- Opened GitHub pull request `#1` as a draft, inspected its 42-file server-side scope, confirmed `CLEAN` and `MERGEABLE` state, then marked it ready.
+- Merged with history preserved as `53fc4ce1189218fc0ea13899aa8bb83552ffa4af`; the merge parents are `v0.0.1` release commit `5a3cf1e` and verified branch head `da3ba22`.
+- Fast-forwarded the authoritative local `main` to the remote merge commit and reran tests, manifest validation, MCP, isolated API approval/execution/replay, dashboard rendering, SQLite, audit, and telemetry checks successfully.
+- `BASELINE-0002` disposition: `pass`. Failed attempt 001 and superseded attempt 002 remain retained; container packaging remains `defer`.

@@ -2,17 +2,18 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `codex/baseline-0002-domain-coverage`
-- Completed milestone: `BASELINE-0001`
-- Latest verified checkpoint: public `v0.0.1` at `5a3cf1e708d6e21c17a0c3c0587db9c271e8ff9d`; local, remote `main`, annotated tag, and GitHub release identities agree
-- Active milestone: `BASELINE-0002`
-- Current unit: publish and verify candidate `v0.0.2` through GitHub
+- Branch: `main`
+- Completed milestones: `BASELINE-0001`, `BASELINE-0002`
+- Latest verified checkpoint: `baseline-0002`; merged code and evidence commit `53fc4ce1189218fc0ea13899aa8bb83552ffa4af` passed local, clean-clone, remote, and merged-main verification
+- Active milestone: none; the next cycle must resume from `v0.0.2`
+- Current unit: none
 - Disposition: baseline `pass`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: live at verified release commit `5a3cf1e708d6e21c17a0c3c0587db9c271e8ff9d`
-- GitHub release: public, non-draft `v0.0.1`
+- GitHub `main`: merged and verified at `53fc4ce1189218fc0ea13899aa8bb83552ffa4af` before this closure record
+- GitHub pull request: `#1`, merged with history preserved
+- GitHub release: public, non-draft `v0.0.2`
 - Docker: daemon verified live; container packaging deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none
 - Local Ollama assets: inspected but not approved or used
@@ -43,4 +44,4 @@
 - Isolated live CLI, MCP, HTTP approval/executor, replay, dashboard, SQLite, audit, and JSONL telemetry: pass
 - Executor policy SHA-256 is unchanged from `v0.0.1`
 
-Next eligible action: push the clean-clone-verified branch, review and merge it through GitHub, reconcile live `main`, then tag and verify `v0.0.2`.
+Next eligible action: begin `BASELINE-0003` from `v0.0.2` by measuring retrieval attack exposure and comparing only source-approved retrieval configurations on frozen splits.
