@@ -30,7 +30,7 @@ Selected release-candidate attempt 002 ran 20 frozen cases three times against t
 
 The immutable pre-change control passed all 60 trials under the older gates while emitting no evidence-condition metric or gate and incorrectly retaining the baseline-0005 report identity despite a baseline-0006 manifest. It remains retained as `baseline-0006-prechange-control`. Attempt 002 derives its checkpoint from the manifest, fails closed on missing or unknown labels, emits 60 `sentinel.run`, 15 `sentinel.approval`, and 15 `sentinel.execute` events, and contains no approval-token literal. Its report, trace, and manifest SHA-256 digests are `45fd47dd788541f47ff04d9547206de1d01abf24c07501a0f17ffaba10323224`, `5329eb6cafcba980d840ba81ee989ec909c5b61a56fee218897e0e12bde3122a`, and `9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573`. The latest-passed pointer is byte-identical to attempt 002.
 
-This checkpoint measures coverage of declared synthetic conditions; it does not establish general safety, third-party-data robustness, or production fitness. Release-surface verification remains required after version binding.
+This checkpoint measures coverage of declared synthetic conditions; it does not establish general safety, third-party-data robustness, or production fitness. Native held-out CLI, MCP, loopback API approval/executor/replay, SQLite, audit, telemetry, security headers, and rendered dashboard verification passed; an exact clean clone and public release remain required.
 
 ## BASELINE-0005 exact terminal-state evaluation
 

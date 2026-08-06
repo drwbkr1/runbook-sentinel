@@ -159,7 +159,9 @@
       "outputs": ["baseline-0006 release"],
       "gates": {"public_visibility_already_authorized": true, "runtime_authority_unchanged": true},
       "disposition": null,
-      "retained_failures": [],
+      "retained_failures": [
+        "A combined cleanup, CLI, and MCP shell command was rejected by local command policy before execution. Direct CLI and MCP invocations then passed without changing project behavior."
+      ],
       "next_dependency": "Next measurable checkpoint"
     }
   ],
@@ -204,12 +206,17 @@
       "Package, API health, MCP server, CLI default, tests, README, dashboard, and real-surface verifiers now identify 0.0.6 and baseline-0006; the dashboard adds visible evidence-condition coverage without adding controls",
       "The versioned 21-file manifest has SHA-256 9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573; attempt 001 remains a passing immutable result but is superseded for release selection",
       "Immutable version-bound attempt 002 passed all 60 trials, all ten condition/split pairs, both adversarial splits, 15 expected executions, 45 exact no-action results, policy, security, and pass^3 gates",
-      "Attempt 002 report, trace, and manifest SHA-256 are 45fd47dd788541f47ff04d9547206de1d01abf24c07501a0f17ffaba10323224, 5329eb6cafcba980d840ba81ee989ec909c5b61a56fee218897e0e12bde3122a, and 9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573"
+      "Attempt 002 report, trace, and manifest SHA-256 are 45fd47dd788541f47ff04d9547206de1d01abf24c07501a0f17ffaba10323224, 5329eb6cafcba980d840ba81ee989ec909c5b61a56fee218897e0e12bde3122a, and 9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573",
+      "Held-out CLI requested evidence from the in-band observability attack with no proposal; MCP 2025-11-25 reported version 0.0.6, retained full retrieval audit, excluded attack prose from the decision context, and exposed no approval or execution tool",
+      "Live API passed all 25 named checks: baseline and evaluation identity, hash-bound approval, execution, postconditions, idempotency, HTTP 409 replay rejection, token redaction, exact terminal and condition metrics, CSP, and dashboard content",
+      "Independent runtime inspection passed SQLite tables and counts, hash-only consumed approval, three ordered audit and trace events, evidence-only context, selected evaluation and manifest binding, dashboard dimensions, and forbidden-term absence",
+      "The 1440 by 1000 dashboard was visually inspected and accurately shows baseline 0006, evaluation pass, condition coverage 1.0, terminal exactness 1.0, human approval, disconnected real infrastructure, and one mitigated incident",
+      "Docker Desktop 4.74.0 and Engine 29.4.3 are live; packaging remains deferred because daemon availability does not cure the retained base-image source-gate failure"
     ]
   },
   "handoff": {
-    "current_checkpoint": "public v0.0.5 remains the release; BASELINE-0006 attempt 002 is the selected version-bound 0.0.6 candidate against manifest 9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573",
-    "next_action": "Commit attempt 002 and verify CLI, MCP, live API approval/executor/replay, persisted state, telemetry, rendered dashboard, and Docker disposition",
+    "current_checkpoint": "public v0.0.5 remains the release; BASELINE-0006 attempt 002 and all native real surfaces pass for the version-bound 0.0.6 candidate",
+    "next_action": "Commit native evidence, verify an exact no-local-object clean clone, and proceed to GitHub review only if every source, evaluation, and real-surface gate passes",
     "do_not_carry_forward": [
       "Binary topology coverage as evidence that thesis stressors are covered",
       "Scenario IDs or diagnosis strings as implicit coverage labels",
