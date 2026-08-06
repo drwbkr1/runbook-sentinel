@@ -9,6 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 FILES = [
+    "eval/model-contract.json",
     "src/runbook_sentinel/data/scenarios.json",
     "src/runbook_sentinel/retrieval.py",
     "src/runbook_sentinel/agent.py",
@@ -31,7 +32,7 @@ def sha256(path: Path) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--checkpoint", default="baseline-0002")
+    parser.add_argument("--checkpoint", default="baseline-0004")
     parser.add_argument("--frozen-at")
     parser.add_argument("--output", default="eval/manifest.json")
     args = parser.parse_args()

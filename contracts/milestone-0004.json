@@ -115,7 +115,9 @@
       "outputs": ["Frozen comparison contract", "Prompt and parser specification", "Pre-change control evidence"],
       "gates": {"precommitted_before_model_invocation": true, "no_model_tools": true},
       "disposition": null,
-      "retained_failures": [],
+      "retained_failures": [
+        "The first pre-model regression failed because sentence punctuation made the fact lexer capture telemetry_coverage=0.12. with a trailing period, causing numeric conversion to fail, and the MCP inventory test still expected 16 rather than 18 scenarios. No model was invoked; the synthetic delimiter and exact inventory assertion were corrected before freezing."
+      ],
       "next_dependency": "UNIT-003"
     },
     {

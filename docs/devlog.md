@@ -164,3 +164,8 @@
 - Official Meta license, AUP, and model-card evidence and Ollama release, license, and registry evidence passed for synthetic evaluation only. No download, package, account, secret, remote API, model-weight redistribution, tool access, approval access, executor access, or real infrastructure is authorized.
 - The first UTC timestamp command used unsupported Windows PowerShell `Get-Date -AsUTC` syntax and failed without mutation. Replaced it with `ToUniversalTime()` and retained the failure in the milestone contract.
 - Source gate disposition: `ready`. The gate authorizes a standard-library loopback adapter and frozen synthetic invocation; it does not establish model quality or permission to operate critical infrastructure.
+
+### Retained pre-model specification regression
+
+- The first 18-case regression failed before any model invocation. A period immediately after `telemetry_coverage=0.12` was captured as part of the value by the existing fact lexer and could not be converted to a float; the MCP inventory test also retained the old 16-case assertion.
+- Disposition: `remediate`. Replaced prose-boundary periods with semicolon delimiters in both new in-band records and updated the exact MCP inventory assertion to 18. The failed test output remains recorded here and in the milestone contract.
