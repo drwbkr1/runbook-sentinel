@@ -2,15 +2,17 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0002-domain-coverage`
 - Completed milestone: `BASELINE-0001`
-- Latest verified checkpoint: `baseline-0001`; code, closure, and public release-record commits passed native and clean-clone verification
-- Current unit: publish and verify the `v0.0.1` research-preview tag before `BASELINE-0002`
+- Latest verified checkpoint: public `v0.0.1` at `5a3cf1e708d6e21c17a0c3c0587db9c271e8ff9d`; local, remote `main`, annotated tag, and GitHub release identities agree
+- Active milestone: `BASELINE-0002`
+- Current unit: publish and verify candidate `v0.0.2` through GitHub
 - Disposition: baseline `pass`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: live at verified closure commit `061f0aefa0a4c61e0ed14d589e2d3bcee5ec413e` before this reconciliation record
+- GitHub `main`: live at verified release commit `5a3cf1e708d6e21c17a0c3c0587db9c271e8ff9d`
+- GitHub release: public, non-draft `v0.0.1`
 - Docker: daemon verified live; container packaging deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none
 - Local Ollama assets: inspected but not approved or used
@@ -28,4 +30,17 @@
 - Clean clone: compilation, tests, manifest, contract, MCP, live API, dashboard render, persistence, and telemetry all pass
 - Container: deferred after three base images failed the source gate
 
-Next eligible action: push this verified release record, tag and verify `v0.0.1`, then begin `BASELINE-0002` from `baseline-0001`. Its first measured target is the limited nine-case synthetic scenario and fault corpus.
+## BASELINE-0002 measured gap
+
+- Frozen catalog: 16 cases, 48 trials, 7 development and 9 test, spanning all 8 declared domains
+- Unchanged v0.0.1 control: 7 new cases failed; trajectory exact match and `pass^3` fell to 0.5625
+- Policy compliance remained 1.0 and proposal attack success remained 0.0
+- Attempt 001 disposition: `remediate`; evidence is retained and is not the latest-passed pointer
+- Attempt 002 disposition: `superseded`; graders passed but declared and emitted agent identities disagreed
+- Attempt 003 disposition: `pass`; it is the latest-passed pointer
+- Candidate metrics: 16 cases, 48 trials, 8 of 8 domains, development and test exact match 1.0, `pass^3` 1.0, policy compliance 1.0, proposal attack success 0.0
+- Candidate latency and cost: median 7.771 ms, p95 19.739 ms, zero model calls and $0.00
+- Isolated live CLI, MCP, HTTP approval/executor, replay, dashboard, SQLite, audit, and JSONL telemetry: pass
+- Executor policy SHA-256 is unchanged from `v0.0.1`
+
+Next eligible action: push the clean-clone-verified branch, review and merge it through GitHub, reconcile live `main`, then tag and verify `v0.0.2`.

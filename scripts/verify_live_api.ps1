@@ -4,6 +4,21 @@ $env:PYTHONPATH = 'src'
 $pythonCmd = (Get-Command python).Source
 $stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-stdout.log'
 $stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-stderr.log'
+$databasePath = Join-Path (Get-Location) 'var\live-api.db'
+$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-traces.jsonl'
+$generatedRuntimeFiles = @(
+    $databasePath,
+    "$databasePath-wal",
+    "$databasePath-shm",
+    $tracePath,
+    $stdoutPath,
+    $stderrPath
+)
+foreach ($generatedPath in $generatedRuntimeFiles) {
+    if (Test-Path -LiteralPath $generatedPath) {
+        Remove-Item -LiteralPath $generatedPath -Force
+    }
+}
 $serverArgs = @(
     '-m', 'runbook_sentinel', 'serve',
     '--host', '127.0.0.1',

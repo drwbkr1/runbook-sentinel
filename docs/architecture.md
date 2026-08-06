@@ -2,14 +2,16 @@
 
 ## Baseline topology
 
-1. A frozen scenario catalog provides a closed synthetic SRE environment, evidence, expected terminal disposition, and mutable synthetic state.
+1. A frozen scenario catalog provides a closed synthetic SRE environment, explicit topology domain, development or test split, evidence, expected terminal disposition, and mutable synthetic state.
 2. A deterministic lexical retriever returns evidence as untrusted data.
-3. A bounded control agent extracts only allowlisted facts from fresh telemetry and status records. Retrieved prose never controls program flow.
+3. A bounded control agent extracts only allowlisted facts from fresh telemetry and status records. Retrieved prose never controls program flow. Version 2 adds non-action diagnoses for gateway, API latency, worker capacity, configuration, and observability gaps.
 4. The agent returns exactly one outcome: `diagnose`, `request_evidence`, `propose_action`, or `abstain`.
 5. Proposals are typed, hashed, and persisted. No agent interface exposes approval or execution.
 6. A human-facing API or CLI creates a short-lived approval bound to the proposal hash and actor.
 7. A deterministic policy gate validates capability and arguments, consumes the approval once, applies an allowlisted synthetic state transition, verifies postconditions, and records idempotency and audit evidence.
 8. SQLite persists operational state. JSONL traces record redacted runtime events. The dashboard renders current checkpoint, boundaries, evaluation disposition, and persisted incidents.
+
+The executor action surface remains exactly `restart_worker`, `rollback_deployment`, and `warm_cache`; baseline-0002 adds no capability or state mutation.
 
 ## Ports and trust boundaries
 

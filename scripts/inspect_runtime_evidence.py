@@ -70,7 +70,7 @@ def main() -> None:
     }
     receipt = {
         "schema_version": "1.0",
-        "checkpoint": "baseline-0001",
+        "checkpoint": latest["checkpoint"],
         "status": "pass" if all(checks.values()) else "fail",
         "checks": checks,
         "database": {"sha256": sha256(database), "counts": counts, "audit_event_types": audit_types},

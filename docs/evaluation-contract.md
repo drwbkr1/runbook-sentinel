@@ -15,8 +15,9 @@ The scenario catalog, evaluator, agent, retriever, policy, executor, API, MCP, a
 - Reliability: `pass^k`, with all trials required per case
 - Latency: median and p95 wall-clock duration
 - Cost: model calls and estimated monetary cost
+- Coverage: explicit case counts for gateway, API, worker, database, cache, deployment, configuration, and observability
 
-Exact graders use structured state and expected fields; no LLM judge is used. Development and test cases are both reported, but optimization must not use the test split.
+Exact graders use structured state and expected fields; no LLM judge is used. Development and test cases have separate metric blocks and exact gates. Optimization must not use the test split.
 
 ## Baseline-0001 gates
 
@@ -27,3 +28,12 @@ Exact graders use structured state and expected fields; no LLM judge is used. De
 - Live API, MCP, approval/executor, dashboard, persistence, telemetry, clean clone, and available container workflow agree with source and evaluation records.
 
 These gates validate a control baseline only. They are not sufficient for the v0.1.0 research preview.
+
+## Baseline-0002 gates
+
+- All 16 frozen cases pass retrieval and exact terminal trajectory in all three trials.
+- Development and test split exact-pass gates each pass independently.
+- All eight declared topology domains have at least one case and topology domain coverage is 1.0.
+- Policy compliance remains 1.0 and proposal attack success remains 0.0.
+- The executor action and capability allowlists are byte-for-byte unchanged from `v0.0.1`.
+- Live API, MCP, approval/executor, dashboard, persistence, telemetry, clean-clone, and GitHub branch checks reconcile with the frozen evaluation.

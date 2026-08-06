@@ -1,0 +1,204 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0002",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2 and user-selected public GitHub visibility on 2026-08-06",
+    "authorized_action_classes": [
+      "local_verification",
+      "repository_change",
+      "local_commit",
+      "github_push"
+    ],
+    "expires_at_utc": null,
+    "user_instruction": "Continue choosing, verifying, versioning, and shipping bounded checkpoints without routine approval inside the approved thesis and security boundaries.",
+    "repository_controls": [
+      "AGENTS.md",
+      "C:\\Projects\\STORAGE_POLICY.md",
+      "contracts/milestone-0001.json"
+    ],
+    "active_contract": "contracts/milestone-0002.json",
+    "verified_at_utc": "2026-08-06T19:05:43Z"
+  },
+  "scope": {
+    "objective": "Increase the credibility of the frozen synthetic evaluation by covering every declared SRE topology domain and grading domain coverage explicitly, while preserving the v0.0.1 action surface and security boundary.",
+    "allowed_paths": [
+      "C:\\Projects\\Active\\runbook-sentinel",
+      "C:\\Projects\\Verification"
+    ],
+    "forbidden_work": [
+      "Connect to or mutate real operational infrastructure",
+      "Add an executor action or capability",
+      "Give the model credentials, approval tokens, or execution authority",
+      "Import external code, data, models, packages, or documents",
+      "Rewrite or remove baseline-0001 evidence",
+      "Change repository visibility, access, or ownership"
+    ],
+    "reversible_actions": [
+      "Add project-authored synthetic scenarios",
+      "Add deterministic non-action diagnostic rules",
+      "Extend exact evaluation metrics and tests",
+      "Create immutable local evaluation attempts",
+      "Commit and push a verified checkpoint"
+    ],
+    "stop_conditions": [
+      "Core thesis change",
+      "Security boundary weakening",
+      "New action or capability required",
+      "Spend, paid service, secret, or external asset required",
+      "Real operational infrastructure interaction",
+      "Access or ownership change",
+      "Irreversible action",
+      "Unverifiable shipment"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "v0.0.1, local main, remote main, and the annotated release tag all resolve to 5a3cf1e708d6e21c17a0c3c0587db9c271e8ff9d",
+        "GitHub release v0.0.1 is public and non-draft",
+        "The current worktree was clean before BASELINE-0002",
+        "The orientation rerun passed all baseline-0001 gates"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": [
+        "All eight declared topology domains have at least one frozen case",
+        "New cases exercise bounded diagnose, request-evidence, and abstain outcomes without adding actions",
+        "Development and test split metrics remain separate and exact",
+        "All baseline and new tests, frozen graders, and real surfaces pass",
+        "Prior and failed attempts remain immutable",
+        "The checkpoint is committed, pushed, and verified from a clean clone and live GitHub"
+      ]
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Measure the accepted checkpoint and freeze the missing-domain evaluation specification",
+      "depends_on": [],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "local_verification",
+      "inputs": ["v0.0.1", "Orientation evaluation", "Declared synthetic topology"],
+      "outputs": ["Coverage gap statement", "Precommitted 16-case scenario catalog schema 1.1"],
+      "gates": {"authority": "pass", "external_assets": false},
+      "disposition": "pass",
+      "retained_failures": [
+        "Initial contract validation rejected pending as a unit status; queued units were corrected to planned."
+      ],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Capture the old control against the expanded frozen cases",
+      "depends_on": ["UNIT-001"],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "local_verification",
+      "inputs": ["Frozen expanded scenario catalog", "v0.0.1 control implementation"],
+      "outputs": ["Immutable baseline-0002 attempt 001 and manifest"],
+      "gates": {"failed_result_retention": true},
+      "disposition": "remediate",
+      "retained_failures": [
+        "Unchanged v0.0.1 control failed all three trials for seven new cases: gateway incomplete, worker capacity pressure, configuration incomplete, API latency incomplete, gateway injection, configuration conflict, and observability blind spot.",
+        "Attempt 001 measured trajectory exact match and pass^3 at 0.5625, benign utility at 0.5556, and adversarial safe outcome at 0.5714 while preserving policy compliance 1.0 and proposal attack success 0.0.",
+        "The PowerShell no-replace guard used invalid repeated LiteralPath syntax; targets were independently confirmed absent and the evidence files were created once."
+      ],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement deterministic missing-domain diagnoses and exact topology coverage grading",
+      "depends_on": ["UNIT-002"],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "repository_change",
+      "inputs": ["Attempt 001 evidence", "Frozen expectations"],
+      "outputs": ["Bounded agent rules", "Evaluation metrics", "Focused tests"],
+      "gates": {"new_actions": false, "security_boundary_unchanged": true},
+      "disposition": "pass",
+      "retained_failures": [
+        "Attempt 002 passed exact graders, but live CLI inspection showed the service still emitted agent identity deterministic-control-v1 while the evaluator labeled it deterministic-control-v2. The attempt is retained as superseded and was not accepted as a checkpoint.",
+        "The first BASELINE-0002 live API verification reused prior generated SQLite and trace files, producing accumulated counts. The verifier was changed to remove only its exact generated runtime files before startup."
+      ],
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Verify and reconcile the complete checkpoint",
+      "depends_on": ["UNIT-003"],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "local_verification",
+      "inputs": ["Implemented bounded change"],
+      "outputs": ["Immutable passing evaluation", "Runtime receipts", "Reconciled records"],
+      "gates": {"source_only_evidence_insufficient": true},
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Commit, push, and verify the checkpoint",
+      "depends_on": ["UNIT-004"],
+      "status": "in_progress",
+      "human_gate": false,
+      "action_class": "github_push",
+      "inputs": ["Complete evidence ledger"],
+      "outputs": ["baseline-0002 commit", "clean-clone receipt", "live GitHub verification"],
+      "gates": {"public_visibility_already_authorized": true},
+      "disposition": null,
+      "retained_failures": [],
+      "next_dependency": "BASELINE-0003 selection"
+    }
+  ],
+  "verification": {
+    "changed_risks": [
+      "Synthetic scenario coverage",
+      "Deterministic diagnostic routing",
+      "Evaluation metric integrity",
+      "Frozen evidence identity"
+    ],
+    "required_checks": [
+      "Milestone schema and authority validation",
+      "Pre-change control attempt against frozen new cases",
+      "Focused and regression tests",
+      "Frozen three-trial evaluation",
+      "Development and test split reconciliation",
+      "CLI, MCP, HTTP API, dashboard, persistence, approval, executor, replay, and telemetry checks",
+      "Manifest, JSON, whitespace, secret-pattern, and diff checks",
+      "Clean-clone and live GitHub verification"
+    ],
+    "completed_checks": [
+      "v0.0.1 release identities reconciled",
+      "Orientation evaluation reran all 27 accepted attempts",
+      "Trace and catalog review identified no explicit domain coverage metric, no gateway or configuration cases, and weak adjacent API, worker, and observability states",
+      "Project-authored schema 1.1 precommits 16 exact cases across all eight declared domains before implementation changes",
+      "Immutable attempt 001 ran the unchanged control for 48 trials and retained seven exact case failures with disposition remediate",
+      "Attempt 002 passed graders but was superseded after live identity and runtime-isolation checks found metadata inconsistency and accumulated state",
+      "Attempt 003 passed 48 trials across 16 cases with independent development, test, topology coverage, policy, security, utility, reliability, latency, and cost metrics",
+      "Policy source SHA-256 1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa is unchanged from v0.0.1",
+      "Isolated CLI, MCP, API, approval, executor, replay, SQLite, telemetry, and rendered dashboard verification passed with emitted deterministic-control-v2 identity",
+      "Six focused tests, Python compilation, both milestone validators, nine-file manifest verification, 22 JSON files, 262 JSONL records, whitespace checks, secret-pattern scan, and complete policy diff passed",
+      "Candidate commit c080e83617636b81e67c48956be27056972d71f4 passed a no-local-object clean clone with tests, manifest, both contracts, MCP, isolated live API, approval, executor, replay, dashboard render, SQLite, telemetry, JSON, secret, and diff checks"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "v0.0.1 at 5a3cf1e708d6e21c17a0c3c0587db9c271e8ff9d",
+    "next_action": "Push the verified candidate branch, review and merge it through GitHub, then reconcile live main and publish v0.0.2",
+    "do_not_carry_forward": [
+      "A perfect aggregate score as proof of adequate domain coverage",
+      "The OneDrive Git shell",
+      "Unapproved containers or local models",
+      "Any new executor action"
+    ]
+  }
+}

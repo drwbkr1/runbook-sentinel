@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import argparse
+from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
@@ -28,13 +30,19 @@ def sha256(path: Path) -> str:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--checkpoint", default="baseline-0002")
+    parser.add_argument("--frozen-at")
+    parser.add_argument("--output", default="eval/manifest.json")
+    args = parser.parse_args()
+    frozen_at = args.frozen_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     payload = {
         "schema_version": "1.0",
-        "checkpoint": "baseline-0001",
-        "frozen_at_utc": "2026-08-06T18:28:35Z",
+        "checkpoint": args.checkpoint,
+        "frozen_at_utc": frozen_at,
         "files": {relative: sha256(ROOT / relative) for relative in FILES},
     }
-    destination = ROOT / "eval/manifest.json"
+    destination = ROOT / args.output
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(destination)
