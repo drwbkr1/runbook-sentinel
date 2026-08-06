@@ -135,34 +135,39 @@ try {
         dashboard_terminal_metric = $dashboardResponse.Content.Contains('Terminal state exact')
         dashboard_screenshot_exists = (Test-Path -LiteralPath $screenshotPath)
     }
-    $checks = @(
-        $verification.health -eq 'ok',
-        $verification.checkpoint -eq 'baseline-0005',
-        $verification.outcome -eq 'propose_action',
-        $verification.proposed_action -eq 'restart_worker',
-        $verification.action_hash_bound,
-        $verification.execution_status -eq 'executed',
-        $verification.postconditions_verified,
-        $verification.worker_healthy,
-        $verification.restart_count -eq 1,
-        $verification.idempotent_repeat_equal,
-        $verification.replay_http_status -eq 409,
-        -not $verification.approval_token_in_trace,
-        $verification.evaluation_checkpoint -eq 'baseline-0005',
-        $verification.evaluation_agent -eq 'deterministic-control-v2',
-        $verification.evaluation_disposition -eq 'pass',
-        $verification.evaluation_tool_trajectory_exact -eq 1.0,
-        $verification.evaluation_terminal_state_exact -eq 1.0,
-        $verification.dashboard_http_status -eq 200,
-        $verification.dashboard_csp -like "*frame-ancestors 'none'*",
-        $verification.dashboard_baseline_0005,
-        $verification.dashboard_terminal_metric,
-        $verification.dashboard_screenshot_exists
-    )
-    if ($checks -contains $false) {
-        throw ($verification | ConvertTo-Json -Depth 5)
+    $checks = [ordered]@{
+        health_ok = $verification.health -eq 'ok'
+        checkpoint_exact = $verification.checkpoint -eq 'baseline-0005'
+        outcome_exact = $verification.outcome -eq 'propose_action'
+        proposal_exact = $verification.proposed_action -eq 'restart_worker'
+        action_hash_bound = [bool]$verification.action_hash_bound
+        execution_status_exact = $verification.execution_status -eq 'executed'
+        postconditions_verified = [bool]$verification.postconditions_verified
+        worker_healthy = [bool]$verification.worker_healthy
+        restart_count_exact = $verification.restart_count -eq 1
+        idempotent_repeat_equal = [bool]$verification.idempotent_repeat_equal
+        replay_rejected = $verification.replay_http_status -eq 409
+        approval_token_absent_from_trace = -not $verification.approval_token_in_trace
+        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0005'
+        evaluation_agent_exact = $verification.evaluation_agent -eq 'deterministic-control-v2'
+        evaluation_passed = $verification.evaluation_disposition -eq 'pass'
+        evaluation_tool_trajectory_exact = $verification.evaluation_tool_trajectory_exact -eq 1.0
+        evaluation_terminal_state_exact = $verification.evaluation_terminal_state_exact -eq 1.0
+        dashboard_http_ok = $verification.dashboard_http_status -eq 200
+        dashboard_csp_present = $verification.dashboard_csp -like "*frame-ancestors 'none'*"
+        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0005
+        dashboard_terminal_metric_present = [bool]$verification.dashboard_terminal_metric
+        dashboard_screenshot_exists = [bool]$verification.dashboard_screenshot_exists
     }
-    $verification | ConvertTo-Json -Depth 5
+    $receipt = [pscustomobject]@{
+        status = if ($checks.Values -contains $false) { 'fail' } else { 'pass' }
+        checks = $checks
+        evidence = $verification
+    }
+    if ($receipt.status -ne 'pass') {
+        throw ($receipt | ConvertTo-Json -Depth 6)
+    }
+    $receipt | ConvertTo-Json -Depth 6
 }
 finally {
     if ($serverProcess -and -not $serverProcess.HasExited) {

@@ -153,7 +153,9 @@
       "outputs": ["baseline-0005 release"],
       "gates": {"public_visibility_already_authorized": true, "runtime_authority_unchanged": true},
       "disposition": null,
-      "retained_failures": [],
+      "retained_failures": [
+        "Live API attempt 001 completed the synthetic workflow with favorable evidence but failed the verifier's unnamed aggregate boolean; receipt and artifacts retained, not promoted"
+      ],
       "next_dependency": "Next measurable checkpoint"
     }
   ],
