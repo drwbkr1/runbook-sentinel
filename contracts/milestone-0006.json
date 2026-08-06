@@ -124,13 +124,13 @@
       "id": "UNIT-003",
       "purpose": "Implement independent condition coverage metrics, gates, validation, and focused tests",
       "depends_on": ["UNIT-002"],
-      "status": "in_progress",
+      "status": "complete",
       "human_gate": false,
       "action_class": "repository_change",
       "inputs": ["Frozen schema and coverage contract"],
       "outputs": ["Separate coverage metrics", "Fail-closed validator", "Focused regression tests"],
       "gates": {"agent_unchanged": true, "runtime_authority_unchanged": true, "new_dependencies": false},
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [],
       "next_dependency": "UNIT-004"
     },
@@ -138,7 +138,7 @@
       "id": "UNIT-004",
       "purpose": "Run and retain repeated expanded-suite evaluation and select a disposition from measured evidence",
       "depends_on": ["UNIT-003"],
-      "status": "pending",
+      "status": "in_progress",
       "human_gate": false,
       "action_class": "local_verification",
       "inputs": ["Frozen expanded suite", "Implemented condition graders"],
@@ -192,12 +192,17 @@
       "Schema 1.5 explicitly labels all 20 scenarios and passes the closed-taxonomy validator with all five conditions in both splits",
       "Synthetic-terminal-state-v2 passes with five actionable and fifteen exact no-action cases; agent, policy, service, API, MCP, and action surfaces remain unchanged",
       "The frozen 21-file pre-implementation manifest has SHA-256 f097e3eeb20b33c63747e7b5ea71c650bc8050439b9b2ceb5d69ab4c1f934e70",
-      "The unchanged evaluator passed all 60 expanded-suite trials under its old gates while still emitting no evidence-condition metric or gate and while reporting the stale baseline-0005 checkpoint; the immutable pre-change control is retained"
+      "The unchanged evaluator passed all 60 expanded-suite trials under its old gates while still emitting no evidence-condition metric or gate and while reporting the stale baseline-0005 checkpoint; the immutable pre-change control is retained",
+      "The evaluator now derives checkpoint identity from the active manifest and reports condition contract validity, per-split condition counts, missing condition/split pairs, condition split coverage, adversarial counts, missing adversarial splits, and adversarial split coverage separately",
+      "Fourteen tests pass, including fail-closed removal of the only development stale label and rejection of an unknown condition label",
+      "Implementation smoke passed 60 trials with all ten required condition/split pairs, adversarial coverage in both splits, 15 expected executions, 45 exact no-action results, and 90 trace events",
+      "The active 21-file implementation manifest has SHA-256 595b729c5ce780585499333bdb7ab80f7fd950df76e7b788a774b6e22ba0cbbc; the pre-change manifest and result remain retained",
+      "Agent, policy, service, action set, API, MCP, approval, and executor hashes remain unchanged from v0.0.5"
     ]
   },
   "handoff": {
-    "current_checkpoint": "public v0.0.5 exact release closure at e756044787deb9f31f8371669b84a703383f7350; BASELINE-0006 schema 1.5 and its 20-case pre-change control are frozen",
-    "next_action": "Implement independent evidence-condition and adversarial split coverage metrics and fail-closed gates without changing agent or authority behavior",
+    "current_checkpoint": "public v0.0.5 exact release closure at e756044787deb9f31f8371669b84a703383f7350; BASELINE-0006 implementation passes its frozen 20-case smoke against manifest 595b729c5ce780585499333bdb7ab80f7fd950df76e7b788a774b6e22ba0cbbc",
+    "next_action": "Commit the evaluator implementation, run an immutable repeated evaluation through the bound baseline-0006 driver, and promote only a passing attempt",
     "do_not_carry_forward": [
       "Binary topology coverage as evidence that thesis stressors are covered",
       "Scenario IDs or diagnosis strings as implicit coverage labels",

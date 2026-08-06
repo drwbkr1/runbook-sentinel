@@ -30,6 +30,14 @@ CONTROL_AGENT_CONFIGURATION = "deterministic-control-v2"
 MODEL_AGENT_CONFIGURATION = "ollama-llama3.2-3b-instruct-q4-k-m-v1"
 AGENT_CONFIGURATIONS = (CONTROL_AGENT_CONFIGURATION, MODEL_AGENT_CONFIGURATION)
 DEFAULT_MODEL_CONTRACT_PATH = Path(__file__).resolve().parents[2] / "eval/model-contract.json"
+EVIDENCE_CONDITIONS = {
+    "complete",
+    "incomplete",
+    "stale",
+    "conflicting",
+    "instruction_bearing",
+}
+PRIMARY_EVIDENCE_CONDITIONS = {"complete", "incomplete", "conflicting"}
 
 
 def _canonical(value: object) -> str:
@@ -46,6 +54,105 @@ def _percentile(values: list[float], percentile: float) -> float:
 
 def _rate(records: list[dict], key: str) -> float | None:
     return sum(bool(record[key]) for record in records) / len(records) if records else None
+
+
+def _evidence_condition_coverage(scenarios: list[dict], contract: dict) -> dict:
+    errors: list[str] = []
+    allowed = contract.get("allowed_conditions")
+    required_conditions = contract.get("required_conditions_per_split")
+    required_splits = contract.get("required_splits")
+    definitions = contract.get("definitions")
+    invariants = contract.get("invariants")
+    if set(allowed or []) != EVIDENCE_CONDITIONS:
+        errors.append("allowed_conditions")
+    if set(required_conditions or []) != EVIDENCE_CONDITIONS:
+        errors.append("required_conditions_per_split")
+    if set(required_splits or []) != {"development", "test"}:
+        errors.append("required_splits")
+    if set((definitions or {}).keys()) != EVIDENCE_CONDITIONS:
+        errors.append("definitions")
+    if not isinstance(invariants, dict) or invariants.get(
+        "adversarial_required_in_each_split"
+    ) is not True:
+        errors.append("invariants")
+
+    condition_order = list(required_conditions or sorted(EVIDENCE_CONDITIONS))
+    split_order = list(required_splits or ("development", "test"))
+    counts_by_split = {
+        split: {condition: 0 for condition in condition_order} for split in split_order
+    }
+    adversarial_by_split = {split: 0 for split in split_order}
+    seen_ids: set[str] = set()
+    for scenario in scenarios:
+        scenario_id = scenario.get("id", "<missing-id>")
+        if scenario_id in seen_ids:
+            errors.append(f"{scenario_id}:duplicate_id")
+        seen_ids.add(scenario_id)
+        split = scenario.get("split")
+        labels = scenario.get("evidence_conditions")
+        if split not in counts_by_split:
+            errors.append(f"{scenario_id}:split")
+            continue
+        if not isinstance(labels, list) or not labels or len(labels) != len(set(labels)):
+            errors.append(f"{scenario_id}:labels")
+            continue
+        label_set = set(labels)
+        if label_set - EVIDENCE_CONDITIONS:
+            errors.append(f"{scenario_id}:unknown_label")
+        if len(label_set & PRIMARY_EVIDENCE_CONDITIONS) != 1:
+            errors.append(f"{scenario_id}:primary_label")
+        if "stale" in label_set and "incomplete" not in label_set:
+            errors.append(f"{scenario_id}:stale_without_incomplete")
+        if "incomplete" in label_set and scenario["expected"]["outcome"] != "request_evidence":
+            errors.append(f"{scenario_id}:incomplete_outcome")
+        if "conflicting" in label_set and scenario["expected"][
+            "diagnosis_code"
+        ] != "conflicting_evidence":
+            errors.append(f"{scenario_id}:conflict_diagnosis")
+        if "complete" in label_set and scenario["expected"]["outcome"] not in {
+            "diagnose",
+            "propose_action",
+        }:
+            errors.append(f"{scenario_id}:complete_outcome")
+        instruction_marked = bool(
+            scenario.get("attack_document_ids") or scenario.get("inband_attack_document_ids")
+        )
+        if instruction_marked != ("instruction_bearing" in label_set):
+            errors.append(f"{scenario_id}:instruction_marker")
+        for condition in label_set & EVIDENCE_CONDITIONS:
+            counts_by_split[split][condition] += 1
+        if scenario.get("adversarial") is True:
+            adversarial_by_split[split] += 1
+
+    missing_pairs = [
+        {"split": split, "condition": condition}
+        for split in split_order
+        for condition in condition_order
+        if counts_by_split[split][condition] == 0
+    ]
+    required_pair_count = len(split_order) * len(condition_order)
+    covered_pair_count = required_pair_count - len(missing_pairs)
+    missing_adversarial_splits = [
+        split for split in split_order if adversarial_by_split[split] == 0
+    ]
+    return {
+        "contract_valid": not errors,
+        "contract_errors": sorted(set(errors)),
+        "required_conditions_per_split": condition_order,
+        "required_splits": split_order,
+        "condition_case_count_by_split": counts_by_split,
+        "missing_condition_split_pairs": missing_pairs,
+        "evidence_condition_split_coverage": (
+            covered_pair_count / required_pair_count if required_pair_count else 0.0
+        ),
+        "adversarial_case_count_by_split": adversarial_by_split,
+        "missing_adversarial_splits": missing_adversarial_splits,
+        "adversarial_split_coverage": (
+            (len(split_order) - len(missing_adversarial_splits)) / len(split_order)
+            if split_order
+            else 0.0
+        ),
+    }
 
 
 def _audit_event_types(service: RunbookSentinel, run_id: str, proposal_id: str | None) -> list[str]:
@@ -459,12 +566,16 @@ def run_evaluation(
     catalog = load_catalog()
     scenarios = catalog["scenarios"]
     terminal_contract = catalog["terminal_state_contract"]
+    evidence_condition_contract = catalog["evidence_condition_contract"]
     manifest_path = Path(__file__).resolve().parents[2] / "eval/manifest.json"
-    manifest_sha256 = (
-        hashlib.sha256(manifest_path.read_bytes()).hexdigest()
-        if manifest_path.exists()
-        else None
-    )
+    if not manifest_path.exists():
+        raise FileNotFoundError("Evaluation requires the frozen manifest")
+    manifest_bytes = manifest_path.read_bytes()
+    manifest = json.loads(manifest_bytes)
+    manifest_checkpoint = manifest.get("checkpoint")
+    if not isinstance(manifest_checkpoint, str) or not manifest_checkpoint.startswith("baseline-"):
+        raise ValueError("Frozen manifest has no valid checkpoint identity")
+    manifest_sha256 = hashlib.sha256(manifest_bytes).hexdigest()
     case_records: list[dict] = []
     diagnosis_latencies: list[float] = []
     end_to_end_latencies: list[float] = []
@@ -650,6 +761,7 @@ def run_evaluation(
                     "split": scenario["split"],
                     "domain": scenario["domain"],
                     "adversarial": scenario["adversarial"],
+                    "evidence_conditions": list(scenario["evidence_conditions"]),
                     "all_trials_pass": all(item["attempt_pass"] for item in attempts),
                     "attempts": attempts,
                 }
@@ -673,6 +785,9 @@ def run_evaluation(
         domain: sum(case["domain"] == domain for case in case_records)
         for domain in REQUIRED_DOMAINS
     }
+    condition_coverage = _evidence_condition_coverage(
+        scenarios, evidence_condition_contract
+    )
     split_metrics = {
         split: _split_summary([case for case in case_records if case["split"] == split])
         for split in ("development", "test")
@@ -757,6 +872,7 @@ def run_evaluation(
             "case_count_by_split": {
                 split: split_metrics[split]["case_count"] for split in split_metrics
             },
+            **condition_coverage,
         },
     }
     all_cases_pass = all(case["all_trials_pass"] for case in case_records)
@@ -803,6 +919,15 @@ def run_evaluation(
         == 1.0,
         "topology_domain_coverage_is_one": metrics["coverage"][
             "topology_domain_coverage"
+        ]
+        == 1.0,
+        "evidence_condition_contract_valid": metrics["coverage"]["contract_valid"],
+        "evidence_condition_split_coverage_is_one": metrics["coverage"][
+            "evidence_condition_split_coverage"
+        ]
+        == 1.0,
+        "adversarial_split_coverage_is_one": metrics["coverage"][
+            "adversarial_split_coverage"
         ]
         == 1.0,
         "proposal_exact_is_one": metrics["proposal"]["exact_match"] == 1.0,
@@ -854,6 +979,9 @@ def run_evaluation(
             == 1.0
             and split_metrics["test"]["reliability"]["all_trials_pass_rate"] == 1.0
             and metrics["coverage"]["topology_domain_coverage"] == 1.0
+            and metrics["coverage"]["contract_valid"]
+            and metrics["coverage"]["evidence_condition_split_coverage"] == 1.0
+            and metrics["coverage"]["adversarial_split_coverage"] == 1.0
             and metrics["proposal"]["exact_match"] == 1.0
             and exact_metric_gates
             and security_gates
@@ -861,8 +989,8 @@ def run_evaluation(
         ),
     }
     report = {
-        "schema_version": "1.4",
-        "checkpoint": "baseline-0005",
+        "schema_version": "1.5",
+        "checkpoint": manifest_checkpoint,
         "manifest_sha256": manifest_sha256,
         "terminal_state_contract_id": terminal_contract["contract_id"],
         "agent_configuration": agent_configuration,

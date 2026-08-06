@@ -4,7 +4,7 @@
     "eval/model-contract.json": "c312ce0f944dba8c681a6c0691f58d24fa2699f6db63d751157dbacd93a23ae3",
     "pyproject.toml": "aa68a8d322aa5a8810e394c43860363e2441125e15228ce73f4b376f8dddc2a0",
     "scripts/inspect_runtime_evidence.py": "5aff824a7e13020b2cd612bb03583d26ef341050a6edb014e46147b85567a375",
-    "scripts/verify_baseline.py": "9a1bcdd6f758e07afd23e4b90a15b2e1d0e64e7c44caaa36b4aad7c39a566da1",
+    "scripts/verify_baseline.py": "ff79b1809d42bb51ce51d9ceed73313c1fd19d9de4678eec8e236bcc3ba1d538",
     "scripts/verify_evidence_conditions.py": "7861ee70317ec23dc9da409af0ed1444874e4c75cc0353faf09e155e55c23c34",
     "scripts/verify_live_api.ps1": "d44b8444be8424521a0f14db874231f2cc972162ec997b04081814567db9b454",
     "scripts/verify_mcp_stdio.py": "4642fa7bd26f7fa05396d82dbd3cb1aa7cbd669370a1a0787893dcb6f6bebaca",
@@ -15,7 +15,7 @@
     "src/runbook_sentinel/catalog.py": "85c4b98e252106b1ec056a76e99bb5390fc943d41a111459ca469f0acdc1113c",
     "src/runbook_sentinel/cli.py": "780b2a175fd128874d5f251eafc8b62fd013859da7a40ef8ef50bbf77fc0e287",
     "src/runbook_sentinel/data/scenarios.json": "60256a48eb0a29dd4046bc63e6c75dd9706ff5ebed297cdbce80eff253bb2128",
-    "src/runbook_sentinel/evaluation.py": "a7ff367162b9e56f5871c25b4517d25c50c7645f3ec2c3b4084646df4646bbc7",
+    "src/runbook_sentinel/evaluation.py": "c5bec1cc9b21cbb5c5fe3cab118690ec4cea748cf9e24885001db70b797539b6",
     "src/runbook_sentinel/mcp_server.py": "c61d97329a12fc4208616cea4f19ecfc3a83401da10db971de90e0648c1f8818",
     "src/runbook_sentinel/model_adapter.py": "75ff19c3ba51e75f4c345ac5f5e87ec4cf71549007e45b1f67245e0289effc04",
     "src/runbook_sentinel/policy.py": "1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa",
@@ -23,6 +23,6 @@
     "src/runbook_sentinel/service.py": "6c3185ebf01202073c476eb88baa735295b632c86fd7893d25f8adc5a2fd957f",
     "src/runbook_sentinel/storage.py": "1a02cbc9b7250941e264b28a2a9d7e106f961c5cae03c0e762199f5f2d337212"
   },
-  "frozen_at_utc": "2026-08-06T22:44:19Z",
+  "frozen_at_utc": "2026-08-06T22:59:19Z",
   "schema_version": "1.0"
 }
