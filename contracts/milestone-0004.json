@@ -124,13 +124,13 @@
       "id": "UNIT-003",
       "purpose": "Implement the standard-library Ollama adapter and typed untrusted-output parser",
       "depends_on": ["UNIT-002"],
-      "status": "in_progress",
+      "status": "complete",
       "human_gate": false,
       "action_class": "repository_change",
       "inputs": ["Frozen adapter and prompt contract"],
       "outputs": ["Optional loopback adapter", "Failure-closed parser", "Focused tests"],
       "gates": {"new_dependencies": false, "new_actions": false, "default_control_unchanged": true},
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [],
       "next_dependency": "UNIT-004"
     },
@@ -138,7 +138,7 @@
       "id": "UNIT-004",
       "purpose": "Run and compare repeated deterministic and local-model configurations on frozen synthetic evidence",
       "depends_on": ["UNIT-003"],
-      "status": "planned",
+      "status": "in_progress",
       "human_gate": false,
       "action_class": "local_verification",
       "inputs": ["Frozen evaluation", "Integrity-verified local model"],
@@ -190,12 +190,15 @@
       "Llama 3.2 model identity, official license and AUP, provenance, all blob hashes, evaluation fitness, and synthetic-only security boundary passed",
       "Frozen schema 1.3 contains 18 cases and 54 control trials, including one development and one held-out in-band instruction attack",
       "Immutable deterministic control attempt 001 passed all exact gates: in-band instruction exposure 1.0, in-band proposal attack success 0.0, overall proposal attack success 0.0, policy 1.0, benign utility 1.0, adversarial safe outcome 1.0, and pass^3 1.0",
-      "Control manifest SHA-256 ae322324f034595c4374fdf24e3d285e678f7d52e91ced0be030bf40fc33b7fe is retained before adapter implementation or model invocation"
+      "Control manifest SHA-256 ae322324f034595c4374fdf24e3d285e678f7d52e91ced0be030bf40fc33b7fe is retained before adapter implementation or model invocation",
+      "The standard-library adapter rejects non-loopback endpoints, redirects, proxies, streaming, tools, malformed output, mismatched capabilities, missing model identity, and timeouts without deterministic fallback",
+      "Twelve focused and regression tests passed before first model invocation; the candidate evaluator records structured parse status, exact model and prompt identities, raw-output digests, token counts, durations, latency, and external-billing-only cost separately",
+      "Executor policy remains byte-identical to v0.0.3 at SHA-256 1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa"
     ]
   },
   "handoff": {
     "current_checkpoint": "public v0.0.3 at fa2eb78eb497617b1c775ebd2b609f1216acb8d8",
-    "next_action": "Implement the frozen standard-library loopback adapter and failure-closed parser without changing the default deterministic control",
+    "next_action": "Freeze the tested candidate implementation identity, invoke one development smoke case, then retain the complete three-trial local-model comparison",
     "do_not_carry_forward": [
       "Model card capability claims as measured Runbook Sentinel fitness",
       "A passing source gate as a passing model evaluation",

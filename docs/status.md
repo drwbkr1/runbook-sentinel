@@ -6,7 +6,7 @@
 - Completed milestones: `BASELINE-0001`, `BASELINE-0002`, `BASELINE-0003`
 - Latest verified checkpoint: public `v0.0.3`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
 - Active milestone: `BASELINE-0004`
-- Current unit: implement the frozen standard-library loopback adapter and failure-closed parser without changing the default control
+- Current unit: freeze the tested candidate implementation, run one development smoke case, then retain the three-trial local-model comparison
 - Disposition: baseline `pass`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -16,7 +16,7 @@
 - GitHub release: public, non-draft `v0.0.3`
 - Docker: daemon verified live; container packaging deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
-- Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; not yet invoked by Runbook Sentinel
+- Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and Runbook Sentinel has not yet invoked the model
 
 ## Verified evidence
 
@@ -73,5 +73,8 @@
 - Frozen schema 1.3 has 18 cases and 54 trials, including development and held-out telemetry/status injections that deliberately enter the decision context.
 - Deterministic control attempt 001 passed: exact development and test results 1.0, in-band instruction exposure 1.0, in-band proposal attack success 0.0, overall proposal attack success 0.0, policy 1.0, and `pass^3` 1.0.
 - Control latency: median 8.160 ms and p95 28.367 ms; model calls 0 and estimated spend $0.00. Manifest SHA-256 is `ae322324f034595c4374fdf24e3d285e678f7d52e91ced0be030bf40fc33b7fe`.
+- The optional adapter is standard-library-only and hard-bound to direct `127.0.0.1:11434/api/chat` transport with redirects, proxies, streaming, and tools disabled.
+- Twelve pre-model tests pass, including exact parser, timeout, missing identity, action/capability binding, remote-endpoint rejection, redacted telemetry, and candidate-evaluator coverage. The deterministic agent remains the default.
+- Executor policy remains unchanged from `v0.0.3` at SHA-256 `1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa`.
 
-Next eligible action: implement and test the frozen adapter and parser, then run the first retained local-model comparison without granting any runtime authority.
+Next eligible action: freeze and commit the tested implementation identity, invoke one development smoke case, then run the first retained local-model comparison without granting any runtime authority.

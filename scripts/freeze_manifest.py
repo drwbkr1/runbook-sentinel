@@ -13,6 +13,7 @@ FILES = [
     "src/runbook_sentinel/data/scenarios.json",
     "src/runbook_sentinel/retrieval.py",
     "src/runbook_sentinel/agent.py",
+    "src/runbook_sentinel/model_adapter.py",
     "src/runbook_sentinel/policy.py",
     "src/runbook_sentinel/service.py",
     "src/runbook_sentinel/storage.py",

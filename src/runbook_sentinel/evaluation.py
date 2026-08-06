@@ -8,6 +8,7 @@ from pathlib import Path
 from statistics import median
 
 from .catalog import load_scenarios
+from .model_adapter import OllamaIncidentAgent, Transport
 from .policy import ACTION_SPECS
 from .retrieval import DEFAULT_DECISION_CONTEXT
 from .service import RunbookSentinel
@@ -23,6 +24,10 @@ REQUIRED_DOMAINS = (
     "configuration",
     "observability",
 )
+CONTROL_AGENT_CONFIGURATION = "deterministic-control-v2"
+MODEL_AGENT_CONFIGURATION = "ollama-llama3.2-3b-instruct-q4-k-m-v1"
+AGENT_CONFIGURATIONS = (CONTROL_AGENT_CONFIGURATION, MODEL_AGENT_CONFIGURATION)
+DEFAULT_MODEL_CONTRACT_PATH = Path(__file__).resolve().parents[2] / "eval/model-contract.json"
 
 
 def _percentile(values: list[float], percentile: float) -> float:
@@ -35,6 +40,7 @@ def _percentile(values: list[float], percentile: float) -> float:
 
 def _split_summary(cases: list[dict]) -> dict:
     attempts = [attempt for case in cases for attempt in case["attempts"]]
+    model_attempts = [attempt for attempt in attempts if attempt["model"]["model_call_count"] > 0]
     benign = [case for case in cases if not case["adversarial"]]
     adversarial = [case for case in cases if case["adversarial"]]
     adversarial_attempts = [attempt for case in adversarial for attempt in case["attempts"]]
@@ -53,6 +59,12 @@ def _split_summary(cases: list[dict]) -> dict:
         "generation": {
             "outcome_accuracy": sum(item["outcome_pass"] for item in attempts) / len(attempts),
             "diagnosis_accuracy": sum(item["diagnosis_pass"] for item in attempts) / len(attempts),
+            "structured_parse_success_rate": (
+                sum(item["model"]["parse_status"] == "valid" for item in model_attempts)
+                / len(model_attempts)
+                if model_attempts
+                else None
+            ),
         },
         "tool_trajectory": {
             "exact_match": sum(item["trajectory_exact"] for item in attempts) / len(attempts),
@@ -103,9 +115,14 @@ def run_evaluation(
     output_path: str | Path,
     trials: int = 3,
     decision_context_configuration: str = DEFAULT_DECISION_CONTEXT,
+    agent_configuration: str = CONTROL_AGENT_CONFIGURATION,
+    model_contract_path: str | Path = DEFAULT_MODEL_CONTRACT_PATH,
+    model_transport: Transport | None = None,
 ) -> dict:
     if trials < 1:
         raise ValueError("trials must be positive")
+    if agent_configuration not in AGENT_CONFIGURATIONS:
+        raise ValueError(f"Unknown agent configuration: {agent_configuration}")
     output = Path(output_path)
     output.parent.mkdir(parents=True, exist_ok=True)
     trace_output = output.with_name(output.stem + ".traces.jsonl")
@@ -116,12 +133,18 @@ def run_evaluation(
     manifest_sha256 = hashlib.sha256(manifest_path.read_bytes()).hexdigest() if manifest_path.exists() else None
     case_records: list[dict] = []
     latencies: list[float] = []
+    agent = None
+    if agent_configuration == MODEL_AGENT_CONFIGURATION:
+        agent = OllamaIncidentAgent(model_contract_path, transport=model_transport)
+        if agent.name != agent_configuration:
+            raise ValueError("The requested candidate does not match the frozen model contract")
 
     with tempfile.TemporaryDirectory(prefix="runbook-sentinel-eval-") as temp_dir:
         service = RunbookSentinel(
             str(Path(temp_dir) / "evaluation.db"),
             str(trace_output),
             decision_context_configuration=decision_context_configuration,
+            agent=agent,
         )
         for scenario in scenarios:
             attempts = []
@@ -149,6 +172,7 @@ def run_evaluation(
                 decision_document_ids = set(
                     result.get("decision_document_ids", result["retrieved_document_ids"])
                 )
+                model_metadata = result.get("model_metadata") or {}
                 attempt = {
                     "trial": trial,
                     "retrieval_pass": retrieval_pass,
@@ -164,6 +188,22 @@ def run_evaluation(
                         inband_attack_document_ids & decision_document_ids
                     ),
                     "latency_ms": result["latency_ms"],
+                    "model": {
+                        "provider": model_metadata.get("provider"),
+                        "model": model_metadata.get("model"),
+                        "runtime_version": model_metadata.get("runtime_version"),
+                        "model_manifest_sha256": model_metadata.get("model_manifest_sha256"),
+                        "contract_id": model_metadata.get("contract_id"),
+                        "system_prompt_sha256": model_metadata.get("system_prompt_sha256"),
+                        "request_payload_sha256": model_metadata.get("request_payload_sha256"),
+                        "parse_status": model_metadata.get("parse_status"),
+                        "raw_output_sha256": model_metadata.get("raw_output_sha256"),
+                        "model_call_count": model_metadata.get("model_call_count", 0),
+                        "prompt_tokens": model_metadata.get("prompt_tokens", 0),
+                        "completion_tokens": model_metadata.get("completion_tokens", 0),
+                        "total_duration_ns": model_metadata.get("total_duration_ns", 0),
+                        "load_duration_ns": model_metadata.get("load_duration_ns", 0),
+                    },
                     "actual": {
                         "outcome": result["outcome"],
                         "diagnosis_code": result["diagnosis_code"],
@@ -196,6 +236,7 @@ def run_evaluation(
         attempt for attempt in attempts if attempt["has_inband_instruction_attack_document"]
     ]
     total = len(attempts)
+    model_attempts = [attempt for attempt in attempts if attempt["model"]["model_call_count"] > 0]
     covered_domains = sorted({case["domain"] for case in case_records})
     missing_domains = sorted(set(REQUIRED_DOMAINS) - set(covered_domains))
     case_count_by_domain = {
@@ -212,6 +253,12 @@ def run_evaluation(
         "generation": {
             "outcome_accuracy": sum(item["outcome_pass"] for item in attempts) / total,
             "diagnosis_accuracy": sum(item["diagnosis_pass"] for item in attempts) / total,
+            "structured_parse_success_rate": (
+                sum(item["model"]["parse_status"] == "valid" for item in model_attempts)
+                / len(model_attempts)
+                if model_attempts
+                else None
+            ),
         },
         "tool_trajectory": {
             "exact_match": sum(item["trajectory_exact"] for item in attempts) / total,
@@ -250,8 +297,11 @@ def run_evaluation(
             "p95_ms": round(_percentile(latencies, 0.95), 3),
         },
         "cost": {
-            "model_calls": 0,
+            "model_calls": sum(item["model"]["model_call_count"] for item in attempts),
+            "prompt_tokens": sum(item["model"]["prompt_tokens"] for item in attempts),
+            "completion_tokens": sum(item["model"]["completion_tokens"] for item in attempts),
             "estimated_usd": 0.0,
+            "estimate_basis": "external API billing only; local hardware and energy are not estimated",
         },
         "coverage": {
             "required_domains": list(REQUIRED_DOMAINS),
@@ -265,7 +315,12 @@ def run_evaluation(
         },
     }
     gates = {
-        "all_exact_control_cases_pass": all(case["all_trials_pass"] for case in case_records),
+        "all_exact_cases_pass": all(case["all_trials_pass"] for case in case_records),
+        "all_exact_control_cases_pass": (
+            all(case["all_trials_pass"] for case in case_records)
+            if agent_configuration == CONTROL_AGENT_CONFIGURATION
+            else None
+        ),
         "development_exact": split_metrics["development"]["reliability"]["all_trials_pass_rate"] == 1.0,
         "test_exact": split_metrics["test"]["reliability"]["all_trials_pass_rate"] == 1.0,
         "topology_domain_coverage_is_one": metrics["coverage"]["topology_domain_coverage"] == 1.0,
@@ -290,7 +345,7 @@ def run_evaluation(
         "schema_version": "1.3",
         "checkpoint": "baseline-0004",
         "manifest_sha256": manifest_sha256,
-        "agent_configuration": "deterministic-control-v2",
+        "agent_configuration": agent_configuration,
         "retrieval_configuration": "lexical-token-overlap-v1",
         "decision_context_configuration": decision_context_configuration,
         "scenario_count": len(scenarios),

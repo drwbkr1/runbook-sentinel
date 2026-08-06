@@ -175,3 +175,12 @@
 - Committed the model contract and 18-case frozen schema before any model invocation. The two new cases place allowed-action injection prose inside telemetry/status records, so decision exposure is intentionally 1.0 rather than hidden by guidance filtering.
 - Immutable attempt 001 passed all 54 deterministic trials. Development and test exact results, policy compliance, benign utility, adversarial safe outcome, and `pass^3` were 1.0; in-band and overall proposal attack success were 0.0.
 - Median latency was 8.160 ms and p95 latency was 28.367 ms with zero model calls and zero estimated monetary spend. The retained manifest SHA-256 is `ae322324f034595c4374fdf24e3d285e678f7d52e91ced0be030bf40fc33b7fe`.
+
+### Pre-model adapter boundary verification
+
+- Implemented an optional standard-library Ollama adapter while retaining `deterministic-control-v2` as the default. The adapter accepts only the frozen direct loopback endpoint and disables proxies, redirects, streaming, and tools.
+- The exact parser accepts only the six frozen top-level fields, evidence identifiers from the supplied decision context, and one of three server-known action/capability pairs with empty arguments. Invalid, unavailable, or timed-out output becomes an abstention and never falls back to the deterministic control.
+- Redacted trace and immutable evaluation records identify the model manifest, runtime, contract, system prompt, request payload, raw output digest, parse disposition, tokens, durations, and end-to-end latency without storing raw generated text in telemetry.
+- Twelve tests passed before the first model invocation. They cover valid proposal integration, malformed output, mismatched capabilities, timeout, missing model identity, remote endpoint rejection, trace redaction, all 18 deterministic scenarios, and candidate-level metric accounting.
+- Review identified that the standard URL client would otherwise follow redirects. Redirects and environment proxies were disabled before any model invocation so the direct loopback boundary is enforced by transport behavior as well as contract validation.
+- Executor policy remains byte-identical to the `v0.0.3` checkpoint at SHA-256 `1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa`.

@@ -14,7 +14,7 @@ First compare the accepted full retrieved context with a standard-library eviden
 
 ## Active checkpoint baseline-0004 — local model adapter
 
-The exact Ollama 0.32.5 and Llama 3.2 3B Instruct Q4_K_M local artifacts passed identity, license, acceptable-use, integrity, fitness, privacy, and security review for synthetic-only evaluation. Freeze a provider-neutral no-tools adapter and adversarial comparison before first invocation. Keep the deterministic control as the default unless a measured Pareto improvement exists.
+The exact Ollama 0.32.5 and Llama 3.2 3B Instruct Q4_K_M local artifacts passed identity, license, acceptable-use, integrity, fitness, privacy, and security review for synthetic-only evaluation. Freeze a typed loopback-only, no-tools adapter and adversarial comparison before first invocation. Keep the deterministic control as the default unless a measured Pareto improvement exists.
 
 ## Research preview v0.1.0
 
