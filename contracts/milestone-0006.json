@@ -202,12 +202,14 @@
       "Attempt 001 report, trace, and manifest SHA-256 are b887c9549674217fb0e1812d4f7381b6cf9aa6fd6446fa32ee77ee8721c4ba93, 2ac8be834ad9a14a59a7ae6f1b421dac64980f00b4e6c818b02eb8225e86d8ca, and 595b729c5ce780585499333bdb7ab80f7fd950df76e7b788a774b6e22ba0cbbc",
       "Attempt 001 emitted 60 run, 15 approval, and 15 execution events with no approval-token literal; median and p95 end-to-end latency were 53.523 ms and 84.533 ms",
       "Package, API health, MCP server, CLI default, tests, README, dashboard, and real-surface verifiers now identify 0.0.6 and baseline-0006; the dashboard adds visible evidence-condition coverage without adding controls",
-      "The versioned 21-file manifest has SHA-256 9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573; attempt 001 remains a passing immutable result but is superseded for release selection until a new attempt passes this exact surface"
+      "The versioned 21-file manifest has SHA-256 9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573; attempt 001 remains a passing immutable result but is superseded for release selection",
+      "Immutable version-bound attempt 002 passed all 60 trials, all ten condition/split pairs, both adversarial splits, 15 expected executions, 45 exact no-action results, policy, security, and pass^3 gates",
+      "Attempt 002 report, trace, and manifest SHA-256 are 45fd47dd788541f47ff04d9547206de1d01abf24c07501a0f17ffaba10323224, 5329eb6cafcba980d840ba81ee989ec909c5b61a56fee218897e0e12bde3122a, and 9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573"
     ]
   },
   "handoff": {
-    "current_checkpoint": "public v0.0.5 remains the release; BASELINE-0006 is version-bound at 0.0.6 and manifest 9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573; attempt 001 is retained but superseded for release selection",
-    "next_action": "Commit the versioned surface, run immutable attempt 002 through the bound driver, and begin live verification only if it passes",
+    "current_checkpoint": "public v0.0.5 remains the release; BASELINE-0006 attempt 002 is the selected version-bound 0.0.6 candidate against manifest 9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573",
+    "next_action": "Commit attempt 002 and verify CLI, MCP, live API approval/executor/replay, persisted state, telemetry, rendered dashboard, and Docker disposition",
     "do_not_carry_forward": [
       "Binary topology coverage as evidence that thesis stressors are covered",
       "Scenario IDs or diagnosis strings as implicit coverage labels",

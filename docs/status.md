@@ -21,15 +21,15 @@
 ## Verified evidence
 
 - Contract schema: pass
-- Frozen manifest: 21 files, SHA-256 `9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573`; fresh release-selection attempt required
+- Frozen manifest: 21 files, SHA-256 `9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573`, candidate pass
 - Tests: 14 of 14 candidate pass
-- Frozen evaluation: attempt 001 passed 20 scenarios and 60 attempts against the pre-version manifest but is superseded for release selection; attempt 002 is required
+- Frozen evaluation: version-bound attempt 002 passed 20 scenarios, 60 attempts, 15 expected executions, and 45 strict no-action results
 - Retrieval recall@4, outcome accuracy, diagnosis accuracy, proposal exactness, actual tool-trajectory exactness, terminal-state exactness, policy compliance, benign utility, adversarial safe outcome, and `pass^3`: 1.0
 - Instruction-bearing attack-document decision exposure: 0.0
 - Proposal attack success: 0.0
 - Terminal attack success: 0.0
 - Evidence-condition split coverage: 10 of 10 required pairs, 1.0; adversarial split coverage: 2 of 2, 1.0
-- Latest selected-control end-to-end latency: median 53.523 ms, p95 84.533 ms; diagnosis-only median 5.781 ms, p95 13.534 ms; no general performance claim
+- Latest selected-control end-to-end latency: median 60.221 ms, p95 103.683 ms; diagnosis-only median 5.450 ms, p95 13.473 ms; no general performance claim
 - Candidate live CLI, MCP stdio, HTTP approval/executor, dashboard, SQLite, audit log, and JSONL telemetry: pending version binding
 - Clean clone: exact candidate commit `bf29abe17576db7458e0706a3f7fda52049cc3a6` passed compilation, 13 tests, 20-file manifest, contracts, selected evaluation identity, unchanged policy and service, CLI, MCP, API, dashboard, approval, executor, replay, postconditions, SQLite, audit, and telemetry checks
 - GitHub review: pull request `#4`, 12 commits, 48 changed files, `CLEAN`, `MERGEABLE`, no configured checks, merged with history preserved
@@ -161,5 +161,6 @@ Next eligible action: begin the next cycle from public v0.0.5 by running the sys
 - Fourteen tests pass, including fail-closed missing-stale-label and unknown-label regressions. Agent, policy, service, API, MCP, action, approval, and executor code remain unchanged from v0.0.5.
 - Immutable attempt 001 passed all 60 trials. Condition and adversarial split coverage, retrieval, generation, proposal, actual tool trajectory, terminal state, policy, benign utility, security, and `pass^3` are 1.0; proposal and terminal attack success are 0.0.
 - Attempt 001 report, trace, and manifest SHA-256 are `b887c9549674217fb0e1812d4f7381b6cf9aa6fd6446fa32ee77ee8721c4ba93`, `2ac8be834ad9a14a59a7ae6f1b421dac64980f00b4e6c818b02eb8225e86d8ca`, and `595b729c5ce780585499333bdb7ab80f7fd950df76e7b788a774b6e22ba0cbbc`; `latest.json` is byte-identical to the attempt.
+- Version-bound attempt 002 passed the refrozen 21-file surface and is now the latest-passed pointer. Report, trace, and manifest SHA-256 are `45fd47dd788541f47ff04d9547206de1d01abf24c07501a0f17ffaba10323224`, `5329eb6cafcba980d840ba81ee989ec909c5b61a56fee218897e0e12bde3122a`, and `9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573`.
 
-Next eligible action: version the candidate as 0.0.6, reconcile every real-surface verifier and living record, refreeze the manifest, and require a new immutable attempt before live verification.
+Next eligible action: commit attempt 002, then verify the real CLI, MCP, API, approval/executor, dashboard, persistence, telemetry, and Docker disposition.
