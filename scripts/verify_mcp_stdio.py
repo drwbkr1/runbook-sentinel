@@ -20,8 +20,8 @@ def request(process: subprocess.Popen, payload: dict) -> dict:
 
 
 def main() -> None:
-    database = ROOT / "var/live-mcp-baseline-0004.db"
-    trace = ROOT / "artifacts/runtime/live-mcp-baseline-0004-traces.jsonl"
+    database = ROOT / "var/live-mcp-baseline-0005.db"
+    trace = ROOT / "artifacts/runtime/live-mcp-baseline-0005-traces.jsonl"
     for generated in (database, Path(str(database) + "-wal"), Path(str(database) + "-shm"), trace):
         generated.unlink(missing_ok=True)
     env = os.environ.copy()
@@ -33,9 +33,9 @@ def main() -> None:
             "runbook_sentinel",
             "mcp",
             "--db",
-            "var/live-mcp-baseline-0004.db",
+            "var/live-mcp-baseline-0005.db",
             "--trace",
-            "artifacts/runtime/live-mcp-baseline-0004-traces.jsonl",
+            "artifacts/runtime/live-mcp-baseline-0005-traces.jsonl",
         ],
         cwd=ROOT,
         env=env,
@@ -46,7 +46,7 @@ def main() -> None:
     )
     try:
         initialized = request(process, {"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
-        if initialized["result"]["serverInfo"]["version"] != "0.0.4":
+        if initialized["result"]["serverInfo"]["version"] != "0.0.5":
             raise AssertionError("MCP reported an unexpected release version")
         listed = request(process, {"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         names = [tool["name"] for tool in listed["result"]["tools"]]
@@ -83,6 +83,7 @@ def main() -> None:
         )
         summary = {
             "protocol_version": initialized["result"]["protocolVersion"],
+            "server_version": initialized["result"]["serverInfo"]["version"],
             "tool_names": names,
             "diagnosis_outcome": result["outcome"],
             "proposed_action": result["proposal"]["action"],

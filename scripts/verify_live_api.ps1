@@ -2,10 +2,10 @@ $ErrorActionPreference = 'Stop'
 $env:PYTHONPATH = 'src'
 
 $pythonCmd = (Get-Command python).Source
-$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0004-stdout.log'
-$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0004-stderr.log'
-$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0004.db'
-$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0004-traces.jsonl'
+$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0005-stdout.log'
+$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0005-stderr.log'
+$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0005.db'
+$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0005-traces.jsonl'
 $generatedRuntimeFiles = @(
     $databasePath,
     "$databasePath-wal",
@@ -23,8 +23,8 @@ $serverArgs = @(
     '-m', 'runbook_sentinel', 'serve',
     '--host', '127.0.0.1',
     '--port', '8876',
-    '--db', 'var\live-api-baseline-0004.db',
-    '--trace', 'artifacts\runtime\live-api-baseline-0004-traces.jsonl',
+    '--db', 'var\live-api-baseline-0005.db',
+    '--trace', 'artifacts\runtime\live-api-baseline-0005-traces.jsonl',
     '--evaluation', 'artifacts\evaluations\latest.json'
 )
 
@@ -98,7 +98,7 @@ try {
     if (-not $edge) {
         throw 'Microsoft Edge executable not found'
     }
-    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0004.png'
+    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0005.png'
     & $edge `
         --headless `
         --disable-gpu `
@@ -107,8 +107,8 @@ try {
         --screenshot=$screenshotPath `
         http://127.0.0.1:8876/dashboard | Out-Null
 
-    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0004-traces.jsonl'
-    [pscustomobject]@{
+    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0005-traces.jsonl'
+    $verification = [pscustomobject]@{
         health = $health.status
         checkpoint = $health.checkpoint
         outcome = $run.outcome
@@ -127,10 +127,42 @@ try {
         evaluation_checkpoint = $evaluation.checkpoint
         evaluation_agent = $evaluation.agent_configuration
         evaluation_disposition = $evaluation.gates.baseline_disposition
+        evaluation_tool_trajectory_exact = $evaluation.metrics.tool_trajectory.exact_match
+        evaluation_terminal_state_exact = $evaluation.metrics.terminal_state.exact_match_rate
         dashboard_http_status = $dashboardResponse.StatusCode
         dashboard_csp = $dashboardResponse.Headers['Content-Security-Policy']
+        dashboard_baseline_0005 = $dashboardResponse.Content.Contains('Baseline 0005')
+        dashboard_terminal_metric = $dashboardResponse.Content.Contains('Terminal state exact')
         dashboard_screenshot_exists = (Test-Path -LiteralPath $screenshotPath)
-    } | ConvertTo-Json -Depth 5
+    }
+    $checks = @(
+        $verification.health -eq 'ok',
+        $verification.checkpoint -eq 'baseline-0005',
+        $verification.outcome -eq 'propose_action',
+        $verification.proposed_action -eq 'restart_worker',
+        $verification.action_hash_bound,
+        $verification.execution_status -eq 'executed',
+        $verification.postconditions_verified,
+        $verification.worker_healthy,
+        $verification.restart_count -eq 1,
+        $verification.idempotent_repeat_equal,
+        $verification.replay_http_status -eq 409,
+        -not $verification.approval_token_in_trace,
+        $verification.evaluation_checkpoint -eq 'baseline-0005',
+        $verification.evaluation_agent -eq 'deterministic-control-v2',
+        $verification.evaluation_disposition -eq 'pass',
+        $verification.evaluation_tool_trajectory_exact -eq 1.0,
+        $verification.evaluation_terminal_state_exact -eq 1.0,
+        $verification.dashboard_http_status -eq 200,
+        $verification.dashboard_csp -like "*frame-ancestors 'none'*",
+        $verification.dashboard_baseline_0005,
+        $verification.dashboard_terminal_metric,
+        $verification.dashboard_screenshot_exists
+    )
+    if ($checks -contains $false) {
+        throw ($verification | ConvertTo-Json -Depth 5)
+    }
+    $verification | ConvertTo-Json -Depth 5
 }
 finally {
     if ($serverProcess -and -not $serverProcess.HasExited) {
