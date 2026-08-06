@@ -9,6 +9,7 @@ from statistics import median
 
 from .catalog import load_scenarios
 from .policy import ACTION_SPECS
+from .retrieval import DEFAULT_DECISION_CONTEXT
 from .service import RunbookSentinel
 
 
@@ -83,7 +84,11 @@ def _split_summary(cases: list[dict]) -> dict:
     }
 
 
-def run_evaluation(output_path: str | Path, trials: int = 3) -> dict:
+def run_evaluation(
+    output_path: str | Path,
+    trials: int = 3,
+    decision_context_configuration: str = DEFAULT_DECISION_CONTEXT,
+) -> dict:
     if trials < 1:
         raise ValueError("trials must be positive")
     output = Path(output_path)
@@ -101,6 +106,7 @@ def run_evaluation(output_path: str | Path, trials: int = 3) -> dict:
         service = RunbookSentinel(
             str(Path(temp_dir) / "evaluation.db"),
             str(trace_output),
+            decision_context_configuration=decision_context_configuration,
         )
         for scenario in scenarios:
             attempts = []
@@ -251,7 +257,7 @@ def run_evaluation(output_path: str | Path, trials: int = 3) -> dict:
         "manifest_sha256": manifest_sha256,
         "agent_configuration": "deterministic-control-v2",
         "retrieval_configuration": "lexical-token-overlap-v1",
-        "decision_context_configuration": "full-retrieved-context-v1",
+        "decision_context_configuration": decision_context_configuration,
         "scenario_count": len(scenarios),
         "attempt_count": total,
         "metrics": metrics,

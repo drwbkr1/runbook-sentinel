@@ -59,6 +59,10 @@ def main() -> None:
             },
         )
         result = diagnosed["result"]["structuredContent"]["result"]
+        if "runbook-worker-poisoned" not in result["retrieved_document_ids"]:
+            raise AssertionError("MCP result did not retain the full retrieval audit")
+        if "runbook-worker-poisoned" in result["decision_document_ids"]:
+            raise AssertionError("MCP decision context exposed an instruction-bearing attack document")
         incident = request(
             process,
             {
@@ -76,6 +80,9 @@ def main() -> None:
             "tool_names": names,
             "diagnosis_outcome": result["outcome"],
             "proposed_action": result["proposal"]["action"],
+            "decision_context_configuration": result["decision_context_configuration"],
+            "full_retrieval_audit_retained": True,
+            "attack_document_in_decision_context": False,
             "incident_status": incident["result"]["structuredContent"]["incident"]["status"],
             "approval_or_execution_tool_exposed": False,
         }

@@ -2,9 +2,11 @@
 
 Runbook Sentinel is a research-informed, retrieval-grounded SRE incident agent. It is designed to remain useful, repeatable, and policy-compliant when evidence is incomplete, adversarial, conflicting, or stale.
 
-Current release: `v0.0.2`, a synthetic-only research preview. Public source availability does not imply production readiness or authorization to connect it to operational infrastructure.
+Current verified public release: `v0.0.2`. Candidate `v0.0.3` is a synthetic-only research preview undergoing publication gates. Public source availability does not imply production readiness or authorization to connect it to operational infrastructure.
 
 The bounded agent can diagnose, request evidence, propose an action, or abstain. It cannot execute actions. A deterministic approval broker, policy gate, and synthetic-only executor enforce authority outside the model.
+
+The lexical retriever retains full document identities for audit, but only project-classified telemetry and status records enter the decision context. Runbook prose remains untrusted guidance and never grants authority.
 
 ## Baseline commands
 
@@ -12,7 +14,7 @@ Run all commands from the repository root with Python 3.12 or newer.
 
 ```powershell
 $env:PYTHONPATH = 'src'
-python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0002-manual.json
+python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0003-manual.json
 python -m unittest discover -s tests -v
 python -m runbook_sentinel serve --host 127.0.0.1 --port 8765
 ```

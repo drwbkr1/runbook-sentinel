@@ -125,3 +125,19 @@
 - The unchanged v0.0.2 service passed every prior quality, reliability, and action-security gate but exposed an attack document in all 12 trials across four labeled cases.
 - Full-retrieved-context-v1 results: exposure 1.0, required evidence recall 1.0, exact trajectory 1.0, `pass^3` 1.0, policy compliance 1.0, proposal attack success 0.0.
 - Disposition: `remediate`. The control artifact and manifest are immutable and were not promoted to the latest-passed pointer.
+
+### Candidate evidence-only attempt 002
+
+- Added a deterministic context policy with reproducible `full-retrieved-context-v1` and `evidence-only-context-v2` configurations.
+- The candidate retains full `retrieved_document_ids`, records excluded runbook identities as guidance, and passes only telemetry/status documents into the decision agent.
+- Attempt 002 passed all 48 trials. Instruction-bearing decision exposure fell from 1.0 to 0.0 while recall, generation, exact trajectory, utility, policy compliance, adversarial safe outcome, and `pass^3` remained 1.0; proposal attack success and cost remained 0.0.
+- Live CLI and MCP verified that the poisoned worker runbook remained auditable but absent from `decision_document_ids`. Redacted traces recorded the selected context policy and document counts.
+- Isolated API approval/execution/replay, dashboard, SQLite, audit, telemetry, and manifest-binding checks passed. The first baseline-0003 runtime receipt is retained; attempt 002 adds the explicit decision-context check.
+- The selected boundary depends on trusted project-authored document-kind metadata in this synthetic baseline. It is not a general sanitizer and does not yet validate hostile misclassification.
+
+### Complete-gate regression attempt 003
+
+- Compilation, seven tests, the frozen manifest, all three milestone contracts, JSON and JSONL parsing, executor-policy identity, secret-pattern scanning, and Git whitespace checks passed.
+- The complete gate created a separate immutable attempt rather than overwriting attempt 002. Attempt 003 passed all 48 trials with decision exposure 0.0, proposal attack success 0.0, exact quality and reliability metrics 1.0, median latency 7.391 ms, and p95 latency 18.075 ms.
+- Reran MCP and the isolated API against the promoted attempt. Full retrieval audit remained present, the poisoned runbook stayed outside the decision context, approval/execution/replay/postcondition checks passed, and the rendered dashboard, SQLite state, audit log, and telemetry reconciled.
+- Preserved attempt-003-specific evaluation, trace, manifest, dashboard, and runtime receipt. Attempt 001 remains `remediate`; attempt 002 remains the accepted comparison candidate.

@@ -1,0 +1,48 @@
+{
+  "checkpoint": "baseline-0003",
+  "checks": {
+    "audit_contains_approval_and_execution": true,
+    "dashboard_has_expected_dimensions": true,
+    "evaluation_matches_frozen_manifest": true,
+    "evaluation_passed": true,
+    "executed_proposals_have_consumed_approvals": true,
+    "raw_token_column_absent": true,
+    "required_tables_present": true,
+    "stored_tokens_are_sha256": true,
+    "trace_has_expected_events": true,
+    "trace_has_no_forbidden_terms": true
+  },
+  "dashboard": {
+    "height": 1000,
+    "sha256": "e824b220949bc03885eb22160d9de82b8250d0fad9ecd88dfab2cdf7854f5061",
+    "width": 1440
+  },
+  "database": {
+    "audit_event_types": [
+      "diagnosis.completed",
+      "proposal.approved",
+      "proposal.executed"
+    ],
+    "counts": {
+      "approvals": 1,
+      "audit_log": 3,
+      "idempotency": 1,
+      "incidents": 1,
+      "proposals": 1,
+      "runs": 1
+    },
+    "sha256": "d3674e86ddd6d5444bd8914e241073ceb4db5b9283ae8cf890703127af63f6be"
+  },
+  "evaluation": {
+    "attempt_count": 48,
+    "manifest_sha256": "65450de9b51fc91e374ae6c5ff6014913fb2e6718985bdf5a5ace08c9d510794",
+    "sha256": "ee32d672161d4dd0b2dd325fc206f08eff721c816bf19911b80490581d31d650"
+  },
+  "schema_version": "1.0",
+  "status": "pass",
+  "telemetry": {
+    "event_count": 3,
+    "forbidden_terms": [],
+    "sha256": "f2233f7b5cfebe853a4fcaa136496f045f09afbbe49286adef5a964dbabd94ba"
+  }
+}

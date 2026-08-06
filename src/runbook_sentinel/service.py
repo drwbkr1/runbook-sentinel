@@ -11,7 +11,7 @@ from .agent import DeterministicIncidentAgent
 from .catalog import load_scenarios, scenario_by_id
 from .errors import ApprovalError, NotFoundError, ReplayRejected
 from .policy import action_spec, apply_action, postconditions_hold, validate_proposal
-from .retrieval import LexicalRetriever
+from .retrieval import DEFAULT_DECISION_CONTEXT, LexicalRetriever, select_decision_documents
 from .storage import Storage
 from .telemetry import TraceWriter, utc_now
 
@@ -25,11 +25,17 @@ def _hash(value: str) -> str:
 
 
 class RunbookSentinel:
-    def __init__(self, db_path: str, trace_path: str | None = None):
+    def __init__(
+        self,
+        db_path: str,
+        trace_path: str | None = None,
+        decision_context_configuration: str = DEFAULT_DECISION_CONTEXT,
+    ):
         self.storage = Storage(db_path)
         self.traces = TraceWriter(trace_path)
         self.retriever = LexicalRetriever()
         self.agent = DeterministicIncidentAgent()
+        self.decision_context_configuration = decision_context_configuration
 
     def list_scenarios(self) -> list[dict]:
         return [
@@ -60,7 +66,10 @@ class RunbookSentinel:
             )
 
         retrieved = self.retriever.retrieve(scenario["prompt"], scenario["documents"])
-        result = self.agent.analyze(scenario["prompt"], retrieved, scenario["as_of"])
+        decision_documents = select_decision_documents(self.decision_context_configuration, retrieved)
+        decision_ids = {document["id"] for document in decision_documents}
+        guidance_documents = [document for document in retrieved if document["id"] not in decision_ids]
+        result = self.agent.analyze(scenario["prompt"], decision_documents, scenario["as_of"])
         result.update(
             {
                 "incident_id": incident_id,
@@ -68,7 +77,10 @@ class RunbookSentinel:
                 "scenario_id": scenario_id,
                 "retriever": self.retriever.name,
                 "agent": self.agent.name,
+                "decision_context_configuration": self.decision_context_configuration,
                 "retrieved_document_ids": [document["id"] for document in retrieved],
+                "decision_document_ids": [document["id"] for document in decision_documents],
+                "guidance_document_ids": [document["id"] for document in guidance_documents],
             }
         )
 
@@ -91,6 +103,9 @@ class RunbookSentinel:
                 "incident.id": incident_id,
                 "scenario.id": scenario_id,
                 "retrieval.operation": self.retriever.name,
+                "retrieval.decision_context": self.decision_context_configuration,
+                "retrieval.document_count": len(retrieved),
+                "retrieval.decision_document_count": len(decision_documents),
                 "agent.operation": self.agent.name,
                 "sentinel.outcome": result["outcome"],
                 "latency.ms": result["latency_ms"],
