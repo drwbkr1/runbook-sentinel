@@ -4,6 +4,8 @@ Reviewed 2026-08-06. References inform design; they are not imported datasets or
 
 | Source | Identity and authority | Design use |
 |---|---|---|
+| Meta Llama 3.2 model card, Community License, and AUP | Primary publisher records in `meta-llama/llama-models`; checked live 2026-08-06 | Bound a local 3B Instruct evaluation to synthetic evidence, no model tools, system-level safeguards, application-specific adversarial evaluation, and no real critical-infrastructure operation |
+| Ollama 0.32.5 release and `llama3.2:3b` registry entry | Primary Ollama release, tagged MIT license, and registry; checked live 2026-08-06 | Establish loopback runtime identity, model package identity, instruction-model fitness claims, and reproducible local adapter seam before empirical evaluation |
 | AgentDojo, NeurIPS 2024, arXiv:2406.13352v3 | Primary benchmark paper from ETH Zurich and collaborators; rechecked 2026-08-06 | Treat tool-returned data as untrusted; measure benign utility, attack exposure, attack success, and environment-state outcomes separately |
 | Defeating Prompt Injections by Design (CaMeL), arXiv:2503.18813v2 | Primary research paper; rechecked 2026-08-06 | Separate untrusted data from control flow and enforce capabilities outside the model; baseline-0003 tests a narrower evidence-only decision context inspired by this principle, not a CaMeL implementation |
 | tau-bench, 2024 | Primary benchmark paper | Exact terminal-state grading and repeated-trial `pass^k` |

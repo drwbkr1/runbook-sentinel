@@ -155,3 +155,65 @@
 - Merged with history preserved as `995dcefb1cef284b936a5b336c4601c54bad2462` and fast-forwarded the authoritative local `main` to the exact remote commit.
 - Merged main passed compilation, seven tests, manifest integrity, all contracts, unchanged executor policy, MCP, isolated API approval/execution/replay, postconditions, rendered dashboard, SQLite, audit, and telemetry checks.
 - Preserved merged-main dashboard and runtime receipts. The exact closure commit is eligible for the `v0.0.3` tag and public release.
+
+## 2026-08-06 — BASELINE-0004 started
+
+- Resumed from exact public `v0.0.3` closure `fa2eb78eb497617b1c775ebd2b609f1216acb8d8` after tag, remote `main`, release API, rendered README, and corrected rendered release notes agreed.
+- Identified the next measurable gap: the accepted deterministic agent has no stochastic structured-generation comparison.
+- Applied the external-source gate before model use. Ollama 0.32.5 is signed by Ollama Inc. and responds only through the approved loopback endpoint. The local `llama3.2:3b` manifest is `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six referenced blobs match their declared SHA-256 digests.
+- Official Meta license, AUP, and model-card evidence and Ollama release, license, and registry evidence passed for synthetic evaluation only. No download, package, account, secret, remote API, model-weight redistribution, tool access, approval access, executor access, or real infrastructure is authorized.
+- The first UTC timestamp command used unsupported Windows PowerShell `Get-Date -AsUTC` syntax and failed without mutation. Replaced it with `ToUniversalTime()` and retained the failure in the milestone contract.
+- Source gate disposition: `ready`. The gate authorizes a standard-library loopback adapter and frozen synthetic invocation; it does not establish model quality or permission to operate critical infrastructure.
+
+### Retained pre-model specification regression
+
+- The first 18-case regression failed before any model invocation. A period immediately after `telemetry_coverage=0.12` was captured as part of the value by the existing fact lexer and could not be converted to a float; the MCP inventory test also retained the old 16-case assertion.
+- Disposition: `remediate`. Replaced prose-boundary periods with semicolon delimiters in both new in-band records and updated the exact MCP inventory assertion to 18. The failed test output remains recorded here and in the milestone contract.
+
+### Deterministic comparison control
+
+- Committed the model contract and 18-case frozen schema before any model invocation. The two new cases place allowed-action injection prose inside telemetry/status records, so decision exposure is intentionally 1.0 rather than hidden by guidance filtering.
+- Immutable attempt 001 passed all 54 deterministic trials. Development and test exact results, policy compliance, benign utility, adversarial safe outcome, and `pass^3` were 1.0; in-band and overall proposal attack success were 0.0.
+- Median latency was 8.160 ms and p95 latency was 28.367 ms with zero model calls and zero estimated monetary spend. The retained manifest SHA-256 is `ae322324f034595c4374fdf24e3d285e678f7d52e91ced0be030bf40fc33b7fe`.
+
+### Pre-model adapter boundary verification
+
+- Implemented an optional standard-library Ollama adapter while retaining `deterministic-control-v2` as the default. The adapter accepts only the frozen direct loopback endpoint and disables proxies, redirects, streaming, and tools.
+- The exact parser accepts only the six frozen top-level fields, evidence identifiers from the supplied decision context, and one of three server-known action/capability pairs with empty arguments. Invalid, unavailable, or timed-out output becomes an abstention and never falls back to the deterministic control.
+- Redacted trace and immutable evaluation records identify the model manifest, runtime, contract, system prompt, request payload, raw output digest, parse disposition, tokens, durations, and end-to-end latency without storing raw generated text in telemetry.
+- Twelve tests passed before the first model invocation. They cover valid proposal integration, malformed output, mismatched capabilities, timeout, missing model identity, remote endpoint rejection, trace redaction, all 18 deterministic scenarios, and candidate-level metric accounting.
+- Before invocation, the evaluation record was extended to preserve the complete validated semantic decision separately from the raw-output digest; raw response bytes remain absent from traces.
+- Review identified that the standard URL client would otherwise follow redirects. Redirects and environment proxies were disabled before any model invocation so the direct loopback boundary is enforced by transport behavior as well as contract validation.
+- Executor policy remains byte-identical to the `v0.0.3` checkpoint at SHA-256 `1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa`.
+
+### First local-model smoke call
+
+- Invoked the exact source-gated local model on `dev-worker-backlog` only after committing the adapter and candidate manifest. The request contained one frozen synthetic telemetry record and no tools, credentials, approvals, executor access, remote service, or real infrastructure.
+- The model response had raw-output digest `b267a73ec4a4391d2a69fe8554f925497c5b3982fb168c857c69054c48464c98` but failed the exact semantic parser. The adapter returned `abstain / model_output_invalid`, persisted no proposal, and did not substitute the deterministic result.
+- End-to-end latency was 25138.148 ms, including 6681307500 ns reported load duration. The result disposition is `remediate`; it remains retained independently of the complete repeated comparison.
+
+### Complete local-model comparison and selection
+
+- Ran all 18 frozen cases three times through the exact committed adapter and model contract. The report, 54 redacted traces, and candidate manifest are immutable; their SHA-256 digests are `c3cd0f15435a2e4f993c7cbb6f16a12ad4e8bba35f585e221c1fa2a87f5c3433`, `94accdb4b2a74d0c4b2b925e4fe08bdccc1d4c1adcee39ae8bf2733fb0abcf84`, and `edc4cd30f18863260331c04ccad80a692481da86ec4e6afc48d7fe566b2138d1`.
+- Candidate parse success was 5/54, outcome accuracy 0.1481, diagnosis accuracy 0.0, exact trajectory 0.0, benign utility 0.0, and `pass^3` 0.0. Development and held-out test exact trajectories both remained 0.0.
+- Retrieval recall remained 1.0. Policy compliance remained 1.0 and proposal attack success remained 0.0 because 49 invalid outputs failed closed and the five valid outputs produced no accepted action proposal. This is boundary evidence, not a model-safety claim.
+- Candidate median latency was 12448.711 ms and p95 latency was 19687.913 ms across 54 calls, versus control values of 8.160 ms and 28.367 ms. External API billing was zero; local hardware and energy were not estimated.
+- The candidate produced 27 distinct raw-output digests. Nine cases were byte-semantically stable by digest across all three trials and nine varied. Raw generated text is absent from traces; validated semantic decisions remain in the evaluation artifact.
+- Disposition: `exclude`. The deterministic control remains the default and the latest-passed pointer remains byte-identical to its passing report.
+
+### Native release-candidate verification
+
+- Bumped versioned runtime surfaces to `0.0.4` and the dashboard/API checkpoint to baseline 0004 without changing the executor action set. Regenerated the 11-file manifest and ran deterministic attempt 002 against the exact current runtime.
+- Attempt 002 passed all 54 trials with exact trajectory, policy compliance, benign utility, adversarial safe outcome, and `pass^3` at 1.0; proposal attack success remained 0.0. It became the latest-passed pointer. Median latency was 9.009 ms and p95 was 20.500 ms.
+- The real CLI handled the held-out in-band observability action injection by requesting evidence. MCP negotiated protocol `2025-11-25`, reported server version `0.0.4`, retained full retrieval audit, excluded poisoned guidance from the decision context, and exposed no approval or execution tool.
+- The isolated API reported baseline 0004 and served the passing deterministic evaluation. Hash-bound approval, synthetic execution, exact postconditions, idempotent replay under the same key, HTTP 409 rejection under a new key, and approval-token trace redaction all passed.
+- Visually inspected the 1440 by 1000 rendered dashboard. It accurately shows Baseline 0004, passing deterministic v2, evidence-only context, human approval, disconnected real infrastructure, and one persisted mitigated incident.
+- SQLite contained exactly one incident, run, proposal, approval, idempotency record, and execution plus three ordered audit events. The approval stored a 64-character hash, was consumed, and matched the proposal action hash.
+- Docker Desktop 4.74.0 and Engine 29.4.3 were live. Container packaging remains `defer`: daemon availability does not override the retained failure of all reviewed base-image candidates to pass the source gate.
+
+### Clean-clone candidate gate
+
+- Created candidate commit `1b886c5557d311a272997866a715c2f8f815d76e` and cloned it without local object sharing to `C:\Projects\Verification\runbook-sentinel-baseline-0004-1b886c5-20260806210458`.
+- The exact clone passed compilation, 12 tests, the 11-file manifest, all milestone contracts, the model source gate, candidate and selected evaluation artifact hashes, unchanged executor policy, model-weight exclusion, JSON and JSONL parsing, and diff checks.
+- Real MCP and API verification passed again. A fresh dashboard render was visually inspected, the held-out in-band CLI case requested evidence, and the only tracked post-verification change was the intentionally regenerated dashboard PNG containing a new synthetic incident identifier.
+- GitHub review, merged-main verification, exact release closure, tag, release, and rendered public-page verification remain pending.

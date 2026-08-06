@@ -1,0 +1,235 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0004-ollama-llama32-3b-20260806",
+  "assessed_at": "2026-08-06T20:16:50Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_actions": [
+      "review local runtime and model metadata",
+      "implement a standard-library loopback adapter",
+      "invoke the existing local model on synthetic frozen cases",
+      "record and publish evaluation outputs without model weights"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Compare an optional provider-neutral Ollama adapter using the already-local Llama 3.2 3B Instruct Q4_K_M model against the retained deterministic Runbook Sentinel control on frozen synthetic SRE cases. The model receives evidence-only context, no credentials, tools, approvals, executor access, or real operational data.",
+    "planned_actions": [
+      "review local runtime and model metadata",
+      "implement a standard-library loopback adapter",
+      "invoke the existing local model on synthetic frozen cases",
+      "record and publish evaluation outputs without model weights"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "ollama-runtime-0.32.5-windows",
+      "name": "Ollama 0.32.5 Windows runtime",
+      "locator": "C:\\Users\\drewb\\AppData\\Local\\Programs\\Ollama\\ollama.exe",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {"type": "live", "locator": "http://127.0.0.1:11434/api/version", "observed_at": "2026-08-06T20:16:50Z", "note": "Loopback API and ollama --version both reported 0.32.5."},
+            {"type": "live", "locator": "https://github.com/ollama/ollama/releases/tag/v0.32.5", "observed_at": "2026-08-06T20:16:50Z", "note": "Official Ollama repository publishes v0.32.5 at signed commit eec8e0b."}
+          ],
+          "note": "Exact installed runtime version and official publisher release agree."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {"type": "live", "locator": "https://github.com/ollama/ollama/releases/tag/v0.32.5", "observed_at": "2026-08-06T20:16:50Z", "note": "Primary publisher release is signed and marked verified by GitHub."}
+          ],
+          "note": "Ollama's official repository is authoritative for its runtime release."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {"type": "live", "locator": "http://127.0.0.1:11434/api/version", "observed_at": "2026-08-06T20:16:50Z", "note": "Existing service answered on loopback without account, secret, fee, or remote provider."}
+          ],
+          "note": "Only the existing loopback service is approved; no installer or remote hosted API is needed."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {"type": "live", "locator": "https://github.com/ollama/ollama/blob/v0.32.5/LICENSE", "observed_at": "2026-08-06T20:16:50Z", "note": "The tagged runtime source is MIT licensed with copyright and license notice conditions."}
+          ],
+          "note": "Local invocation and a standard-library adapter are within the MIT grant; Runbook Sentinel will not redistribute the installed binary."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {"type": "static", "locator": "C:\\Users\\drewb\\AppData\\Local\\Programs\\Ollama\\ollama.exe", "note": "Installed under the Ollama application directory and signed by Ollama Inc.; runtime reports version 0.32.5."}
+          ],
+          "note": "Local custody and publisher identity are established; no binary is copied into the repository."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {"type": "static", "locator": "C:\\Users\\drewb\\AppData\\Local\\Programs\\Ollama\\ollama.exe", "note": "SHA-256 82e3b496c059720fa1c40a09af7803778f4bb40f32fb459a1d799c822a217843; Authenticode status Valid; signer Ollama Inc.; signer thumbprint 716CD3BC8C02361431A18F56F98C72DE88066103."}
+          ],
+          "note": "The exact local executable is publisher-signed and hash-locked for this evaluation."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {"type": "static", "locator": "local environment inventory 2026-08-06", "note": "Ollama 0.32.5 is live; host has Intel i7-1365U with 10 cores and 12 logical processors, about 34 GB RAM, and about 678 GB free disk. No discrete NVIDIA GPU was detected."}
+          ],
+          "note": "The runtime is fit for a latency-measured CPU evaluation, not a production performance claim."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {"type": "static", "locator": "AGENTS.md", "note": "The experiment uses synthetic evidence only; the adapter is loopback-only and never receives credentials, approval tokens, tools, executor access, or real infrastructure data."}
+          ],
+          "note": "Model output remains untrusted typed data and cannot cross the deterministic approval/executor boundary."
+        }
+      ]
+    },
+    {
+      "source_id": "ollama-llama3.2-3b-instruct-q4-k-m-a80c4f17acd5",
+      "name": "Meta Llama 3.2 3B Instruct Q4_K_M through Ollama",
+      "locator": "ollama://llama3.2:3b@a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {"type": "live", "locator": "https://ollama.com/library/llama3.2/tags", "observed_at": "2026-08-06T20:16:50Z", "note": "Official registry lists llama3.2:3b-instruct-q4_K_M at digest prefix a80c4f17acd5, 2.0 GB, 128K context, text input."},
+            {"type": "live", "locator": "http://127.0.0.1:11434/api/show", "observed_at": "2026-08-06T20:16:50Z", "note": "Local API reports family llama, 3.2B parameters, GGUF Q4_K_M, context length 131072, and completion/tool capabilities."}
+          ],
+          "note": "Local and official registry identities agree on the exact instruct quantization."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {"type": "live", "locator": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD.md", "observed_at": "2026-08-06T20:16:50Z", "note": "Meta's primary model card identifies Meta as developer and documents the Llama 3.2 3B family."},
+            {"type": "live", "locator": "https://ollama.com/library/llama3.2", "observed_at": "2026-08-06T20:16:50Z", "note": "Ollama's primary registry identifies its packaged 3B instruction model and intended local use."}
+          ],
+          "note": "Meta is authoritative for the base model; Ollama is authoritative for this packaged quantization."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {"type": "live", "locator": "ollama list", "observed_at": "2026-08-06T20:16:50Z", "note": "llama3.2:3b is already local at ID a80c4f17acd5 and size 2.0 GB; no download, account, secret, or fee is required."}
+          ],
+          "note": "Approved access is limited to the existing local artifact through loopback Ollama."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {"type": "live", "locator": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/LICENSE", "observed_at": "2026-08-06T20:16:50Z", "note": "Llama 3.2 Community License grants limited royalty-free use, reproduction, modification, and derivative rights subject to license, attribution, and acceptable-use conditions."},
+            {"type": "live", "locator": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/USE_POLICY.md", "observed_at": "2026-08-06T20:16:50Z", "note": "The AUP prohibits operating critical infrastructure and other harmful uses. This gate approves only synthetic evaluation with no real infrastructure interaction."}
+          ],
+          "note": "Local synthetic research use is approved. Model weights may not be redistributed. Any model-containing product must carry the license, required notice, and Built with Llama display. Real-infrastructure operation is prohibited by both the AUP and project boundary."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {"type": "static", "locator": "C:\\Users\\drewb\\.ollama\\models\\manifests\\registry.ollama.ai\\library\\llama3.2\\3b", "note": "Local Ollama manifest links the Meta license and use policy, template, parameters, and exact model blob; no custody transfer into the repository occurs."}
+          ],
+          "note": "The local manifest traces the packaged model through Ollama to Meta's Llama 3.2 materials."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {"type": "static", "locator": "C:\\Users\\drewb\\.ollama\\models\\manifests\\registry.ollama.ai\\library\\llama3.2\\3b", "note": "Manifest SHA-256 a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72. Config, model, template, two license, and parameter blobs were each recomputed and matched their six declared SHA-256 digests; model blob dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff is 2019377376 bytes."}
+          ],
+          "note": "Every referenced local blob matches the content-addressed manifest."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {"type": "live", "locator": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD.md", "observed_at": "2026-08-06T20:16:50Z", "note": "Primary model card describes an instruction-tuned 3B text model, recommends application-specific adversarial evaluation and system safeguards, and warns that small models have distinct safety/helpfulness tradeoffs."},
+            {"type": "live", "locator": "https://ollama.com/library/llama3.2", "observed_at": "2026-08-06T20:16:50Z", "note": "Registry describes instruction following, summarization, prompt rewriting, tool use, and agentic retrieval as candidate capabilities."}
+          ],
+          "note": "Fit is limited to candidate evaluation on frozen English synthetic cases. Accuracy, structured-output reliability, attack success, latency, and repeated reliability remain empirical gates, not assumed passes."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {"type": "live", "locator": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD.md", "observed_at": "2026-08-06T20:16:50Z", "note": "Meta states Llama models should be deployed as part of a guarded system and evaluated in application context."},
+            {"type": "static", "locator": "docs/threat-model.md", "note": "Runbook Sentinel treats model output as untrusted, supplies synthetic evidence only, exposes no tools or secrets, and keeps deterministic policy, approval, execution, replay, and postcondition controls outside the model."}
+          ],
+          "note": "The model is isolated to local synthetic generation; no personal data, secrets, network tools, approval material, or real operations are in scope."
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "review local runtime and model metadata",
+      "implement a standard-library loopback adapter",
+      "invoke the existing local model on synthetic frozen cases",
+      "record and publish evaluation outputs without model weights"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "read and record local runtime and model metadata",
+      "invoke llama3.2:3b through loopback Ollama using frozen synthetic evidence only",
+      "implement and evaluate a no-tools standard-library adapter",
+      "publish source code and evaluation records that do not contain model weights"
+    ],
+    "requires_explicit_authorization": [
+      "download, update, replace, or delete a model or runtime",
+      "redistribute model weights or an artifact containing Llama Materials",
+      "accept materially changed terms",
+      "send data to a remote model service",
+      "provide model tools, credentials, approval material, or executor access",
+      "interact with or operate real infrastructure",
+      "use personal, secret, regulated, or operational data"
+    ]
+  }
+}

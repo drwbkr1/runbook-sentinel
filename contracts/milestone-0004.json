@@ -1,0 +1,220 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0004",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "research_review",
+      "local_verification",
+      "repository_change",
+      "local_commit",
+      "github_push"
+    ],
+    "expires_at_utc": null,
+    "user_instruction": "Continue selecting and shipping bounded evidence-driven checkpoints without routine approval while preserving the thesis, external-source gates, and security boundaries.",
+    "repository_controls": [
+      "AGENTS.md",
+      "C:\\Projects\\STORAGE_POLICY.md",
+      "contracts/milestone-0003.json",
+      "artifacts/verification/model-source-gate-baseline-0004.json"
+    ],
+    "active_contract": "contracts/milestone-0004.json",
+    "verified_at_utc": "2026-08-06T20:16:50Z"
+  },
+  "scope": {
+    "objective": "Add an optional provider-neutral local model adapter and compare Llama 3.2 3B Instruct Q4_K_M against the retained deterministic control on frozen synthetic SRE evidence, without allowing model output to cross the deterministic policy, approval, or executor boundary.",
+    "allowed_paths": [
+      "C:\\Projects\\Active\\runbook-sentinel",
+      "C:\\Projects\\Verification",
+      "C:\\Users\\drewb\\.ollama\\models"
+    ],
+    "forbidden_work": [
+      "Connect to or mutate real operational infrastructure",
+      "Operate critical infrastructure with Llama 3.2",
+      "Add an executor action or capability",
+      "Give the model credentials, tools, approval tokens, or execution authority",
+      "Download, update, replace, delete, or redistribute a model or runtime",
+      "Send prompts or evidence to a remote model service",
+      "Use personal, secret, regulated, or real operational data",
+      "Add a package dependency",
+      "Change repository visibility, access, or ownership",
+      "Make the local model the default without a measured Pareto improvement"
+    ],
+    "reversible_actions": [
+      "Add a Python-standard-library loopback Ollama adapter",
+      "Freeze typed structured-output and failure semantics",
+      "Invoke the existing integrity-verified local model on synthetic frozen cases",
+      "Record exact model identity, prompt identity, raw-output digest, parsed output, latency, and trial disposition",
+      "Compare deterministic and local-model configurations without changing executor policy",
+      "Commit and push a verified checkpoint"
+    ],
+    "stop_conditions": [
+      "Core thesis change",
+      "Security boundary weakening",
+      "New action, external asset, spend, paid service, secret, account, or download required",
+      "Model license or acceptable-use conflict",
+      "Real operational infrastructure interaction",
+      "Access or ownership change",
+      "Irreversible action",
+      "Unverifiable shipment"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Local main, remote main, annotated v0.0.3 tag, and public release resolve to fa2eb78eb497617b1c775ebd2b609f1216acb8d8",
+        "The v0.0.3 system, traces, frozen evaluation, MCP, API, approval, executor, dashboard, persistence, and telemetry passed from the exact closure clone",
+        "Ollama 0.32.5 and llama3.2:3b are already local and require no download, account, secret, or fee",
+        "The exact runtime signature, model manifest, all model blobs, official publisher identity, license, acceptable-use policy, capability metadata, local compute, and intended synthetic use passed the external-source gate"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": [
+        "The deterministic control and local-model candidate run on identical frozen evidence, prompts, splits, and repeated-trial counts",
+        "Retrieval, generation, typed parse success, tool trajectories, policy, benign utility, attack success, pass^k, latency, and cost are reported separately",
+        "Raw model outputs are retained by digest and redacted traces identify model, prompt, context, timing, and parse disposition",
+        "No model tool, credential, approval, execution, new capability, remote service, model download, or real infrastructure connection is added",
+        "The deterministic control remains the default unless the model is a measured Pareto improvement",
+        "Real CLI, API, MCP, approval, executor, dashboard, persistence, telemetry, clean clone, GitHub review, merged main, tag, and release agree"
+      ]
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Resume from v0.0.3, rerun the system, identify the stochastic-generation evidence gap, inventory local compute, and complete the external-source gate",
+      "depends_on": [],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "research_review",
+      "inputs": ["v0.0.3", "Latest evaluation and traces", "Local compute and model metadata", "Official publisher records"],
+      "outputs": ["Verified checkpoint orientation", "Ready model-source gate", "Bounded comparison objective"],
+      "gates": {"external_source_ready": true, "real_infrastructure": false, "model_download": false},
+      "disposition": "pass",
+      "retained_failures": [
+        "The first UTC timestamp command used unsupported Get-Date -AsUTC syntax in Windows PowerShell; it failed without mutation and was replaced with ToUniversalTime()."
+      ],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze the provider-neutral typed adapter contract, prompt identity, model failure semantics, and deterministic-versus-model evaluation before implementation",
+      "depends_on": ["UNIT-001"],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "repository_change",
+      "inputs": ["Ready source gate", "v0.0.3 frozen suite", "External policy boundary"],
+      "outputs": ["Frozen comparison contract", "Prompt and parser specification", "Pre-change control evidence"],
+      "gates": {"precommitted_before_model_invocation": true, "no_model_tools": true},
+      "disposition": "pass",
+      "retained_failures": [
+        "The first pre-model regression failed because sentence punctuation made the fact lexer capture telemetry_coverage=0.12. with a trailing period, causing numeric conversion to fail, and the MCP inventory test still expected 16 rather than 18 scenarios. No model was invoked; the synthetic delimiter and exact inventory assertion were corrected before freezing."
+      ],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement the standard-library Ollama adapter and typed untrusted-output parser",
+      "depends_on": ["UNIT-002"],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "repository_change",
+      "inputs": ["Frozen adapter and prompt contract"],
+      "outputs": ["Optional loopback adapter", "Failure-closed parser", "Focused tests"],
+      "gates": {"new_dependencies": false, "new_actions": false, "default_control_unchanged": true},
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Run and compare repeated deterministic and local-model configurations on frozen synthetic evidence",
+      "depends_on": ["UNIT-003"],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "local_verification",
+      "inputs": ["Frozen evaluation", "Integrity-verified local model"],
+      "outputs": ["Immutable comparison attempts", "Separated metrics", "Evidence-based selection"],
+      "gates": {"raw_output_digest_retained": true, "failed_trials_retained": true, "pareto_selection": true},
+      "disposition": "exclude",
+      "retained_failures": [
+        "The first authorized development smoke call returned a schema-invalid model object. The adapter retained raw-output digest b267a73ec4a4391d2a69fe8554f925497c5b3982fb168c857c69054c48464c98, abstained as model_output_invalid after 25138.148 ms, persisted no proposal, and used no fallback."
+      ],
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Verify real surfaces, reconcile records, clean-clone, review, merge, tag, release, and verify the bounded checkpoint",
+      "depends_on": ["UNIT-004"],
+      "status": "in_progress",
+      "human_gate": false,
+      "action_class": "github_push",
+      "inputs": ["Selected configuration and complete evidence ledger"],
+      "outputs": ["baseline-0004 release"],
+      "gates": {"public_visibility_already_authorized": true, "model_weights_excluded": true},
+      "disposition": null,
+      "retained_failures": [],
+      "next_dependency": "Next measurable checkpoint"
+    }
+  ],
+  "verification": {
+    "changed_risks": [
+      "Stochastic structured generation",
+      "Prompt-injection susceptibility",
+      "Model-output parsing and schema enforcement",
+      "Latency and repeated reliability on CPU",
+      "External runtime and model rights, integrity, and acceptable use"
+    ],
+    "required_checks": [
+      "Milestone and source-gate validation",
+      "Pre-change deterministic control",
+      "Frozen prompt, parser, and configuration identities",
+      "Focused parser, timeout, malformed-output, and injection tests",
+      "Repeated deterministic-versus-model evaluation on identical splits",
+      "Separate retrieval, generation, trajectory, policy, utility, security, reliability, latency, and cost metrics",
+      "Unchanged executor policy and action surface",
+      "CLI, MCP, API, approval, executor, replay, dashboard, persistence, and telemetry checks",
+      "Manifest, JSON, whitespace, secret-pattern, model-weight-exclusion, and diff checks",
+      "Clean clone, GitHub review, merged main, tag, release, and rendered public-page verification"
+    ],
+    "completed_checks": [
+      "v0.0.3 local tag, remote tag, remote main, public release, rendered README, and rendered release resolve to fa2eb78eb497617b1c775ebd2b609f1216acb8d8",
+      "Exact v0.0.3 closure clone passed all native and real-surface gates",
+      "Ollama runtime identity, signature, license, access, compute fitness, and loopback boundary passed",
+      "Llama 3.2 model identity, official license and AUP, provenance, all blob hashes, evaluation fitness, and synthetic-only security boundary passed",
+      "Frozen schema 1.3 contains 18 cases and 54 control trials, including one development and one held-out in-band instruction attack",
+      "Immutable deterministic control attempt 001 passed all exact gates: in-band instruction exposure 1.0, in-band proposal attack success 0.0, overall proposal attack success 0.0, policy 1.0, benign utility 1.0, adversarial safe outcome 1.0, and pass^3 1.0",
+      "Control manifest SHA-256 ae322324f034595c4374fdf24e3d285e678f7d52e91ced0be030bf40fc33b7fe is retained before adapter implementation or model invocation",
+      "The standard-library adapter rejects non-loopback endpoints, redirects, proxies, streaming, tools, malformed output, mismatched capabilities, missing model identity, and timeouts without deterministic fallback",
+      "Twelve focused and regression tests passed before first model invocation; the candidate evaluator records structured parse status, exact model and prompt identities, raw-output digests, token counts, durations, latency, and external-billing-only cost separately",
+      "Executor policy remains byte-identical to v0.0.3 at SHA-256 1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa",
+      "The complete candidate attempt retained 54 traces and returned 5 valid structured outputs, 49 schema-invalid abstentions, diagnosis accuracy 0.0, exact trajectory 0.0, benign utility 0.0, pass^3 0.0, median latency 12448.711 ms, policy compliance 1.0, and proposal attack success 0.0",
+      "The candidate made no accepted action proposal; safe action metrics are attributed to fail-closed parsing and deterministic policy rather than useful model safety",
+      "Comparison disposition is exclude; deterministic-control-v2 remains the default and latest-passed evaluation pointer",
+      "Release-candidate deterministic attempt 002 passed all 54 trials with exact trajectory, policy, benign utility, adversarial safe outcome, and pass^3 at 1.0; proposal attack success remained 0.0",
+      "Real CLI, MCP 2025-11-25, API health and evaluation endpoints, approval, executor, idempotency, replay rejection, postconditions, rendered dashboard, SQLite state, audit log, and redacted telemetry passed natively",
+      "Docker Desktop 4.74.0 and Engine 29.4.3 are live; packaging remains explicitly deferred under the retained base-image source-gate failure",
+      "No-local-object clean clone of 1b886c5557d311a272997866a715c2f8f815d76e passed source gate, compilation, 12 tests, manifest, contracts, artifact hashes, unchanged policy, CLI, MCP, API, dashboard render, approval, executor, replay, SQLite, audit, and telemetry checks"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "public v0.0.3 at fa2eb78eb497617b1c775ebd2b609f1216acb8d8",
+    "next_action": "Verify every unchanged and changed real surface, reconcile release records, and publish the bounded v0.0.4 checkpoint without selecting the excluded model candidate",
+    "do_not_carry_forward": [
+      "Model card capability claims as measured Runbook Sentinel fitness",
+      "A passing source gate as a passing model evaluation",
+      "Model tool calling, credentials, approval material, or execution access",
+      "Real infrastructure operation under the Llama 3.2 AUP",
+      "Unapproved downloads, remote APIs, packages, models, or weight redistribution",
+      "A local model as the default without Pareto evidence"
+    ]
+  }
+}

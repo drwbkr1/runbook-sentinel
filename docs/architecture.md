@@ -12,7 +12,7 @@
 8. A deterministic policy gate validates capability and arguments, consumes the approval once, applies an allowlisted synthetic state transition, verifies postconditions, and records idempotency and audit evidence.
 9. SQLite persists operational state. JSONL traces record redacted runtime events and decision-context configuration. The dashboard renders current checkpoint, boundaries, evaluation disposition, and persisted incidents.
 
-The executor action surface remains exactly `restart_worker`, `rollback_deployment`, and `warm_cache`; baseline-0003 adds no capability or state mutation.
+The executor action surface remains exactly `restart_worker`, `rollback_deployment`, and `warm_cache`; baseline-0004 adds no capability or state mutation. Its optional local-model adapter is evaluation-only, direct-loopback, no-tools, and fail-closed. The excluded model candidate is not the operational default.
 
 ## Ports and trust boundaries
 

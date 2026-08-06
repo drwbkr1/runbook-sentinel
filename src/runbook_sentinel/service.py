@@ -30,11 +30,12 @@ class RunbookSentinel:
         db_path: str,
         trace_path: str | None = None,
         decision_context_configuration: str = DEFAULT_DECISION_CONTEXT,
+        agent=None,
     ):
         self.storage = Storage(db_path)
         self.traces = TraceWriter(trace_path)
         self.retriever = LexicalRetriever()
-        self.agent = DeterministicIncidentAgent()
+        self.agent = agent or DeterministicIncidentAgent()
         self.decision_context_configuration = decision_context_configuration
 
     def list_scenarios(self) -> list[dict]:
@@ -96,21 +97,37 @@ class RunbookSentinel:
                 (run_id, incident_id, _canonical(result), latency_ms, utc_now()),
             )
         self._audit("diagnosis.completed", run_id, {"incident_id": incident_id, "outcome": result["outcome"]})
-        self.traces.write(
-            "sentinel.run",
-            {
-                "run.id": run_id,
-                "incident.id": incident_id,
-                "scenario.id": scenario_id,
-                "retrieval.operation": self.retriever.name,
-                "retrieval.decision_context": self.decision_context_configuration,
-                "retrieval.document_count": len(retrieved),
-                "retrieval.decision_document_count": len(decision_documents),
-                "agent.operation": self.agent.name,
-                "sentinel.outcome": result["outcome"],
-                "latency.ms": result["latency_ms"],
-            },
-        )
+        trace_attributes = {
+            "run.id": run_id,
+            "incident.id": incident_id,
+            "scenario.id": scenario_id,
+            "retrieval.operation": self.retriever.name,
+            "retrieval.decision_context": self.decision_context_configuration,
+            "retrieval.document_count": len(retrieved),
+            "retrieval.decision_document_count": len(decision_documents),
+            "agent.operation": self.agent.name,
+            "sentinel.outcome": result["outcome"],
+            "latency.ms": result["latency_ms"],
+        }
+        model_metadata = result.get("model_metadata")
+        if model_metadata:
+            trace_attributes.update(
+                {
+                    "gen_ai.provider.name": model_metadata["provider"],
+                    "gen_ai.request.model": model_metadata["model"],
+                    "gen_ai.response.model_manifest_sha256": model_metadata["model_manifest_sha256"],
+                    "gen_ai.operation.name": model_metadata["contract_id"],
+                    "gen_ai.request.system_prompt_sha256": model_metadata["system_prompt_sha256"],
+                    "gen_ai.request.payload_sha256": model_metadata["request_payload_sha256"],
+                    "gen_ai.response.raw_output_sha256": model_metadata["raw_output_sha256"],
+                    "gen_ai.response.parse_status": model_metadata["parse_status"],
+                    "gen_ai.usage.input_tokens": model_metadata["prompt_tokens"],
+                    "gen_ai.usage.output_tokens": model_metadata["completion_tokens"],
+                    "gen_ai.response.total_duration_ns": model_metadata["total_duration_ns"],
+                    "gen_ai.response.load_duration_ns": model_metadata["load_duration_ns"],
+                }
+            )
+        self.traces.write("sentinel.run", trace_attributes)
         return result
 
     def _persist_proposal(self, incident_id: str, model_proposal: dict) -> dict:

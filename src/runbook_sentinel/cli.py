@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 from .api import create_server
-from .evaluation import run_evaluation
+from .evaluation import AGENT_CONFIGURATIONS, CONTROL_AGENT_CONFIGURATION, run_evaluation
 from .mcp_server import main as mcp_main
 from .retrieval import DECISION_CONTEXT_CONFIGURATIONS, DEFAULT_DECISION_CONTEXT
 from .service import RunbookSentinel
@@ -38,8 +38,14 @@ def main(argv: list[str] | None = None) -> None:
     execute_parser.add_argument("--trace", default="var/traces.jsonl")
 
     evaluate_parser = subparsers.add_parser("evaluate")
-    evaluate_parser.add_argument("--output", default="artifacts/evaluations/runs/baseline-0003-manual.json")
+    evaluate_parser.add_argument("--output", default="artifacts/evaluations/runs/baseline-0004-manual.json")
     evaluate_parser.add_argument("--trials", type=int, default=3)
+    evaluate_parser.add_argument(
+        "--agent-configuration",
+        choices=AGENT_CONFIGURATIONS,
+        default=CONTROL_AGENT_CONFIGURATION,
+    )
+    evaluate_parser.add_argument("--model-contract", default="eval/model-contract.json")
     evaluate_parser.add_argument(
         "--decision-context",
         choices=DECISION_CONTEXT_CONFIGURATIONS,
@@ -59,7 +65,13 @@ def main(argv: list[str] | None = None) -> None:
 
     args = parser.parse_args(argv)
     if args.command == "evaluate":
-        report = run_evaluation(Path(args.output), args.trials, args.decision_context)
+        report = run_evaluation(
+            Path(args.output),
+            args.trials,
+            args.decision_context,
+            args.agent_configuration,
+            Path(args.model_contract),
+        )
         _print({"metrics": report["metrics"], "gates": report["gates"]})
     elif args.command == "serve":
         server = create_server(args.host, args.port, args.db, args.trace, args.evaluation)

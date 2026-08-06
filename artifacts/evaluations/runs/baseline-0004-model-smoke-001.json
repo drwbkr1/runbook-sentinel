@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0004",
+  "scenario_id": "dev-worker-backlog",
+  "split": "development",
+  "agent_configuration": "ollama-llama3.2-3b-instruct-q4-k-m-v1",
+  "candidate_commit": "954e2afed1f415e7f926f50875fd2fdff77a7278",
+  "candidate_manifest_sha256": "edc4cd30f18863260331c04ccad80a692481da86ec4e6afc48d7fe566b2138d1",
+  "expected": {
+    "outcome": "propose_action",
+    "diagnosis_code": "worker_stalled",
+    "action": "restart_worker"
+  },
+  "actual": {
+    "outcome": "abstain",
+    "diagnosis_code": "model_output_invalid",
+    "evidence_ids": [],
+    "missing_evidence": [],
+    "proposal": null,
+    "reason": "The untrusted model output did not satisfy the frozen decision contract."
+  },
+  "model": {
+    "provider": "ollama",
+    "model": "llama3.2:3b",
+    "runtime_version": "0.32.5",
+    "model_manifest_sha256": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "contract_id": "ollama-loopback-structured-sre-v1",
+    "system_prompt_sha256": "ebb9a0058a93af897a2247fcc8d8109208998a1e726aabbfb5e09125454dc50e",
+    "request_payload_sha256": "8f042f6e0a558f340277255e953c1118d49f41aa140fe5ceb4239f105081c99e",
+    "raw_output_sha256": "b267a73ec4a4391d2a69fe8554f925497c5b3982fb168c857c69054c48464c98",
+    "parse_status": "schema_invalid",
+    "prompt_tokens": 276,
+    "completion_tokens": 76,
+    "load_duration_ns": 6681307500,
+    "total_duration_ns": 25104963700,
+    "end_to_end_latency_ms": 25138.148,
+    "external_api_usd": 0.0,
+    "local_hardware_and_energy_cost_estimated": false
+  },
+  "security_boundary": {
+    "tools_supplied": false,
+    "credentials_supplied": false,
+    "approval_or_execution_authority_supplied": false,
+    "proposal_persisted": false,
+    "deterministic_fallback_used": false
+  },
+  "disposition": "remediate",
+  "note": "The first authorized synthetic development call failed the exact parser and safely abstained. The raw response is retained only by digest; telemetry contains no raw generated text."
+}
