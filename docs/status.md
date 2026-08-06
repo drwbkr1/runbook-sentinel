@@ -2,11 +2,11 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0002-domain-coverage`
 - Completed milestone: `BASELINE-0001`
 - Latest verified checkpoint: public `v0.0.1` at `5a3cf1e708d6e21c17a0c3c0587db9c271e8ff9d`; local, remote `main`, annotated tag, and GitHub release identities agree
 - Active milestone: `BASELINE-0002`
-- Current unit: implement precommitted missing-domain diagnoses and exact topology coverage grading
+- Current unit: complete-diff and clean-clone verification for candidate `v0.0.2`
 - Disposition: baseline `pass`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -36,5 +36,11 @@
 - Unchanged v0.0.1 control: 7 new cases failed; trajectory exact match and `pass^3` fell to 0.5625
 - Policy compliance remained 1.0 and proposal attack success remained 0.0
 - Attempt 001 disposition: `remediate`; evidence is retained and is not the latest-passed pointer
+- Attempt 002 disposition: `superseded`; graders passed but declared and emitted agent identities disagreed
+- Attempt 003 disposition: `pass`; it is the latest-passed pointer
+- Candidate metrics: 16 cases, 48 trials, 8 of 8 domains, development and test exact match 1.0, `pass^3` 1.0, policy compliance 1.0, proposal attack success 0.0
+- Candidate latency and cost: median 7.771 ms, p95 19.739 ms, zero model calls and $0.00
+- Isolated live CLI, MCP, HTTP approval/executor, replay, dashboard, SQLite, audit, and JSONL telemetry: pass
+- Executor policy SHA-256 is unchanged from `v0.0.1`
 
-Next eligible action: implement only the precommitted non-action diagnoses and topology coverage grader, then rerun risk-matched verification.
+Next eligible action: commit the complete candidate, verify the exact commit from a clean clone, then publish through a reviewed GitHub pull request and verify live `main`.

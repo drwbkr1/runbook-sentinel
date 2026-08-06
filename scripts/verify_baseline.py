@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ENV = os.environ.copy()
 ENV["PYTHONPATH"] = str(ROOT / "src")
+CHECKPOINT = "baseline-0002"
 
 
 def run(command: list[str]) -> None:
@@ -25,11 +26,13 @@ def main() -> None:
     runs_dir.mkdir(parents=True, exist_ok=True)
     attempt = 1
     while True:
-        output = runs_dir / f"baseline-0001-attempt-{attempt:03d}.json"
+        output = runs_dir / f"{CHECKPOINT}-attempt-{attempt:03d}.json"
         trace = output.with_name(output.stem + ".traces.jsonl")
-        if not output.exists() and not trace.exists():
+        manifest_copy = output.with_name(output.stem + ".manifest.json")
+        if not output.exists() and not trace.exists() and not manifest_copy.exists():
             break
         attempt += 1
+    shutil.copyfile(ROOT / "eval/manifest.json", manifest_copy)
     run([sys.executable, "-m", "runbook_sentinel", "evaluate", "--output", str(output.relative_to(ROOT)), "--trials", "3"])
     report = json.loads(output.read_text(encoding="utf-8"))
     if report["gates"]["baseline_disposition"] != "pass":

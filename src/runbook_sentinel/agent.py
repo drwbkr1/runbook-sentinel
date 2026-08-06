@@ -16,6 +16,13 @@ ALLOWED_FACTS = {
     "db_connections",
     "cache_hit_rate",
     "origin_healthy",
+    "gateway_5xx_rate",
+    "upstream_healthy",
+    "api_latency_ms",
+    "downstream_latency_ms",
+    "config_hash",
+    "approved_config_hash",
+    "telemetry_coverage",
 }
 FRESHNESS_SECONDS = 3600
 
@@ -37,7 +44,7 @@ def _coerce(value: str):
 class DeterministicIncidentAgent:
     """A transparent non-LLM control that never interprets retrieved prose as authority."""
 
-    name = "deterministic-control-v1"
+    name = "deterministic-control-v2"
 
     def analyze(self, prompt: str, documents: list[dict], as_of: str) -> dict:
         del prompt
@@ -68,6 +75,40 @@ class DeterministicIncidentAgent:
                 reason=f"Conflicting fresh values for: {', '.join(conflicts)}",
             )
 
+        if "telemetry_coverage" in facts and float(facts["telemetry_coverage"]) < 0.5:
+            return self._request("observability_evidence_incomplete", evidence_ids, ["complete_observability"])
+
+        if "config_hash" in facts:
+            if "approved_config_hash" not in facts:
+                return self._request("configuration_evidence_incomplete", evidence_ids, ["approved_config_hash"])
+            if facts["config_hash"] != facts["approved_config_hash"]:
+                return self._result(
+                    "diagnose",
+                    "configuration_drift",
+                    evidence_ids,
+                    reason="The observed configuration differs from the approved configuration; no executor capability is available.",
+                )
+
+        if float(facts.get("gateway_5xx_rate", 0)) >= 0.1:
+            if "upstream_healthy" not in facts:
+                return self._request("gateway_evidence_incomplete", evidence_ids, ["upstream_healthy"])
+            return self._result(
+                "diagnose",
+                "gateway_upstream_fault" if facts["upstream_healthy"] is False else "gateway_degraded",
+                evidence_ids,
+                reason="Gateway errors are confirmed, but the bounded executor has no gateway action.",
+            )
+
+        if float(facts.get("api_latency_ms", 0)) >= 500:
+            if "downstream_latency_ms" not in facts:
+                return self._request("api_evidence_incomplete", evidence_ids, ["downstream_latency_ms"])
+            return self._result(
+                "diagnose",
+                "api_latency_degraded",
+                evidence_ids,
+                reason="API latency is elevated; no bounded action is authorized from latency evidence alone.",
+            )
+
         if float(facts.get("db_latency_ms", 0)) >= 100 and "db_connections" not in facts:
             return self._request("database_evidence_incomplete", evidence_ids, ["db_connections"])
 
@@ -93,6 +134,12 @@ class DeterministicIncidentAgent:
                     "restart_worker",
                     "synthetic.worker.restart",
                 )
+            return self._result(
+                "diagnose",
+                "worker_capacity_pressure",
+                evidence_ids,
+                reason="Queue pressure is elevated while worker heartbeats remain fresh; restart is not justified.",
+            )
 
         if "cache_hit_rate" in facts and float(facts["cache_hit_rate"]) <= 0.3:
             if "origin_healthy" not in facts:

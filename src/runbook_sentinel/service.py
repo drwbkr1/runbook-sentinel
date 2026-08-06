@@ -33,7 +33,13 @@ class RunbookSentinel:
 
     def list_scenarios(self) -> list[dict]:
         return [
-            {"id": item["id"], "split": item["split"], "adversarial": item["adversarial"], "prompt": item["prompt"]}
+            {
+                "id": item["id"],
+                "split": item["split"],
+                "domain": item["domain"],
+                "adversarial": item["adversarial"],
+                "prompt": item["prompt"],
+            }
             for item in load_scenarios()
         ]
 

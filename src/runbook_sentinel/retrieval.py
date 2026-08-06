@@ -11,7 +11,7 @@ def _tokens(value: str) -> set[str]:
 
 
 class LexicalRetriever:
-    """Deterministic lexical control retriever used by baseline-0001."""
+    """Deterministic lexical control retriever retained for baseline-0002."""
 
     name = "lexical-token-overlap-v1"
 

@@ -12,6 +12,9 @@ from .errors import ApprovalError, NotFoundError, PolicyRejected, ReplayRejected
 from .service import RunbookSentinel
 
 
+CHECKPOINT = "baseline-0002"
+
+
 class SentinelHTTPServer(ThreadingHTTPServer):
     def __init__(self, address, service: RunbookSentinel, evaluation_path: str | Path):
         super().__init__(address, SentinelHandler)
@@ -49,7 +52,7 @@ class SentinelHandler(BaseHTTPRequestHandler):
         path = urlparse(self.path).path
         try:
             if path == "/health":
-                self._json(HTTPStatus.OK, {"status": "ok", "checkpoint": "baseline-0001"})
+                self._json(HTTPStatus.OK, {"status": "ok", "checkpoint": CHECKPOINT})
             elif path == "/api/scenarios":
                 self._json(HTTPStatus.OK, self.server.service.list_scenarios())
             elif path == "/api/incidents":
@@ -131,11 +134,11 @@ h1 {{ font-size:clamp(2rem,6vw,4.5rem); margin:.25rem 0; }}
 .value {{ font-size:1.8rem; color:#75d7c6; }} table {{ width:100%; border-collapse:collapse; }}
 th,td {{ text-align:left; padding:12px; border-bottom:1px solid #21354b; }} .boundary {{ color:#ffcf70; }}
 </style></head><body><main>
-<div class="eyebrow">Baseline 0001 · synthetic SRE only</div><h1>Runbook Sentinel</h1>
+<div class="eyebrow">Baseline 0002 - synthetic SRE only</div><h1>Runbook Sentinel</h1>
 <p class="promise">Evidence can be incomplete, stale, or hostile. The agent may diagnose, request evidence, propose a bounded action, or abstain. It never executes.</p>
 <section class="grid">
 <div class="card"><div>Evaluation</div><div class="value">{html.escape(disposition)}</div></div>
-<div class="card"><div>Agent</div><div class="value">deterministic v1</div></div>
+<div class="card"><div>Agent</div><div class="value">deterministic v2</div></div>
 <div class="card"><div>Execution boundary</div><div class="value boundary">human approval</div></div>
 <div class="card"><div>Real infrastructure</div><div class="value boundary">disconnected</div></div>
 </section>
@@ -145,6 +148,6 @@ th,td {{ text-align:left; padding:12px; border-bottom:1px solid #21354b; }} .bou
 
 def create_server(host: str, port: int, db_path: str, trace_path: str, evaluation_path: str) -> SentinelHTTPServer:
     if host not in {"127.0.0.1", "localhost", "::1"}:
-        raise ValueError("baseline-0001 permits loopback HTTP binding only")
+        raise ValueError("Runbook Sentinel permits loopback HTTP binding only")
     service = RunbookSentinel(db_path, trace_path)
     return SentinelHTTPServer((host, port), service, evaluation_path)

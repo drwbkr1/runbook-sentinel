@@ -118,27 +118,30 @@
       "id": "UNIT-003",
       "purpose": "Implement deterministic missing-domain diagnoses and exact topology coverage grading",
       "depends_on": ["UNIT-002"],
-      "status": "in_progress",
+      "status": "complete",
       "human_gate": false,
       "action_class": "repository_change",
       "inputs": ["Attempt 001 evidence", "Frozen expectations"],
       "outputs": ["Bounded agent rules", "Evaluation metrics", "Focused tests"],
       "gates": {"new_actions": false, "security_boundary_unchanged": true},
-      "disposition": null,
-      "retained_failures": [],
+      "disposition": "pass",
+      "retained_failures": [
+        "Attempt 002 passed exact graders, but live CLI inspection showed the service still emitted agent identity deterministic-control-v1 while the evaluator labeled it deterministic-control-v2. The attempt is retained as superseded and was not accepted as a checkpoint.",
+        "The first BASELINE-0002 live API verification reused prior generated SQLite and trace files, producing accumulated counts. The verifier was changed to remove only its exact generated runtime files before startup."
+      ],
       "next_dependency": "UNIT-004"
     },
     {
       "id": "UNIT-004",
       "purpose": "Verify and reconcile the complete checkpoint",
       "depends_on": ["UNIT-003"],
-      "status": "planned",
+      "status": "complete",
       "human_gate": false,
       "action_class": "local_verification",
       "inputs": ["Implemented bounded change"],
       "outputs": ["Immutable passing evaluation", "Runtime receipts", "Reconciled records"],
       "gates": {"source_only_evidence_insufficient": true},
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [],
       "next_dependency": "UNIT-005"
     },
@@ -146,7 +149,7 @@
       "id": "UNIT-005",
       "purpose": "Commit, push, and verify the checkpoint",
       "depends_on": ["UNIT-004"],
-      "status": "planned",
+      "status": "in_progress",
       "human_gate": false,
       "action_class": "github_push",
       "inputs": ["Complete evidence ledger"],
@@ -179,12 +182,17 @@
       "Orientation evaluation reran all 27 accepted attempts",
       "Trace and catalog review identified no explicit domain coverage metric, no gateway or configuration cases, and weak adjacent API, worker, and observability states",
       "Project-authored schema 1.1 precommits 16 exact cases across all eight declared domains before implementation changes",
-      "Immutable attempt 001 ran the unchanged control for 48 trials and retained seven exact case failures with disposition remediate"
+      "Immutable attempt 001 ran the unchanged control for 48 trials and retained seven exact case failures with disposition remediate",
+      "Attempt 002 passed graders but was superseded after live identity and runtime-isolation checks found metadata inconsistency and accumulated state",
+      "Attempt 003 passed 48 trials across 16 cases with independent development, test, topology coverage, policy, security, utility, reliability, latency, and cost metrics",
+      "Policy source SHA-256 1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa is unchanged from v0.0.1",
+      "Isolated CLI, MCP, API, approval, executor, replay, SQLite, telemetry, and rendered dashboard verification passed with emitted deterministic-control-v2 identity",
+      "Six focused tests, Python compilation, both milestone validators, nine-file manifest verification, 22 JSON files, 262 JSONL records, whitespace checks, secret-pattern scan, and complete policy diff passed"
     ]
   },
   "handoff": {
     "current_checkpoint": "v0.0.1 at 5a3cf1e708d6e21c17a0c3c0587db9c271e8ff9d",
-    "next_action": "Implement the precommitted non-action diagnostic rules and explicit topology coverage metric without changing executor capabilities",
+    "next_action": "Commit the complete candidate, verify that commit from a clean clone, then push, review, merge, tag, and verify live main",
     "do_not_carry_forward": [
       "A perfect aggregate score as proof of adequate domain coverage",
       "The OneDrive Git shell",
