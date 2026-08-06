@@ -138,13 +138,13 @@
       "id": "UNIT-004",
       "purpose": "Run and retain repeated expanded-suite evaluation and select a disposition from measured evidence",
       "depends_on": ["UNIT-003"],
-      "status": "in_progress",
+      "status": "complete",
       "human_gate": false,
       "action_class": "local_verification",
       "inputs": ["Frozen expanded suite", "Implemented condition graders"],
       "outputs": ["Immutable evaluation attempts", "Condition coverage report", "Evidence disposition"],
       "gates": {"failed_trials_retained": true, "latest_pointer_pass_only": true, "all_required_condition_split_pairs_covered": true},
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [],
       "next_dependency": "UNIT-005"
     },
@@ -152,7 +152,7 @@
       "id": "UNIT-005",
       "purpose": "Version, verify real surfaces, reconcile records, clean-clone, review, merge, tag, release, and verify the bounded checkpoint",
       "depends_on": ["UNIT-004"],
-      "status": "pending",
+      "status": "in_progress",
       "human_gate": false,
       "action_class": "github_push",
       "inputs": ["Passing expanded evaluation and reconciled records"],
@@ -197,12 +197,15 @@
       "Fourteen tests pass, including fail-closed removal of the only development stale label and rejection of an unknown condition label",
       "Implementation smoke passed 60 trials with all ten required condition/split pairs, adversarial coverage in both splits, 15 expected executions, 45 exact no-action results, and 90 trace events",
       "The active 21-file implementation manifest has SHA-256 595b729c5ce780585499333bdb7ab80f7fd950df76e7b788a774b6e22ba0cbbc; the pre-change manifest and result remain retained",
-      "Agent, policy, service, action set, API, MCP, approval, and executor hashes remain unchanged from v0.0.5"
+      "Agent, policy, service, action set, API, MCP, approval, and executor hashes remain unchanged from v0.0.5",
+      "Immutable attempt 001 passed all 60 trials and all condition, adversarial, terminal, policy, security, reliability, and split gates; it is the latest-passed pointer",
+      "Attempt 001 report, trace, and manifest SHA-256 are b887c9549674217fb0e1812d4f7381b6cf9aa6fd6446fa32ee77ee8721c4ba93, 2ac8be834ad9a14a59a7ae6f1b421dac64980f00b4e6c818b02eb8225e86d8ca, and 595b729c5ce780585499333bdb7ab80f7fd950df76e7b788a774b6e22ba0cbbc",
+      "Attempt 001 emitted 60 run, 15 approval, and 15 execution events with no approval-token literal; median and p95 end-to-end latency were 53.523 ms and 84.533 ms"
     ]
   },
   "handoff": {
-    "current_checkpoint": "public v0.0.5 exact release closure at e756044787deb9f31f8371669b84a703383f7350; BASELINE-0006 implementation passes its frozen 20-case smoke against manifest 595b729c5ce780585499333bdb7ab80f7fd950df76e7b788a774b6e22ba0cbbc",
-    "next_action": "Commit the evaluator implementation, run an immutable repeated evaluation through the bound baseline-0006 driver, and promote only a passing attempt",
+    "current_checkpoint": "public v0.0.5 remains the release; BASELINE-0006 attempt 001 is the selected passing candidate against manifest 595b729c5ce780585499333bdb7ab80f7fd950df76e7b788a774b6e22ba0cbbc",
+    "next_action": "Commit attempt 001, version the bounded checkpoint as 0.0.6, reconcile living records and real-surface verifiers, refreeze the manifest, and require a fresh immutable attempt before live verification",
     "do_not_carry_forward": [
       "Binary topology coverage as evidence that thesis stressors are covered",
       "Scenario IDs or diagnosis strings as implicit coverage labels",

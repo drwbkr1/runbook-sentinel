@@ -2,12 +2,12 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0006-evidence-condition-coverage`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0005`
 - Latest verified checkpoint: public `v0.0.5`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
-- Active milestone: none; the next bounded checkpoint has not yet been selected
-- Current unit: begin the next evidence-driven cycle from the exact v0.0.5 closure
-- Disposition: baseline `pass`; local-model candidate `exclude`; container `defer`
+- Active milestone: `BASELINE-0006`
+- Current unit: version the selected evidence-condition coverage candidate and verify all real surfaces
+- Disposition: evaluation candidate `pass`; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -21,15 +21,16 @@
 ## Verified evidence
 
 - Contract schema: pass
-- Frozen manifest: 20 files, SHA-256 `8f3e0a8710abdfd3894047c451ffc23f3a1488b836dbe510cfab7832b2549267`, pass
-- Tests: 13 of 13 pass
-- Frozen evaluation: 18 scenarios, 54 attempts, 15 expected executions, 39 strict no-action results, all exact deterministic gates pass
+- Frozen manifest: 21 files, SHA-256 `595b729c5ce780585499333bdb7ab80f7fd950df76e7b788a774b6e22ba0cbbc`, candidate pass
+- Tests: 14 of 14 candidate pass
+- Frozen evaluation: 20 scenarios, 60 attempts, 15 expected executions, 45 strict no-action results, all exact deterministic candidate gates pass
 - Retrieval recall@4, outcome accuracy, diagnosis accuracy, proposal exactness, actual tool-trajectory exactness, terminal-state exactness, policy compliance, benign utility, adversarial safe outcome, and `pass^3`: 1.0
 - Instruction-bearing attack-document decision exposure: 0.0
 - Proposal attack success: 0.0
 - Terminal attack success: 0.0
-- Latest selected-control end-to-end latency: median 38.198 ms, p95 73.236 ms; diagnosis-only median 5.564 ms, p95 14.791 ms; no general performance claim
-- Live CLI, MCP stdio, HTTP approval/executor, dashboard, SQLite, audit log, and JSONL telemetry: pass
+- Evidence-condition split coverage: 10 of 10 required pairs, 1.0; adversarial split coverage: 2 of 2, 1.0
+- Latest selected-control end-to-end latency: median 53.523 ms, p95 84.533 ms; diagnosis-only median 5.781 ms, p95 13.534 ms; no general performance claim
+- Candidate live CLI, MCP stdio, HTTP approval/executor, dashboard, SQLite, audit log, and JSONL telemetry: pending version binding
 - Clean clone: exact candidate commit `bf29abe17576db7458e0706a3f7fda52049cc3a6` passed compilation, 13 tests, 20-file manifest, contracts, selected evaluation identity, unchanged policy and service, CLI, MCP, API, dashboard, approval, executor, replay, postconditions, SQLite, audit, and telemetry checks
 - GitHub review: pull request `#4`, 12 commits, 48 changed files, `CLEAN`, `MERGEABLE`, no configured checks, merged with history preserved
 - Merged main `a55249a4c679d61573e72dfe5c3be5363c3b78d1`: compilation, 13 tests, manifest, terminal contract, selected evaluation, CLI, MCP, API, approval, executor, replay, postconditions, dashboard, SQLite, audit, and telemetry pass
@@ -150,3 +151,15 @@ Historical handoff at this checkpoint: commit the clean-clone receipt, push the 
 - The public v0.0.5 tag, peeled remote tag, remote `main`, and non-draft release bind the exact release-closure commit containing these reconciled records; rendered public pages were verified after publication.
 
 Next eligible action: begin the next cycle from public v0.0.5 by running the system and selecting one bounded measurable weakness.
+
+## BASELINE-0006 measured gap and selected candidate
+
+- A fresh v0.0.5 orientation passed 54 trials and 84 trace events, but the evaluator exposed only topology coverage. Zero of 18 scenarios had an explicit evidence-condition label; stale and conflicting evidence had no development-split case.
+- Schema 1.5 freezes a closed complete, incomplete, stale, conflicting, and instruction-bearing taxonomy. It adds only `dev-stale-cache-evidence` and `dev-conflicting-database-evidence`, both exact no-execution cases, and requires all five conditions in both splits plus adversarial coverage in both splits.
+- The immutable pre-change control passed all 60 expanded trials under the old gates while emitting neither a condition metric nor gate and while retaining a stale baseline-0005 report identity. It is preserved with disposition `remediate`.
+- Independent validators pass 20 scenario labels, 10 of 10 condition/split pairs, development/test adversarial coverage, five action cases, fifteen no-action cases, all three actions, exact terminal states, and unchanged authority invariants.
+- Fourteen tests pass, including fail-closed missing-stale-label and unknown-label regressions. Agent, policy, service, API, MCP, action, approval, and executor code remain unchanged from v0.0.5.
+- Immutable attempt 001 passed all 60 trials. Condition and adversarial split coverage, retrieval, generation, proposal, actual tool trajectory, terminal state, policy, benign utility, security, and `pass^3` are 1.0; proposal and terminal attack success are 0.0.
+- Attempt 001 report, trace, and manifest SHA-256 are `b887c9549674217fb0e1812d4f7381b6cf9aa6fd6446fa32ee77ee8721c4ba93`, `2ac8be834ad9a14a59a7ae6f1b421dac64980f00b4e6c818b02eb8225e86d8ca`, and `595b729c5ce780585499333bdb7ab80f7fd950df76e7b788a774b6e22ba0cbbc`; `latest.json` is byte-identical to the attempt.
+
+Next eligible action: version the candidate as 0.0.6, reconcile every real-surface verifier and living record, refreeze the manifest, and require a new immutable attempt before live verification.

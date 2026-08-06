@@ -1,8 +1,36 @@
 # Evaluation report
 
-Status: baseline-0005 exact terminal-state control passed; baseline-0004 local-model candidate remains excluded; deterministic control remains the default.
+Status: baseline-0006 evidence-condition coverage attempt 001 passed as a release candidate; baseline-0004 local-model candidate remains excluded; deterministic control remains the default.
 
 The baseline-0004 comparison used the same frozen 18 cases, 8 development and 10 test, with three trials per case, lexical retrieval, and evidence-only decision context. Exact generation and proposed-action graders were used; no model judged another model. That evaluator did not execute proposals or grade terminal incident state, despite an earlier living-report sentence claiming otherwise. Those historical artifacts remain unchanged. The candidate received only synthetic evidence and had no tools, credentials, approval material, or execution authority.
+
+## BASELINE-0006 evidence-condition coverage
+
+Selected candidate attempt 001 ran 20 frozen cases three times. Schema 1.5 explicitly labels complete, incomplete, stale, conflicting, and instruction-bearing evidence, requires every condition in both development and held-out test splits, and separately requires adversarial coverage in both splits. Two synthetic development cases close the previously unmeasured stale and conflicting split gaps. Their expected retrieval, outcome, diagnosis, no-execution trajectory, incident status, and exact unchanged terminal state were frozen before evaluator implementation; the agent was not changed.
+
+| Metric | Result |
+|---|---:|
+| Cases / attempts | 20 / 60 |
+| Development / test cases | 10 / 10 |
+| Evidence-condition split coverage | 10/10 pairs (1.0) |
+| Adversarial split coverage | 2/2 splits (1.0) |
+| Proposal / tool trajectory / terminal state exact | 1.0 / 1.0 / 1.0 |
+| Expected-action execution | 15/15 |
+| Strict no-action no-mutation | 45/45 |
+| Proposal / terminal attack success | 0.0 / 0.0 |
+| Policy / benign utility / `pass^3` | 1.0 / 1.0 / 1.0 |
+| End-to-end median / p95 latency | 53.523 ms / 84.533 ms |
+| Diagnosis-only median / p95 latency | 5.781 ms / 13.534 ms |
+| Model calls / external API billing | 0 / $0.00 |
+
+| Split | Complete | Incomplete | Stale | Conflicting | Instruction-bearing | Adversarial |
+|---|---:|---:|---:|---:|---:|---:|
+| Development | 5 | 4 | 1 | 1 | 1 | 1 |
+| Test | 2 | 6 | 1 | 2 | 5 | 8 |
+
+The immutable pre-change control passed all 60 trials under the older gates while emitting no evidence-condition metric or gate and incorrectly retaining the baseline-0005 report identity despite a baseline-0006 manifest. It remains retained as `baseline-0006-prechange-control`. Attempt 001 derives its checkpoint from the manifest, fails closed on missing or unknown labels, emits 60 `sentinel.run`, 15 `sentinel.approval`, and 15 `sentinel.execute` events, and contains no approval-token literal. Its report, trace, and manifest SHA-256 digests are `b887c9549674217fb0e1812d4f7381b6cf9aa6fd6446fa32ee77ee8721c4ba93`, `2ac8be834ad9a14a59a7ae6f1b421dac64980f00b4e6c818b02eb8225e86d8ca`, and `595b729c5ce780585499333bdb7ab80f7fd950df76e7b788a774b6e22ba0cbbc`. The latest-passed pointer is byte-identical to attempt 001.
+
+This checkpoint measures coverage of declared synthetic conditions; it does not establish general safety, third-party-data robustness, or production fitness. Release-surface verification remains required after version binding.
 
 ## BASELINE-0005 exact terminal-state evaluation
 
@@ -75,7 +103,7 @@ These results validate the external boundary, not the model. Invalid output beca
 
 ## Selection
 
-The local-model candidate is `exclude`, not `pass` or `superseded`. It regressed exact development and test results, benign utility, repeated reliability, latency, and compute cost. It is not a Pareto improvement. `deterministic-control-v2` remains the default. Its baseline-0005 terminal-state attempt 004 is now `artifacts/evaluations/latest.json`; the baseline-0004 control and model comparison artifacts remain immutable.
+The local-model candidate is `exclude`, not `pass` or `superseded`. It regressed exact development and test results, benign utility, repeated reliability, latency, and compute cost. It is not a Pareto improvement. `deterministic-control-v2` remains the default. Baseline-0006 attempt 001 is now `artifacts/evaluations/latest.json`; the baseline-0005 terminal-state attempts and baseline-0004 control/model comparison artifacts remain immutable.
 
 The optional loopback adapter and parser remain useful research infrastructure. Future candidates must receive a new frozen contract and immutable attempt; unfavorable results here will not be rewritten.
 
@@ -83,4 +111,4 @@ Release-candidate deterministic attempt 002 reran the selected configuration aga
 
 ## Limitations
 
-The suite has 18 cases rather than the 48-case v0.1 target. Document kinds remain trusted project-authored metadata. The comparison covers one small quantized local instruction model on one CPU-oriented machine and does not establish general model capability or safety. It does not operate real infrastructure, redistribute model weights, estimate energy cost, implement CaMeL, or validate arbitrary third-party MCP content.
+The suite has 20 cases rather than the 48-case v0.1 target. Condition labels and document kinds remain trusted project-authored metadata even though their shape and split coverage now fail closed. The comparison covers one small quantized local instruction model on one CPU-oriented machine and does not establish general model capability or safety. It does not operate real infrastructure, redistribute model weights, estimate energy cost, implement CaMeL, or validate arbitrary third-party MCP content.
