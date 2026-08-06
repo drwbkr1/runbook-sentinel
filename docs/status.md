@@ -136,3 +136,9 @@ The named-check live API rerun passed all 22 checks. Independent native inspecti
 Held-out CLI and MCP verification passed; MCP reports version 0.0.5 and exposes only list, diagnose/propose, and incident-read tools. Docker Desktop 4.74.0 and Engine 29.4.3 are live, but container packaging remains `defer` because the retained base-image source gate is still failed.
 
 Next eligible action: commit selected attempt 004 and native evidence, then verify an exact no-local-object clean clone before GitHub review.
+
+Candidate commit `bf29abe17576db7458e0706a3f7fda52049cc3a6` passed a no-local-object clone at `C:\Projects\Verification\runbook-sentinel-baseline-0005-bf29abe-20260806221336`. The clean clone passed compilation, 13 tests, 20-file manifest, terminal contract, all five milestone JSON records, selected attempt and manifest identity, unchanged policy and service hashes, model-weight absence, secret-pattern scan, held-out CLI, MCP 2025-11-25, API approval/executor/replay, SQLite, audit, telemetry, and native dashboard receipt.
+
+The clean-clone dashboard was freshly rendered and visually inspected. It matches the authoritative baseline 0005 surface; the only tracked post-verification clone changes are the expected new synthetic incident screenshot and its regenerated native receipt.
+
+Next eligible action: commit the clean-clone receipt, push the verified branch, open GitHub review, verify exact remote scope and mergeability, then verify merged main before release closure.

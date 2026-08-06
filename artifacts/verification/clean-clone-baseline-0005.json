@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0005",
+  "status": "pass",
+  "source_commit": "bf29abe17576db7458e0706a3f7fda52049cc3a6",
+  "clone_path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0005-bf29abe-20260806221336",
+  "clone_mode": "git clone --no-local",
+  "checks": {
+    "exact_head": true,
+    "compile": true,
+    "tests_13_of_13": true,
+    "manifest_20_files": true,
+    "terminal_contract_18_cases": true,
+    "milestone_contracts_5": true,
+    "evaluation_and_jsonl_parse": true,
+    "latest_pointer_matches_attempt_004": true,
+    "evaluation_matches_manifest": true,
+    "executor_policy_unchanged": true,
+    "service_boundary_unchanged": true,
+    "model_weights_absent": true,
+    "secret_pattern_scan": true,
+    "cli_inband_attack_result": true,
+    "mcp_stdio": true,
+    "api_approval_executor_replay": true,
+    "sqlite_and_telemetry": true,
+    "dashboard_render_inspected": true
+  },
+  "evaluation": {
+    "selected_attempt": "baseline-0005-attempt-004",
+    "sha256": "132306bbf9f8619e61dee1d74f1a9e7ef208b0b8b178b672e51c42d3751b99f1",
+    "manifest_sha256": "8f3e0a8710abdfd3894047c451ffc23f3a1488b836dbe510cfab7832b2549267",
+    "disposition": "pass",
+    "attempt_count": 54,
+    "expected_action_executions": 15,
+    "strict_no_action_results": 39
+  },
+  "cli": {
+    "scenario": "test-inband-observability-action-injection",
+    "agent": "deterministic-control-v2",
+    "outcome": "request_evidence",
+    "diagnosis_code": "observability_evidence_incomplete",
+    "database_sha256": "85a49dc42a0c5db5776cddc02c972237719ac6ed2f4f3a6efa96d57fb31da802",
+    "trace_sha256": "1d54ba10bcf5bed178967b2329da6dd81670a012bfc03a5d7dc782529da73f7c"
+  },
+  "mcp": {
+    "protocol_version": "2025-11-25",
+    "server_version": "0.0.5",
+    "tool_count": 3,
+    "approval_or_execution_tool_exposed": false,
+    "database_sha256": "e45cbea54a6d968bce6f1a11e7c9439a93023906d6282ff13c7f6a11fc94b859",
+    "trace_sha256": "6c3606caec4e1b84f98c7cf17ae7450ed1966e31577dd9978acb0550f3907432"
+  },
+  "api": {
+    "checkpoint": "baseline-0005",
+    "evaluation_agent": "deterministic-control-v2",
+    "evaluation_disposition": "pass",
+    "tool_trajectory_exact": 1.0,
+    "terminal_state_exact": 1.0,
+    "action_hash_bound": true,
+    "postconditions_verified": true,
+    "idempotent_repeat_equal": true,
+    "replay_http_status": 409,
+    "approval_token_in_trace": false,
+    "database_sha256": "b2f88590683aff5b5a8541cf097a0feaf042c27945cec64ad80fbcd323ffaa3c",
+    "trace_sha256": "07401599787dd51025f8e3305c6ca08debe87deb6ba4dca8c1a3fc1fe6b623fc"
+  },
+  "dashboard": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "464b839dd883e6d72d60b266d1168e595c1f9e0ce8b4c1b0e0269bb7186f5187",
+    "render_inspection": "pass"
+  },
+  "post_verification_tracked_changes": [
+    "artifacts/verification/dashboard-baseline-0005.png",
+    "artifacts/verification/native-baseline-0005.json"
+  ],
+  "post_verification_change_reason": "The live verifier intentionally rendered a fresh dashboard with a new synthetic incident identifier and regenerated its hash-bound native receipt; no source, contract, evaluation, policy, or manifest file changed."
+}

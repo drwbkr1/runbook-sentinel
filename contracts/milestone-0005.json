@@ -182,14 +182,18 @@
     ],
     "completed_checks": [
       "v0.0.4 local, remote, tag, release, worktree, tests, manifest, Docker daemon, and selected evaluation were verified live",
-      "Current evaluator terminal-state execution coverage is 0 of 15 actionable trials and 0 of 3 action types",
-      "Current schema has 0 expected terminal-state fields across 18 cases",
-      "All three existing actions passed an isolated orientation execution with postconditions, idempotency, replay rejection, and mitigated state"
+      "Pre-change evaluator terminal-state execution coverage was 0 of 15 actionable trials and 0 of 3 action types",
+      "Pre-change schema had 0 expected terminal-state fields across 18 cases",
+      "All three existing actions passed an isolated orientation execution with postconditions, idempotency, replay rejection, and mitigated state",
+      "Schema 1.4, isolated harness, separate graders, and 20-file manifest validated",
+      "Selected attempt 004 passed 54 trials with 15 expected executions, 39 strict no-action results, and pass^3 1.0",
+      "Native CLI, MCP, API, approval, executor, replay, dashboard, persistence, audit, and telemetry passed after one retained failed verifier attempt",
+      "No-local-object clone of bf29abe17576db7458e0706a3f7fda52049cc3a6 passed source, evaluation, and real-surface gates"
     ]
   },
   "handoff": {
-    "current_checkpoint": "public v0.0.4 at e364425d08e8e931b2b2f5a7c6be83651dd4931c",
-    "next_action": "Freeze schema 1.4 exact terminal states and evaluation-only harness trajectories before changing evaluation.py",
+    "current_checkpoint": "verified baseline-0005 candidate bf29abe17576db7458e0706a3f7fda52049cc3a6; public release remains v0.0.4",
+    "next_action": "Commit the clean-clone receipt, then push for GitHub review and verify merged main before v0.0.5 release closure",
     "do_not_carry_forward": [
       "The existing trajectory_exact field as evidence of executed tool correctness",
       "The baseline-0004 report sentence claiming exact terminal-state graders",
