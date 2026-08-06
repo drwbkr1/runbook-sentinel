@@ -212,6 +212,22 @@ def run_evaluation(
                         "decision_document_ids": sorted(decision_document_ids),
                         "evidence_ids": result["evidence_ids"],
                     },
+                    "validated_output": {
+                        "outcome": result["outcome"],
+                        "diagnosis_code": result["diagnosis_code"],
+                        "evidence_ids": result["evidence_ids"],
+                        "missing_evidence": result.get("missing_evidence", []),
+                        "proposal": (
+                            {
+                                "action": proposal["action"],
+                                "capability": proposal["capability"],
+                                "arguments": proposal["arguments"],
+                            }
+                            if proposal
+                            else None
+                        ),
+                        "reason": result["reason"],
+                    },
                 }
                 attempts.append(attempt)
                 latencies.append(result["latency_ms"])

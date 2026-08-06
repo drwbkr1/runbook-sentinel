@@ -158,6 +158,7 @@ class ModelAdapterTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["generation"]["structured_parse_success_rate"], 1.0)
         self.assertEqual(report["gates"]["baseline_disposition"], "remediate")
         self.assertIsNone(report["gates"]["all_exact_control_cases_pass"])
+        self.assertEqual(report["cases"][0]["attempts"][0]["validated_output"]["reason"], content["reason"])
         self.assertTrue(all("tools" not in payload for payload in calls))
         self.assertNotIn(content["reason"], output.with_name("fake-candidate.traces.jsonl").read_text(encoding="utf-8"))
 
