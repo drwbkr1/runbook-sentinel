@@ -4,8 +4,8 @@
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
 - Branch: `main`
 - Completed milestone: `BASELINE-0001`
-- Latest verified checkpoint: `baseline-0001`; candidate commit `c5c78d1` and closure commit `061f0ae` passed native and clean-clone verification
-- Current unit: release-record reconciliation before `BASELINE-0002`
+- Latest verified checkpoint: `baseline-0001`; code, closure, and public release-record commits passed native and clean-clone verification
+- Current unit: publish and verify the `v0.0.1` research-preview tag before `BASELINE-0002`
 - Disposition: baseline `pass`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -28,4 +28,4 @@
 - Clean clone: compilation, tests, manifest, contract, MCP, live API, dashboard render, persistence, and telemetry all pass
 - Container: deferred after three base images failed the source gate
 
-Next eligible action: clean-clone this release record, tag and verify `v0.0.1`, then begin `BASELINE-0002` from `baseline-0001`. Its first measured target is the limited nine-case synthetic scenario and fault corpus.
+Next eligible action: push this verified release record, tag and verify `v0.0.1`, then begin `BASELINE-0002` from `baseline-0001`. Its first measured target is the limited nine-case synthetic scenario and fault corpus.
