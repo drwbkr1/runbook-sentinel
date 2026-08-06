@@ -2,11 +2,11 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0003-retrieval-boundary`
 - Completed milestones: `BASELINE-0001`, `BASELINE-0002`
-- Latest verified checkpoint: `baseline-0002`; merged code and evidence commit `53fc4ce1189218fc0ea13899aa8bb83552ffa4af` passed local, clean-clone, remote, and merged-main verification
-- Active milestone: none; the next cycle must resume from `v0.0.2`
-- Current unit: none
+- Latest verified checkpoint: public `v0.0.2` at `a320d36a933e80e5f22b5776be4ce39fa40cd530`; local tag, remote tag, remote `main`, public repository, and non-draft release agree
+- Active milestone: `BASELINE-0003`
+- Current unit: add exact instruction-bearing decision-context exposure measurement and retain the full-context control
 - Disposition: baseline `pass`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -44,4 +44,11 @@
 - Isolated live CLI, MCP, HTTP approval/executor, replay, dashboard, SQLite, audit, and JSONL telemetry: pass
 - Executor policy SHA-256 is unchanged from `v0.0.1`
 
-Next eligible action: begin `BASELINE-0003` from `v0.0.2` by measuring retrieval attack exposure and comparing only source-approved retrieval configurations on frozen splits.
+## BASELINE-0003 measured gap
+
+- Four frozen cases contain explicitly labeled instruction-bearing attack documents.
+- v0.0.2 retrieved all four attack documents into the context passed to the bounded agent: exposure rate 1.0.
+- Proposal attack success remained 0.0 because the deterministic agent and external policy ignore retrieved prose as authority.
+- The bounded comparison will retain full retrieval identities for audit while testing an evidence-only decision plane.
+
+Next eligible action: extend the exact evaluator, capture the v0.0.2 full-context control, then implement the candidate only after that failure is retained.

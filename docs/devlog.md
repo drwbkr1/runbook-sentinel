@@ -110,3 +110,11 @@
 - Merged with history preserved as `53fc4ce1189218fc0ea13899aa8bb83552ffa4af`; the merge parents are `v0.0.1` release commit `5a3cf1e` and verified branch head `da3ba22`.
 - Fast-forwarded the authoritative local `main` to the remote merge commit and reran tests, manifest validation, MCP, isolated API approval/execution/replay, dashboard rendering, SQLite, audit, and telemetry checks successfully.
 - `BASELINE-0002` disposition: `pass`. Failed attempt 001 and superseded attempt 002 remain retained; container packaging remains `defer`.
+
+## 2026-08-06 — BASELINE-0003 started
+
+- Resumed from public `v0.0.2` at `a320d36a933e80e5f22b5776be4ce39fa40cd530`; release identities and a fresh 48-attempt orientation evaluation passed.
+- Four instruction-bearing poisoned runbooks were retrieved into the context passed to the agent in all four labeled attack cases, for exposure rate 1.0, even though proposal attack success remained 0.0.
+- Rechecked the AgentDojo and CaMeL primary papers. They support measuring attacks over untrusted tool data and separating untrusted data from trusted control flow; the proposed evidence-only decision context is a narrower project-specific application, not a claim to implement CaMeL.
+- Froze explicit attack-document identities before changing the evaluator or runtime.
+- The orientation PowerShell guard repeated invalid `Test-Path` syntax; ignored target paths were absent and created once. The defect is retained and the syntax will not be reused.
