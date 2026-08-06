@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0003",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2 and public GitHub authority retained from the user",
@@ -70,7 +70,7 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
+      "status": "pass",
       "evidence": [
         "The full-context control and evidence-only candidate run on the same frozen attack labels and splits",
         "Instruction-bearing attack-document exposure to the decision plane falls from 1.0 to 0.0",
@@ -147,13 +147,13 @@
       "id": "UNIT-005",
       "purpose": "Commit, review, merge, tag, release, and verify the checkpoint",
       "depends_on": ["UNIT-004"],
-      "status": "in_progress",
+      "status": "complete",
       "human_gate": false,
       "action_class": "github_push",
       "inputs": ["Complete evidence ledger"],
       "outputs": ["baseline-0003 release"],
       "gates": {"public_visibility_already_authorized": true},
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [],
       "next_dependency": "BASELINE-0004 selection"
     }
@@ -189,12 +189,15 @@
       "Complete static gates passed: compilation, seven tests, manifest integrity, all milestone contracts, JSON and JSONL parsing, unchanged executor policy, secret-pattern scan, and Git whitespace",
       "Immutable candidate regression attempt 003 passed all 48 trials with instruction attack document exposure 0.0 and was promoted to the latest-passed pointer",
       "Attempt-003-specific MCP, isolated API, approval, executor, replay, postcondition, dashboard, persistence, audit, and telemetry receipts passed",
-      "Candidate commit 0aa4fc68bfcf208c2f64a3578e54727a55002ef3 passed a no-local-object clean clone at C:\\Projects\\Verification\\runbook-sentinel-baseline-0003-0aa4fc6-20260806160053 with compilation, seven tests, manifest, all contracts, unchanged executor policy, MCP, isolated API, approval, execution, replay, dashboard, persistence, telemetry, JSON, secret, and diff gates"
+      "Candidate commit 0aa4fc68bfcf208c2f64a3578e54727a55002ef3 passed a no-local-object clean clone at C:\\Projects\\Verification\\runbook-sentinel-baseline-0003-0aa4fc6-20260806160053 with compilation, seven tests, manifest, all contracts, unchanged executor policy, MCP, isolated API, approval, execution, replay, dashboard, persistence, telemetry, JSON, secret, and diff gates",
+      "Final branch head c5fc8f5cdb80436af5ebead18a665b6878f8db28 passed an exact no-local-object clean-clone regression",
+      "GitHub pull request 2 matched the verified four-commit, 45-file branch scope, reported CLEAN and MERGEABLE with no required checks, and merged with history preserved as 995dcefb1cef284b936a5b336c4601c54bad2462",
+      "Merged main passed compilation, seven tests, manifest, all contracts, unchanged executor policy, MCP, isolated API, approval, execution, replay, postconditions, rendered dashboard, SQLite, audit, and telemetry verification"
     ]
   },
   "handoff": {
-    "current_checkpoint": "v0.0.2 at a320d36a933e80e5f22b5776be4ce39fa40cd530",
-    "next_action": "Commit the clean-clone receipt, push the candidate branch, and inspect the server-side GitHub pull request",
+    "current_checkpoint": "BASELINE-0003 verified for v0.0.3 closure after merged-main real-surface verification",
+    "next_action": "Tag and release the exact closure commit, reconcile local tag, remote tag, remote main, GitHub release, and rendered public pages, then begin BASELINE-0004 orientation from this checkpoint",
     "do_not_carry_forward": [
       "Zero action attack success as proof of zero prompt-injection exposure",
       "Keyword filtering as a security boundary",

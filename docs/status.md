@@ -2,18 +2,18 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `codex/baseline-0003-retrieval-boundary`
-- Completed milestones: `BASELINE-0001`, `BASELINE-0002`
-- Latest verified checkpoint: public `v0.0.2` at `a320d36a933e80e5f22b5776be4ce39fa40cd530`; local tag, remote tag, remote `main`, public repository, and non-draft release agree
-- Active milestone: `BASELINE-0003`
-- Current unit: GitHub review and publication for candidate `v0.0.3`
+- Branch: `main`
+- Completed milestones: `BASELINE-0001`, `BASELINE-0002`, `BASELINE-0003`
+- Latest verified checkpoint: public `v0.0.3`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
+- Active milestone: none; `BASELINE-0004` orientation is next
+- Current unit: close and release `v0.0.3`, then resume from this verified checkpoint
 - Disposition: baseline `pass`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: verified at public `v0.0.2` closure commit `a320d36a933e80e5f22b5776be4ce39fa40cd530`
-- GitHub pull request: `#1`, merged with history preserved
-- GitHub release: public, non-draft `v0.0.2`
+- GitHub `main`: pull request `#2` merged as `995dcefb1cef284b936a5b336c4601c54bad2462` before the exact closure record
+- GitHub pull request: `#2`, merged with history preserved
+- GitHub release: public, non-draft `v0.0.3`
 - Docker: daemon verified live; container packaging deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none
 - Local Ollama assets: inspected but not approved or used
@@ -30,6 +30,9 @@
 - Latest latency: median 7.391 ms, p95 18.075 ms; no general performance claim
 - Live CLI, MCP stdio, HTTP approval/executor, dashboard, SQLite, audit log, and JSONL telemetry: candidate pass
 - Clean clone: exact commit `0aa4fc68bfcf208c2f64a3578e54727a55002ef3` passed all source, evidence, MCP, API, dashboard, persistence, telemetry, JSON, secret, and diff gates
+- Final branch head `c5fc8f5cdb80436af5ebead18a665b6878f8db28`: exact-clone regression pass
+- GitHub review: pull request `#2`, 4 commits, 45 changed files, `CLEAN`, `MERGEABLE`, no required checks, merged with history preserved
+- Merged main: compilation, 7 tests, manifest, contracts, unchanged policy, MCP, API, approval, executor, replay, postconditions, dashboard, SQLite, audit, and telemetry pass
 - Container: deferred after three base images failed the source gate
 
 ## BASELINE-0002 measured gap
@@ -59,4 +62,4 @@
 - Isolated API, approval, executor, replay, rendered dashboard, SQLite, audit, and telemetry verification: pass.
 - Executor policy SHA-256 is unchanged from `v0.0.2`.
 
-Next eligible action: push the verified candidate branch, inspect its server-side diff and mergeability, and release only after merged-main real-surface verification passes.
+Next eligible action: resume from public `v0.0.3`, inspect its evaluation and traces, and run the BASELINE-0004 local-model source gate before importing or using any model artifact.

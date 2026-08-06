@@ -8,11 +8,11 @@ Establish repository governance, a deterministic SRE environment, bounded contro
 
 Expand the frozen exact suite from 9 to 16 cases, cover all eight declared SRE topology domains, add explicit coverage grading, and close adjacent non-action diagnostic gaps without adding executor capabilities.
 
-## Active checkpoint baseline-0003 — retrieval boundary comparison
+## Completed checkpoint baseline-0003 — retrieval boundary comparison
 
 First compare the accepted full retrieved context with a standard-library evidence-only decision context while retaining full retrieval audit. Measure required evidence recall, exact utility, instruction-bearing attack-document exposure, action attack success, repeated reliability, latency, and cost separately. Dense or hybrid retrieval remains gated on external-source approval.
 
-## Candidate checkpoint baseline-0004 — local model adapter
+## Next checkpoint baseline-0004 — local model adapter
 
 After artifact identity, license, integrity, and fitness review, add a provider-neutral local model adapter. Keep the deterministic control as a retained baseline. Evaluate structured generation, attack success, policy compliance, repeated reliability, latency, and cost separately.
 

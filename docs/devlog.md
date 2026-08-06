@@ -147,3 +147,11 @@
 - Created candidate commit `0aa4fc68bfcf208c2f64a3578e54727a55002ef3` and cloned it without local object sharing to `C:\Projects\Verification\runbook-sentinel-baseline-0003-0aa4fc6-20260806160053`.
 - The exact commit passed compilation, seven tests, frozen-manifest integrity, all three milestone contracts, unchanged executor-policy identity, MCP negotiation, isolated API approval/execution/replay, rendered dashboard, SQLite, audit, telemetry, JSON and JSONL parsing, secret-pattern scanning, and diff checks.
 - The live verifier changed only the clone's living dashboard and runtime-receipt pointers, as expected. GitHub review, merged-main verification, tag, and release remain pending.
+
+### GitHub review and merged-main verification
+
+- Pushed final branch head `c5fc8f5cdb80436af5ebead18a665b6878f8db28`; the remote branch matched exactly and passed a no-local-object exact-head regression.
+- Opened pull request `#2` as a draft, inspected its server-side four-commit and 45-file scope, confirmed `CLEAN`, `MERGEABLE`, and no required checks, then marked it ready.
+- Merged with history preserved as `995dcefb1cef284b936a5b336c4601c54bad2462` and fast-forwarded the authoritative local `main` to the exact remote commit.
+- Merged main passed compilation, seven tests, manifest integrity, all contracts, unchanged executor policy, MCP, isolated API approval/execution/replay, postconditions, rendered dashboard, SQLite, audit, and telemetry checks.
+- Preserved merged-main dashboard and runtime receipts. The exact closure commit is eligible for the `v0.0.3` tag and public release.
