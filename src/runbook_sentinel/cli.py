@@ -38,7 +38,7 @@ def main(argv: list[str] | None = None) -> None:
     execute_parser.add_argument("--trace", default="var/traces.jsonl")
 
     evaluate_parser = subparsers.add_parser("evaluate")
-    evaluate_parser.add_argument("--output", default="artifacts/evaluations/runs/baseline-0005-manual.json")
+    evaluate_parser.add_argument("--output", default="artifacts/evaluations/runs/baseline-0006-manual.json")
     evaluate_parser.add_argument("--trials", type=int, default=3)
     evaluate_parser.add_argument(
         "--agent-configuration",

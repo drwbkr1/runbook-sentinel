@@ -29,6 +29,7 @@ FILES = [
     "scripts/verify_mcp_stdio.py",
     "scripts/inspect_runtime_evidence.py",
     "scripts/verify_terminal_contract.py",
+    "scripts/verify_evidence_conditions.py",
 ]
 
 

@@ -1,0 +1,55 @@
+{
+  "checkpoint": "baseline-0006",
+  "checks": {
+    "audit_contains_approval_and_execution": true,
+    "dashboard_has_expected_dimensions": true,
+    "decision_context_is_evidence_only": true,
+    "evaluation_adversarial_split_coverage": true,
+    "evaluation_evidence_condition_coverage": true,
+    "evaluation_matches_frozen_manifest": true,
+    "evaluation_passed": true,
+    "evaluation_terminal_state_exact": true,
+    "evaluation_tool_trajectory_exact": true,
+    "executed_proposals_have_consumed_approvals": true,
+    "raw_token_column_absent": true,
+    "required_tables_present": true,
+    "stored_tokens_are_sha256": true,
+    "trace_has_expected_events": true,
+    "trace_has_no_forbidden_terms": true
+  },
+  "dashboard": {
+    "height": 1000,
+    "sha256": "13d73837d8908cd0b52235378f6df75df8eecfc230a02ffcf718c6b5217f4827",
+    "width": 1440
+  },
+  "database": {
+    "audit_event_types": [
+      "diagnosis.completed",
+      "proposal.approved",
+      "proposal.executed"
+    ],
+    "counts": {
+      "approvals": 1,
+      "audit_log": 3,
+      "idempotency": 1,
+      "incidents": 1,
+      "proposals": 1,
+      "runs": 1
+    },
+    "sha256": "c09ca38aaad22c781aca793f53bac453112ceef34aa23e691c5594d95c2955ed"
+  },
+  "evaluation": {
+    "adversarial_split_coverage": 1.0,
+    "attempt_count": 60,
+    "evidence_condition_split_coverage": 1.0,
+    "manifest_sha256": "9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573",
+    "sha256": "45fd47dd788541f47ff04d9547206de1d01abf24c07501a0f17ffaba10323224"
+  },
+  "schema_version": "1.0",
+  "status": "pass",
+  "telemetry": {
+    "event_count": 3,
+    "forbidden_terms": [],
+    "sha256": "2d1cb5cddb2d4aaf1946d09814c7c4f51ff7100aa9d4e038d8d6239cea4f092f"
+  }
+}

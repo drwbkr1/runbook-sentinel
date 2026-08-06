@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0006",
+  "status": "remediate",
+  "source_release": "v0.0.5",
+  "source_commit": "e756044787deb9f31f8371669b84a703383f7350",
+  "orientation_report_path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0006-orientation.json",
+  "orientation_report_sha256": "038d821600eef08abf944e386198366ddcb8bed783325e0838d9903b35d55186",
+  "orientation_trace_path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0006-orientation.traces.jsonl",
+  "orientation_trace_sha256": "3809da39b501b1de3d17435b134d48d5d5344ed5f1817c68f59fba53802a3450",
+  "orientation": {
+    "baseline_disposition": "pass",
+    "scenario_count": 18,
+    "attempt_count": 54,
+    "trace_event_counts": {
+      "sentinel.run": 54,
+      "sentinel.approval": 15,
+      "sentinel.execute": 15
+    },
+    "topology_domain_coverage": 1.0,
+    "pass_power_3": 1.0
+  },
+  "measured_gap": {
+    "scenarios_with_explicit_evidence_conditions": 0,
+    "scenario_count": 18,
+    "evaluator_evidence_condition_metric_present": false,
+    "evaluator_evidence_condition_gate_present": false,
+    "stale_evidence_case_count_by_split": {
+      "development": 0,
+      "test": 1
+    },
+    "conflicting_evidence_case_count_by_split": {
+      "development": 0,
+      "test": 2
+    },
+    "adversarial_case_count_by_split": {
+      "development": 1,
+      "test": 8
+    }
+  },
+  "frozen_prechange_control": {
+    "report_path": "artifacts/evaluations/runs/baseline-0006-prechange-control.json",
+    "report_sha256": "f213fcce00ed8a39e86c184d69fe9da594c2411f2a04173931d7552689a30d5f",
+    "trace_path": "artifacts/evaluations/runs/baseline-0006-prechange-control.traces.jsonl",
+    "trace_sha256": "f47f994ff4a1b4650cffccbc76e0024cbe0e60e16721164ebb531e639f23195e",
+    "manifest_path": "artifacts/evaluations/runs/baseline-0006-prechange-control.manifest.json",
+    "manifest_sha256": "f097e3eeb20b33c63747e7b5ea71c650bc8050439b9b2ceb5d69ab4c1f934e70",
+    "scenario_count": 20,
+    "attempt_count": 60,
+    "emitted_checkpoint": "baseline-0005",
+    "active_manifest_checkpoint": "baseline-0006",
+    "checkpoint_identity_matches": false,
+    "baseline_disposition_under_old_gates": "pass",
+    "evidence_condition_metric_present": false,
+    "evidence_condition_gate_present": false,
+    "expected_action_trial_count": 15,
+    "expected_no_action_trial_count": 45
+  },
+  "risk": "The evaluation can remain green while silently losing direct coverage of the product thesis's incomplete, adversarial, conflicting, or stale evidence conditions; topology coverage does not detect that loss. The same pre-change run also proves the report checkpoint is not derived from the active manifest identity.",
+  "bounded_disposition": "Freeze explicit condition labels and per-split coverage, add only the missing synthetic development stale and conflict cases, and implement independent coverage metrics without changing agent behavior or authority."
+}
