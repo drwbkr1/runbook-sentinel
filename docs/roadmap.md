@@ -18,7 +18,7 @@ The exact Ollama 0.32.5 and Llama 3.2 3B Instruct Q4_K_M local artifacts passed 
 
 ## Active checkpoint baseline-0005 — exact terminal-state grading
 
-Replace the generation-proxy tool-trajectory score with isolated synthetic approval/execution trajectories and exact frozen terminal-state grading. Cover all three existing actions, prove no mutation on non-action cases, grade postconditions, idempotency and replay separately, and keep all approval material outside the agent and model.
+The frozen 54-trial evaluation now replaces the generation-proxy tool-trajectory score with isolated synthetic approval/execution trajectories and exact terminal-state grading. Attempt 001 passed all development, held-out test, policy, terminal attack, approval-boundary, action-coverage, no-mutation, postcondition, idempotency, replay, audit, trace, and `pass^3` gates. Release-surface and clean-clone verification remain active; approval material remains outside the agent and model.
 
 ## Research preview v0.1.0
 
