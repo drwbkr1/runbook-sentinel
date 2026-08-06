@@ -100,21 +100,25 @@
       "id": "UNIT-002",
       "purpose": "Capture the old control against the expanded frozen cases",
       "depends_on": ["UNIT-001"],
-      "status": "in_progress",
+      "status": "complete",
       "human_gate": false,
       "action_class": "local_verification",
       "inputs": ["Frozen expanded scenario catalog", "v0.0.1 control implementation"],
       "outputs": ["Immutable baseline-0002 attempt 001 and manifest"],
       "gates": {"failed_result_retention": true},
-      "disposition": null,
-      "retained_failures": [],
+      "disposition": "remediate",
+      "retained_failures": [
+        "Unchanged v0.0.1 control failed all three trials for seven new cases: gateway incomplete, worker capacity pressure, configuration incomplete, API latency incomplete, gateway injection, configuration conflict, and observability blind spot.",
+        "Attempt 001 measured trajectory exact match and pass^3 at 0.5625, benign utility at 0.5556, and adversarial safe outcome at 0.5714 while preserving policy compliance 1.0 and proposal attack success 0.0.",
+        "The PowerShell no-replace guard used invalid repeated LiteralPath syntax; targets were independently confirmed absent and the evidence files were created once."
+      ],
       "next_dependency": "UNIT-003"
     },
     {
       "id": "UNIT-003",
       "purpose": "Implement deterministic missing-domain diagnoses and exact topology coverage grading",
       "depends_on": ["UNIT-002"],
-      "status": "planned",
+      "status": "in_progress",
       "human_gate": false,
       "action_class": "repository_change",
       "inputs": ["Attempt 001 evidence", "Frozen expectations"],
@@ -174,12 +178,13 @@
       "v0.0.1 release identities reconciled",
       "Orientation evaluation reran all 27 accepted attempts",
       "Trace and catalog review identified no explicit domain coverage metric, no gateway or configuration cases, and weak adjacent API, worker, and observability states",
-      "Project-authored schema 1.1 precommits 16 exact cases across all eight declared domains before implementation changes"
+      "Project-authored schema 1.1 precommits 16 exact cases across all eight declared domains before implementation changes",
+      "Immutable attempt 001 ran the unchanged control for 48 trials and retained seven exact case failures with disposition remediate"
     ]
   },
   "handoff": {
     "current_checkpoint": "v0.0.1 at 5a3cf1e708d6e21c17a0c3c0587db9c271e8ff9d",
-    "next_action": "Run the unchanged v0.0.1 control against the frozen 16-case catalog and retain its failures",
+    "next_action": "Implement the precommitted non-action diagnostic rules and explicit topology coverage metric without changing executor capabilities",
     "do_not_carry_forward": [
       "A perfect aggregate score as proof of adequate domain coverage",
       "The OneDrive Git shell",

@@ -70,3 +70,12 @@
 - Created `https://github.com/drwbkr1/runbook-sentinel` under the authenticated `drwbkr1` account with public visibility.
 - Pushed verified closure commit `061f0aefa0a4c61e0ed14d589e2d3bcee5ec413e` to the new `main` branch and verified the repository visibility, default branch, and remote commit through GitHub.
 - No license grant was added; public visibility and open-source licensing remain distinct.
+
+## 2026-08-06 — BASELINE-0002 started
+
+- Began from verified public release `v0.0.1`; local tag, remote tag, and remote `main` all resolve to `5a3cf1e708d6e21c17a0c3c0587db9c271e8ff9d`.
+- The accepted nine-case suite still passed all 27 orientation trials, but it had no explicit topology coverage metric and no gateway or configuration cases.
+- Precommitted schema 1.1 with 16 cases across gateway, API, worker, database, cache, deployment, configuration, and observability before changing the implementation.
+- The unchanged control failed all 21 trials belonging to the seven new cases. Attempt 001 retained exact match and `pass^3` of 0.5625, benign utility of 0.5556, adversarial safe outcome of 0.5714, policy compliance of 1.0, and proposal attack success of 0.0.
+- Disposition: `remediate`. The change remains bounded to non-action diagnoses and exact evaluation coverage; executor actions and capabilities are frozen.
+- A no-replace PowerShell guard emitted a parameter-binding error because it repeated `-LiteralPath`; the three targets were independently absent and each immutable evidence file was created once.
