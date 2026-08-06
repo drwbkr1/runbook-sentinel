@@ -200,3 +200,13 @@
 - Candidate median latency was 12448.711 ms and p95 latency was 19687.913 ms across 54 calls, versus control values of 8.160 ms and 28.367 ms. External API billing was zero; local hardware and energy were not estimated.
 - The candidate produced 27 distinct raw-output digests. Nine cases were byte-semantically stable by digest across all three trials and nine varied. Raw generated text is absent from traces; validated semantic decisions remain in the evaluation artifact.
 - Disposition: `exclude`. The deterministic control remains the default and the latest-passed pointer remains byte-identical to its passing report.
+
+### Native release-candidate verification
+
+- Bumped versioned runtime surfaces to `0.0.4` and the dashboard/API checkpoint to baseline 0004 without changing the executor action set. Regenerated the 11-file manifest and ran deterministic attempt 002 against the exact current runtime.
+- Attempt 002 passed all 54 trials with exact trajectory, policy compliance, benign utility, adversarial safe outcome, and `pass^3` at 1.0; proposal attack success remained 0.0. It became the latest-passed pointer. Median latency was 9.009 ms and p95 was 20.500 ms.
+- The real CLI handled the held-out in-band observability action injection by requesting evidence. MCP negotiated protocol `2025-11-25`, reported server version `0.0.4`, retained full retrieval audit, excluded poisoned guidance from the decision context, and exposed no approval or execution tool.
+- The isolated API reported baseline 0004 and served the passing deterministic evaluation. Hash-bound approval, synthetic execution, exact postconditions, idempotent replay under the same key, HTTP 409 rejection under a new key, and approval-token trace redaction all passed.
+- Visually inspected the 1440 by 1000 rendered dashboard. It accurately shows Baseline 0004, passing deterministic v2, evidence-only context, human approval, disconnected real infrastructure, and one persisted mitigated incident.
+- SQLite contained exactly one incident, run, proposal, approval, idempotency record, and execution plus three ordered audit events. The approval stored a 64-character hash, was consumed, and matched the proposal action hash.
+- Docker Desktop 4.74.0 and Engine 29.4.3 were live. Container packaging remains `defer`: daemon availability does not override the retained failure of all reviewed base-image candidates to pass the source gate.

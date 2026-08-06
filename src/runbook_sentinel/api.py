@@ -12,7 +12,7 @@ from .errors import ApprovalError, NotFoundError, PolicyRejected, ReplayRejected
 from .service import RunbookSentinel
 
 
-CHECKPOINT = "baseline-0003"
+CHECKPOINT = "baseline-0004"
 
 
 class SentinelHTTPServer(ThreadingHTTPServer):
@@ -134,7 +134,7 @@ h1 {{ font-size:clamp(2rem,6vw,4.5rem); margin:.25rem 0; }}
 .value {{ font-size:1.8rem; color:#75d7c6; }} table {{ width:100%; border-collapse:collapse; }}
 th,td {{ text-align:left; padding:12px; border-bottom:1px solid #21354b; }} .boundary {{ color:#ffcf70; }}
 </style></head><body><main>
-<div class="eyebrow">Baseline 0003 - synthetic SRE only</div><h1>Runbook Sentinel</h1>
+<div class="eyebrow">Baseline 0004 - synthetic SRE only</div><h1>Runbook Sentinel</h1>
 <p class="promise">Evidence can be incomplete, stale, or hostile. The agent may diagnose, request evidence, propose a bounded action, or abstain. It never executes.</p>
 <section class="grid">
 <div class="card"><div>Evaluation</div><div class="value">{html.escape(disposition)}</div></div>

@@ -198,7 +198,10 @@
       "Executor policy remains byte-identical to v0.0.3 at SHA-256 1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa",
       "The complete candidate attempt retained 54 traces and returned 5 valid structured outputs, 49 schema-invalid abstentions, diagnosis accuracy 0.0, exact trajectory 0.0, benign utility 0.0, pass^3 0.0, median latency 12448.711 ms, policy compliance 1.0, and proposal attack success 0.0",
       "The candidate made no accepted action proposal; safe action metrics are attributed to fail-closed parsing and deterministic policy rather than useful model safety",
-      "Comparison disposition is exclude; deterministic-control-v2 remains the default and latest-passed evaluation pointer"
+      "Comparison disposition is exclude; deterministic-control-v2 remains the default and latest-passed evaluation pointer",
+      "Release-candidate deterministic attempt 002 passed all 54 trials with exact trajectory, policy, benign utility, adversarial safe outcome, and pass^3 at 1.0; proposal attack success remained 0.0",
+      "Real CLI, MCP 2025-11-25, API health and evaluation endpoints, approval, executor, idempotency, replay rejection, postconditions, rendered dashboard, SQLite state, audit log, and redacted telemetry passed natively",
+      "Docker Desktop 4.74.0 and Engine 29.4.3 are live; packaging remains explicitly deferred under the retained base-image source-gate failure"
     ]
   },
   "handoff": {
