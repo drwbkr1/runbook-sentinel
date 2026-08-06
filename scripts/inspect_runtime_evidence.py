@@ -19,11 +19,11 @@ def sha256(path: Path) -> str:
 
 
 def main() -> None:
-    database = ROOT / "var/live-api-baseline-0005.db"
-    trace = ROOT / "artifacts/runtime/live-api-baseline-0005-traces.jsonl"
+    database = ROOT / "var/live-api-baseline-0006.db"
+    trace = ROOT / "artifacts/runtime/live-api-baseline-0006-traces.jsonl"
     evaluation = ROOT / "artifacts/evaluations/latest.json"
     manifest = ROOT / "eval/manifest.json"
-    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0005.png"
+    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0006.png"
     required = [database, trace, evaluation, manifest, screenshot]
     missing = [str(path) for path in required if not path.exists()]
     if missing:
@@ -75,6 +75,8 @@ def main() -> None:
         "evaluation_passed": latest["gates"]["baseline_disposition"] == "pass",
         "evaluation_tool_trajectory_exact": latest["metrics"]["tool_trajectory"]["exact_match"] == 1.0,
         "evaluation_terminal_state_exact": latest["metrics"]["terminal_state"]["exact_match_rate"] == 1.0,
+        "evaluation_evidence_condition_coverage": latest["metrics"]["coverage"]["evidence_condition_split_coverage"] == 1.0,
+        "evaluation_adversarial_split_coverage": latest["metrics"]["coverage"]["adversarial_split_coverage"] == 1.0,
         "evaluation_matches_frozen_manifest": latest["manifest_sha256"] == sha256(manifest),
         "dashboard_has_expected_dimensions": (width, height) == (1440, 1000),
     }
@@ -85,10 +87,16 @@ def main() -> None:
         "checks": checks,
         "database": {"sha256": sha256(database), "counts": counts, "audit_event_types": audit_types},
         "telemetry": {"sha256": sha256(trace), "event_count": len(trace_events), "forbidden_terms": forbidden_trace_terms},
-        "evaluation": {"sha256": sha256(evaluation), "manifest_sha256": latest["manifest_sha256"], "attempt_count": latest["attempt_count"]},
+        "evaluation": {
+            "sha256": sha256(evaluation),
+            "manifest_sha256": latest["manifest_sha256"],
+            "attempt_count": latest["attempt_count"],
+            "evidence_condition_split_coverage": latest["metrics"]["coverage"]["evidence_condition_split_coverage"],
+            "adversarial_split_coverage": latest["metrics"]["coverage"]["adversarial_split_coverage"],
+        },
         "dashboard": {"sha256": sha256(screenshot), "width": width, "height": height},
     }
-    output = ROOT / "artifacts/verification/native-baseline-0005.json"
+    output = ROOT / "artifacts/verification/native-baseline-0006.json"
     output.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(receipt, indent=2, sort_keys=True))
     if receipt["status"] != "pass":

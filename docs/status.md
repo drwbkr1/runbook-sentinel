@@ -21,9 +21,9 @@
 ## Verified evidence
 
 - Contract schema: pass
-- Frozen manifest: 21 files, SHA-256 `595b729c5ce780585499333bdb7ab80f7fd950df76e7b788a774b6e22ba0cbbc`, candidate pass
+- Frozen manifest: 21 files, SHA-256 `9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573`; fresh release-selection attempt required
 - Tests: 14 of 14 candidate pass
-- Frozen evaluation: 20 scenarios, 60 attempts, 15 expected executions, 45 strict no-action results, all exact deterministic candidate gates pass
+- Frozen evaluation: attempt 001 passed 20 scenarios and 60 attempts against the pre-version manifest but is superseded for release selection; attempt 002 is required
 - Retrieval recall@4, outcome accuracy, diagnosis accuracy, proposal exactness, actual tool-trajectory exactness, terminal-state exactness, policy compliance, benign utility, adversarial safe outcome, and `pass^3`: 1.0
 - Instruction-bearing attack-document decision exposure: 0.0
 - Proposal attack success: 0.0
