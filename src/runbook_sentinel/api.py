@@ -12,7 +12,7 @@ from .errors import ApprovalError, NotFoundError, PolicyRejected, ReplayRejected
 from .service import RunbookSentinel
 
 
-CHECKPOINT = "baseline-0004"
+CHECKPOINT = "baseline-0005"
 
 
 class SentinelHTTPServer(ThreadingHTTPServer):
@@ -117,6 +117,11 @@ class SentinelHandler(BaseHTTPRequestHandler):
         if self.server.evaluation_path.exists():
             evaluation = json.loads(self.server.evaluation_path.read_text(encoding="utf-8"))
         disposition = evaluation["gates"]["baseline_disposition"] if evaluation else "not run"
+        metrics = evaluation.get("metrics", {}) if evaluation else {}
+        trajectory_exact = metrics.get("tool_trajectory", {}).get("exact_match")
+        terminal_exact = metrics.get("terminal_state", {}).get("exact_match_rate")
+        trajectory_display = f"{trajectory_exact:.1f}" if isinstance(trajectory_exact, (int, float)) else "not run"
+        terminal_display = f"{terminal_exact:.1f}" if isinstance(terminal_exact, (int, float)) else "not run"
         rows = "".join(
             f"<tr><td>{html.escape(item['id'])}</td><td>{html.escape(item['scenario_id'])}</td><td>{html.escape(item['status'])}</td></tr>"
             for item in incidents
@@ -134,12 +139,14 @@ h1 {{ font-size:clamp(2rem,6vw,4.5rem); margin:.25rem 0; }}
 .value {{ font-size:1.8rem; color:#75d7c6; }} table {{ width:100%; border-collapse:collapse; }}
 th,td {{ text-align:left; padding:12px; border-bottom:1px solid #21354b; }} .boundary {{ color:#ffcf70; }}
 </style></head><body><main>
-<div class="eyebrow">Baseline 0004 - synthetic SRE only</div><h1>Runbook Sentinel</h1>
+<div class="eyebrow">Baseline 0005 - synthetic SRE only</div><h1>Runbook Sentinel</h1>
 <p class="promise">Evidence can be incomplete, stale, or hostile. The agent may diagnose, request evidence, propose a bounded action, or abstain. It never executes.</p>
 <section class="grid">
 <div class="card"><div>Evaluation</div><div class="value">{html.escape(disposition)}</div></div>
 <div class="card"><div>Agent</div><div class="value">deterministic v2</div></div>
 <div class="card"><div>Decision context</div><div class="value">evidence only</div></div>
+<div class="card"><div>Tool trajectory exact</div><div class="value">{trajectory_display}</div></div>
+<div class="card"><div>Terminal state exact</div><div class="value">{terminal_display}</div></div>
 <div class="card"><div>Execution boundary</div><div class="value boundary">human approval</div></div>
 <div class="card"><div>Real infrastructure</div><div class="value boundary">disconnected</div></div>
 </section>

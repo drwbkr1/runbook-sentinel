@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0005",
+  "attempt": 1,
+  "status": "fail",
+  "failure_class": "verifier_aggregate_boolean_false",
+  "interpretation": "The synthetic API workflow completed successfully and all printed evidence fields were favorable, but the unnamed aggregate check returned false. This is not a passing receipt and was preserved before rerun.",
+  "surface_evidence": {
+    "health": "ok",
+    "checkpoint": "baseline-0005",
+    "outcome": "propose_action",
+    "proposed_action": "restart_worker",
+    "action_hash_bound": true,
+    "execution_status": "executed",
+    "postconditions_verified": true,
+    "worker_healthy": true,
+    "restart_count": 1,
+    "idempotent_repeat_equal": true,
+    "replay_http_status": 409,
+    "approval_token_in_trace": false,
+    "evaluation_disposition": "pass",
+    "evaluation_tool_trajectory_exact": 1.0,
+    "evaluation_terminal_state_exact": 1.0,
+    "dashboard_http_status": 200,
+    "dashboard_baseline_0005": true,
+    "dashboard_terminal_metric": true
+  },
+  "artifacts": {
+    "database_copy": {
+      "path": "var/live-api-baseline-0005-attempt-001.db",
+      "sha256": "9b8156140249bcdb7715f2aefa5df6ca2e1a99c3d4154f8d9f42066b028c3a5d"
+    },
+    "trace_copy": {
+      "path": "artifacts/runtime/live-api-baseline-0005-attempt-001-traces.jsonl",
+      "sha256": "9c30674c4f83dd9be44c22297ac249e49e5de2a66f182630e5b183e8917716c7",
+      "event_names": ["sentinel.run", "sentinel.approval", "sentinel.execute"]
+    },
+    "stdout_copy": {
+      "path": "artifacts/runtime/live-api-baseline-0005-attempt-001-stdout.log",
+      "sha256": "286f7755fb62606b297052ac5f13801a02e86602c5bcd0b2a7dc34f4c794c93c"
+    },
+    "stderr_copy": {
+      "path": "artifacts/runtime/live-api-baseline-0005-attempt-001-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "dashboard_copy": {
+      "path": "artifacts/verification/dashboard-baseline-0005-attempt-001.png",
+      "sha256": "37a3cf552e87843c84a7ce9143238d3eceafa253b1a33cd07037c82a2bc8f182",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  "promotion": false
+}

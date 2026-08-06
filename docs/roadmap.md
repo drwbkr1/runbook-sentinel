@@ -16,6 +16,10 @@ First compare the accepted full retrieved context with a standard-library eviden
 
 The exact Ollama 0.32.5 and Llama 3.2 3B Instruct Q4_K_M local artifacts passed identity, license, acceptable-use, integrity, fitness, privacy, and security review for synthetic-only evaluation. The typed loopback-only candidate completed its frozen comparison and was excluded: exact trajectory and `pass^3` were 0.0, with 5 valid parses in 54 attempts. The adapter remains research infrastructure and the deterministic control remains the default.
 
+## Active checkpoint baseline-0005 — exact terminal-state grading
+
+The frozen 54-trial evaluation now replaces the generation-proxy tool-trajectory score with isolated synthetic approval/execution trajectories and exact terminal-state grading. Attempt 001 passed all development, held-out test, policy, terminal attack, approval-boundary, action-coverage, no-mutation, postcondition, idempotency, replay, audit, trace, and `pass^3` gates. Release-surface and clean-clone verification remain active; approval material remains outside the agent and model.
+
 ## Research preview v0.1.0
 
 Expand to at least 48 frozen cases across the approved SRE topology, meet precommitted security and utility gates, verify all real surfaces, and release only with a reconciled evaluation report and explicit repository visibility decision.

@@ -19,11 +19,11 @@ def sha256(path: Path) -> str:
 
 
 def main() -> None:
-    database = ROOT / "var/live-api.db"
-    trace = ROOT / "artifacts/runtime/live-api-traces.jsonl"
+    database = ROOT / "var/live-api-baseline-0005.db"
+    trace = ROOT / "artifacts/runtime/live-api-baseline-0005-traces.jsonl"
     evaluation = ROOT / "artifacts/evaluations/latest.json"
     manifest = ROOT / "eval/manifest.json"
-    screenshot = ROOT / "artifacts/verification/dashboard.png"
+    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0005.png"
     required = [database, trace, evaluation, manifest, screenshot]
     missing = [str(path) for path in required if not path.exists()]
     if missing:
@@ -73,6 +73,8 @@ def main() -> None:
             for event in run_trace_events
         ),
         "evaluation_passed": latest["gates"]["baseline_disposition"] == "pass",
+        "evaluation_tool_trajectory_exact": latest["metrics"]["tool_trajectory"]["exact_match"] == 1.0,
+        "evaluation_terminal_state_exact": latest["metrics"]["terminal_state"]["exact_match_rate"] == 1.0,
         "evaluation_matches_frozen_manifest": latest["manifest_sha256"] == sha256(manifest),
         "dashboard_has_expected_dimensions": (width, height) == (1440, 1000),
     }
@@ -86,7 +88,7 @@ def main() -> None:
         "evaluation": {"sha256": sha256(evaluation), "manifest_sha256": latest["manifest_sha256"], "attempt_count": latest["attempt_count"]},
         "dashboard": {"sha256": sha256(screenshot), "width": width, "height": height},
     }
-    output = ROOT / "artifacts/verification/native-baseline.json"
+    output = ROOT / "artifacts/verification/native-baseline-0005.json"
     output.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(receipt, indent=2, sort_keys=True))
     if receipt["status"] != "pass":

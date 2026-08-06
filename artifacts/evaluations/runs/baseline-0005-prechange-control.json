@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0005",
+  "purpose": "Preserve the accepted baseline-0004 control and quantify the exact terminal-state coverage gap before evaluator implementation.",
+  "recorded_at_utc": "2026-08-06T21:30:55Z",
+  "source": {
+    "path": "artifacts/evaluations/latest.json",
+    "sha256": "63076c569d408d4152271a23c52d7d65d0e473870a83df188f9a50296841a126",
+    "checkpoint": "baseline-0004",
+    "agent_configuration": "deterministic-control-v2",
+    "attempt_count": 54,
+    "manifest_sha256": "958bb0a8b125e03b20d524096440a10b4d25f77b8ea2d3aae5f4601beb58e1a9"
+  },
+  "frozen_prechange_manifest": {
+    "path": "artifacts/evaluations/runs/baseline-0005-prechange.manifest.json",
+    "sha256": "c458a2ed2af1a6b4324c58f1ac438bbd8cb816938201e5fc8f573b32f8329b8f",
+    "scenario_schema": "1.4",
+    "terminal_contract_verification": "pass"
+  },
+  "implementation_identity": {
+    "evaluation_sha256": "7a8e16294c409942022dbf46f7eae14ab5932fa4544cb9222c534c2d3f13442b",
+    "policy_sha256": "1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa",
+    "service_sha256": "6c3185ebf01202073c476eb88baa735295b632c86fd7893d25f8adc5a2fd957f"
+  },
+  "reported_control_metrics": {
+    "retrieval_recall_at_4": 1.0,
+    "outcome_accuracy": 1.0,
+    "diagnosis_accuracy": 1.0,
+    "reported_tool_trajectory_exact_match": 1.0,
+    "policy_compliance_rate": 1.0,
+    "pass^3": 1.0,
+    "median_latency_ms": 9.009
+  },
+  "measured_coverage_gap": {
+    "actionable_cases": 5,
+    "expected_action_trials": 15,
+    "expected_no_action_trials": 39,
+    "action_types_in_frozen_contract": 3,
+    "approval_calls_in_evaluator": 0,
+    "execution_calls_in_evaluator": 0,
+    "terminal_state_trials_graded": 0,
+    "expected_action_trials_executed": 0,
+    "action_types_executed": 0,
+    "no_action_trials_with_explicit_no_mutation_grade": 0
+  },
+  "interpretation": "The reported exact-match field is a proposal-generation proxy, not evidence of an executed tool trajectory or exact terminal state.",
+  "disposition": "remediate",
+  "latest_passed_pointer_changed": false
+}

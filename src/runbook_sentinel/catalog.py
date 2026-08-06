@@ -4,9 +4,13 @@ import json
 from importlib.resources import files
 
 
-def load_scenarios() -> list[dict]:
+def load_catalog() -> dict:
     data_path = files("runbook_sentinel").joinpath("data/scenarios.json")
-    return json.loads(data_path.read_text(encoding="utf-8"))["scenarios"]
+    return json.loads(data_path.read_text(encoding="utf-8"))
+
+
+def load_scenarios() -> list[dict]:
+    return load_catalog()["scenarios"]
 
 
 def scenario_by_id(scenario_id: str) -> dict:

@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0005",
+  "observed_at_utc": "2026-08-06T21:19:24Z",
+  "source_checkpoint": {
+    "version": "v0.0.4",
+    "commit": "e364425d08e8e931b2b2f5a7c6be83651dd4931c",
+    "release_url": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.4",
+    "latest_evaluation_sha256": "63076c569d408d4152271a23c52d7d65d0e473870a83df188f9a50296841a126",
+    "manifest_sha256": "958bb0a8b125e03b20d524096440a10b4d25f77b8ea2d3aae5f4601beb58e1a9"
+  },
+  "frozen_suite": {
+    "scenario_count": 18,
+    "attempt_count": 54,
+    "trials_per_case": 3,
+    "actionable_case_count": 5,
+    "actionable_attempt_count": 15,
+    "no_action_case_count": 13,
+    "no_action_attempt_count": 39,
+    "action_types": ["restart_worker", "rollback_deployment", "warm_cache"]
+  },
+  "observed_gap": {
+    "evaluation_py_sha256": "7a8e16294c409942022dbf46f7eae14ab5932fa4544cb9222c534c2d3f13442b",
+    "scenarios_sha256": "31a7845b1bb185f3fe5b8e8291eb1e9f467d8c00aa2c66b6a1d002a38ffab95c",
+    "service_sha256": "6c3185ebf01202073c476eb88baa735295b632c86fd7893d25f8adc5a2fd957f",
+    "policy_sha256": "1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa",
+    "trajectory_exact_formula": "generation_pass = outcome_pass and diagnosis_pass and action_pass; trajectory_exact = generation_pass",
+    "evaluator_approval_calls": 0,
+    "evaluator_execution_calls": 0,
+    "expected_terminal_state_fields": 0,
+    "actionable_attempts_with_terminal_state_grading": 0,
+    "action_types_with_terminal_state_grading": 0,
+    "report_claim": "Exact terminal-state graders were used",
+    "report_claim_supported": false
+  },
+  "orientation_execution": {
+    "authority_holder": "temporary synthetic orientation harness",
+    "agent_received_approval_material": false,
+    "action_types_executed": 3,
+    "all_postconditions_verified": true,
+    "all_incidents_mitigated": true,
+    "all_same_key_replays_idempotent": true,
+    "all_new_key_replays_rejected": true,
+    "terminal_states": {
+      "restart_worker": {"worker_healthy": true, "restart_count": 1},
+      "rollback_deployment": {"deploy_version": "v1", "stable_version": "v1", "deployment_healthy": true},
+      "warm_cache": {"cache_warm": true}
+    }
+  },
+  "research_basis": {
+    "source": "tau-bench primary paper",
+    "url": "https://arxiv.org/abs/2406.12045",
+    "design_use": "Compare deterministic final database state with an annotated goal state and report repeated-trial reliability separately."
+  },
+  "disposition": "remediate",
+  "next_action": "Freeze expected states and evaluation-harness trajectories before implementing the exact grader."
+}

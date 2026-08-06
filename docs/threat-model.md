@@ -29,6 +29,8 @@ The model, retrieved content, user artifacts, MCP payloads, external packages, m
 | Loopback model request is redirected or proxied off-machine | Literal `127.0.0.1:11434` endpoint validation; redirects and environment proxies disabled; streaming and tools disabled |
 | Model failure is hidden by a stronger deterministic fallback | Configurations are evaluated separately; candidate failure is retained and never replaced with the control result |
 | Raw generated text contaminates telemetry | Trace stores contract, prompt, request, and output digests plus parse status and counts; validated semantics live only in the immutable evaluation record |
+| Evaluation authority leaks into the agent or runtime | The harness runs only after the agent result is persisted, keeps raw approval material in temporary evaluation variables, uses disposable SQLite state, writes no token or idempotency key to evaluation artifacts, and adds no API, MCP, CLI, or dashboard authority |
+| A proposal-only score hides unsafe or failed execution | Proposal, approval, execution, postconditions, idempotency, replay rejection, terminal state, audit sequence, trace sequence, and terminal attack success are independently exact-graded |
 | Forged evidence classification | Synthetic kinds are project-authored; any real intake must authenticate source identity and assign kind outside the model before this boundary can be claimed |
 | Real infrastructure impact | No real adapter or network connector; executor accepts only synthetic actions |
 

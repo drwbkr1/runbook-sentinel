@@ -2,11 +2,11 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0005-terminal-state-grading`
 - Completed milestones: `BASELINE-0001`, `BASELINE-0002`, `BASELINE-0003`, `BASELINE-0004`
 - Latest verified checkpoint: public `v0.0.4`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
-- Active milestone: next checkpoint selection from verified `v0.0.4`
-- Current unit: run the released system and select the highest-leverage measurable reliability or evaluation-coverage weakness
+- Active milestone: `BASELINE-0005`
+- Current unit: freeze exact terminal states, evaluation-harness trajectories, and authority separation before implementation
 - Disposition: baseline `pass`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -30,9 +30,9 @@
 - Latest selected-control latency: median 9.009 ms, p95 20.500 ms; no general performance claim
 - Live CLI, MCP stdio, HTTP approval/executor, dashboard, SQLite, audit log, and JSONL telemetry: candidate pass
 - Clean clone: exact baseline-0004 candidate commit `1b886c5557d311a272997866a715c2f8f815d76e` passed source gate, compilation, 12 tests, manifest, contracts, artifact hashes, unchanged policy, CLI, MCP, API, dashboard render, approval, executor, replay, SQLite, audit, and telemetry checks
-- Final branch head `c5fc8f5cdb80436af5ebead18a665b6878f8db28`: exact-clone regression pass
-- GitHub review: pull request `#2`, 4 commits, 45 changed files, `CLEAN`, `MERGEABLE`, no required checks, merged with history preserved
-- Merged main: compilation, 7 tests, manifest, contracts, unchanged policy, MCP, API, approval, executor, replay, postconditions, dashboard, SQLite, audit, and telemetry pass
+- Final release closure `e364425d08e8e931b2b2f5a7c6be83651dd4931c`: local main, remote main, annotated tag, peeled remote tag, and public release agree
+- GitHub review: pull request `#3`, 9 commits, 45 changed files, `CLEAN`, `MERGEABLE`, no required checks, merged with history preserved
+- Merged main: compilation, 12 tests, manifest, contracts, unchanged policy, MCP, API, approval, executor, replay, postconditions, dashboard, SQLite, audit, and telemetry pass
 - Container: deferred after three base images failed the source gate
 
 ## BASELINE-0002 measured gap
@@ -89,3 +89,56 @@
 - Public `v0.0.4`, remote `main`, local annotated tag, peeled remote tag, public release API, rendered README, and rendered release page agree on the exact release-closure commit.
 
 Next eligible action: begin the next cycle from public `v0.0.4`, run the accepted deterministic system, inspect traces and evaluation coverage, and freeze one bounded measurable improvement.
+
+## BASELINE-0005 measured gap
+
+- The current evaluator assigns `trajectory_exact` directly from outcome, diagnosis, and proposed-action agreement. It performs no approval or execution and does not inspect terminal incident state.
+- Five actionable cases cover all three executor capabilities and 15 repeated trials, but evaluator terminal-state coverage is 0 of 15 trials and 0 of 3 action types. The other 39 trials do not explicitly prove no mutation.
+- No frozen scenario contains an expected terminal-state or exact evaluation-harness trajectory field.
+- A separate temporary harness executed `restart_worker`, `rollback_deployment`, and `warm_cache`; all reached the expected state, verified postconditions, returned the same result under the same idempotency key, rejected a different-key replay, and kept approval material outside the agent result.
+- The baseline-0004 evaluation report's sentence claiming exact terminal-state graders is unsupported. The historical result remains retained, and the living report now identifies the limitation.
+- BASELINE-0005 will let only an isolated evaluation harness hold synthetic approval material. The API, MCP, agent/model, runtime default, action set, and policy boundary remain unchanged.
+
+Schema 1.4 now freezes exact terminal state, incident status, and harness trajectory for all 18 cases. The dedicated validator passes with 5 actionable and 13 no-action cases covering all three existing executor actions. The identical active and retained pre-change manifests have SHA-256 `c458a2ed2af1a6b4324c58f1ac438bbd8cb816938201e5fc8f573b32f8329b8f`.
+
+The retained pre-change control proves the limitation without rewriting baseline-0004: 54 proposal-level trials passed, but the evaluator made 0 approval calls, 0 execution calls, graded 0 terminal states, and explicitly proved no mutation in 0 of 39 no-action trials. Its disposition is `remediate`; the latest-passed pointer remains unchanged.
+
+The isolated harness now invokes the existing approval broker and executor only after the agent result is persisted and only in disposable evaluation state. It separately grades proposal agreement, approval, execution, postconditions, same-key idempotency, different-key replay rejection, exact terminal state and status, no-mutation, audit order, trace order, proposal attacks, and executed terminal attacks.
+
+Thirteen tests pass, including a successful attacker-goal execution and a proposal blocked by deterministic preconditions. A 54-trial implementation smoke reached all 15 expected terminal states across all three action types, kept all 39 no-action trials unchanged, and emitted no approval-token literal in the report or 84 trace events. The final 14-file evaluation manifest SHA-256 is `713361860a9d1896e0ce1375ba8578db3322e920c915340cb0d0382bd8aa1392`; it binds the evaluation driver as well as the evaluator. Executor policy and service hashes remain unchanged.
+
+Next eligible action: commit the evaluator implementation, run immutable repeated evaluation attempts against that exact commit and manifest, preserve their traces, and promote only a passing attempt.
+
+Immutable attempt 001 passed all 54 trials and is now the latest-passed pointer. It executed 15 of 15 expected actions across `restart_worker`, `rollback_deployment`, and `warm_cache`; all 39 no-action trials stayed open and exactly unchanged. Proposal, actual trajectory, terminal state/status, policy, approval, execution, postconditions, idempotency, replay rejection, audit order, trace order, approval boundary, development/test reliability, and `pass^3` gates are all exact passes.
+
+Attempt SHA-256 is `b3079ffcf29b8c6c44ebe0f1fda167cd7ffb6c32f9c15c37eca21b6f7546543e`; its 84-event trace SHA-256 is `9819b78a58ed31e58120b4ac9135b9a3be520a0b78f3ec8f85da383ddb3eb1e5`; its copied manifest matches active SHA-256 `713361860a9d1896e0ce1375ba8578db3322e920c915340cb0d0382bd8aa1392`. `latest.json` is byte-identical to the attempt. End-to-end median and p95 are 56.022 ms and 97.946 ms; diagnosis-only median and p95 are 5.288 ms and 14.148 ms.
+
+Next eligible action: version the bounded checkpoint as `0.0.5`, rerun the accepted evaluation against the versioned surfaces, and verify the real CLI, API, MCP, approval/executor, dashboard, persistence, telemetry, clean clone, and public release.
+
+Versioned package, API health, MCP identity, CLI default, tests, README, and dashboard now identify `0.0.5` / baseline 0005. The dashboard adds visible actual tool-trajectory and terminal-state exactness without adding approval or execution controls. The release-candidate manifest now binds 17 files, including package metadata, package version, CLI, and the evaluation driver; SHA-256 is `c8a4797dbdde2bc53ff9057bd1953bbfda925149b28c8a538f1d155334757310`.
+
+Next eligible action: commit the versioned surfaces, generate immutable attempt 002 against the exact 17-file manifest, and begin native real-surface verification only if it passes.
+
+Immutable attempt 002 passed the 17-file versioned manifest and all 54 trials, with 15/15 executions, 39/39 strict no-action results, all exact gates, median end-to-end latency 58.510 ms, and p95 108.435 ms. Report, trace, and manifest SHA-256 are `b1e3eae0cf0ea8a558a7afc5bec4f82616ff811d81006c6f6c73156d8790a3ba`, `9b8aa00f2aa2619c2fd935f54d7d2184f93d53314a140ddaa8fe70c763cf55a1`, and `c8a4797dbdde2bc53ff9057bd1953bbfda925149b28c8a538f1d155334757310`.
+
+Pre-live review then found that the API, MCP, and runtime-evidence scripts still named baseline 0004 and were outside the manifest. No live receipt was created. Attempt 002 remains a passing immutable result but is superseded for release selection. The corrected verifier scripts are being added to a 20-file manifest; a new immutable attempt is required before live verification.
+
+Immutable attempt 003 passed the first 20-file manifest and all evaluation gates. The held-out CLI and MCP 2025-11-25 surfaces then passed with server version 0.0.5 and no approval or execution tool. Two combined shell invocations were rejected before execution by local command policy; the direct calls succeeded.
+
+Live API attempt 001 executed the real loopback approval/executor path and printed favorable values for health, baseline identity, action-hash binding, postconditions, same-key idempotency, HTTP 409 replay rejection, token redaction, selected evaluation, terminal metrics, CSP, and dashboard content. Its unnamed PowerShell boolean aggregate nevertheless returned failure, so the attempt is retained and not promoted. Database, three-event trace, logs, screenshot, and failure receipt are preserved with SHA-256 evidence.
+
+The verifier now uses named typed checks and emits an explicit pass/fail receipt. Because that script is manifest-bound, the corrected 20-file manifest SHA-256 is `8f3e0a8710abdfd3894047c451ffc23f3a1488b836dbe510cfab7832b2549267`; a fresh immutable evaluation attempt is required before rerunning live verification.
+
+Immutable attempt 004 passed all 54 trials against that corrected 20-file manifest and is now the latest-passed pointer. Report and trace SHA-256 are `132306bbf9f8619e61dee1d74f1a9e7ef208b0b8b178b672e51c42d3751b99f1` and `d6ae7e0d7800b0a64b8063b574504a40102550a10c62d9a2bc2a341fb8c69e87`; median and p95 end-to-end latency are 38.198 ms and 73.236 ms.
+
+The named-check live API rerun passed all 22 checks. Independent native inspection passed required SQLite tables, one consumed hash-only approval, one idempotency record, one executed proposal, three ordered audit events, three redacted trace events, selected evaluation/manifest identity, and dashboard dimensions. The visually inspected dashboard accurately shows baseline 0005, evaluation pass, trajectory exact 1.0, terminal state exact 1.0, human approval, disconnected real infrastructure, and one mitigated incident.
+
+Held-out CLI and MCP verification passed; MCP reports version 0.0.5 and exposes only list, diagnose/propose, and incident-read tools. Docker Desktop 4.74.0 and Engine 29.4.3 are live, but container packaging remains `defer` because the retained base-image source gate is still failed.
+
+Next eligible action: commit selected attempt 004 and native evidence, then verify an exact no-local-object clean clone before GitHub review.
+
+Candidate commit `bf29abe17576db7458e0706a3f7fda52049cc3a6` passed a no-local-object clone at `C:\Projects\Verification\runbook-sentinel-baseline-0005-bf29abe-20260806221336`. The clean clone passed compilation, 13 tests, 20-file manifest, terminal contract, all five milestone JSON records, selected attempt and manifest identity, unchanged policy and service hashes, model-weight absence, secret-pattern scan, held-out CLI, MCP 2025-11-25, API approval/executor/replay, SQLite, audit, telemetry, and native dashboard receipt.
+
+The clean-clone dashboard was freshly rendered and visually inspected. It matches the authoritative baseline 0005 surface; the only tracked post-verification clone changes are the expected new synthetic incident screenshot and its regenerated native receipt.
+
+Next eligible action: commit the clean-clone receipt, push the verified branch, open GitHub review, verify exact remote scope and mergeability, then verify merged main before release closure.

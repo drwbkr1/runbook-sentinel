@@ -8,7 +8,7 @@ Reviewed 2026-08-06. References inform design; they are not imported datasets or
 | Ollama 0.32.5 release and `llama3.2:3b` registry entry | Primary Ollama release, tagged MIT license, and registry; checked live 2026-08-06 | Establish loopback runtime identity, model package identity, instruction-model fitness claims, and reproducible local adapter seam before empirical evaluation |
 | AgentDojo, NeurIPS 2024, arXiv:2406.13352v3 | Primary benchmark paper from ETH Zurich and collaborators; rechecked 2026-08-06 | Treat tool-returned data as untrusted; measure benign utility, attack exposure, attack success, and environment-state outcomes separately |
 | Defeating Prompt Injections by Design (CaMeL), arXiv:2503.18813v2 | Primary research paper; rechecked 2026-08-06 | Separate untrusted data from control flow and enforce capabilities outside the model; baseline-0003 tests a narrower evidence-only decision context inspired by this principle, not a CaMeL implementation |
-| tau-bench, 2024 | Primary benchmark paper | Exact terminal-state grading and repeated-trial `pass^k` |
+| tau-bench, 2024, arXiv:2406.12045 | Primary benchmark paper; rechecked 2026-08-06 | Compare deterministic database state at the end of an interaction with an annotated goal state and report repeated-trial `pass^k`; baseline-0005 applies this to isolated synthetic approval and execution trajectories |
 | RAGChecker, NeurIPS 2024 | Primary benchmark paper | Diagnose retrieval and generation separately |
 | NIST SP 800-61r3, April 2025 | Official NIST incident-response publication | Incident work spans preparation, detection, response, and recovery |
 | NIST AI 600-1, updated 2026 | Official NIST generative-AI profile | Lifecycle risk and evaluation governance |

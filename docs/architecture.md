@@ -2,7 +2,7 @@
 
 ## Baseline topology
 
-1. A frozen scenario catalog provides a closed synthetic SRE environment, explicit topology domain, development or test split, evidence, expected terminal disposition, and mutable synthetic state.
+1. A frozen scenario catalog provides a closed synthetic SRE environment, explicit topology domain, development or test split, evidence, expected proposal, exact full terminal state and status, exact evaluation trajectory, and mutable synthetic state.
 2. A deterministic lexical retriever returns a full ranked set as untrusted data. The complete document identities remain in audit-facing results.
 3. A deterministic decision-context policy passes only documents classified as telemetry or status into the agent and records excluded documents as guidance-only. In the synthetic catalog, document kind is trusted project-authored metadata; any real intake must assign and verify it outside the model.
 4. A bounded control agent independently extracts only allowlisted facts from fresh decision-context records. Retrieved prose never controls program flow. Version 2 includes non-action diagnoses for gateway, API latency, worker capacity, configuration, and observability gaps.
@@ -12,7 +12,9 @@
 8. A deterministic policy gate validates capability and arguments, consumes the approval once, applies an allowlisted synthetic state transition, verifies postconditions, and records idempotency and audit evidence.
 9. SQLite persists operational state. JSONL traces record redacted runtime events and decision-context configuration. The dashboard renders current checkpoint, boundaries, evaluation disposition, and persisted incidents.
 
-The executor action surface remains exactly `restart_worker`, `rollback_deployment`, and `warm_cache`; baseline-0004 adds no capability or state mutation. Its optional local-model adapter is evaluation-only, direct-loopback, no-tools, and fail-closed. The excluded model candidate is not the operational default.
+The executor action surface remains exactly `restart_worker`, `rollback_deployment`, and `warm_cache`; baseline-0005 adds no capability or runtime state mutation. Its optional local-model adapter is evaluation-only, direct-loopback, no-tools, and fail-closed. The excluded model candidate is not the operational default.
+
+During frozen evaluation only, an isolated harness waits until the agent result is persisted, then acts as a synthetic external approver against temporary SQLite state. It invokes the same approval and execution methods as the operator surface, verifies same-key idempotency and different-key replay rejection, and grades exact incident state, status, audit events, and trace names. The raw approval token and idempotency key remain temporary local variables; neither appears in the report, persisted run JSON, nor telemetry. This harness is not reachable through the CLI, API, MCP server, dashboard, or agent/model interface.
 
 ## Ports and trust boundaries
 
@@ -21,6 +23,7 @@ The executor action surface remains exactly `restart_worker`, `rollback_deployme
 - Full retrieval identity and guidance-only identity are audit data, not authority.
 - The model boundary ends at typed output. It cannot call the approval broker or executor.
 - The executor can mutate only repository-local synthetic state.
+- The evaluation harness can approve and execute only after the bounded result exists and only inside disposable synthetic evaluation state.
 - No outbound connector, credential store, arbitrary shell, or real-infrastructure adapter exists.
 
 ## Configuration seams

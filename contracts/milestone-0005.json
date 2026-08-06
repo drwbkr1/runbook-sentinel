@@ -1,0 +1,205 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0005",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "research_review",
+      "local_verification",
+      "repository_change",
+      "local_commit",
+      "github_push"
+    ],
+    "expires_at_utc": null,
+    "user_instruction": "Continue selecting and shipping bounded evidence-driven checkpoints without routine approval while preserving the thesis, external-source gates, and security boundaries.",
+    "repository_controls": [
+      "AGENTS.md",
+      "C:\\Projects\\STORAGE_POLICY.md",
+      "contracts/milestone-0004.json",
+      "docs/status.md"
+    ],
+    "active_contract": "contracts/milestone-0005.json",
+    "verified_at_utc": "2026-08-06T21:19:24Z"
+  },
+  "scope": {
+    "objective": "Replace the proxy tool-trajectory score with an exact synthetic approval, execution, replay, postcondition, and terminal-state grader across every frozen case, while keeping approval material and execution authority outside the agent and leaving runtime policy unchanged.",
+    "allowed_paths": [
+      "C:\\Projects\\Active\\runbook-sentinel",
+      "C:\\Projects\\Verification"
+    ],
+    "forbidden_work": [
+      "Connect to or mutate real operational infrastructure",
+      "Add, remove, or broaden an executor action or capability",
+      "Give the agent or model credentials, approval tokens, idempotency authority, or execution access",
+      "Add automatic approval to the API, MCP server, CLI runtime, dashboard, or production service path",
+      "Weaken proposal hashing, expiry, idempotency, replay protection, preconditions, postconditions, or audit logging",
+      "Add a package dependency, model, external service, secret, account, or download",
+      "Change repository visibility, access, ownership, or the deterministic default",
+      "Rewrite or promote the excluded baseline-0004 model result"
+    ],
+    "reversible_actions": [
+      "Freeze exact expected incident states and harness trajectories for the existing synthetic cases",
+      "Let an evaluation-only harness approve and execute policy-valid proposals in isolated temporary SQLite state",
+      "Grade exact terminal state, status, postconditions, idempotent replay, consumed-token rejection, audit sequence, and trace sequence separately",
+      "Retain no-proposal cases as exact no-mutation trajectories",
+      "Record immutable deterministic evaluation artifacts and release receipts",
+      "Commit and publish a verified checkpoint"
+    ],
+    "stop_conditions": [
+      "Core thesis change",
+      "Security-boundary weakening or approval material becomes agent-visible",
+      "New action, dependency, external asset, spend, paid service, secret, account, or download required",
+      "Real operational infrastructure interaction",
+      "Access or ownership change",
+      "Irreversible action",
+      "Unverifiable shipment"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Local main, remote main, local annotated v0.0.4 tag, peeled remote tag, and public non-draft release resolve to e364425d08e8e931b2b2f5a7c6be83651dd4931c",
+        "The accepted 18-case deterministic suite passes 54 trials, but evaluation.py assigns trajectory_exact directly from generation_pass and never calls approve or execute",
+        "Five actionable cases produce 15 repeated proposal trials across restart_worker, rollback_deployment, and warm_cache; none has a frozen expected terminal-state field",
+        "A separate temporary-state orientation harness executed all three actions with exact postconditions, idempotent same-key replay, consumed-token rejection, mitigated status, and no approval material in the agent result",
+        "The tau-bench primary paper supports comparing deterministic database state to an annotated goal state and measuring repeated reliability with pass^k"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": [
+        "All 18 scenarios freeze exact expected terminal state, incident status, and evaluation-harness trajectory before evaluator implementation",
+        "All 54 trials report retrieval, generation, proposal, approval, execution, replay, postcondition, terminal-state, policy, utility, security, reliability, latency, and cost metrics separately",
+        "All 15 expected-action trials cover all three action types and reach their exact frozen terminal states; all 39 no-action trials remain open and byte-semantically unchanged",
+        "Approval material is created and consumed only by the isolated evaluation harness and is absent from agent/model input, output, persisted run JSON, and traces",
+        "Idempotent same-key execution returns the cached result and a different-key replay is rejected for every executed proposal",
+        "The runtime API, MCP authority surface, action/capability set, executor policy, and deterministic default remain unchanged",
+        "Real CLI, API, MCP, approval, executor, dashboard, persistence, telemetry, clean clone, GitHub review, merged main, tag, and release agree"
+      ]
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Resume from public v0.0.4, rerun the accepted system, inspect traces and evaluation logic, quantify terminal-state coverage, and recheck the primary research basis",
+      "depends_on": [],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "research_review",
+      "inputs": ["v0.0.4", "Latest selected evaluation", "Current evaluator and service", "tau-bench primary paper"],
+      "outputs": ["Verified checkpoint orientation", "Retained gap receipt", "Bounded terminal-state objective"],
+      "gates": {"latest_checkpoint_verified": true, "gap_measurable": true, "external_import": false},
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze exact terminal states, harness trajectories, metric definitions, and approval-authority separation before implementation",
+      "depends_on": ["UNIT-001"],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "repository_change",
+      "inputs": ["18-case schema 1.3", "Three existing actions", "Terminal-state gap receipt"],
+      "outputs": ["Schema 1.4", "Terminal-state evaluation contract", "Pre-change control identity"],
+      "gates": {"frozen_before_implementation": true, "new_actions": false, "agent_approval_authority": false},
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement the isolated evaluation harness and independent exact terminal-state and trajectory graders",
+      "depends_on": ["UNIT-002"],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "repository_change",
+      "inputs": ["Frozen schema and harness contract"],
+      "outputs": ["Evaluation-only execution harness", "Separated metrics", "Focused tests"],
+      "gates": {"runtime_authority_unchanged": true, "new_dependencies": false, "temporary_state_isolated": true},
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Run and retain repeated exact terminal-state evaluation and select a disposition from measured evidence",
+      "depends_on": ["UNIT-003"],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "local_verification",
+      "inputs": ["Frozen suite", "Implemented harness"],
+      "outputs": ["Immutable evaluation attempts", "Terminal-state coverage report", "Evidence disposition"],
+      "gates": {"failed_trials_retained": true, "latest_pointer_pass_only": true, "all_actions_covered": true},
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Verify real surfaces, reconcile records, clean-clone, review, merge, tag, release, and verify the bounded checkpoint",
+      "depends_on": ["UNIT-004"],
+      "status": "in_progress",
+      "human_gate": false,
+      "action_class": "github_push",
+      "inputs": ["Passing terminal-state evaluation and reconciled records"],
+      "outputs": ["baseline-0005 release"],
+      "gates": {"public_visibility_already_authorized": true, "runtime_authority_unchanged": true},
+      "disposition": null,
+      "retained_failures": [
+        "Live API attempt 001 completed the synthetic workflow with favorable evidence but failed the verifier's unnamed aggregate boolean; receipt and artifacts retained, not promoted"
+      ],
+      "next_dependency": "Next measurable checkpoint"
+    }
+  ],
+  "verification": {
+    "changed_risks": [
+      "Evaluation harness temporarily possesses synthetic approval material",
+      "Evaluation now mutates isolated synthetic state",
+      "Tool-trajectory and terminal-state metric correctness",
+      "Idempotency and replay grading on every proposal trial",
+      "Attack success may now include executed synthetic terminal impact",
+      "Evaluation latency includes approval and execution work"
+    ],
+    "required_checks": [
+      "Milestone validation and exact v0.0.4 checkpoint identity",
+      "Frozen expected terminal states and trajectories before implementation",
+      "All three action types and all no-action paths covered",
+      "Approval token absence from agent/model input, output, run JSON, and traces",
+      "Exact state, status, postcondition, idempotency, replay, audit, and trace grading",
+      "Separate retrieval, generation, proposal, tool trajectory, terminal state, policy, utility, security, reliability, latency, and cost metrics",
+      "Unchanged runtime policy, API approval boundary, MCP tool inventory, and action surface",
+      "CLI, MCP, API, approval, executor, replay, dashboard, persistence, and telemetry checks",
+      "Manifest, JSON, whitespace, secret-pattern, and diff checks",
+      "Clean clone, GitHub review, merged main, tag, release, and rendered public-page verification"
+    ],
+    "completed_checks": [
+      "v0.0.4 local, remote, tag, release, worktree, tests, manifest, Docker daemon, and selected evaluation were verified live",
+      "Pre-change evaluator terminal-state execution coverage was 0 of 15 actionable trials and 0 of 3 action types",
+      "Pre-change schema had 0 expected terminal-state fields across 18 cases",
+      "All three existing actions passed an isolated orientation execution with postconditions, idempotency, replay rejection, and mitigated state",
+      "Schema 1.4, isolated harness, separate graders, and 20-file manifest validated",
+      "Selected attempt 004 passed 54 trials with 15 expected executions, 39 strict no-action results, and pass^3 1.0",
+      "Native CLI, MCP, API, approval, executor, replay, dashboard, persistence, audit, and telemetry passed after one retained failed verifier attempt",
+      "No-local-object clone of bf29abe17576db7458e0706a3f7fda52049cc3a6 passed source, evaluation, and real-surface gates"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "verified baseline-0005 candidate bf29abe17576db7458e0706a3f7fda52049cc3a6; public release remains v0.0.4",
+    "next_action": "Commit the clean-clone receipt, then push for GitHub review and verify merged main before v0.0.5 release closure",
+    "do_not_carry_forward": [
+      "The existing trajectory_exact field as evidence of executed tool correctness",
+      "The baseline-0004 report sentence claiming exact terminal-state graders",
+      "Approval authority in any agent, model, API auto-approval, or MCP tool",
+      "A shared grader implementation derived from the executor transition code",
+      "Any new action, dependency, external service, or real infrastructure connector"
+    ]
+  }
+}
