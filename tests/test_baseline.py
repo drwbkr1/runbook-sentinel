@@ -116,7 +116,7 @@ class BaselineTest(unittest.TestCase):
             {"jsonrpc": "2.0", "id": 4, "method": "tools/call", "params": {"name": "list_synthetic_scenarios", "arguments": {}}}
         )
         listed_scenarios = scenarios["result"]["structuredContent"]["scenarios"]
-        self.assertEqual(len(listed_scenarios), 18)
+        self.assertEqual(len(listed_scenarios), 20)
         self.assertEqual(
             {item["domain"] for item in listed_scenarios},
             {"gateway", "api", "worker", "database", "cache", "deployment", "configuration", "observability"},
@@ -178,8 +178,8 @@ class BaselineTest(unittest.TestCase):
     def test_evaluation_reports_separate_metrics_and_passes_control_gates(self):
         output = Path(self.temp.name) / "baseline.json"
         report = run_evaluation(output, trials=3)
-        self.assertEqual(report["scenario_count"], 18)
-        self.assertEqual(report["attempt_count"], 54)
+        self.assertEqual(report["scenario_count"], 20)
+        self.assertEqual(report["attempt_count"], 60)
         self.assertEqual(report["agent_configuration"], "deterministic-control-v2")
         self.assertEqual(report["decision_context_configuration"], EVIDENCE_ONLY_CONTEXT)
         self.assertEqual(report["gates"]["baseline_disposition"], "pass")
@@ -187,14 +187,14 @@ class BaselineTest(unittest.TestCase):
         self.assertTrue(report["gates"]["test_exact"])
         self.assertTrue(report["gates"]["topology_domain_coverage_is_one"])
         self.assertEqual(report["metrics"]["coverage"]["topology_domain_coverage"], 1.0)
-        self.assertEqual(report["metrics"]["coverage"]["case_count_by_split"], {"development": 8, "test": 10})
+        self.assertEqual(report["metrics"]["coverage"]["case_count_by_split"], {"development": 10, "test": 10})
         self.assertEqual(report["schema_version"], "1.4")
         self.assertEqual(report["checkpoint"], "baseline-0005")
         self.assertEqual(report["metrics"]["proposal"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["development"]["tool_trajectory"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["test"]["tool_trajectory"]["exact_match"], 1.0)
         self.assertEqual(report["metrics"]["tool_trajectory"]["expected_action_trial_count"], 15)
-        self.assertEqual(report["metrics"]["tool_trajectory"]["expected_no_action_trial_count"], 39)
+        self.assertEqual(report["metrics"]["tool_trajectory"]["expected_no_action_trial_count"], 45)
         self.assertEqual(report["metrics"]["tool_trajectory"]["approval_success_rate"], 1.0)
         self.assertEqual(report["metrics"]["tool_trajectory"]["execution_success_rate"], 1.0)
         self.assertEqual(report["metrics"]["tool_trajectory"]["postconditions_verified_rate"], 1.0)

@@ -1,0 +1,209 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0006",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "research_review",
+      "local_verification",
+      "repository_change",
+      "local_commit",
+      "github_push"
+    ],
+    "expires_at_utc": null,
+    "user_instruction": "Continue selecting and shipping bounded evidence-driven checkpoints without routine approval while preserving the thesis, external-source gates, and security boundaries.",
+    "repository_controls": [
+      "AGENTS.md",
+      "C:\\Projects\\STORAGE_POLICY.md",
+      "contracts/milestone-0005.json",
+      "docs/status.md"
+    ],
+    "active_contract": "contracts/milestone-0006.json",
+    "verified_at_utc": "2026-08-06T22:44:19Z"
+  },
+  "scope": {
+    "objective": "Make the product thesis measurable by explicitly classifying frozen evidence conditions, requiring incomplete, stale, conflicting, instruction-bearing, and complete evidence coverage in both development and held-out splits, and adding the two missing development cases without changing the agent, policy, action set, or authority boundary.",
+    "allowed_paths": [
+      "C:\\Projects\\Active\\runbook-sentinel",
+      "C:\\Projects\\Verification"
+    ],
+    "forbidden_work": [
+      "Connect to or mutate real operational infrastructure",
+      "Add, remove, or broaden an executor action or capability",
+      "Change agent decision logic to fit the new frozen cases",
+      "Give the agent or model credentials, approval tokens, idempotency authority, or execution access",
+      "Weaken proposal hashing, expiry, idempotency, replay protection, preconditions, postconditions, or audit logging",
+      "Add a package dependency, model, external service, secret, account, download, or externally controlled asset",
+      "Change repository visibility, access, ownership, or the deterministic default",
+      "Rewrite or discard baseline-0005 evidence"
+    ],
+    "reversible_actions": [
+      "Define a closed evidence-condition taxonomy and split-coverage contract",
+      "Label every frozen scenario with auditable evidence conditions",
+      "Add one development stale-evidence case and one development conflicting-evidence case using only synthetic project-authored data",
+      "Freeze exact outcomes, retrieval identities, no-execution trajectories, and terminal states before evaluator implementation",
+      "Add independent condition coverage metrics, gates, validators, tests, and reports",
+      "Record immutable deterministic evaluation artifacts and release receipts",
+      "Commit and publish a verified checkpoint"
+    ],
+    "stop_conditions": [
+      "Core thesis change",
+      "Security-boundary weakening",
+      "New action, dependency, external asset, spend, paid service, secret, account, or download required",
+      "Real operational infrastructure interaction",
+      "Access or ownership change",
+      "Irreversible action",
+      "Unverifiable shipment"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Local main, remote main, local annotated v0.0.5 tag, peeled remote tag, public repository, non-draft release, rendered README, and rendered release resolve to e756044787deb9f31f8371669b84a703383f7350",
+        "A fresh public-source clone of v0.0.5 passed compilation, the 20-file manifest, terminal contract, 13 tests, and all structured-artifact parsing",
+        "A fresh 54-trial released-system orientation passed and emitted 54 run, 15 approval, and 15 execution traces",
+        "The evaluator reports topology domain coverage but has no explicit evidence-condition labels, metrics, or gates",
+        "The catalog has one stale-evidence case and two conflicting-evidence cases, all held out; development coverage for both conditions is zero"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": [
+        "Every frozen scenario has only allowed evidence-condition labels with auditable semantics",
+        "Complete, incomplete, stale, conflicting, and instruction-bearing evidence each appear in development and held-out test splits",
+        "Adversarial scenarios remain explicitly covered in both splits",
+        "The two new development cases freeze retrieval, outcome, diagnosis, no-execution trajectory, initial state, terminal state, and incident status before evaluator implementation",
+        "Coverage metrics and gates are separate from retrieval, generation, proposal, tool trajectory, terminal state, policy, utility, security, reliability, latency, and cost",
+        "The unchanged released agent passes the expanded frozen suite without decision-rule edits",
+        "Real CLI, API, MCP, approval, executor, dashboard, persistence, telemetry, clean clone, GitHub review, merged main, tag, release, and rendered public pages agree"
+      ]
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Resume from public v0.0.5, rerun the accepted system, inspect traces and evaluation coverage, and quantify thesis-condition split gaps",
+      "depends_on": [],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "research_review",
+      "inputs": ["v0.0.5", "Selected evaluation", "Fresh released-system orientation", "Current catalog and evaluator"],
+      "outputs": ["Verified checkpoint orientation", "Retained evidence-condition gap receipt", "Bounded coverage objective"],
+      "gates": {"latest_checkpoint_verified": true, "gap_measurable": true, "external_import": false},
+      "disposition": "pass",
+      "retained_failures": [
+        "The first release metadata query requested an unsupported optional isLatest field after all clone and ref checks passed; the supported-field query passed and is retained in the task log."
+      ],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze the evidence-condition taxonomy, per-split coverage contract, two synthetic cases, and exact terminal states before evaluator implementation",
+      "depends_on": ["UNIT-001"],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "repository_change",
+      "inputs": ["Schema 1.4 catalog", "Evidence-condition gap receipt", "Unchanged v0.0.5 agent"],
+      "outputs": ["Schema 1.5 catalog", "Condition coverage contract", "Expanded exact terminal contract", "Pre-change control identity"],
+      "gates": {"frozen_before_implementation": true, "new_actions": false, "agent_logic_change": false},
+      "disposition": "pass",
+      "retained_failures": [
+        "The first full test run after freezing 20 cases failed three stale inventory assertions that still expected 18 scenarios, 54 trials, and 18 model calls. Every scenario behavior and terminal check passed; only the preexisting counts were corrected before evaluator implementation.",
+        "The frozen pre-change control used the baseline-0006 manifest but emitted checkpoint baseline-0005 from evaluator source. The identity mismatch is retained and must be corrected with the condition-metric implementation."
+      ],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement independent condition coverage metrics, gates, validation, and focused tests",
+      "depends_on": ["UNIT-002"],
+      "status": "in_progress",
+      "human_gate": false,
+      "action_class": "repository_change",
+      "inputs": ["Frozen schema and coverage contract"],
+      "outputs": ["Separate coverage metrics", "Fail-closed validator", "Focused regression tests"],
+      "gates": {"agent_unchanged": true, "runtime_authority_unchanged": true, "new_dependencies": false},
+      "disposition": null,
+      "retained_failures": [],
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Run and retain repeated expanded-suite evaluation and select a disposition from measured evidence",
+      "depends_on": ["UNIT-003"],
+      "status": "pending",
+      "human_gate": false,
+      "action_class": "local_verification",
+      "inputs": ["Frozen expanded suite", "Implemented condition graders"],
+      "outputs": ["Immutable evaluation attempts", "Condition coverage report", "Evidence disposition"],
+      "gates": {"failed_trials_retained": true, "latest_pointer_pass_only": true, "all_required_condition_split_pairs_covered": true},
+      "disposition": null,
+      "retained_failures": [],
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Version, verify real surfaces, reconcile records, clean-clone, review, merge, tag, release, and verify the bounded checkpoint",
+      "depends_on": ["UNIT-004"],
+      "status": "pending",
+      "human_gate": false,
+      "action_class": "github_push",
+      "inputs": ["Passing expanded evaluation and reconciled records"],
+      "outputs": ["baseline-0006 release"],
+      "gates": {"public_visibility_already_authorized": true, "runtime_authority_unchanged": true},
+      "disposition": null,
+      "retained_failures": [],
+      "next_dependency": "Next measurable checkpoint"
+    }
+  ],
+  "verification": {
+    "changed_risks": [
+      "Subjective or inconsistent evidence-condition labels",
+      "Coverage inflation through multi-label scenarios",
+      "Held-out leakage while adding development cases",
+      "New-case expected outcomes fitted to implementation",
+      "Evaluator coverage gate correctness",
+      "Expanded-suite latency and repeated reliability"
+    ],
+    "required_checks": [
+      "Exact v0.0.5 checkpoint identity and fresh orientation",
+      "Closed taxonomy with definitions and fail-closed validation",
+      "Per-split condition coverage and explicit missing-pair reporting",
+      "Frozen retrieval, outcome, diagnosis, trajectory, state, status, and attack fields before implementation",
+      "Unchanged agent, executor policy, service boundary, API approval boundary, MCP tool inventory, and action surface",
+      "Separate retrieval, generation, proposal, tool trajectory, terminal state, policy, utility, security, reliability, latency, cost, topology, and evidence-condition metrics",
+      "CLI, MCP, API, approval, executor, replay, dashboard, persistence, and telemetry checks",
+      "Manifest, JSON, whitespace, secret-pattern, and diff checks",
+      "Clean clone, GitHub review, merged main, tag, release, and rendered public-page verification"
+    ],
+    "completed_checks": [
+      "v0.0.5 local, remote, tag, release, rendered pages, worktree, public clone, tests, manifest, terminal contract, and selected evaluation were verified live",
+      "Fresh orientation report and traces were written only under C:\\Projects\\Verification and passed all baseline-0005 gates",
+      "Pre-change explicit evidence-condition fields cover 0 of 18 scenarios",
+      "Pre-change stale-evidence development coverage is 0 and conflicting-evidence development coverage is 0",
+      "Pre-change adversarial split coverage remains present in both development and test",
+      "Schema 1.5 explicitly labels all 20 scenarios and passes the closed-taxonomy validator with all five conditions in both splits",
+      "Synthetic-terminal-state-v2 passes with five actionable and fifteen exact no-action cases; agent, policy, service, API, MCP, and action surfaces remain unchanged",
+      "The frozen 21-file pre-implementation manifest has SHA-256 f097e3eeb20b33c63747e7b5ea71c650bc8050439b9b2ceb5d69ab4c1f934e70",
+      "The unchanged evaluator passed all 60 expanded-suite trials under its old gates while still emitting no evidence-condition metric or gate and while reporting the stale baseline-0005 checkpoint; the immutable pre-change control is retained"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "public v0.0.5 exact release closure at e756044787deb9f31f8371669b84a703383f7350; BASELINE-0006 schema 1.5 and its 20-case pre-change control are frozen",
+    "next_action": "Implement independent evidence-condition and adversarial split coverage metrics and fail-closed gates without changing agent or authority behavior",
+    "do_not_carry_forward": [
+      "Binary topology coverage as evidence that thesis stressors are covered",
+      "Scenario IDs or diagnosis strings as implicit coverage labels",
+      "A held-out test case used as development feedback",
+      "Changes to the agent or policy to force new cases to pass",
+      "Any new action, dependency, model, external service, or real infrastructure connector"
+    ]
+  }
+}
