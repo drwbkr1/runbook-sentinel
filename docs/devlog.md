@@ -141,3 +141,9 @@
 - The complete gate created a separate immutable attempt rather than overwriting attempt 002. Attempt 003 passed all 48 trials with decision exposure 0.0, proposal attack success 0.0, exact quality and reliability metrics 1.0, median latency 7.391 ms, and p95 latency 18.075 ms.
 - Reran MCP and the isolated API against the promoted attempt. Full retrieval audit remained present, the poisoned runbook stayed outside the decision context, approval/execution/replay/postcondition checks passed, and the rendered dashboard, SQLite state, audit log, and telemetry reconciled.
 - Preserved attempt-003-specific evaluation, trace, manifest, dashboard, and runtime receipt. Attempt 001 remains `remediate`; attempt 002 remains the accepted comparison candidate.
+
+### Clean-clone candidate gate
+
+- Created candidate commit `0aa4fc68bfcf208c2f64a3578e54727a55002ef3` and cloned it without local object sharing to `C:\Projects\Verification\runbook-sentinel-baseline-0003-0aa4fc6-20260806160053`.
+- The exact commit passed compilation, seven tests, frozen-manifest integrity, all three milestone contracts, unchanged executor-policy identity, MCP negotiation, isolated API approval/execution/replay, rendered dashboard, SQLite, audit, telemetry, JSON and JSONL parsing, secret-pattern scanning, and diff checks.
+- The live verifier changed only the clone's living dashboard and runtime-receipt pointers, as expected. GitHub review, merged-main verification, tag, and release remain pending.

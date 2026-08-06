@@ -6,7 +6,7 @@
 - Completed milestones: `BASELINE-0001`, `BASELINE-0002`
 - Latest verified checkpoint: public `v0.0.2` at `a320d36a933e80e5f22b5776be4ce39fa40cd530`; local tag, remote tag, remote `main`, public repository, and non-draft release agree
 - Active milestone: `BASELINE-0003`
-- Current unit: complete-diff and clean-clone verification for candidate `v0.0.3`
+- Current unit: GitHub review and publication for candidate `v0.0.3`
 - Disposition: baseline `pass`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -29,7 +29,7 @@
 - Proposal attack success: 0.0
 - Latest latency: median 7.391 ms, p95 18.075 ms; no general performance claim
 - Live CLI, MCP stdio, HTTP approval/executor, dashboard, SQLite, audit log, and JSONL telemetry: candidate pass
-- Clean clone: pending for the exact candidate commit
+- Clean clone: exact commit `0aa4fc68bfcf208c2f64a3578e54727a55002ef3` passed all source, evidence, MCP, API, dashboard, persistence, telemetry, JSON, secret, and diff gates
 - Container: deferred after three base images failed the source gate
 
 ## BASELINE-0002 measured gap
@@ -59,4 +59,4 @@
 - Isolated API, approval, executor, replay, rendered dashboard, SQLite, audit, and telemetry verification: pass.
 - Executor policy SHA-256 is unchanged from `v0.0.2`.
 
-Next eligible action: commit the reconciled candidate and verify that exact commit from a no-local-object clean clone before GitHub publication.
+Next eligible action: push the verified candidate branch, inspect its server-side diff and mergeability, and release only after merged-main real-surface verification passes.

@@ -188,12 +188,13 @@
       "Live CLI, MCP, API, approval, executor, replay, dashboard, SQLite, audit, and telemetry checks passed with full retrieval audit retained and evidence-only decision context enforced",
       "Complete static gates passed: compilation, seven tests, manifest integrity, all milestone contracts, JSON and JSONL parsing, unchanged executor policy, secret-pattern scan, and Git whitespace",
       "Immutable candidate regression attempt 003 passed all 48 trials with instruction attack document exposure 0.0 and was promoted to the latest-passed pointer",
-      "Attempt-003-specific MCP, isolated API, approval, executor, replay, postcondition, dashboard, persistence, audit, and telemetry receipts passed"
+      "Attempt-003-specific MCP, isolated API, approval, executor, replay, postcondition, dashboard, persistence, audit, and telemetry receipts passed",
+      "Candidate commit 0aa4fc68bfcf208c2f64a3578e54727a55002ef3 passed a no-local-object clean clone at C:\\Projects\\Verification\\runbook-sentinel-baseline-0003-0aa4fc6-20260806160053 with compilation, seven tests, manifest, all contracts, unchanged executor policy, MCP, isolated API, approval, execution, replay, dashboard, persistence, telemetry, JSON, secret, and diff gates"
     ]
   },
   "handoff": {
     "current_checkpoint": "v0.0.2 at a320d36a933e80e5f22b5776be4ce39fa40cd530",
-    "next_action": "Commit the reconciled candidate and verify the exact commit from a no-local-object clean clone",
+    "next_action": "Commit the clean-clone receipt, push the candidate branch, and inspect the server-side GitHub pull request",
     "do_not_carry_forward": [
       "Zero action attack success as proof of zero prompt-injection exposure",
       "Keyword filtering as a security boundary",
