@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 FILES = [
     "eval/model-contract.json",
     "src/runbook_sentinel/data/scenarios.json",
+    "src/runbook_sentinel/catalog.py",
     "src/runbook_sentinel/retrieval.py",
     "src/runbook_sentinel/agent.py",
     "src/runbook_sentinel/model_adapter.py",
@@ -20,6 +21,7 @@ FILES = [
     "src/runbook_sentinel/api.py",
     "src/runbook_sentinel/mcp_server.py",
     "src/runbook_sentinel/evaluation.py",
+    "scripts/verify_terminal_contract.py",
 ]
 
 

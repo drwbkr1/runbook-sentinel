@@ -99,4 +99,8 @@ Next eligible action: begin the next cycle from public `v0.0.4`, run the accepte
 - The baseline-0004 evaluation report's sentence claiming exact terminal-state graders is unsupported. The historical result remains retained, and the living report now identifies the limitation.
 - BASELINE-0005 will let only an isolated evaluation harness hold synthetic approval material. The API, MCP, agent/model, runtime default, action set, and policy boundary remain unchanged.
 
-Next eligible action: freeze schema 1.4 exact terminal states and harness trajectories, validate the milestone contract, and commit the specification before changing the evaluator.
+Schema 1.4 now freezes exact terminal state, incident status, and harness trajectory for all 18 cases. The dedicated validator passes with 5 actionable and 13 no-action cases covering all three existing executor actions. The identical active and retained pre-change manifests have SHA-256 `c458a2ed2af1a6b4324c58f1ac438bbd8cb816938201e5fc8f573b32f8329b8f`.
+
+The retained pre-change control proves the limitation without rewriting baseline-0004: 54 proposal-level trials passed, but the evaluator made 0 approval calls, 0 execution calls, graded 0 terminal states, and explicitly proved no mutation in 0 of 39 no-action trials. Its disposition is `remediate`; the latest-passed pointer remains unchanged.
+
+Next eligible action: implement the isolated evaluation harness and independent proposal, actual tool-trajectory, postcondition, terminal-state, replay, audit, and trace graders without changing runtime authority.
