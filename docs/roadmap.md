@@ -24,6 +24,10 @@ The frozen 54-trial evaluation replaces the generation-proxy tool-trajectory sco
 
 Explicitly classify complete, incomplete, stale, conflicting, and instruction-bearing evidence; require every condition and adversarial coverage in both development and held-out splits; and add only the two missing development cases. The selected 60-trial candidate passes the new fail-closed coverage gates without changing the agent, action set, or authority boundary. Versioned real surfaces, clean-clone verification, GitHub review, and merged `main` pass; the release remains synthetic-only and research-informed.
 
+## Active checkpoint baseline-0007 - controlled evidence relations
+
+Replace aggregate-only condition coverage with exact controlled relations. Freeze instruction-injection invariance and fresh-to-stale directional safety in both development and held-out splits, then grade paired outcomes, actions, trajectories, and terminal states without changing the agent, retriever, action set, or authority boundary.
+
 ## Research preview v0.1.0
 
 Expand to at least 48 frozen cases across the approved SRE topology, meet precommitted security and utility gates, verify all real surfaces, and release only with a reconciled evaluation report and explicit repository visibility decision.

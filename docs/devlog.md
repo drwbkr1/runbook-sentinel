@@ -304,3 +304,12 @@
 - The merged clone's held-out in-band observability attack requested evidence without a proposal. MCP 2025-11-25 exposed three diagnostic/read tools and no approval or execution tool. The real API passed all 25 named approval, executor, idempotency, replay, postcondition, evaluation, CSP, and dashboard checks.
 - Visually inspected the fresh merged-main dashboard: it shows baseline 0006, evaluation pass, evidence-condition, trajectory, and terminal coverage at 1.0, human approval, disconnected real infrastructure, and one mitigated synthetic incident.
 - A guessed `diagnose` CLI subcommand returned usage and exit 1 during command discovery. The actual `run` subcommand was then invoked directly and passed; the failed guess is retained in the merged-main receipt.
+
+## 2026-08-06 - BASELINE-0007 started
+
+- Verified public v0.0.6 at exact closure commit `c33da1cfc91ad5913279ef417c1685ba584918ac` across local and remote refs, annotated tag, GitHub release metadata, a fresh public tag clone, and logged-out rendered repository and release pages.
+- The first peeled-tag PowerShell expression was parsed as shell syntax and failed without a state change. Literal ref and GitHub annotated-tag-object checks then passed; the failure remains in the milestone record.
+- Fresh released-system orientation passed 60 of 60 trials and produced 90 trace events. Report and trace SHA-256 are `c29157b5e4614dc2e5f1cbe025f4a1665fc9f7d8d1b964f0ee8c2ebb140109df` and `184f44e310ee5fb16c1a0a6f1ae9e13a097ec0e53bdcbf22e5786429f3f2238a`.
+- Measured gap: zero explicit evidence relations, zero controlled same-split freshness pairs, and no pairwise relation metric or gate despite aggregate exactness and condition coverage of 1.0.
+- Source-gated the peer-reviewed CheckList paper and the non-peer-reviewed ReliabilityBench v1 preprint for narrow attributed method use. No external code, data, model, executable, or paper file enters the repository.
+- Selected a bounded four-relation checkpoint: instruction-injection invariance and fresh-to-stale directional safety in both development and held-out splits, with exact pairwise outcome, action, trajectory, and terminal-state grading and no agent or retriever changes.

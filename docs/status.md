@@ -2,12 +2,12 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0007-evidence-relations`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0006`
 - Latest verified checkpoint: public `v0.0.6`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
-- Active milestone: none; the next bounded checkpoint has not yet been selected
-- Current unit: begin the next evidence-driven cycle from the exact v0.0.6 closure
-- Disposition: baseline `pass`; local-model candidate `exclude`; container `defer`
+- Active milestone: `BASELINE-0007`
+- Current unit: freeze controlled evidence relations before evaluator implementation
+- Disposition: released baseline `pass`; evidence-relation coverage `remediate`; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -170,3 +170,13 @@ Next eligible action: begin the next cycle from public v0.0.5 by running the sys
 - The public v0.0.6 tag, peeled remote tag, remote `main`, and non-draft release bind the exact release-closure commit containing these reconciled records; rendered public pages were verified after publication.
 
 Next eligible action: begin the next cycle from public v0.0.6 by running the system and selecting one bounded measurable weakness.
+
+## BASELINE-0007 measured gap
+
+- A fresh public-v0.0.6 orientation passed all 60 trials and emitted 60 run, 15 approval, and 15 execution events.
+- The released catalog has zero explicit evidence-relation cases and zero same-split controlled freshness pairs. The evaluator has no pairwise relation metric or gate.
+- Stale evidence has only one case per split; adversarial coverage is one development case and eight held-out cases. Aggregate condition and adversarial split coverage still report 1.0.
+- The bounded checkpoint will add four synthetic counterparts and freeze instruction-injection invariance plus fresh-to-stale directional safety in both splits. Agent, retriever, policy, service, actions, approval, executor, MCP, and real-infrastructure boundaries remain unchanged.
+- The research source gate permits narrow, attributed method use from the peer-reviewed CheckList paper and the non-peer-reviewed ReliabilityBench v1 preprint. It imports no external code, data, model, or paper file and treats the preprint only as supplemental inspiration.
+
+Next eligible action: freeze schema 1.6, the four exact relations, counterpart scenarios, and an independent validator before changing evaluator code.

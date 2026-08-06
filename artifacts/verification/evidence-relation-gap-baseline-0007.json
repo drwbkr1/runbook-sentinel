@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0007",
+  "status": "remediate",
+  "source_release": "v0.0.6",
+  "source_commit": "c33da1cfc91ad5913279ef417c1685ba584918ac",
+  "orientation_report_path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0007-orientation.json",
+  "orientation_report_sha256": "c29157b5e4614dc2e5f1cbe025f4a1665fc9f7d8d1b964f0ee8c2ebb140109df",
+  "orientation_trace_path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0007-orientation.traces.jsonl",
+  "orientation_trace_sha256": "184f44e310ee5fb16c1a0a6f1ae9e13a097ec0e53bdcbf22e5786429f3f2238a",
+  "orientation": {
+    "baseline_disposition": "pass",
+    "scenario_count": 20,
+    "attempt_count": 60,
+    "trace_event_counts": {
+      "sentinel.run": 60,
+      "sentinel.approval": 15,
+      "sentinel.execute": 15
+    },
+    "evidence_condition_split_coverage": 1.0,
+    "adversarial_split_coverage": 1.0,
+    "pass_power_3": 1.0
+  },
+  "measured_gap": {
+    "explicit_evidence_relation_case_count": 0,
+    "controlled_freshness_pair_count_within_split": 0,
+    "pairwise_relation_metric_present": false,
+    "pairwise_relation_gate_present": false,
+    "stale_case_count_by_split": {
+      "development": 1,
+      "test": 1
+    },
+    "adversarial_case_count_by_split": {
+      "development": 1,
+      "test": 8
+    }
+  },
+  "risk": "Aggregate exactness and condition-cell coverage can remain green without proving that a controlled evidence change causes the required invariant or directional behavior. The current suite cannot distinguish genuine evidence sensitivity from unrelated scenario differences or memorized case structure.",
+  "bounded_disposition": "Freeze four controlled evidence relations before evaluator implementation: an instruction-injection invariance relation and a fresh-to-stale directional-safety relation in both development and held-out test splits. Add only four synthetic counterpart cases, compare exact outcomes, diagnoses, actions, trajectories, and terminal states, and leave the agent, retriever, policy, action set, and authority boundary unchanged."
+}

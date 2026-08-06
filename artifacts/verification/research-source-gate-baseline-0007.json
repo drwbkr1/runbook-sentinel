@@ -1,0 +1,227 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0007-controlled-evidence-relations-20260806",
+  "assessed_at": "2026-08-06T23:50:37Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_actions": [
+      "review public research metadata and methods",
+      "cite and paraphrase approved methods in project records",
+      "implement project-authored synthetic behavioral relation tests",
+      "publish source citations and project-authored evaluation evidence"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Use primary behavioral-testing research and a recent agent-reliability preprint to inform project-authored, deterministic invariance and directional-safety relations over synthetic Runbook Sentinel cases. Import no external code, dataset, model, executable, or paper file.",
+    "planned_actions": [
+      "review public research metadata and methods",
+      "cite and paraphrase approved methods in project records",
+      "implement project-authored synthetic behavioral relation tests",
+      "publish source citations and project-authored evaluation evidence"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "checklist-acl-2020-doi-10.18653-v1-2020.acl-main.442",
+      "name": "Beyond Accuracy: Behavioral Testing of NLP Models with CheckList",
+      "locator": "https://aclanthology.org/2020.acl-main.442/",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {"type": "live", "locator": "https://aclanthology.org/2020.acl-main.442/", "observed_at": "2026-08-06T23:50:37Z", "note": "ACL Anthology identifies Ribeiro, Wu, Guestrin, and Singh; ACL 2020; pages 4902-4912; Anthology ID 2020.acl-main.442; DOI 10.18653/v1/2020.acl-main.442."}
+          ],
+          "note": "The exact peer-reviewed paper and canonical publisher record are identified."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {"type": "live", "locator": "https://aclanthology.org/2020.acl-main.442/", "observed_at": "2026-08-06T23:50:37Z", "note": "The Association for Computational Linguistics primary proceedings record identifies this as an ACL 2020 Best Overall Paper."}
+          ],
+          "note": "ACL is authoritative for the proceedings paper and its bibliographic identity."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {"type": "live", "locator": "https://aclanthology.org/2020.acl-main.442/", "observed_at": "2026-08-06T23:50:37Z", "note": "The publisher page, abstract, metadata, and PDF link were publicly accessible without authentication, fee, secret, or account."}
+          ],
+          "note": "Only public metadata and method review are needed."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {"type": "live", "locator": "https://aclanthology.org/2020.acl-main.442/", "observed_at": "2026-08-06T23:50:37Z", "note": "ACL Anthology states materials published in or after 2016 are licensed under Creative Commons Attribution 4.0 International."},
+            {"type": "live", "locator": "https://creativecommons.org/licenses/by/4.0/", "observed_at": "2026-08-06T23:50:37Z", "note": "CC BY 4.0 permits sharing and adaptation with attribution and indication of changes."}
+          ],
+          "note": "Runbook Sentinel will cite and paraphrase the method with attribution and will not redistribute the paper."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {"type": "static", "locator": "ACL Anthology ID 2020.acl-main.442 and DOI 10.18653/v1/2020.acl-main.442", "note": "The project uses the canonical ACL publisher record directly with no third-party content intermediary."}
+          ],
+          "note": "No file changes custody and no derived dataset is imported."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {"type": "static", "locator": "https://doi.org/10.18653/v1/2020.acl-main.442", "note": "The exact DOI and Anthology ID bind the cited method. Only bibliographic facts and a narrow method paraphrase are retained; no external file is acquired."}
+          ],
+          "note": "Canonical identifiers are sufficient for this no-download citation use."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {"type": "static", "locator": "https://aclanthology.org/2020.acl-main.442.pdf", "note": "The paper defines minimum functionality, invariance, and directional-expectation behavioral tests based on relationships between predictions under controlled perturbations."}
+          ],
+          "note": "The invariance and directional-expectation concepts fit a bounded exact relation contract; Runbook Sentinel does not import CheckList software or claim equivalent coverage."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {"type": "static", "locator": "baseline-0007 intended use", "note": "The public paper contains no project secret or operational evidence, and no executable, model, dataset, macro, or active content is imported."}
+          ],
+          "note": "Only citation text and project-authored synthetic tests cross into repository custody."
+        }
+      ]
+    },
+    {
+      "source_id": "reliabilitybench-arxiv-2601.06112v1",
+      "name": "ReliabilityBench: Evaluating LLM Agent Reliability Under Production-Like Stress Conditions",
+      "locator": "https://arxiv.org/abs/2601.06112v1",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {"type": "live", "locator": "https://arxiv.org/abs/2601.06112", "observed_at": "2026-08-06T23:50:37Z", "note": "arXiv identifies author Aayush Gupta, arXiv:2601.06112v1 [cs.AI], submitted 2026-01-03, 18 pages, 5 figures, and 8 tables."}
+          ],
+          "note": "The exact v1 preprint is identified; it is not represented as peer reviewed."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {"type": "live", "locator": "https://arxiv.org/abs/2601.06112", "observed_at": "2026-08-06T23:50:37Z", "note": "The primary author-submitted arXiv record is authoritative for the preprint's own methods, claims, version, and limitations."}
+          ],
+          "note": "Authority is limited to the contents of a non-peer-reviewed preprint; empirical claims are not adopted as established fact."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {"type": "live", "locator": "https://arxiv.org/abs/2601.06112", "observed_at": "2026-08-06T23:50:37Z", "note": "The abstract, version history, HTML, PDF, and source links were publicly accessible without authentication, fee, secret, or account."}
+          ],
+          "note": "Only public method review is needed."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {"type": "live", "locator": "https://arxiv.org/abs/2601.06112", "observed_at": "2026-08-06T23:50:37Z", "note": "The exact arXiv record links the paper license to Creative Commons Attribution 4.0 International."},
+            {"type": "live", "locator": "https://creativecommons.org/licenses/by/4.0/", "observed_at": "2026-08-06T23:50:37Z", "note": "CC BY 4.0 permits sharing and adaptation with attribution and indication of changes."}
+          ],
+          "note": "Runbook Sentinel will cite and narrowly paraphrase the method, not redistribute the preprint or associated code."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {"type": "static", "locator": "arXiv:2601.06112v1 and DOI 10.48550/arXiv.2601.06112", "note": "The project uses the author-submitted arXiv v1 record directly, with no secondary summary as evidence."}
+          ],
+          "note": "No external artifact enters repository custody."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {"type": "static", "locator": "https://arxiv.org/abs/2601.06112v1", "note": "The immutable arXiv version identifier and arXiv-issued DOI bind the reviewed preprint. Only bibliographic facts and a narrow method paraphrase are retained."}
+          ],
+          "note": "Exact version binding is sufficient for this no-download citation use."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {"type": "static", "locator": "https://arxiv.org/abs/2601.06112v1", "note": "The preprint defines action metamorphic relations using end-state equivalence and separates repeated consistency, perturbation robustness, and tool/API fault tolerance."}
+          ],
+          "note": "Fit is supplemental and conceptual only. It is not peer reviewed, is not SRE-specific, and cannot support a production-readiness or comparative-safety claim. Project-authored exact graders remain authoritative."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {"type": "static", "locator": "baseline-0007 intended use", "note": "No executable, code repository, dataset, model, personal data, secret, or operational evidence is imported; only a citation and project-authored synthetic relation tests are used."}
+          ],
+          "note": "The preprint cannot alter runtime authority or introduce active content."
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "review public research metadata and methods",
+      "cite and paraphrase approved methods in project records",
+      "implement project-authored synthetic behavioral relation tests",
+      "publish source citations and project-authored evaluation evidence"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "record exact citations, licenses, version restrictions, and method summaries",
+      "implement project-authored synthetic invariance and directional-safety relations",
+      "publish project-authored source, contracts, and evaluation evidence with attribution"
+    ],
+    "requires_explicit_authorization": [
+      "download or import external code, datasets, models, paper files, or associated repositories",
+      "authenticate, accept terms, purchase, upload, or disclose a secret",
+      "represent the arXiv preprint as peer reviewed or use either source as proof of production safety",
+      "interact with real operational infrastructure"
+    ]
+  }
+}
