@@ -25,9 +25,13 @@ The model, retrieved content, user artifacts, MCP payloads, external packages, m
 | MCP overreach | No approval or execution tool; closed-world annotations; enforcement ignores annotations as authority |
 | XSS or dashboard injection | Escaped dynamic values and restrictive browser security headers |
 | Supply-chain compromise | Standard-library baseline; external-source gate and ledger before import |
+| Model output is malformed, over-broad, or capability-confused | Exact schema and identifier parser; server-side action/capability binding; invalid output becomes abstention with no fallback |
+| Loopback model request is redirected or proxied off-machine | Literal `127.0.0.1:11434` endpoint validation; redirects and environment proxies disabled; streaming and tools disabled |
+| Model failure is hidden by a stronger deterministic fallback | Configurations are evaluated separately; candidate failure is retained and never replaced with the control result |
+| Raw generated text contaminates telemetry | Trace stores contract, prompt, request, and output digests plus parse status and counts; validated semantics live only in the immutable evaluation record |
 | Forged evidence classification | Synthetic kinds are project-authored; any real intake must authenticate source identity and assign kind outside the model before this boundary can be claimed |
 | Real infrastructure impact | No real adapter or network connector; executor accepts only synthetic actions |
 
 ## Explicit non-claims
 
-The baseline does not prove safety for a stochastic model, hostile operating system, compromised policy process, real production connector, or arbitrary third-party MCP server. Those require new threat analysis and gates.
+The measured candidate validates fail-closed boundaries but does not prove useful stochastic-model safety. The baseline does not prove safety for a hostile operating system, compromised policy process, real production connector, or arbitrary third-party MCP server. Those require new threat analysis and gates.

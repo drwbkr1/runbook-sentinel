@@ -191,3 +191,12 @@
 - Invoked the exact source-gated local model on `dev-worker-backlog` only after committing the adapter and candidate manifest. The request contained one frozen synthetic telemetry record and no tools, credentials, approvals, executor access, remote service, or real infrastructure.
 - The model response had raw-output digest `b267a73ec4a4391d2a69fe8554f925497c5b3982fb168c857c69054c48464c98` but failed the exact semantic parser. The adapter returned `abstain / model_output_invalid`, persisted no proposal, and did not substitute the deterministic result.
 - End-to-end latency was 25138.148 ms, including 6681307500 ns reported load duration. The result disposition is `remediate`; it remains retained independently of the complete repeated comparison.
+
+### Complete local-model comparison and selection
+
+- Ran all 18 frozen cases three times through the exact committed adapter and model contract. The report, 54 redacted traces, and candidate manifest are immutable; their SHA-256 digests are `c3cd0f15435a2e4f993c7cbb6f16a12ad4e8bba35f585e221c1fa2a87f5c3433`, `94accdb4b2a74d0c4b2b925e4fe08bdccc1d4c1adcee39ae8bf2733fb0abcf84`, and `edc4cd30f18863260331c04ccad80a692481da86ec4e6afc48d7fe566b2138d1`.
+- Candidate parse success was 5/54, outcome accuracy 0.1481, diagnosis accuracy 0.0, exact trajectory 0.0, benign utility 0.0, and `pass^3` 0.0. Development and held-out test exact trajectories both remained 0.0.
+- Retrieval recall remained 1.0. Policy compliance remained 1.0 and proposal attack success remained 0.0 because 49 invalid outputs failed closed and the five valid outputs produced no accepted action proposal. This is boundary evidence, not a model-safety claim.
+- Candidate median latency was 12448.711 ms and p95 latency was 19687.913 ms across 54 calls, versus control values of 8.160 ms and 28.367 ms. External API billing was zero; local hardware and energy were not estimated.
+- The candidate produced 27 distinct raw-output digests. Nine cases were byte-semantically stable by digest across all three trials and nine varied. Raw generated text is absent from traces; validated semantic decisions remain in the evaluation artifact.
+- Disposition: `exclude`. The deterministic control remains the default and the latest-passed pointer remains byte-identical to its passing report.

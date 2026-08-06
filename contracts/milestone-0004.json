@@ -138,13 +138,13 @@
       "id": "UNIT-004",
       "purpose": "Run and compare repeated deterministic and local-model configurations on frozen synthetic evidence",
       "depends_on": ["UNIT-003"],
-      "status": "in_progress",
+      "status": "complete",
       "human_gate": false,
       "action_class": "local_verification",
       "inputs": ["Frozen evaluation", "Integrity-verified local model"],
       "outputs": ["Immutable comparison attempts", "Separated metrics", "Evidence-based selection"],
       "gates": {"raw_output_digest_retained": true, "failed_trials_retained": true, "pareto_selection": true},
-      "disposition": null,
+      "disposition": "exclude",
       "retained_failures": [
         "The first authorized development smoke call returned a schema-invalid model object. The adapter retained raw-output digest b267a73ec4a4391d2a69fe8554f925497c5b3982fb168c857c69054c48464c98, abstained as model_output_invalid after 25138.148 ms, persisted no proposal, and used no fallback."
       ],
@@ -154,7 +154,7 @@
       "id": "UNIT-005",
       "purpose": "Verify real surfaces, reconcile records, clean-clone, review, merge, tag, release, and verify the bounded checkpoint",
       "depends_on": ["UNIT-004"],
-      "status": "planned",
+      "status": "in_progress",
       "human_gate": false,
       "action_class": "github_push",
       "inputs": ["Selected configuration and complete evidence ledger"],
@@ -195,12 +195,15 @@
       "Control manifest SHA-256 ae322324f034595c4374fdf24e3d285e678f7d52e91ced0be030bf40fc33b7fe is retained before adapter implementation or model invocation",
       "The standard-library adapter rejects non-loopback endpoints, redirects, proxies, streaming, tools, malformed output, mismatched capabilities, missing model identity, and timeouts without deterministic fallback",
       "Twelve focused and regression tests passed before first model invocation; the candidate evaluator records structured parse status, exact model and prompt identities, raw-output digests, token counts, durations, latency, and external-billing-only cost separately",
-      "Executor policy remains byte-identical to v0.0.3 at SHA-256 1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa"
+      "Executor policy remains byte-identical to v0.0.3 at SHA-256 1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa",
+      "The complete candidate attempt retained 54 traces and returned 5 valid structured outputs, 49 schema-invalid abstentions, diagnosis accuracy 0.0, exact trajectory 0.0, benign utility 0.0, pass^3 0.0, median latency 12448.711 ms, policy compliance 1.0, and proposal attack success 0.0",
+      "The candidate made no accepted action proposal; safe action metrics are attributed to fail-closed parsing and deterministic policy rather than useful model safety",
+      "Comparison disposition is exclude; deterministic-control-v2 remains the default and latest-passed evaluation pointer"
     ]
   },
   "handoff": {
     "current_checkpoint": "public v0.0.3 at fa2eb78eb497617b1c775ebd2b609f1216acb8d8",
-    "next_action": "Freeze the tested candidate implementation identity, invoke one development smoke case, then retain the complete three-trial local-model comparison",
+    "next_action": "Verify every unchanged and changed real surface, reconcile release records, and publish the bounded v0.0.4 checkpoint without selecting the excluded model candidate",
     "do_not_carry_forward": [
       "Model card capability claims as measured Runbook Sentinel fitness",
       "A passing source gate as a passing model evaluation",

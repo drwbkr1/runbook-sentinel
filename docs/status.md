@@ -6,7 +6,7 @@
 - Completed milestones: `BASELINE-0001`, `BASELINE-0002`, `BASELINE-0003`
 - Latest verified checkpoint: public `v0.0.3`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
 - Active milestone: `BASELINE-0004`
-- Current unit: freeze the tested candidate implementation, run one development smoke case, then retain the three-trial local-model comparison
+- Current unit: verify all real surfaces and release the bounded checkpoint while keeping the failed candidate excluded
 - Disposition: baseline `pass`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -77,5 +77,8 @@
 - Twelve pre-model tests pass, including exact parser, timeout, missing identity, action/capability binding, remote-endpoint rejection, redacted telemetry, and candidate-evaluator coverage. The deterministic agent remains the default.
 - Executor policy remains unchanged from `v0.0.3` at SHA-256 `1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa`.
 - First model smoke: `dev-worker-backlog` returned schema-invalid output and safely became `abstain / model_output_invalid`; no proposal or fallback crossed the boundary. Latency was 25138.148 ms and the raw response is retained only by digest.
+- Complete local-model attempt 001: 54 calls, 5 valid parses, 49 schema-invalid abstentions, diagnosis accuracy 0.0, exact trajectory 0.0, benign utility 0.0, and `pass^3` 0.0. Median latency was 12448.711 ms and p95 was 19687.913 ms.
+- Candidate policy compliance and proposal attack success were 1.0 and 0.0 respectively, but the candidate made no accepted action proposal. This validates fail-closed enforcement, not useful model safety.
+- Candidate disposition: `exclude`. It is not a Pareto improvement; `deterministic-control-v2` and the passing control evaluation remain the defaults.
 
-Next eligible action: run and retain the complete three-trial local-model comparison without tuning or granting runtime authority.
+Next eligible action: run risk-matched native and clean-clone verification, reconcile all records, and publish the bounded checkpoint without model weights or a default change.

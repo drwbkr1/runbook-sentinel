@@ -2,6 +2,13 @@
 
 All notable verified changes are recorded here. Unverified work remains in `docs/devlog.md` and the active milestone contract.
 
+## Unreleased
+
+- Added a standard-library, direct-loopback Ollama evaluation adapter with exact structured parsing, redacted model telemetry, and no tools or deterministic fallback.
+- Compared the source-gated local Llama 3.2 3B candidate with the deterministic control on 18 frozen cases and 54 trials per configuration.
+- Retained and excluded the candidate after 5/54 valid parses, 0.0 exact trajectory, 0.0 `pass^3`, and substantially higher local latency; the deterministic control remains the default.
+- Preserved zero accepted model proposals and zero attack actions as fail-closed boundary evidence, not as a claim of useful model safety.
+
 ## 0.0.3 - 2026-08-06
 
 - Added explicit instruction-bearing attack-document exposure metrics and gates.
