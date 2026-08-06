@@ -12,7 +12,7 @@ Expand the frozen exact suite from 9 to 16 cases, cover all eight declared SRE t
 
 First compare the accepted full retrieved context with a standard-library evidence-only decision context while retaining full retrieval audit. Measure required evidence recall, exact utility, instruction-bearing attack-document exposure, action attack success, repeated reliability, latency, and cost separately. Dense or hybrid retrieval remains gated on external-source approval.
 
-## Active checkpoint baseline-0004 — local model adapter
+## Completed checkpoint baseline-0004 — local model adapter
 
 The exact Ollama 0.32.5 and Llama 3.2 3B Instruct Q4_K_M local artifacts passed identity, license, acceptable-use, integrity, fitness, privacy, and security review for synthetic-only evaluation. The typed loopback-only candidate completed its frozen comparison and was excluded: exact trajectory and `pass^3` were 0.0, with 5 valid parses in 54 attempts. The adapter remains research infrastructure and the deterministic control remains the default.
 

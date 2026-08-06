@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0004",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -76,7 +76,7 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
+      "status": "pass",
       "evidence": [
         "The deterministic control and local-model candidate run on identical frozen evidence, prompts, splits, and repeated-trial counts",
         "Retrieval, generation, typed parse success, tool trajectories, policy, benign utility, attack success, pass^k, latency, and cost are reported separately",
@@ -154,13 +154,13 @@
       "id": "UNIT-005",
       "purpose": "Verify real surfaces, reconcile records, clean-clone, review, merge, tag, release, and verify the bounded checkpoint",
       "depends_on": ["UNIT-004"],
-      "status": "in_progress",
+      "status": "complete",
       "human_gate": false,
       "action_class": "github_push",
       "inputs": ["Selected configuration and complete evidence ledger"],
       "outputs": ["baseline-0004 release"],
       "gates": {"public_visibility_already_authorized": true, "model_weights_excluded": true},
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [],
       "next_dependency": "Next measurable checkpoint"
     }
@@ -202,12 +202,15 @@
       "Release-candidate deterministic attempt 002 passed all 54 trials with exact trajectory, policy, benign utility, adversarial safe outcome, and pass^3 at 1.0; proposal attack success remained 0.0",
       "Real CLI, MCP 2025-11-25, API health and evaluation endpoints, approval, executor, idempotency, replay rejection, postconditions, rendered dashboard, SQLite state, audit log, and redacted telemetry passed natively",
       "Docker Desktop 4.74.0 and Engine 29.4.3 are live; packaging remains explicitly deferred under the retained base-image source-gate failure",
-      "No-local-object clean clone of 1b886c5557d311a272997866a715c2f8f815d76e passed source gate, compilation, 12 tests, manifest, contracts, artifact hashes, unchanged policy, CLI, MCP, API, dashboard render, approval, executor, replay, SQLite, audit, and telemetry checks"
+      "No-local-object clean clone of 1b886c5557d311a272997866a715c2f8f815d76e passed source gate, compilation, 12 tests, manifest, contracts, artifact hashes, unchanged policy, CLI, MCP, API, dashboard render, approval, executor, replay, SQLite, audit, and telemetry checks",
+      "GitHub pull request 3 matched verified branch head 36cfcba4c7a1b333325b196481d9f9bea6357e35, was CLEAN and MERGEABLE with no configured checks, and merged with history preserved as fca61e3f4b1a52e525477002c3977a15aab0cd8f",
+      "A fresh clone of remote merged main fca61e3f4b1a52e525477002c3977a15aab0cd8f passed tests, manifest, MCP, API, approval, executor, replay, postconditions, persistence, telemetry, and rendered-dashboard inspection",
+      "The public v0.0.4 tag and release bind the exact release-closure commit; public pages, tag identity, release state, and remote main were verified after publication"
     ]
   },
   "handoff": {
-    "current_checkpoint": "public v0.0.3 at fa2eb78eb497617b1c775ebd2b609f1216acb8d8",
-    "next_action": "Verify every unchanged and changed real surface, reconcile release records, and publish the bounded v0.0.4 checkpoint without selecting the excluded model candidate",
+    "current_checkpoint": "public v0.0.4 exact release closure with deterministic-control-v2 selected and the measured local-model candidate excluded",
+    "next_action": "Begin the next cycle from public v0.0.4 by running the system and selecting the highest-leverage measurable reliability or evaluation-coverage weakness",
     "do_not_carry_forward": [
       "Model card capability claims as measured Runbook Sentinel fitness",
       "A passing source gate as a passing model evaluation",

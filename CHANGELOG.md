@@ -2,7 +2,7 @@
 
 All notable verified changes are recorded here. Unverified work remains in `docs/devlog.md` and the active milestone contract.
 
-## Unreleased
+## 0.0.4 - 2026-08-06
 
 - Added a standard-library, direct-loopback Ollama evaluation adapter with exact structured parsing, redacted model telemetry, and no tools or deterministic fallback.
 - Compared the source-gated local Llama 3.2 3B candidate with the deterministic control on 18 frozen cases and 54 trials per configuration.

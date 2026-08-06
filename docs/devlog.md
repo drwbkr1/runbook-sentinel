@@ -217,3 +217,16 @@
 - The exact clone passed compilation, 12 tests, the 11-file manifest, all milestone contracts, the model source gate, candidate and selected evaluation artifact hashes, unchanged executor policy, model-weight exclusion, JSON and JSONL parsing, and diff checks.
 - Real MCP and API verification passed again. A fresh dashboard render was visually inspected, the held-out in-band CLI case requested evidence, and the only tracked post-verification change was the intentionally regenerated dashboard PNG containing a new synthetic incident identifier.
 - GitHub review, merged-main verification, exact release closure, tag, release, and rendered public-page verification remain pending.
+
+### GitHub review and merged-main verification
+
+- Pushed verified branch head `36cfcba4c7a1b333325b196481d9f9bea6357e35` and verified the remote branch identity. Pull request `#3` contained 9 commits and 45 expected files, was `CLEAN` and `MERGEABLE`, had no configured checks, and contained no model weights or expanded authority surface.
+- Marked PR `#3` ready and merged with history preserved as `fca61e3f4b1a52e525477002c3977a15aab0cd8f`. Its parents are the exact `v0.0.3` closure and verified baseline-0004 branch head.
+- Fast-forwarded authoritative local `main` to remote `main`. Compilation, 12 tests, the manifest, all contracts, the model source gate, selected-evaluation identity, and unchanged executor policy passed.
+- Cloned remote merged main into `C:\Projects\Verification\runbook-sentinel-merged-main-fca61e3-20260806210929`. MCP, API evaluation serving, approval, execution, idempotency, replay rejection, postconditions, SQLite, telemetry, and a fresh visually inspected dashboard passed again.
+
+### Verified checkpoint publication
+
+- Created one release-closure commit after merged-main verification. The annotated `v0.0.4` tag, peeled remote tag, remote `main`, and public non-draft GitHub release bind that exact commit.
+- Verified the public repository README and release page after publication. Both describe the candidate as excluded, preserve the deterministic default, and make no claim of production readiness or useful model safety.
+- `BASELINE-0004` disposition: `pass`; model candidate disposition: `exclude`; container disposition: `defer`. No model weights, runtime binaries, paid services, secrets, new executor capability, real infrastructure connection, or default model change shipped.

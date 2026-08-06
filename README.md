@@ -2,7 +2,7 @@
 
 Runbook Sentinel is a research-informed, retrieval-grounded SRE incident agent. It is designed to remain useful, repeatable, and policy-compliant when evidence is incomplete, adversarial, conflicting, or stale.
 
-Current verified release: `v0.0.3`. This branch prepares `v0.0.4`, a synthetic-only research preview that retains a failed local-model comparison rather than selecting it. Public source availability does not imply production readiness or authorization to connect it to operational infrastructure.
+Current release: `v0.0.4`, a synthetic-only research preview that retains and excludes a failed local-model comparison rather than selecting it. Public source availability does not imply production readiness or authorization to connect it to operational infrastructure.
 
 The bounded agent can diagnose, request evidence, propose an action, or abstain. It cannot execute actions. A deterministic approval broker, policy gate, and synthetic-only executor enforce authority outside the model.
 

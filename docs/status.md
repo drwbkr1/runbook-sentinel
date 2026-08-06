@@ -2,18 +2,18 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `codex/baseline-0004-local-model`
-- Completed milestones: `BASELINE-0001`, `BASELINE-0002`, `BASELINE-0003`
-- Latest verified checkpoint: public `v0.0.3`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
-- Active milestone: `BASELINE-0004`
-- Current unit: verify all real surfaces and release the bounded checkpoint while keeping the failed candidate excluded
+- Branch: `main`
+- Completed milestones: `BASELINE-0001`, `BASELINE-0002`, `BASELINE-0003`, `BASELINE-0004`
+- Latest verified checkpoint: public `v0.0.4`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
+- Active milestone: next checkpoint selection from verified `v0.0.4`
+- Current unit: run the released system and select the highest-leverage measurable reliability or evaluation-coverage weakness
 - Disposition: baseline `pass`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: pull request `#2` merged as `995dcefb1cef284b936a5b336c4601c54bad2462` before the exact closure record
-- GitHub pull request: `#2`, merged with history preserved
-- GitHub release: public, non-draft `v0.0.3`
+- GitHub `main`: pull request `#3` merged as `fca61e3f4b1a52e525477002c3977a15aab0cd8f` before the exact closure record
+- GitHub pull request: `#3`, merged with history preserved
+- GitHub release: public, non-draft `v0.0.4`
 - Docker: daemon verified live; container packaging deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
 - Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
@@ -83,6 +83,9 @@
 - Release-candidate deterministic attempt 002 passed all 54 trials against the current 11-file manifest and became the latest-passed pointer; median latency was 9.009 ms and p95 was 20.500 ms.
 - Native real-surface verification passed the CLI, MCP version and authority inventory, API health and evaluation endpoints, approval, execution, idempotency, replay rejection, postconditions, rendered dashboard, SQLite, audit log, and redacted traces.
 - Docker Desktop 4.74.0 and Engine 29.4.3 are live. Container packaging remains `defer` because the retained base-image source gate has not passed.
-- A no-local-object clone of release-candidate commit `1b886c5557d311a272997866a715c2f8f815d76e` passed all required native and real-surface gates. GitHub branch, pull request, merged main, tag, release, and rendered public pages remain pending.
+- A no-local-object clone of release-candidate commit `1b886c5557d311a272997866a715c2f8f815d76e` passed all required native and real-surface gates before GitHub review and release closure.
+- GitHub PR `#3` matched verified branch head `36cfcba4c7a1b333325b196481d9f9bea6357e35`, was `CLEAN` and `MERGEABLE`, and merged with history preserved as `fca61e3f4b1a52e525477002c3977a15aab0cd8f`.
+- A fresh remote-main clone of merge commit `fca61e3f4b1a52e525477002c3977a15aab0cd8f` passed tests, manifest, MCP, API, approval/executor/replay/postconditions, persistence, telemetry, and rendered-dashboard inspection.
+- Public `v0.0.4`, remote `main`, local annotated tag, peeled remote tag, public release API, rendered README, and rendered release page agree on the exact release-closure commit.
 
-Next eligible action: run risk-matched native and clean-clone verification, reconcile all records, and publish the bounded checkpoint without model weights or a default change.
+Next eligible action: begin the next cycle from public `v0.0.4`, run the accepted deterministic system, inspect traces and evaluation coverage, and freeze one bounded measurable improvement.
