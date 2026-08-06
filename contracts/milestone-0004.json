@@ -108,13 +108,13 @@
       "id": "UNIT-002",
       "purpose": "Freeze the provider-neutral typed adapter contract, prompt identity, model failure semantics, and deterministic-versus-model evaluation before implementation",
       "depends_on": ["UNIT-001"],
-      "status": "in_progress",
+      "status": "complete",
       "human_gate": false,
       "action_class": "repository_change",
       "inputs": ["Ready source gate", "v0.0.3 frozen suite", "External policy boundary"],
       "outputs": ["Frozen comparison contract", "Prompt and parser specification", "Pre-change control evidence"],
       "gates": {"precommitted_before_model_invocation": true, "no_model_tools": true},
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [
         "The first pre-model regression failed because sentence punctuation made the fact lexer capture telemetry_coverage=0.12. with a trailing period, causing numeric conversion to fail, and the MCP inventory test still expected 16 rather than 18 scenarios. No model was invoked; the synthetic delimiter and exact inventory assertion were corrected before freezing."
       ],
@@ -124,7 +124,7 @@
       "id": "UNIT-003",
       "purpose": "Implement the standard-library Ollama adapter and typed untrusted-output parser",
       "depends_on": ["UNIT-002"],
-      "status": "planned",
+      "status": "in_progress",
       "human_gate": false,
       "action_class": "repository_change",
       "inputs": ["Frozen adapter and prompt contract"],
@@ -187,12 +187,15 @@
       "v0.0.3 local tag, remote tag, remote main, public release, rendered README, and rendered release resolve to fa2eb78eb497617b1c775ebd2b609f1216acb8d8",
       "Exact v0.0.3 closure clone passed all native and real-surface gates",
       "Ollama runtime identity, signature, license, access, compute fitness, and loopback boundary passed",
-      "Llama 3.2 model identity, official license and AUP, provenance, all blob hashes, evaluation fitness, and synthetic-only security boundary passed"
+      "Llama 3.2 model identity, official license and AUP, provenance, all blob hashes, evaluation fitness, and synthetic-only security boundary passed",
+      "Frozen schema 1.3 contains 18 cases and 54 control trials, including one development and one held-out in-band instruction attack",
+      "Immutable deterministic control attempt 001 passed all exact gates: in-band instruction exposure 1.0, in-band proposal attack success 0.0, overall proposal attack success 0.0, policy 1.0, benign utility 1.0, adversarial safe outcome 1.0, and pass^3 1.0",
+      "Control manifest SHA-256 ae322324f034595c4374fdf24e3d285e678f7d52e91ced0be030bf40fc33b7fe is retained before adapter implementation or model invocation"
     ]
   },
   "handoff": {
     "current_checkpoint": "public v0.0.3 at fa2eb78eb497617b1c775ebd2b609f1216acb8d8",
-    "next_action": "Freeze the typed local-model adapter, prompt, parser, failure semantics, and exact comparison before the first model invocation",
+    "next_action": "Implement the frozen standard-library loopback adapter and failure-closed parser without changing the default deterministic control",
     "do_not_carry_forward": [
       "Model card capability claims as measured Runbook Sentinel fitness",
       "A passing source gate as a passing model evaluation",

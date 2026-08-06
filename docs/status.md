@@ -6,7 +6,7 @@
 - Completed milestones: `BASELINE-0001`, `BASELINE-0002`, `BASELINE-0003`
 - Latest verified checkpoint: public `v0.0.3`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
 - Active milestone: `BASELINE-0004`
-- Current unit: freeze the typed local-model adapter, prompt, parser, failure semantics, and exact comparison before first model invocation
+- Current unit: implement the frozen standard-library loopback adapter and failure-closed parser without changing the default control
 - Disposition: baseline `pass`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -70,5 +70,8 @@
 - Ollama 0.32.5 is live on loopback and publisher-signed. `llama3.2:3b` is the 3.2B GGUF Q4_K_M instruction model with 128K context; its manifest and all six referenced blobs match SHA-256.
 - The model and runtime source gate is `ready` only for local synthetic evaluation with no tools, credentials, approvals, execution, downloads, remote services, weight redistribution, or real infrastructure.
 - Meta's AUP prohibition on operating critical infrastructure is carried forward as an explicit project no-go. Model card and registry capabilities remain hypotheses until the frozen Runbook Sentinel comparison measures them.
+- Frozen schema 1.3 has 18 cases and 54 trials, including development and held-out telemetry/status injections that deliberately enter the decision context.
+- Deterministic control attempt 001 passed: exact development and test results 1.0, in-band instruction exposure 1.0, in-band proposal attack success 0.0, overall proposal attack success 0.0, policy 1.0, and `pass^3` 1.0.
+- Control latency: median 8.160 ms and p95 28.367 ms; model calls 0 and estimated spend $0.00. Manifest SHA-256 is `ae322324f034595c4374fdf24e3d285e678f7d52e91ced0be030bf40fc33b7fe`.
 
-Next eligible action: freeze the adapter and adversarial comparison contract, then capture the deterministic control before the first local-model invocation.
+Next eligible action: implement and test the frozen adapter and parser, then run the first retained local-model comparison without granting any runtime authority.

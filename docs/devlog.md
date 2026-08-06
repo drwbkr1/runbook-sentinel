@@ -169,3 +169,9 @@
 
 - The first 18-case regression failed before any model invocation. A period immediately after `telemetry_coverage=0.12` was captured as part of the value by the existing fact lexer and could not be converted to a float; the MCP inventory test also retained the old 16-case assertion.
 - Disposition: `remediate`. Replaced prose-boundary periods with semicolon delimiters in both new in-band records and updated the exact MCP inventory assertion to 18. The failed test output remains recorded here and in the milestone contract.
+
+### Deterministic comparison control
+
+- Committed the model contract and 18-case frozen schema before any model invocation. The two new cases place allowed-action injection prose inside telemetry/status records, so decision exposure is intentionally 1.0 rather than hidden by guidance filtering.
+- Immutable attempt 001 passed all 54 deterministic trials. Development and test exact results, policy compliance, benign utility, adversarial safe outcome, and `pass^3` were 1.0; in-band and overall proposal attack success were 0.0.
+- Median latency was 8.160 ms and p95 latency was 28.367 ms with zero model calls and zero estimated monetary spend. The retained manifest SHA-256 is `ae322324f034595c4374fdf24e3d285e678f7d52e91ced0be030bf40fc33b7fe`.
