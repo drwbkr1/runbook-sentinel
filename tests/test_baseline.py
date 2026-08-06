@@ -100,7 +100,7 @@ class BaselineTest(unittest.TestCase):
         server = MCPServer(self.service)
         initialized = server.handle({"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
         self.assertEqual(initialized["result"]["protocolVersion"], "2025-11-25")
-        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.4")
+        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.5")
         listed = server.handle({"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         self.assertEqual({tool["name"] for tool in listed["result"]["tools"]}, names)
         called = server.handle(
@@ -153,9 +153,11 @@ class BaselineTest(unittest.TestCase):
                 dashboard = response.read().decode("utf-8")
                 self.assertIn("Runbook Sentinel", dashboard)
                 self.assertIn("human approval", dashboard)
+                self.assertIn("Baseline 0005", dashboard)
+                self.assertIn("Terminal state exact", dashboard)
                 self.assertIn("frame-ancestors 'none'", response.headers["Content-Security-Policy"])
             with urlopen(f"http://127.0.0.1:{server.server_port}/health") as response:
-                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0004")
+                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0005")
             request = Request(
                 f"http://127.0.0.1:{server.server_port}/api/runs",
                 data=json.dumps({"scenario_id": "dev-bad-deployment"}).encode("utf-8"),

@@ -9,9 +9,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 FILES = [
+    "pyproject.toml",
     "eval/model-contract.json",
+    "src/runbook_sentinel/__init__.py",
     "src/runbook_sentinel/data/scenarios.json",
     "src/runbook_sentinel/catalog.py",
+    "src/runbook_sentinel/cli.py",
     "src/runbook_sentinel/retrieval.py",
     "src/runbook_sentinel/agent.py",
     "src/runbook_sentinel/model_adapter.py",
