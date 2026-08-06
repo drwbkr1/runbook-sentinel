@@ -12,9 +12,9 @@ Expand the frozen exact suite from 9 to 16 cases, cover all eight declared SRE t
 
 First compare the accepted full retrieved context with a standard-library evidence-only decision context while retaining full retrieval audit. Measure required evidence recall, exact utility, instruction-bearing attack-document exposure, action attack success, repeated reliability, latency, and cost separately. Dense or hybrid retrieval remains gated on external-source approval.
 
-## Next checkpoint baseline-0004 — local model adapter
+## Active checkpoint baseline-0004 — local model adapter
 
-After artifact identity, license, integrity, and fitness review, add a provider-neutral local model adapter. Keep the deterministic control as a retained baseline. Evaluate structured generation, attack success, policy compliance, repeated reliability, latency, and cost separately.
+The exact Ollama 0.32.5 and Llama 3.2 3B Instruct Q4_K_M local artifacts passed identity, license, acceptable-use, integrity, fitness, privacy, and security review for synthetic-only evaluation. Freeze a provider-neutral no-tools adapter and adversarial comparison before first invocation. Keep the deterministic control as the default unless a measured Pareto improvement exists.
 
 ## Research preview v0.1.0
 

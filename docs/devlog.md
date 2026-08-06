@@ -155,3 +155,12 @@
 - Merged with history preserved as `995dcefb1cef284b936a5b336c4601c54bad2462` and fast-forwarded the authoritative local `main` to the exact remote commit.
 - Merged main passed compilation, seven tests, manifest integrity, all contracts, unchanged executor policy, MCP, isolated API approval/execution/replay, postconditions, rendered dashboard, SQLite, audit, and telemetry checks.
 - Preserved merged-main dashboard and runtime receipts. The exact closure commit is eligible for the `v0.0.3` tag and public release.
+
+## 2026-08-06 — BASELINE-0004 started
+
+- Resumed from exact public `v0.0.3` closure `fa2eb78eb497617b1c775ebd2b609f1216acb8d8` after tag, remote `main`, release API, rendered README, and corrected rendered release notes agreed.
+- Identified the next measurable gap: the accepted deterministic agent has no stochastic structured-generation comparison.
+- Applied the external-source gate before model use. Ollama 0.32.5 is signed by Ollama Inc. and responds only through the approved loopback endpoint. The local `llama3.2:3b` manifest is `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six referenced blobs match their declared SHA-256 digests.
+- Official Meta license, AUP, and model-card evidence and Ollama release, license, and registry evidence passed for synthetic evaluation only. No download, package, account, secret, remote API, model-weight redistribution, tool access, approval access, executor access, or real infrastructure is authorized.
+- The first UTC timestamp command used unsupported Windows PowerShell `Get-Date -AsUTC` syntax and failed without mutation. Replaced it with `ToUniversalTime()` and retained the failure in the milestone contract.
+- Source gate disposition: `ready`. The gate authorizes a standard-library loopback adapter and frozen synthetic invocation; it does not establish model quality or permission to operate critical infrastructure.

@@ -2,11 +2,11 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0004-local-model`
 - Completed milestones: `BASELINE-0001`, `BASELINE-0002`, `BASELINE-0003`
 - Latest verified checkpoint: public `v0.0.3`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
-- Active milestone: none; `BASELINE-0004` orientation is next
-- Current unit: close and release `v0.0.3`, then resume from this verified checkpoint
+- Active milestone: `BASELINE-0004`
+- Current unit: freeze the typed local-model adapter, prompt, parser, failure semantics, and exact comparison before first model invocation
 - Disposition: baseline `pass`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -15,8 +15,8 @@
 - GitHub pull request: `#2`, merged with history preserved
 - GitHub release: public, non-draft `v0.0.3`
 - Docker: daemon verified live; container packaging deferred after three base-image candidates failed the source gate
-- External runtime dependencies: none
-- Local Ollama assets: inspected but not approved or used
+- External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
+- Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; not yet invoked by Runbook Sentinel
 
 ## Verified evidence
 
@@ -62,4 +62,13 @@
 - Isolated API, approval, executor, replay, rendered dashboard, SQLite, audit, and telemetry verification: pass.
 - Executor policy SHA-256 is unchanged from `v0.0.2`.
 
-Next eligible action: resume from public `v0.0.3`, inspect its evaluation and traces, and run the BASELINE-0004 local-model source gate before importing or using any model artifact.
+## BASELINE-0004 orientation
+
+- Resumed from public `v0.0.3` at `fa2eb78eb497617b1c775ebd2b609f1216acb8d8`; local tag, peeled remote tag, remote `main`, GitHub release, rendered README, and rendered release agree.
+- The retained deterministic control still passes all 48 trials, but no stochastic structured-generation configuration has been measured.
+- Local compute: Intel i7-1365U, 10 cores and 12 logical processors, about 34 GB RAM, integrated Intel Iris Xe, no discrete NVIDIA GPU, and about 678 GB free disk.
+- Ollama 0.32.5 is live on loopback and publisher-signed. `llama3.2:3b` is the 3.2B GGUF Q4_K_M instruction model with 128K context; its manifest and all six referenced blobs match SHA-256.
+- The model and runtime source gate is `ready` only for local synthetic evaluation with no tools, credentials, approvals, execution, downloads, remote services, weight redistribution, or real infrastructure.
+- Meta's AUP prohibition on operating critical infrastructure is carried forward as an explicit project no-go. Model card and registry capabilities remain hypotheses until the frozen Runbook Sentinel comparison measures them.
+
+Next eligible action: freeze the adapter and adversarial comparison contract, then capture the deterministic control before the first local-model invocation.
