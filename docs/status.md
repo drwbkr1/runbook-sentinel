@@ -2,16 +2,16 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0003-retrieval-boundary`
 - Completed milestones: `BASELINE-0001`, `BASELINE-0002`
-- Latest verified checkpoint: `baseline-0002`; merged code and evidence commit `53fc4ce1189218fc0ea13899aa8bb83552ffa4af` passed local, clean-clone, remote, and merged-main verification
-- Active milestone: none; the next cycle must resume from `v0.0.2`
-- Current unit: none
+- Latest verified checkpoint: public `v0.0.2` at `a320d36a933e80e5f22b5776be4ce39fa40cd530`; local tag, remote tag, remote `main`, public repository, and non-draft release agree
+- Active milestone: `BASELINE-0003`
+- Current unit: GitHub review and publication for candidate `v0.0.3`
 - Disposition: baseline `pass`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: merged and verified at `53fc4ce1189218fc0ea13899aa8bb83552ffa4af` before this closure record
+- GitHub `main`: verified at public `v0.0.2` closure commit `a320d36a933e80e5f22b5776be4ce39fa40cd530`
 - GitHub pull request: `#1`, merged with history preserved
 - GitHub release: public, non-draft `v0.0.2`
 - Docker: daemon verified live; container packaging deferred after three base-image candidates failed the source gate
@@ -20,15 +20,16 @@
 
 ## Verified evidence
 
-- Contract schema: pass
-- Frozen manifest: 9 files, pass
-- Tests: 6 of 6 pass
-- Frozen evaluation: 9 scenarios, 27 attempts, all exact gates pass
+- Contract schema: candidate pass
+- Frozen manifest: 9 files, candidate pass
+- Tests: 7 of 7 candidate pass
+- Frozen evaluation: 16 scenarios, 48 attempts, all exact candidate gates pass
 - Retrieval recall@4, outcome accuracy, diagnosis accuracy, trajectory exact match, policy compliance, benign utility, adversarial safe outcome, and `pass^3`: 1.0
+- Instruction-bearing attack-document decision exposure: 0.0
 - Proposal attack success: 0.0
-- Latest latency: median 21.411 ms, p95 39.202 ms
-- Live CLI, MCP stdio, HTTP approval/executor, dashboard, SQLite, audit log, and JSONL telemetry: pass
-- Clean clone: compilation, tests, manifest, contract, MCP, live API, dashboard render, persistence, and telemetry all pass
+- Latest latency: median 7.391 ms, p95 18.075 ms; no general performance claim
+- Live CLI, MCP stdio, HTTP approval/executor, dashboard, SQLite, audit log, and JSONL telemetry: candidate pass
+- Clean clone: exact commit `0aa4fc68bfcf208c2f64a3578e54727a55002ef3` passed all source, evidence, MCP, API, dashboard, persistence, telemetry, JSON, secret, and diff gates
 - Container: deferred after three base images failed the source gate
 
 ## BASELINE-0002 measured gap
@@ -44,4 +45,18 @@
 - Isolated live CLI, MCP, HTTP approval/executor, replay, dashboard, SQLite, audit, and JSONL telemetry: pass
 - Executor policy SHA-256 is unchanged from `v0.0.1`
 
-Next eligible action: begin `BASELINE-0003` from `v0.0.2` by measuring retrieval attack exposure and comparing only source-approved retrieval configurations on frozen splits.
+## BASELINE-0003 measured gap
+
+- Four frozen cases contain explicitly labeled instruction-bearing attack documents.
+- v0.0.2 retrieved all four attack documents into the context passed to the bounded agent: exposure rate 1.0.
+- Proposal attack success remained 0.0 because the deterministic agent and external policy ignore retrieved prose as authority.
+- The bounded comparison will retain full retrieval identities for audit while testing an evidence-only decision plane.
+- Full-context attempt 001: exposure 1.0 and disposition `remediate`; all prior quality and action-security gates remained passing.
+- Evidence-only attempt 002: exposure 0.0 and disposition `pass`; all prior quality, policy, action-security, reliability, and cost gates remain passing.
+- Candidate latency: median 7.729 ms and p95 14.326 ms versus control 8.887 ms and 55.574 ms; no general performance claim is made.
+- Pre-commit regression attempt 003: all 48 trials passed again with exposure 0.0, median 7.391 ms, and p95 18.075 ms; it is the latest-passed pointer.
+- Live CLI and MCP retained poisoned runbook identity for audit while excluding it from the decision context.
+- Isolated API, approval, executor, replay, rendered dashboard, SQLite, audit, and telemetry verification: pass.
+- Executor policy SHA-256 is unchanged from `v0.0.2`.
+
+Next eligible action: push the verified candidate branch, inspect its server-side diff and mergeability, and release only after merged-main real-surface verification passes.

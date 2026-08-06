@@ -15,7 +15,7 @@ The model, retrieved content, user artifacts, MCP payloads, external packages, m
 
 | Threat | Baseline control |
 |---|---|
-| Indirect prompt injection or poisoned runbook | Only allowlisted facts from fresh telemetry/status enter deterministic decisions; prose is data |
+| Indirect prompt injection or poisoned runbook | Full retrieval is retained for audit, but only trusted-kind telemetry/status enter the decision context; the agent then extracts allowlisted facts only; prose is never authority |
 | Stale or conflicting evidence | One-hour freshness window; missing evidence request; conflict abstention |
 | Unauthorized action or capability escalation | Server-side allowlist and exact capability match; no model-controlled arguments |
 | Forged or changed proposal | Canonical SHA-256 action hash bound to approval |
@@ -25,6 +25,7 @@ The model, retrieved content, user artifacts, MCP payloads, external packages, m
 | MCP overreach | No approval or execution tool; closed-world annotations; enforcement ignores annotations as authority |
 | XSS or dashboard injection | Escaped dynamic values and restrictive browser security headers |
 | Supply-chain compromise | Standard-library baseline; external-source gate and ledger before import |
+| Forged evidence classification | Synthetic kinds are project-authored; any real intake must authenticate source identity and assign kind outside the model before this boundary can be claimed |
 | Real infrastructure impact | No real adapter or network connector; executor accepts only synthetic actions |
 
 ## Explicit non-claims

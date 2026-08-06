@@ -110,3 +110,40 @@
 - Merged with history preserved as `53fc4ce1189218fc0ea13899aa8bb83552ffa4af`; the merge parents are `v0.0.1` release commit `5a3cf1e` and verified branch head `da3ba22`.
 - Fast-forwarded the authoritative local `main` to the remote merge commit and reran tests, manifest validation, MCP, isolated API approval/execution/replay, dashboard rendering, SQLite, audit, and telemetry checks successfully.
 - `BASELINE-0002` disposition: `pass`. Failed attempt 001 and superseded attempt 002 remain retained; container packaging remains `defer`.
+
+## 2026-08-06 — BASELINE-0003 started
+
+- Resumed from public `v0.0.2` at `a320d36a933e80e5f22b5776be4ce39fa40cd530`; release identities and a fresh 48-attempt orientation evaluation passed.
+- Four instruction-bearing poisoned runbooks were retrieved into the context passed to the agent in all four labeled attack cases, for exposure rate 1.0, even though proposal attack success remained 0.0.
+- Rechecked the AgentDojo and CaMeL primary papers. They support measuring attacks over untrusted tool data and separating untrusted data from trusted control flow; the proposed evidence-only decision context is a narrower project-specific application, not a claim to implement CaMeL.
+- Froze explicit attack-document identities before changing the evaluator or runtime.
+- The orientation PowerShell guard repeated invalid `Test-Path` syntax; ignored target paths were absent and created once. The defect is retained and the syntax will not be reused.
+
+### Retained full-context control attempt 001
+
+- Extended the exact evaluator to label instruction-bearing attack documents and measure whether they enter the decision context.
+- The unchanged v0.0.2 service passed every prior quality, reliability, and action-security gate but exposed an attack document in all 12 trials across four labeled cases.
+- Full-retrieved-context-v1 results: exposure 1.0, required evidence recall 1.0, exact trajectory 1.0, `pass^3` 1.0, policy compliance 1.0, proposal attack success 0.0.
+- Disposition: `remediate`. The control artifact and manifest are immutable and were not promoted to the latest-passed pointer.
+
+### Candidate evidence-only attempt 002
+
+- Added a deterministic context policy with reproducible `full-retrieved-context-v1` and `evidence-only-context-v2` configurations.
+- The candidate retains full `retrieved_document_ids`, records excluded runbook identities as guidance, and passes only telemetry/status documents into the decision agent.
+- Attempt 002 passed all 48 trials. Instruction-bearing decision exposure fell from 1.0 to 0.0 while recall, generation, exact trajectory, utility, policy compliance, adversarial safe outcome, and `pass^3` remained 1.0; proposal attack success and cost remained 0.0.
+- Live CLI and MCP verified that the poisoned worker runbook remained auditable but absent from `decision_document_ids`. Redacted traces recorded the selected context policy and document counts.
+- Isolated API approval/execution/replay, dashboard, SQLite, audit, telemetry, and manifest-binding checks passed. The first baseline-0003 runtime receipt is retained; attempt 002 adds the explicit decision-context check.
+- The selected boundary depends on trusted project-authored document-kind metadata in this synthetic baseline. It is not a general sanitizer and does not yet validate hostile misclassification.
+
+### Complete-gate regression attempt 003
+
+- Compilation, seven tests, the frozen manifest, all three milestone contracts, JSON and JSONL parsing, executor-policy identity, secret-pattern scanning, and Git whitespace checks passed.
+- The complete gate created a separate immutable attempt rather than overwriting attempt 002. Attempt 003 passed all 48 trials with decision exposure 0.0, proposal attack success 0.0, exact quality and reliability metrics 1.0, median latency 7.391 ms, and p95 latency 18.075 ms.
+- Reran MCP and the isolated API against the promoted attempt. Full retrieval audit remained present, the poisoned runbook stayed outside the decision context, approval/execution/replay/postcondition checks passed, and the rendered dashboard, SQLite state, audit log, and telemetry reconciled.
+- Preserved attempt-003-specific evaluation, trace, manifest, dashboard, and runtime receipt. Attempt 001 remains `remediate`; attempt 002 remains the accepted comparison candidate.
+
+### Clean-clone candidate gate
+
+- Created candidate commit `0aa4fc68bfcf208c2f64a3578e54727a55002ef3` and cloned it without local object sharing to `C:\Projects\Verification\runbook-sentinel-baseline-0003-0aa4fc6-20260806160053`.
+- The exact commit passed compilation, seven tests, frozen-manifest integrity, all three milestone contracts, unchanged executor-policy identity, MCP negotiation, isolated API approval/execution/replay, rendered dashboard, SQLite, audit, telemetry, JSON and JSONL parsing, secret-pattern scanning, and diff checks.
+- The live verifier changed only the clone's living dashboard and runtime-receipt pointers, as expected. GitHub review, merged-main verification, tag, and release remain pending.

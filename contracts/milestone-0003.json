@@ -1,0 +1,205 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0003",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2 and public GitHub authority retained from the user",
+    "authorized_action_classes": [
+      "research_review",
+      "local_verification",
+      "repository_change",
+      "local_commit",
+      "github_push"
+    ],
+    "expires_at_utc": null,
+    "user_instruction": "Continue selecting and shipping bounded evidence-driven checkpoints without routine approval while preserving the thesis and security boundaries.",
+    "repository_controls": [
+      "AGENTS.md",
+      "C:\\Projects\\STORAGE_POLICY.md",
+      "contracts/milestone-0002.json"
+    ],
+    "active_contract": "contracts/milestone-0003.json",
+    "verified_at_utc": "2026-08-06T19:40:12Z"
+  },
+  "scope": {
+    "objective": "Compare the accepted full retrieved context with an evidence-only decision context, measure instruction-bearing attack-document exposure separately, and select a configuration that reduces decision-plane exposure without reducing evidence recall, exact utility, policy compliance, or repeated reliability.",
+    "allowed_paths": [
+      "C:\\Projects\\Active\\runbook-sentinel",
+      "C:\\Projects\\Verification"
+    ],
+    "forbidden_work": [
+      "Connect to or mutate real operational infrastructure",
+      "Add an executor action or capability",
+      "Give the model credentials, approval tokens, or execution authority",
+      "Import external code, data, packages, models, or documents",
+      "Use keyword-based prompt-injection detection as an authority control",
+      "Remove full retrieved-document identities from audit evidence",
+      "Change repository visibility, access, or ownership"
+    ],
+    "reversible_actions": [
+      "Label project-authored attack documents in the frozen catalog",
+      "Add exact exposure metrics",
+      "Compare two project-authored standard-library context policies",
+      "Pass only telemetry and status documents into the decision plane",
+      "Commit and push a verified checkpoint"
+    ],
+    "stop_conditions": [
+      "Core thesis change",
+      "Security boundary weakening",
+      "Benign utility or required evidence recall regression",
+      "New action, external asset, spend, paid service, or secret required",
+      "Real operational infrastructure interaction",
+      "Access or ownership change",
+      "Irreversible action",
+      "Unverifiable shipment"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Local main, remote main, annotated v0.0.2 tag, and public release resolve to a320d36a933e80e5f22b5776be4ce39fa40cd530",
+        "The worktree was clean before the baseline-0003 branch",
+        "A fresh v0.0.2 orientation evaluation passed all accepted gates",
+        "No external asset is required for the bounded comparison"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": [
+        "The full-context control and evidence-only candidate run on the same frozen attack labels and splits",
+        "Instruction-bearing attack-document exposure to the decision plane falls from 1.0 to 0.0",
+        "Full retrieval identities remain available for audit and human review",
+        "Required evidence recall, exact outcomes, policy compliance, attack success, pass^3, latency, and cost are reported separately",
+        "No executor action, capability, package, model, secret, or real connector is added",
+        "The real CLI, API, MCP, dashboard, persistence, telemetry, clean clone, GitHub review, merged main, and release agree"
+      ]
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Resume from v0.0.2, inspect traces, quantify the exposure gap, and freeze attack-document labels",
+      "depends_on": [],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "research_review",
+      "inputs": ["v0.0.2", "Orientation evaluation", "Primary prompt-injection research"],
+      "outputs": ["Exposure gap statement", "Frozen instruction-bearing attack-document labels"],
+      "gates": {"external_asset_import": false, "product_thesis_unchanged": true},
+      "disposition": "pass",
+      "retained_failures": [
+        "The orientation command repeated invalid PowerShell Test-Path LiteralPath syntax; target files were absent and the immutable ignored orientation output was created once."
+      ],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Extend exact evaluation with decision-context exposure and capture the accepted full-context control",
+      "depends_on": ["UNIT-001"],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "repository_change",
+      "inputs": ["Frozen attack-document labels", "v0.0.2 full-context behavior"],
+      "outputs": ["Immutable baseline-0003 control attempt and manifest"],
+      "gates": {"failed_result_retention": true, "control_behavior_unchanged": true},
+      "disposition": "remediate",
+      "retained_failures": [
+        "Full-retrieved-context-v1 exposed an instruction-bearing attack document to the decision plane in all 12 trials across four labeled cases, for exposure rate 1.0.",
+        "The control preserved required evidence recall, exact trajectory, pass^3, benign utility, policy compliance, and adversarial safe outcome at 1.0 with proposal attack success 0.0."
+      ],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement and compare an evidence-only decision context while retaining full retrieval audit",
+      "depends_on": ["UNIT-002"],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "repository_change",
+      "inputs": ["Control attempt", "Frozen evaluation"],
+      "outputs": ["Context policy", "Configuration comparison", "Focused tests"],
+      "gates": {"new_actions": false, "full_retrieval_audit_retained": true},
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Verify and reconcile the candidate on every real surface",
+      "depends_on": ["UNIT-003"],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "local_verification",
+      "inputs": ["Selected context configuration"],
+      "outputs": ["Passing immutable evaluation", "Runtime receipts", "Reconciled records"],
+      "gates": {"source_only_evidence_insufficient": true},
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Commit, review, merge, tag, release, and verify the checkpoint",
+      "depends_on": ["UNIT-004"],
+      "status": "in_progress",
+      "human_gate": false,
+      "action_class": "github_push",
+      "inputs": ["Complete evidence ledger"],
+      "outputs": ["baseline-0003 release"],
+      "gates": {"public_visibility_already_authorized": true},
+      "disposition": null,
+      "retained_failures": [],
+      "next_dependency": "BASELINE-0004 selection"
+    }
+  ],
+  "verification": {
+    "changed_risks": [
+      "Untrusted retrieved-content flow",
+      "Decision-context completeness",
+      "Evaluation security metric integrity",
+      "Audit evidence preservation"
+    ],
+    "required_checks": [
+      "Milestone schema and authority validation",
+      "Pre-change control exposure attempt",
+      "Full-context versus evidence-only comparison on identical frozen cases",
+      "Focused and regression tests",
+      "Frozen repeated evaluation and split reconciliation",
+      "Policy/action surface comparison to v0.0.2",
+      "CLI, MCP, API, approval, executor, replay, dashboard, persistence, and telemetry checks",
+      "Manifest, JSON, whitespace, secret-pattern, and diff checks",
+      "Clean clone, GitHub review, merged main, tag, and release verification"
+    ],
+    "completed_checks": [
+      "v0.0.2 release identities reconciled",
+      "Fresh orientation evaluation passed all 48 accepted attempts",
+      "All four instruction-bearing attack documents were retrieved into the existing agent context for exposure rate 1.0 while proposal attack success remained 0.0",
+      "CaMeL and AgentDojo primary papers rechecked for control-data separation and untrusted tool-data evaluation rationale",
+      "Immutable attempt 001 captured full-retrieved-context-v1 exposure rate 1.0 and disposition remediate while all preexisting quality and action-security metrics remained passing",
+      "Evidence-only-context-v2 attempt 002 preserved recall, generation, exact trajectory, policy, utility, adversarial outcome, pass^3, and cost while reducing instruction attack document exposure from 1.0 to 0.0",
+      "Candidate median and p95 latency were 7.729 ms and 14.326 ms versus control 8.887 ms and 55.574 ms; the sample supports no regression but not a general performance claim",
+      "Executor policy SHA-256 1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa is unchanged from v0.0.2",
+      "Live CLI, MCP, API, approval, executor, replay, dashboard, SQLite, audit, and telemetry checks passed with full retrieval audit retained and evidence-only decision context enforced",
+      "Complete static gates passed: compilation, seven tests, manifest integrity, all milestone contracts, JSON and JSONL parsing, unchanged executor policy, secret-pattern scan, and Git whitespace",
+      "Immutable candidate regression attempt 003 passed all 48 trials with instruction attack document exposure 0.0 and was promoted to the latest-passed pointer",
+      "Attempt-003-specific MCP, isolated API, approval, executor, replay, postcondition, dashboard, persistence, audit, and telemetry receipts passed",
+      "Candidate commit 0aa4fc68bfcf208c2f64a3578e54727a55002ef3 passed a no-local-object clean clone at C:\\Projects\\Verification\\runbook-sentinel-baseline-0003-0aa4fc6-20260806160053 with compilation, seven tests, manifest, all contracts, unchanged executor policy, MCP, isolated API, approval, execution, replay, dashboard, persistence, telemetry, JSON, secret, and diff gates"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "v0.0.2 at a320d36a933e80e5f22b5776be4ce39fa40cd530",
+    "next_action": "Commit the clean-clone receipt, push the candidate branch, and inspect the server-side GitHub pull request",
+    "do_not_carry_forward": [
+      "Zero action attack success as proof of zero prompt-injection exposure",
+      "Keyword filtering as a security boundary",
+      "Unapproved models, dense retrievers, packages, or containers",
+      "Any new executor action"
+    ]
+  }
+}

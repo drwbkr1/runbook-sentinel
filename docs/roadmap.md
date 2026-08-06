@@ -8,9 +8,9 @@ Establish repository governance, a deterministic SRE environment, bounded contro
 
 Expand the frozen exact suite from 9 to 16 cases, cover all eight declared SRE topology domains, add explicit coverage grading, and close adjacent non-action diagnostic gaps without adding executor capabilities.
 
-## Next checkpoint baseline-0003 — retrieval comparison
+## Active checkpoint baseline-0003 — retrieval boundary comparison
 
-After source approval, compare lexical, dense BGE-M3, and a simple hybrid retriever on the same frozen splits. Select only a Pareto improvement across retrieval quality, end-to-end utility, attack exposure, latency, and cost.
+First compare the accepted full retrieved context with a standard-library evidence-only decision context while retaining full retrieval audit. Measure required evidence recall, exact utility, instruction-bearing attack-document exposure, action attack success, repeated reliability, latency, and cost separately. Dense or hybrid retrieval remains gated on external-source approval.
 
 ## Candidate checkpoint baseline-0004 — local model adapter
 

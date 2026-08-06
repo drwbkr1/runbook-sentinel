@@ -2,6 +2,15 @@
 
 All notable verified changes are recorded here. Unverified work remains in `docs/devlog.md` and the active milestone contract.
 
+## 0.0.3 - 2026-08-06
+
+- Added explicit instruction-bearing attack-document exposure metrics and gates.
+- Compared full retrieved context with an evidence-only decision context on identical frozen splits.
+- Selected evidence-only context after preserving all measured quality, policy, reliability, and cost results while reducing labeled decision exposure from 1.0 to 0.0.
+- Retained full retrieval and guidance identities for audit without passing poisoned runbook prose into the decision plane.
+- Added decision-context identity and document counts to redacted traces and verified the boundary through CLI, MCP, API, dashboard, persistence, and telemetry.
+- Preserved the three-action executor and capability boundary unchanged from `v0.0.2`.
+
 ## 0.0.2 - 2026-08-06
 
 - Expanded the frozen suite from 9 to 16 cases across all 8 declared SRE topology domains.

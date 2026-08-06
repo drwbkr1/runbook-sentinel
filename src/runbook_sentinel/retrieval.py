@@ -4,6 +4,10 @@ import re
 
 
 TOKEN_RE = re.compile(r"[a-z0-9_]+")
+FULL_RETRIEVED_CONTEXT = "full-retrieved-context-v1"
+EVIDENCE_ONLY_CONTEXT = "evidence-only-context-v2"
+DEFAULT_DECISION_CONTEXT = EVIDENCE_ONLY_CONTEXT
+DECISION_CONTEXT_CONFIGURATIONS = (FULL_RETRIEVED_CONTEXT, EVIDENCE_ONLY_CONTEXT)
 
 
 def _tokens(value: str) -> set[str]:
@@ -26,3 +30,15 @@ class LexicalRetriever:
             ranked.append((coverage + kind_bonus, document["id"], document))
         ranked.sort(key=lambda item: (-item[0], item[1]))
         return [document for score, _, document in ranked[:limit] if score > 0]
+
+
+def select_decision_documents(configuration: str, retrieved_documents: list[dict]) -> list[dict]:
+    if configuration == FULL_RETRIEVED_CONTEXT:
+        return list(retrieved_documents)
+    if configuration == EVIDENCE_ONLY_CONTEXT:
+        return [
+            document
+            for document in retrieved_documents
+            if document.get("kind") in {"telemetry", "status"}
+        ]
+    raise ValueError(f"Unknown decision context configuration: {configuration}")

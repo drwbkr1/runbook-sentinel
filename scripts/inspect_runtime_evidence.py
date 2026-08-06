@@ -48,6 +48,7 @@ def main() -> None:
 
     trace_text = trace.read_text(encoding="utf-8")
     trace_events = [json.loads(line) for line in trace_text.splitlines() if line.strip()]
+    run_trace_events = [event for event in trace_events if event["name"] == "sentinel.run"]
     forbidden_trace_terms = [term for term in ("approval_token", "Authorization", "Bearer ", "secret") if term in trace_text]
     latest = json.loads(evaluation.read_text(encoding="utf-8"))
     with screenshot.open("rb") as handle:
@@ -64,6 +65,13 @@ def main() -> None:
         "audit_contains_approval_and_execution": "proposal.approved" in audit_types and "proposal.executed" in audit_types,
         "trace_has_expected_events": {"sentinel.run", "sentinel.approval", "sentinel.execute"}.issubset({event["name"] for event in trace_events}),
         "trace_has_no_forbidden_terms": not forbidden_trace_terms,
+        "decision_context_is_evidence_only": bool(run_trace_events)
+        and all(
+            event["attributes"].get("retrieval.decision_context") == "evidence-only-context-v2"
+            and event["attributes"].get("retrieval.decision_document_count", 0)
+            <= event["attributes"].get("retrieval.document_count", 0)
+            for event in run_trace_events
+        ),
         "evaluation_passed": latest["gates"]["baseline_disposition"] == "pass",
         "evaluation_matches_frozen_manifest": latest["manifest_sha256"] == sha256(manifest),
         "dashboard_has_expected_dimensions": (width, height) == (1440, 1000),

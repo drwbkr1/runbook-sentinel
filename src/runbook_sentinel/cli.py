@@ -7,6 +7,7 @@ from pathlib import Path
 from .api import create_server
 from .evaluation import run_evaluation
 from .mcp_server import main as mcp_main
+from .retrieval import DECISION_CONTEXT_CONFIGURATIONS, DEFAULT_DECISION_CONTEXT
 from .service import RunbookSentinel
 
 
@@ -37,8 +38,13 @@ def main(argv: list[str] | None = None) -> None:
     execute_parser.add_argument("--trace", default="var/traces.jsonl")
 
     evaluate_parser = subparsers.add_parser("evaluate")
-    evaluate_parser.add_argument("--output", default="artifacts/evaluations/runs/baseline-0002-manual.json")
+    evaluate_parser.add_argument("--output", default="artifacts/evaluations/runs/baseline-0003-manual.json")
     evaluate_parser.add_argument("--trials", type=int, default=3)
+    evaluate_parser.add_argument(
+        "--decision-context",
+        choices=DECISION_CONTEXT_CONFIGURATIONS,
+        default=DEFAULT_DECISION_CONTEXT,
+    )
 
     serve_parser = subparsers.add_parser("serve")
     serve_parser.add_argument("--host", default="127.0.0.1")
@@ -53,7 +59,7 @@ def main(argv: list[str] | None = None) -> None:
 
     args = parser.parse_args(argv)
     if args.command == "evaluate":
-        report = run_evaluation(Path(args.output), args.trials)
+        report = run_evaluation(Path(args.output), args.trials, args.decision_context)
         _print({"metrics": report["metrics"], "gates": report["gates"]})
     elif args.command == "serve":
         server = create_server(args.host, args.port, args.db, args.trace, args.evaluation)

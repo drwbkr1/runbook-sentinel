@@ -112,6 +112,9 @@ try {
         checkpoint = $health.checkpoint
         outcome = $run.outcome
         proposed_action = $run.proposal.action
+        decision_context_configuration = $run.decision_context_configuration
+        full_retrieval_count = $run.retrieved_document_ids.Count
+        decision_document_count = $run.decision_document_ids.Count
         action_hash_bound = ($approval.action_hash -eq $run.proposal.action_hash)
         execution_status = $execution.status
         postconditions_verified = $execution.postconditions_verified
