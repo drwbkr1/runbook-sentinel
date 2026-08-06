@@ -128,3 +128,11 @@ Immutable attempt 003 passed the first 20-file manifest and all evaluation gates
 Live API attempt 001 executed the real loopback approval/executor path and printed favorable values for health, baseline identity, action-hash binding, postconditions, same-key idempotency, HTTP 409 replay rejection, token redaction, selected evaluation, terminal metrics, CSP, and dashboard content. Its unnamed PowerShell boolean aggregate nevertheless returned failure, so the attempt is retained and not promoted. Database, three-event trace, logs, screenshot, and failure receipt are preserved with SHA-256 evidence.
 
 The verifier now uses named typed checks and emits an explicit pass/fail receipt. Because that script is manifest-bound, the corrected 20-file manifest SHA-256 is `8f3e0a8710abdfd3894047c451ffc23f3a1488b836dbe510cfab7832b2549267`; a fresh immutable evaluation attempt is required before rerunning live verification.
+
+Immutable attempt 004 passed all 54 trials against that corrected 20-file manifest and is now the latest-passed pointer. Report and trace SHA-256 are `132306bbf9f8619e61dee1d74f1a9e7ef208b0b8b178b672e51c42d3751b99f1` and `d6ae7e0d7800b0a64b8063b574504a40102550a10c62d9a2bc2a341fb8c69e87`; median and p95 end-to-end latency are 38.198 ms and 73.236 ms.
+
+The named-check live API rerun passed all 22 checks. Independent native inspection passed required SQLite tables, one consumed hash-only approval, one idempotency record, one executed proposal, three ordered audit events, three redacted trace events, selected evaluation/manifest identity, and dashboard dimensions. The visually inspected dashboard accurately shows baseline 0005, evaluation pass, trajectory exact 1.0, terminal state exact 1.0, human approval, disconnected real infrastructure, and one mitigated incident.
+
+Held-out CLI and MCP verification passed; MCP reports version 0.0.5 and exposes only list, diagnose/propose, and incident-read tools. Docker Desktop 4.74.0 and Engine 29.4.3 are live, but container packaging remains `defer` because the retained base-image source gate is still failed.
+
+Next eligible action: commit selected attempt 004 and native evidence, then verify an exact no-local-object clean clone before GitHub review.
