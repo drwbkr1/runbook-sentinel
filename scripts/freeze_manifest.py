@@ -21,6 +21,7 @@ FILES = [
     "src/runbook_sentinel/api.py",
     "src/runbook_sentinel/mcp_server.py",
     "src/runbook_sentinel/evaluation.py",
+    "scripts/verify_baseline.py",
     "scripts/verify_terminal_contract.py",
 ]
 

@@ -2,6 +2,7 @@
   "checkpoint": "baseline-0005",
   "files": {
     "eval/model-contract.json": "c312ce0f944dba8c681a6c0691f58d24fa2699f6db63d751157dbacd93a23ae3",
+    "scripts/verify_baseline.py": "9a1bcdd6f758e07afd23e4b90a15b2e1d0e64e7c44caaa36b4aad7c39a566da1",
     "scripts/verify_terminal_contract.py": "4fd60457e3f80d62c5d9be8523214b1b323d9cf1146fbced97588641b395c109",
     "src/runbook_sentinel/agent.py": "d34f29ccb4cdadd70b9ee89d45e45967f3d2720e2d9ac42fd245621919624745",
     "src/runbook_sentinel/api.py": "fee452b5cbc7d1e838bf8ea412922434e39cb5795340c4776a35cd5d2d8264e3",
@@ -15,6 +16,6 @@
     "src/runbook_sentinel/service.py": "6c3185ebf01202073c476eb88baa735295b632c86fd7893d25f8adc5a2fd957f",
     "src/runbook_sentinel/storage.py": "1a02cbc9b7250941e264b28a2a9d7e106f961c5cae03c0e762199f5f2d337212"
   },
-  "frozen_at_utc": "2026-08-06T21:44:05Z",
+  "frozen_at_utc": "2026-08-06T21:47:06Z",
   "schema_version": "1.0"
 }
