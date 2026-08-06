@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0005",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -73,7 +73,7 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
+      "status": "pass",
       "evidence": [
         "All 18 scenarios freeze exact expected terminal state, incident status, and evaluation-harness trajectory before evaluator implementation",
         "All 54 trials report retrieval, generation, proposal, approval, execution, replay, postcondition, terminal-state, policy, utility, security, reliability, latency, and cost metrics separately",
@@ -146,13 +146,13 @@
       "id": "UNIT-005",
       "purpose": "Verify real surfaces, reconcile records, clean-clone, review, merge, tag, release, and verify the bounded checkpoint",
       "depends_on": ["UNIT-004"],
-      "status": "in_progress",
+      "status": "complete",
       "human_gate": false,
       "action_class": "github_push",
       "inputs": ["Passing terminal-state evaluation and reconciled records"],
       "outputs": ["baseline-0005 release"],
       "gates": {"public_visibility_already_authorized": true, "runtime_authority_unchanged": true},
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [
         "Live API attempt 001 completed the synthetic workflow with favorable evidence but failed the verifier's unnamed aggregate boolean; receipt and artifacts retained, not promoted"
       ],
@@ -188,12 +188,15 @@
       "Schema 1.4, isolated harness, separate graders, and 20-file manifest validated",
       "Selected attempt 004 passed 54 trials with 15 expected executions, 39 strict no-action results, and pass^3 1.0",
       "Native CLI, MCP, API, approval, executor, replay, dashboard, persistence, audit, and telemetry passed after one retained failed verifier attempt",
-      "No-local-object clone of bf29abe17576db7458e0706a3f7fda52049cc3a6 passed source, evaluation, and real-surface gates"
+      "No-local-object clone of bf29abe17576db7458e0706a3f7fda52049cc3a6 passed source, evaluation, and real-surface gates",
+      "GitHub pull request 4 matched verified branch head b012b381a3a3f8f7ab57b05095affe9495f49666, was CLEAN and MERGEABLE with no configured checks, and merged with history preserved as a55249a4c679d61573e72dfe5c3be5363c3b78d1",
+      "A fresh clone of remote merged main a55249a4c679d61573e72dfe5c3be5363c3b78d1 passed compilation, 13 tests, manifest and terminal contracts, selected evaluation identity, CLI, MCP, API approval and execution, replay rejection, postconditions, persistence, telemetry, and rendered-dashboard inspection",
+      "The public v0.0.5 tag, peeled remote tag, remote main, non-draft release, rendered README, and rendered release page bind the exact release-closure commit containing this completed contract"
     ]
   },
   "handoff": {
-    "current_checkpoint": "verified baseline-0005 candidate bf29abe17576db7458e0706a3f7fda52049cc3a6; public release remains v0.0.4",
-    "next_action": "Commit the clean-clone receipt, then push for GitHub review and verify merged main before v0.0.5 release closure",
+    "current_checkpoint": "public v0.0.5 exact release closure with deterministic-control-v2 selected, exact synthetic terminal-state grading passed, and the measured local-model candidate still excluded",
+    "next_action": "Begin the next cycle from public v0.0.5 by running the accepted system and selecting the highest-leverage measurable reliability or evaluation-coverage weakness",
     "do_not_carry_forward": [
       "The existing trajectory_exact field as evidence of executed tool correctness",
       "The baseline-0004 report sentence claiming exact terminal-state graders",

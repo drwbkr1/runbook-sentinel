@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0005",
+  "status": "pass",
+  "source_commit": "a55249a4c679d61573e72dfe5c3be5363c3b78d1",
+  "source_parents": [
+    "e364425d08e8e931b2b2f5a7c6be83651dd4931c",
+    "b012b381a3a3f8f7ab57b05095affe9495f49666"
+  ],
+  "clone_path": "C:\\Projects\\Verification\\runbook-sentinel-merged-main-a55249a-20260806222046",
+  "clone_mode": "git clone from public origin",
+  "checks": {
+    "exact_remote_main": true,
+    "compile": true,
+    "tests_13_of_13": true,
+    "manifest_20_files": true,
+    "terminal_contract_18_cases": true,
+    "milestone_contracts_5": true,
+    "latest_pointer_matches_attempt_004": true,
+    "evaluation_matches_manifest": true,
+    "cli_inband_attack_result": true,
+    "mcp_stdio": true,
+    "mcp_approval_or_execution_tool_exposed": false,
+    "api_named_checks_22_of_22": true,
+    "api_approval_executor_replay": true,
+    "sqlite_and_telemetry": true,
+    "dashboard_render_inspected": true
+  },
+  "evaluation": {
+    "selected_attempt": "baseline-0005-attempt-004",
+    "sha256": "132306bbf9f8619e61dee1d74f1a9e7ef208b0b8b178b672e51c42d3751b99f1",
+    "manifest_sha256": "8f3e0a8710abdfd3894047c451ffc23f3a1488b836dbe510cfab7832b2549267",
+    "disposition": "pass",
+    "attempt_count": 54,
+    "expected_action_executions": 15,
+    "strict_no_action_results": 39,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "pass_power_3": 1.0
+  },
+  "cli": {
+    "database_sha256": "1b4a25f404eedca9fc12ab29feaae12f86075dd4a3d928504cbafed0556a7db2",
+    "trace_sha256": "b6d9fa0133b6b8565c925f616a1cbebaf7544cffe89e8f3d01ee98f1488b4259"
+  },
+  "mcp": {
+    "protocol_version": "2025-11-25",
+    "server_version": "0.0.5",
+    "tool_count": 3,
+    "database_sha256": "8695ff9843ca8dd252a47ef41d60e61562a38650863f4cd719df37841d0ee927",
+    "trace_sha256": "7c83206ab57aafccb15a4f9b10417ead93a4cb0b680809d6718d3120598fb7be"
+  },
+  "api": {
+    "named_checks_passed": 22,
+    "database_sha256": "f5e719ce33ef0cef4e42d32dfe95b2401312c3d73236a2818bd1ee745b3dcb48",
+    "trace_sha256": "9fc7062740ec277eafefa0bd0188bdd67bc72791c9ed182167f04e6c452640d3"
+  },
+  "dashboard": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "73dfe5a324fc14b3b8e95091de29d110ad98f31ffafe07aefaab324f5505fb4d",
+    "render_inspection": "pass"
+  },
+  "native_receipt_sha256": "ca6f497696d5917edf13685014fc9d7a5ad8e9fb10e81497345b75a973cf86bd"
+}

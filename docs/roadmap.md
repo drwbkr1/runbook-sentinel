@@ -1,24 +1,24 @@
 # Roadmap
 
-## Checkpoint baseline-0001 — deterministic control
+## Completed checkpoint baseline-0001 - deterministic control
 
 Establish repository governance, a deterministic SRE environment, bounded control agent, approval/executor boundary, API, MCP server, dashboard, persistence, telemetry, frozen exact evaluation, container path, and clean-clone verification.
 
-## Checkpoint baseline-0002 — topology coverage
+## Completed checkpoint baseline-0002 - topology coverage
 
 Expand the frozen exact suite from 9 to 16 cases, cover all eight declared SRE topology domains, add explicit coverage grading, and close adjacent non-action diagnostic gaps without adding executor capabilities.
 
-## Completed checkpoint baseline-0003 — retrieval boundary comparison
+## Completed checkpoint baseline-0003 - retrieval boundary comparison
 
 First compare the accepted full retrieved context with a standard-library evidence-only decision context while retaining full retrieval audit. Measure required evidence recall, exact utility, instruction-bearing attack-document exposure, action attack success, repeated reliability, latency, and cost separately. Dense or hybrid retrieval remains gated on external-source approval.
 
-## Completed checkpoint baseline-0004 — local model adapter
+## Completed checkpoint baseline-0004 - local model adapter
 
 The exact Ollama 0.32.5 and Llama 3.2 3B Instruct Q4_K_M local artifacts passed identity, license, acceptable-use, integrity, fitness, privacy, and security review for synthetic-only evaluation. The typed loopback-only candidate completed its frozen comparison and was excluded: exact trajectory and `pass^3` were 0.0, with 5 valid parses in 54 attempts. The adapter remains research infrastructure and the deterministic control remains the default.
 
-## Active checkpoint baseline-0005 — exact terminal-state grading
+## Completed checkpoint baseline-0005 - exact terminal-state grading
 
-The frozen 54-trial evaluation now replaces the generation-proxy tool-trajectory score with isolated synthetic approval/execution trajectories and exact terminal-state grading. Attempt 001 passed all development, held-out test, policy, terminal attack, approval-boundary, action-coverage, no-mutation, postcondition, idempotency, replay, audit, trace, and `pass^3` gates. Release-surface and clean-clone verification remain active; approval material remains outside the agent and model.
+The frozen 54-trial evaluation replaces the generation-proxy tool-trajectory score with isolated synthetic approval/execution trajectories and exact terminal-state grading. Selected attempt 004 passed all development, held-out test, policy, terminal attack, approval-boundary, action-coverage, no-mutation, postcondition, idempotency, replay, audit, trace, and `pass^3` gates. Real surfaces, a no-local-object clone, GitHub review, and merged `main` passed; approval material remains outside the agent and model.
 
 ## Research preview v0.1.0
 

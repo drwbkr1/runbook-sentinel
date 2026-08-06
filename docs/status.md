@@ -2,37 +2,37 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `codex/baseline-0005-terminal-state-grading`
-- Completed milestones: `BASELINE-0001`, `BASELINE-0002`, `BASELINE-0003`, `BASELINE-0004`
-- Latest verified checkpoint: public `v0.0.4`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
-- Active milestone: `BASELINE-0005`
-- Current unit: freeze exact terminal states, evaluation-harness trajectories, and authority separation before implementation
-- Disposition: baseline `pass`; container `defer`
+- Branch: `main`
+- Completed milestones: `BASELINE-0001` through `BASELINE-0005`
+- Latest verified checkpoint: public `v0.0.5`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
+- Active milestone: none; the next bounded checkpoint has not yet been selected
+- Current unit: begin the next evidence-driven cycle from the exact v0.0.5 closure
+- Disposition: baseline `pass`; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: pull request `#3` merged as `fca61e3f4b1a52e525477002c3977a15aab0cd8f` before the exact closure record
-- GitHub pull request: `#3`, merged with history preserved
-- GitHub release: public, non-draft `v0.0.4`
+- GitHub `main`: pull request `#4` merged as `a55249a4c679d61573e72dfe5c3be5363c3b78d1` before the exact closure record
+- GitHub pull request: `#4`, merged with history preserved
+- GitHub release: public, non-draft `v0.0.5`
 - Docker: daemon verified live; container packaging deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
 - Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
 
 ## Verified evidence
 
-- Contract schema: candidate pass
-- Frozen manifest: 11 files, release candidate pass
-- Tests: 12 of 12 release candidate pass
-- Frozen evaluation: 18 scenarios, 54 attempts, all exact deterministic release-candidate gates pass
-- Retrieval recall@4, outcome accuracy, diagnosis accuracy, trajectory exact match, policy compliance, benign utility, adversarial safe outcome, and `pass^3`: 1.0
+- Contract schema: pass
+- Frozen manifest: 20 files, SHA-256 `8f3e0a8710abdfd3894047c451ffc23f3a1488b836dbe510cfab7832b2549267`, pass
+- Tests: 13 of 13 pass
+- Frozen evaluation: 18 scenarios, 54 attempts, 15 expected executions, 39 strict no-action results, all exact deterministic gates pass
+- Retrieval recall@4, outcome accuracy, diagnosis accuracy, proposal exactness, actual tool-trajectory exactness, terminal-state exactness, policy compliance, benign utility, adversarial safe outcome, and `pass^3`: 1.0
 - Instruction-bearing attack-document decision exposure: 0.0
 - Proposal attack success: 0.0
-- Latest selected-control latency: median 9.009 ms, p95 20.500 ms; no general performance claim
-- Live CLI, MCP stdio, HTTP approval/executor, dashboard, SQLite, audit log, and JSONL telemetry: candidate pass
-- Clean clone: exact baseline-0004 candidate commit `1b886c5557d311a272997866a715c2f8f815d76e` passed source gate, compilation, 12 tests, manifest, contracts, artifact hashes, unchanged policy, CLI, MCP, API, dashboard render, approval, executor, replay, SQLite, audit, and telemetry checks
-- Final release closure `e364425d08e8e931b2b2f5a7c6be83651dd4931c`: local main, remote main, annotated tag, peeled remote tag, and public release agree
-- GitHub review: pull request `#3`, 9 commits, 45 changed files, `CLEAN`, `MERGEABLE`, no required checks, merged with history preserved
-- Merged main: compilation, 12 tests, manifest, contracts, unchanged policy, MCP, API, approval, executor, replay, postconditions, dashboard, SQLite, audit, and telemetry pass
+- Terminal attack success: 0.0
+- Latest selected-control end-to-end latency: median 38.198 ms, p95 73.236 ms; diagnosis-only median 5.564 ms, p95 14.791 ms; no general performance claim
+- Live CLI, MCP stdio, HTTP approval/executor, dashboard, SQLite, audit log, and JSONL telemetry: pass
+- Clean clone: exact candidate commit `bf29abe17576db7458e0706a3f7fda52049cc3a6` passed compilation, 13 tests, 20-file manifest, contracts, selected evaluation identity, unchanged policy and service, CLI, MCP, API, dashboard, approval, executor, replay, postconditions, SQLite, audit, and telemetry checks
+- GitHub review: pull request `#4`, 12 commits, 48 changed files, `CLEAN`, `MERGEABLE`, no configured checks, merged with history preserved
+- Merged main `a55249a4c679d61573e72dfe5c3be5363c3b78d1`: compilation, 13 tests, manifest, terminal contract, selected evaluation, CLI, MCP, API, approval, executor, replay, postconditions, dashboard, SQLite, audit, and telemetry pass
 - Container: deferred after three base images failed the source gate
 
 ## BASELINE-0002 measured gap
@@ -107,17 +107,17 @@ The isolated harness now invokes the existing approval broker and executor only 
 
 Thirteen tests pass, including a successful attacker-goal execution and a proposal blocked by deterministic preconditions. A 54-trial implementation smoke reached all 15 expected terminal states across all three action types, kept all 39 no-action trials unchanged, and emitted no approval-token literal in the report or 84 trace events. The final 14-file evaluation manifest SHA-256 is `713361860a9d1896e0ce1375ba8578db3322e920c915340cb0d0382bd8aa1392`; it binds the evaluation driver as well as the evaluator. Executor policy and service hashes remain unchanged.
 
-Next eligible action: commit the evaluator implementation, run immutable repeated evaluation attempts against that exact commit and manifest, preserve their traces, and promote only a passing attempt.
+Historical handoff at this checkpoint: commit the evaluator implementation, run immutable repeated evaluation attempts against that exact commit and manifest, preserve their traces, and promote only a passing attempt.
 
 Immutable attempt 001 passed all 54 trials and is now the latest-passed pointer. It executed 15 of 15 expected actions across `restart_worker`, `rollback_deployment`, and `warm_cache`; all 39 no-action trials stayed open and exactly unchanged. Proposal, actual trajectory, terminal state/status, policy, approval, execution, postconditions, idempotency, replay rejection, audit order, trace order, approval boundary, development/test reliability, and `pass^3` gates are all exact passes.
 
 Attempt SHA-256 is `b3079ffcf29b8c6c44ebe0f1fda167cd7ffb6c32f9c15c37eca21b6f7546543e`; its 84-event trace SHA-256 is `9819b78a58ed31e58120b4ac9135b9a3be520a0b78f3ec8f85da383ddb3eb1e5`; its copied manifest matches active SHA-256 `713361860a9d1896e0ce1375ba8578db3322e920c915340cb0d0382bd8aa1392`. `latest.json` is byte-identical to the attempt. End-to-end median and p95 are 56.022 ms and 97.946 ms; diagnosis-only median and p95 are 5.288 ms and 14.148 ms.
 
-Next eligible action: version the bounded checkpoint as `0.0.5`, rerun the accepted evaluation against the versioned surfaces, and verify the real CLI, API, MCP, approval/executor, dashboard, persistence, telemetry, clean clone, and public release.
+Historical handoff at this checkpoint: version the bounded checkpoint as `0.0.5`, rerun the accepted evaluation against the versioned surfaces, and verify the real CLI, API, MCP, approval/executor, dashboard, persistence, telemetry, clean clone, and public release.
 
 Versioned package, API health, MCP identity, CLI default, tests, README, and dashboard now identify `0.0.5` / baseline 0005. The dashboard adds visible actual tool-trajectory and terminal-state exactness without adding approval or execution controls. The release-candidate manifest now binds 17 files, including package metadata, package version, CLI, and the evaluation driver; SHA-256 is `c8a4797dbdde2bc53ff9057bd1953bbfda925149b28c8a538f1d155334757310`.
 
-Next eligible action: commit the versioned surfaces, generate immutable attempt 002 against the exact 17-file manifest, and begin native real-surface verification only if it passes.
+Historical handoff at this checkpoint: commit the versioned surfaces, generate immutable attempt 002 against the exact 17-file manifest, and begin native real-surface verification only if it passes.
 
 Immutable attempt 002 passed the 17-file versioned manifest and all 54 trials, with 15/15 executions, 39/39 strict no-action results, all exact gates, median end-to-end latency 58.510 ms, and p95 108.435 ms. Report, trace, and manifest SHA-256 are `b1e3eae0cf0ea8a558a7afc5bec4f82616ff811d81006c6f6c73156d8790a3ba`, `9b8aa00f2aa2619c2fd935f54d7d2184f93d53314a140ddaa8fe70c763cf55a1`, and `c8a4797dbdde2bc53ff9057bd1953bbfda925149b28c8a538f1d155334757310`.
 
@@ -135,10 +135,18 @@ The named-check live API rerun passed all 22 checks. Independent native inspecti
 
 Held-out CLI and MCP verification passed; MCP reports version 0.0.5 and exposes only list, diagnose/propose, and incident-read tools. Docker Desktop 4.74.0 and Engine 29.4.3 are live, but container packaging remains `defer` because the retained base-image source gate is still failed.
 
-Next eligible action: commit selected attempt 004 and native evidence, then verify an exact no-local-object clean clone before GitHub review.
+Historical handoff at this checkpoint: commit selected attempt 004 and native evidence, then verify an exact no-local-object clean clone before GitHub review.
 
 Candidate commit `bf29abe17576db7458e0706a3f7fda52049cc3a6` passed a no-local-object clone at `C:\Projects\Verification\runbook-sentinel-baseline-0005-bf29abe-20260806221336`. The clean clone passed compilation, 13 tests, 20-file manifest, terminal contract, all five milestone JSON records, selected attempt and manifest identity, unchanged policy and service hashes, model-weight absence, secret-pattern scan, held-out CLI, MCP 2025-11-25, API approval/executor/replay, SQLite, audit, telemetry, and native dashboard receipt.
 
 The clean-clone dashboard was freshly rendered and visually inspected. It matches the authoritative baseline 0005 surface; the only tracked post-verification clone changes are the expected new synthetic incident screenshot and its regenerated native receipt.
 
-Next eligible action: commit the clean-clone receipt, push the verified branch, open GitHub review, verify exact remote scope and mergeability, then verify merged main before release closure.
+Historical handoff at this checkpoint: commit the clean-clone receipt, push the verified branch, open GitHub review, verify exact remote scope and mergeability, then verify merged main before release closure.
+
+## BASELINE-0005 release closure
+
+- GitHub pull request `#4` matched verified branch head `b012b381a3a3f8f7ab57b05095affe9495f49666`, was `CLEAN` and `MERGEABLE`, and merged with history preserved as `a55249a4c679d61573e72dfe5c3be5363c3b78d1`.
+- A fresh clone of that remote merged commit passed compilation, all 13 tests, the 20-file manifest, exact terminal contract, selected evaluation identity, held-out CLI, MCP 2025-11-25, live API approval/executor/replay/postconditions, SQLite, audit, telemetry, native receipt, and rendered-dashboard inspection.
+- The public v0.0.5 tag, peeled remote tag, remote `main`, and non-draft release bind the exact release-closure commit containing these reconciled records; rendered public pages were verified after publication.
+
+Next eligible action: begin the next cycle from public v0.0.5 by running the system and selecting one bounded measurable weakness.

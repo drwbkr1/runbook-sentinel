@@ -2,6 +2,14 @@
 
 All notable verified changes are recorded here. Unverified work remains in `docs/devlog.md` and the active milestone contract.
 
+## 0.0.5 - 2026-08-06
+
+- Replaced proposal-level trajectory proxying with isolated, exact approval, execution, replay, postcondition, audit, trace, and terminal-state grading.
+- Passed 54 of 54 repeated trials: 15 expected actions executed across all three synthetic capabilities and 39 no-action trials remained exactly unchanged.
+- Preserved proposal and terminal attack success at 0.0 and repeated-trial `pass^3` at 1.0 while keeping approval material and execution authority outside the agent and model.
+- Retained one failed live-verifier attempt and three superseded passing evaluation identities rather than rewriting unfavorable or stale evidence.
+- Verified the CLI, API, MCP authority inventory, approval flow, executor, dashboard, SQLite state, telemetry, clean clone, GitHub review, and merged `main`; container packaging remains deferred.
+
 ## 0.0.4 - 2026-08-06
 
 - Added a standard-library, direct-loopback Ollama evaluation adapter with exact structured parsing, redacted model telemetry, and no tools or deterministic fallback.
