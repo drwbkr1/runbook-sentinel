@@ -7,11 +7,11 @@
     "scripts/build_zipapp.py": "fa73a34359e32e1c356e8f302b6c882a7cb10f7f70680b650a0a9e2467165269",
     "scripts/evaluate_stale_payload_projection.py": "67abe01001c3e5b1121854a56c7a1c1e4ea707b9ee56ef86d1959ebac412d23a",
     "scripts/inspect_runtime_evidence.py": "bf9d905e121dfde79b58f4d3cc06c704279cc9b0322b4e7aaf1ad0f5eaea17f4",
-    "scripts/verify_baseline.py": "7ed10d6d56ffab3d3d66c805cbc20f82db526c92c1532c693e5fc6b8c5d5ccad",
+    "scripts/verify_baseline.py": "437f738445c3da6f3ff759ffa13e947f117fd637e0a68297f5af34dbdaa432c8",
     "scripts/verify_behavioral_relations.py": "2165cc62d2c75706302f0998ce432f813e32cbefbeb5a381590bb0f950c1fda7",
     "scripts/verify_evidence_conditions.py": "daa13b046dec345fe60eab814e1803928233a4db102102e329998f3c2009e389",
-    "scripts/verify_live_api.ps1": "b797555b43c9f27e87564722bee0534b90309a92239a57c8b52dffd62aa3cddc",
-    "scripts/verify_mcp_stdio.py": "ad688e76d57d101e755d354b766d93539ea8a583200a326bc12716433eb2e6cd",
+    "scripts/verify_live_api.ps1": "b630f7e414bd666f31e4cb2d94b4edd06039fdc0eb4a5930742715f8ba040536",
+    "scripts/verify_mcp_stdio.py": "03aaf73387d4ab6c68b21b25ce9133996bdc18861e9b0e8e47fd229f93b75320",
     "scripts/verify_package_contract.py": "cea1faa816c08bae71cfe46cb08b46ce5ebc96a939639153f925f8f7638a13b3",
     "scripts/verify_retrieval_stress.py": "88b2a6493a6f02dbf56867845076c11815f20442d59114ad7ed18c2ba7e53484",
     "scripts/verify_stale_evidence_stress.py": "6973429c480f91a58e1d728ee90206dc6813dbeca8af5d72478daf4d204246d7",
@@ -35,6 +35,6 @@
     "src/runbook_sentinel/storage.py": "1a02cbc9b7250941e264b28a2a9d7e106f961c5cae03c0e762199f5f2d337212",
     "src/runbook_sentinel/telemetry.py": "e24312300bbc509d7d615942e610a85480ffa6b1d4ac48daef22756498bec813"
   },
-  "frozen_at_utc": "2026-08-07T18:50:00Z",
+  "frozen_at_utc": "2026-08-07T18:58:00Z",
   "schema_version": "1.0"
 }

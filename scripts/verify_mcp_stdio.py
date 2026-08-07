@@ -25,7 +25,7 @@ def main() -> None:
     for generated in (database, Path(str(database) + "-wal"), Path(str(database) + "-shm"), trace):
         generated.unlink(missing_ok=True)
     env = os.environ.copy()
-    env["PYTHONPATH"] = str(ROOT / "src")
+    env["PYTHONPATH"] = os.environ.get("RUNBOOK_SENTINEL_PYTHONPATH", str(ROOT / "src"))
     process = subprocess.Popen(
         [
             sys.executable,

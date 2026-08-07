@@ -1,5 +1,5 @@
 $ErrorActionPreference = 'Stop'
-$env:PYTHONPATH = 'src'
+$env:PYTHONPATH = if ($env:RUNBOOK_SENTINEL_PYTHONPATH) { $env:RUNBOOK_SENTINEL_PYTHONPATH } else { 'src' }
 
 $pythonCmd = (Get-Command python).Source
 $stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0011-stdout.log'
@@ -157,7 +157,7 @@ try {
         evaluation_fresh_payload_retention = $evaluation.metrics.stale_payload_projection.fresh_payload_retention_rate
         dashboard_http_status = $dashboardResponse.StatusCode
         dashboard_csp = $dashboardResponse.Headers['Content-Security-Policy']
-        dashboard_baseline_0010 = $dashboardResponse.Content.Contains('Baseline 0010')
+        dashboard_baseline_0011 = $dashboardResponse.Content.Contains('Baseline 0011')
         dashboard_terminal_metric = $dashboardResponse.Content.Contains('Terminal state exact')
         dashboard_condition_metric = $dashboardResponse.Content.Contains('Evidence condition coverage')
         dashboard_relation_metric = $dashboardResponse.Content.Contains('Behavioral relation exact')
@@ -209,7 +209,7 @@ try {
         evaluation_fresh_payload_retention = $verification.evaluation_fresh_payload_retention -eq 1.0
         dashboard_http_ok = $verification.dashboard_http_status -eq 200
         dashboard_csp_present = $verification.dashboard_csp -like "*frame-ancestors 'none'*"
-        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0010
+        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0011
         dashboard_terminal_metric_present = [bool]$verification.dashboard_terminal_metric
         dashboard_condition_metric_present = [bool]$verification.dashboard_condition_metric
         dashboard_relation_metric_present = [bool]$verification.dashboard_relation_metric
