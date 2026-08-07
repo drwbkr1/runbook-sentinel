@@ -474,7 +474,7 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["coverage"]["adversarial_split_coverage"], 1.0)
         self.assertEqual(report["metrics"]["coverage"]["missing_condition_split_pairs"], [])
         self.assertEqual(report["metrics"]["coverage"]["missing_adversarial_splits"], [])
-        self.assertEqual(report["schema_version"], "1.9")
+        self.assertEqual(report["schema_version"], "2.0")
         self.assertEqual(report["checkpoint"], "baseline-0012")
         self.assertEqual(report["metrics"]["proposal"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["development"]["tool_trajectory"]["exact_match"], 1.0)
@@ -492,6 +492,24 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["terminal_state"]["no_action_no_mutation_rate"], 1.0)
         self.assertEqual(report["metrics"]["terminal_state"]["action_type_coverage"], 1.0)
         self.assertEqual(report["metrics"]["terminal_state"]["executed_expected_action_trial_count"], 33)
+        approval_lifetime = report["metrics"]["approval_lifetime"]
+        self.assertEqual(report["approval_lifetime_contract_id"], "approval-lifetime-v1")
+        self.assertEqual(approval_lifetime["case_count"], 9)
+        self.assertEqual(approval_lifetime["invalid_case_count"], 6)
+        self.assertEqual(approval_lifetime["valid_case_count"], 3)
+        self.assertEqual(approval_lifetime["exact_match_rate"], 1.0)
+        self.assertEqual(approval_lifetime["invalid_no_mutation_rate"], 1.0)
+        self.assertEqual(approval_lifetime["valid_lifetime_exact_rate"], 1.0)
+        self.assertEqual(
+            approval_lifetime["split_exact_match_rate"],
+            {"development": 1.0, "test": 1.0},
+        )
+        self.assertTrue(report["gates"]["approval_lifetime_all_nine_cases_exact"])
+        self.assertTrue(
+            report["gates"]["approval_lifetime_invalid_no_mutation_is_one"]
+        )
+        self.assertTrue(report["gates"]["approval_lifetime_valid_boundaries_exact"])
+        self.assertNotIn('"approval_token":', json.dumps(approval_lifetime))
         relation_metrics = report["metrics"]["behavioral_relations"]
         self.assertTrue(report["gates"]["behavioral_relation_contract_valid"])
         self.assertTrue(report["gates"]["behavioral_relation_split_coverage_is_one"])
@@ -701,8 +719,11 @@ class BaselineTest(unittest.TestCase):
         self.assertLess(
             corrupted_payload_result["split_exact_match_rate"]["development"], 1.0
         )
-        self.assertNotIn("approval_token", output.read_text(encoding="utf-8"))
-        self.assertNotIn("approval_token", output.with_name("baseline.traces.jsonl").read_text(encoding="utf-8"))
+        self.assertNotIn('"approval_token":', output.read_text(encoding="utf-8"))
+        self.assertNotIn(
+            '"approval_token":',
+            output.with_name("baseline.traces.jsonl").read_text(encoding="utf-8"),
+        )
 
         control_output = Path(self.temp.name) / "full-context-control.json"
         control = run_evaluation(

@@ -8,6 +8,10 @@ A development probe through the released real loopback HTTP API supplied `ttl_se
 
 Disposition: `remediate`. The frozen approval-lifetime contract defines nine exact cases, separate development and held-out splits, strict no-mutation results for six invalid values, and exact one-, 300-, and default-300-second results for three valid values. Only `dev-negative-ttl` is revealed as a pre-change failure. Candidate held-out results remain sealed until the generic implementation and independent validator exist.
 
+The generic candidate was committed before reveal. The first and only frozen reveal then passed all nine isolated real loopback HTTP cases: six invalid values returned the exact HTTP 400 `ValueError` with proposal status pending, zero approval rows, zero approval audit events, zero approval trace events, and unchanged open incidents; the minimum, maximum, and omitted values returned HTTP 201 with exact lifetimes of 1, 300, and 300 seconds. Invalid no-mutation, valid-lifetime exactness, development exactness, test exactness, and overall exactness are all 1.0.
+
+The integrated schema 2.0 evaluator retains the approval-lifetime plane separately from the 28 scenarios and 84 repeated attempts. All 21 tests pass after preserving and correcting two verifier false positives that matched the safe field name `approval_token_hashed` as if it were a raw token value. Full version-bound evaluation and real/package release gates remain pending.
+
 Status: public baseline-0012 v0.0.12 is the latest verified checkpoint. Baseline-0011 remains stopped and unpublished. Corrected local, renewed clean-clone, merged-main, package-asset, downloaded-byte, and rendered-public verification pass. `fresh-content-stale-metadata-context-v3` remains selected, the baseline-0004 local-model candidate remains excluded, and deterministic control remains the default.
 
 ## BASELINE-0012 reproducible package and canonical dashboard identity

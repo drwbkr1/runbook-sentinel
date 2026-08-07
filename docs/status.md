@@ -6,8 +6,8 @@
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.12`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, and rendered public pages to the release-closure commit
 - Active milestone: `BASELINE-0013`; enforce a typed approval lifetime of 1 through 300 seconds outside the model and reject invalid input before any approval mutation
-- Current unit: `UNIT-002` contract freeze complete; resume from `UNIT-003` and the frozen approval-lifetime contract without redesigning the agent
-- Disposition: baseline-0013 `remediate`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished; decision-context v3 remains selected; local-model candidate `exclude`; container `defer`
+- Current unit: `UNIT-003` implementation complete; `UNIT-004` is in progress from the one-time frozen reveal and must now freeze the version-bound manifest and compare every prior gate
+- Disposition: baseline-0013 candidate `pass` on the independent contract validator, nine real-API lifetime cases, and 21 tests; full immutable source, package, clean-clone, and release verification remain pending; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -28,6 +28,8 @@
 - The frozen `eval/approval-lifetime-contract.json` defines a JSON integer, excluding booleans, with an inclusive range of 1 through 300 seconds and a default of 300. Invalid input must return HTTP 400 before proposal, approval, audit, trace, or incident mutation.
 - Nine exact development and held-out cases cover negative, zero, above-maximum, fractional, string, boolean, minimum, maximum, and omitted lifetimes. Only the known negative-TTL development failure was revealed before implementation; candidate results for the six held-out cases remain unrevealed.
 - The improvement is bounded to approval-lifetime validation and its independent evaluation. Agent outcomes, retrieval, proposal schema, capabilities, executor actions, idempotency, replay, preconditions, postconditions, scenarios, and disconnected real-infrastructure boundary remain unchanged.
+- The first and only frozen candidate reveal passes all nine isolated real loopback HTTP, SQLite, audit, and JSONL trace cases. Invalid no-mutation, valid-lifetime exactness, and both split exact-match rates are 1.0; no approval token value is retained in the result.
+- The integrated schema 2.0 evaluator reports approval lifetime separately from the unchanged 84 scenario attempts. After two retained verifier false positives on a field-name substring, all 21 tests and the independent contract validator pass.
 
 ### BASELINE-0012 package release-candidate evidence
 

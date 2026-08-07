@@ -1,0 +1,281 @@
+{
+  "case_count": 9,
+  "cases": [
+    {
+      "accepted": false,
+      "actual": {
+        "approval_audit_count": 0,
+        "approval_count": 0,
+        "approval_trace_count": 0,
+        "error_message": "Approval TTL must be an integer from 1 through 300 seconds",
+        "error_type": "ValueError",
+        "http_status": 400,
+        "incident_status": "open",
+        "lifetime_seconds": null,
+        "proposal_status": "pending"
+      },
+      "case_id": "dev-negative-ttl",
+      "case_pass": true,
+      "checks": {
+        "approval_audit_count_exact": true,
+        "approval_count_exact": true,
+        "approval_trace_count_exact": true,
+        "error_message_exact": true,
+        "error_type_exact": true,
+        "http_status_exact": true,
+        "incident_state_unchanged": true,
+        "incident_status_exact": true,
+        "proposal_status_exact": true
+      },
+      "split": "development"
+    },
+    {
+      "accepted": false,
+      "actual": {
+        "approval_audit_count": 0,
+        "approval_count": 0,
+        "approval_trace_count": 0,
+        "error_message": "Approval TTL must be an integer from 1 through 300 seconds",
+        "error_type": "ValueError",
+        "http_status": 400,
+        "incident_status": "open",
+        "lifetime_seconds": null,
+        "proposal_status": "pending"
+      },
+      "case_id": "dev-above-maximum-ttl",
+      "case_pass": true,
+      "checks": {
+        "approval_audit_count_exact": true,
+        "approval_count_exact": true,
+        "approval_trace_count_exact": true,
+        "error_message_exact": true,
+        "error_type_exact": true,
+        "http_status_exact": true,
+        "incident_state_unchanged": true,
+        "incident_status_exact": true,
+        "proposal_status_exact": true
+      },
+      "split": "development"
+    },
+    {
+      "accepted": true,
+      "actual": {
+        "approval_audit_count": 1,
+        "approval_count": 1,
+        "approval_trace_count": 1,
+        "error_message": null,
+        "error_type": null,
+        "http_status": 201,
+        "incident_status": "open",
+        "lifetime_seconds": 1.0,
+        "proposal_status": "approved"
+      },
+      "case_id": "dev-minimum-ttl",
+      "case_pass": true,
+      "checks": {
+        "approval_audit_count_exact": true,
+        "approval_count_exact": true,
+        "approval_response_shape_exact": true,
+        "approval_token_hashed": true,
+        "approval_trace_count_exact": true,
+        "http_status_exact": true,
+        "incident_state_unchanged": true,
+        "incident_status_exact": true,
+        "lifetime_exact": true,
+        "proposal_status_exact": true
+      },
+      "split": "development"
+    },
+    {
+      "accepted": false,
+      "actual": {
+        "approval_audit_count": 0,
+        "approval_count": 0,
+        "approval_trace_count": 0,
+        "error_message": "Approval TTL must be an integer from 1 through 300 seconds",
+        "error_type": "ValueError",
+        "http_status": 400,
+        "incident_status": "open",
+        "lifetime_seconds": null,
+        "proposal_status": "pending"
+      },
+      "case_id": "test-zero-ttl",
+      "case_pass": true,
+      "checks": {
+        "approval_audit_count_exact": true,
+        "approval_count_exact": true,
+        "approval_trace_count_exact": true,
+        "error_message_exact": true,
+        "error_type_exact": true,
+        "http_status_exact": true,
+        "incident_state_unchanged": true,
+        "incident_status_exact": true,
+        "proposal_status_exact": true
+      },
+      "split": "test"
+    },
+    {
+      "accepted": false,
+      "actual": {
+        "approval_audit_count": 0,
+        "approval_count": 0,
+        "approval_trace_count": 0,
+        "error_message": "Approval TTL must be an integer from 1 through 300 seconds",
+        "error_type": "ValueError",
+        "http_status": 400,
+        "incident_status": "open",
+        "lifetime_seconds": null,
+        "proposal_status": "pending"
+      },
+      "case_id": "test-fractional-ttl",
+      "case_pass": true,
+      "checks": {
+        "approval_audit_count_exact": true,
+        "approval_count_exact": true,
+        "approval_trace_count_exact": true,
+        "error_message_exact": true,
+        "error_type_exact": true,
+        "http_status_exact": true,
+        "incident_state_unchanged": true,
+        "incident_status_exact": true,
+        "proposal_status_exact": true
+      },
+      "split": "test"
+    },
+    {
+      "accepted": false,
+      "actual": {
+        "approval_audit_count": 0,
+        "approval_count": 0,
+        "approval_trace_count": 0,
+        "error_message": "Approval TTL must be an integer from 1 through 300 seconds",
+        "error_type": "ValueError",
+        "http_status": 400,
+        "incident_status": "open",
+        "lifetime_seconds": null,
+        "proposal_status": "pending"
+      },
+      "case_id": "test-string-ttl",
+      "case_pass": true,
+      "checks": {
+        "approval_audit_count_exact": true,
+        "approval_count_exact": true,
+        "approval_trace_count_exact": true,
+        "error_message_exact": true,
+        "error_type_exact": true,
+        "http_status_exact": true,
+        "incident_state_unchanged": true,
+        "incident_status_exact": true,
+        "proposal_status_exact": true
+      },
+      "split": "test"
+    },
+    {
+      "accepted": false,
+      "actual": {
+        "approval_audit_count": 0,
+        "approval_count": 0,
+        "approval_trace_count": 0,
+        "error_message": "Approval TTL must be an integer from 1 through 300 seconds",
+        "error_type": "ValueError",
+        "http_status": 400,
+        "incident_status": "open",
+        "lifetime_seconds": null,
+        "proposal_status": "pending"
+      },
+      "case_id": "test-boolean-ttl",
+      "case_pass": true,
+      "checks": {
+        "approval_audit_count_exact": true,
+        "approval_count_exact": true,
+        "approval_trace_count_exact": true,
+        "error_message_exact": true,
+        "error_type_exact": true,
+        "http_status_exact": true,
+        "incident_state_unchanged": true,
+        "incident_status_exact": true,
+        "proposal_status_exact": true
+      },
+      "split": "test"
+    },
+    {
+      "accepted": true,
+      "actual": {
+        "approval_audit_count": 1,
+        "approval_count": 1,
+        "approval_trace_count": 1,
+        "error_message": null,
+        "error_type": null,
+        "http_status": 201,
+        "incident_status": "open",
+        "lifetime_seconds": 300.0,
+        "proposal_status": "approved"
+      },
+      "case_id": "test-maximum-ttl",
+      "case_pass": true,
+      "checks": {
+        "approval_audit_count_exact": true,
+        "approval_count_exact": true,
+        "approval_response_shape_exact": true,
+        "approval_token_hashed": true,
+        "approval_trace_count_exact": true,
+        "http_status_exact": true,
+        "incident_state_unchanged": true,
+        "incident_status_exact": true,
+        "lifetime_exact": true,
+        "proposal_status_exact": true
+      },
+      "split": "test"
+    },
+    {
+      "accepted": true,
+      "actual": {
+        "approval_audit_count": 1,
+        "approval_count": 1,
+        "approval_trace_count": 1,
+        "error_message": null,
+        "error_type": null,
+        "http_status": 201,
+        "incident_status": "open",
+        "lifetime_seconds": 300.0,
+        "proposal_status": "approved"
+      },
+      "case_id": "test-default-ttl",
+      "case_pass": true,
+      "checks": {
+        "approval_audit_count_exact": true,
+        "approval_count_exact": true,
+        "approval_response_shape_exact": true,
+        "approval_token_hashed": true,
+        "approval_trace_count_exact": true,
+        "http_status_exact": true,
+        "incident_state_unchanged": true,
+        "incident_status_exact": true,
+        "lifetime_exact": true,
+        "proposal_status_exact": true
+      },
+      "split": "test"
+    }
+  ],
+  "contract_id": "approval-lifetime-v1",
+  "development_case_count": 3,
+  "exact_match_rate": 1.0,
+  "gates": {
+    "all_nine_cases_exact": true,
+    "all_six_invalid_cases_no_mutation": true,
+    "all_three_valid_lifetimes_exact": true,
+    "development_exact": true,
+    "test_exact": true
+  },
+  "held_out_candidate_results_revealed": true,
+  "invalid_case_count": 6,
+  "invalid_no_mutation_rate": 1.0,
+  "split_exact_match_rate": {
+    "development": 1.0,
+    "test": 1.0
+  },
+  "surface": "real loopback HTTP API, SQLite persistence, audit log, and JSONL trace",
+  "test_case_count": 6,
+  "valid_case_count": 3,
+  "valid_lifetime_exact_rate": 1.0
+}

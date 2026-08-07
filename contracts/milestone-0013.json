@@ -120,10 +120,10 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "pending",
+      "status": "complete",
       "outputs": ["approval lifetime policy", "validator", "focused tests"],
-      "gates": {"invalid_input_rejected_before_mutation": false, "valid_boundaries_preserved": false, "security_boundaries_unchanged": false},
-      "disposition": "pending",
+      "gates": {"invalid_input_rejected_before_mutation": true, "valid_boundaries_preserved": true, "security_boundaries_unchanged": true},
+      "disposition": "pass",
       "next_dependency": "UNIT-004"
     },
     {
@@ -132,10 +132,10 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "pending",
+      "status": "in_progress",
       "outputs": ["immutable evaluation", "approval lifetime metrics", "real-surface evidence"],
-      "gates": {"all_nine_cases_exact": false, "held_out_revealed_once": false, "prior_gates_preserved": false},
-      "disposition": "pending",
+      "gates": {"all_nine_cases_exact": true, "held_out_revealed_once": true, "prior_gates_preserved": false},
+      "disposition": "in_progress",
       "next_dependency": "UNIT-005"
     },
     {
@@ -162,7 +162,7 @@
   ],
   "handoff": {
     "latest_verified_checkpoint": "public v0.0.12 release closure 9829f4e2309b9ebde83f7e1fc4f53f9e7e408b2a",
-    "active_weakness": "released approval broker accepts invalid lifetime input before mutation",
-    "resume_rule": "Resume from UNIT-003 and the frozen approval-lifetime contract; do not redesign the agent or rerun broad ideation."
+    "active_weakness": "candidate closes the released invalid approval-lifetime mutation gap; full immutable source and real-surface verification remains",
+    "resume_rule": "Resume from UNIT-004, freeze the version-bound manifest, and compare every prior gate before packaging; do not redesign the agent or rerun broad ideation."
   }
 }

@@ -9,6 +9,7 @@ from pathlib import Path
 from statistics import median
 from time import perf_counter
 
+from .approval_lifetime_evaluation import run_approval_lifetime_evaluation
 from .catalog import load_catalog
 from .errors import ReplayRejected, SentinelError
 from .model_adapter import OllamaIncidentAgent, Transport
@@ -1819,6 +1820,7 @@ def run_evaluation(
         case_records,
         stale_payload_projection_contract,
     )
+    approval_lifetime = run_approval_lifetime_evaluation()
     split_metrics = {
         split: _split_summary([case for case in case_records if case["split"] == split])
         for split in ("development", "test")
@@ -1842,6 +1844,7 @@ def run_evaluation(
         "retrieval_stress": retrieval_stress,
         "stale_evidence_stress": stale_evidence_stress,
         "stale_payload_projection": stale_payload_projection,
+        "approval_lifetime": approval_lifetime,
         "policy": {"compliance_rate": _rate(attempts, "policy_compliant")},
         "utility": {
             "benign_case_pass_rate": sum(case["all_trials_pass"] for case in benign)
@@ -2012,6 +2015,7 @@ def run_evaluation(
             == 1.0,
         )
     )
+    approval_lifetime_gates = all(metrics["approval_lifetime"]["gates"].values())
     gates = {
         "all_exact_cases_pass": all_cases_pass,
         "all_exact_control_cases_pass": (
@@ -2152,6 +2156,21 @@ def run_evaluation(
             "stale_payload_projection"
         ]["split_exact_match_rate"].get("test")
         == 1.0,
+        "approval_lifetime_all_nine_cases_exact": metrics["approval_lifetime"][
+            "gates"
+        ]["all_nine_cases_exact"],
+        "approval_lifetime_invalid_no_mutation_is_one": metrics[
+            "approval_lifetime"
+        ]["gates"]["all_six_invalid_cases_no_mutation"],
+        "approval_lifetime_valid_boundaries_exact": metrics["approval_lifetime"][
+            "gates"
+        ]["all_three_valid_lifetimes_exact"],
+        "development_approval_lifetime_exact": metrics["approval_lifetime"][
+            "gates"
+        ]["development_exact"],
+        "test_approval_lifetime_exact": metrics["approval_lifetime"]["gates"][
+            "test_exact"
+        ],
         "proposal_exact_is_one": metrics["proposal"]["exact_match"] == 1.0,
         "tool_trajectory_exact_is_one": metrics["tool_trajectory"]["exact_match"]
         == 1.0,
@@ -2211,14 +2230,16 @@ def run_evaluation(
             and retrieval_stress_gates
             and stale_evidence_stress_gates
             and stale_payload_projection_gates
+            and approval_lifetime_gates
             else "remediate"
         ),
     }
     report = {
-        "schema_version": "1.9",
+        "schema_version": "2.0",
         "checkpoint": manifest_checkpoint,
         "manifest_sha256": manifest_sha256,
         "terminal_state_contract_id": terminal_contract["contract_id"],
+        "approval_lifetime_contract_id": approval_lifetime["contract_id"],
         "agent_configuration": agent_configuration,
         "retrieval_configuration": retrieval_configuration,
         "decision_context_configuration": decision_context_configuration,

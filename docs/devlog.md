@@ -10,6 +10,8 @@
 - Selected a bounded policy: approval TTL must be a JSON integer excluding booleans, from 1 through 300 seconds inclusive, with 300 as the default. Invalid values must return HTTP 400 before approval-related mutation.
 - Froze nine exact development and held-out cases in `eval/approval-lifetime-contract.json` before changing runtime code. The known negative-TTL case is development evidence; held-out candidate results remain unrevealed.
 - Created `contracts/milestone-0013.json` with resume point `UNIT-003`. The agent, retriever, proposal schema, capabilities, executor, idempotency, replay, postconditions, and real-infrastructure boundary remain out of scope.
+- The first frozen nine-case reveal passed every development and held-out real-API, SQLite, audit, trace, no-mutation, and exact-lifetime check. Its immutable result remains at `artifacts/evaluations/runs/baseline-0013-approval-lifetime-attempt-001.json`.
+- The first two integrated full-test attempts then failed on adjacent verifier false positives: substring assertions treated the boolean check name `approval_token_hashed` as raw approval material in the metric and full report. The retained evaluation contains no approval token value; both assertions were narrowed to reject an actual serialized `approval_token` field before rerunning the full suite.
 
 
 ## 2026-08-06 — BASELINE-0001 started
