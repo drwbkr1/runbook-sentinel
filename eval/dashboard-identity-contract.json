@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0012",
+  "frozen_before_implementation": true,
+  "prechange": {
+    "runtime_checkpoint": "baseline-0011",
+    "rendered_checkpoint": "Baseline 0010",
+    "packaged_http_checks_passed": 49,
+    "packaged_http_checks_total": 50,
+    "failed_check": "dashboard_baseline_exact",
+    "failure_record": "artifacts/verification/package-held-out-baseline-0011-attempt-001-failed.json"
+  },
+  "candidate": {
+    "version": "0.0.12",
+    "runtime_checkpoint": "baseline-0012",
+    "rendered_checkpoint": "Baseline 0012",
+    "rendered_suffix": " - synthetic SRE only"
+  },
+  "implementation_invariants": {
+    "canonical_source": "runbook_sentinel.api.CHECKPOINT",
+    "dashboard_must_derive_checkpoint_from_canonical_source": true,
+    "dashboard_template_may_not_contain_an_independent_baseline_number": true,
+    "source_test_must_derive_expected_label_from_canonical_source": true,
+    "health_checkpoint_must_equal_canonical_source": true,
+    "evaluation_checkpoint_must_equal_frozen_manifest_checkpoint": true
+  },
+  "unchanged_boundaries": {
+    "agent_purpose": true,
+    "retrieval": true,
+    "decision_context": true,
+    "policy": true,
+    "approval": true,
+    "executor": true,
+    "idempotency": true,
+    "replay_protection": true,
+    "postconditions": true,
+    "scenario_catalog": true,
+    "synthetic_evaluation_split": true,
+    "real_infrastructure_disconnected": true,
+    "runtime_dependencies": []
+  },
+  "verification": {
+    "known_regression_check": "The HTML returned by the source and package must contain Baseline 0012 and must not contain Baseline 0010 or Baseline 0011.",
+    "known_regression_is_held_out": false,
+    "required_source_and_package_surfaces": [
+      "CLI",
+      "MCP",
+      "HTTP health",
+      "dashboard HTML",
+      "rendered dashboard",
+      "approval",
+      "executor",
+      "replay",
+      "postconditions",
+      "SQLite state",
+      "JSONL telemetry"
+    ],
+    "release_only_checks": [
+      "clean-clone rebuild matches the selected archive byte for byte",
+      "downloaded public GitHub release asset matches the published checksum"
+    ]
+  },
+  "disposition": "frozen"
+}

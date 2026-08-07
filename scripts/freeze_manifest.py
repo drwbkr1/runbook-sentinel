@@ -12,6 +12,8 @@ FILES = [
     "pyproject.toml",
     "eval/model-contract.json",
     "eval/package-contract.json",
+    "eval/package-contract-0012.json",
+    "eval/dashboard-identity-contract.json",
     "src/runbook_sentinel/__init__.py",
     "src/runbook_sentinel/__main__.py",
     "src/runbook_sentinel/data/scenarios.json",

@@ -64,7 +64,12 @@ def safe_relative_path(value: object) -> bool:
 def validate_contract(contract: dict, source_root: Path) -> list[str]:
     errors: list[str] = []
     expect(contract.get("schema_version") == "1.0", "contract schema_version must be 1.0", errors)
-    expect(contract.get("checkpoint") == "baseline-0011", "contract checkpoint must be baseline-0011", errors)
+    checkpoint = contract.get("checkpoint")
+    expect(
+        isinstance(checkpoint, str) and checkpoint.startswith("baseline-"),
+        "contract checkpoint must be a baseline identity",
+        errors,
+    )
     expect(
         contract.get("contract_status") == "frozen_before_implementation",
         "contract must declare frozen_before_implementation",
@@ -75,9 +80,19 @@ def validate_contract(contract: dict, source_root: Path) -> list[str]:
     expect(isinstance(candidate, dict), "candidate must be an object", errors)
     if isinstance(candidate, dict):
         expect(candidate.get("format") == "python-zipapp", "candidate format must be python-zipapp", errors)
-        expect(candidate.get("version") == "0.0.11", "candidate version must be 0.0.11", errors)
         expect(candidate.get("python_requires") == ">=3.12", "candidate must require Python >=3.12", errors)
         expect(candidate.get("runtime_dependencies") == [], "runtime dependencies must remain empty", errors)
+
+    package_manifest = contract.get("package_manifest")
+    expect(isinstance(package_manifest, dict), "package_manifest must be an object", errors)
+    if isinstance(candidate, dict) and isinstance(package_manifest, dict):
+        expect(candidate.get("version") == package_manifest.get("version"), "candidate and package manifest versions differ", errors)
+        expect(checkpoint == package_manifest.get("checkpoint"), "contract and package manifest checkpoints differ", errors)
+        expect(
+            candidate.get("python_requires") == package_manifest.get("python_requires"),
+            "candidate and package manifest Python requirements differ",
+            errors,
+        )
 
     metadata = contract.get("archive_metadata")
     expect(isinstance(metadata, dict), "archive_metadata must be an object", errors)

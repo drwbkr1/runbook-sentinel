@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0012",
+  "measured_at_utc": "2026-08-07T19:12:00Z",
+  "latest_verified_public_checkpoint": {
+    "version": "0.0.10",
+    "commit": "01791052b80748bb0f8e01c57152d00b53822aee",
+    "repository": "https://github.com/drwbkr1/runbook-sentinel"
+  },
+  "retained_failed_cycle": {
+    "milestone": "BASELINE-0011",
+    "status": "stopped",
+    "candidate_commit": "dd78ceb",
+    "candidate_version": "0.0.11",
+    "candidate_archive_sha256": "41f86d19770fe17f00e028c5e54acd2392aa56dfc4991602632b53b8cc259c55",
+    "failure_record": "artifacts/verification/package-held-out-baseline-0011-attempt-001-failed.json",
+    "published": false
+  },
+  "measured_weakness": {
+    "summary": "The first packaged candidate passed reproducibility, package structure, source/package evaluation parity, MCP, approval, executor, replay, postconditions, persistence, telemetry, and 49 of 50 HTTP/dashboard checks, but the rendered dashboard carried an independent stale checkpoint literal.",
+    "runtime_health_checkpoint": "baseline-0011",
+    "evaluation_checkpoint": "baseline-0011",
+    "rendered_checkpoint": "Baseline 0010",
+    "source_path": "src/runbook_sentinel/api.py",
+    "source_line": 188,
+    "stale_literal": "Baseline 0010 - synthetic SRE only",
+    "test_path": "tests/test_baseline.py",
+    "test_line": 339,
+    "test_defect": "The source unit test independently asserted the same stale Baseline 0010 literal, allowing the rendered mismatch to pass source tests.",
+    "security_or_behavior_failure": false,
+    "release_truth_failure": true
+  },
+  "bounded_improvement": {
+    "summary": "Create a new v0.0.12/baseline-0012 candidate whose rendered checkpoint identity is derived from the canonical runtime CHECKPOINT value and whose source test derives the same expectation instead of carrying a second release literal.",
+    "changed_runtime_behavior": "rendered checkpoint label only",
+    "agent_behavior_changed": false,
+    "retrieval_changed": false,
+    "policy_or_executor_changed": false,
+    "scenario_or_grader_expectations_changed": false,
+    "new_dependencies": [],
+    "known_regression_check_not_held_out": true,
+    "underlying_frozen_synthetic_test_split_unchanged": true
+  },
+  "release_rule": "Do not publish v0.0.11. Publish a new version only after source and packaged real-surface verification, independent reproducible builds, clean-clone rebuild identity, and public release-asset download verification all pass.",
+  "disposition": "remediate"
+}
