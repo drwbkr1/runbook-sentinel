@@ -2,12 +2,12 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0013-approval-lifetime`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.12`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, and rendered public pages to the release-closure commit
-- Active milestone: none; the next cycle must resume from public `v0.0.12`, run it, inspect traces and evaluation results, and select the highest-leverage measurable weakness before creating `BASELINE-0013`
-- Current unit: release closure complete; preserve this checkpoint and begin the next evidence-driven cycle from it
-- Disposition: baseline-0012 `pass`; v0.0.11 `stop` and unpublished; decision-context v3 remains selected; local-model candidate `exclude`; container `defer`
+- Active milestone: `BASELINE-0013`; enforce a typed approval lifetime of 1 through 300 seconds outside the model and reject invalid input before any approval mutation
+- Current unit: `UNIT-002` contract freeze complete; resume from `UNIT-003` and the frozen approval-lifetime contract without redesigning the agent
+- Disposition: baseline-0013 `remediate`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished; decision-context v3 remains selected; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -19,6 +19,15 @@
 - Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
 
 ## Verified evidence
+
+### BASELINE-0013 approval-lifetime gap and frozen contract
+
+- Fresh orientation ran the downloaded public v0.0.12 zipapp from `C:\Projects\Verification`, not the development tree. All 28 scenarios and 84 attempts still pass; policy and `pass^3` are 1.0, proposal and terminal attack success are 0.0, and model calls and estimated cost remain zero.
+- The fresh report and trace SHA-256 values are `b2b969a9bfb648290f6aecdea7440c820d290fae5f2faa6ba3a68acdabc381ef` and `026fcdf6d81bdc151af952574e202f07ecfd29bd7964e4001dc5798123c04e03`. The trace contains 84 run, 33 approval, and 33 execute events, but no invalid approval-lifetime case.
+- A real loopback HTTP probe against the released zipapp submitted `ttl_seconds: -1`. Approval returned HTTP 201 and changed the proposal to approved even though the returned token was already expired; execution then returned HTTP 409, a recovery approval returned HTTP 409 because the proposal was no longer pending, and the incident remained open. The exact released failure remains retained outside the repository and summarized in `artifacts/verification/approval-lifetime-gap-baseline-0013.json`.
+- The frozen `eval/approval-lifetime-contract.json` defines a JSON integer, excluding booleans, with an inclusive range of 1 through 300 seconds and a default of 300. Invalid input must return HTTP 400 before proposal, approval, audit, trace, or incident mutation.
+- Nine exact development and held-out cases cover negative, zero, above-maximum, fractional, string, boolean, minimum, maximum, and omitted lifetimes. Only the known negative-TTL development failure was revealed before implementation; candidate results for the six held-out cases remain unrevealed.
+- The improvement is bounded to approval-lifetime validation and its independent evaluation. Agent outcomes, retrieval, proposal schema, capabilities, executor actions, idempotency, replay, preconditions, postconditions, scenarios, and disconnected real-infrastructure boundary remain unchanged.
 
 ### BASELINE-0012 package release-candidate evidence
 

@@ -1,5 +1,17 @@
 # Development log
 
+## 2026-08-07 - BASELINE-0013 started
+
+- Resumed from the verified public v0.0.12 release closure instead of restarting architecture work.
+- Ran the downloaded public zipapp in a fresh external output directory. All 84 existing attempts and every prior metric gate pass.
+- Inspected the 150-event trace and found 84 run, 33 approval, and 33 execution events but no invalid approval-lifetime coverage.
+- Reproduced a released real-API failure: `ttl_seconds: -1` is accepted with HTTP 201 before mutation, creates an already-expired approval, makes execution fail, prevents reapproval because the proposal is no longer pending, and leaves the incident open.
+- Retained the released failure, exact external paths, hashes, terminal state, and an earlier command-policy-blocked launch attempt in `artifacts/verification/approval-lifetime-gap-baseline-0013.json`.
+- Selected a bounded policy: approval TTL must be a JSON integer excluding booleans, from 1 through 300 seconds inclusive, with 300 as the default. Invalid values must return HTTP 400 before approval-related mutation.
+- Froze nine exact development and held-out cases in `eval/approval-lifetime-contract.json` before changing runtime code. The known negative-TTL case is development evidence; held-out candidate results remain unrevealed.
+- Created `contracts/milestone-0013.json` with resume point `UNIT-003`. The agent, retriever, proposal schema, capabilities, executor, idempotency, replay, postconditions, and real-infrastructure boundary remain out of scope.
+
+
 ## 2026-08-06 — BASELINE-0001 started
 
 - User approved the long-running goal with the SRE domain.

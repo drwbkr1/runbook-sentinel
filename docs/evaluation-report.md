@@ -1,5 +1,13 @@
 # Evaluation report
 
+## BASELINE-0013 pre-change result
+
+The downloaded public v0.0.12 zipapp still passes the frozen 28-scenario, 84-attempt evaluation with every existing gate passing. Its trace contains 84 run, 33 approval, and 33 execute events, but the existing contract contains no invalid approval-lifetime case.
+
+A development probe through the released real loopback HTTP API supplied `ttl_seconds: -1`. The API returned HTTP 201, persisted the proposal as approved, and issued an already-expired approval; execution then returned HTTP 409, a second approval returned HTTP 409 because the proposal was no longer pending, and the incident remained open. This is a measured benign-liveness failure. The same missing upper bound also permits approvals to outlive the intended short-lived authorization window.
+
+Disposition: `remediate`. The frozen approval-lifetime contract defines nine exact cases, separate development and held-out splits, strict no-mutation results for six invalid values, and exact one-, 300-, and default-300-second results for three valid values. Only `dev-negative-ttl` is revealed as a pre-change failure. Candidate held-out results remain sealed until the generic implementation and independent validator exist.
+
 Status: public baseline-0012 v0.0.12 is the latest verified checkpoint. Baseline-0011 remains stopped and unpublished. Corrected local, renewed clean-clone, merged-main, package-asset, downloaded-byte, and rendered-public verification pass. `fresh-content-stale-metadata-context-v3` remains selected, the baseline-0004 local-model candidate remains excluded, and deterministic control remains the default.
 
 ## BASELINE-0012 reproducible package and canonical dashboard identity

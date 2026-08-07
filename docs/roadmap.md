@@ -1,5 +1,9 @@
 # Roadmap
 
+## Active checkpoint baseline-0013 - approval lifetime integrity
+
+Start from the verified public v0.0.12 package and its fresh 84-attempt trace. Close the measured gap where invalid approval lifetimes are accepted before mutation, leaving an approved proposal with an already-expired token and no recovery path. Enforce a JSON integer from 1 through 300 seconds outside the model, reject invalid values before any proposal, approval, audit, trace, or incident mutation, and exact-grade nine frozen development and held-out cases separately from the existing scenario evaluation. Preserve the agent, retrieval, capabilities, executor, idempotency, replay, postconditions, synthetic-only scope, and all prior release gates.
+
 ## Completed checkpoint baseline-0001 - deterministic control
 
 Establish repository governance, a deterministic SRE environment, bounded control agent, approval/executor boundary, API, MCP server, dashboard, persistence, telemetry, frozen exact evaluation, container path, and clean-clone verification.

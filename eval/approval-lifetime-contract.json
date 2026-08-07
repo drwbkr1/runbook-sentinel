@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "approval-lifetime-v1",
+  "checkpoint": "baseline-0013",
+  "frozen_at_utc": "2026-08-07T20:05:11Z",
+  "frozen_before_candidate_implementation": true,
+  "purpose": "Enforce a short-lived, typed approval lifetime outside the agent and model without mutating proposal or approval state on invalid input.",
+  "policy": {
+    "default_ttl_seconds": 300,
+    "minimum_ttl_seconds": 1,
+    "maximum_ttl_seconds": 300,
+    "accepted_json_type": "integer",
+    "boolean_is_integer": false,
+    "invalid_http_status": 400,
+    "invalid_error_type": "ValueError",
+    "invalid_error_message": "Approval TTL must be an integer from 1 through 300 seconds",
+    "invalid_mutation_forbidden": [
+      "proposal status change",
+      "approval row",
+      "proposal.approved audit event",
+      "sentinel.approval trace event",
+      "incident state change"
+    ]
+  },
+  "cases": [
+    {
+      "case_id": "dev-negative-ttl",
+      "split": "development",
+      "ttl_present": true,
+      "ttl_value": -1,
+      "expected": {"accepted": false, "http_status": 400, "proposal_status": "pending", "approval_count": 0, "approval_audit_count": 0, "approval_trace_count": 0, "incident_status": "open"}
+    },
+    {
+      "case_id": "dev-above-maximum-ttl",
+      "split": "development",
+      "ttl_present": true,
+      "ttl_value": 301,
+      "expected": {"accepted": false, "http_status": 400, "proposal_status": "pending", "approval_count": 0, "approval_audit_count": 0, "approval_trace_count": 0, "incident_status": "open"}
+    },
+    {
+      "case_id": "dev-minimum-ttl",
+      "split": "development",
+      "ttl_present": true,
+      "ttl_value": 1,
+      "expected": {"accepted": true, "http_status": 201, "proposal_status": "approved", "approval_count": 1, "approval_audit_count": 1, "approval_trace_count": 1, "incident_status": "open", "lifetime_seconds": 1}
+    },
+    {
+      "case_id": "test-zero-ttl",
+      "split": "test",
+      "ttl_present": true,
+      "ttl_value": 0,
+      "expected": {"accepted": false, "http_status": 400, "proposal_status": "pending", "approval_count": 0, "approval_audit_count": 0, "approval_trace_count": 0, "incident_status": "open"}
+    },
+    {
+      "case_id": "test-fractional-ttl",
+      "split": "test",
+      "ttl_present": true,
+      "ttl_value": 1.5,
+      "expected": {"accepted": false, "http_status": 400, "proposal_status": "pending", "approval_count": 0, "approval_audit_count": 0, "approval_trace_count": 0, "incident_status": "open"}
+    },
+    {
+      "case_id": "test-string-ttl",
+      "split": "test",
+      "ttl_present": true,
+      "ttl_value": "300",
+      "expected": {"accepted": false, "http_status": 400, "proposal_status": "pending", "approval_count": 0, "approval_audit_count": 0, "approval_trace_count": 0, "incident_status": "open"}
+    },
+    {
+      "case_id": "test-boolean-ttl",
+      "split": "test",
+      "ttl_present": true,
+      "ttl_value": true,
+      "expected": {"accepted": false, "http_status": 400, "proposal_status": "pending", "approval_count": 0, "approval_audit_count": 0, "approval_trace_count": 0, "incident_status": "open"}
+    },
+    {
+      "case_id": "test-maximum-ttl",
+      "split": "test",
+      "ttl_present": true,
+      "ttl_value": 300,
+      "expected": {"accepted": true, "http_status": 201, "proposal_status": "approved", "approval_count": 1, "approval_audit_count": 1, "approval_trace_count": 1, "incident_status": "open", "lifetime_seconds": 300}
+    },
+    {
+      "case_id": "test-default-ttl",
+      "split": "test",
+      "ttl_present": false,
+      "expected": {"accepted": true, "http_status": 201, "proposal_status": "approved", "approval_count": 1, "approval_audit_count": 1, "approval_trace_count": 1, "incident_status": "open", "lifetime_seconds": 300}
+    }
+  ],
+  "coverage": {
+    "required_splits": ["development", "test"],
+    "case_count": 9,
+    "invalid_case_count": 6,
+    "valid_case_count": 3,
+    "development_case_count": 3,
+    "test_case_count": 6
+  },
+  "prechange_evidence": {
+    "revealed_case_ids": ["dev-negative-ttl"],
+    "revealed_result": "fail",
+    "held_out_candidate_results_revealed": false,
+    "receipt": "artifacts/verification/approval-lifetime-gap-baseline-0013.json"
+  },
+  "unchanged_boundaries": [
+    "agent outcomes and configuration",
+    "retrieval and decision context",
+    "proposal schema and action hash",
+    "capability allowlist and executor actions",
+    "approval token storage and hashing",
+    "idempotency, replay, precondition, and postcondition enforcement",
+    "synthetic scenario catalog and existing frozen expectations",
+    "real infrastructure remains disconnected"
+  ]
+}

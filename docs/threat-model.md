@@ -22,6 +22,7 @@ The model, retrieved content, user artifacts, MCP payloads, external packages, m
 | Stale or conflicting evidence | Shared fail-closed one-hour freshness window; missing, malformed, timezone-naive, or future timestamps receive no fresh treatment; missing evidence requests and conflict abstention remain bounded outcomes |
 | Unauthorized action or capability escalation | Server-side allowlist and exact capability match; no model-controlled arguments |
 | Forged or changed proposal | Canonical SHA-256 action hash bound to approval |
+| Invalid, coerced, nonpositive, or overlong approval lifetime | The approval broker accepts only a JSON integer excluding booleans from 1 through 300 seconds and rejects invalid input before proposal status, approval storage, audit, trace, or incident mutation; frozen boundary cases grade the real HTTP surface and persisted terminal state |
 | Replay or duplicate mutation | One-time approval consumption plus idempotency record |
 | TOCTOU and invalid transition | SQLite immediate transaction, precondition check, atomic state update, postcondition check |
 | Credential exposure | No credentials or secrets exist; tokens are hashed at rest and omitted from traces |

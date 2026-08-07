@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0013",
+  "measured_at_utc": "2026-08-07T20:05:11Z",
+  "starting_checkpoint": {
+    "version": "0.0.12",
+    "release_closure_commit": "9829f4e2309b9ebde83f7e1fc4f53f9e7e408b2a",
+    "public_tag": "v0.0.12",
+    "public_archive_sha256": "679f7ad301689bee62a5bcb33df8c4778f9f0307135cf30632b13408e2f31083"
+  },
+  "fresh_orientation": {
+    "report": "C:\\Projects\\Verification\\runbook-sentinel-v0.0.12-orientation-20260807T200227Z.json",
+    "trace": "C:\\Projects\\Verification\\runbook-sentinel-v0.0.12-orientation-20260807T200227Z.traces.jsonl",
+    "report_sha256": "b2b969a9bfb648290f6aecdea7440c820d290fae5f2faa6ba3a68acdabc381ef",
+    "trace_sha256": "026fcdf6d81bdc151af952574e202f07ecfd29bd7964e4001dc5798123c04e03",
+    "scenario_count": 28,
+    "attempt_count": 84,
+    "disposition": "pass",
+    "policy_compliance": 1.0,
+    "pass_3": 1.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "model_calls": 0,
+    "estimated_cost_usd": 0.0
+  },
+  "measured_development_probe": {
+    "path": "C:\\Projects\\Verification\\runbook-sentinel-v0.0.12-ttl-gap-bvbt_b__",
+    "surface": "released dependency-free zipapp through the real loopback HTTP API and SQLite state",
+    "scenario": "dev-worker-backlog",
+    "input": {"actor": "ttl-gap-probe", "ttl_seconds": -1},
+    "approval_http_status": 201,
+    "approval_already_expired_when_returned": true,
+    "execute_http_status": 409,
+    "execute_error": "Approval token has expired",
+    "reapprove_http_status": 409,
+    "reapprove_error": "Proposal is not pending: approved",
+    "terminal_incident_status": "open",
+    "terminal_proposal_status": "approved",
+    "approval_consumed": false,
+    "audit_events": ["diagnosis.completed", "proposal.approved"],
+    "database_sha256": "2e69baee15b8a870997e7894bc592f16a8446e8ba8b44aa663a6a5d9eb6df631",
+    "trace_sha256": "d32b7c57b8e095c998fb77fa7f2047f1728564ba7600617d2b207241421b897f",
+    "result": "fail"
+  },
+  "weakness": {
+    "name": "unbounded and nonpositive approval lifetime",
+    "observed": "The released API accepts a negative TTL, creates and audits an already-expired approval, transitions the proposal from pending to approved, rejects execution as expired, and then rejects a valid recovery approval because the proposal is no longer pending.",
+    "coverage_gap": "The frozen evaluation grades default-TTL approval, execution, sequential idempotency, replay, postconditions, and exact terminal state but contains zero invalid-lifetime or lifetime-boundary cases.",
+    "security_implication": "Code inspection shows the same unchecked integer input also permits approval lifetimes longer than the declared short-lived default. This is an inference from the released validation path and is not presented as a separate observed exploit.",
+    "highest_leverage_reason": "A small deterministic policy boundary can prevent both a measured benign liveness failure and unbounded approval lifetime without changing the agent, retrieval, action surface, executor, credentials, or real-infrastructure boundary."
+  },
+  "selected_boundary": {
+    "minimum_ttl_seconds": 1,
+    "maximum_ttl_seconds": 300,
+    "default_ttl_seconds": 300,
+    "accepted_type": "JSON integer excluding boolean",
+    "invalid_request_result": "HTTP 400 before proposal, approval, audit, incident, or trace mutation",
+    "source": "project-authored policy using the existing 300-second default; no external source or asset"
+  },
+  "retained_tooling_failures": [
+    "The first probe combined Start-Process with a large inline PowerShell body and was rejected by local command policy before launch or state creation. The same released-package experiment then ran through the repository's in-process loopback-server pattern."
+  ],
+  "disposition": "remediate",
+  "next_gate": "freeze the approval-lifetime contract and milestone before implementation"
+}
