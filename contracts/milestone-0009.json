@@ -208,6 +208,7 @@
       ,"Held-out CLI, MCP 2025-11-25 authority inventory, 40-check real API approval and executor flow, 23-check persisted-state and telemetry inspection, and visual dashboard inspection pass"
       ,"Docker 29.4.3 is live, but every cached official Python base candidate remains excluded by the existing source gate; container packaging stays deferred without running an excluded image or importing a new one"
       ,"A no-local-object clone of exact candidate f3d882a6e92d4bfe0b4d1803e8b9b214dac362eb passed compilation, 16 tests, all five validators, the research gate, nine milestone contracts, 114 JSON files, 34 JSONL files and 3135 records, selected identity, unchanged policy, model and secret exclusion, held-out CLI, MCP, all 40 API checks, all 23 runtime checks, persistence, telemetry, and visual dashboard inspection"
+      ,"Draft GitHub PR 8 at reviewed head d80426a7ef0736b04303d568bcd93580fb07d345 has five expected commits, 62 expected changed files, CLEAN and MERGEABLE state, no configured checks, and an exact local and remote head match"
     ],
     "artifacts": [
       "artifacts/verification/stale-evidence-gap-baseline-0009.json",
@@ -232,14 +233,15 @@
       "artifacts/verification/native-baseline-0009.json",
       "artifacts/verification/dashboard-baseline-0009.png",
       "artifacts/verification/clean-clone-baseline-0009.json",
+      "artifacts/verification/github-pr-baseline-0009.json",
       "C:\\Projects\\Verification\\runbook-sentinel-baseline-0009-orientation-20260807T015613Z.json",
       "C:\\Projects\\Verification\\runbook-sentinel-baseline-0009-orientation-20260807T015613Z.traces.jsonl"
     ],
     "disposition": "in_progress"
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.8 remains the latest verified release; BASELINE-0009 v0.0.9 version-bound, native, and exact clean-clone verification pass.",
-    "next_action": "Commit the clean-clone receipt, publish the verified branch for GitHub review, merge, tag, release, and verify the public artifact.",
+    "current_checkpoint": "Public v0.0.8 remains the latest verified release; BASELINE-0009 v0.0.9 version-bound, native, exact clean-clone, and initial GitHub PR review pass.",
+    "next_action": "Commit and push the GitHub review receipt, reconfirm the exact final PR head, promote review, merge, tag, release, and verify the public artifact.",
     "do_not_carry_forward": [
       "Do not use held-out candidate results as implementation feedback.",
       "Do not import external paper, code, data, model, dependency, or executable.",

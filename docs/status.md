@@ -36,7 +36,8 @@
 - Rendered dashboard: visually inspected at 1440 by 1000; accurately reports baseline 0009, v3, both retrieval recalls 1.0, human approval, disconnected real infrastructure, and the mitigated synthetic incident; PNG SHA-256 `934b13fb481b2566730aeab62e7484244edaf478d3aba0ee53d9127d5de85099`
 - Container: daemon 29.4.3 is live, but every locally cached Python base candidate remains excluded by `artifacts/verification/container-source-gate.json`; packaging is deferred and no image was imported or run for this checkpoint
 - Clean clone: exact candidate `f3d882a6e92d4bfe0b4d1803e8b9b214dac362eb` at `C:\Projects\Verification\runbook-sentinel-baseline-0009-f3d882a-20260806T225204` passed compilation, 16 tests, five validators, the research source gate, nine milestone contracts, 114 JSON files, 34 JSONL files and 3,135 records, selected-manifest identity, unchanged policy, model/secret exclusion, held-out CLI, MCP, 40 API checks, 23 runtime checks, persistence, telemetry, and rendered-dashboard inspection
-- GitHub review, merged main, tag, release, and public-page verification: pending
+- GitHub review: draft PR `#8` at reviewed head `d80426a7ef0736b04303d568bcd93580fb07d345` has five expected commits, 62 expected changed files, `CLEAN`, `MERGEABLE`, and no configured checks; the receipt-only final head must be reconfirmed before merge
+- Merged main, tag, release, and public-page verification: pending
 
 - Contract schema: pass
 - Frozen manifest: 23 files, SHA-256 `fac3bf310d244322c364516e21b6da78053ddb57d5c3cb05bc15b993609c59da`, pass

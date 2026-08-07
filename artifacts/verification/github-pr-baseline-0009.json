@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0009",
+  "checked_at_utc": "2026-08-07T02:56:38Z",
+  "repository": "drwbkr1/runbook-sentinel",
+  "pull_request": 8,
+  "url": "https://github.com/drwbkr1/runbook-sentinel/pull/8",
+  "base": "main",
+  "head_branch": "codex/baseline-0009-stale-evidence-resilience",
+  "reviewed_head": "d80426a7ef0736b04303d568bcd93580fb07d345",
+  "local_head_matches_remote": true,
+  "draft": true,
+  "state": "OPEN",
+  "mergeable": "MERGEABLE",
+  "merge_state_status": "CLEAN",
+  "configured_check_count": 0,
+  "commit_count": 5,
+  "changed_file_count": 62,
+  "local_changed_file_count": 62,
+  "status": "pass",
+  "scope": {
+    "manifest_bound_code_or_contract_change_after_clean_clone": false,
+    "receipt_only_commit_pending": true,
+    "unexpected_file": false
+  },
+  "next_check": "Push the receipt-only commit, confirm the new exact PR head and changed-file set, then mark ready and merge only while GitHub remains clean and mergeable."
+}

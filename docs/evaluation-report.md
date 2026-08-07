@@ -43,7 +43,9 @@ Visual inspection confirmed the 1440 by 1000 dashboard accurately reports baseli
 
 Docker 29.4.3 is live. Container packaging remains deferred because all three locally cached official Python base candidates remain excluded by the current source gate for unresolved high or critical findings; no excluded image was run and no new image was imported.
 
-An exact no-local-object clone of candidate `f3d882a6e92d4bfe0b4d1803e8b9b214dac362eb` passed compilation, 16 tests, all five validators, the 16-criterion research gate, nine milestone contracts, 114 tracked JSON files, 34 JSONL files with 3,135 records, selected-evaluation and manifest identity, unchanged policy, model-weight and high-signal-secret exclusion, held-out CLI, MCP, all 40 API checks, all 23 native checks, persistence, telemetry, and a fresh visual dashboard inspection. The receipt is `artifacts/verification/clean-clone-baseline-0009.json`. GitHub, tag, release, and rendered-public-page evidence must still pass before v0.0.9 becomes a verified checkpoint.
+An exact no-local-object clone of candidate `f3d882a6e92d4bfe0b4d1803e8b9b214dac362eb` passed compilation, 16 tests, all five validators, the 16-criterion research gate, nine milestone contracts, 114 tracked JSON files, 34 JSONL files with 3,135 records, selected-evaluation and manifest identity, unchanged policy, model-weight and high-signal-secret exclusion, held-out CLI, MCP, all 40 API checks, all 23 native checks, persistence, telemetry, and a fresh visual dashboard inspection. The receipt is `artifacts/verification/clean-clone-baseline-0009.json`.
+
+Draft GitHub PR `#8` matched reviewed head `d80426a7ef0736b04303d568bcd93580fb07d345`, contained five expected commits and 62 expected changed files, and was `CLEAN` and `MERGEABLE` with no configured checks. A receipt-only final head must be reconfirmed before review promotion or merge. Tag, release, and rendered-public-page evidence must still pass before v0.0.9 becomes a verified checkpoint.
 
 ## BASELINE-0008 orientation and measured retrieval gap
 
