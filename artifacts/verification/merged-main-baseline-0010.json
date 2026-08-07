@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0010",
+  "status": "pass",
+  "verified_at_utc": "2026-08-07T17:56:18Z",
+  "source_commit": "ccbdafc40777ce7b20ed1375463193ecdbaa7d6c",
+  "pull_request": {
+    "number": 9,
+    "url": "https://github.com/drwbkr1/runbook-sentinel/pull/9",
+    "base_commit": "271e49a05034dacddd0fc06c021ceab520b2286b",
+    "verified_head": "914a719a9f26e555ccc70f02ea4fe056ed675759",
+    "merge_commit": "ccbdafc40777ce7b20ed1375463193ecdbaa7d6c",
+    "commits": 3,
+    "changed_files": 90,
+    "review_state": "CLEAN and MERGEABLE before merge",
+    "checks": "no configured checks",
+    "history_preserved": true,
+    "expected_parent_order": true
+  },
+  "clone": {
+    "path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0010-merged-ccbdafc-20260807T135128",
+    "mode": "git clone from public GitHub repository",
+    "exact_head": true,
+    "git_object_alternates_absent": true
+  },
+  "checks": {
+    "compile": true,
+    "tests_19_of_19": true,
+    "manifest_27_files": true,
+    "terminal_contract_28_cases": true,
+    "evidence_condition_contract_28_cases": true,
+    "behavioral_relation_contract_4_relations": true,
+    "retrieval_stress_contract_2_pairs": true,
+    "stale_evidence_stress_contract_2_pairs": true,
+    "stale_payload_projection_contract_2_cases": true,
+    "research_source_gate_16_of_16": true,
+    "milestone_contracts_10": true,
+    "tracked_json_files_155": true,
+    "tracked_jsonl_files_47": true,
+    "tracked_jsonl_records_5085": true,
+    "latest_pointer_matches_attempt_002": true,
+    "evaluation_matches_manifest": true,
+    "agent_policy_storage_unchanged_from_v0_0_9": true,
+    "model_weights_absent": true,
+    "high_signal_secret_scan": true,
+    "cli_held_out_stale_payload_boundary": true,
+    "mcp_stdio": true,
+    "mcp_approval_or_execution_tool_exposed": false,
+    "api_named_checks_50_of_50": true,
+    "api_approval_executor_replay_postconditions": true,
+    "sqlite_audit_telemetry_checks_27_of_27": true,
+    "dashboard_render_inspected": true
+  },
+  "evaluation": {
+    "regenerated_attempt": "baseline-0010-attempt-002",
+    "sha256": "62a52e518ff1500951d941ca8daac047627a5526fe12e1133572dae5b35dcdb2",
+    "trace_sha256": "852557e6108f6128cc8d46afaafd2a078231fafbbd5d294f2d5d04ce8e828eed",
+    "manifest_sha256": "4b22c5dbd99dd778c5dcca5bb6bbd230178170775b22dcc5b579872e6c9b0ce4",
+    "disposition": "pass",
+    "scenario_count": 28,
+    "attempt_count": 84,
+    "relation_count": 4,
+    "relation_attempt_count": 12,
+    "retrieval_stress_pair_count": 2,
+    "stale_evidence_stress_pair_count": 2,
+    "stale_payload_projection_case_count": 2,
+    "stale_identity_retention": 1.0,
+    "stale_metadata_projection": 1.0,
+    "stale_payload_exposure": 0.0,
+    "fresh_payload_retention": 1.0,
+    "expected_action_executions": 33,
+    "strict_no_action_results": 51,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "pass_power_3": 1.0
+  },
+  "authority_hashes": {
+    "agent_sha256": "b04ac41d48708028733a31ff2d8b11a6f7f109a17f1f52f6f9ca273a171579e6",
+    "retriever_sha256": "cdaa33d231191e64e0da6b3d0da353b46b191716a062d47a7abaa000093f5535",
+    "policy_sha256": "1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa",
+    "service_sha256": "e2de532c6120bd895a541016476b5fefecc85492bd68b21af0af29568f2c3a2c"
+  },
+  "cli": {
+    "scenario": "test-stale-deployment-evidence",
+    "outcome": "request_evidence",
+    "diagnosis_code": "deployment_evidence_incomplete",
+    "decision_context_configuration": "fresh-content-stale-metadata-context-v3",
+    "stale_metadata_exact": true,
+    "stale_payload_characters": 0,
+    "database_sha256": "ae5fc09c122e959c6c9cc95b3f8a378ea47efd0303e95c2e8ccfc5eead8a3092",
+    "trace_sha256": "2cdbf9d2fede508b69e8df8783d372d1cd91ffb82f767761018e0f8aa9ec73fc"
+  },
+  "mcp": {
+    "protocol_version": "2025-11-25",
+    "server_version": "0.0.10",
+    "tool_count": 3,
+    "approval_or_execution_tool_exposed": false,
+    "decision_context_configuration": "fresh-content-stale-metadata-context-v3",
+    "stale_metadata_exact": true,
+    "stale_payload_characters": 0
+  },
+  "api": {
+    "named_checks_passed": 50,
+    "approval_executor_replay_postconditions": true
+  },
+  "dashboard": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "723c0cec9f0130cda0f91eadb567603ecdaf501c9175f78f3372e8507ff7c6e0",
+    "native_receipt_sha256": "af69b0323f6447359f588132d79fefeccf124a2358fffa02e4d164fa2142030d",
+    "render_inspection": "pass",
+    "observed": [
+      "baseline 0010 synthetic SRE only",
+      "evaluation pass",
+      "fresh-content stale-metadata decision context v3",
+      "stale identity retained 1.0",
+      "stale payload exposure 0.0",
+      "human approval",
+      "real infrastructure disconnected",
+      "one mitigated synthetic incident"
+    ]
+  },
+  "retained_failures": [
+    "After the receipt-only push GitHub temporarily reported mergeability UNKNOWN while recalculating; it returned to CLEAN and MERGEABLE before review promotion and merge.",
+    "Headless Edge emitted a renderer task-manager warning after writing the valid PNG; independent HTTP, dimensions, hashes, persisted-state checks, and visual inspection passed.",
+    "The image viewer first displayed only a lower strip; reopening the same PNG displayed the complete dashboard and passed visual inspection.",
+    "A PowerShell merged-main hash inventory accidentally concatenated Test-Path and its variable and emitted command-not-found errors; the corrected read-only inventory returned the hashes recorded here."
+  ],
+  "post_verification_tracked_changes": [
+    "artifacts/evaluations/latest.json",
+    "artifacts/verification/dashboard-baseline-0010.png",
+    "artifacts/verification/native-baseline-0010.json"
+  ],
+  "post_verification_change_reason": "The merged-main verifier created immutable attempt 002 and regenerated its local selected pointer, synthetic API receipt, and screenshot only inside the verification clone; no authoritative source, contract, manifest, policy, agent, or selected evaluation changed."
+}

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0010",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -59,7 +59,17 @@
     }
   ],
   "exit_conditions": [
-    {"id": "EXIT-001", "status": "pending", "evidence": []}
+    {
+      "id": "EXIT-001",
+      "status": "pass",
+      "evidence": [
+        "Version-bound 27-file manifest and immutable 84-trial attempt 001 pass every frozen gate",
+        "Real CLI, MCP, HTTP approval and executor, replay, postconditions, dashboard, SQLite, audit, and telemetry pass",
+        "Exact no-local-object candidate clone and fresh public merged-main clone pass the complete release stack",
+        "PR 9 merged reviewed head with history preserved and expected parents",
+        "Final release audit is verified and public tag, release, rendered pages, and public-tag clone reconcile to the release closure"
+      ]
+    }
   ],
   "units": [
     {
@@ -133,9 +143,25 @@
       "depends_on": ["UNIT-004"],
       "action_class": "github_push",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["passing selected candidate", "reconciled living records"],
-      "outputs": ["baseline-0010 public release"]
+      "outputs": ["baseline-0010 public release"],
+      "gates": {
+        "version_bound_evaluation": true,
+        "real_surfaces": true,
+        "clean_clone": true,
+        "github_review": true,
+        "merged_main": true,
+        "release_audit": true,
+        "public_release_reconciled": true
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "The first combined final-gate command passed evaluation and tests, then failed on a missing standalone PYTHONPATH and a guessed milestone-validator filename; the corrected bounded rerun passed without changing source or frozen evidence.",
+        "Docker was off at release time and a non-gating wheel probe found no local setuptools.build_meta; container packaging remains deferred by the existing source gate and no package-registry claim is made.",
+        "GitHub temporarily reported mergeability UNKNOWN after the receipt-only push; it returned to CLEAN and MERGEABLE before promotion and merge.",
+        "The dashboard renderer emitted a post-write task-manager warning and the image viewer intermittently showed only a lower strip; independent checks and reopened full images passed."
+      ]
     }
   ],
   "verification": {
@@ -177,6 +203,12 @@
       ,"Six v3 and six retained v2 same-manifest evaluations cover 1008 attempts. Every v3 run passes and every v2 run is remediate; all report, trace, and copied-manifest hashes verify and no approval token, authorization header, bearer value, or secret term appears"
       ,"V3 changes only the frozen boundary objective: stale metadata projection 1.0 and stale payload exposure 0.0 versus v2 values 0.0 and 1.0. Retrieval, generation, proposal, trajectory, terminal, prior stress, policy, utility, security, reliability, coverage, model calls, and external cost are exact across configurations"
       ,"V3 is selected as the only hard-gate-passing security configuration. Strict numeric Pareto and latency dominance are false: across six runs the median-of-run end-to-end median and p95 are 1.794 and 4.7775 ms higher, while the median of diagnosis medians is 0.141 ms lower; no general performance claim is made"
+      ,"Version-bound manifest has 27 files at SHA-256 4b22c5dbd99dd778c5dcca5bb6bbd230178170775b22dcc5b579872e6c9b0ce4; immutable attempt 001 and latest pointer are byte-identical and pass all 84 trials"
+      ,"Real CLI and MCP project stale records to exact metadata with zero payload characters and expose no agent approval or execution authority; 50 API/dashboard and 27 persisted-state/telemetry checks pass"
+      ,"Exact clean clone 1fafe2c99e96d84693a4ba54271694611b3602e4 passed compilation, 19 tests, seven validators, source gate, ten contracts, artifact parsing, CLI, MCP, API, persistence, telemetry, and visual inspection"
+      ,"Final reviewed PR 9 head 914a719a9f26e555ccc70f02ea4fe056ed675759 had three expected commits and 90 expected files, was CLEAN and MERGEABLE, and merged with history preserved as ccbdafc40777ce7b20ed1375463193ecdbaa7d6c"
+      ,"Fresh public merged-main clone passed the complete release gate stack; the final release audit is verified and releases only tag, publish, and public-verification actions"
+      ,"Public v0.0.10 annotated tag, peeled remote tag, remote main, non-draft release, rendered pages, and public-tag clone reconcile to the release-closure commit"
     ],
     "artifacts": [
       "artifacts/verification/stale-payload-gap-baseline-0010.json",
@@ -186,14 +218,21 @@
       "artifacts/evaluations/runs/baseline-0010-v3-candidate-boundary-attempt-001.json",
       "artifacts/evaluations/runs/baseline-0010-v3-candidate-boundary-attempt-001.manifest.json",
       "artifacts/verification/decision-context-comparison-baseline-0010.json",
+      "artifacts/evaluations/runs/baseline-0010-attempt-001.json",
+      "artifacts/verification/native-baseline-0010.json",
+      "artifacts/verification/clean-clone-baseline-0010.json",
+      "artifacts/verification/github-pr-baseline-0010.json",
+      "artifacts/verification/merged-main-baseline-0010.json",
+      "artifacts/verification/release-audit-baseline-0010-pending.json",
+      "artifacts/verification/release-audit-baseline-0010.json",
       "C:\\Projects\\Verification\\runbook-sentinel-baseline-0010-orientation-20260807T031236Z.json",
       "C:\\Projects\\Verification\\runbook-sentinel-baseline-0010-orientation-20260807T031236Z.traces.jsonl"
     ],
-    "disposition": "in_progress"
+    "disposition": "pass"
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.9 is verified; BASELINE-0010 has selected stale payload projection as its one bounded improvement.",
-    "next_action": "Complete UNIT-005 by versioning v0.0.10, validating all real local and clean-clone surfaces, reconciling living records, reviewing and publishing through GitHub, and verifying merged main, tag, release, and rendered public artifacts.",
+    "current_checkpoint": "Public v0.0.10 is the verified release closure for BASELINE-0010 stale-payload decision-boundary projection.",
+    "next_action": "Resume from exact public v0.0.10, run it, inspect traces and evaluations, and choose one bounded measurable weakness before creating BASELINE-0011.",
     "do_not_carry_forward": [
       "Do not use held-out candidate results as implementation feedback.",
       "Do not import external paper, code, data, model, dependency, executable, or repository.",
@@ -204,7 +243,7 @@
   "records": {
     "required_updates": ["docs/status.md", "docs/roadmap.md", "docs/threat-model.md", "docs/evaluation-contract.md", "docs/evaluation-report.md", "docs/research-ledger.md", "docs/devlog.md", "CHANGELOG.md", "docs/version-history.md", "ADRs if an architecture decision survives comparison"],
     "preserve_unfavorable_results": true,
-    "latest_verified_checkpoint": "public v0.0.9 release closure",
-    "next_resume_point": "BASELINE-0010 UNIT-005 version-bound and public-release verification"
+    "latest_verified_checkpoint": "public v0.0.10 release closure",
+    "next_resume_point": "Fresh public-v0.0.10 orientation before selecting BASELINE-0011"
   }
 }

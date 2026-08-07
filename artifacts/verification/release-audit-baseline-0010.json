@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0",
+  "release_id": "RUNBOOK-SENTINEL-v0.0.10",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2 and user-selected public GitHub visibility",
+    "authorized_actions": [
+      "tag verified release closure",
+      "publish public GitHub release",
+      "verify public release artifacts"
+    ]
+  },
+  "risk_classes": [
+    "documentation",
+    "runtime",
+    "security",
+    "public"
+  ],
+  "candidate": {
+    "base_commit": "271e49a05034dacddd0fc06c021ceab520b2286b",
+    "commit": "ccbdafc40777ce7b20ed1375463193ecdbaa7d6c",
+    "version": "0.0.10",
+    "tag": "v0.0.10",
+    "artifacts": [
+      "artifacts/evaluations/runs/baseline-0010-attempt-001.json",
+      "artifacts/verification/native-baseline-0010.json",
+      "artifacts/verification/clean-clone-baseline-0010.json",
+      "artifacts/verification/github-pr-baseline-0010.json",
+      "artifacts/verification/merged-main-baseline-0010.json"
+    ]
+  },
+  "live_truth": {
+    "verified_at_utc": "2026-08-07T17:56:18Z",
+    "branch": "main",
+    "remote_commit": "ccbdafc40777ce7b20ed1375463193ecdbaa7d6c",
+    "pull_request": "https://github.com/drwbkr1/runbook-sentinel/pull/9",
+    "tag_target": "",
+    "deployment": null
+  },
+  "checks": [
+    {
+      "id": "CHECK-SCOPE",
+      "category": "scope",
+      "required": true,
+      "status": "pass",
+      "method": "Review base-to-merge diff and unchanged authority files",
+      "evidence": ["PR #9", "agent.py, policy.py, and storage.py unchanged"],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-EVALUATION",
+      "category": "runtime",
+      "required": true,
+      "status": "pass",
+      "method": "Run frozen version-bound evaluation and independent validators",
+      "evidence": ["baseline-0010-attempt-001", "27-file manifest", "19 tests"],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-REAL-SURFACES",
+      "category": "runtime",
+      "required": true,
+      "status": "pass",
+      "method": "Exercise CLI, MCP, HTTP approval/executor, dashboard, SQLite, audit, and telemetry",
+      "evidence": ["native-baseline-0010.json", "dashboard-baseline-0010.png"],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-CLEAN-CLONE",
+      "category": "portability",
+      "required": true,
+      "status": "pass",
+      "method": "Verify detached clone without local object sharing",
+      "evidence": ["clean-clone-baseline-0010.json"],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-GITHUB-REVIEW",
+      "category": "public",
+      "required": true,
+      "status": "pass",
+      "method": "Verify exact PR head, file inventory, merge state, expected-head lock, and merge parents",
+      "evidence": ["github-pr-baseline-0010.json", "merged-main-baseline-0010.json"],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-MERGED-MAIN",
+      "category": "public",
+      "required": true,
+      "status": "pass",
+      "method": "Clone public main and rerun the complete gate stack",
+      "evidence": ["merged-main-baseline-0010.json"],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-PUBLICATION-ACTION",
+      "category": "public",
+      "required": true,
+      "status": "not_applicable",
+      "method": "",
+      "evidence": [],
+      "reason": "This is the pre-publication release audit. Its verified decision authorizes the tag, public release, and immediate post-publication verification recorded by the release closure."
+    }
+  ],
+  "truth_surfaces": [
+    {
+      "path_or_uri": "C:\\Projects\\Active\\runbook-sentinel",
+      "expected_state": "exact public merged main with release-closure records",
+      "observed_state": "main at ccbdafc with only release-closure records pending",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/pull/9",
+      "expected_state": "history-preserving merge of reviewed head",
+      "observed_state": "merged as ccbdafc with expected parents",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0010-merged-ccbdafc-20260807T135128",
+      "expected_state": "fresh public main clone at merge commit",
+      "observed_state": "exact commit and complete gates pass",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.10",
+      "expected_state": "non-draft public release at release-closure commit",
+      "observed_state": "publication action intentionally follows this audit",
+      "status": "not_applicable"
+    }
+  ],
+  "limitations": [
+    "Synthetic SRE only; no real operational infrastructure or credentials.",
+    "Container packaging is deferred and no package-registry release is claimed.",
+    "Selection is security-gated and not strict numeric Pareto or latency dominance.",
+    "The project remains research-informed and makes no production or external-system superiority claim."
+  ],
+  "decision": {
+    "reported_status": "verified",
+    "rationale": "The bounded candidate, all real local surfaces, exact clean clone, GitHub review, history-preserving merge, and fresh public-main clone pass with no unresolved changed-risk or truth-surface discrepancy.",
+    "next_action": "Commit and push the release closure, create annotated v0.0.10, publish the non-draft GitHub release, and verify every public surface.",
+    "authorized_next_actions": [
+      "tag verified release closure",
+      "publish public GitHub release",
+      "verify public release artifacts"
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 # Evaluation report
 
-Status: public baseline-0009 remains the latest verified checkpoint. Baseline-0010 is a versioned release candidate: `fresh-content-stale-metadata-context-v3` is selected as the only configuration passing the frozen stale-payload boundary gates after a retained same-manifest comparison. Public release verification is pending. The baseline-0004 local-model candidate remains excluded and deterministic control remains the default.
+Status: public baseline-0010 stale-payload decision-boundary attempt 001 is the latest verified checkpoint. `fresh-content-stale-metadata-context-v3` is selected as the only configuration passing the frozen boundary gates after a retained same-manifest comparison. Strict numeric Pareto and latency dominance are false. The baseline-0004 local-model candidate remains excluded and deterministic control remains the default.
 
 ## BASELINE-0010 stale-payload decision boundary
 
@@ -22,7 +22,7 @@ An exact no-local-object clone of candidate `1fafe2c99e96d84693a4ba54271694611b3
 
 GitHub review, merged main, and public-release reconciliation remain pending and must pass before this section can claim a verified release. Docker is currently off, but container packaging remains independently deferred because all reviewed bases are excluded; no image was imported or run. A non-gating wheel probe found no local `setuptools.build_meta`; no unreviewed dependency was downloaded or added, and this release makes no package-registry claim.
 
-Draft GitHub PR `#9` matches reviewed head `54032842e26f8b6d2e6bb30a4138f20fa3cc22f2`, contains two expected commits and 89 expected changed files, and is `CLEAN` and `MERGEABLE` with no configured checks. Local and GitHub changed-file sets are exact. A receipt-only final head must be reconfirmed before review promotion or merge.
+Final GitHub PR `#9` head `914a719a9f26e555ccc70f02ea4fe056ed675759` contained three expected commits and 90 expected changed files, remained `CLEAN` and `MERGEABLE` after draft promotion, and merged with history preserved as `ccbdafc40777ce7b20ed1375463193ecdbaa7d6c`. A fresh public clone of that merge independently passed compilation, 19 tests, every frozen validator and milestone contract, the source gate, artifact parsing and selected-manifest identity, unchanged authority files, model/secret exclusion, held-out CLI, MCP, 50 API checks, 27 persistence/telemetry checks, and visual dashboard inspection. The public `v0.0.10` tag and non-draft release bind the release-closure commit; Runbook Sentinel remains a synthetic-only, research-informed preview rather than a production, universal prompt-injection-resistance, strict numeric Pareto/latency-dominance, or external comparative claim.
 
 ## BASELINE-0009 stale-evidence retrieval resilience
 

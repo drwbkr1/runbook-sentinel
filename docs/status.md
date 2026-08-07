@@ -2,18 +2,18 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `codex/baseline-0010-stale-payload-projection`
-- Completed milestones: `BASELINE-0001` through `BASELINE-0009`
-- Latest verified checkpoint: public `v0.0.9`; BASELINE-0010 is a versioned release candidate and is not yet public
-- Active milestone: `BASELINE-0010` stale-payload decision-boundary projection
-- Current unit: `UNIT-005`, version-bound real-surface, clean-clone, GitHub, and public-release verification
-- Disposition: decision-context v3 `select` as a security-gated Pareto-frontier choice; release `in_progress`; strict numeric Pareto and latency dominance are false; local-model candidate `exclude`; container `defer`
+- Branch: `main`
+- Completed milestones: `BASELINE-0001` through `BASELINE-0010`
+- Latest verified checkpoint: public `v0.0.10`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, and rendered public pages to the release-closure commit
+- Active milestone: none; the next cycle must resume from public `v0.0.10`, run it, inspect traces and evaluation results, and select the highest-leverage measurable weakness before creating `BASELINE-0011`
+- Current unit: release closure complete; preserve this checkpoint and begin the next evidence-driven cycle from it
+- Disposition: decision-context v3 `select` as a security-gated Pareto-frontier choice; baseline-0010 `pass`; strict numeric Pareto and latency dominance are false; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: pull request `#8` merged as `4f302820c8452c83226b834b76ea208842f626fd` before the release-closure record
-- GitHub pull request: `#8`, merged with history preserved
-- GitHub release: public, non-draft `v0.0.9`
+- GitHub `main`: pull request `#9` merged as `ccbdafc40777ce7b20ed1375463193ecdbaa7d6c` before the release-closure record
+- GitHub pull request: `#9`, merged with history preserved
+- GitHub release: public, non-draft `v0.0.10`
 - Docker: daemon verified live; container packaging deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
 - Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
@@ -40,8 +40,10 @@
 - Package probe: local wheel construction is not a release gate and failed because `setuptools.build_meta` is absent. No dependency was added or downloaded; this checkpoint ships a dependency-free source repository, not a PyPI package.
 - Clean clone: exact candidate `1fafe2c99e96d84693a4ba54271694611b3602e4` at `C:\Projects\Verification\runbook-sentinel-baseline-0010-1fafe2c-20260807T134131` passed compilation, 19 tests, seven validators, the source gate, ten milestone contracts, 152 tracked JSON files, 47 tracked JSONL files with 5,085 records, selected-manifest identity, unchanged authority files, model/secret exclusion, held-out CLI, MCP, 50 API checks, 27 runtime checks, persistence, telemetry, and rendered-dashboard inspection.
 - Release audit: the retained pending audit correctly computes `blocked` only because GitHub review and public-release truth have not yet run; all local and clean-clone checks pass.
-- GitHub review: draft PR `#9` at reviewed head `54032842e26f8b6d2e6bb30a4138f20fa3cc22f2` has two expected commits, 89 expected changed files, exact local/remote file-set equality, `CLEAN`, `MERGEABLE`, and no configured checks. A receipt-only final head must be reconfirmed before promotion or merge.
-- Release evidence pending: final PR-head review, merged-main verification, tag, release, and rendered-public reconciliation.
+- GitHub review: final PR `#9` head `914a719a9f26e555ccc70f02ea4fe056ed675759` had three expected commits, 90 expected changed files, exact local/remote file-set equality, `CLEAN`, `MERGEABLE`, and no configured checks before history-preserving merge.
+- Merged main: fresh public clone of `ccbdafc40777ce7b20ed1375463193ecdbaa7d6c` passed compilation, 19 tests, seven validators, source gate, ten contracts, artifact parsing, selected identity, unchanged authority files, model/secret exclusion, held-out CLI, MCP, 50 API checks, 27 runtime checks, persistence, telemetry, and rendered-dashboard inspection.
+- Release audit: the retained pending audit preserves the pre-GitHub blocked state; the final pre-publication audit computes `verified` and releases only the exact tag, public-release, and public-verification actions inherited from the project goal.
+- Public release: local annotated `v0.0.10`, peeled remote tag, remote `main`, non-draft GitHub release, rendered README and release page, and a fresh public-tag clone agree on the release-closure commit.
 
 ### BASELINE-0009 release-candidate evidence
 
