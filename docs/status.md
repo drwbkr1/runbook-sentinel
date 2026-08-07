@@ -3,17 +3,17 @@
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
 - Branch: `main`
-- Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
-- Latest verified checkpoint: public `v0.0.12`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, and rendered public pages to the release-closure commit
-- Active milestone: `BASELINE-0013`; enforce a typed approval lifetime of 1 through 300 seconds outside the model and reject invalid input before any approval mutation
-- Current unit: `UNIT-005` in progress; PR `#11` is merged with history preserved, a fresh public-main clone passes every release gate, and the final audit authorizes release closure and publication
-- Disposition: baseline-0013 source, package, clean-clone, GitHub review, merge, and merged-main gates `pass`; release-closure, annotated-tag, public asset, downloaded-byte, and rendered-public-page gates remain pending; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Completed milestones: `BASELINE-0001` through `BASELINE-0010`, `BASELINE-0012`, and `BASELINE-0013`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
+- Latest verified checkpoint: public `v0.0.13`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
+- Active milestone: none; the next checkpoint remains intentionally unchosen until a fresh public-v0.0.13 run exposes the highest-leverage measurable weakness
+- Current unit: `UNIT-005` complete
+- Disposition: baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: PR `#11` merged as `54c56411ea0ff3e1b17743fcbd8ebc225dabaabb` with exact prior-main and reviewed-head parents
+- GitHub `main`: verified v0.0.13 release-closure record following PR `#11` merge `54c56411ea0ff3e1b17743fcbd8ebc225dabaabb`
 - GitHub pull request: `#11`, merged with history preserved under expected-head lock `5c4a358a3f85c21ccb27c19efcb791e5b06be283`
-- GitHub release: public, non-draft `v0.0.12` remains latest while verified `v0.0.13` release closure and publication are pending
+- GitHub release: public, non-draft `v0.0.13` with verified `.pyz` and `.sha256` assets
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
 - Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
@@ -39,6 +39,7 @@
 - A no-alternates public-main clone of the merge commit passes compilation, eight validators, 21 tests, 202 tracked JSON files, 53 JSONL files with 5,985 records, model/secret exclusion, source and package 84+9 evaluations, exact selected-archive rebuild, packaged MCP, 58 HTTP/dashboard checks, 31 runtime checks, persistence, telemetry, and visual dashboard inspection.
 - The merged-main dashboard visibly reports Baseline 0013, approval lifetime exact 1.0, human approval, disconnected real infrastructure, and a mitigated persisted synthetic incident. The receipt is `artifacts/verification/merged-main-baseline-0013.json`.
 - The final pre-publication audit computes `verified` and releases only the inherited release-closure, annotated-tag, selected-asset publication, and immediate public-verification actions.
+- Public release reconciliation verifies the annotated `v0.0.13` tag, peeled remote tag, remote `main`, non-draft GitHub release, selected 257,847-byte zipapp at SHA-256 `c14a4559f3cfc4f53d5ce501115747252c9f33e7f299eb34f088c605930fbd41`, adjacent checksum, downloaded public bytes, rendered README and release page, and fresh public-tag clone against the release-closure commit.
 
 ### BASELINE-0012 package release-candidate evidence
 

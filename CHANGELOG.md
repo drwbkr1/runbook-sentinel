@@ -2,13 +2,14 @@
 
 All notable verified changes are recorded here. Unverified work remains in `docs/devlog.md` and the active milestone contract.
 
-## 0.0.13 - Unreleased
+## 0.0.13 - 2026-08-07
 
 - Reject non-integer, boolean, nonpositive, and over-300-second approval lifetimes before proposal, approval, audit, trace, or incident mutation; preserve the omitted-value default at 300 seconds.
 - Add an independently validated nine-case approval-lifetime contract with separate development and held-out results across the real loopback HTTP API, SQLite state, audit log, and JSONL trace.
 - Report approval-lifetime exactness separately from the unchanged 28-scenario, 84-attempt retrieval, generation, trajectory, terminal-state, policy, utility, security, reliability, latency, and cost metrics.
 - Preserve the released v0.0.12 negative-TTL liveness failure and two candidate verifier false positives instead of rewriting unfavorable evidence.
 - Keep the agent, retrieval, proposal schema, capability allowlist, executor, idempotency, replay, postconditions, credentials, dependencies, and disconnected real-infrastructure boundary unchanged.
+- Verify the exact PR head and 50-path inventory, history-preserving merge, fresh public-main source/package and real-surface gates, annotated tag, non-draft release, selected 257,847-byte zipapp and checksum assets, downloaded public-byte identity, and rendered public pages.
 
 ## 0.0.12 - 2026-08-07
 

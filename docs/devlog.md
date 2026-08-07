@@ -29,6 +29,7 @@
 - A fresh no-alternates public-main clone passes compilation, eight validators, 21 tests, 202 JSON files, 53 JSONL files with 5,985 records, model and corrected high-signal-secret exclusion, source and package 84+9 evaluations, exact archive rebuild, packaged MCP, 58 API/dashboard checks, 31 state/telemetry checks, and visual inspection.
 - The first merged-main interface-discovery command passed `--help` to a script without a help parser, began verification, and was stopped by the short discovery timeout before an immutable result. The explicit complete rerun passed. Headless Edge later emitted a renderer warning only after writing the correct PNG; both observations remain retained.
 - The final pre-publication audit computes `verified` with no unresolved changed-risk or truth-surface discrepancy and releases only the inherited final-audit, release-closure, annotated-tag, asset-publication, and immediate public-verification actions.
+- Prepared the release-closure record for annotated `v0.0.13`, the selected 257,847-byte zipapp at SHA-256 `c14a4559f3cfc4f53d5ce501115747252c9f33e7f299eb34f088c605930fbd41`, its adjacent checksum, a non-draft public GitHub release, downloaded-byte verification, rendered public pages, and a fresh public-tag clone. The next cycle must resume from this verified checkpoint and select work only after a fresh run exposes a measurable weakness.
 
 
 ## 2026-08-06 — BASELINE-0001 started

@@ -10,7 +10,7 @@ Disposition: `remediate`. The frozen approval-lifetime contract defines nine exa
 
 The generic candidate was committed before reveal. The first and only frozen reveal then passed all nine isolated real loopback HTTP cases: six invalid values returned the exact HTTP 400 `ValueError` with proposal status pending, zero approval rows, zero approval audit events, zero approval trace events, and unchanged open incidents; the minimum, maximum, and omitted values returned HTTP 201 with exact lifetimes of 1, 300, and 300 seconds. Invalid no-mutation, valid-lifetime exactness, development exactness, test exactness, and overall exactness are all 1.0.
 
-The integrated schema 2.0 evaluator retains the approval-lifetime plane separately from the 28 scenarios and 84 repeated attempts. All 21 tests pass after preserving and correcting two verifier false positives that matched the safe field name `approval_token_hashed` as if it were a raw token value. Full version-bound evaluation and real/package release gates remain pending.
+The integrated schema 2.0 evaluator retains the approval-lifetime plane separately from the 28 scenarios and 84 repeated attempts. All 21 tests pass after preserving and correcting two verifier false positives that matched the safe field name `approval_token_hashed` as if it were a raw token value.
 
 Version-bound attempt 001 passed under its 40-file manifest, but the subsequent live HTTP verifier failed while parsing a PowerShell 5.1 error response and did not grade the product. After retaining that failure and freezing a corrected manifest, attempt 002 passes eight validators, 21 tests, 84 scenario attempts, and nine approval-lifetime cases. Its report and trace SHA-256 values are `288b8e416a8d259b05b0162df42f1b598d50605dcbf9f54f1439f81406c1d9f4` and `599189f103df0a5797c44bccc909460135f0bbc9a351511c873807fb45834c1f`.
 
@@ -18,7 +18,9 @@ The selected source and package results both pass. Their non-latency fields are 
 
 A no-local-object public-branch clone of exact commit `2f50f5e8d2098d593fea1d5fefa2ca846422fe9f` independently passes the same eight validators and 21 tests, a new source evaluation, exact archive rebuild, a new package evaluation, MCP authority inventory, 58 HTTP/dashboard checks, 31 runtime checks, and visual dashboard inspection. Its source and package reports remain exact after excluding only declared latency fields.
 
-Status: public baseline-0012 v0.0.12 is the latest verified checkpoint. Baseline-0011 remains stopped and unpublished. Corrected local, renewed clean-clone, merged-main, package-asset, downloaded-byte, and rendered-public verification pass. `fresh-content-stale-metadata-context-v3` remains selected, the baseline-0004 local-model candidate remains excluded, and deterministic control remains the default.
+Final reviewed head `5c4a358a3f85c21ccb27c19efcb791e5b06be283` contained 50 expected paths and merged with history preserved as `54c56411ea0ff3e1b17743fcbd8ebc225dabaabb`. A fresh no-alternates public-main clone passes eight validators, 21 tests, source and package 84+9 evaluations, exact selected-archive rebuild, packaged MCP, 58 HTTP/dashboard checks, 31 state/telemetry checks, secret/model exclusion, and visual inspection. The public annotated `v0.0.13` tag, selected zipapp and checksum assets, downloaded bytes, rendered pages, and fresh tag clone reconcile to the release closure.
+
+Status: public baseline-0013 v0.0.13 is the latest verified checkpoint. Baseline-0011 remains stopped and unpublished. `fresh-content-stale-metadata-context-v3` remains selected, the baseline-0004 local-model candidate remains excluded, and deterministic control remains the default. The project remains synthetic-only and research-informed; no production, universal prompt-injection-resistance, strict latency-dominance, or external-system superiority claim is made.
 
 ## BASELINE-0012 reproducible package and canonical dashboard identity
 

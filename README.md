@@ -2,9 +2,7 @@
 
 Runbook Sentinel is a research-informed, retrieval-grounded SRE incident agent. It is designed to remain useful, repeatable, and policy-compliant when evidence is incomplete, adversarial, conflicting, or stale.
 
-Latest verified public release: `v0.0.12`. It adds a reproducible, dependency-free Python zipapp while preserving the v0.0.10 agent, retrieval, evaluation, policy, approval, executor, and synthetic-only boundaries. Candidate `v0.0.11` was rejected and never published after its rendered dashboard carried a stale checkpoint label; that failure remains in the evidence record. Public source or package availability does not imply production readiness or authorization to connect Runbook Sentinel to operational infrastructure.
-
-Active development candidate: `v0.0.13` / `baseline-0013`. It closes a measured approval-lifetime gap with a typed 1-through-300-second policy and separate nine-case real-API evaluation. It is not a verified public release until the version-bound, package, clean-clone, review, and public-release gates pass.
+Latest verified public release: `v0.0.13`. It rejects non-integer, boolean, nonpositive, and over-300-second approval lifetimes before mutation, preserves the 300-second default, and exact-grades nine separate real-API cases. The release retains the dependency-free zipapp and the v0.0.12 agent, retrieval, policy, approval, executor, and synthetic-only boundaries. Candidate `v0.0.11` remains rejected and unpublished with its stale rendered-label failure preserved. Public source or package availability does not imply production readiness or authorization to connect Runbook Sentinel to operational infrastructure.
 
 The bounded agent can diagnose, request evidence, propose an action, or abstain. It cannot execute actions. A deterministic approval broker, policy gate, and synthetic-only executor enforce authority outside the model.
 
@@ -31,7 +29,7 @@ python scripts/verify_package_contract.py --contract eval/package-contract-0013.
 python dist/runbook-sentinel-0.0.13.pyz --help
 ```
 
-The builder uses an exact 21-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. No package-registry or container claim is made.
+The builder uses an exact 23-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. No package-registry or container claim is made.
 
 The MCP server uses JSON-RPC over standard input/output:
 

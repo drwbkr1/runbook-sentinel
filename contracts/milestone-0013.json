@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0013",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -74,7 +74,7 @@
       "artifacts/verification/merged-main-baseline-0013.json",
       "artifacts/verification/release-audit-baseline-0013.json"
     ],
-    "disposition": "in_progress"
+    "disposition": "pass"
   },
   "boundaries": {
     "model_outputs": ["diagnose", "request_evidence", "propose_action", "abstain"],
@@ -102,7 +102,7 @@
     }
   ],
   "exit_conditions": [
-    {"id": "EXIT-001", "status": "pending", "evidence": []}
+    {"id": "EXIT-001", "status": "pass", "evidence": ["Public v0.0.13, annotated tag, selected zipapp and checksum assets, downloaded bytes, remote main, rendered pages, and fresh public-tag clone reconcile to the release-closure commit"]}
   ],
   "units": [
     {
@@ -159,10 +159,10 @@
       "depends_on": ["UNIT-004"],
       "action_class": "github_push",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "outputs": ["verified public checkpoint"],
-      "gates": {"clean_clone": true, "github_review": true, "premerge_audit": true, "merged_main": true, "final_release_audit": true, "public_release": false, "release_verified": false},
-      "disposition": "in_progress"
+      "gates": {"clean_clone": true, "github_review": true, "premerge_audit": true, "merged_main": true, "final_release_audit": true, "public_release": true, "release_verified": true},
+      "disposition": "pass"
     }
   ],
   "stop_conditions": [
@@ -176,8 +176,8 @@
     {"id": "STOP-UNVERIFIED", "active": false, "condition": "Ship something that cannot be verified."}
   ],
   "handoff": {
-    "latest_verified_checkpoint": "public v0.0.12 release closure 9829f4e2309b9ebde83f7e1fc4f53f9e7e408b2a",
-    "active_weakness": "candidate closes the released invalid approval-lifetime mutation gap; only release-closure, public-asset, downloaded-byte, and rendered-public-page truth remain",
-    "resume_rule": "Resume from UNIT-005, merged main 54c56411ea0ff3e1b17743fcbd8ebc225dabaabb, verified final audit, and selected c14a4559 package bytes; prepare the release closure without altering the runtime candidate or restarting ideation."
+    "latest_verified_checkpoint": "public v0.0.13 release closure with selected c14a4559 package bytes",
+    "active_weakness": "none selected; a fresh public-v0.0.13 run must identify the next highest-leverage measurable weakness",
+    "resume_rule": "Resume from the public v0.0.13 release closure, run the released system and inspect fresh traces and evaluation results before selecting one bounded next improvement; do not restart architecture ideation."
   }
 }
