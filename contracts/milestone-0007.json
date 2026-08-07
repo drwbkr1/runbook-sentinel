@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0007",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -75,7 +75,7 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
+      "status": "pass",
       "evidence": [
         "A closed relation schema links exactly one control and one variant with one allowed transformation",
         "Instruction-injection invariance and fresh-to-stale directional safety each appear in development and held-out test splits",
@@ -154,13 +154,13 @@
       "id": "UNIT-005",
       "purpose": "Version, verify real surfaces, reconcile records, clean-clone, review, merge, tag, release, and verify the bounded checkpoint",
       "depends_on": ["UNIT-004"],
-      "status": "pending",
+      "status": "complete",
       "human_gate": false,
       "action_class": "github_push",
       "inputs": ["Passing expanded evaluation and reconciled records"],
       "outputs": ["baseline-0007 release"],
-      "gates": {"public_visibility_already_authorized": true, "runtime_authority_unchanged": false},
-      "disposition": null,
+      "gates": {"public_visibility_already_authorized": true, "runtime_authority_unchanged": true},
+      "disposition": "pass",
       "retained_failures": [],
       "next_dependency": "Next measurable checkpoint"
     }
@@ -214,11 +214,14 @@
       ,"Independent runtime inspection passed SQLite, audit, telemetry, selected-manifest binding, and screenshot checks; receipt and dashboard SHA-256 are 9dbd5f9ef37b69cef29fe28f40365f9e313a91b5463ac18e7edeccc914ee82a2 and f308245de2fa21e5fcb0d9ad3a9c0cc05b71424259dfb011a6d4384d9570bd69"
       ,"Visual inspection confirmed the rendered dashboard accurately reports baseline 0007, pass, relation exactness 1.0, human approval, disconnected real infrastructure, and one mitigated synthetic incident"
       ,"A no-local-object clone of candidate 8328c08900739d4f07afd9202a979c1bdd4f63e9 passed compilation, 14 tests, all three validators, 82 JSON and 22 JSONL parses, manifest and selected-evaluation identity, model and secret exclusion, CLI, MCP, 27 API checks, 16 runtime checks, and visual dashboard inspection"
+      ,"GitHub PR 6 matched verified head 0a4cdf28b0d1e55d9d1a999c265ae589d800b572, contained seven commits and 45 expected changed files, and was CLEAN and MERGEABLE with no configured checks before merge"
+      ,"PR 6 merged with history preserved as 5c690c9f4f6b00e577eef84a1dc33437f5cd7ba1; a fresh public remote-main clone passed compilation, 14 tests, all contracts, 83 JSON and 22 JSONL parses, selected evaluation and manifest identity, model and secret exclusion, CLI, MCP, 27 API checks, 16 runtime checks, and visual dashboard inspection"
+      ,"The public v0.0.7 tag, peeled remote tag, remote main, non-draft release, rendered README, and rendered release page bind the exact release-closure commit"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0007 release candidate 8328c08900739d4f07afd9202a979c1bdd4f63e9 passed exact no-local-object clean-clone source, contract, evaluation, security, real-surface, persistence, telemetry, and visual dashboard gates",
-    "next_action": "Commit the clean-clone receipt, push the verified branch, open GitHub review, and verify exact remote scope and mergeability",
+    "current_checkpoint": "public v0.0.7 is the latest verified synthetic-only research preview; exact release reconciliation binds the closure commit, tags, remote main, public repository, non-draft release, and rendered pages",
+    "next_action": "Begin the next cycle from the exact public v0.0.7 checkpoint by running the accepted system, inspecting traces and evaluation results, and selecting one bounded measurable weakness",
     "do_not_carry_forward": [
       "Condition/split coverage as proof of controlled evidence sensitivity",
       "Unlinked scenarios as implicit counterfactual pairs",

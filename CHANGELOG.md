@@ -8,7 +8,7 @@ All notable verified changes are recorded here. Unverified work remains in `docs
 - Added fail-closed relation validation and separate contract, coverage, invariance, directional-safety, combined, per-split, and per-trial metrics.
 - Passed 72 of 72 scenario trials and 12 of 12 paired relation trials with 21 expected executions and 51 exact no-action terminal states.
 - Preserved the aggregate-only gap, pre-grader control, stale inventory failures, an integration-placement failure, and the implementation smoke rather than rewriting unfavorable or superseded evidence.
-- Kept the agent, retriever, policy, service, action surface, approval, executor, and real-infrastructure boundary unchanged; release verification is in progress.
+- Verified the unchanged agent, retriever, policy, service, action surface, approval, executor, and real-infrastructure boundary through CLI, MCP, API, persistence, telemetry, rendered dashboard, clean clone, GitHub review, and merged `main`; container packaging remains deferred.
 
 ## 0.0.6 - 2026-08-06
 

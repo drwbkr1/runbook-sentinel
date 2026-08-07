@@ -3,17 +3,17 @@
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
 - Branch: `codex/baseline-0007-evidence-relations`
-- Completed milestones: `BASELINE-0001` through `BASELINE-0006`
-- Latest verified checkpoint: public `v0.0.6`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
-- Active milestone: `BASELINE-0007`
-- Current unit: version and release the selected relation-aware checkpoint
-- Disposition: released baseline `pass`; relation-aware attempt 001 `pass` and selected; local-model candidate `exclude`; container `defer`
+- Completed milestones: `BASELINE-0001` through `BASELINE-0007`
+- Latest verified checkpoint: public `v0.0.7`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
+- Active milestone: next evidence-driven checkpoint not yet selected
+- Current unit: begin the next cycle by running the released system and measuring the highest-leverage weakness
+- Disposition: released baseline `pass`; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: pull request `#5` merged as `1f0635a008d8fdf6e94c9fedf1c39da40651a465` before the exact closure record
-- GitHub pull request: `#5`, merged with history preserved
-- GitHub release: public, non-draft `v0.0.6`
+- GitHub `main`: pull request `#6` merged as `5c690c9f4f6b00e577eef84a1dc33437f5cd7ba1` before the exact closure record
+- GitHub pull request: `#6`, merged with history preserved
+- GitHub release: public, non-draft `v0.0.7`
 - Docker: daemon verified live; container packaging deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
 - Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
@@ -202,5 +202,15 @@ Next eligible action: freeze schema 1.6, the four exact relations, counterpart s
 - Visual inspection confirmed the dashboard accurately shows baseline 0007, evaluation pass, behavioral relation exact 1.0, evidence condition, tool trajectory, and terminal state at 1.0, human approval, disconnected real infrastructure, and one mitigated synthetic incident.
 - A no-local-object clone of exact candidate `8328c08900739d4f07afd9202a979c1bdd4f63e9` at `C:\Projects\Verification\runbook-sentinel-baseline-0007-8328c08-20260806202958` passed compilation, 14 tests, the 22-file manifest, all three validators, seven milestone contracts, 82 JSON and 22 JSONL parses, selected-evaluation identity, model-weight absence, high-signal secret scan, held-out CLI, MCP, all 27 API checks, all 16 runtime checks, and rendered-dashboard inspection.
 - The clean-clone dashboard was freshly rendered and visually inspected. Only its synthetic-incident screenshot and regenerated native receipt changed after verification; no source, contract, manifest, evaluation, policy, or service file changed.
+- GitHub PR `#6` matched verified head `0a4cdf28b0d1e55d9d1a999c265ae589d800b572`, base `c33da1cfc91ad5913279ef417c1685ba584918ac`, seven commits, and 45 expected changed files. GitHub reported `CLEAN`, `MERGEABLE`, and no configured checks before merge.
+- PR `#6` merged with history preserved as `5c690c9f4f6b00e577eef84a1dc33437f5cd7ba1`. Its parents are the exact v0.0.6 closure and reviewed baseline-0007 head.
+- A fresh public clone of merged `main` passed compilation, 14 tests, the 22-file manifest, all three validators, seven milestone contracts, 83 JSON and 22 JSONL parses, selected evaluation and manifest identity, model-weight absence, high-signal secret scan, held-out CLI, MCP, all 27 API checks, all 16 runtime checks, and fresh dashboard inspection.
+- Visual inspection confirmed the merged-main dashboard accurately shows baseline 0007, evaluation pass, behavioral relation exact 1.0, all prior exact metrics, human approval, disconnected real infrastructure, and one mitigated synthetic incident.
 
-Next eligible action: commit the clean-clone receipt, push the verified branch, open GitHub review, and verify exact remote scope and mergeability.
+## BASELINE-0007 release closure
+
+- GitHub pull request `#6` matched verified branch head `0a4cdf28b0d1e55d9d1a999c265ae589d800b572`, was `CLEAN` and `MERGEABLE`, and merged with history preserved as `5c690c9f4f6b00e577eef84a1dc33437f5cd7ba1`.
+- A fresh public clone of that remote merged commit passed compilation, all 14 tests, the 22-file manifest, all three exact contracts, selected evaluation identity, authority hashes, held-out CLI, MCP 2025-11-25, all 27 live API checks, approval/executor/replay/postconditions, SQLite, audit, telemetry, model and secret exclusion, and rendered-dashboard inspection.
+- The public v0.0.7 tag, peeled remote tag, remote `main`, and non-draft release bind the exact release-closure commit containing these reconciled records; rendered public pages were verified after publication.
+
+Next eligible action: begin the next cycle from public v0.0.7 by running the accepted system and selecting one bounded measurable weakness.

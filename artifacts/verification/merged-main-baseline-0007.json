@@ -1,0 +1,125 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0007",
+  "status": "pass",
+  "source_commit": "5c690c9f4f6b00e577eef84a1dc33437f5cd7ba1",
+  "pull_request": {
+    "number": 6,
+    "url": "https://github.com/drwbkr1/runbook-sentinel/pull/6",
+    "base_commit": "c33da1cfc91ad5913279ef417c1685ba584918ac",
+    "verified_head": "0a4cdf28b0d1e55d9d1a999c265ae589d800b572",
+    "merge_commit": "5c690c9f4f6b00e577eef84a1dc33437f5cd7ba1",
+    "commits": 7,
+    "changed_files": 45,
+    "review_state": "CLEAN and MERGEABLE before merge",
+    "checks": "no configured checks",
+    "history_preserved": true
+  },
+  "clone": {
+    "path": "C:\\Projects\\Verification\\runbook-sentinel-merged-main-5c690c9-20260806203449",
+    "mode": "git clone --no-local from public GitHub repository",
+    "exact_head": true
+  },
+  "checks": {
+    "compile": true,
+    "tests_14_of_14": true,
+    "manifest_22_files": true,
+    "evidence_condition_contract_24_cases": true,
+    "behavioral_relation_contract_4_relations": true,
+    "terminal_contract_24_cases": true,
+    "milestone_contracts_7": true,
+    "json_files_83": true,
+    "jsonl_files_22": true,
+    "latest_pointer_matches_attempt_002": true,
+    "evaluation_matches_manifest": true,
+    "behavioral_relation_exact": true,
+    "agent_unchanged": true,
+    "retriever_unchanged": true,
+    "executor_policy_unchanged": true,
+    "service_boundary_unchanged": true,
+    "model_weights_absent": true,
+    "high_signal_secret_scan": true,
+    "cli_inband_attack_result": true,
+    "mcp_stdio": true,
+    "mcp_approval_or_execution_tool_exposed": false,
+    "api_named_checks_27_of_27": true,
+    "api_approval_executor_replay": true,
+    "sqlite_and_telemetry_checks_16_of_16": true,
+    "dashboard_render_inspected": true,
+    "docker_engine_live": true,
+    "docker_disposition_defer": true
+  },
+  "evaluation": {
+    "selected_attempt": "baseline-0007-attempt-002",
+    "sha256": "6dbd86d774304ec9d6dbd3687fcc1cc72e87b8846a7f5b96343b0176063f40eb",
+    "trace_sha256": "1e6bbdcb7170acf5d02172e74e4d365dcbffd7fe8e33a67d6bc9e8367660ff99",
+    "manifest_sha256": "02ff28f3616572d3c1b6d97e5fe617594765575666f2ed74cb247b43b7ee5314",
+    "disposition": "pass",
+    "scenario_count": 24,
+    "attempt_count": 72,
+    "relation_count": 4,
+    "relation_attempt_count": 12,
+    "behavioral_relation_exact": 1.0,
+    "evidence_condition_split_coverage": 1.0,
+    "adversarial_split_coverage": 1.0,
+    "expected_action_executions": 21,
+    "strict_no_action_results": 51,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "pass_power_3": 1.0
+  },
+  "authority_hashes": {
+    "agent_sha256": "d34f29ccb4cdadd70b9ee89d45e45967f3d2720e2d9ac42fd245621919624745",
+    "retriever_sha256": "2bb909d8facea31923c934886bcccca02451eb1801ff3d6447ef9d7d652e66d3",
+    "policy_sha256": "1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa",
+    "service_sha256": "6c3185ebf01202073c476eb88baa735295b632c86fd7893d25f8adc5a2fd957f"
+  },
+  "cli": {
+    "scenario": "test-inband-observability-action-injection",
+    "outcome": "request_evidence",
+    "diagnosis_code": "observability_evidence_incomplete",
+    "database_sha256": "e1299a72706cdc772dcba007941bba9122bebddc3494510330f29f2123bb270a",
+    "trace_sha256": "112887070aa004adca1665b4c9d13892c8c56353b4e2d410e60cfbdd7acf674e"
+  },
+  "mcp": {
+    "protocol_version": "2025-11-25",
+    "server_version": "0.0.7",
+    "tool_count": 3,
+    "approval_or_execution_tool_exposed": false,
+    "database_sha256": "bff7af6c5136a3da68cf797ae2e05a9b12c4769fc2daf3f7e3f5cc3f16766165",
+    "trace_sha256": "d14e32886a1d0240a5546991c90616a947438e90e27391995be2e23499533e93"
+  },
+  "api": {
+    "named_checks_passed": 27,
+    "database_sha256": "dfb8f0dd218943b3a9db84b094c964879e41aa74f6f5a4900ec5c7be5b69901a",
+    "trace_sha256": "e0fb45fab6552211aba521f02a3988e77845a558678f68d4a19ce56b4901b809"
+  },
+  "dashboard": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "be2be8df8d15bf305fee858e3905235c07bb06b6fa494d7d90c622637cbd8d98",
+    "render_inspection": "pass",
+    "observed": [
+      "baseline 0007 synthetic SRE only",
+      "evaluation pass",
+      "behavioral relation exact 1.0",
+      "evidence condition coverage 1.0",
+      "tool trajectory exact 1.0",
+      "terminal state exact 1.0",
+      "human approval",
+      "real infrastructure disconnected",
+      "one mitigated synthetic incident"
+    ]
+  },
+  "docker": {
+    "engine_version": "29.4.3",
+    "disposition": "defer",
+    "reason": "Daemon availability does not cure the retained base-image source-gate failure."
+  },
+  "retained_failures": [],
+  "post_verification_tracked_changes": [
+    "artifacts/verification/dashboard-baseline-0007.png",
+    "artifacts/verification/native-baseline-0007.json"
+  ],
+  "post_verification_change_reason": "The merged-main live verifier rendered a fresh dashboard with a new synthetic incident identifier and regenerated its native receipt; no source, contract, manifest, evaluation, policy, or service file changed."
+}
