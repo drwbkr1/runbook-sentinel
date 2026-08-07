@@ -1,0 +1,119 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0015-rfc9110-http-authentication-20260807",
+  "assessed_at": "2026-08-07T22:58:16Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_actions": [
+      "review current primary official HTTP authentication semantics",
+      "record narrow terminology and design constraints without changing the approval surface",
+      "cite and narrowly paraphrase approved specification text"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Determine whether RFC 9110 is fit to define the HTTP challenge, Authorization-header, and 401 response semantics for a possible future authenticated operator surface. It does not select an authentication scheme, prove human presence, or authorize adding a credential.",
+    "planned_actions": [
+      "review current primary official HTTP authentication semantics",
+      "record narrow terminology and design constraints without changing the approval surface",
+      "cite and narrowly paraphrase approved specification text"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "rfc9110-http-semantics",
+      "name": "RFC 9110: HTTP Semantics",
+      "locator": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/rfc/rfc9110.html", "observed_at": "2026-08-07T22:58:16Z", "note": "The official RFC Editor document identifies RFC 9110, HTTP Semantics, as Internet Standard 97. Live UTF-8 response SHA-256 13060a81e611774ed45068f10fc6003da26bd25923ca6f395f96417fadf5f31f."}],
+          "note": "Exact document number, title, publisher surface, and standard identity are established."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/rfc/rfc9110.html#name-authorization", "observed_at": "2026-08-07T22:58:16Z", "note": "The RFC Editor is the primary publication surface. Sections 11.3 through 11.6 define generic HTTP authentication challenges, credentials, Authorization, and 401 behavior."}],
+          "note": "Authority is limited to generic HTTP semantics, not the Runbook Sentinel approval policy or operator identity."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/rfc/rfc9110.html", "observed_at": "2026-08-07T22:58:16Z", "note": "The official HTML returned HTTP 200 without authentication, account, secret, payment, or terms acceptance."}],
+          "note": "Public review requires no account or new service."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/rfc/rfc9110.html#copyright", "observed_at": "2026-08-07T22:58:16Z", "note": "The official document contains its IETF Trust copyright and legal-provisions notice."}],
+          "note": "Use is limited to attribution, links, facts, and narrow paraphrase; no specification text, code component, or asset is imported."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "Official RFC Editor RFC 9110 HTML", "note": "The source is reviewed directly from the primary publisher without an intermediary."}],
+          "note": "No external artifact enters project custody."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "HTTPS locator and live-response SHA-256 in this gate", "note": "The exact official locator and observed UTF-8 response digest bind the review session."}],
+          "note": "No acquired file requires a publisher checksum or signature."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "RFC 9110 Sections 11.3 through 11.6", "note": "The standard is fit for generic Authorization-header, challenge, credential, and 401 semantics. It explicitly warns that credentials in header fields require connection-confidentiality consideration."}],
+          "note": "It does not select a concrete authentication scheme, establish operator authorization, prove human presence, or authorize a secret."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "BASELINE-0015 intended use", "note": "No executable, source code, sample, personal data, secret, dependency, model, dataset, service, or active content is imported."}],
+          "note": "Any credential design remains behind the explicit secret and access-architecture gate."
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "review current primary official HTTP authentication semantics",
+      "record narrow terminology and design constraints without changing the approval surface",
+      "cite and narrowly paraphrase approved specification text"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "retain source identity, metadata, hash, narrow summary, and design constraints",
+      "record a possible future HTTP challenge and Authorization-header shape as unselected"
+    ],
+    "requires_explicit_authorization": [
+      "add, generate, store, transmit, request, or package a credential or secret",
+      "change approval or execution endpoint access",
+      "select or implement an authentication scheme",
+      "claim RFC 9110 proves human presence or directly standardizes Runbook Sentinel approval authority",
+      "import specification text, code, examples, or externally controlled assets"
+    ]
+  }
+}
