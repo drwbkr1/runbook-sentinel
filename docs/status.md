@@ -6,8 +6,8 @@
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.12`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, and rendered public pages to the release-closure commit
 - Active milestone: `BASELINE-0013`; enforce a typed approval lifetime of 1 through 300 seconds outside the model and reject invalid input before any approval mutation
-- Current unit: `UNIT-003` implementation complete; `UNIT-004` is in progress from the one-time frozen reveal and must now freeze the version-bound manifest and compare every prior gate
-- Disposition: baseline-0013 candidate `pass` on the independent contract validator, nine real-API lifetime cases, and 21 tests; full immutable source, package, clean-clone, and release verification remain pending; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Current unit: `UNIT-004` complete; `UNIT-005` is in progress from the selected 257,847-byte package at SHA-256 `c14a4559f3cfc4f53d5ce501115747252c9f33e7f299eb34f088c605930fbd41`
+- Disposition: baseline-0013 source and package candidate `pass`; clean-clone, GitHub review, merge, public release, downloaded-byte, and rendered-public-page gates remain pending; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -30,6 +30,10 @@
 - The improvement is bounded to approval-lifetime validation and its independent evaluation. Agent outcomes, retrieval, proposal schema, capabilities, executor actions, idempotency, replay, preconditions, postconditions, scenarios, and disconnected real-infrastructure boundary remain unchanged.
 - The first and only frozen candidate reveal passes all nine isolated real loopback HTTP, SQLite, audit, and JSONL trace cases. Invalid no-mutation, valid-lifetime exactness, and both split exact-match rates are 1.0; no approval token value is retained in the result.
 - The integrated schema 2.0 evaluator reports approval lifetime separately from the unchanged 84 scenario attempts. After two retained verifier false positives on a field-name substring, all 21 tests and the independent contract validator pass.
+- Version-bound attempt 001 passed but its subsequent live verifier failed on PowerShell error-body parsing. The exact failure remains retained. Corrected manifest attempt 002 at SHA-256 `249513aca8911a1a574a48e2546458db0b3d1e37ecdd4416db40cbb8638bc4c9` passes eight validators, 21 tests, all 84 scenario attempts, and all nine lifetime cases.
+- Source and package MCP expose the same three diagnostic/read tools with no approval or execution tool. Source and package HTTP/dashboard each pass 58 checks; their SQLite, audit, trace, evaluation, manifest, and screenshot receipts each pass 31 checks.
+- Two independent 257,847-byte, 23-entry, dependency-free zipapps are byte-identical at SHA-256 `c14a4559f3cfc4f53d5ce501115747252c9f33e7f299eb34f088c605930fbd41`. Source and package evaluation results are exact after excluding declared latency fields.
+- Source and packaged dashboards were visually inspected at 1440 by 1000. Both visibly report Baseline 0013, evaluation pass, approval lifetime exact 1.0, human approval, disconnected real infrastructure, and persisted synthetic incidents.
 
 ### BASELINE-0012 package release-candidate evidence
 

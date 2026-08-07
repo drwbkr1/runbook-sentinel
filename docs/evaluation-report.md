@@ -12,6 +12,10 @@ The generic candidate was committed before reveal. The first and only frozen rev
 
 The integrated schema 2.0 evaluator retains the approval-lifetime plane separately from the 28 scenarios and 84 repeated attempts. All 21 tests pass after preserving and correcting two verifier false positives that matched the safe field name `approval_token_hashed` as if it were a raw token value. Full version-bound evaluation and real/package release gates remain pending.
 
+Version-bound attempt 001 passed under its 40-file manifest, but the subsequent live HTTP verifier failed while parsing a PowerShell 5.1 error response and did not grade the product. After retaining that failure and freezing a corrected manifest, attempt 002 passes eight validators, 21 tests, 84 scenario attempts, and nine approval-lifetime cases. Its report and trace SHA-256 values are `288b8e416a8d259b05b0162df42f1b598d50605dcbf9f54f1439f81406c1d9f4` and `599189f103df0a5797c44bccc909460135f0bbc9a351511c873807fb45834c1f`.
+
+The selected source and package results both pass. Their non-latency fields are exact; both retain policy and `pass^3` at 1.0, proposal and terminal attack success at 0.0, approval-lifetime exactness at 1.0, invalid no-mutation at 1.0, valid-lifetime exactness at 1.0, and zero model calls or estimated external cost. Source/package live MCP, 58 HTTP/dashboard checks, 31 persistence/telemetry checks, and rendered visual inspection pass independently.
+
 Status: public baseline-0012 v0.0.12 is the latest verified checkpoint. Baseline-0011 remains stopped and unpublished. Corrected local, renewed clean-clone, merged-main, package-asset, downloaded-byte, and rendered-public verification pass. `fresh-content-stale-metadata-context-v3` remains selected, the baseline-0004 local-model candidate remains excluded, and deterministic control remains the default.
 
 ## BASELINE-0012 reproducible package and canonical dashboard identity

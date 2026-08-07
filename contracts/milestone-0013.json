@@ -132,10 +132,10 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "outputs": ["immutable evaluation", "approval lifetime metrics", "real-surface evidence"],
-      "gates": {"all_nine_cases_exact": true, "held_out_revealed_once": true, "prior_gates_preserved": false},
-      "disposition": "in_progress",
+      "gates": {"all_nine_cases_exact": true, "held_out_revealed_once": true, "prior_gates_preserved": true},
+      "disposition": "pass",
       "next_dependency": "UNIT-005"
     },
     {
@@ -144,10 +144,10 @@
       "depends_on": ["UNIT-004"],
       "action_class": "github_push",
       "human_gate": false,
-      "status": "pending",
+      "status": "in_progress",
       "outputs": ["verified public checkpoint"],
       "gates": {"clean_clone": false, "public_release": false, "release_verified": false},
-      "disposition": "pending"
+      "disposition": "in_progress"
     }
   ],
   "stop_conditions": [
@@ -162,7 +162,7 @@
   ],
   "handoff": {
     "latest_verified_checkpoint": "public v0.0.12 release closure 9829f4e2309b9ebde83f7e1fc4f53f9e7e408b2a",
-    "active_weakness": "candidate closes the released invalid approval-lifetime mutation gap; full immutable source and real-surface verification remains",
-    "resume_rule": "Resume from UNIT-004, freeze the version-bound manifest, and compare every prior gate before packaging; do not redesign the agent or rerun broad ideation."
+    "active_weakness": "candidate closes the released invalid approval-lifetime mutation gap; clean-clone, review, merge, and public-release truth remain",
+    "resume_rule": "Resume from UNIT-005 and the selected c14a4559 package bytes; do not alter the candidate after the first package reveal or rerun broad ideation."
   }
 }

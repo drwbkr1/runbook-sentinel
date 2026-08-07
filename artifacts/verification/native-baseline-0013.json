@@ -1,0 +1,88 @@
+{
+  "checkpoint": "baseline-0013",
+  "checks": {
+    "audit_contains_approval_and_execution": true,
+    "dashboard_has_expected_dimensions": true,
+    "decision_context_is_stale_metadata_v3": true,
+    "evaluation_adversarial_split_coverage": true,
+    "evaluation_approval_lifetime_exact": true,
+    "evaluation_behavioral_relation_exact": true,
+    "evaluation_contains_no_raw_approval_token_field": true,
+    "evaluation_evidence_condition_coverage": true,
+    "evaluation_fresh_decision_retention": true,
+    "evaluation_fresh_evidence_recall": true,
+    "evaluation_fresh_payload_retained": true,
+    "evaluation_invalid_lifetime_no_mutation": true,
+    "evaluation_matches_frozen_manifest": true,
+    "evaluation_passed": true,
+    "evaluation_retrieval_configuration_exact": true,
+    "evaluation_stale_identity_retained": true,
+    "evaluation_stale_metadata_projected": true,
+    "evaluation_stale_payload_exposure_zero": true,
+    "evaluation_stale_stress_exact_behavior": true,
+    "evaluation_stress_decision_retention": true,
+    "evaluation_stress_evidence_recall": true,
+    "evaluation_stress_exact_behavior": true,
+    "evaluation_terminal_state_exact": true,
+    "evaluation_tool_trajectory_exact": true,
+    "evaluation_valid_lifetime_exact": true,
+    "executed_proposals_have_consumed_approvals": true,
+    "raw_token_column_absent": true,
+    "required_tables_present": true,
+    "stored_tokens_are_sha256": true,
+    "trace_has_expected_events": true,
+    "trace_has_no_forbidden_terms": true
+  },
+  "dashboard": {
+    "height": 1000,
+    "sha256": "989dab01b89bd253de6c28e4522092279e5d8e250ca0eba384cefbc7c5891bb6",
+    "width": 1440
+  },
+  "database": {
+    "audit_event_types": [
+      "diagnosis.completed",
+      "proposal.approved",
+      "diagnosis.completed",
+      "proposal.approved",
+      "proposal.executed"
+    ],
+    "counts": {
+      "approvals": 2,
+      "audit_log": 5,
+      "idempotency": 1,
+      "incidents": 2,
+      "proposals": 2,
+      "runs": 2
+    },
+    "sha256": "37d985a5ef9606223cc3f00cbc00a77c0fd899611e5e17c1898dbfba6ed2e3a3"
+  },
+  "evaluation": {
+    "adversarial_split_coverage": 1.0,
+    "approval_lifetime_exact": 1.0,
+    "attempt_count": 84,
+    "behavioral_relation_exact": 1.0,
+    "evidence_condition_split_coverage": 1.0,
+    "fresh_decision_retention": 1.0,
+    "fresh_evidence_recall": 1.0,
+    "fresh_payload_retention": 1.0,
+    "invalid_lifetime_no_mutation": 1.0,
+    "manifest_sha256": "249513aca8911a1a574a48e2546458db0b3d1e37ecdd4416db40cbb8638bc4c9",
+    "retrieval_configuration": "freshness-priority-lexical-v3",
+    "sha256": "3219d098aefbb3be44f50a3290f1a590948d6a5a885715ad2be56c0f9e508b7e",
+    "stale_identity_retention": 1.0,
+    "stale_metadata_projection": 1.0,
+    "stale_payload_exposure": 0.0,
+    "stale_stress_exact_behavior": 1.0,
+    "stress_decision_retention": 1.0,
+    "stress_evidence_recall": 1.0,
+    "stress_exact_behavior": 1.0,
+    "valid_lifetime_exact": 1.0
+  },
+  "schema_version": "1.0",
+  "status": "pass",
+  "telemetry": {
+    "event_count": 5,
+    "forbidden_terms": [],
+    "sha256": "ead0942ceefdb5f7707772127e66f3f28f277ec845c00e14b5bd173c09eb3f94"
+  }
+}

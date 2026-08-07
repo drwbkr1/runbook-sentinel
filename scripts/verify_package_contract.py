@@ -9,12 +9,16 @@ import zipfile
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_CONTRACT = ROOT / "eval/package-contract-0012.json"
+DEFAULT_CONTRACT = ROOT / "eval/package-contract-0013.json"
 PACKAGE_MANIFEST_PATH = "runbook_sentinel/data/package-manifest.json"
 ALLOWED_SOURCE_KINDS = {
     "project_file",
     "frozen_evaluation_manifest",
     "generated_package_manifest",
+}
+ALLOWED_CONTRACT_STATUSES = {
+    "frozen_before_implementation",
+    "frozen_before_archive_build",
 }
 PACKAGE_MANIFEST_KEYS = {
     "schema_version",
@@ -71,8 +75,8 @@ def validate_contract(contract: dict, source_root: Path) -> list[str]:
         errors,
     )
     expect(
-        contract.get("contract_status") == "frozen_before_implementation",
-        "contract must declare frozen_before_implementation",
+        contract.get("contract_status") in ALLOWED_CONTRACT_STATUSES,
+        "contract must be frozen before implementation or archive build",
         errors,
     )
 
@@ -299,7 +303,10 @@ def main() -> None:
         "checkpoint": contract.get("checkpoint"),
         "contract": str(contract_path),
         "contract_sha256": sha256_bytes(contract_raw),
+        "contract_status": contract.get("contract_status"),
         "contract_frozen_before_implementation": contract.get("contract_status") == "frozen_before_implementation",
+        "contract_frozen_before_archive_build": contract.get("contract_status")
+        in ALLOWED_CONTRACT_STATUSES,
         "archive_checked": args.archive is not None,
         "errors": errors,
     }
