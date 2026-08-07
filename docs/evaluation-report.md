@@ -41,7 +41,9 @@ The direct held-out CLI and MCP stdio paths used v3, ranked the current telemetr
 
 Visual inspection confirmed the 1440 by 1000 dashboard accurately reports baseline 0009, passing deterministic v2 agent behavior, freshness-priority v3 retrieval, guidance and fresh-evidence recall 1.0, human approval, disconnected real infrastructure, and one mitigated synthetic stale-evidence incident. The headless browser emitted a renderer task-manager warning only after writing the verified PNG; it is retained as tooling evidence.
 
-Docker 29.4.3 is live. Container packaging remains deferred because all three locally cached official Python base candidates remain excluded by the current source gate for unresolved high or critical findings; no excluded image was run and no new image was imported. Clean-clone, GitHub, tag, release, and rendered-public-page evidence must still pass before v0.0.9 becomes a verified checkpoint.
+Docker 29.4.3 is live. Container packaging remains deferred because all three locally cached official Python base candidates remain excluded by the current source gate for unresolved high or critical findings; no excluded image was run and no new image was imported.
+
+An exact no-local-object clone of candidate `f3d882a6e92d4bfe0b4d1803e8b9b214dac362eb` passed compilation, 16 tests, all five validators, the 16-criterion research gate, nine milestone contracts, 114 tracked JSON files, 34 JSONL files with 3,135 records, selected-evaluation and manifest identity, unchanged policy, model-weight and high-signal-secret exclusion, held-out CLI, MCP, all 40 API checks, all 23 native checks, persistence, telemetry, and a fresh visual dashboard inspection. The receipt is `artifacts/verification/clean-clone-baseline-0009.json`. GitHub, tag, release, and rendered-public-page evidence must still pass before v0.0.9 becomes a verified checkpoint.
 
 ## BASELINE-0008 orientation and measured retrieval gap
 

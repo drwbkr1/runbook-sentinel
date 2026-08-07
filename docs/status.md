@@ -6,7 +6,7 @@
 - Completed milestones: `BASELINE-0001` through `BASELINE-0008`
 - Latest verified checkpoint: public `v0.0.8`; release reconciliation binds the local annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, and rendered public pages to the exact closure commit
 - Active milestone: `BASELINE-0009`; stale-evidence resilience, `UNIT-005` release verification in progress
-- Current unit: preserve the passing v0.0.9 version-bound and native receipts, validate a clean clone, then review and publish only if all remaining gates pass
+- Current unit: preserve the passing v0.0.9 candidate and clean-clone receipt, publish the branch for GitHub review, then merge, tag, release, and verify only if all remaining gates pass
 - Disposition: freshness-priority v3 `select` as the only hard-gate-passing candidate; strict numeric latency dominance is false; v0.0.9 release candidate `pending`; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -35,7 +35,8 @@
 - Real API and runtime: all 40 HTTP/dashboard checks and all 23 persisted-state/telemetry checks pass; native receipt SHA-256 `fef021cea1a5a58536f684bec2a99017837239f1eea89d3d10d2a0657dac743d`
 - Rendered dashboard: visually inspected at 1440 by 1000; accurately reports baseline 0009, v3, both retrieval recalls 1.0, human approval, disconnected real infrastructure, and the mitigated synthetic incident; PNG SHA-256 `934b13fb481b2566730aeab62e7484244edaf478d3aba0ee53d9127d5de85099`
 - Container: daemon 29.4.3 is live, but every locally cached Python base candidate remains excluded by `artifacts/verification/container-source-gate.json`; packaging is deferred and no image was imported or run for this checkpoint
-- Clean-clone, GitHub review, merged main, tag, release, and public-page verification: pending
+- Clean clone: exact candidate `f3d882a6e92d4bfe0b4d1803e8b9b214dac362eb` at `C:\Projects\Verification\runbook-sentinel-baseline-0009-f3d882a-20260806T225204` passed compilation, 16 tests, five validators, the research source gate, nine milestone contracts, 114 JSON files, 34 JSONL files and 3,135 records, selected-manifest identity, unchanged policy, model/secret exclusion, held-out CLI, MCP, 40 API checks, 23 runtime checks, persistence, telemetry, and rendered-dashboard inspection
+- GitHub review, merged main, tag, release, and public-page verification: pending
 
 - Contract schema: pass
 - Frozen manifest: 23 files, SHA-256 `fac3bf310d244322c364516e21b6da78053ddb57d5c3cb05bc15b993609c59da`, pass
