@@ -206,11 +206,13 @@
       ,"Immutable attempt 001 passed all 72 scenario trials and all 12 paired relation trials; its report, trace, and manifest SHA-256 are eda653ad87436fbbc3c6e3196e2fee4c503589d32cd35795351bf6f50101bccf, db9ff7eaed7d67dcbbdd62bdf1f299b41abaa34a581d6476e4fbc0e506076035, and 8db0a7f5fd15dd92a82ab710e65fc6dbc84e4eec28b2d67b46a94a1427963c69"
       ,"Attempt 001 emitted exactly 72 run, 21 approval, and 21 execution events; no raw approval-token or concrete idempotency material appears in the report or trace"
       ,"artifacts/evaluations/latest.json is byte-identical to immutable attempt 001"
+      ,"Versioned package, API health, MCP identity, CLI default, tests, README, dashboard, and real-surface verifiers now identify 0.0.7 and baseline-0007"
+      ,"The versioned 22-file manifest passes at SHA-256 02ff28f3616572d3c1b6d97e5fe617594765575666f2ed74cb247b43b7ee5314; agent, retriever, policy, service, and action hashes remain unchanged"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0007 immutable attempt 001 is the selected relation-aware result: all 72 scenario trials and 12 paired relation trials pass against the exact 22-file manifest",
-    "next_action": "Commit the selected attempt, version the bounded checkpoint as 0.0.7, refreeze versioned surfaces, and verify real CLI, MCP, API, executor, dashboard, persistence, telemetry, clean clone, GitHub review, merged main, tag, release, and public pages",
+    "current_checkpoint": "BASELINE-0007 attempt 001 passes but is superseded for release selection because the 0.0.7 identity and dashboard relation metric produced a new passing 22-file manifest",
+    "next_action": "Commit the versioned surfaces, run immutable attempt 002 against manifest 02ff28f3616572d3c1b6d97e5fe617594765575666f2ed74cb247b43b7ee5314, and begin real-surface verification only if it passes",
     "do_not_carry_forward": [
       "Condition/split coverage as proof of controlled evidence sensitivity",
       "Unlinked scenarios as implicit counterfactual pairs",

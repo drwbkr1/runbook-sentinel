@@ -193,5 +193,7 @@ Next eligible action: freeze schema 1.6, the four exact relations, counterpart s
 - Immutable attempt 001 passed all 72 scenario trials and all 12 paired relation trials. Invariance, directional safety, combined relation exactness, development exactness, and held-out exactness are 1.0; 21 expected actions executed and all 51 no-action trials remained unchanged.
 - Attempt 001 emitted exactly 72 run, 21 approval, and 21 execution events. The report and trace contain no raw approval-token or concrete idempotency material. Report and trace SHA-256 are `eda653ad87436fbbc3c6e3196e2fee4c503589d32cd35795351bf6f50101bccf` and `db9ff7eaed7d67dcbbdd62bdf1f299b41abaa34a581d6476e4fbc0e506076035`.
 - The copied manifest matches the active manifest at SHA-256 `8db0a7f5fd15dd92a82ab710e65fc6dbc84e4eec28b2d67b46a94a1427963c69`, and `artifacts/evaluations/latest.json` is byte-identical to attempt 001.
+- Package metadata, API health, MCP identity, CLI default, tests, README, dashboard, and real-surface verifiers now identify `0.0.7` / baseline 0007. The dashboard visibly adds behavioral-relation exactness without exposing approval or execution controls.
+- The versioned 22-file manifest passes at SHA-256 `02ff28f3616572d3c1b6d97e5fe617594765575666f2ed74cb247b43b7ee5314`; agent, retriever, policy, service, and actions remain unchanged. Attempt 001 remains immutable and passing but is superseded for release selection; a version-bound attempt is required before live verification.
 
-Next eligible action: version the selected checkpoint as 0.0.7, refreeze the versioned surface, and rerun immutable evaluation before live verification.
+Next eligible action: commit the versioned surface and run immutable attempt 002 before live verification.

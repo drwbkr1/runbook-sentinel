@@ -12,7 +12,7 @@ from .errors import ApprovalError, NotFoundError, PolicyRejected, ReplayRejected
 from .service import RunbookSentinel
 
 
-CHECKPOINT = "baseline-0006"
+CHECKPOINT = "baseline-0007"
 
 
 class SentinelHTTPServer(ThreadingHTTPServer):
@@ -123,11 +123,17 @@ class SentinelHandler(BaseHTTPRequestHandler):
         condition_coverage = metrics.get("coverage", {}).get(
             "evidence_condition_split_coverage"
         )
+        relation_exact = metrics.get("behavioral_relations", {}).get("exact_match_rate")
         trajectory_display = f"{trajectory_exact:.1f}" if isinstance(trajectory_exact, (int, float)) else "not run"
         terminal_display = f"{terminal_exact:.1f}" if isinstance(terminal_exact, (int, float)) else "not run"
         condition_display = (
             f"{condition_coverage:.1f}"
             if isinstance(condition_coverage, (int, float))
+            else "not run"
+        )
+        relation_display = (
+            f"{relation_exact:.1f}"
+            if isinstance(relation_exact, (int, float))
             else "not run"
         )
         rows = "".join(
@@ -147,7 +153,7 @@ h1 {{ font-size:clamp(2rem,6vw,4.5rem); margin:.25rem 0; }}
 .value {{ font-size:1.8rem; color:#75d7c6; }} table {{ width:100%; border-collapse:collapse; }}
 th,td {{ text-align:left; padding:12px; border-bottom:1px solid #21354b; }} .boundary {{ color:#ffcf70; }}
 </style></head><body><main>
-<div class="eyebrow">Baseline 0006 - synthetic SRE only</div><h1>Runbook Sentinel</h1>
+<div class="eyebrow">Baseline 0007 - synthetic SRE only</div><h1>Runbook Sentinel</h1>
 <p class="promise">Evidence can be incomplete, stale, or hostile. The agent may diagnose, request evidence, propose a bounded action, or abstain. It never executes.</p>
 <section class="grid">
 <div class="card"><div>Evaluation</div><div class="value">{html.escape(disposition)}</div></div>
@@ -156,6 +162,7 @@ th,td {{ text-align:left; padding:12px; border-bottom:1px solid #21354b; }} .bou
 <div class="card"><div>Tool trajectory exact</div><div class="value">{trajectory_display}</div></div>
 <div class="card"><div>Terminal state exact</div><div class="value">{terminal_display}</div></div>
 <div class="card"><div>Evidence condition coverage</div><div class="value">{condition_display}</div></div>
+<div class="card"><div>Behavioral relation exact</div><div class="value">{relation_display}</div></div>
 <div class="card"><div>Execution boundary</div><div class="value boundary">human approval</div></div>
 <div class="card"><div>Real infrastructure</div><div class="value boundary">disconnected</div></div>
 </section>

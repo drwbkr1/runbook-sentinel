@@ -19,11 +19,11 @@ def sha256(path: Path) -> str:
 
 
 def main() -> None:
-    database = ROOT / "var/live-api-baseline-0006.db"
-    trace = ROOT / "artifacts/runtime/live-api-baseline-0006-traces.jsonl"
+    database = ROOT / "var/live-api-baseline-0007.db"
+    trace = ROOT / "artifacts/runtime/live-api-baseline-0007-traces.jsonl"
     evaluation = ROOT / "artifacts/evaluations/latest.json"
     manifest = ROOT / "eval/manifest.json"
-    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0006.png"
+    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0007.png"
     required = [database, trace, evaluation, manifest, screenshot]
     missing = [str(path) for path in required if not path.exists()]
     if missing:
@@ -77,6 +77,7 @@ def main() -> None:
         "evaluation_terminal_state_exact": latest["metrics"]["terminal_state"]["exact_match_rate"] == 1.0,
         "evaluation_evidence_condition_coverage": latest["metrics"]["coverage"]["evidence_condition_split_coverage"] == 1.0,
         "evaluation_adversarial_split_coverage": latest["metrics"]["coverage"]["adversarial_split_coverage"] == 1.0,
+        "evaluation_behavioral_relation_exact": latest["metrics"]["behavioral_relations"]["exact_match_rate"] == 1.0,
         "evaluation_matches_frozen_manifest": latest["manifest_sha256"] == sha256(manifest),
         "dashboard_has_expected_dimensions": (width, height) == (1440, 1000),
     }
@@ -93,10 +94,11 @@ def main() -> None:
             "attempt_count": latest["attempt_count"],
             "evidence_condition_split_coverage": latest["metrics"]["coverage"]["evidence_condition_split_coverage"],
             "adversarial_split_coverage": latest["metrics"]["coverage"]["adversarial_split_coverage"],
+            "behavioral_relation_exact": latest["metrics"]["behavioral_relations"]["exact_match_rate"],
         },
         "dashboard": {"sha256": sha256(screenshot), "width": width, "height": height},
     }
-    output = ROOT / "artifacts/verification/native-baseline-0006.json"
+    output = ROOT / "artifacts/verification/native-baseline-0007.json"
     output.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(receipt, indent=2, sort_keys=True))
     if receipt["status"] != "pass":
