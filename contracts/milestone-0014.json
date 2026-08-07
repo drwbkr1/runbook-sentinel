@@ -125,7 +125,10 @@
       "the first held-out reveal passes all six frozen cases with every isolated metric at 1.0 and no raw approval-token field",
       "evaluator schema 2.1 integration and all 22 tests pass",
       "v0.0.14 package contract froze before archive build with 25 exact entries",
-      "the completed 45-file baseline-0014 manifest verifies at SHA-256 aae568de2095570d6d142bdf9e17828cb77c51e7ced9efef46d82836349cca10"
+      "the completed 45-file baseline-0014 manifest verifies at SHA-256 aae568de2095570d6d142bdf9e17828cb77c51e7ced9efef46d82836349cca10",
+      "version-bound source and package 84+9+6 evaluations pass with exact non-latency parity",
+      "two independent package builds are byte-identical at SHA-256 9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f",
+      "source and package MCP, HTTP/dashboard, SQLite, audit, telemetry, and rendered visual gates pass"
     ],
     "artifacts": [
       "artifacts/verification/idempotency-authorization-gap-baseline-0014.json",
@@ -133,7 +136,10 @@
       "artifacts/verification/research-source-gate-baseline-0014-rfc9110.json",
       "artifacts/verification/research-source-gate-baseline-0014-idempotency-draft.json",
       "artifacts/evaluations/runs/baseline-0014-idempotency-authorization-attempt-001.json",
-      "eval/package-contract-0014.json"
+      "eval/package-contract-0014.json",
+      "artifacts/evaluations/runs/baseline-0014-attempt-001.json",
+      "artifacts/evaluations/runs/baseline-0014-package-attempt-001.json",
+      "artifacts/verification/package-verification-baseline-0014.json"
     ],
     "disposition": "remediate"
   },

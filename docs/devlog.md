@@ -21,6 +21,10 @@
 - Integrated the isolated plane into evaluator schema 2.1 and the dashboard while preserving separate metrics and a fail-closed release disposition. All 22 tests pass after integration.
 - Versioned the candidate as `0.0.14` / `baseline-0014` and froze `eval/package-contract-0014.json` before any archive build. Its 25-entry allowlist adds only the project-authored idempotency-authorization contract and evaluator to the v0.0.13 package surface; contract SHA-256 is `b6d6544e9bf98d1c8201b0970daeb6b5775c8fc92cd6d62f0ef58e3101d29b47`.
 - Froze the completed 45-file evaluation surface at manifest SHA-256 `aae568de2095570d6d142bdf9e17828cb77c51e7ced9efef46d82836349cca10`. Compilation, PowerShell verifier parsing, 22 tests, manifest verification, and prebuild package-contract verification pass.
+- Immutable version-bound source attempt 001 passes all 84 scenario trials, nine lifetime cases, six cache-authorization cases, and every prior and new hard gate. Its report, trace, and manifest SHA-256 values are `098be4dab2aff8585f9f252de356492ec82b5f6f2d2de881a2b202a8b196164f`, `a29e6d98d0880ba11857e9e54f485345831b72caaac44ecbb9ace601bc13f6f0`, and `aae568de2095570d6d142bdf9e17828cb77c51e7ced9efef46d82836349cca10`.
+- Source MCP reports version 0.0.14 and exposes the same three diagnostic/read tools with no approval or execution tool. The real source HTTP/dashboard passes 66 checks, including exact wrong-token and missing-token HTTP 409 errors; 35 SQLite, audit, trace, manifest, and image checks pass.
+- Built two independent 283,148-byte zipapps with exactly 25 allowlisted entries and no runtime dependency. Both are byte-identical at SHA-256 `9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f`; the archive validator and CLI help pass.
+- Packaged attempt 001 passes all 84+9+6 evaluation cases. Source and package results are exact after removing only latency and per-run idempotency-evaluator database/trace fingerprints. Packaged MCP, 66 HTTP/dashboard checks, 35 state/telemetry checks, and visual inspection pass.
 
 ## 2026-08-07 - BASELINE-0013 started
 

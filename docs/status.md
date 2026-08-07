@@ -30,8 +30,11 @@
 - The first isolated candidate reveal passes all six cases. Authorized cache utility, unauthorized denial, retry no-mutation, new-key replay rejection, development exactness, and test exactness are 1.0. The 10,782-byte immutable result SHA-256 is `90ec001f063d97755014d32c84832687c67b5a3130aca89e57b3c427a26d3306` and contains no raw approval-token field.
 - The integrated evaluator schema is 2.1 and reports idempotency authorization separately from the 84 repeated scenarios and nine approval-lifetime cases. All 22 tests pass.
 - Candidate identity is now `0.0.14` / `baseline-0014`. The package contract froze before any archive build with 25 exact entries and SHA-256 `b6d6544e9bf98d1c8201b0970daeb6b5775c8fc92cd6d62f0ef58e3101d29b47`; the 45-file evaluation manifest passes at SHA-256 `aae568de2095570d6d142bdf9e17828cb77c51e7ced9efef46d82836349cca10`.
+- Version-bound source attempt 001 passes all 84 scenario attempts plus the nine lifetime and six cache-authorization cases. Its report and trace SHA-256 values are `098be4dab2aff8585f9f252de356492ec82b5f6f2d2de881a2b202a8b196164f` and `a29e6d98d0880ba11857e9e54f485345831b72caaac44ecbb9ace601bc13f6f0`.
+- Two independent 283,148-byte, 25-entry zipapps are byte-identical at SHA-256 `9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f`. The archive contract, CLI, packaged 84+9+6 evaluation, bounded MCP, 66 HTTP/dashboard checks, 35 persisted-state/telemetry checks, and rendered dashboard inspection pass.
+- Source and package non-latency results are exact after removing only declared latency and per-run state/trace fingerprint fields. Both dashboards visibly report Baseline 0014, cached result authorization 1.0, approval lifetime 1.0, human approval, disconnected real infrastructure, and persisted synthetic incidents.
 - RFC 9110 passed the external-source gate for narrow HTTP terminology and a clearly labeled project inference only. The expired and archived IETF Idempotency-Key Internet-Draft is retained as blocked and excluded from normative or design use. No external code, data, model, package, executable, or service was imported.
-- Next eligible action: run an immutable full source attempt and verify API, MCP, dashboard, persistence, telemetry, and package surfaces.
+- Next eligible action: commit the selected source/package evidence and verify an exact no-local-object clean clone with byte-identical archive rebuild.
 
 ### BASELINE-0013 approval-lifetime gap and frozen contract
 
