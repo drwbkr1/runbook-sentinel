@@ -9,7 +9,7 @@ All notable verified changes are recorded here. Unverified work remains in `docs
 - Preserved the stopped `0.0.11` candidate and fixed its known rendered checkpoint mismatch in a new candidate by deriving the dashboard and its source-test expectation from the canonical runtime checkpoint.
 - Passed two byte-identical 239,184-byte builds at SHA-256 `2f26584484fed4204a45f1fd261d88ad417ddc0919d4f332c7a5c298a10d1ff9`.
 - Passed 19 tests, seven validators, source and package 84-attempt evaluations, bounded MCP, 51 packaged HTTP/dashboard checks, 27 state/telemetry checks, and rendered dashboard inspection under the same frozen manifest.
-- Makes no package-registry, container, production-readiness, or external-system superiority claim. Clean-clone, GitHub review, merged-main, release-asset, and public-download gates remain pending.
+- Passed a no-local-object clean clone through source and package verification and byte-identical rebuild. Makes no package-registry, container, production-readiness, or external-system superiority claim. GitHub review, merged-main, release-asset, and public-download gates remain pending.
 
 ## 0.0.11 - Unpublished stopped candidate
 

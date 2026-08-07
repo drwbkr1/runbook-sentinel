@@ -189,7 +189,7 @@
       "status": "in_progress",
       "inputs": ["selected passing candidate", "reconciled living records"],
       "outputs": ["verified public v0.0.12 checkpoint"],
-      "gates": {"clean_clone_rebuild_identity": false, "public_release_asset_identity": false, "release_verified": false},
+      "gates": {"clean_clone_rebuild_identity": true, "public_release_asset_identity": false, "release_verified": false},
       "disposition": "remediate"
     }
   ],

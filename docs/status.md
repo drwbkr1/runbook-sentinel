@@ -6,7 +6,7 @@
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.10`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, and rendered public pages to the release-closure commit
 - Active milestone: `BASELINE-0012`
-- Current unit: `UNIT-005` release reconciliation; local source, package, real-surface, persistence, telemetry, and rendered-dashboard candidate gates pass; clean-clone and public release gates remain
+- Current unit: `UNIT-005` release reconciliation; local and clean-clone source, package, real-surface, persistence, telemetry, rendered-dashboard, and byte-rebuild gates pass; GitHub and public release gates remain
 - Disposition: v0.0.12 package candidate `pass` locally; v0.0.11 `stop` and unpublished; decision-context v3 remains selected; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -31,7 +31,8 @@
 - Packaged HTTP/dashboard passes all 51 checks, including approval hashing, execution, replay rejection, postconditions, redaction, CSP, baseline-0012 health/evaluation/rendered identity, and absence of stale baseline labels. SQLite, audit, trace, manifest binding, and telemetry pass all 27 checks.
 - The 1440 by 1000 dashboard was visually inspected. It visibly reports Baseline 0012, evaluation pass, deterministic v2, decision-context v3, retrieval v3, exact metrics, human approval, disconnected real infrastructure, and one mitigated synthetic incident; PNG SHA-256 `12640baf7d30bf8e6985beb7d425855ff0c94d595c3473cf7bd7ed92d3668da3`.
 - Official Python 3.12.13 packaging documentation passed the source gate for citation and project-authored standard-library implementation only. No external code, package, sample, data, model, executable, or service was imported.
-- Clean-clone, GitHub review, merged-main, release asset, downloaded checksum, tag, and rendered public-page verification remain pending. No v0.0.12 release claim is made yet.
+- A no-local-object clone of exact candidate `329767a6995aa261509d44e806729f94d166f180` passed compilation, 19 tests, both package contracts, the source gate, 12 milestone contracts, 178 tracked JSON files, 49 JSONL files with 5,385 records, model/secret exclusion, source and package evaluations, MCP, 51 API checks, 27 runtime checks, and visual inspection. Two clean-clone builds are byte-identical to the selected archive at SHA-256 `2f26584484fed4204a45f1fd261d88ad417ddc0919d4f332c7a5c298a10d1ff9`.
+- GitHub review, merged-main, release asset, downloaded checksum, tag, and rendered public-page verification remain pending. No v0.0.12 release claim is made yet.
 
 ### BASELINE-0010 release-candidate evidence
 
