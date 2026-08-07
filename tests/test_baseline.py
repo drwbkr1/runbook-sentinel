@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import copy
 import json
+import secrets
 import sys
 import tempfile
 import threading
@@ -9,6 +10,7 @@ import unittest
 from datetime import datetime
 from pathlib import Path
 from urllib.request import Request, urlopen
+from urllib.error import HTTPError
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -18,7 +20,7 @@ from runbook_sentinel.api import CHECKPOINT, create_server
 from runbook_sentinel.agent import DeterministicIncidentAgent
 from runbook_sentinel.catalog import load_catalog
 from runbook_sentinel.evidence import is_fresh_project_evidence
-from runbook_sentinel.errors import ApprovalError, PolicyRejected, ReplayRejected
+from runbook_sentinel.errors import ApprovalError, OperatorAuthenticationError, PolicyRejected, ReplayRejected
 from runbook_sentinel.evaluation import (
     _behavioral_relation_metrics,
     _evidence_condition_coverage,
@@ -29,6 +31,11 @@ from runbook_sentinel.evaluation import (
     run_evaluation,
 )
 from runbook_sentinel.mcp_server import MCPServer, TOOLS
+from runbook_sentinel.operator_auth import (
+    AUTHENTICATION_CHALLENGE,
+    OperatorAuthenticator,
+    authorization_value,
+)
 from runbook_sentinel.policy import ACTION_SPECS, action_spec
 from runbook_sentinel.retrieval import (
     EVIDENCE_ONLY_CONTEXT,
@@ -46,6 +53,9 @@ from scripts.verify_approval_lifetime_contract import validate as validate_appro
 from scripts.verify_idempotency_authorization_contract import (
     validate as validate_idempotency_authorization_contract,
 )
+from scripts.verify_operator_authentication_contract import (
+    validate as validate_operator_authentication_contract,
+)
 
 
 class BaselineTest(unittest.TestCase):
@@ -53,6 +63,10 @@ class BaselineTest(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory(prefix="sentinel-test-")
         base = Path(self.temp.name)
         self.service = RunbookSentinel(str(base / "state.db"), str(base / "traces.jsonl"))
+        capability = secrets.token_urlsafe(32)
+        authenticator = OperatorAuthenticator(capability)
+        self.operator = authenticator.authenticate([authorization_value(capability)])
+        del capability
 
     def tearDown(self):
         self.temp.cleanup()
@@ -104,10 +118,10 @@ class BaselineTest(unittest.TestCase):
                 self.assertEqual((result["outcome"], result["diagnosis_code"], action), wanted)
                 self.assertNotIn("approval_token", json.dumps(result))
 
-    def test_human_approval_is_hash_bound_idempotent_and_replay_safe(self):
+    def test_authenticated_operator_approval_is_hash_bound_idempotent_and_replay_safe(self):
         result = self.service.run_scenario("dev-worker-backlog")
         proposal_id = result["proposal"]["id"]
-        approval = self.service.approve(proposal_id, "local-operator")
+        approval = self.service.approve(proposal_id, self.operator)
 
         with self.assertRaises(ApprovalError):
             self.service.execute(proposal_id, "wrong-token", "wrong-token-attempt")
@@ -154,7 +168,7 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(self.service.get_incident(result["incident_id"])["state"]["restart_count"], 1)
 
         second = self.service.run_scenario("test-cold-cache")
-        second_approval = self.service.approve(second["proposal"]["id"], "local-operator")
+        second_approval = self.service.approve(second["proposal"]["id"], self.operator)
         with self.assertRaises(ApprovalError):
             self.service.execute(second["proposal"]["id"], second_approval["approval_token"], "restart-once")
 
@@ -168,7 +182,7 @@ class BaselineTest(unittest.TestCase):
                     ValueError,
                     "Approval TTL must be an integer from 1 through 300 seconds",
                 ):
-                    self.service.approve(proposal_id, "lifetime-test", ttl_seconds)
+                    self.service.approve(proposal_id, self.operator, ttl_seconds)
                 with self.service.storage.connect() as connection:
                     proposal = connection.execute(
                         "SELECT status FROM proposals WHERE id = ?", (proposal_id,)
@@ -199,7 +213,7 @@ class BaselineTest(unittest.TestCase):
                 self.assertEqual(self.service.get_incident(result["incident_id"]), incident_before)
 
         minimum = self.service.run_scenario("dev-worker-backlog")
-        approval = self.service.approve(minimum["proposal"]["id"], "lifetime-test", 1)
+        approval = self.service.approve(minimum["proposal"]["id"], self.operator, 1)
         with self.service.storage.connect() as connection:
             stored = connection.execute(
                 "SELECT created_at, expires_at FROM approvals WHERE id = ?",
@@ -268,6 +282,209 @@ class BaselineTest(unittest.TestCase):
         ):
             with self.subTest(corruption=corrupted):
                 self.assertTrue(validate_idempotency_authorization_contract(corrupted))
+
+    def test_operator_authentication_contract_validator_fails_closed_on_corruption(self):
+        contract = json.loads(
+            (ROOT / "eval/operator-authentication-contract.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        self.assertEqual(validate_operator_authentication_contract(copy.deepcopy(contract)), [])
+
+        changed_scheme = copy.deepcopy(contract)
+        changed_scheme["architecture"]["http_authentication_scheme"] = "Bearer"
+        weakened_ordering = copy.deepcopy(contract)
+        weakened_ordering["policy"]["authentication_precedes_body_parsing"] = False
+        changed_split = copy.deepcopy(contract)
+        changed_split["cases"][4]["split"] = "development"
+        weakened_mutation = copy.deepcopy(contract)
+        weakened_mutation["cases"][0]["expected"]["state_unchanged"] = False
+        leaked_held_out = copy.deepcopy(contract)
+        leaked_held_out["prechange_evidence"]["held_out_candidate_results_revealed"] = True
+        removed_secret_surface = copy.deepcopy(contract)
+        removed_secret_surface["secret_exclusion_contract"][
+            "raw_capability_forbidden_locations"
+        ].pop()
+
+        for corrupted in (
+            changed_scheme,
+            weakened_ordering,
+            changed_split,
+            weakened_mutation,
+            leaked_held_out,
+            removed_secret_surface,
+        ):
+            with self.subTest(corruption=corrupted):
+                self.assertTrue(validate_operator_authentication_contract(corrupted))
+
+    def test_development_operator_authentication_cases_are_exact(self):
+        base = Path(self.temp.name)
+        capability = secrets.token_urlsafe(32)
+        wrong_capability = secrets.token_urlsafe(32)
+        evaluation_path = base / "operator-evaluation.json"
+        evaluation_path.write_text(
+            json.dumps({"gates": {"baseline_disposition": "pass"}}),
+            encoding="utf-8",
+        )
+        database_path = base / "operator-api.db"
+        trace_path = base / "operator-api-traces.jsonl"
+        server = create_server(
+            "127.0.0.1",
+            0,
+            str(database_path),
+            str(trace_path),
+            str(evaluation_path),
+            capability,
+        )
+        thread = threading.Thread(target=server.serve_forever, daemon=True)
+        thread.start()
+
+        def post(url: str, body: bytes, headers: dict[str, str]) -> tuple[int, dict, object]:
+            request = Request(url, data=body, headers=headers, method="POST")
+            try:
+                with urlopen(request, timeout=10) as response:
+                    return response.status, json.loads(response.read()), response.headers
+            except HTTPError as error:
+                with error:
+                    return error.code, json.loads(error.read()), error.headers
+
+        def snapshot() -> dict:
+            with server.service.storage.connect() as connection:
+                tables = {
+                    table: [
+                        dict(row)
+                        for row in connection.execute(
+                            f"SELECT * FROM {table} ORDER BY rowid"
+                        ).fetchall()
+                    ]
+                    for table in (
+                        "incidents",
+                        "runs",
+                        "proposals",
+                        "approvals",
+                        "idempotency",
+                        "audit_log",
+                    )
+                }
+            return {
+                "tables": tables,
+                "trace": trace_path.read_bytes() if trace_path.exists() else b"",
+            }
+
+        try:
+            root = f"http://127.0.0.1:{server.server_port}"
+            run_status, run, _ = post(
+                f"{root}/api/runs",
+                json.dumps({"scenario_id": "dev-worker-backlog"}).encode("utf-8"),
+                {"Content-Type": "application/json"},
+            )
+            self.assertEqual(run_status, 201)
+            proposal_id = run["proposal"]["id"]
+            approval_url = f"{root}/api/proposals/{proposal_id}/approve"
+            before = snapshot()
+
+            missing_status, missing, missing_headers = post(
+                approval_url,
+                json.dumps({"actor": "sentinel-agent-self-declared"}).encode(
+                    "utf-8"
+                ),
+                {"Content-Type": "application/json"},
+            )
+            self.assertEqual(missing_status, 401)
+            self.assertEqual(missing["error"], "OperatorAuthenticationError")
+            self.assertEqual(missing["message"], "Operator capability is invalid")
+            self.assertEqual(
+                missing_headers["WWW-Authenticate"], AUTHENTICATION_CHALLENGE
+            )
+            self.assertEqual(snapshot(), before)
+
+            malformed_status, malformed, malformed_headers = post(
+                approval_url,
+                b"{",
+                {"Content-Type": "application/json"},
+            )
+            self.assertEqual(malformed_status, 401)
+            self.assertEqual(malformed, missing)
+            self.assertEqual(
+                malformed_headers["WWW-Authenticate"], AUTHENTICATION_CHALLENGE
+            )
+            self.assertEqual(snapshot(), before)
+
+            wrong_status, wrong, wrong_headers = post(
+                approval_url,
+                b"{}",
+                {
+                    "Authorization": authorization_value(wrong_capability),
+                    "Content-Type": "application/json",
+                },
+            )
+            self.assertEqual(wrong_status, 401)
+            self.assertEqual(wrong, missing)
+            self.assertEqual(
+                wrong_headers["WWW-Authenticate"], AUTHENTICATION_CHALLENGE
+            )
+            self.assertEqual(snapshot(), before)
+
+            accepted_status, approval, accepted_headers = post(
+                approval_url,
+                b"{}",
+                {
+                    "Authorization": authorization_value(capability),
+                    "Content-Type": "application/json",
+                },
+            )
+            self.assertEqual(accepted_status, 201)
+            self.assertIsNone(accepted_headers.get("WWW-Authenticate"))
+            with server.service.storage.connect() as connection:
+                stored = connection.execute(
+                    "SELECT actor, token_hash, created_at, expires_at FROM approvals WHERE proposal_id = ?",
+                    (proposal_id,),
+                ).fetchone()
+            self.assertRegex(stored["actor"], r"^operator-[0-9a-f]{16}$")
+            self.assertNotEqual(stored["actor"], "sentinel-agent-self-declared")
+            lifetime = datetime.fromisoformat(stored["expires_at"]) - datetime.fromisoformat(
+                stored["created_at"]
+            )
+            self.assertEqual(lifetime.total_seconds(), 300)
+            serialized_surfaces = json.dumps(
+                {"approval": approval, "snapshot": snapshot()},
+                sort_keys=True,
+                default=lambda value: value.decode("utf-8"),
+            )
+            self.assertNotIn(capability, serialized_surfaces)
+            self.assertNotIn(wrong_capability, serialized_surfaces)
+
+            execution_status, execution, _ = post(
+                f"{root}/api/proposals/{proposal_id}/execute",
+                json.dumps(
+                    {
+                        "approval_token": approval["approval_token"],
+                        "idempotency_key": "operator-auth-development",
+                    }
+                ).encode("utf-8"),
+                {"Content-Type": "application/json"},
+            )
+            self.assertEqual(execution_status, 200)
+            self.assertTrue(execution["postconditions_verified"])
+        finally:
+            server.shutdown()
+            server.server_close()
+            thread.join(timeout=5)
+            del capability
+            del wrong_capability
+
+        with self.assertRaisesRegex(
+            ValueError,
+            "Operator capability must be 43 through 128 ASCII URL-safe characters",
+        ):
+            create_server(
+                "127.0.0.1",
+                0,
+                str(base / "invalid.db"),
+                str(base / "invalid-traces.jsonl"),
+                str(evaluation_path),
+                "too-short",
+            )
 
     def test_forbidden_action_has_no_policy_or_executor(self):
         self.assertEqual(set(ACTION_SPECS), {"restart_worker", "rollback_deployment", "warm_cache"})
@@ -474,14 +691,16 @@ class BaselineTest(unittest.TestCase):
         base = Path(self.temp.name)
         evaluation_path = base / "evaluation.json"
         evaluation_path.write_text(json.dumps({"gates": {"baseline_disposition": "pass"}}), encoding="utf-8")
-        server = create_server("127.0.0.1", 0, str(base / "api.db"), str(base / "api-traces.jsonl"), str(evaluation_path))
+        capability = secrets.token_urlsafe(32)
+        server = create_server("127.0.0.1", 0, str(base / "api.db"), str(base / "api-traces.jsonl"), str(evaluation_path), capability)
         thread = threading.Thread(target=server.serve_forever, daemon=True)
         thread.start()
         try:
             with urlopen(f"http://127.0.0.1:{server.server_port}/dashboard") as response:
                 dashboard = response.read().decode("utf-8")
                 self.assertIn("Runbook Sentinel", dashboard)
-                self.assertIn("human approval", dashboard)
+                self.assertIn("authenticated external operator", dashboard)
+                self.assertNotIn("human approval", dashboard)
                 self.assertIn(f"Baseline {CHECKPOINT.removeprefix('baseline-')}", dashboard)
                 self.assertNotIn("Baseline 0010", dashboard)
                 self.assertNotIn("Baseline 0011", dashboard)
@@ -514,7 +733,8 @@ class BaselineTest(unittest.TestCase):
             thread.join(timeout=5)
 
         with self.assertRaises(ValueError):
-            create_server("0.0.0.0", 0, str(base / "unsafe.db"), str(base / "unsafe-traces.jsonl"), str(evaluation_path))
+            create_server("0.0.0.0", 0, str(base / "unsafe.db"), str(base / "unsafe-traces.jsonl"), str(evaluation_path), capability)
+        del capability
 
     def test_evaluation_reports_separate_metrics_and_passes_control_gates(self):
         output = Path(self.temp.name) / "baseline.json"

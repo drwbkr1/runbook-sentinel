@@ -8,7 +8,8 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlparse
 
-from .errors import ApprovalError, NotFoundError, PolicyRejected, ReplayRejected, SentinelError
+from .errors import ApprovalError, NotFoundError, OperatorAuthenticationError, PolicyRejected, ReplayRejected, SentinelError
+from .operator_auth import AUTHENTICATION_CHALLENGE, OperatorAuthenticator
 from .service import DEFAULT_APPROVAL_TTL_SECONDS, RunbookSentinel
 
 
@@ -16,10 +17,17 @@ CHECKPOINT = "baseline-0014"
 
 
 class SentinelHTTPServer(ThreadingHTTPServer):
-    def __init__(self, address, service: RunbookSentinel, evaluation_path: str | Path):
+    def __init__(
+        self,
+        address,
+        service: RunbookSentinel,
+        evaluation_path: str | Path,
+        operator_authenticator: OperatorAuthenticator,
+    ):
         super().__init__(address, SentinelHandler)
         self.service = service
         self.evaluation_path = Path(evaluation_path)
+        self.operator_authenticator = operator_authenticator
 
 
 class SentinelHandler(BaseHTTPRequestHandler):
@@ -28,18 +36,27 @@ class SentinelHandler(BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         return
 
-    def _headers(self, status: int, content_type: str) -> None:
+    def _headers(
+        self, status: int, content_type: str, extra_headers: dict[str, str] | None = None
+    ) -> None:
         self.send_response(status)
         self.send_header("Content-Type", content_type)
         self.send_header("Cache-Control", "no-store")
         self.send_header("X-Content-Type-Options", "nosniff")
         self.send_header("X-Frame-Options", "DENY")
         self.send_header("Content-Security-Policy", "default-src 'self'; style-src 'unsafe-inline'; form-action 'self'; frame-ancestors 'none'")
+        for name, value in (extra_headers or {}).items():
+            self.send_header(name, value)
         self.end_headers()
 
-    def _json(self, status: int, payload: dict | list) -> None:
+    def _json(
+        self,
+        status: int,
+        payload: dict | list,
+        extra_headers: dict[str, str] | None = None,
+    ) -> None:
         body = json.dumps(payload, sort_keys=True).encode("utf-8")
-        self._headers(status, "application/json; charset=utf-8")
+        self._headers(status, "application/json; charset=utf-8", extra_headers)
         self.wfile.write(body)
 
     def _body(self) -> dict:
@@ -47,6 +64,14 @@ class SentinelHandler(BaseHTTPRequestHandler):
         if length > 65536:
             raise ValueError("Request body is too large")
         return json.loads(self.rfile.read(length) or b"{}")
+
+    def _discard_bounded_body_without_parsing(self) -> None:
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+        except ValueError:
+            return
+        if 0 < length <= 65536:
+            self.rfile.read(length)
 
     def do_GET(self):
         path = urlparse(self.path).path
@@ -76,19 +101,30 @@ class SentinelHandler(BaseHTTPRequestHandler):
     def do_POST(self):
         path = urlparse(self.path).path
         try:
-            body = self._body()
             if path == "/api/runs":
+                body = self._body()
                 self._json(HTTPStatus.CREATED, self.server.service.run_scenario(body["scenario_id"]))
             elif match := re.fullmatch(r"/api/proposals/([A-Za-z0-9_-]+)/approve", path):
+                try:
+                    operator = self.server.operator_authenticator.authenticate(
+                        self.headers.get_all("Authorization", [])
+                    )
+                except OperatorAuthenticationError:
+                    self._discard_bounded_body_without_parsing()
+                    raise
+                body = self._body()
+                if "actor" in body:
+                    raise ValueError("Approval request must not contain actor")
                 self._json(
                     HTTPStatus.CREATED,
                     self.server.service.approve(
                         match.group(1),
-                        body.get("actor", ""),
+                        operator,
                         body.get("ttl_seconds", DEFAULT_APPROVAL_TTL_SECONDS),
                     ),
                 )
             elif match := re.fullmatch(r"/api/proposals/([A-Za-z0-9_-]+)/execute", path):
+                body = self._body()
                 self._json(
                     HTTPStatus.OK,
                     self.server.service.execute(
@@ -105,6 +141,8 @@ class SentinelHandler(BaseHTTPRequestHandler):
     def _error(self, error: Exception) -> None:
         if isinstance(error, NotFoundError):
             status = HTTPStatus.NOT_FOUND
+        elif isinstance(error, OperatorAuthenticationError):
+            status = HTTPStatus.UNAUTHORIZED
         elif isinstance(error, (ReplayRejected, ApprovalError, PolicyRejected)):
             status = HTTPStatus.CONFLICT
         elif isinstance(error, (ValueError, KeyError, json.JSONDecodeError)):
@@ -113,7 +151,16 @@ class SentinelHandler(BaseHTTPRequestHandler):
             status = HTTPStatus.UNPROCESSABLE_ENTITY
         else:
             status = HTTPStatus.INTERNAL_SERVER_ERROR
-        self._json(status, {"error": type(error).__name__, "message": str(error)})
+        extra_headers = (
+            {"WWW-Authenticate": AUTHENTICATION_CHALLENGE}
+            if isinstance(error, OperatorAuthenticationError)
+            else None
+        )
+        self._json(
+            status,
+            {"error": type(error).__name__, "message": str(error)},
+            extra_headers,
+        )
 
     def _dashboard(self) -> str:
         incidents = self.server.service.list_incidents(10)
@@ -223,15 +270,23 @@ th,td {{ text-align:left; padding:12px; border-bottom:1px solid #21354b; }} .bou
 <div class="card"><div>Stale payload exposure</div><div class="value">{stale_payload_display}</div></div>
 <div class="card"><div>Approval lifetime exact</div><div class="value">{approval_lifetime_display}</div></div>
 <div class="card"><div>Cached result authorization</div><div class="value">{idempotency_authorization_display}</div></div>
-<div class="card"><div>Execution boundary</div><div class="value boundary">human approval</div></div>
+<div class="card"><div>Execution boundary</div><div class="value boundary">authenticated external operator</div></div>
 <div class="card"><div>Real infrastructure</div><div class="value boundary">disconnected</div></div>
 </section>
 <section class="card"><h2>Persisted incidents</h2><table><thead><tr><th>Incident</th><th>Scenario</th><th>Status</th></tr></thead><tbody>{rows}</tbody></table></section>
 </main></body></html>"""
 
 
-def create_server(host: str, port: int, db_path: str, trace_path: str, evaluation_path: str) -> SentinelHTTPServer:
+def create_server(
+    host: str,
+    port: int,
+    db_path: str,
+    trace_path: str,
+    evaluation_path: str,
+    operator_capability: str,
+) -> SentinelHTTPServer:
     if host not in {"127.0.0.1", "localhost", "::1"}:
         raise ValueError("Runbook Sentinel permits loopback HTTP binding only")
     service = RunbookSentinel(db_path, trace_path)
-    return SentinelHTTPServer((host, port), service, evaluation_path)
+    authenticator = OperatorAuthenticator(operator_capability)
+    return SentinelHTTPServer((host, port), service, evaluation_path, authenticator)

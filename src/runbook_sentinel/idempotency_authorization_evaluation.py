@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import secrets
 import tempfile
 import threading
 from pathlib import Path
@@ -9,6 +10,7 @@ from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
 from .api import create_server
+from .operator_auth import authorization_value
 
 
 CONTRACT_ID = "idempotency-authorization-v1"
@@ -79,11 +81,16 @@ def _sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
-def _post_json(url: str, payload: dict) -> tuple[int, dict]:
+def _post_json(
+    url: str, payload: dict, authorization: str | None = None
+) -> tuple[int, dict]:
+    headers = {"Content-Type": "application/json"}
+    if authorization is not None:
+        headers["Authorization"] = authorization
     request = Request(
         url,
         data=json.dumps(payload, separators=(",", ":")).encode("utf-8"),
-        headers={"Content-Type": "application/json"},
+        headers=headers,
         method="POST",
     )
     try:
@@ -163,12 +170,14 @@ def _run_case(case: dict) -> dict:
         base = Path(temp_dir)
         database_path = base / "state.db"
         trace_path = base / "traces.jsonl"
+        operator_capability = secrets.token_urlsafe(32)
         server = create_server(
             "127.0.0.1",
             0,
             str(database_path),
             str(trace_path),
             str(base / "unused-evaluation.json"),
+            operator_capability,
         )
         thread = threading.Thread(target=server.serve_forever, daemon=True)
         thread.start()
@@ -185,7 +194,8 @@ def _run_case(case: dict) -> dict:
             incident_id = run["incident_id"]
             approval_status, approval = _post_json(
                 f"{root}/api/proposals/{proposal_id}/approve",
-                {"actor": "idempotency-authorization-evaluator"},
+                {},
+                authorization_value(operator_capability),
             )
             if approval_status != 201:
                 raise RuntimeError(
@@ -217,7 +227,8 @@ def _run_case(case: dict) -> dict:
                 other_proposal_id = other_run["proposal"]["id"]
                 other_approval_status, other_approval = _post_json(
                     f"{root}/api/proposals/{other_proposal_id}/approve",
-                    {"actor": "idempotency-authorization-evaluator"},
+                    {},
+                    authorization_value(operator_capability),
                 )
                 if other_approval_status != 201:
                     raise RuntimeError(
@@ -267,6 +278,7 @@ def _run_case(case: dict) -> dict:
             server.shutdown()
             server.server_close()
             thread.join(timeout=5)
+            del operator_capability
 
         category = case["category"]
         if category == "authorized_cache":

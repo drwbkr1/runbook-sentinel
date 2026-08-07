@@ -10,6 +10,10 @@ class ApprovalError(SentinelError):
     pass
 
 
+class OperatorAuthenticationError(ApprovalError):
+    pass
+
+
 class ReplayRejected(ApprovalError):
     pass
 

@@ -11,6 +11,7 @@ from .agent import DeterministicIncidentAgent
 from .catalog import load_scenarios, scenario_by_id
 from .evidence import PROJECT_EVIDENCE_KINDS, is_fresh_project_evidence
 from .errors import ApprovalError, NotFoundError, ReplayRejected
+from .operator_auth import AuthenticatedOperator, require_authenticated_operator
 from .policy import action_spec, apply_action, postconditions_hold, validate_proposal
 from .retrieval import (
     DEFAULT_DECISION_CONTEXT,
@@ -231,12 +232,11 @@ class RunbookSentinel:
     def approve(
         self,
         proposal_id: str,
-        actor: str,
+        operator: AuthenticatedOperator,
         ttl_seconds: object = DEFAULT_APPROVAL_TTL_SECONDS,
     ) -> dict:
         approved_ttl_seconds = validate_approval_ttl(ttl_seconds)
-        if not actor.strip():
-            raise ApprovalError("Approval actor is required")
+        actor = require_authenticated_operator(operator).identity
         with self.storage.connect() as connection:
             proposal = connection.execute("SELECT * FROM proposals WHERE id = ?", (proposal_id,)).fetchone()
             if not proposal:

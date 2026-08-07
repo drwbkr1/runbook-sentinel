@@ -4,6 +4,7 @@ import hashlib
 from importlib.resources import files
 import json
 import math
+import secrets
 import tempfile
 from pathlib import Path
 from statistics import median
@@ -16,6 +17,7 @@ from .idempotency_authorization_evaluation import (
     run_idempotency_authorization_evaluation,
 )
 from .model_adapter import OllamaIncidentAgent, Transport
+from .operator_auth import OperatorAuthenticator, authorization_value
 from .policy import ACTION_SPECS
 from .retrieval import (
     DEFAULT_DECISION_CONTEXT,
@@ -1294,11 +1296,17 @@ def _run_terminal_harness(
         steps.append("approve_external")
         approval_attempted = True
         try:
+            operator_capability = secrets.token_urlsafe(32)
+            authenticator = OperatorAuthenticator(operator_capability)
+            operator = authenticator.authenticate(
+                [authorization_value(operator_capability)]
+            )
             approval = service.approve(
                 proposal_id,
-                terminal_contract["approval_actor"],
+                operator,
                 ttl_seconds=terminal_contract["approval_ttl_seconds"],
             )
+            del operator_capability
             raw_approval_token = approval["approval_token"]
             approval_succeeded = True
         except SentinelError as error:

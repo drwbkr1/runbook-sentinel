@@ -141,6 +141,43 @@ UNCHANGED = [
     "loopback-only HTTP and disconnected real infrastructure",
     "no new dependency, paid service, external asset, or OAuth component",
 ]
+STATE_CONTRACT = {
+    "fingerprint_before_and_after_denied_request": [
+        "incidents ordered rows",
+        "runs ordered rows",
+        "proposals ordered rows",
+        "approvals ordered rows",
+        "idempotency ordered rows",
+        "audit_log ordered rows",
+        "trace file bytes",
+    ],
+    "authorized_terminal_state": {
+        "incident_status": "mitigated",
+        "proposal_status": "executed",
+        "approval_consumed": True,
+        "idempotency_record_count": 1,
+        "execution_audit_count": 1,
+        "execution_trace_count": 1,
+    },
+}
+SECRET_EXCLUSION = {
+    "raw_capability_permitted_locations": [
+        "operator input process memory",
+        "approval HTTP Authorization field in transit over loopback",
+        "server request-processing memory",
+    ],
+    "raw_capability_forbidden_locations": [
+        "agent or model input, output, configuration, or telemetry",
+        "MCP request, response, tool schema, or server state",
+        "repository tracked or untracked files",
+        "package entries or package metadata",
+        "database rows, audit payloads, or idempotency results",
+        "trace events, evaluation reports, dashboard HTML, HTTP error bodies, or structured logs",
+        "process arguments or environment variables",
+    ],
+    "persisted_identity_is_not_human_presence": True,
+    "same_process_or_hostile_os_out_of_scope": True,
+}
 
 
 def validate(contract: dict | None = None) -> list[str]:
@@ -170,19 +207,9 @@ def validate(contract: dict | None = None) -> list[str]:
         errors.append("revealed and held-out evidence declaration changed")
     if contract.get("unchanged_boundaries") != UNCHANGED:
         errors.append("unchanged security boundaries changed")
-    state = contract.get("state_contract")
-    if not isinstance(state, dict) or state.get("fingerprint_before_and_after_denied_request") != [
-        "incidents ordered rows",
-        "runs ordered rows",
-        "proposals ordered rows",
-        "approvals ordered rows",
-        "idempotency ordered rows",
-        "audit_log ordered rows",
-        "trace file bytes",
-    ]:
-        errors.append("denied-request state fingerprint boundary changed")
-    secret = contract.get("secret_exclusion_contract")
-    if not isinstance(secret, dict) or secret.get("persisted_identity_is_not_human_presence") is not True or secret.get("same_process_or_hostile_os_out_of_scope") is not True:
+    if contract.get("state_contract") != STATE_CONTRACT:
+        errors.append("state or authorized-terminal boundary changed")
+    if contract.get("secret_exclusion_contract") != SECRET_EXCLUSION:
         errors.append("secret exclusion or non-claim boundary changed")
     return errors
 
