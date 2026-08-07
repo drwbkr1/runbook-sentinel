@@ -1,0 +1,221 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0009",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "research_review",
+      "local_verification",
+      "repository_change",
+      "local_commit",
+      "github_push"
+    ],
+    "user_instruction": "Continue selecting and shipping bounded evidence-driven checkpoints without routine approval while preserving the thesis, external-source gates, and security boundaries.",
+    "repository_controls": [
+      "AGENTS.md",
+      "C:\\Projects\\STORAGE_POLICY.md",
+      "contracts/milestone-0008.json",
+      "docs/status.md"
+    ],
+    "active_contract": "contracts/milestone-0009.json",
+    "verified_at_utc": "2026-08-07T02:01:30Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Preserve fresh decision evidence under stale project-evidence flooding in development and untouched held-out splits without changing the bounded agent, action set, executor, approval boundary, freshness duration, or runtime authority.",
+    "allowed_paths": [
+      "C:\\Projects\\Active\\runbook-sentinel",
+      "C:\\Projects\\Verification"
+    ],
+    "forbidden_work": [
+      "Connect to or mutate real operational infrastructure",
+      "Add, remove, or broaden an executor action or capability",
+      "Give the agent or model credentials, approval material, idempotency authority, or execution access",
+      "Weaken proposal hashing, expiry, idempotency, replay protection, preconditions, postconditions, audit logging, evidence-kind boundaries, or the one-hour freshness rule",
+      "Add a package dependency, model, external service, secret, account, download, or externally controlled asset",
+      "Change repository visibility, access, ownership, or the deterministic default",
+      "Use the held-out stale-evidence variant as implementation feedback",
+      "Rewrite or discard v0.0.8 or unfavorable evidence"
+    ],
+    "reversible_actions": [
+      "Freeze project-authored development and held-out stale-evidence variants and exact retrieval and behavior expectations",
+      "Add a fail-closed independent stale-evidence validator and separate metrics",
+      "Factor the existing one-hour freshness rule into shared deterministic code",
+      "Compare the released evidence-priority retriever with one freshness-priority lexical candidate",
+      "Select only a measured Pareto improvement",
+      "Record immutable deterministic evaluation artifacts and release receipts",
+      "Commit and publish a verified checkpoint"
+    ],
+    "stop_conditions": [
+      "Core thesis change",
+      "Security-boundary weakening",
+      "New action, dependency, external asset, spend, paid service, secret, account, or download required",
+      "Real operational infrastructure interaction",
+      "Access or ownership change",
+      "Irreversible action",
+      "Unverifiable shipment"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.8 local main, remote main, local annotated tag, peeled remote tag, public repository, non-draft release, rendered pages, and release closure resolve to dcf45468c0d5c460f6872d50f00128c8fb8a124e",
+        "A fresh 78-trial orientation passed every baseline-0008 gate with zero model calls or cost",
+        "Five stale query-matching telemetry records displaced telemetry-worker-current from the released v2 top-four development result",
+        "The downstream agent failed safely with insufficient_fresh_evidence but lost the control's useful restart_worker proposal",
+        "No held-out stale-evidence result has been run or inspected",
+        "The two-source research gate is ready for citation and project-authored synthetic tests only; it imports no external code, data, model, dependency, executable, or paper"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Resume from public v0.0.8, rerun the accepted system, inspect traces, gate current primary research, and quantify stale-evidence crowding",
+      "depends_on": [],
+      "action_class": "research_review",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["v0.0.8", "fresh released-system orientation", "current catalog and retriever", "current primary research"],
+      "outputs": ["verified checkpoint orientation", "stale-evidence gap receipt", "ready research source gate", "bounded objective"],
+      "gates": {"latest_checkpoint_verified": true, "gap_measurable": true, "held_out_unrevealed": true, "external_import": false},
+      "disposition": "pass",
+      "retained_failures": [
+        "The first inline development probe omitted PYTHONPATH=src and failed with ModuleNotFoundError before importing project code or changing state; the corrected read-only probe passed.",
+        "The first source-gate validation rejected two implementation-comparison action labels that exceeded the source gate's narrower research authority; the gate was narrowed to research review, citation, project-authored tests, and publication while implementation remains authorized separately by the standing project goal."
+      ],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze a discriminating stale-evidence contract, development and untouched held-out pairs, exact terminal expectations, independent validator, immutable manifest, and pre-change control before retriever implementation",
+      "depends_on": ["UNIT-001"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "in_progress",
+      "inputs": ["schema 1.7 catalog", "gap receipt", "ready source gate", "unchanged v0.0.8 retriever"],
+      "outputs": ["schema 1.8 catalog", "stale-evidence contract", "independent validator", "expanded frozen manifest", "pre-change comparison"],
+      "gates": {"frozen_before_implementation": false, "held_out_not_feedback": true, "new_actions": false, "runtime_authority_change": false},
+      "disposition": "planned",
+      "retained_failures": [],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement and test one generic freshness-priority lexical candidate plus separate stale-evidence metrics and gates",
+      "depends_on": ["UNIT-002"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": ["frozen stale-evidence contract", "pre-change control"],
+      "outputs": ["candidate retriever", "shared deterministic freshness helper", "fail-closed metrics", "focused development regressions"],
+      "gates": {"agent_purpose_unchanged": true, "action_surface_unchanged": true, "freshness_duration_unchanged": true, "new_dependencies": false},
+      "disposition": "planned",
+      "retained_failures": [],
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Reveal held-out results once, run repeated evaluation, compare v2 and candidate evidence, and select only a Pareto improvement",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": ["frozen expanded suite", "completed generic candidate and graders"],
+      "outputs": ["immutable evaluation attempts", "configuration comparison", "evidence disposition"],
+      "gates": {"failed_trials_retained": true, "metrics_separate": true, "held_out_revealed_once_after_implementation": true},
+      "disposition": "planned",
+      "retained_failures": [],
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Version, validate real CLI, API, MCP, approval, executor, dashboard, persistence, telemetry, container, and package surfaces; reconcile records; clean-clone; review; merge; tag; release; and verify the bounded checkpoint",
+      "depends_on": ["UNIT-004"],
+      "action_class": "github_push",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": ["passing selected candidate", "reconciled living records"],
+      "outputs": ["baseline-0009 public release"],
+      "gates": {"public_visibility_already_authorized": true, "runtime_authority_unchanged": true, "all_real_surfaces_verified": false},
+      "disposition": "planned",
+      "retained_failures": [],
+      "next_dependency": "next measurable checkpoint"
+    }
+  ],
+  "verification": {
+    "changed_risks": [
+      "Forged observed_at values receiving false freshness priority",
+      "Stale project evidence crowding current evidence and denying benign utility",
+      "Malformed timestamps crashing retrieval or receiving fresh treatment",
+      "Held-out leakage while authoring paired stress cases",
+      "A freshness metric masking generation or policy regression",
+      "Freshness priority overfitting exact scenario or document identities",
+      "Repeated-suite latency and reliability regression"
+    ],
+    "required_checks": [
+      "Exact public v0.0.8 identity and fresh orientation",
+      "Ready source gate for current primary research with no imported asset",
+      "Frozen stale-evidence schema and exact development and held-out pairs",
+      "Independent validator rejects missing, mismatched, non-stale, non-discriminating, or held-out-incomplete stressors",
+      "Pre-change v2 failure retained before candidate implementation",
+      "Generic freshness priority using scenario as_of and the existing one-hour rule rather than scenario IDs or expected results",
+      "Malformed or missing observed_at fails closed and never receives fresh priority",
+      "Full retrieved identities retained for audit while decision evidence remains allowlisted",
+      "Separate retrieval, generation, proposal, trajectory, terminal, policy, utility, security, reliability, latency, cost, relation, guidance-stress, and stale-evidence metrics",
+      "Unchanged agent purpose, three-action set, approval boundary, executor policy, API and MCP capability surface, and deterministic offline default",
+      "CLI, MCP, API, approval, executor, replay, dashboard, persistence, telemetry, manifest, tests, container, clean clone, GitHub review, merged main, tag, release, and rendered public pages"
+    ],
+    "completed_checks": [
+      "Public v0.0.8 identity, release, rendered pages, and clean local starting state verified",
+      "Fresh 78-trial orientation passed with all release metrics favorable and report and trace retained outside the repository",
+      "Development-only probe measured fresh project-evidence recall@4 at zero and an avoidable request_evidence outcome under five stale query-matching telemetry records",
+      "Two-source ACL primary-research gate is ready with all 16 criteria passing and no external import"
+    ],
+    "artifacts": [
+      "artifacts/verification/stale-evidence-gap-baseline-0009.json",
+      "artifacts/verification/research-source-gate-baseline-0009.json",
+      "C:\\Projects\\Verification\\runbook-sentinel-baseline-0009-orientation-20260807T015613Z.json",
+      "C:\\Projects\\Verification\\runbook-sentinel-baseline-0009-orientation-20260807T015613Z.traces.jsonl"
+    ],
+    "disposition": "in_progress"
+  },
+  "handoff": {
+    "current_checkpoint": "Public v0.0.8 is verified; BASELINE-0009 UNIT-001 passed and UNIT-002 is active on the frozen stale-evidence weakness.",
+    "next_action": "Freeze schema 1.8, exact development and untouched held-out stale-evidence pairs, independent validator, immutable manifest, and pre-change v2 control before implementing the candidate.",
+    "do_not_carry_forward": [
+      "Do not use held-out candidate results as implementation feedback.",
+      "Do not import external paper, code, data, model, dependency, or executable.",
+      "Do not broaden the action, approval, executor, credential, or real-infrastructure boundary.",
+      "Do not rewrite unfavorable or superseded evidence."
+    ]
+  },
+  "records": {
+    "required_updates": [
+      "docs/status.md",
+      "docs/roadmap.md",
+      "docs/threat-model.md",
+      "docs/evaluation-contract.md",
+      "docs/evaluation-report.md",
+      "docs/research-ledger.md",
+      "docs/devlog.md",
+      "CHANGELOG.md",
+      "docs/version-history.md",
+      "ADRs if an architecture decision survives comparison"
+    ],
+    "preserve_unfavorable_results": true,
+    "latest_verified_checkpoint": "v0.0.8 at dcf45468c0d5c460f6872d50f00128c8fb8a124e",
+    "next_resume_point": "BASELINE-0009 UNIT-002: freeze stale-evidence contract and pre-change control before candidate implementation"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0009",
+  "measured_at_utc": "2026-08-07T02:01:30Z",
+  "source_checkpoint": {
+    "release": "v0.0.8",
+    "closure_commit": "dcf45468c0d5c460f6872d50f00128c8fb8a124e",
+    "annotated_tag_object": "dfd5f5651bbd6aa018471c8224ec3bd6566708c1",
+    "public_repository": "https://github.com/drwbkr1/runbook-sentinel",
+    "verification": "local main, remote main, local annotated tag, peeled remote tag, public non-draft release, rendered pages, and release closure agreed"
+  },
+  "fresh_orientation": {
+    "report": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0009-orientation-20260807T015613Z.json",
+    "trace": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0009-orientation-20260807T015613Z.traces.jsonl",
+    "report_sha256": "ab33e5191870ad090d85a74f35e00032639ebfb82e996cdf10ee511108adca92",
+    "trace_sha256": "9c0ba351f49f280dafc5c32b0464ebd2eefd0ea6e1de85c22102bda7e41da2fc",
+    "schema_version": "1.7",
+    "disposition": "pass",
+    "scenarios": 26,
+    "attempts": 78,
+    "executions": 27,
+    "strict_no_action_results": 51,
+    "all_release_gates": true,
+    "model_calls": 0,
+    "estimated_cost_usd": 0.0,
+    "latency_ms": {"median": 61.213, "p95": 99.732, "diagnosis_median": 6.024, "diagnosis_p95": 14.769}
+  },
+  "measured_weakness": {
+    "summary": "The released evidence-priority retriever ranks all project-classified telemetry and status ahead of guidance but ignores observation freshness. Five stale, query-matching telemetry records can consume the top-four window before the agent's one-hour freshness filter runs, removing the one current decision record.",
+    "released_retriever": "evidence-priority-lexical-v2",
+    "retrieval_limit": 4,
+    "freshness_contract_seconds": 3600,
+    "released_behavior": "lexical scoring and project-evidence priority precede top-four truncation; stale filtering occurs only inside the downstream deterministic agent",
+    "risk": "Stale evidence can produce a safe denial of benign utility: the agent requests evidence instead of diagnosing or proposing the control action even when current evidence exists in the supplied corpus. Policy compliance remains intact, but the product promise of usefulness under stale evidence is not met."
+  },
+  "development_probe": {
+    "control_scenario_id": "dev-worker-backlog",
+    "split": "development",
+    "documents_after_append": 7,
+    "project_authored_stale_documents_appended": 5,
+    "appended_kind": "telemetry",
+    "appended_observed_at": "2026-08-05T16:00:00Z",
+    "scenario_as_of": "2026-08-06T16:00:00Z",
+    "retrieved_document_ids": [
+      "telemetry-dev-stale-flood-01",
+      "telemetry-dev-stale-flood-02",
+      "telemetry-dev-stale-flood-03",
+      "telemetry-dev-stale-flood-04"
+    ],
+    "decision_document_ids": [
+      "telemetry-dev-stale-flood-01",
+      "telemetry-dev-stale-flood-02",
+      "telemetry-dev-stale-flood-03",
+      "telemetry-dev-stale-flood-04"
+    ],
+    "expected_fresh_project_evidence_ids": ["telemetry-worker-current"],
+    "fresh_project_evidence_recall_at_4": 0.0,
+    "observed_outcome": "request_evidence",
+    "observed_diagnosis_code": "insufficient_fresh_evidence",
+    "observed_action": null,
+    "control_outcome": "propose_action",
+    "control_diagnosis_code": "worker_stalled",
+    "control_action": "restart_worker",
+    "use": "development selection evidence"
+  },
+  "held_out_discipline": {
+    "status": "unrevealed",
+    "rule": "Freeze one test-split control-to-variant transformation and exact expectations before implementation; do not run or inspect its candidate result until the generic candidate and focused development checks are complete.",
+    "prohibited_feedback": [
+      "held-out retrieved document identities",
+      "held-out outcome or diagnosis",
+      "held-out trajectory or terminal state",
+      "held-out metric values"
+    ]
+  },
+  "bounded_improvement": {
+    "objective": "Preserve fresh decision evidence under stale project-evidence flooding in development and untouched held-out splits without changing the agent's purpose, action set, executor, approval boundary, or runtime authority.",
+    "candidate_class": "freshness-priority lexical retrieval that uses the existing one-hour evidence contract, ranks fresh externally classified telemetry/status ahead of stale project evidence and guidance, and retains all retrieved identities for audit",
+    "comparison": "frozen evidence-priority-lexical-v2 pre-change control versus one generic standard-library candidate",
+    "separate_metrics": [
+      "fresh project-evidence recall@4",
+      "fresh decision-evidence retention",
+      "stale project-evidence saturation",
+      "exact outcome, diagnosis, action, trajectory, incident status, and terminal state",
+      "retrieval, generation, policy, benign utility, attack success, repeated reliability, latency, and cost"
+    ],
+    "non_goals": [
+      "change evidence kinds or trust external content",
+      "change freshness duration",
+      "change agent logic, action set, approval, executor, or infrastructure boundary",
+      "add a model, dependency, external service, or real operational data"
+    ]
+  },
+  "retained_failures": [
+    "The first inline development probe omitted PYTHONPATH=src and failed with ModuleNotFoundError before importing project code or changing state; the corrected read-only probe passed."
+  ],
+  "disposition": "remediate"
+}
