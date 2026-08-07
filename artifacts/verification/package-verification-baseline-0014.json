@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0014",
+  "version": "0.0.14",
+  "status": "pass",
+  "frozen_manifest": {
+    "file_count": 45,
+    "sha256": "aae568de2095570d6d142bdf9e17828cb77c51e7ced9efef46d82836349cca10",
+    "frozen_at_utc": "2026-08-07T22:04:23Z"
+  },
+  "package_contract": {
+    "path": "eval/package-contract-0014.json",
+    "sha256": "b6d6544e9bf98d1c8201b0970daeb6b5775c8fc92cd6d62f0ef58e3101d29b47",
+    "status": "frozen_before_archive_build",
+    "validator_pass": true
+  },
+  "selected_archive": {
+    "path": "dist/runbook-sentinel-0.0.14.pyz",
+    "bytes": 283148,
+    "sha256": "9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f",
+    "entry_count": 25,
+    "runtime_dependencies": [],
+    "checksum_path": "dist/runbook-sentinel-0.0.14.pyz.sha256",
+    "checksum_sha256": "6067bcd24b368ecb7909c4be96e7f26a450dbfea945167ed84a180105a296b02",
+    "checksum_line": "9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f  runbook-sentinel-0.0.14.pyz"
+  },
+  "independent_build": {
+    "path": "C:\\Projects\\Verification\\runbook-sentinel-0.0.14-build-b.pyz",
+    "bytes": 283148,
+    "sha256": "9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f",
+    "byte_identical": true
+  },
+  "source_evaluation": {
+    "path": "artifacts/evaluations/runs/baseline-0014-attempt-001.json",
+    "sha256": "098be4dab2aff8585f9f252de356492ec82b5f6f2d2de881a2b202a8b196164f",
+    "trace_sha256": "a29e6d98d0880ba11857e9e54f485345831b72caaac44ecbb9ace601bc13f6f0",
+    "disposition": "pass",
+    "attempt_count": 84,
+    "idempotency_authorization_exact": 1.0,
+    "authorized_cache_utility": 1.0,
+    "unauthorized_cache_denial": 1.0,
+    "retry_no_mutation": 1.0,
+    "new_key_replay_rejection": 1.0,
+    "approval_lifetime_exact": 1.0,
+    "pass_3": 1.0,
+    "policy_compliance": 1.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "model_calls": 0,
+    "estimated_cost_usd": 0.0
+  },
+  "package_evaluation": {
+    "path": "artifacts/evaluations/runs/baseline-0014-package-attempt-001.json",
+    "sha256": "5c4c0e4d145debd6ddbd127410406aca7c0b30ed3d2645b79aaed129a756377d",
+    "trace_sha256": "26f54a7b3cbe273a73b9a9b6dee7c570354429000dc0e5db1f1af0525b2f2879",
+    "disposition": "pass",
+    "attempt_count": 84,
+    "idempotency_authorization_exact": 1.0,
+    "authorized_cache_utility": 1.0,
+    "unauthorized_cache_denial": 1.0,
+    "retry_no_mutation": 1.0,
+    "new_key_replay_rejection": 1.0,
+    "approval_lifetime_exact": 1.0,
+    "source_non_latency_result_exact": true,
+    "normalization_excluded_fields": [
+      "latency fields",
+      "idempotency evaluator database SHA-256 fingerprints",
+      "idempotency evaluator trace SHA-256 fingerprints"
+    ]
+  },
+  "real_surfaces": {
+    "source_native_receipt": "artifacts/verification/native-baseline-0014-source.json",
+    "source_native_receipt_sha256": "f9b3efab1c6ee4d1898b113ca2f2f8fba0558f3066a891241a1f42b016a04f19",
+    "source_dashboard": "artifacts/verification/dashboard-baseline-0014-source.png",
+    "source_dashboard_sha256": "e0f5b0bdbb40bdf5e6f186a77d5983870b0cbd98d8c9f424e1230889ad798323",
+    "package_native_receipt": "artifacts/verification/native-baseline-0014-package.json",
+    "package_native_receipt_sha256": "edad755ba1082ac75fa66fad1db8ce1033d19c9e5b7961cefaa1a801a9fa048d",
+    "package_dashboard": "artifacts/verification/dashboard-baseline-0014-package.png",
+    "package_dashboard_sha256": "be15387262dbf52cb5822ffb14345478e1c3fab5191e1abafcf68aeb8a3697e5",
+    "source_runtime_check_count": 35,
+    "package_runtime_check_count": 35,
+    "source_http_dashboard_check_count": 66,
+    "package_http_dashboard_check_count": 66,
+    "wrong_and_missing_cached_tokens_rejected_on_source": true,
+    "wrong_and_missing_cached_tokens_rejected_on_package": true,
+    "source_mcp_pass": true,
+    "package_mcp_pass": true,
+    "package_cli_commands": ["run", "approve", "execute", "evaluate", "serve", "mcp"],
+    "visual_inspection": "pass: source and package dashboards visibly show Baseline 0014, evaluation pass, cached result authorization 1.0, approval lifetime 1.0, human approval, disconnected real infrastructure, and persisted synthetic incidents at 1440 by 1000"
+  },
+  "retained_failures": [
+    "artifacts/verification/idempotency-authorization-gap-baseline-0014.json",
+    "the pre-reveal ad hoc evaluator import-path failure recorded in docs/devlog.md"
+  ],
+  "boundaries": {
+    "agent_retrieval_scenarios_actions_capabilities_executor_unchanged": true,
+    "approval_token_hashed_and_absent_from_evidence": true,
+    "mcp_has_no_approval_or_execution_tool": true,
+    "real_infrastructure_disconnected": true,
+    "external_code_data_model_service_or_dependency_added": false,
+    "container_claim": false
+  },
+  "disposition": "advance_to_clean_clone"
+}

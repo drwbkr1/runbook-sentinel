@@ -12,6 +12,9 @@ from time import perf_counter
 from .approval_lifetime_evaluation import run_approval_lifetime_evaluation
 from .catalog import load_catalog
 from .errors import ReplayRejected, SentinelError
+from .idempotency_authorization_evaluation import (
+    run_idempotency_authorization_evaluation,
+)
 from .model_adapter import OllamaIncidentAgent, Transport
 from .policy import ACTION_SPECS
 from .retrieval import (
@@ -1821,6 +1824,7 @@ def run_evaluation(
         stale_payload_projection_contract,
     )
     approval_lifetime = run_approval_lifetime_evaluation()
+    idempotency_authorization = run_idempotency_authorization_evaluation()
     split_metrics = {
         split: _split_summary([case for case in case_records if case["split"] == split])
         for split in ("development", "test")
@@ -1845,6 +1849,7 @@ def run_evaluation(
         "stale_evidence_stress": stale_evidence_stress,
         "stale_payload_projection": stale_payload_projection,
         "approval_lifetime": approval_lifetime,
+        "idempotency_authorization": idempotency_authorization,
         "policy": {"compliance_rate": _rate(attempts, "policy_compliant")},
         "utility": {
             "benign_case_pass_rate": sum(case["all_trials_pass"] for case in benign)
@@ -2016,6 +2021,9 @@ def run_evaluation(
         )
     )
     approval_lifetime_gates = all(metrics["approval_lifetime"]["gates"].values())
+    idempotency_authorization_gates = all(
+        metrics["idempotency_authorization"]["gates"].values()
+    )
     gates = {
         "all_exact_cases_pass": all_cases_pass,
         "all_exact_control_cases_pass": (
@@ -2171,6 +2179,27 @@ def run_evaluation(
         "test_approval_lifetime_exact": metrics["approval_lifetime"]["gates"][
             "test_exact"
         ],
+        "idempotency_authorization_all_six_cases_exact": metrics[
+            "idempotency_authorization"
+        ]["gates"]["all_six_cases_exact"],
+        "authorized_idempotency_cache_utility_is_one": metrics[
+            "idempotency_authorization"
+        ]["gates"]["all_authorized_cache_retries_exact"],
+        "unauthorized_idempotency_cache_denial_is_one": metrics[
+            "idempotency_authorization"
+        ]["gates"]["all_unauthorized_cache_retries_denied"],
+        "idempotency_retry_no_mutation_is_one": metrics[
+            "idempotency_authorization"
+        ]["gates"]["all_retries_no_mutation"],
+        "idempotency_new_key_replay_rejected": metrics[
+            "idempotency_authorization"
+        ]["gates"]["new_key_replay_rejected"],
+        "development_idempotency_authorization_exact": metrics[
+            "idempotency_authorization"
+        ]["gates"]["development_exact"],
+        "test_idempotency_authorization_exact": metrics[
+            "idempotency_authorization"
+        ]["gates"]["test_exact"],
         "proposal_exact_is_one": metrics["proposal"]["exact_match"] == 1.0,
         "tool_trajectory_exact_is_one": metrics["tool_trajectory"]["exact_match"]
         == 1.0,
@@ -2231,15 +2260,19 @@ def run_evaluation(
             and stale_evidence_stress_gates
             and stale_payload_projection_gates
             and approval_lifetime_gates
+            and idempotency_authorization_gates
             else "remediate"
         ),
     }
     report = {
-        "schema_version": "2.0",
+        "schema_version": "2.1",
         "checkpoint": manifest_checkpoint,
         "manifest_sha256": manifest_sha256,
         "terminal_state_contract_id": terminal_contract["contract_id"],
         "approval_lifetime_contract_id": approval_lifetime["contract_id"],
+        "idempotency_authorization_contract_id": idempotency_authorization[
+            "contract_id"
+        ],
         "agent_configuration": agent_configuration,
         "retrieval_configuration": retrieval_configuration,
         "decision_context_configuration": decision_context_configuration,

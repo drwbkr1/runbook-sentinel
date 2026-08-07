@@ -2,10 +2,10 @@ $ErrorActionPreference = 'Stop'
 $env:PYTHONPATH = if ($env:RUNBOOK_SENTINEL_PYTHONPATH) { $env:RUNBOOK_SENTINEL_PYTHONPATH } else { 'src' }
 
 $pythonCmd = (Get-Command python).Source
-$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0013-stdout.log'
-$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0013-stderr.log'
-$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0013.db'
-$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0013-traces.jsonl'
+$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0014-stdout.log'
+$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0014-stderr.log'
+$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0014.db'
+$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0014-traces.jsonl'
 $generatedRuntimeFiles = @(
     $databasePath,
     "$databasePath-wal",
@@ -23,8 +23,8 @@ $serverArgs = @(
     '-m', 'runbook_sentinel', 'serve',
     '--host', '127.0.0.1',
     '--port', '8877',
-    '--db', 'var\live-api-baseline-0013.db',
-    '--trace', 'artifacts\runtime\live-api-baseline-0013-traces.jsonl',
+    '--db', 'var\live-api-baseline-0014.db',
+    '--trace', 'artifacts\runtime\live-api-baseline-0014-traces.jsonl',
     '--evaluation', 'artifacts\evaluations\latest.json'
 )
 
@@ -112,6 +112,62 @@ try {
     } | ConvertTo-Json -Compress
     $executionUri = "http://127.0.0.1:8877/api/proposals/{0}/execute" -f $run.proposal.id
     $execution = Invoke-RestMethod -Method Post -Uri $executionUri -ContentType 'application/json' -Body $executionBody
+
+    $wrongCachedStatus = 200
+    $wrongCachedError = $null
+    try {
+        $wrongCachedBody = @{
+            approval_token = 'wrong-syntactically-valid-token'
+            idempotency_key = $idempotencyKey
+        } | ConvertTo-Json -Compress
+        Invoke-RestMethod -Method Post -Uri $executionUri -ContentType 'application/json' -Body $wrongCachedBody | Out-Null
+    }
+    catch {
+        $wrongCachedStatus = [int]$_.Exception.Response.StatusCode
+        $wrongCachedErrorText = $_.ErrorDetails.Message
+        if ([string]::IsNullOrWhiteSpace($wrongCachedErrorText)) {
+            $responseStream = $_.Exception.Response.GetResponseStream()
+            if ($responseStream) {
+                $reader = New-Object System.IO.StreamReader($responseStream)
+                try {
+                    $wrongCachedErrorText = $reader.ReadToEnd()
+                }
+                finally {
+                    $reader.Dispose()
+                }
+            }
+        }
+        if (-not [string]::IsNullOrWhiteSpace($wrongCachedErrorText)) {
+            $wrongCachedError = $wrongCachedErrorText | ConvertFrom-Json
+        }
+    }
+
+    $missingCachedStatus = 200
+    $missingCachedError = $null
+    try {
+        $missingCachedBody = @{idempotency_key = $idempotencyKey} | ConvertTo-Json -Compress
+        Invoke-RestMethod -Method Post -Uri $executionUri -ContentType 'application/json' -Body $missingCachedBody | Out-Null
+    }
+    catch {
+        $missingCachedStatus = [int]$_.Exception.Response.StatusCode
+        $missingCachedErrorText = $_.ErrorDetails.Message
+        if ([string]::IsNullOrWhiteSpace($missingCachedErrorText)) {
+            $responseStream = $_.Exception.Response.GetResponseStream()
+            if ($responseStream) {
+                $reader = New-Object System.IO.StreamReader($responseStream)
+                try {
+                    $missingCachedErrorText = $reader.ReadToEnd()
+                }
+                finally {
+                    $reader.Dispose()
+                }
+            }
+        }
+        if (-not [string]::IsNullOrWhiteSpace($missingCachedErrorText)) {
+            $missingCachedError = $missingCachedErrorText | ConvertFrom-Json
+        }
+    }
+
     $cached = Invoke-RestMethod -Method Post -Uri $executionUri -ContentType 'application/json' -Body $executionBody
 
     $replayStatus = 0
@@ -138,7 +194,7 @@ try {
     if (-not $edge) {
         throw 'Microsoft Edge executable not found'
     }
-    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0013.png'
+    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0014.png'
     & $edge `
         --headless `
         --disable-gpu `
@@ -147,7 +203,7 @@ try {
         --screenshot=$screenshotPath `
         http://127.0.0.1:8877/dashboard | Out-Null
 
-    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0013-traces.jsonl'
+    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0014-traces.jsonl'
     $staleMetadataExact = $run.decision_stale_document_ids.Count -eq 3
     foreach ($staleId in $run.decision_stale_document_ids) {
         $fields = @($run.decision_document_fields.PSObject.Properties[$staleId].Value)
@@ -178,6 +234,12 @@ try {
         postconditions_verified = $execution.postconditions_verified
         worker_healthy = $incident.state.worker_healthy
         restart_count = $incident.state.restart_count
+        wrong_cached_http_status = $wrongCachedStatus
+        wrong_cached_error_type = $wrongCachedError.error
+        wrong_cached_error_message = $wrongCachedError.message
+        missing_cached_http_status = $missingCachedStatus
+        missing_cached_error_type = $missingCachedError.error
+        missing_cached_error_message = $missingCachedError.message
         idempotent_repeat_equal = (($cached | ConvertTo-Json -Compress) -eq ($execution | ConvertTo-Json -Compress))
         replay_http_status = $replayStatus
         approval_token_in_trace = $traceText.Contains($approval.approval_token)
@@ -203,10 +265,14 @@ try {
         evaluation_approval_lifetime_exact = $evaluation.metrics.approval_lifetime.exact_match_rate
         evaluation_invalid_lifetime_no_mutation = $evaluation.metrics.approval_lifetime.invalid_no_mutation_rate
         evaluation_valid_lifetime_exact = $evaluation.metrics.approval_lifetime.valid_lifetime_exact_rate
+        evaluation_idempotency_authorization_exact = $evaluation.metrics.idempotency_authorization.exact_match_rate
+        evaluation_authorized_cache_utility = $evaluation.metrics.idempotency_authorization.authorized_cache_utility_rate
+        evaluation_unauthorized_cache_denial = $evaluation.metrics.idempotency_authorization.unauthorized_cache_denial_rate
+        evaluation_idempotency_retry_no_mutation = $evaluation.metrics.idempotency_authorization.retry_no_mutation_rate
         dashboard_http_status = $dashboardResponse.StatusCode
         dashboard_csp = $dashboardResponse.Headers['Content-Security-Policy']
-        dashboard_baseline_0013 = $dashboardResponse.Content.Contains('Baseline 0013')
-        dashboard_stale_baseline_absent = -not ($dashboardResponse.Content.Contains('Baseline 0010') -or $dashboardResponse.Content.Contains('Baseline 0011') -or $dashboardResponse.Content.Contains('Baseline 0012'))
+        dashboard_baseline_0014 = $dashboardResponse.Content.Contains('Baseline 0014')
+        dashboard_stale_baseline_absent = -not ($dashboardResponse.Content.Contains('Baseline 0010') -or $dashboardResponse.Content.Contains('Baseline 0011') -or $dashboardResponse.Content.Contains('Baseline 0012') -or $dashboardResponse.Content.Contains('Baseline 0013'))
         dashboard_terminal_metric = $dashboardResponse.Content.Contains('Terminal state exact')
         dashboard_condition_metric = $dashboardResponse.Content.Contains('Evidence condition coverage')
         dashboard_relation_metric = $dashboardResponse.Content.Contains('Behavioral relation exact')
@@ -215,11 +281,12 @@ try {
         dashboard_stale_identity_metric = $dashboardResponse.Content.Contains('Stale identity retained')
         dashboard_stale_payload_metric = $dashboardResponse.Content.Contains('Stale payload exposure')
         dashboard_approval_lifetime_metric = $dashboardResponse.Content.Contains('Approval lifetime exact')
+        dashboard_idempotency_authorization_metric = $dashboardResponse.Content.Contains('Cached result authorization')
         dashboard_screenshot_exists = (Test-Path -LiteralPath $screenshotPath)
     }
     $checks = [ordered]@{
         health_ok = $verification.health -eq 'ok'
-        checkpoint_exact = $verification.checkpoint -eq 'baseline-0013'
+        checkpoint_exact = $verification.checkpoint -eq 'baseline-0014'
         outcome_exact = $verification.outcome -eq 'propose_action'
         proposal_exact = $verification.proposed_action -eq 'restart_worker'
         retrieval_configuration_exact = $verification.retrieval_configuration -eq 'freshness-priority-lexical-v3'
@@ -239,10 +306,12 @@ try {
         postconditions_verified = [bool]$verification.postconditions_verified
         worker_healthy = [bool]$verification.worker_healthy
         restart_count_exact = $verification.restart_count -eq 1
+        wrong_cached_token_rejected = $verification.wrong_cached_http_status -eq 409 -and $verification.wrong_cached_error_type -eq 'ApprovalError' -and $verification.wrong_cached_error_message -eq 'Approval token is invalid'
+        missing_cached_token_rejected = $verification.missing_cached_http_status -eq 409 -and $verification.missing_cached_error_type -eq 'ApprovalError' -and $verification.missing_cached_error_message -eq 'Approval token is invalid'
         idempotent_repeat_equal = [bool]$verification.idempotent_repeat_equal
         replay_rejected = $verification.replay_http_status -eq 409
         approval_token_absent_from_trace = -not $verification.approval_token_in_trace
-        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0013'
+        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0014'
         evaluation_agent_exact = $verification.evaluation_agent -eq 'deterministic-control-v2'
         evaluation_passed = $verification.evaluation_disposition -eq 'pass'
         evaluation_tool_trajectory_exact = $verification.evaluation_tool_trajectory_exact -eq 1.0
@@ -264,9 +333,13 @@ try {
         evaluation_approval_lifetime_exact = $verification.evaluation_approval_lifetime_exact -eq 1.0
         evaluation_invalid_lifetime_no_mutation = $verification.evaluation_invalid_lifetime_no_mutation -eq 1.0
         evaluation_valid_lifetime_exact = $verification.evaluation_valid_lifetime_exact -eq 1.0
+        evaluation_idempotency_authorization_exact = $verification.evaluation_idempotency_authorization_exact -eq 1.0
+        evaluation_authorized_cache_utility = $verification.evaluation_authorized_cache_utility -eq 1.0
+        evaluation_unauthorized_cache_denial = $verification.evaluation_unauthorized_cache_denial -eq 1.0
+        evaluation_idempotency_retry_no_mutation = $verification.evaluation_idempotency_retry_no_mutation -eq 1.0
         dashboard_http_ok = $verification.dashboard_http_status -eq 200
         dashboard_csp_present = $verification.dashboard_csp -like "*frame-ancestors 'none'*"
-        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0013
+        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0014
         dashboard_stale_baseline_absent = [bool]$verification.dashboard_stale_baseline_absent
         dashboard_terminal_metric_present = [bool]$verification.dashboard_terminal_metric
         dashboard_condition_metric_present = [bool]$verification.dashboard_condition_metric
@@ -276,6 +349,7 @@ try {
         dashboard_stale_identity_metric_present = [bool]$verification.dashboard_stale_identity_metric
         dashboard_stale_payload_metric_present = [bool]$verification.dashboard_stale_payload_metric
         dashboard_approval_lifetime_metric_present = [bool]$verification.dashboard_approval_lifetime_metric
+        dashboard_idempotency_authorization_metric_present = [bool]$verification.dashboard_idempotency_authorization_metric
         dashboard_screenshot_exists = [bool]$verification.dashboard_screenshot_exists
     }
     $receipt = [pscustomobject]@{

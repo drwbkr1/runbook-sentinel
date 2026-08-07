@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "idempotency-authorization-v1",
+  "checkpoint": "baseline-0014",
+  "frozen_at_utc": "2026-08-07T21:33:08Z",
+  "frozen_before_candidate_implementation": true,
+  "purpose": "Require application approval authorization before a completed execution result can be returned from the idempotency cache, while preserving exact retry behavior for the original authorized operation.",
+  "policy": {
+    "same_proposal_cache_disclosure_requires": [
+      "approval row belongs to the requested proposal",
+      "supplied token hash matches the stored approval token hash",
+      "approval consumed_at is not null"
+    ],
+    "completed_retry_expiry_rule": "Do not recheck approval expiry for the original consumed token retrieving its exact same-proposal same-key completed result.",
+    "invalid_http_status": 409,
+    "invalid_error_type": "ApprovalError",
+    "invalid_error_message": "Approval token is invalid",
+    "cross_proposal_key_error": "Idempotency key is already bound to a different proposal",
+    "new_key_replay_error_type": "ReplayRejected",
+    "new_key_replay_error_message": "Proposal has already been executed",
+    "unauthorized_mutation_forbidden": [
+      "executor invocation",
+      "incident state or status change",
+      "proposal status or updated_at change",
+      "approval consumed_at or expiry change",
+      "idempotency row",
+      "audit event",
+      "trace event"
+    ]
+  },
+  "cases": [
+    {
+      "case_id": "dev-wrong-token-same-key",
+      "split": "development",
+      "retry": {"proposal": "executed_target", "approval_token": "wrong_syntactically_valid", "idempotency_key": "original"},
+      "expected": {"http_status": 409, "error_type": "ApprovalError", "error_message": "Approval token is invalid", "exact_cached_result": false, "state_unchanged": true}
+    },
+    {
+      "case_id": "dev-missing-token-same-key",
+      "split": "development",
+      "retry": {"proposal": "executed_target", "approval_token": "missing", "idempotency_key": "original"},
+      "expected": {"http_status": 409, "error_type": "ApprovalError", "error_message": "Approval token is invalid", "exact_cached_result": false, "state_unchanged": true}
+    },
+    {
+      "case_id": "dev-original-consumed-token-same-key",
+      "split": "development",
+      "retry": {"proposal": "executed_target", "approval_token": "original_consumed", "idempotency_key": "original"},
+      "expected": {"http_status": 200, "error_type": null, "error_message": null, "exact_cached_result": true, "state_unchanged": true}
+    },
+    {
+      "case_id": "test-other-proposal-token-same-key",
+      "split": "test",
+      "retry": {"proposal": "executed_target", "approval_token": "other_proposal_valid_unconsumed", "idempotency_key": "original"},
+      "expected": {"http_status": 409, "error_type": "ApprovalError", "error_message": "Approval token is invalid", "exact_cached_result": false, "state_unchanged": true}
+    },
+    {
+      "case_id": "test-expired-original-consumed-token-same-key",
+      "split": "test",
+      "fixture_after_execution": {"set_original_approval_expires_at": "2000-01-01T00:00:00+00:00"},
+      "retry": {"proposal": "executed_target", "approval_token": "original_consumed", "idempotency_key": "original"},
+      "expected": {"http_status": 200, "error_type": null, "error_message": null, "exact_cached_result": true, "state_unchanged": true}
+    },
+    {
+      "case_id": "test-original-consumed-token-new-key",
+      "split": "test",
+      "retry": {"proposal": "executed_target", "approval_token": "original_consumed", "idempotency_key": "new"},
+      "expected": {"http_status": 409, "error_type": "ReplayRejected", "error_message": "Proposal has already been executed", "exact_cached_result": false, "state_unchanged": true}
+    }
+  ],
+  "state_contract": {
+    "fingerprint_before_and_after_retry": [
+      "incidents ordered rows",
+      "runs ordered rows",
+      "proposals ordered rows",
+      "approvals ordered rows",
+      "idempotency ordered rows",
+      "audit_log ordered rows",
+      "trace file bytes"
+    ],
+    "target_after_initial_execution": {
+      "incident_status": "mitigated",
+      "proposal_status": "executed",
+      "approval_consumed": true,
+      "idempotency_record_count": 1,
+      "execution_audit_count": 1,
+      "execution_trace_count": 1
+    }
+  },
+  "coverage": {
+    "required_splits": ["development", "test"],
+    "case_count": 6,
+    "authorized_cache_case_count": 2,
+    "unauthorized_cache_case_count": 3,
+    "new_key_replay_case_count": 1,
+    "development_case_count": 3,
+    "test_case_count": 3
+  },
+  "prechange_evidence": {
+    "revealed_case_ids": ["dev-wrong-token-same-key", "dev-missing-token-same-key", "dev-original-consumed-token-same-key"],
+    "released_wrong_and_missing_token_result": "fail",
+    "released_original_token_result": "pass",
+    "held_out_candidate_results_revealed": false,
+    "receipt": "artifacts/verification/idempotency-authorization-gap-baseline-0014.json"
+  },
+  "unchanged_boundaries": [
+    "agent outcomes and configuration",
+    "retrieval and decision context",
+    "proposal schema, action hash, and synthetic scenario catalog",
+    "capability allowlist and executor actions",
+    "approval creation, token hashing, and direct execution expiry enforcement",
+    "idempotency schema and stored result shape",
+    "precondition, postcondition, and real-infrastructure boundaries"
+  ]
+}

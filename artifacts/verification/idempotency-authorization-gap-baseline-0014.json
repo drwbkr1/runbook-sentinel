@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0014",
+  "measured_at_utc": "2026-08-07T21:26:31Z",
+  "starting_checkpoint": {
+    "version": "0.0.13",
+    "release_closure_commit": "18c7bf30c65954713164214cc5823e4394166886",
+    "public_tag": "v0.0.13",
+    "public_tag_object": "a887693a89ec03c88c6a2a8d5be5839203064a83",
+    "public_archive_sha256": "c14a4559f3cfc4f53d5ce501115747252c9f33e7f299eb34f088c605930fbd41"
+  },
+  "fresh_orientation": {
+    "directory": "C:\\Projects\\Verification\\runbook-sentinel-v0.0.13-orientation-20260807T212140Z",
+    "report": "C:\\Projects\\Verification\\runbook-sentinel-v0.0.13-orientation-20260807T212140Z\\orientation.json",
+    "trace": "C:\\Projects\\Verification\\runbook-sentinel-v0.0.13-orientation-20260807T212140Z\\orientation.traces.jsonl",
+    "report_sha256": "d5632bca387f9875944ddc793643e73c684650311734ac2df1c59483e858ecb7",
+    "trace_sha256": "ca212a0419a2fa43df21be173aa59c1abe8e5f4401c8a0ef13f421fdba760e8d",
+    "scenario_count": 28,
+    "attempt_count": 84,
+    "trace_event_count": 150,
+    "approval_event_count": 33,
+    "approval_actor_values": ["frozen-evaluation-harness"],
+    "disposition": "pass"
+  },
+  "measured_development_probe": {
+    "surface": "released public zipapp through the real loopback HTTP API and SQLite persistence",
+    "database": "C:\\Projects\\Verification\\runbook-sentinel-v0.0.13-orientation-20260807T212140Z\\idempotency-authorization-gap.db",
+    "trace": "C:\\Projects\\Verification\\runbook-sentinel-v0.0.13-orientation-20260807T212140Z\\idempotency-authorization-gap.traces.jsonl",
+    "database_sha256": "721ce13590f3e13910db88e2fa05ea2708dfa43ba69905f58d616c450f91a075",
+    "trace_sha256": "36d75911b32731206cd947033786374835918656ef3fdcbe803488e32c21b59a",
+    "scenario": "dev-worker-backlog",
+    "incident_id": "inc-2db77e80a4064fc2bc7b340810bde432",
+    "proposal_id": "prop-379a6e911fc74eed87da446d7c66a6d2",
+    "initial_execution": {
+      "http_status": 200,
+      "result_status": "executed",
+      "postconditions_verified": true
+    },
+    "same_key_wrong_token_retry": {
+      "http_status": 200,
+      "returned_exact_cached_result": true,
+      "expected_authorization_result": "HTTP 409 ApprovalError"
+    },
+    "same_key_missing_token_retry": {
+      "http_status": 200,
+      "returned_exact_cached_result": true,
+      "expected_authorization_result": "HTTP 409 ApprovalError"
+    },
+    "terminal_state": {
+      "incident_status": "mitigated",
+      "proposal_status": "executed",
+      "approval_consumed": true,
+      "approval_token_hash_length": 64,
+      "incident_count": 1,
+      "run_count": 1,
+      "proposal_count": 1,
+      "approval_count": 1,
+      "idempotency_count": 1,
+      "audit_count": 3,
+      "execution_audit_count": 1,
+      "execution_trace_count": 1,
+      "audit_event_sequence": ["diagnosis.completed", "proposal.approved", "proposal.executed"]
+    },
+    "unauthorized_retry_added_mutation": false,
+    "result": "fail"
+  },
+  "weakness": {
+    "name": "cached-result authorization bypass",
+    "observed": "After one authorized execution, the released API returns the exact cached successful execution result for the same proposal and idempotency key when the approval token is wrong or missing.",
+    "impact_boundary": "The probe caused no second executor or state mutation, but an unauthorized caller can retrieve a protected operation result and receive a false successful-execution response.",
+    "coverage_gap": "The frozen evaluation checks same-key idempotency only with the original valid approval token and reports no separate cached-result authorization metric.",
+    "highest_leverage_reason": "A small ordering and validation correction closes a measured authorization gap without changing the agent, retrieval, action surface, executor, schema, credentials, or real-infrastructure boundary."
+  },
+  "selected_boundary": {
+    "name": "authorization-before-idempotency-cache-disclosure",
+    "cached_result_requirement": "Before returning a same-proposal cached execution result, require the supplied token to hash-match a consumed approval row for that proposal.",
+    "completed_retry_rule": "The original consumed token may retrieve its exact same-key completed result even after approval expiry; expiry cannot retroactively invalidate a completed operation retry.",
+    "unauthorized_result": {
+      "http_status": 409,
+      "error_type": "ApprovalError",
+      "error_message": "Approval token is invalid"
+    },
+    "unauthorized_mutation_forbidden": [
+      "executor invocation",
+      "incident state or status change",
+      "proposal or approval change",
+      "idempotency row",
+      "audit event",
+      "trace event"
+    ]
+  },
+  "retained_tooling_failures": [
+    "The first combined PowerShell Start-Process probe was rejected by local command policy before launch or state creation. The released-package probe then ran through the repository's in-process loopback-server pattern."
+  ],
+  "disposition": "remediate",
+  "next_gate": "freeze the exact idempotency authorization contract, source decisions, and milestone before candidate implementation"
+}

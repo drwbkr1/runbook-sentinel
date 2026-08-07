@@ -1,5 +1,25 @@
 # Evaluation report
 
+## BASELINE-0014 pre-change and isolated candidate result
+
+The downloaded public v0.0.13 zipapp passes the frozen 28-scenario, 84-attempt evaluation and every existing gate. Its 150-event trace contains 84 run, 33 approval, and 33 execute events. Same-key idempotency is 1.0 only because the released evaluator retries with the original valid approval token; it has no cached-result authorization metric.
+
+A development probe through the released real loopback HTTP API first executed one proposal correctly, then retried the same proposal and idempotency key with a wrong token and with no token. Both retries returned HTTP 200 and the exact cached successful execution result. SQLite, audit, and trace evidence proves there was no second executor or state mutation. The measured issue is unauthorized result disclosure and false authorization success, not duplicate execution.
+
+Disposition: `remediate`. The frozen contract defines six cases across separate development and held-out splits. A same-proposal cache hit requires a supplied token hash matching a consumed approval for that proposal. The original consumed token remains valid for its exact completed retry even after expiry, while a new key remains replay-rejected. Ordered incident, run, proposal, approval, idempotency, and audit rows plus trace bytes must remain identical around every retry.
+
+The generic service correction and development tests were committed after the freeze and before held-out reveal. The first isolated reveal then passed all six real-loopback cases without a contract, candidate, expected-result, or grader change. Authorized cache utility, unauthorized cache denial, retry no-mutation, new-key replay rejection, development exactness, test exactness, and overall exactness are all 1.0. The immutable result SHA-256 is `90ec001f063d97755014d32c84832687c67b5a3130aca89e57b3c427a26d3306`; it contains no raw approval-token field.
+
+The schema 2.1 evaluator now reports this plane separately from the 84 repeated scenario attempts and nine approval-lifetime cases. All 22 tests pass. Version-bound evaluation, real surfaces, package, clean clone, review, merged main, and public release remain pending; therefore this is candidate evidence, not a release claim.
+
+Version-bound source attempt 001 passes under the 45-file manifest at SHA-256 `aae568de2095570d6d142bdf9e17828cb77c51e7ced9efef46d82836349cca10`. Its report and trace SHA-256 values are `098be4dab2aff8585f9f252de356492ec82b5f6f2d2de881a2b202a8b196164f` and `a29e6d98d0880ba11857e9e54f485345831b72caaac44ecbb9ace601bc13f6f0`. All 84 scenario attempts, 9 approval-lifetime cases, 6 cache-authorization cases, policy, `pass^3`, both splits, and prior stress and terminal gates pass; proposal and terminal attack success are 0.0, with zero model calls and estimated external cost.
+
+Two independent 283,148-byte zipapps are byte-identical at SHA-256 `9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f`. The selected archive has exactly 25 allowlisted entries, fixed metadata, no runtime dependency, and exact package-contract and manifest bindings. Packaged attempt 001 passes the same 84+9+6 gates; source and package non-latency results are exact after excluding only declared latency and per-run database/trace fingerprint values.
+
+Source and package MCP each expose three diagnostic/read tools and no approval or execution tool. Each real HTTP/dashboard run passes 66 checks, including exact wrong-token and missing-token denial, while each persisted SQLite/audit/trace/image inspection passes 35 checks. Both 1440 by 1000 dashboards were visually inspected and accurately show Baseline 0014, evaluation pass, cached result authorization 1.0, approval lifetime 1.0, human approval, disconnected real infrastructure, and persisted synthetic incidents. Clean-clone and publication gates remain pending.
+
+A no-local-object clone of exact commit `aa0c70b54962594b4c14d2fd5bae390a7c22c0f1` has no Git alternates and began clean. It independently passes nine validators, 22 tests, fresh source and package 84+9+6 evaluations, two rebuilds byte-identical to the selected archive, source and package MCP and real HTTP/state/telemetry checks, model and high-signal-secret exclusion, protected-boundary comparison, and rendered package-dashboard inspection. Its source/package non-latency results are exact. GitHub review, merged-main, and public-release reconciliation remain pending.
+
 ## BASELINE-0013 pre-change result
 
 The downloaded public v0.0.12 zipapp still passes the frozen 28-scenario, 84-attempt evaluation with every existing gate passing. Its trace contains 84 run, 33 approval, and 33 execute events, but the existing contract contains no invalid approval-lifetime case.

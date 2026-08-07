@@ -2,12 +2,13 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0014-idempotency-authorization`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010`, `BASELINE-0012`, and `BASELINE-0013`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.13`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Active milestone: none; the next checkpoint remains intentionally unchosen until a fresh public-v0.0.13 run exposes the highest-leverage measurable weakness
-- Current unit: `UNIT-005` complete
-- Disposition: baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Candidate version: `0.0.14` / `baseline-0014`; not yet published or described as verified
+- Active milestone: `BASELINE-0014`; close the measured cached-result authorization bypass without changing executor or storage semantics
+- Current unit: `UNIT-005` ready; version-bound source/package and no-local-object clean-clone gates pass, while GitHub review and publication remain pending
+- Disposition: baseline-0014 `remediate`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -19,6 +20,22 @@
 - Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
 
 ## Verified evidence
+
+### BASELINE-0014 cached-result authorization gap and frozen contract
+
+- A fresh run of the downloaded public v0.0.13 zipapp passes all 28 scenarios and 84 attempts. Its 150-event trace contains 84 run, 33 approval, and 33 execution events; every approval actor is the evaluation harness, and no separate cached-result authorization metric exists.
+- A real loopback HTTP probe executed one proposal with a valid approval, then retried the same proposal and idempotency key with a wrong token and with no token. Both unauthorized retries returned HTTP 200 and the exact cached successful result. SQLite, audit, and trace inspection prove there was no second executor or state mutation.
+- The gap is bounded to cached-result disclosure and response truth. Direct execution still requires a valid unconsumed, unexpired, action-bound approval, and the model, agent, MCP tools, capabilities, executor, postconditions, credentials, and real-infrastructure boundaries remain unchanged.
+- `eval/idempotency-authorization-contract.json` freezes six cases before implementation: three revealed development cases and three held-out test cases. It requires a hash-matching consumed approval before same-proposal cache disclosure, permits the original completed retry even after token expiry, preserves different-key replay rejection, and requires byte-exact state, audit, and trace stability on every retry.
+- The first isolated candidate reveal passes all six cases. Authorized cache utility, unauthorized denial, retry no-mutation, new-key replay rejection, development exactness, and test exactness are 1.0. The 10,782-byte immutable result SHA-256 is `90ec001f063d97755014d32c84832687c67b5a3130aca89e57b3c427a26d3306` and contains no raw approval-token field.
+- The integrated evaluator schema is 2.1 and reports idempotency authorization separately from the 84 repeated scenarios and nine approval-lifetime cases. All 22 tests pass.
+- Candidate identity is now `0.0.14` / `baseline-0014`. The package contract froze before any archive build with 25 exact entries and SHA-256 `b6d6544e9bf98d1c8201b0970daeb6b5775c8fc92cd6d62f0ef58e3101d29b47`; the 45-file evaluation manifest passes at SHA-256 `aae568de2095570d6d142bdf9e17828cb77c51e7ced9efef46d82836349cca10`.
+- Version-bound source attempt 001 passes all 84 scenario attempts plus the nine lifetime and six cache-authorization cases. Its report and trace SHA-256 values are `098be4dab2aff8585f9f252de356492ec82b5f6f2d2de881a2b202a8b196164f` and `a29e6d98d0880ba11857e9e54f485345831b72caaac44ecbb9ace601bc13f6f0`.
+- Two independent 283,148-byte, 25-entry zipapps are byte-identical at SHA-256 `9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f`. The archive contract, CLI, packaged 84+9+6 evaluation, bounded MCP, 66 HTTP/dashboard checks, 35 persisted-state/telemetry checks, and rendered dashboard inspection pass.
+- Source and package non-latency results are exact after removing only declared latency and per-run state/trace fingerprint fields. Both dashboards visibly report Baseline 0014, cached result authorization 1.0, approval lifetime 1.0, human approval, disconnected real infrastructure, and persisted synthetic incidents.
+- A no-local-object clone of exact commit `aa0c70b54962594b4c14d2fd5bae390a7c22c0f1` has no alternates and initially had a clean worktree. It passes compilation, nine validators, 22 tests, fresh source and package 84+9+6 evaluations, two exact archive rebuilds, source and package MCP, 66 HTTP/dashboard checks per runtime, 35 persisted-state checks per runtime, model/secret exclusion, and visual package-dashboard inspection.
+- RFC 9110 passed the external-source gate for narrow HTTP terminology and a clearly labeled project inference only. The expired and archived IETF Idempotency-Key Internet-Draft is retained as blocked and excluded from normative or design use. No external code, data, model, package, executable, or service was imported.
+- Next eligible action: commit the clean-clone receipt, reverify the final review head, then push for exact GitHub review.
 
 ### BASELINE-0013 approval-lifetime gap and frozen contract
 

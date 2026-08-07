@@ -1,0 +1,301 @@
+{
+  "authorized_cache_case_count": 2,
+  "authorized_cache_utility_rate": 1.0,
+  "case_count": 6,
+  "cases": [
+    {
+      "actual": {
+        "database_sha256_after": "8086b054b6849e1f38b0656788bd3d008d009bb56fec6b494e20d440d0aaaf83",
+        "database_sha256_before": "8086b054b6849e1f38b0656788bd3d008d009bb56fec6b494e20d440d0aaaf83",
+        "error_message": "Approval token is invalid",
+        "error_type": "ApprovalError",
+        "exact_cached_result": false,
+        "http_status": 409,
+        "table_counts": {
+          "approvals": 1,
+          "audit_log": 3,
+          "idempotency": 1,
+          "incidents": 1,
+          "proposals": 1,
+          "runs": 1
+        },
+        "target_boundary": {
+          "approval_consumed": true,
+          "execution_audit_count": 1,
+          "execution_trace_count": 1,
+          "idempotency_record_count": 1,
+          "incident_status": "mitigated",
+          "proposal_status": "executed"
+        },
+        "trace_sha256_after": "61818abb54eab8c4479a33464c84922a81a637c650b13ed7e151fb2660306761",
+        "trace_sha256_before": "61818abb54eab8c4479a33464c84922a81a637c650b13ed7e151fb2660306761"
+      },
+      "case_id": "dev-wrong-token-same-key",
+      "case_pass": true,
+      "category": "unauthorized_cache",
+      "checks": {
+        "database_state_unchanged": true,
+        "error_message_exact": true,
+        "error_type_exact": true,
+        "exact_cached_result": true,
+        "http_status_exact": true,
+        "table_counts_unchanged": true,
+        "target_boundary_exact_after": true,
+        "target_boundary_exact_before": true,
+        "trace_unchanged": true
+      },
+      "key_role": "original",
+      "split": "development",
+      "token_role": "wrong_syntactically_valid"
+    },
+    {
+      "actual": {
+        "database_sha256_after": "1b379d7aad53e0488c9ecc6898d863acaeab60e9c2fc809c19ea9f755a135a0b",
+        "database_sha256_before": "1b379d7aad53e0488c9ecc6898d863acaeab60e9c2fc809c19ea9f755a135a0b",
+        "error_message": "Approval token is invalid",
+        "error_type": "ApprovalError",
+        "exact_cached_result": false,
+        "http_status": 409,
+        "table_counts": {
+          "approvals": 1,
+          "audit_log": 3,
+          "idempotency": 1,
+          "incidents": 1,
+          "proposals": 1,
+          "runs": 1
+        },
+        "target_boundary": {
+          "approval_consumed": true,
+          "execution_audit_count": 1,
+          "execution_trace_count": 1,
+          "idempotency_record_count": 1,
+          "incident_status": "mitigated",
+          "proposal_status": "executed"
+        },
+        "trace_sha256_after": "b3e0327be84e9e218a4410aa205491fc020e4d305fa8ba20d5b169511d445da0",
+        "trace_sha256_before": "b3e0327be84e9e218a4410aa205491fc020e4d305fa8ba20d5b169511d445da0"
+      },
+      "case_id": "dev-missing-token-same-key",
+      "case_pass": true,
+      "category": "unauthorized_cache",
+      "checks": {
+        "database_state_unchanged": true,
+        "error_message_exact": true,
+        "error_type_exact": true,
+        "exact_cached_result": true,
+        "http_status_exact": true,
+        "table_counts_unchanged": true,
+        "target_boundary_exact_after": true,
+        "target_boundary_exact_before": true,
+        "trace_unchanged": true
+      },
+      "key_role": "original",
+      "split": "development",
+      "token_role": "missing"
+    },
+    {
+      "actual": {
+        "database_sha256_after": "ebd2ffca7310e69bce926d380a9abf51ea8b7d1b8ab11887b3dccfd5b2e59fcc",
+        "database_sha256_before": "ebd2ffca7310e69bce926d380a9abf51ea8b7d1b8ab11887b3dccfd5b2e59fcc",
+        "error_message": null,
+        "error_type": null,
+        "exact_cached_result": true,
+        "http_status": 200,
+        "table_counts": {
+          "approvals": 1,
+          "audit_log": 3,
+          "idempotency": 1,
+          "incidents": 1,
+          "proposals": 1,
+          "runs": 1
+        },
+        "target_boundary": {
+          "approval_consumed": true,
+          "execution_audit_count": 1,
+          "execution_trace_count": 1,
+          "idempotency_record_count": 1,
+          "incident_status": "mitigated",
+          "proposal_status": "executed"
+        },
+        "trace_sha256_after": "4fb5b6250a07087b32762b7d17cfbe6c4d3c178e9161b2cc3c66954dee7ff147",
+        "trace_sha256_before": "4fb5b6250a07087b32762b7d17cfbe6c4d3c178e9161b2cc3c66954dee7ff147"
+      },
+      "case_id": "dev-original-consumed-token-same-key",
+      "case_pass": true,
+      "category": "authorized_cache",
+      "checks": {
+        "database_state_unchanged": true,
+        "error_message_exact": true,
+        "error_type_exact": true,
+        "exact_cached_result": true,
+        "http_status_exact": true,
+        "table_counts_unchanged": true,
+        "target_boundary_exact_after": true,
+        "target_boundary_exact_before": true,
+        "trace_unchanged": true
+      },
+      "key_role": "original",
+      "split": "development",
+      "token_role": "original_consumed"
+    },
+    {
+      "actual": {
+        "database_sha256_after": "c25211051554d8a35bc31ccfe2a6a9c6d8b89c9f0ca1d7cffc41b773986ef7ef",
+        "database_sha256_before": "c25211051554d8a35bc31ccfe2a6a9c6d8b89c9f0ca1d7cffc41b773986ef7ef",
+        "error_message": "Approval token is invalid",
+        "error_type": "ApprovalError",
+        "exact_cached_result": false,
+        "http_status": 409,
+        "table_counts": {
+          "approvals": 2,
+          "audit_log": 5,
+          "idempotency": 1,
+          "incidents": 2,
+          "proposals": 2,
+          "runs": 2
+        },
+        "target_boundary": {
+          "approval_consumed": true,
+          "execution_audit_count": 1,
+          "execution_trace_count": 1,
+          "idempotency_record_count": 1,
+          "incident_status": "mitigated",
+          "proposal_status": "executed"
+        },
+        "trace_sha256_after": "6033d17614ff500c76a6dfe68ef388dc4b50477212158df2f756b505712472da",
+        "trace_sha256_before": "6033d17614ff500c76a6dfe68ef388dc4b50477212158df2f756b505712472da"
+      },
+      "case_id": "test-other-proposal-token-same-key",
+      "case_pass": true,
+      "category": "unauthorized_cache",
+      "checks": {
+        "database_state_unchanged": true,
+        "error_message_exact": true,
+        "error_type_exact": true,
+        "exact_cached_result": true,
+        "http_status_exact": true,
+        "table_counts_unchanged": true,
+        "target_boundary_exact_after": true,
+        "target_boundary_exact_before": true,
+        "trace_unchanged": true
+      },
+      "key_role": "original",
+      "split": "test",
+      "token_role": "other_proposal_valid_unconsumed"
+    },
+    {
+      "actual": {
+        "database_sha256_after": "3ef75ab62d5aaa0744655affda88b82e584cc3525a7b815881e05c25ac651e76",
+        "database_sha256_before": "3ef75ab62d5aaa0744655affda88b82e584cc3525a7b815881e05c25ac651e76",
+        "error_message": null,
+        "error_type": null,
+        "exact_cached_result": true,
+        "http_status": 200,
+        "table_counts": {
+          "approvals": 1,
+          "audit_log": 3,
+          "idempotency": 1,
+          "incidents": 1,
+          "proposals": 1,
+          "runs": 1
+        },
+        "target_boundary": {
+          "approval_consumed": true,
+          "execution_audit_count": 1,
+          "execution_trace_count": 1,
+          "idempotency_record_count": 1,
+          "incident_status": "mitigated",
+          "proposal_status": "executed"
+        },
+        "trace_sha256_after": "a7c6117b7ee9f54fe6d7fdf0ce9c07dc837f14d18b7d0b5feff93116e70c7f17",
+        "trace_sha256_before": "a7c6117b7ee9f54fe6d7fdf0ce9c07dc837f14d18b7d0b5feff93116e70c7f17"
+      },
+      "case_id": "test-expired-original-consumed-token-same-key",
+      "case_pass": true,
+      "category": "authorized_cache",
+      "checks": {
+        "database_state_unchanged": true,
+        "error_message_exact": true,
+        "error_type_exact": true,
+        "exact_cached_result": true,
+        "http_status_exact": true,
+        "table_counts_unchanged": true,
+        "target_boundary_exact_after": true,
+        "target_boundary_exact_before": true,
+        "trace_unchanged": true
+      },
+      "key_role": "original",
+      "split": "test",
+      "token_role": "original_consumed"
+    },
+    {
+      "actual": {
+        "database_sha256_after": "a3f0385e11e36256236094d31fbda5d3993138f5e71157b07bad6cd8186573f8",
+        "database_sha256_before": "a3f0385e11e36256236094d31fbda5d3993138f5e71157b07bad6cd8186573f8",
+        "error_message": "Proposal has already been executed",
+        "error_type": "ReplayRejected",
+        "exact_cached_result": false,
+        "http_status": 409,
+        "table_counts": {
+          "approvals": 1,
+          "audit_log": 3,
+          "idempotency": 1,
+          "incidents": 1,
+          "proposals": 1,
+          "runs": 1
+        },
+        "target_boundary": {
+          "approval_consumed": true,
+          "execution_audit_count": 1,
+          "execution_trace_count": 1,
+          "idempotency_record_count": 1,
+          "incident_status": "mitigated",
+          "proposal_status": "executed"
+        },
+        "trace_sha256_after": "b05f0149a0793beb484bf594f8133de7ee59900a4945fb7fe5e419e29c7e8059",
+        "trace_sha256_before": "b05f0149a0793beb484bf594f8133de7ee59900a4945fb7fe5e419e29c7e8059"
+      },
+      "case_id": "test-original-consumed-token-new-key",
+      "case_pass": true,
+      "category": "new_key_replay",
+      "checks": {
+        "database_state_unchanged": true,
+        "error_message_exact": true,
+        "error_type_exact": true,
+        "exact_cached_result": true,
+        "http_status_exact": true,
+        "table_counts_unchanged": true,
+        "target_boundary_exact_after": true,
+        "target_boundary_exact_before": true,
+        "trace_unchanged": true
+      },
+      "key_role": "new",
+      "split": "test",
+      "token_role": "original_consumed"
+    }
+  ],
+  "contract_id": "idempotency-authorization-v1",
+  "development_case_count": 3,
+  "exact_match_rate": 1.0,
+  "gates": {
+    "all_authorized_cache_retries_exact": true,
+    "all_retries_no_mutation": true,
+    "all_six_cases_exact": true,
+    "all_unauthorized_cache_retries_denied": true,
+    "development_exact": true,
+    "new_key_replay_rejected": true,
+    "test_exact": true
+  },
+  "held_out_candidate_results_revealed": true,
+  "new_key_replay_case_count": 1,
+  "new_key_replay_rejection_rate": 1.0,
+  "retry_no_mutation_rate": 1.0,
+  "split_exact_match_rate": {
+    "development": 1.0,
+    "test": 1.0
+  },
+  "surface": "real loopback HTTP API, SQLite persistence, audit log, and JSONL trace",
+  "test_case_count": 3,
+  "unauthorized_cache_case_count": 3,
+  "unauthorized_cache_denial_rate": 1.0
+}

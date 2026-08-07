@@ -1,5 +1,9 @@
 # Roadmap
 
+## Active checkpoint baseline-0014 - idempotency cache authorization
+
+A fresh run of the verified public v0.0.13 package passes all existing gates, but a real API probe shows that the same-proposal idempotency cache returns an exact completed execution result for wrong or missing approval tokens. The released calls cause no second mutation, yet they disclose protected result data and return false authorization success. Baseline 0014 freezes six development and held-out real-API cases, requires a matching consumed approval before cached-result disclosure, preserves the original completed retry even after expiry, and exact-grades state, audit, trace, replay, and split outcomes separately. The bounded work does not change the agent, retrieval, actions, capabilities, executor, storage schema, dependencies, credentials, or synthetic-only infrastructure boundary.
+
 ## Completed checkpoint baseline-0013 - approval lifetime integrity
 
 The verified public v0.0.12 package and fresh 84-attempt trace exposed a gap where invalid approval lifetimes were accepted before mutation, leaving an approved proposal with an already-expired token and no recovery path. Baseline 0013 enforces a JSON integer from 1 through 300 seconds outside the model, rejects invalid values before proposal, approval, audit, trace, or incident mutation, and exact-grades nine frozen development and held-out cases separately from the existing scenario evaluation. Source, package, no-alternates clone, GitHub review, merged-main, selected-asset, downloaded-byte, and rendered-public gates pass while the agent, retrieval, capabilities, executor, idempotency, replay, postconditions, synthetic-only scope, and prior release boundaries remain unchanged. The next checkpoint remains intentionally unchosen until a fresh run of public v0.0.13 exposes the next measurable weakness.

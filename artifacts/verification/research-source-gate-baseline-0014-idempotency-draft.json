@@ -1,0 +1,102 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0014-expired-idempotency-key-draft-20260807",
+  "assessed_at": "2026-08-07T21:33:08Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_actions": ["review official document status", "record exclusion"],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Determine whether draft-ietf-httpapi-idempotency-key-header-07 is fit to serve as a current normative or research basis for BASELINE-0014.",
+    "planned_actions": ["review official document status", "record exclusion"]
+  },
+  "sources": [
+    {
+      "source_id": "draft-ietf-httpapi-idempotency-key-header-07",
+      "name": "The Idempotency-Key HTTP Header Field, revision 07",
+      "locator": "https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/07/",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/07/", "observed_at": "2026-08-07T21:33:08Z", "note": "The official Datatracker page identifies revision 07 and labels it an Expired Internet-Draft. Live response SHA-256 be1df777dbb315ff2958489957e492a3dca8116d29624c72b32e8626256d409b."}],
+          "note": "Exact draft identity and revision are established."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/07/", "observed_at": "2026-08-07T21:33:08Z", "note": "IETF Datatracker is authoritative for the document's expired and archived status."}],
+          "note": "Authority is sufficient to establish exclusion status, not normative application semantics."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/07/", "observed_at": "2026-08-07T21:33:08Z", "note": "The page returned HTTP 200 without authentication, account, secret, payment, or terms acceptance."}],
+          "note": "Metadata review requires no account or new service."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "IETF Datatracker document metadata", "note": "Only public metadata and the expired status are recorded; no draft text, code, or asset is copied or redistributed."}],
+          "note": "Exclusion metadata is sufficient for the intended use."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "Official IETF Datatracker revision page", "note": "Status is reviewed directly from the primary publisher without an intermediary."}],
+          "note": "No external artifact enters project custody."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "HTTPS locator and live-response SHA-256 in this gate", "note": "The exact revision URL and response digest bind the status review."}],
+          "note": "No acquired file requires a publisher checksum or signature."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "fail",
+          "evidence": [{"type": "live", "locator": "https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/07/", "observed_at": "2026-08-07T21:33:08Z", "note": "The page labels the document Expired and archived; it shows 2026-04-18 with latest revision 2025-10-15. The current date is 2026-08-07."}],
+          "note": "An expired Internet-Draft is not fit as a current normative specification or comparative evidence basis."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "BASELINE-0014 exclusion decision", "note": "No code, content, package, executable, service, data, model, personal information, or secret is imported."}],
+          "note": "The source is excluded before downstream use."
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "status": "blocked",
+    "blocking_reasons": ["The official source labels revision 07 an expired and archived Internet-Draft."],
+    "live_verification_pending": [],
+    "approved_actions": ["record exclusion"]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": ["retain source identity, official status, hash, and exclusion rationale"],
+    "requires_explicit_authorization": [
+      "cite the expired draft as a current standard or normative requirement",
+      "import draft text, code, examples, or externally controlled assets",
+      "revive downstream use without a new current-source assessment"
+    ]
+  }
+}

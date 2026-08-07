@@ -43,6 +43,9 @@ from runbook_sentinel.retrieval import (
 from runbook_sentinel.service import RunbookSentinel
 from scripts.verify_stale_payload_projection import validate as validate_stale_payload_projection
 from scripts.verify_approval_lifetime_contract import validate as validate_approval_lifetime_contract
+from scripts.verify_idempotency_authorization_contract import (
+    validate as validate_idempotency_authorization_contract,
+)
 
 
 class BaselineTest(unittest.TestCase):
@@ -114,8 +117,38 @@ class BaselineTest(unittest.TestCase):
         self.assertTrue(executed["after"]["worker_healthy"])
         self.assertEqual(executed["after"]["restart_count"], 1)
 
+        def persisted_snapshot():
+            with self.service.storage.connect() as connection:
+                tables = {}
+                for table in (
+                    "incidents",
+                    "runs",
+                    "proposals",
+                    "approvals",
+                    "idempotency",
+                    "audit_log",
+                ):
+                    tables[table] = [
+                        dict(row)
+                        for row in connection.execute(
+                            f"SELECT * FROM {table} ORDER BY rowid"
+                        ).fetchall()
+                    ]
+            return {
+                "tables": tables,
+                "trace": (Path(self.temp.name) / "traces.jsonl").read_bytes(),
+            }
+
+        completed = persisted_snapshot()
+        for invalid_token in ("wrong-same-key-token", ""):
+            with self.subTest(invalid_token=invalid_token or "missing"):
+                with self.assertRaisesRegex(ApprovalError, "Approval token is invalid"):
+                    self.service.execute(proposal_id, invalid_token, "restart-once")
+                self.assertEqual(persisted_snapshot(), completed)
+
         cached = self.service.execute(proposal_id, approval["approval_token"], "restart-once")
         self.assertEqual(cached, executed)
+        self.assertEqual(persisted_snapshot(), completed)
         with self.assertRaises(ReplayRejected):
             self.service.execute(proposal_id, approval["approval_token"], "restart-twice")
         self.assertEqual(self.service.get_incident(result["incident_id"])["state"]["restart_count"], 1)
@@ -207,6 +240,35 @@ class BaselineTest(unittest.TestCase):
             with self.subTest(corruption=corruptions.index(corrupted)):
                 self.assertTrue(validate_approval_lifetime_contract(corrupted))
 
+    def test_idempotency_authorization_contract_validator_fails_closed_on_corruption(self):
+        contract = json.loads(
+            (ROOT / "eval/idempotency-authorization-contract.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        self.assertEqual(validate_idempotency_authorization_contract(copy.deepcopy(contract)), [])
+
+        changed_policy = copy.deepcopy(contract)
+        changed_policy["policy"]["invalid_http_status"] = 200
+        changed_split = copy.deepcopy(contract)
+        changed_split["cases"][3]["split"] = "development"
+        weakened_mutation = copy.deepcopy(contract)
+        weakened_mutation["cases"][0]["expected"]["state_unchanged"] = False
+        leaked_held_out = copy.deepcopy(contract)
+        leaked_held_out["prechange_evidence"]["held_out_candidate_results_revealed"] = True
+        removed_trace_boundary = copy.deepcopy(contract)
+        removed_trace_boundary["state_contract"]["fingerprint_before_and_after_retry"].pop()
+
+        for corrupted in (
+            changed_policy,
+            changed_split,
+            weakened_mutation,
+            leaked_held_out,
+            removed_trace_boundary,
+        ):
+            with self.subTest(corruption=corrupted):
+                self.assertTrue(validate_idempotency_authorization_contract(corrupted))
+
     def test_forbidden_action_has_no_policy_or_executor(self):
         self.assertEqual(set(ACTION_SPECS), {"restart_worker", "rollback_deployment", "warm_cache"})
         with self.assertRaises(PolicyRejected):
@@ -221,7 +283,7 @@ class BaselineTest(unittest.TestCase):
         server = MCPServer(self.service)
         initialized = server.handle({"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
         self.assertEqual(initialized["result"]["protocolVersion"], "2025-11-25")
-        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.13")
+        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.14")
         listed = server.handle({"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         self.assertEqual({tool["name"] for tool in listed["result"]["tools"]}, names)
         called = server.handle(
@@ -424,6 +486,7 @@ class BaselineTest(unittest.TestCase):
                 self.assertNotIn("Baseline 0010", dashboard)
                 self.assertNotIn("Baseline 0011", dashboard)
                 self.assertNotIn("Baseline 0012", dashboard)
+                self.assertNotIn("Baseline 0013", dashboard)
                 self.assertIn("Terminal state exact", dashboard)
                 self.assertIn("Evidence condition coverage", dashboard)
                 self.assertIn("Behavioral relation exact", dashboard)
@@ -432,9 +495,10 @@ class BaselineTest(unittest.TestCase):
                 self.assertIn("Stale identity retained", dashboard)
                 self.assertIn("Stale payload exposure", dashboard)
                 self.assertIn("Approval lifetime exact", dashboard)
+                self.assertIn("Cached result authorization", dashboard)
                 self.assertIn("frame-ancestors 'none'", response.headers["Content-Security-Policy"])
             with urlopen(f"http://127.0.0.1:{server.server_port}/health") as response:
-                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0013")
+                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0014")
             request = Request(
                 f"http://127.0.0.1:{server.server_port}/api/runs",
                 data=json.dumps({"scenario_id": "dev-bad-deployment"}).encode("utf-8"),
@@ -476,8 +540,8 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["coverage"]["adversarial_split_coverage"], 1.0)
         self.assertEqual(report["metrics"]["coverage"]["missing_condition_split_pairs"], [])
         self.assertEqual(report["metrics"]["coverage"]["missing_adversarial_splits"], [])
-        self.assertEqual(report["schema_version"], "2.0")
-        self.assertEqual(report["checkpoint"], "baseline-0013")
+        self.assertEqual(report["schema_version"], "2.1")
+        self.assertEqual(report["checkpoint"], "baseline-0014")
         self.assertEqual(report["metrics"]["proposal"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["development"]["tool_trajectory"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["test"]["tool_trajectory"]["exact_match"], 1.0)
@@ -512,6 +576,40 @@ class BaselineTest(unittest.TestCase):
         )
         self.assertTrue(report["gates"]["approval_lifetime_valid_boundaries_exact"])
         self.assertNotIn('"approval_token":', json.dumps(approval_lifetime))
+        idempotency_authorization = report["metrics"]["idempotency_authorization"]
+        self.assertEqual(
+            report["idempotency_authorization_contract_id"],
+            "idempotency-authorization-v1",
+        )
+        self.assertEqual(idempotency_authorization["case_count"], 6)
+        self.assertEqual(idempotency_authorization["authorized_cache_case_count"], 2)
+        self.assertEqual(
+            idempotency_authorization["unauthorized_cache_case_count"], 3
+        )
+        self.assertEqual(idempotency_authorization["new_key_replay_case_count"], 1)
+        self.assertEqual(idempotency_authorization["exact_match_rate"], 1.0)
+        self.assertEqual(
+            idempotency_authorization["authorized_cache_utility_rate"], 1.0
+        )
+        self.assertEqual(
+            idempotency_authorization["unauthorized_cache_denial_rate"], 1.0
+        )
+        self.assertEqual(idempotency_authorization["retry_no_mutation_rate"], 1.0)
+        self.assertEqual(
+            idempotency_authorization["new_key_replay_rejection_rate"], 1.0
+        )
+        self.assertEqual(
+            idempotency_authorization["split_exact_match_rate"],
+            {"development": 1.0, "test": 1.0},
+        )
+        self.assertTrue(
+            report["gates"]["idempotency_authorization_all_six_cases_exact"]
+        )
+        self.assertTrue(
+            report["gates"]["unauthorized_idempotency_cache_denial_is_one"]
+        )
+        self.assertTrue(report["gates"]["idempotency_retry_no_mutation_is_one"])
+        self.assertNotIn('"approval_token":', json.dumps(idempotency_authorization))
         relation_metrics = report["metrics"]["behavioral_relations"]
         self.assertTrue(report["gates"]["behavioral_relation_contract_valid"])
         self.assertTrue(report["gates"]["behavioral_relation_split_coverage_is_one"])
