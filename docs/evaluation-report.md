@@ -1,6 +1,28 @@
 # Evaluation report
 
-Status: public baseline-0009 stale-evidence-resilience attempt 002 is the latest verified checkpoint. `freshness-priority-lexical-v3` is selected as the only hard-gate-passing configuration after a retained same-manifest comparison; strict numeric latency dominance is false. The baseline-0004 local-model candidate remains excluded and deterministic control remains the default.
+Status: public baseline-0009 remains the latest verified checkpoint. Baseline-0010 is a versioned release candidate: `fresh-content-stale-metadata-context-v3` is selected as the only configuration passing the frozen stale-payload boundary gates after a retained same-manifest comparison. Public release verification is pending. The baseline-0004 local-model candidate remains excluded and deterministic control remains the default.
+
+## BASELINE-0010 stale-payload decision boundary
+
+The fresh v0.0.9 orientation passed all 84 trials, then a field-level trace audit found that `evidence-only-context-v2` forwarded 27 stale project documents across 15 attempts and 5 scenarios. This exposed 2,913 stale title/content characters at the decision boundary even though no stale record supplied agent facts. The retained gap is `artifacts/verification/stale-payload-gap-baseline-0010.json`.
+
+Schema 1.9 freezes one development and one sealed held-out projection case. The contract requires complete retrieval/audit records, complete fresh decision records, exact stale fields `id`, `kind`, and `observed_at`, no stale `title` or `content`, and unchanged behavior. A naive drop-all-stale development probe was rejected because it lost the exact replacement identifier. The metadata-only development probe passed all 14 exact checks and removed 418 stale payload characters. The independent validator rejects field, freshness, split, and behavior corruption.
+
+The immutable v2 pre-change control preserves identity, fresh payload, and behavior at 1.0 but has metadata projection 0.0 and stale payload exposure 1.0. The first complete candidate suite exposed a generic model-adapter assumption that every document had `content`; the field-preserving serializer and focused regression fixed it without changing any frozen case, expectation, or grader. The held-out boundary passed on first reveal after the candidate was complete.
+
+Six same-manifest 84-trial runs per configuration produced 1,008 attempts. V3 passes identity retention, exact metadata projection, fresh payload retention, exact behavior, and both splits at 1.0 with stale payload exposure 0.0 in every run. V2 remains `remediate` with exposure 1.0 and projection 0.0 in every run. Retrieval, generation, proposals, actual tool trajectories, terminal states, behavioral relations, both stress families, policy, benign utility, attack success, repeated reliability, model-call count, and estimated cost are otherwise exact and equal.
+
+The selected configuration is a security-gated Pareto-frontier choice, not a strict numeric Pareto improvement. Relative to v2, V3's median of diagnosis medians is 0.141 ms lower; its median diagnosis p95, end-to-end median, and end-to-end p95 are 2.265, 1.794, and 4.778 ms higher. V2 attempt 005's large latency outlier remains retained and contributes to the comparison record. These local timings support no general performance claim.
+
+The 27-file version-bound manifest has SHA-256 `4b22c5dbd99dd778c5dcca5bb6bbd230178170775b22dcc5b579872e6c9b0ce4`. Immutable attempt 001 passed all 84 trials and every gate; report and trace SHA-256 are `55d1b5be051e8985c0235ad64e1bba88171484e2f1c425360ae03b5962e81cc7` and `3b3e3688918a552886beaba6e45edd60a17ec8174e8ea0127e5950aa0d81747b`. The latest pointer is byte-identical.
+
+The held-out CLI and real MCP paths retain exact stale metadata, complete fresh payload, and zero stale payload characters; MCP 2025-11-25 reports version 0.0.10 and exposes no approval or execution tool. The real loopback API passes all 50 selected-evaluation, projection, approval, execution, postcondition, idempotency, replay, redaction, CSP, and dashboard checks. Independent SQLite, audit, trace, manifest binding, and image checks pass all 27 checks. The native receipt and 1440 by 1000 dashboard SHA-256 are `54c3f7709fb6e52a0d1f1c6fc34e4559078bb204bb98e5768737b7a3831aeef7` and `a4a15564f7a1d4523cc6f0cdfefe8152497ea265f4319176fd7c82fb781cb241`.
+
+An exact no-local-object clone of candidate `1fafe2c99e96d84693a4ba54271694611b3602e4` passed compilation, 19 tests, all seven validators, the 16-criterion source gate, ten milestone contracts, 152 tracked JSON files, 47 tracked JSONL files with 5,085 records, selected-manifest identity, unchanged authority files, model/secret exclusion, held-out CLI, MCP, all 50 API checks, all 27 persistence/telemetry checks, and fresh visual dashboard inspection. Its receipt is `artifacts/verification/clean-clone-baseline-0010.json`.
+
+GitHub review, merged main, and public-release reconciliation remain pending and must pass before this section can claim a verified release. Docker is currently off, but container packaging remains independently deferred because all reviewed bases are excluded; no image was imported or run. A non-gating wheel probe found no local `setuptools.build_meta`; no unreviewed dependency was downloaded or added, and this release makes no package-registry claim.
+
+Draft GitHub PR `#9` matches reviewed head `54032842e26f8b6d2e6bb30a4138f20fa3cc22f2`, contains two expected commits and 89 expected changed files, and is `CLEAN` and `MERGEABLE` with no configured checks. Local and GitHub changed-file sets are exact. A receipt-only final head must be reconfirmed before review promotion or merge.
 
 ## BASELINE-0009 stale-evidence retrieval resilience
 

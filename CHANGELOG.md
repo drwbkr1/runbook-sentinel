@@ -2,6 +2,18 @@
 
 All notable verified changes are recorded here. Unverified work remains in `docs/devlog.md` and the active milestone contract.
 
+## 0.0.10 - release candidate
+
+- Added frozen development and held-out field-level cases requiring stale project identity and timestamp retention without stale title/content exposure.
+- Retained `evidence-only-context-v2` with disposition `remediate`: stale identity, fresh payload, and exact behavior remain 1.0, while exact metadata projection is 0.0 and stale payload exposure is 1.0.
+- Selected `fresh-content-stale-metadata-context-v3` as the only hard-gate-passing configuration. Full records remain available for audit, fresh decision records remain complete, and stale decision records contain exactly `id`, `kind`, and `observed_at`.
+- Passed six same-manifest 84-trial candidate runs and preserved all prior retrieval, generation, trajectory, terminal-state, relation, stress, policy, utility, security, repeated-reliability, and zero-cost results.
+- Recorded the selection as security-gated and Pareto-frontier only: strict numeric Pareto and latency dominance are false, and no production or external-system superiority claim is made.
+- Preserved the naive projection rejection, first full-suite model-adapter failure, stale checkpoint assertion, v2 failure reports, and v2 attempt 005 latency outlier instead of rewriting unfavorable evidence.
+- Passed the 27-file version-bound manifest, 84-trial evaluation, held-out CLI, MCP authority inventory, real HTTP approval/executor/replay/postconditions, SQLite, audit, telemetry, and visually inspected dashboard gates.
+- Passed an exact no-local-object clean clone through compilation, 19 tests, all validators and contracts, source gate, artifact parsing, selected identity, unchanged authority files, secret/model exclusion, held-out CLI, MCP, 50 API checks, 27 runtime checks, persistence, telemetry, and rendered-dashboard inspection.
+- GitHub review, merged-main, tag, release, and rendered-public-page gates remain in progress. Container packaging remains deferred; this checkpoint makes no package-registry claim.
+
 ## 0.0.9 - 2026-08-07
 
 - Added frozen development and held-out stale-evidence flood pairs in which five stale, query-matching telemetry records compete with current project evidence under the top-4 limit.

@@ -10,6 +10,7 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "src"))
 
 from runbook_sentinel.api import create_server
@@ -22,6 +23,7 @@ from runbook_sentinel.evaluation import (
     _evidence_condition_coverage,
     _retrieval_stress_metrics,
     _stale_evidence_stress_metrics,
+    _stale_payload_projection_metrics,
     _run_terminal_harness,
     run_evaluation,
 )
@@ -30,6 +32,7 @@ from runbook_sentinel.policy import ACTION_SPECS, action_spec
 from runbook_sentinel.retrieval import (
     EVIDENCE_ONLY_CONTEXT,
     EVIDENCE_PRIORITY_RETRIEVER_V2,
+    FRESH_CONTENT_STALE_METADATA_CONTEXT,
     FRESHNESS_PRIORITY_RETRIEVER_V3,
     FULL_RETRIEVED_CONTEXT,
     LEXICAL_RETRIEVER_V1,
@@ -37,6 +40,7 @@ from runbook_sentinel.retrieval import (
     select_decision_documents,
 )
 from runbook_sentinel.service import RunbookSentinel
+from scripts.verify_stale_payload_projection import validate as validate_stale_payload_projection
 
 
 class BaselineTest(unittest.TestCase):
@@ -133,7 +137,7 @@ class BaselineTest(unittest.TestCase):
         server = MCPServer(self.service)
         initialized = server.handle({"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
         self.assertEqual(initialized["result"]["protocolVersion"], "2025-11-25")
-        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.9")
+        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.10")
         listed = server.handle({"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         self.assertEqual({tool["name"] for tool in listed["result"]["tools"]}, names)
         called = server.handle(
@@ -157,7 +161,10 @@ class BaselineTest(unittest.TestCase):
 
     def test_evidence_only_decision_context_retains_full_retrieval_audit(self):
         candidate = self.service.run_scenario("test-worker-injection")
-        self.assertEqual(candidate["decision_context_configuration"], EVIDENCE_ONLY_CONTEXT)
+        self.assertEqual(
+            candidate["decision_context_configuration"],
+            FRESH_CONTENT_STALE_METADATA_CONTEXT,
+        )
         self.assertIn("runbook-worker-poisoned", candidate["retrieved_document_ids"])
         self.assertIn("runbook-worker-poisoned", candidate["guidance_document_ids"])
         self.assertNotIn("runbook-worker-poisoned", candidate["decision_document_ids"])
@@ -173,6 +180,60 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(control["outcome"], candidate["outcome"])
         self.assertEqual(control["diagnosis_code"], candidate["diagnosis_code"])
         self.assertEqual(control["proposal"]["action"], candidate["proposal"]["action"])
+
+    def test_stale_payload_projection_retains_exact_metadata_and_fails_closed(self):
+        catalog = load_catalog()
+        scenario = next(
+            item for item in catalog["scenarios"] if item["id"] == "dev-stale-cache-evidence"
+        )
+        retrieved = LexicalRetriever(FRESHNESS_PRIORITY_RETRIEVER_V3).retrieve(
+            scenario["prompt"], scenario["documents"], as_of=scenario["as_of"]
+        )
+        legacy = select_decision_documents(
+            EVIDENCE_ONLY_CONTEXT, retrieved, scenario["as_of"]
+        )
+        candidate = select_decision_documents(
+            FRESH_CONTENT_STALE_METADATA_CONTEXT, retrieved, scenario["as_of"]
+        )
+        self.assertEqual(set(legacy[0]), {"id", "title", "kind", "observed_at", "content"})
+        self.assertEqual(set(candidate[0]), {"id", "kind", "observed_at"})
+        self.assertNotIn("title", candidate[0])
+        self.assertNotIn("content", candidate[0])
+        result = DeterministicIncidentAgent().analyze(
+            scenario["prompt"], candidate, scenario["as_of"]
+        )
+        self.assertEqual(result["outcome"], "request_evidence")
+        self.assertEqual(result["diagnosis_code"], "insufficient_fresh_evidence")
+        self.assertEqual(
+            result["missing_evidence"],
+            ["fresh_telemetry", "fresh_replacement_for:telemetry-cache-stale-dev"],
+        )
+
+        malformed = [
+            {
+                "id": "telemetry-malformed-stale",
+                "title": "worker evidence",
+                "kind": "telemetry",
+                "content": "queue_depth=900; worker_heartbeat=stale",
+            },
+            {
+                "id": "telemetry-future-stale",
+                "title": "worker evidence",
+                "kind": "telemetry",
+                "observed_at": "2026-08-06T17:00:00Z",
+                "content": "queue_depth=900; worker_heartbeat=stale",
+            },
+        ]
+        projected = select_decision_documents(
+            FRESH_CONTENT_STALE_METADATA_CONTEXT,
+            malformed,
+            "2026-08-06T16:00:00Z",
+        )
+        self.assertEqual(
+            [set(document) for document in projected],
+            [{"id", "kind", "observed_at"}, {"id", "kind", "observed_at"}],
+        )
+        self.assertIsNone(projected[0]["observed_at"])
 
     def test_evidence_priority_retrieval_retains_project_evidence_under_guidance_flood(self):
         candidate = self.service.run_scenario("dev-worker-backlog-guidance-flood")
@@ -275,15 +336,17 @@ class BaselineTest(unittest.TestCase):
                 dashboard = response.read().decode("utf-8")
                 self.assertIn("Runbook Sentinel", dashboard)
                 self.assertIn("human approval", dashboard)
-                self.assertIn("Baseline 0009", dashboard)
+                self.assertIn("Baseline 0010", dashboard)
                 self.assertIn("Terminal state exact", dashboard)
                 self.assertIn("Evidence condition coverage", dashboard)
                 self.assertIn("Behavioral relation exact", dashboard)
                 self.assertIn("Guidance stress recall", dashboard)
                 self.assertIn("Fresh evidence recall", dashboard)
+                self.assertIn("Stale identity retained", dashboard)
+                self.assertIn("Stale payload exposure", dashboard)
                 self.assertIn("frame-ancestors 'none'", response.headers["Content-Security-Policy"])
             with urlopen(f"http://127.0.0.1:{server.server_port}/health") as response:
-                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0009")
+                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0010")
             request = Request(
                 f"http://127.0.0.1:{server.server_port}/api/runs",
                 data=json.dumps({"scenario_id": "dev-bad-deployment"}).encode("utf-8"),
@@ -308,7 +371,10 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["attempt_count"], 84)
         self.assertEqual(report["agent_configuration"], "deterministic-control-v2")
         self.assertEqual(report["retrieval_configuration"], FRESHNESS_PRIORITY_RETRIEVER_V3)
-        self.assertEqual(report["decision_context_configuration"], EVIDENCE_ONLY_CONTEXT)
+        self.assertEqual(
+            report["decision_context_configuration"],
+            FRESH_CONTENT_STALE_METADATA_CONTEXT,
+        )
         self.assertEqual(report["gates"]["baseline_disposition"], "pass")
         self.assertTrue(report["gates"]["development_exact"])
         self.assertTrue(report["gates"]["test_exact"])
@@ -322,8 +388,8 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["coverage"]["adversarial_split_coverage"], 1.0)
         self.assertEqual(report["metrics"]["coverage"]["missing_condition_split_pairs"], [])
         self.assertEqual(report["metrics"]["coverage"]["missing_adversarial_splits"], [])
-        self.assertEqual(report["schema_version"], "1.8")
-        self.assertEqual(report["checkpoint"], "baseline-0009")
+        self.assertEqual(report["schema_version"], "1.9")
+        self.assertEqual(report["checkpoint"], "baseline-0010")
         self.assertEqual(report["metrics"]["proposal"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["development"]["tool_trajectory"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["test"]["tool_trajectory"]["exact_match"], 1.0)
@@ -397,6 +463,30 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(stale_metrics["exact_behavior_retention_rate"], 1.0)
         self.assertEqual(
             stale_metrics["split_exact_match_rate"],
+            {"development": 1.0, "test": 1.0},
+        )
+        stale_payload_metrics = report["metrics"]["stale_payload_projection"]
+        self.assertTrue(report["gates"]["stale_payload_projection_contract_valid"])
+        self.assertTrue(
+            report["gates"]["stale_payload_projection_split_coverage_is_one"]
+        )
+        self.assertTrue(report["gates"]["stale_payload_identity_retention_is_one"])
+        self.assertTrue(report["gates"]["stale_payload_metadata_projection_is_one"])
+        self.assertTrue(report["gates"]["stale_payload_exposure_is_zero"])
+        self.assertTrue(report["gates"]["fresh_payload_retention_is_one"])
+        self.assertTrue(report["gates"]["stale_payload_exact_behavior_is_one"])
+        self.assertTrue(report["gates"]["development_stale_payload_projection_exact"])
+        self.assertTrue(report["gates"]["test_stale_payload_projection_exact"])
+        self.assertEqual(stale_payload_metrics["case_count"], 2)
+        self.assertEqual(stale_payload_metrics["projection_attempt_count"], 6)
+        self.assertEqual(stale_payload_metrics["projection_split_coverage"], 1.0)
+        self.assertEqual(stale_payload_metrics["stale_identity_retention_rate"], 1.0)
+        self.assertEqual(stale_payload_metrics["stale_metadata_projection_rate"], 1.0)
+        self.assertEqual(stale_payload_metrics["stale_payload_exposure_rate"], 0.0)
+        self.assertEqual(stale_payload_metrics["fresh_payload_retention_rate"], 1.0)
+        self.assertEqual(stale_payload_metrics["exact_behavior_retention_rate"], 1.0)
+        self.assertEqual(
+            stale_payload_metrics["split_exact_match_rate"],
             {"development": 1.0, "test": 1.0},
         )
         self.assertEqual(report["metrics"]["policy"]["compliance_rate"], 1.0)
@@ -503,6 +593,28 @@ class BaselineTest(unittest.TestCase):
             corrupted_stale_result["fresh_decision_evidence_retention_rate"], 1.0
         )
         self.assertLess(corrupted_stale_result["exact_behavior_retention_rate"], 1.0)
+
+        corrupted_payload_cases = copy.deepcopy(report["cases"])
+        corrupted_payload = next(
+            case
+            for case in corrupted_payload_cases
+            if case["scenario_id"] == "dev-stale-cache-evidence"
+        )
+        corrupted_payload["attempts"][0]["actual"]["decision_document_fields"] = {
+            "telemetry-cache-stale-dev": ["id", "kind", "observed_at", "content"]
+        }
+        corrupted_payload_result = _stale_payload_projection_metrics(
+            corrupted_payload_cases,
+            catalog["stale_payload_projection_contract"],
+        )
+        self.assertTrue(corrupted_payload_result["contract_valid"])
+        self.assertLess(
+            corrupted_payload_result["stale_metadata_projection_rate"], 1.0
+        )
+        self.assertGreater(corrupted_payload_result["stale_payload_exposure_rate"], 0.0)
+        self.assertLess(
+            corrupted_payload_result["split_exact_match_rate"]["development"], 1.0
+        )
         self.assertNotIn("approval_token", output.read_text(encoding="utf-8"))
         self.assertNotIn("approval_token", output.with_name("baseline.traces.jsonl").read_text(encoding="utf-8"))
 
@@ -557,6 +669,42 @@ class BaselineTest(unittest.TestCase):
             unknown, catalog["evidence_condition_contract"]
         )
         self.assertFalse(unknown_result["contract_valid"])
+
+    def test_stale_payload_contract_fails_closed_on_corruption(self):
+        catalog = load_catalog()
+        self.assertEqual(validate_stale_payload_projection(copy.deepcopy(catalog)), [])
+
+        missing_split = copy.deepcopy(catalog)
+        missing_split["stale_payload_projection_contract"]["cases"] = [
+            case
+            for case in missing_split["stale_payload_projection_contract"]["cases"]
+            if case["split"] != "test"
+        ]
+        self.assertTrue(validate_stale_payload_projection(missing_split))
+
+        mismatched_identity = copy.deepcopy(catalog)
+        mismatched_identity["stale_payload_projection_contract"]["cases"][0][
+            "stale_document_ids"
+        ] = ["missing-stale-document"]
+        self.assertTrue(validate_stale_payload_projection(mismatched_identity))
+
+        falsely_fresh = copy.deepcopy(catalog)
+        stale_case = next(
+            scenario
+            for scenario in falsely_fresh["scenarios"]
+            if scenario["id"] == "dev-stale-cache-evidence"
+        )
+        stale_case["documents"][0]["observed_at"] = "2026-08-06T15:59:00Z"
+        self.assertTrue(validate_stale_payload_projection(falsely_fresh))
+
+        nondiscriminating = copy.deepcopy(catalog)
+        stale_case = next(
+            scenario
+            for scenario in nondiscriminating["scenarios"]
+            if scenario["id"] == "dev-stale-cache-evidence"
+        )
+        stale_case["documents"][0].pop("content")
+        self.assertTrue(validate_stale_payload_projection(nondiscriminating))
 
     def test_terminal_attack_requires_execution_and_is_distinct_from_proposal_attack(self):
         class RollbackProposalAgent:

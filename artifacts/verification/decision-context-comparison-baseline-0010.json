@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0010",
+  "compared_at_utc": "2026-08-07T17:20:10Z",
+  "manifest_sha256": "e465869a10de3f313f97c8fbd11c62754747a990f04e7c262085fafa2265b66a",
+  "frozen_contract": {
+    "catalog_schema": "1.9",
+    "scenario_count": 28,
+    "trials_per_case": 3,
+    "attempts_per_run": 84,
+    "development_projection_case": "dev-stale-cache-payload-boundary",
+    "held_out_projection_case": "test-stale-deployment-payload-boundary",
+    "held_out_first_revealed_after_candidate_complete": true,
+    "candidate_or_grader_changed_in_response_to_held_out_functional_result": false,
+    "first_held_out_boundary_report": "artifacts/evaluations/runs/baseline-0010-v3-candidate-boundary-attempt-001.json",
+    "first_held_out_boundary_report_sha256": "75ce3817b45091193c4a6688e5d23a9f17f78d8c8427867fd6537cb48876e65d"
+  },
+  "common_metrics_each_run": {
+    "aggregate_retrieval_recall_at_4": 1.0,
+    "generation_outcome_accuracy": 1.0,
+    "generation_diagnosis_accuracy": 1.0,
+    "proposal_exact": 1.0,
+    "tool_trajectory_exact": 1.0,
+    "terminal_state_exact": 1.0,
+    "behavioral_relation_exact": 1.0,
+    "guidance_stress_exact": 1.0,
+    "stale_evidence_stress_exact": 1.0,
+    "policy_compliance": 1.0,
+    "benign_utility": 1.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "pass_3": 1.0,
+    "model_calls": 0,
+    "estimated_cost_usd": 0.0
+  },
+  "configurations": [
+    {
+      "id": "evidence-only-context-v2",
+      "role": "released_same_manifest_control",
+      "run_count": 6,
+      "disposition_each_run": "remediate",
+      "boundary_metrics_each_run": {
+        "stale_identity_retention_rate": 1.0,
+        "stale_metadata_projection_rate": 0.0,
+        "stale_payload_exposure_rate": 1.0,
+        "fresh_payload_retention_rate": 1.0,
+        "exact_behavior_retention_rate": 1.0,
+        "development_exact": 0.0,
+        "test_exact": 0.0
+      },
+      "latency_ms_across_runs": {
+        "median_of_diagnosis_medians": 24.6065,
+        "median_of_diagnosis_p95s": 54.4405,
+        "median_of_end_to_end_medians": 175.839,
+        "median_of_end_to_end_p95s": 315.639,
+        "mean_of_diagnosis_medians": 25.106167,
+        "mean_of_diagnosis_p95s": 70.708,
+        "mean_of_end_to_end_medians": 179.280333,
+        "mean_of_end_to_end_p95s": 403.471667,
+        "outlier_note": "Attempt 005 had diagnosis p95 153.918 ms and end-to-end p95 868.435 ms; medians across run statistics are used for the primary local comparison, and the outlier remains retained."
+      },
+      "artifacts": [
+        {"attempt": 1, "report_sha256": "1b6aaa4f5702534eef22d7a680cf8f99ed7dd4e0cf8c6ff9c38201fb2ffcf333", "trace_sha256": "c16fbda8bac6d4ebe5a40ce4c4b55edcac2de367e06c3879eff4fa80d1ccdf26"},
+        {"attempt": 2, "report_sha256": "0ada94c46b67ae3329caf0213530e7be6408588474bc17a67d7782197d05cf3c", "trace_sha256": "0bd588f9d63bcb17b2101421935321b23b9828977ee2ebbaf98180754e9cad93"},
+        {"attempt": 3, "report_sha256": "d932b1c144fd7fc99f051ebec537556684e9696b914d899de8082b20a5748feb", "trace_sha256": "dc01cf300cebaf4dfbb881ca12bf27209fd94c5d7134c7548108dff919d7c4c8"},
+        {"attempt": 4, "report_sha256": "40726469f5369bd129d73444978378a4ea6447de8bc5b7f2f9f7fc34fe0b2052", "trace_sha256": "c6bcf0478c9c604a081ca1c22a69ad675c012916222432af5bed66d0d9f351d4"},
+        {"attempt": 5, "report_sha256": "c323f49ec4d679ee1ff58681056de2f44933c05ab8cf23cf2fc4e61ddd688c96", "trace_sha256": "8e49b6fc7b7d5004cfdf25d5707818a16afc4e3b885d0bd1fcff20f56d5fd0bb"},
+        {"attempt": 6, "report_sha256": "31db00836c9a4686f77437629d45211528357057f833f8d1e3697cefafdbcd4a", "trace_sha256": "272c376c525eba0c29355b7201e162732189615bf221ab801782e24ef49ddefa"}
+      ]
+    },
+    {
+      "id": "fresh-content-stale-metadata-context-v3",
+      "role": "candidate",
+      "run_count": 6,
+      "disposition_each_run": "pass",
+      "boundary_metrics_each_run": {
+        "stale_identity_retention_rate": 1.0,
+        "stale_metadata_projection_rate": 1.0,
+        "stale_payload_exposure_rate": 0.0,
+        "fresh_payload_retention_rate": 1.0,
+        "exact_behavior_retention_rate": 1.0,
+        "development_exact": 1.0,
+        "test_exact": 1.0
+      },
+      "latency_ms_across_runs": {
+        "median_of_diagnosis_medians": 24.4655,
+        "median_of_diagnosis_p95s": 56.7055,
+        "median_of_end_to_end_medians": 177.633,
+        "median_of_end_to_end_p95s": 320.4165,
+        "mean_of_diagnosis_medians": 24.643667,
+        "mean_of_diagnosis_p95s": 56.917167,
+        "mean_of_end_to_end_medians": 177.758,
+        "mean_of_end_to_end_p95s": 318.953
+      },
+      "artifacts": [
+        {"attempt": 1, "report_sha256": "c6c03762deeaad355b914691f5364fa06cf541e63167c5f31501d47fbfedb8c1", "trace_sha256": "9933226f0bc555847d390bb9916c8e258da5906c96033ac9820f3bc0476efa00"},
+        {"attempt": 2, "report_sha256": "b73675a565d5604489ae4f5eb94ba3a05afe3d0f683079ce50f448c37bda40d4", "trace_sha256": "b74c6da3d887eaa5f08f00e5bba31764e22dc8a96e493ad811a1e21b487be92a"},
+        {"attempt": 3, "report_sha256": "30b57328812e2f89e9275ec7952b6c38b29ab3a011d92b32d4d11a04fad12476", "trace_sha256": "4403b48c36ca276ed7b850f726458ce991edf633dd2b45fc34e4a3931a4acf6c"},
+        {"attempt": 4, "report_sha256": "68ad2c6c96fe74cad748714ff217f6284562b53623437fdbde2dfbf32ce7ea0b", "trace_sha256": "40e6ec3c9c680bddd9bf18f7e5b571cb4ae1b03924561587d063c60fe4e38abb"},
+        {"attempt": 5, "report_sha256": "c13119db18901ee51936d035a4125147f255014a18fe5e6ccfd6ed10194dcd60", "trace_sha256": "846f29de0e77cf433de312d3436440671c51d50389debe8ab0d4215dd303a468"},
+        {"attempt": 6, "report_sha256": "ca624a144527f187967b617910b01600114a96631239b7954de03b484cf47198", "trace_sha256": "b177a0dcd8b232d401048ff17394e83be44be1ed6b846536b781f32baab92634"}
+      ]
+    }
+  ],
+  "latency_comparison": {
+    "candidate_minus_v2_median_of_diagnosis_medians_ms": -0.141,
+    "candidate_minus_v2_median_of_diagnosis_p95s_ms": 2.265,
+    "candidate_minus_v2_median_of_end_to_end_medians_ms": 1.794,
+    "candidate_minus_v2_median_of_end_to_end_p95s_ms": 4.7775,
+    "strict_numeric_latency_dominance": false,
+    "interpretation": "The candidate is slightly faster on the median of diagnosis medians and slightly slower on the other three median-of-run latency statistics. No frozen non-inferiority margin exists, so this checkpoint records the tradeoff and makes no strict latency or general performance claim."
+  },
+  "selection": {
+    "selected_configuration": "fresh-content-stale-metadata-context-v3",
+    "selection_class": "security-gated Pareto-frontier choice",
+    "strict_numeric_pareto_dominance": false,
+    "reason": "V2 fails the mandatory frozen stale-payload projection gate in every same-manifest run by exposing stale title and content. V3 is the only evaluated configuration that passes every hard correctness, boundary, policy, security, utility, reliability, and cost gate. It removes stale payload exposure while retaining stale identity, complete fresh payload, exact behavior, all prior metrics, the action surface, and runtime authority. The small local latency tradeoff is explicit.",
+    "claim_boundary": "Runbook Sentinel remains research-informed. This comparison supports selection on the frozen synthetic suite only; it does not establish production readiness, universal prompt-injection resistance, strict numeric Pareto dominance, strict latency dominance, or comparative superiority to external systems."
+  },
+  "retained_failures": [
+    "The first complete-suite candidate run failed because the optional model adapter directly indexed content on metadata-only stale evidence; the generic field-preserving serializer and focused model-request regression fixed the boundary without changing any frozen case, expectation, or grader.",
+    "V2 comparison attempt 005 retained a large local latency outlier; it is included in means and artifacts and is not discarded from the selection record."
+  ]
+}

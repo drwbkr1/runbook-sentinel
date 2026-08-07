@@ -40,6 +40,12 @@ The fresh v0.0.8 run passed, but a bounded development probe showed that five st
 
 `freshness-priority-lexical-v3` is selected as the only configuration passing the stale-evidence hard gates across three same-manifest 84-trial runs. Retained v2 comparisons remain `remediate`. The selection records a small local common-case latency increase and therefore makes no strict Pareto-dominance or general performance claim. Version-bound, native-surface, clean-clone, GitHub, merged-main, tag, release, and public-artifact verification pass. The next checkpoint remains intentionally unchosen until a fresh run of public v0.0.9 exposes the next measurable weakness.
 
+## Active checkpoint baseline-0010 - stale-payload decision boundary
+
+The fresh v0.0.9 run passed but showed that the released decision context still forwards stale project titles and content to the agent/model boundary. Those payloads are unnecessary for exact replacement-evidence requests and enlarge the attack surface. Schema 1.9 freezes one development and one sealed held-out projection case, exact field-level requirements, complete fresh-payload retention, and unchanged behavior.
+
+`fresh-content-stale-metadata-context-v3` is selected as the only hard-gate-passing configuration across six same-manifest 84-trial runs. It retains complete retrieval records for audit, passes full fresh records to the decision context, and projects stale records to `id`, `kind`, and `observed_at`. Retained v2 controls expose stale payloads and remain `remediate`. Release verification is in progress; the selection is a security-gated Pareto-frontier choice, not a strict latency, production-readiness, or external-system superiority claim.
+
 ## Research preview v0.1.0
 
 Expand to at least 48 frozen cases across the approved SRE topology, meet precommitted security and utility gates, verify all real surfaces, and release only with a reconciled evaluation report and explicit repository visibility decision.

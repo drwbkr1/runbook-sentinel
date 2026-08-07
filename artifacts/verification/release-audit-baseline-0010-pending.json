@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "release_id": "RUNBOOK-SENTINEL-v0.0.10",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2 and user-selected public GitHub visibility",
+    "authorized_actions": [
+      "commit verified checkpoint",
+      "push verified checkpoint branch",
+      "open and review pull request",
+      "merge verified pull request",
+      "tag verified release closure",
+      "publish public GitHub release",
+      "verify public release artifacts"
+    ]
+  },
+  "risk_classes": [
+    "documentation",
+    "runtime",
+    "security",
+    "public"
+  ],
+  "candidate": {
+    "base_commit": "271e49a05034dacddd0fc06c021ceab520b2286b",
+    "commit": "1fafe2c99e96d84693a4ba54271694611b3602e4",
+    "version": "0.0.10",
+    "tag": "v0.0.10",
+    "artifacts": [
+      "artifacts/evaluations/runs/baseline-0010-attempt-001.json",
+      "artifacts/verification/native-baseline-0010.json",
+      "artifacts/verification/dashboard-baseline-0010.png",
+      "artifacts/verification/clean-clone-baseline-0010.json"
+    ]
+  },
+  "live_truth": {
+    "verified_at_utc": "2026-08-07T17:45:14Z",
+    "branch": "codex/baseline-0010-stale-payload-projection",
+    "remote_commit": "",
+    "pull_request": null,
+    "tag_target": "",
+    "deployment": null
+  },
+  "checks": [
+    {
+      "id": "CHECK-LOCAL-SCOPE",
+      "category": "scope",
+      "required": true,
+      "status": "pass",
+      "method": "Review base-to-candidate diff and unchanged authority files",
+      "evidence": ["git diff 271e49a..1fafe2c", "agent.py, policy.py, and storage.py unchanged"],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-LOCAL-EVALUATION",
+      "category": "runtime",
+      "required": true,
+      "status": "pass",
+      "method": "Run frozen version-bound evaluation and independent validators",
+      "evidence": ["baseline-0010-attempt-001", "27-file manifest", "19 tests"],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-LOCAL-SURFACES",
+      "category": "runtime",
+      "required": true,
+      "status": "pass",
+      "method": "Exercise CLI, MCP, HTTP approval/executor, dashboard, SQLite, audit, and JSONL telemetry",
+      "evidence": ["native-baseline-0010.json", "dashboard-baseline-0010.png"],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-CLEAN-CLONE",
+      "category": "portability",
+      "required": true,
+      "status": "pass",
+      "method": "Verify detached git clone with no local object sharing",
+      "evidence": ["clean-clone-baseline-0010.json"],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-REMOTE-REVIEW",
+      "category": "public",
+      "required": true,
+      "status": "not_run",
+      "method": "",
+      "evidence": [],
+      "reason": "Candidate branch has not yet been pushed or reviewed on GitHub."
+    },
+    {
+      "id": "CHECK-PUBLIC-RELEASE",
+      "category": "public",
+      "required": true,
+      "status": "not_run",
+      "method": "",
+      "evidence": [],
+      "reason": "Tag, release, rendered pages, and public-tag clone do not exist yet."
+    }
+  ],
+  "truth_surfaces": [
+    {
+      "path_or_uri": "C:\\Projects\\Active\\runbook-sentinel",
+      "expected_state": "candidate commit and clean worktree",
+      "observed_state": "candidate commit plus pending receipt files",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel",
+      "expected_state": "reviewed v0.0.10 release",
+      "observed_state": "public v0.0.9 remains current",
+      "status": "unknown"
+    }
+  ],
+  "limitations": [
+    "Synthetic SRE only; no real operational infrastructure or credentials.",
+    "Container packaging is deferred and no package-registry release is claimed.",
+    "Selection is security-gated and not strict numeric Pareto or latency dominance."
+  ],
+  "decision": {
+    "reported_status": "pending",
+    "rationale": "Local and clean-clone gates pass; remote review and public truth are intentionally not yet claimed.",
+    "next_action": "Commit receipts, push the reviewed candidate branch, and open a draft pull request.",
+    "authorized_next_actions": []
+  }
+}

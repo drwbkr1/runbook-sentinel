@@ -2,6 +2,7 @@
 
 | Version | Checkpoint | Status | Evidence |
 |---|---|---|---|
+| 0.0.10 | baseline-0010 | verified clean-clone and draft-PR public-release candidate; not yet published | public-v0.0.9 orientation, 16-criterion source gate, gap, naive-drop rejection, v2 pre-change control, held-out boundary, six v2 and six v3 same-manifest runs, comparison, version-bound attempt `001`, native, clean-clone, and PR receipts, active `contracts/milestone-0010.json`, ADR `0007`, PR `#9`; public release evidence pending |
 | 0.0.9 | baseline-0009 | verified and published as a public synthetic-only research preview | orientation, source gate, gap, v2 pre-change controls, three v3 comparison runs, version-bound attempt `002`, native, clean-clone, GitHub PR, and merged-main receipts, ADR `0006`, PR `#8`, Git tag `v0.0.9` |
 | 0.0.8 | baseline-0008 | verified and published as a public synthetic-only research preview | orientation, source gate, gap, pre-change control, v1 comparison, v2 attempts `001` and `002`, retrieval comparison, native, clean-clone, and merged-main receipts, `contracts/milestone-0008.json`, ADR `0005`, PR `#7`, Git tag `v0.0.8` |
 | 0.0.7 | baseline-0007 | verified and published as a public synthetic-only research preview | orientation, source gate, gap, pre-grader control, attempts `001` and `002`, native, clean-clone, and merged-main receipts, `contracts/milestone-0007.json`, PR `#6`, Git tag `v0.0.7` |

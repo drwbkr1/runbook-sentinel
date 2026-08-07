@@ -1,0 +1,81 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0010-stale-payload-projection-20260807",
+  "assessed_at": "2026-08-07T03:19:22Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_actions": [
+      "review public primary research metadata and methods",
+      "cite and narrowly paraphrase approved methods in project records",
+      "implement project-authored deterministic stale-payload projection tests",
+      "publish citations and project-authored evaluation evidence"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Use current primary research to motivate structural separation of untrusted retrieved payloads from trusted control and capability enforcement in a bounded synthetic SRE agent. Import no external code, dataset, model, executable, dependency, repository, or paper file.",
+    "planned_actions": [
+      "review public primary research metadata and methods",
+      "cite and narrowly paraphrase approved methods in project records",
+      "implement project-authored deterministic stale-payload projection tests",
+      "publish citations and project-authored evaluation evidence"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "arxiv-2503.18813v2-camel",
+      "name": "Defeating Prompt Injections by Design",
+      "locator": "https://arxiv.org/abs/2503.18813",
+      "criteria": [
+        {"id": "identity", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://arxiv.org/abs/2503.18813", "observed_at": "2026-08-07T03:19:22Z", "note": "arXiv identifies Debenedetti et al., arXiv:2503.18813v2, revised 24 June 2025, with DOI 10.48550/arXiv.2503.18813."}], "note": "The canonical research record and exact version are established."},
+        {"id": "authority", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://arxiv.org/abs/2503.18813", "observed_at": "2026-08-07T03:19:22Z", "note": "The author-submitted primary paper describes CaMeL and reports its system design and evaluation directly."}], "note": "Authority is limited to the paper's control/data-flow and capability-enforcement design claims."},
+        {"id": "access", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://arxiv.org/abs/2503.18813", "observed_at": "2026-08-07T03:19:22Z", "note": "Canonical metadata and abstract were publicly accessible without authentication, payment, account, secret, or download."}], "note": "Only public metadata and abstract-level method review are required."},
+        {"id": "rights", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://creativecommons.org/licenses/by/4.0/", "observed_at": "2026-08-07T03:19:22Z", "note": "The arXiv record links CC BY 4.0; the project retains attribution, a canonical link, and narrow paraphrase only."}], "note": "No paper text, figure, code, dataset, or model is copied or redistributed."},
+        {"id": "provenance", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "arXiv:2503.18813v2 and DOI 10.48550/arXiv.2503.18813", "note": "The project cites the canonical record directly with exact version and DOI."}], "note": "No external artifact enters project custody."},
+        {"id": "integrity", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "https://doi.org/10.48550/arXiv.2503.18813", "note": "Canonical identifier, authors, version, and revision date bind citation-only use; no file is acquired."}], "note": "Citation identity is sufficient for this use."},
+        {"id": "fitness", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "CaMeL abstract on arXiv", "note": "The paper explicitly separates trusted control and data flows and enforces capabilities around an LLM handling untrusted environment data."}], "note": "This supports moving unnecessary stale payload out of the decision boundary; it does not establish equivalence or reproduced performance."},
+        {"id": "privacy-security", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "BASELINE-0010 intended use", "note": "No executable, code, data, model, personal information, secret, active content, or external dependency is imported; all cases are project-authored synthetic SRE records."}], "note": "Citation-only use cannot broaden runtime authority."}
+      ]
+    },
+    {
+      "source_id": "usenix-security-2025-struq-307694",
+      "name": "StruQ: Defending Against Prompt Injection with Structured Queries",
+      "locator": "https://www.usenix.org/conference/usenixsecurity25/presentation/chen-sizhe",
+      "criteria": [
+        {"id": "identity", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://www.usenix.org/conference/usenixsecurity25/presentation/chen-sizhe", "observed_at": "2026-08-07T03:19:22Z", "note": "USENIX identifies Chen, Piet, Sitawarin, and Wagner; USENIX Security 25; pages 2383-2400; record 307694."}], "note": "The canonical publisher record and exact paper identity are established."},
+        {"id": "authority", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://www.usenix.org/conference/usenixsecurity25/presentation/chen-sizhe", "observed_at": "2026-08-07T03:19:22Z", "note": "USENIX's primary publisher record supplies authors, venue, publication metadata, abstract, and open-access materials."}], "note": "Authority is limited to the paper's structured prompt/data separation method and reported findings."},
+        {"id": "access", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://www.usenix.org/conference/usenixsecurity25/presentation/chen-sizhe", "observed_at": "2026-08-07T03:19:22Z", "note": "The canonical metadata and abstract were publicly accessible; USENIX labels the event materials open access."}], "note": "Only the public publisher page is required."},
+        {"id": "rights", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://www.usenix.org/conference/usenixsecurity25/presentation/chen-sizhe", "observed_at": "2026-08-07T03:19:22Z", "note": "USENIX states the research is open access. The project uses only bibliographic attribution, a link, and narrow factual paraphrase."}], "note": "No paper, slide, code, dataset, or model is copied, trained, executed, or redistributed."},
+        {"id": "provenance", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "USENIX Security 25 record 307694", "note": "The project cites the primary publisher record without a secondary intermediary."}], "note": "No external artifact enters project custody."},
+        {"id": "integrity", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "https://www.usenix.org/conference/usenixsecurity25/presentation/chen-sizhe", "note": "Publisher metadata binds title, authors, venue, year, pages, and ISBN for citation-only use."}], "note": "Canonical metadata is sufficient for this use."},
+        {"id": "fitness", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "StruQ abstract on USENIX", "note": "The paper attributes prompt injection to failure to separate instructions from data and evaluates a two-channel structured-query approach."}], "note": "This directly supports measuring payload separation at the decision boundary; no fine-tuning or external implementation is adopted."},
+        {"id": "privacy-security", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "BASELINE-0010 intended use", "note": "No executable, code, data, model, personal information, secret, active content, or external dependency is imported; synthetic attack strings remain project-authored."}], "note": "Citation-only use cannot alter capability or execution boundaries."}
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "review public primary research metadata and methods",
+      "cite and narrowly paraphrase approved methods in project records",
+      "implement project-authored deterministic stale-payload projection tests",
+      "publish citations and project-authored evaluation evidence"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "record exact citations and narrow method summaries",
+      "implement project-authored synthetic stale-payload projection cases and graders",
+      "publish project-authored source, contracts, and evaluation evidence with attribution"
+    ],
+    "requires_explicit_authorization": [
+      "download or import external code, repositories, datasets, models, paper files, or executables",
+      "authenticate, accept terms, purchase, upload, or disclose a secret",
+      "claim Runbook Sentinel reproduces either system or is production-safe because of either source",
+      "interact with real operational infrastructure"
+    ]
+  }
+}

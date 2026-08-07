@@ -1,0 +1,210 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0010",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": ["research_review", "local_verification", "repository_change", "local_commit", "github_push"],
+    "user_instruction": "Continue selecting and shipping bounded evidence-driven checkpoints without routine approval while preserving the thesis, external-source gates, and security boundaries.",
+    "repository_controls": ["AGENTS.md", "C:\\Projects\\STORAGE_POLICY.md", "contracts/milestone-0009.json", "docs/status.md"],
+    "active_contract": "contracts/milestone-0010.json",
+    "verified_at_utc": "2026-08-07T03:19:22Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Remove stale title and content payloads from the agent decision boundary while retaining stale record identity and timestamp for exact replacement requests, full retrieved records for audit, complete fresh evidence for diagnosis, and unchanged bounded behavior in development and untouched held-out splits.",
+    "allowed_paths": ["C:\\Projects\\Active\\runbook-sentinel", "C:\\Projects\\Verification"],
+    "forbidden_work": [
+      "Connect to or mutate real operational infrastructure",
+      "Add, remove, or broaden an executor action or capability",
+      "Give the agent or model credentials, approval material, idempotency authority, or execution access",
+      "Weaken authorization, proposal hashing, expiry, idempotency, replay protection, preconditions, postconditions, audit logging, evidence-kind boundaries, or the one-hour freshness rule",
+      "Add a package dependency, model, external service, secret, account, download, or externally controlled asset",
+      "Change repository visibility, access, ownership, or the deterministic default",
+      "Use held-out candidate projection results as implementation feedback",
+      "Rewrite or discard unfavorable, failed, stale, blocked, or superseded evidence"
+    ],
+    "reversible_actions": [
+      "Freeze project-authored development and held-out stale-payload variants and exact projection expectations",
+      "Add a fail-closed independent stale-payload validator and separate metrics",
+      "Retain v1 and v2 decision contexts and compare one metadata-projection candidate",
+      "Project stale evidence to id, kind, and observed_at only at the agent boundary",
+      "Retain complete retrieved documents for audit and complete fresh evidence for diagnosis",
+      "Record immutable deterministic evaluation artifacts and release receipts",
+      "Commit and publish a verified checkpoint"
+    ],
+    "stop_conditions": [
+      "Core thesis change",
+      "Security-boundary weakening",
+      "New action, dependency, external asset, spend, paid service, secret, account, or download required",
+      "Real operational infrastructure interaction",
+      "Access or ownership change",
+      "Irreversible action",
+      "Unverifiable shipment"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.9 local main, origin main, annotated tag, peeled remote tag, public release, rendered pages, and release closure reconcile to 271e49a05034dacddd0fc06c021ceab520b2286b",
+        "Fresh v0.0.9 orientation passes all 84 trials, 33 expected executions, 51 exact no-action trials, all gates, and zero model calls or cost",
+        "The released boundary exposes 27 stale records and 2913 stale title/content characters in 15 of 84 attempts while using zero stale records for facts",
+        "A development-only remove-all-stale probe changes one exact replacement request and is rejected",
+        "A development-only metadata projection preserves exact behavior in 14 of 14 cases and removes all 418 stale title/content characters in the affected development cases",
+        "No held-out candidate result has been run or inspected"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {"id": "EXIT-001", "status": "pending", "evidence": []}
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Resume from public v0.0.9, rerun the released system, inspect traces, quantify stale payload exposure, reject the lossy candidate, and gate current primary research",
+      "depends_on": [],
+      "action_class": "research_review",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["v0.0.9", "fresh released-system orientation", "current decision context", "current primary research"],
+      "outputs": ["verified checkpoint orientation", "stale-payload gap receipt", "ready research source gate", "bounded objective"],
+      "gates": {"latest_checkpoint_verified": true, "gap_measurable": true, "held_out_unrevealed": true, "external_import": false},
+      "disposition": "pass",
+      "retained_failures": [
+        "A remove-all-stale development probe preserved the coarse outcome but lost the exact stale-record replacement request in dev-stale-cache-evidence and was rejected.",
+        "docs/status.md retained the previous release branch name while the verified checkout was main; the discrepancy is preserved in the gap receipt for prospective correction.",
+        "A PowerShell Get-Date -AsUTC probe failed because the host lacks that parameter; DateTime.UtcNow supplied the timestamp and no project state changed."
+      ],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze a discriminating stale-payload projection contract, development and untouched held-out pairs, exact behavior and payload expectations, independent validator, immutable manifest, and pre-change control before implementation",
+      "depends_on": ["UNIT-001"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["schema 1.8 catalog", "gap receipt", "ready source gate", "unchanged v0.0.9 decision context"],
+      "outputs": ["schema 1.9 catalog", "stale-payload projection contract", "independent validator", "expanded frozen manifest", "pre-change comparison"],
+      "gates": {"frozen_before_implementation": true, "held_out_not_feedback": true, "new_actions": false, "runtime_authority_change": false},
+      "disposition": "pass",
+      "retained_failures": [
+        "The first independent-validator run compared the frozen evidence-kind list to a sorted set, reversing the intended telemetry/status presentation order and reporting a false mismatch; the validator now checks both the exact declared order and exact set without changing any scenario, expectation, or candidate rule."
+      ],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement and test one generic stale metadata-projection candidate plus separate boundary-exposure metrics and gates",
+      "depends_on": ["UNIT-002"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["frozen stale-payload contract", "pre-change control"],
+      "outputs": ["candidate decision context", "fail-closed metrics", "focused development regressions"],
+      "gates": {"agent_purpose_unchanged": true, "action_surface_unchanged": true, "freshness_duration_unchanged": true, "new_dependencies": false, "model_boundary_projected": true},
+      "disposition": "pass",
+      "retained_failures": [
+        "The first attempt to preserve the pre-change manifest by recreating its JSON through apply_patch changed only Windows line endings and produced a different SHA-256; it was superseded by an exact byte copy that matches f02a330566834ae1d28139761ec7728c4f8fb4bb7b44b0dfd7aace80f53259ec.",
+        "The first complete-suite candidate run found that the optional model adapter required document content with direct indexing and raised KeyError on metadata-only stale evidence before any model call; the generic serializer now preserves only fields actually present, and a focused model-boundary regression asserts that stale title and content are absent.",
+        "The same complete-suite run found one stale test expectation for manifest checkpoint baseline-0009 after the candidate manifest was correctly sealed as baseline-0010; the expectation was corrected without changing a scenario, candidate, metric, or grader."
+      ],
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Reveal held-out results once, run repeated evaluation, compare v2 and candidate evidence, and select only a measured Pareto improvement",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["frozen expanded suite", "completed generic candidate and graders"],
+      "outputs": ["immutable evaluation attempts", "configuration comparison", "evidence disposition"],
+      "gates": {"failed_trials_retained": true, "metrics_separate": true, "held_out_revealed_once_after_implementation": true, "same_manifest_comparison": true, "latency_tradeoff_explicit": true},
+      "disposition": "pass",
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Version, validate real CLI, API, MCP, approval, executor, dashboard, persistence, telemetry, container, and package surfaces; reconcile records; clean-clone; review; merge; tag; release; and verify the bounded checkpoint",
+      "depends_on": ["UNIT-004"],
+      "action_class": "github_push",
+      "human_gate": false,
+      "status": "in_progress",
+      "inputs": ["passing selected candidate", "reconciled living records"],
+      "outputs": ["baseline-0010 public release"]
+    }
+  ],
+  "verification": {
+    "changed_risks": [
+      "Malformed, missing, or future timestamps leaking stale payloads or being projected incorrectly",
+      "Projection removing stale identity needed for exact replacement requests",
+      "Projection removing fresh content needed for diagnosis",
+      "Full stale payloads leaking into a future model adapter despite deterministic-control success",
+      "Decision-context IDs masking actual payload exposure",
+      "Held-out leakage while authoring paired stress cases",
+      "Security improvement masking generation, trajectory, terminal, latency, or utility regression"
+    ],
+    "required_checks": [
+      "Exact public v0.0.9 identity and fresh orientation",
+      "Ready current-primary-research source gate with no imported asset",
+      "Frozen stale-payload schema and exact development and held-out pairs",
+      "Independent validator rejects missing, mismatched, fresh, non-discriminating, or held-out-incomplete stressors",
+      "Pre-change v2 full-payload exposure retained before candidate implementation",
+      "Generic projection based only on project kind, scenario as_of, and the unchanged one-hour freshness rule",
+      "Malformed, missing, and future timestamps fail closed",
+      "Full retrieved documents retained for audit; fresh decision payload retained; stale identity, kind, and observed_at retained; stale title and content removed",
+      "Separate retrieval, generation, proposal, trajectory, terminal, policy, utility, security, reliability, latency, cost, relation, stale-evidence, and stale-payload metrics",
+      "Unchanged agent purpose, three-action set, approval boundary, executor policy, API and MCP capability surface, and deterministic offline default",
+      "CLI, MCP, API, approval, executor, replay, dashboard, persistence, telemetry, manifest, tests, container, clean clone, GitHub review, merged main, tag, release, and rendered public pages"
+    ],
+    "completed_checks": [
+      "Public v0.0.9 identity, release, rendered pages, and clean local starting state verified",
+      "Fresh 84-trial orientation passed with all released gates favorable and report and trace retained outside the repository",
+      "Boundary measurement found 27 stale record exposures, 2913 stale title/content characters, and zero stale fact uses across 84 trials",
+      "Development-only metadata projection preserved 14 of 14 exact behaviors and eliminated all measured stale title/content exposure",
+      "Two-source primary-research gate is ready for citation and project-authored synthetic tests only; it imports no external asset"
+      ,"Schema 1.9 freezes one development and one held-out stale-payload boundary case, exact stale metadata, forbidden stale payload, complete fresh payload, behavior, trajectory, incident, and terminal expectations before candidate implementation"
+      ,"All six independent validators, compilation, and 17 tests pass before the decision-context change; the 27-file manifest passes at SHA-256 f02a330566834ae1d28139761ec7728c4f8fb4bb7b44b0dfd7aace80f53259ec"
+      ,"Immutable v2 pre-change attempt 001 has disposition remediate across six boundary attempts: stale identity retention, fresh payload retention, exact behavior, and both split rates are 1.0; stale metadata projection is 0.0 and stale payload exposure is 1.0"
+      ,"Pre-change attempt 001 SHA-256 is 2ea786597ece8cfe65442209a589fef465570c0d28a7aae6035934eea4dd3fbb; no held-out candidate result was run or inspected"
+      ,"Generic fresh-content-stale-metadata context v3 projects stale project evidence to id, kind, and observed_at using only the existing fail-closed freshness predicate; v1 and v2 remain callable and retrieval ranking, agent logic, action policy, approval, and executor are unchanged"
+      ,"The first frozen held-out candidate boundary reveal passed without scenario, candidate, or grader change: all six attempts retain stale identity, exact stale metadata, complete fresh payload, exact behavior, and split exactness at 1.0 while stale payload exposure is 0.0; report SHA-256 is 75ce3817b45091193c4a6688e5d23a9f17f78d8c8427867fd6537cb48876e65d"
+      ,"After the retained model-adapter remediation, 19 tests pass including an exact model-request assertion that metadata-only stale evidence omits title and content; the current 27-file candidate manifest passes at SHA-256 e465869a10de3f313f97c8fbd11c62754747a990f04e7c262085fafa2265b66a"
+      ,"Six v3 and six retained v2 same-manifest evaluations cover 1008 attempts. Every v3 run passes and every v2 run is remediate; all report, trace, and copied-manifest hashes verify and no approval token, authorization header, bearer value, or secret term appears"
+      ,"V3 changes only the frozen boundary objective: stale metadata projection 1.0 and stale payload exposure 0.0 versus v2 values 0.0 and 1.0. Retrieval, generation, proposal, trajectory, terminal, prior stress, policy, utility, security, reliability, coverage, model calls, and external cost are exact across configurations"
+      ,"V3 is selected as the only hard-gate-passing security configuration. Strict numeric Pareto and latency dominance are false: across six runs the median-of-run end-to-end median and p95 are 1.794 and 4.7775 ms higher, while the median of diagnosis medians is 0.141 ms lower; no general performance claim is made"
+    ],
+    "artifacts": [
+      "artifacts/verification/stale-payload-gap-baseline-0010.json",
+      "artifacts/verification/research-source-gate-baseline-0010.json",
+      "artifacts/evaluations/runs/baseline-0010-v2-prechange-control-attempt-001.json",
+      "artifacts/evaluations/runs/baseline-0010-v2-prechange-control-attempt-001.manifest.json",
+      "artifacts/evaluations/runs/baseline-0010-v3-candidate-boundary-attempt-001.json",
+      "artifacts/evaluations/runs/baseline-0010-v3-candidate-boundary-attempt-001.manifest.json",
+      "artifacts/verification/decision-context-comparison-baseline-0010.json",
+      "C:\\Projects\\Verification\\runbook-sentinel-baseline-0010-orientation-20260807T031236Z.json",
+      "C:\\Projects\\Verification\\runbook-sentinel-baseline-0010-orientation-20260807T031236Z.traces.jsonl"
+    ],
+    "disposition": "in_progress"
+  },
+  "handoff": {
+    "current_checkpoint": "Public v0.0.9 is verified; BASELINE-0010 has selected stale payload projection as its one bounded improvement.",
+    "next_action": "Complete UNIT-005 by versioning v0.0.10, validating all real local and clean-clone surfaces, reconciling living records, reviewing and publishing through GitHub, and verifying merged main, tag, release, and rendered public artifacts.",
+    "do_not_carry_forward": [
+      "Do not use held-out candidate results as implementation feedback.",
+      "Do not import external paper, code, data, model, dependency, executable, or repository.",
+      "Do not broaden the action, approval, executor, credential, or real-infrastructure boundary.",
+      "Do not rewrite unfavorable, stale, failed, or superseded evidence."
+    ]
+  },
+  "records": {
+    "required_updates": ["docs/status.md", "docs/roadmap.md", "docs/threat-model.md", "docs/evaluation-contract.md", "docs/evaluation-report.md", "docs/research-ledger.md", "docs/devlog.md", "CHANGELOG.md", "docs/version-history.md", "ADRs if an architecture decision survives comparison"],
+    "preserve_unfavorable_results": true,
+    "latest_verified_checkpoint": "public v0.0.9 release closure",
+    "next_resume_point": "BASELINE-0010 UNIT-005 version-bound and public-release verification"
+  }
+}

@@ -19,11 +19,11 @@ def sha256(path: Path) -> str:
 
 
 def main() -> None:
-    database = ROOT / "var/live-api-baseline-0009.db"
-    trace = ROOT / "artifacts/runtime/live-api-baseline-0009-traces.jsonl"
+    database = ROOT / "var/live-api-baseline-0010.db"
+    trace = ROOT / "artifacts/runtime/live-api-baseline-0010-traces.jsonl"
     evaluation = ROOT / "artifacts/evaluations/latest.json"
     manifest = ROOT / "eval/manifest.json"
-    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0009.png"
+    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0010.png"
     required = [database, trace, evaluation, manifest, screenshot]
     missing = [str(path) for path in required if not path.exists()]
     if missing:
@@ -65,12 +65,17 @@ def main() -> None:
         "audit_contains_approval_and_execution": "proposal.approved" in audit_types and "proposal.executed" in audit_types,
         "trace_has_expected_events": {"sentinel.run", "sentinel.approval", "sentinel.execute"}.issubset({event["name"] for event in trace_events}),
         "trace_has_no_forbidden_terms": not forbidden_trace_terms,
-        "decision_context_is_evidence_only": bool(run_trace_events)
+        "decision_context_is_stale_metadata_v3": bool(run_trace_events)
         and all(
-            event["attributes"].get("retrieval.decision_context") == "evidence-only-context-v2"
+            event["attributes"].get("retrieval.decision_context")
+            == "fresh-content-stale-metadata-context-v3"
             and event["attributes"].get("retrieval.operation") == "freshness-priority-lexical-v3"
             and event["attributes"].get("retrieval.decision_document_count", 0)
             <= event["attributes"].get("retrieval.document_count", 0)
+            and event["attributes"].get(
+                "retrieval.decision_stale_payload_characters"
+            )
+            == 0
             for event in run_trace_events
         ),
         "evaluation_passed": latest["gates"]["baseline_disposition"] == "pass",
@@ -86,6 +91,10 @@ def main() -> None:
         "evaluation_fresh_evidence_recall": latest["metrics"]["stale_evidence_stress"]["fresh_project_evidence_recall_at_4"] == 1.0,
         "evaluation_fresh_decision_retention": latest["metrics"]["stale_evidence_stress"]["fresh_decision_evidence_retention_rate"] == 1.0,
         "evaluation_stale_stress_exact_behavior": latest["metrics"]["stale_evidence_stress"]["exact_behavior_retention_rate"] == 1.0,
+        "evaluation_stale_identity_retained": latest["metrics"]["stale_payload_projection"]["stale_identity_retention_rate"] == 1.0,
+        "evaluation_stale_metadata_projected": latest["metrics"]["stale_payload_projection"]["stale_metadata_projection_rate"] == 1.0,
+        "evaluation_stale_payload_exposure_zero": latest["metrics"]["stale_payload_projection"]["stale_payload_exposure_rate"] == 0.0,
+        "evaluation_fresh_payload_retained": latest["metrics"]["stale_payload_projection"]["fresh_payload_retention_rate"] == 1.0,
         "evaluation_matches_frozen_manifest": latest["manifest_sha256"] == sha256(manifest),
         "dashboard_has_expected_dimensions": (width, height) == (1440, 1000),
     }
@@ -110,10 +119,14 @@ def main() -> None:
             "fresh_evidence_recall": latest["metrics"]["stale_evidence_stress"]["fresh_project_evidence_recall_at_4"],
             "fresh_decision_retention": latest["metrics"]["stale_evidence_stress"]["fresh_decision_evidence_retention_rate"],
             "stale_stress_exact_behavior": latest["metrics"]["stale_evidence_stress"]["exact_behavior_retention_rate"],
+            "stale_identity_retention": latest["metrics"]["stale_payload_projection"]["stale_identity_retention_rate"],
+            "stale_metadata_projection": latest["metrics"]["stale_payload_projection"]["stale_metadata_projection_rate"],
+            "stale_payload_exposure": latest["metrics"]["stale_payload_projection"]["stale_payload_exposure_rate"],
+            "fresh_payload_retention": latest["metrics"]["stale_payload_projection"]["fresh_payload_retention_rate"],
         },
         "dashboard": {"sha256": sha256(screenshot), "width": width, "height": height},
     }
-    output = ROOT / "artifacts/verification/native-baseline-0009.json"
+    output = ROOT / "artifacts/verification/native-baseline-0010.json"
     output.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(receipt, indent=2, sort_keys=True))
     if receipt["status"] != "pass":

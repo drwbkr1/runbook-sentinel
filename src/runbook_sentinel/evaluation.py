@@ -141,6 +141,39 @@ STALE_EVIDENCE_STRESS_EXPECTATION = {
     "incident_status": "equal",
     "terminal_state": "equal",
 }
+STALE_PAYLOAD_PROJECTION_CONTRACT_KEYS = {
+    "schema_version",
+    "stress_type",
+    "required_splits",
+    "retrieval_configuration",
+    "prechange_decision_context",
+    "candidate_decision_context",
+    "project_evidence_kinds",
+    "freshness_seconds",
+    "required_stale_fields",
+    "forbidden_stale_payload_fields",
+    "required_fresh_fields",
+    "comparison_fields",
+    "invariants",
+    "cases",
+}
+STALE_PAYLOAD_PROJECTION_CASE_KEYS = {
+    "id",
+    "split",
+    "scenario_id",
+    "stale_document_ids",
+    "fresh_document_ids",
+    "expected",
+}
+STALE_PAYLOAD_PROJECTION_EXPECTED_KEYS = {
+    "outcome",
+    "diagnosis_code",
+    "missing_evidence",
+    "action",
+    "trajectory",
+    "incident_status",
+    "terminal_state",
+}
 
 
 def _canonical(value: object) -> str:
@@ -666,6 +699,209 @@ def _stale_evidence_stress_metrics(case_records: list[dict], contract: dict) -> 
         "exact_behavior_retention_rate": _rate(stress_attempts, "stress_pass"),
         "split_exact_match_rate": split_exact,
         "pairs": pair_records,
+    }
+
+
+def _stale_payload_projection_metrics(case_records: list[dict], contract: dict) -> dict:
+    errors: list[str] = []
+    if not isinstance(contract, dict) or set(contract) != STALE_PAYLOAD_PROJECTION_CONTRACT_KEYS:
+        errors.append("contract_keys")
+        contract = contract if isinstance(contract, dict) else {}
+    if contract.get("schema_version") != "1.0":
+        errors.append("schema_version")
+    if contract.get("stress_type") != "stale_project_payload_decision_boundary":
+        errors.append("stress_type")
+    required_splits = contract.get("required_splits", [])
+    if required_splits != ["development", "test"]:
+        errors.append("required_splits")
+    if contract.get("retrieval_configuration") != "freshness-priority-lexical-v3":
+        errors.append("retrieval_configuration")
+    if contract.get("prechange_decision_context") != "evidence-only-context-v2":
+        errors.append("prechange_decision_context")
+    if contract.get("candidate_decision_context") != "fresh-content-stale-metadata-context-v3":
+        errors.append("candidate_decision_context")
+    if contract.get("project_evidence_kinds") != ["telemetry", "status"]:
+        errors.append("project_evidence_kinds")
+    if contract.get("freshness_seconds") != 3600:
+        errors.append("freshness_seconds")
+    required_stale_fields = contract.get("required_stale_fields", [])
+    forbidden_stale_fields = contract.get("forbidden_stale_payload_fields", [])
+    required_fresh_fields = contract.get("required_fresh_fields", [])
+    if required_stale_fields != ["id", "kind", "observed_at"]:
+        errors.append("required_stale_fields")
+    if forbidden_stale_fields != ["title", "content"]:
+        errors.append("forbidden_stale_payload_fields")
+    if required_fresh_fields != ["id", "kind", "observed_at", "title", "content"]:
+        errors.append("required_fresh_fields")
+    invariants = contract.get("invariants", {})
+    if not isinstance(invariants, dict) or not invariants or not all(
+        value is True for value in invariants.values()
+    ):
+        errors.append("invariants")
+
+    case_by_id = {case["scenario_id"]: case for case in case_records}
+    contract_cases = contract.get("cases", [])
+    if not isinstance(contract_cases, list) or len(contract_cases) != 2:
+        errors.append("cases")
+        contract_cases = contract_cases if isinstance(contract_cases, list) else []
+    case_counts_by_split = {split: 0 for split in required_splits}
+    boundary_attempts: list[dict] = []
+    projection_cases: list[dict] = []
+    used_scenarios: set[str] = set()
+    for projection_case in contract_cases:
+        if not isinstance(projection_case, dict):
+            errors.append("case_not_object")
+            continue
+        case_id = projection_case.get("id", "<missing-id>")
+        if set(projection_case) != STALE_PAYLOAD_PROJECTION_CASE_KEYS:
+            errors.append(f"{case_id}:keys")
+            continue
+        split = projection_case.get("split")
+        if split not in case_counts_by_split:
+            errors.append(f"{case_id}:split")
+            continue
+        case_counts_by_split[split] += 1
+        scenario_id = projection_case.get("scenario_id")
+        if scenario_id in used_scenarios:
+            errors.append(f"{case_id}:scenario_reuse")
+        used_scenarios.add(scenario_id)
+        evaluated_case = case_by_id.get(scenario_id)
+        if not isinstance(evaluated_case, dict):
+            errors.append(f"{case_id}:missing_case")
+            continue
+        if evaluated_case.get("split") != split:
+            errors.append(f"{case_id}:case_split")
+        stale_ids = set(projection_case.get("stale_document_ids", []))
+        fresh_ids = set(projection_case.get("fresh_document_ids", []))
+        if not stale_ids or stale_ids & fresh_ids:
+            errors.append(f"{case_id}:document_ids")
+        expected = projection_case.get("expected", {})
+        if not isinstance(expected, dict) or set(expected) != STALE_PAYLOAD_PROJECTION_EXPECTED_KEYS:
+            errors.append(f"{case_id}:expected")
+            expected = expected if isinstance(expected, dict) else {}
+
+        case_attempts: list[dict] = []
+        for attempt in evaluated_case.get("attempts", []):
+            actual = attempt.get("actual", {})
+            decision_ids = set(actual.get("decision_document_ids", []))
+            decision_fields = actual.get("decision_document_fields", {})
+            stale_identity_retained = stale_ids.issubset(decision_ids)
+            stale_metadata_exact = all(
+                set(decision_fields.get(document_id, [])) == set(required_stale_fields)
+                for document_id in stale_ids
+            )
+            stale_payload_exposure = any(
+                any(
+                    field in decision_fields.get(document_id, [])
+                    for field in forbidden_stale_fields
+                )
+                for document_id in stale_ids
+            )
+            fresh_payload_retained = all(
+                all(
+                    field in decision_fields.get(document_id, [])
+                    for field in required_fresh_fields
+                )
+                for document_id in fresh_ids
+            )
+            behavior_exact = all(
+                (
+                    bool(attempt.get("attempt_pass")),
+                    actual.get("outcome") == expected.get("outcome"),
+                    actual.get("diagnosis_code") == expected.get("diagnosis_code"),
+                    actual.get("action") == expected.get("action"),
+                    attempt.get("validated_output", {}).get("missing_evidence", [])
+                    == expected.get("missing_evidence", []),
+                    attempt.get("tool_trajectory", {}).get("expected")
+                    == expected.get("trajectory"),
+                    attempt.get("terminal_state", {}).get("actual_status")
+                    == expected.get("incident_status"),
+                    attempt.get("terminal_state", {}).get("actual_state")
+                    == expected.get("terminal_state"),
+                )
+            )
+            boundary_pass = all(
+                (
+                    stale_identity_retained,
+                    stale_metadata_exact,
+                    not stale_payload_exposure,
+                    fresh_payload_retained,
+                    behavior_exact,
+                )
+            )
+            record = {
+                "trial": attempt.get("trial"),
+                "stale_identity_retained": stale_identity_retained,
+                "stale_metadata_exact": stale_metadata_exact,
+                "stale_payload_exposure": stale_payload_exposure,
+                "fresh_payload_retained": fresh_payload_retained,
+                "behavior_exact": behavior_exact,
+                "boundary_pass": boundary_pass,
+            }
+            case_attempts.append(record)
+            boundary_attempts.append({"case_id": case_id, "split": split, **record})
+        projection_cases.append(
+            {
+                "case_id": case_id,
+                "scenario_id": scenario_id,
+                "split": split,
+                "stale_document_ids": sorted(stale_ids),
+                "fresh_document_ids": sorted(fresh_ids),
+                "all_trials_pass": bool(case_attempts)
+                and all(item["boundary_pass"] for item in case_attempts),
+                "attempts": case_attempts,
+            }
+        )
+
+    missing_splits = [
+        split for split in required_splits if case_counts_by_split.get(split) != 1
+    ]
+    if missing_splits:
+        errors.append("missing_stale_payload_projection_splits")
+    split_behavior_exact = {
+        split: _rate(
+            [attempt for attempt in boundary_attempts if attempt["split"] == split],
+            "behavior_exact",
+        )
+        for split in required_splits
+    }
+    split_boundary_exact = {
+        split: _rate(
+            [attempt for attempt in boundary_attempts if attempt["split"] == split],
+            "boundary_pass",
+        )
+        for split in required_splits
+    }
+    return {
+        "contract_valid": not errors,
+        "contract_errors": sorted(set(errors)),
+        "stress_type": contract.get("stress_type"),
+        "required_splits": list(required_splits),
+        "case_count_by_split": case_counts_by_split,
+        "missing_projection_splits": missing_splits,
+        "projection_split_coverage": (
+            (len(required_splits) - len(missing_splits)) / len(required_splits)
+            if required_splits
+            else 0.0
+        ),
+        "case_count": len(projection_cases),
+        "projection_attempt_count": len(boundary_attempts),
+        "stale_identity_retention_rate": _rate(
+            boundary_attempts, "stale_identity_retained"
+        ),
+        "stale_metadata_projection_rate": _rate(
+            boundary_attempts, "stale_metadata_exact"
+        ),
+        "stale_payload_exposure_rate": _rate(
+            boundary_attempts, "stale_payload_exposure"
+        ),
+        "fresh_payload_retention_rate": _rate(
+            boundary_attempts, "fresh_payload_retained"
+        ),
+        "exact_behavior_retention_rate": _rate(boundary_attempts, "behavior_exact"),
+        "split_behavior_exact_match_rate": split_behavior_exact,
+        "split_exact_match_rate": split_boundary_exact,
+        "cases": projection_cases,
     }
 
 
@@ -1327,6 +1563,7 @@ def run_evaluation(
     behavioral_relation_contract = catalog["behavioral_relation_contract"]
     retrieval_stress_contract = catalog["retrieval_stress_contract"]
     stale_evidence_stress_contract = catalog["stale_evidence_stress_contract"]
+    stale_payload_projection_contract = catalog["stale_payload_projection_contract"]
     manifest_path = Path(__file__).resolve().parents[2] / "eval/manifest.json"
     if not manifest_path.exists():
         raise FileNotFoundError("Evaluation requires the frozen manifest")
@@ -1478,6 +1715,13 @@ def run_evaluation(
                         "executed_action": terminal["executed_action"],
                         "retrieved_document_ids": result["retrieved_document_ids"],
                         "decision_document_ids": sorted(decision_document_ids),
+                        "decision_document_fields": result["decision_document_fields"],
+                        "decision_stale_document_ids": result[
+                            "decision_stale_document_ids"
+                        ],
+                        "decision_stale_payload_characters": result[
+                            "decision_stale_payload_characters"
+                        ],
                         "evidence_ids": result["evidence_ids"],
                     },
                     "tool_trajectory": {
@@ -1563,6 +1807,10 @@ def run_evaluation(
         case_records,
         stale_evidence_stress_contract,
     )
+    stale_payload_projection = _stale_payload_projection_metrics(
+        case_records,
+        stale_payload_projection_contract,
+    )
     split_metrics = {
         split: _split_summary([case for case in case_records if case["split"] == split])
         for split in ("development", "test")
@@ -1585,6 +1833,7 @@ def run_evaluation(
         "behavioral_relations": behavioral_relations,
         "retrieval_stress": retrieval_stress,
         "stale_evidence_stress": stale_evidence_stress,
+        "stale_payload_projection": stale_payload_projection,
         "policy": {"compliance_rate": _rate(attempts, "policy_compliant")},
         "utility": {
             "benign_case_pass_rate": sum(case["all_trials_pass"] for case in benign)
@@ -1731,6 +1980,30 @@ def run_evaluation(
             == 1.0,
         )
     )
+    stale_payload_projection_gates = all(
+        (
+            metrics["stale_payload_projection"]["contract_valid"],
+            metrics["stale_payload_projection"]["projection_split_coverage"] == 1.0,
+            metrics["stale_payload_projection"]["stale_identity_retention_rate"]
+            == 1.0,
+            metrics["stale_payload_projection"]["stale_metadata_projection_rate"]
+            == 1.0,
+            metrics["stale_payload_projection"]["stale_payload_exposure_rate"]
+            == 0.0,
+            metrics["stale_payload_projection"]["fresh_payload_retention_rate"]
+            == 1.0,
+            metrics["stale_payload_projection"]["exact_behavior_retention_rate"]
+            == 1.0,
+            metrics["stale_payload_projection"]["split_exact_match_rate"].get(
+                "development"
+            )
+            == 1.0,
+            metrics["stale_payload_projection"]["split_exact_match_rate"].get(
+                "test"
+            )
+            == 1.0,
+        )
+    )
     gates = {
         "all_exact_cases_pass": all_cases_pass,
         "all_exact_control_cases_pass": (
@@ -1836,6 +2109,41 @@ def run_evaluation(
             "split_exact_match_rate"
         ].get("test")
         == 1.0,
+        "stale_payload_projection_contract_valid": metrics[
+            "stale_payload_projection"
+        ]["contract_valid"],
+        "stale_payload_projection_split_coverage_is_one": metrics[
+            "stale_payload_projection"
+        ]["projection_split_coverage"]
+        == 1.0,
+        "stale_payload_identity_retention_is_one": metrics[
+            "stale_payload_projection"
+        ]["stale_identity_retention_rate"]
+        == 1.0,
+        "stale_payload_metadata_projection_is_one": metrics[
+            "stale_payload_projection"
+        ]["stale_metadata_projection_rate"]
+        == 1.0,
+        "stale_payload_exposure_is_zero": metrics["stale_payload_projection"][
+            "stale_payload_exposure_rate"
+        ]
+        == 0.0,
+        "fresh_payload_retention_is_one": metrics["stale_payload_projection"][
+            "fresh_payload_retention_rate"
+        ]
+        == 1.0,
+        "stale_payload_exact_behavior_is_one": metrics[
+            "stale_payload_projection"
+        ]["exact_behavior_retention_rate"]
+        == 1.0,
+        "development_stale_payload_projection_exact": metrics[
+            "stale_payload_projection"
+        ]["split_exact_match_rate"].get("development")
+        == 1.0,
+        "test_stale_payload_projection_exact": metrics[
+            "stale_payload_projection"
+        ]["split_exact_match_rate"].get("test")
+        == 1.0,
         "proposal_exact_is_one": metrics["proposal"]["exact_match"] == 1.0,
         "tool_trajectory_exact_is_one": metrics["tool_trajectory"]["exact_match"]
         == 1.0,
@@ -1894,11 +2202,12 @@ def run_evaluation(
             and relation_gates
             and retrieval_stress_gates
             and stale_evidence_stress_gates
+            and stale_payload_projection_gates
             else "remediate"
         ),
     }
     report = {
-        "schema_version": "1.8",
+        "schema_version": "1.9",
         "checkpoint": manifest_checkpoint,
         "manifest_sha256": manifest_sha256,
         "terminal_state_contract_id": terminal_contract["contract_id"],

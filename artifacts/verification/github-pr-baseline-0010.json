@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0010",
+  "checked_at_utc": "2026-08-07T17:48:40Z",
+  "repository": "drwbkr1/runbook-sentinel",
+  "pull_request": 9,
+  "url": "https://github.com/drwbkr1/runbook-sentinel/pull/9",
+  "base": "main",
+  "base_commit": "271e49a05034dacddd0fc06c021ceab520b2286b",
+  "head_branch": "codex/baseline-0010-stale-payload-projection",
+  "reviewed_head": "54032842e26f8b6d2e6bb30a4138f20fa3cc22f2",
+  "local_head_matches_remote": true,
+  "draft": true,
+  "state": "OPEN",
+  "mergeable": "MERGEABLE",
+  "merge_state_status": "CLEAN",
+  "configured_check_count": 0,
+  "commit_count": 2,
+  "changed_file_count": 89,
+  "local_changed_file_count": 89,
+  "changed_file_sets_equal": true,
+  "rendered_description_verified": true,
+  "status": "pass",
+  "scope": {
+    "manifest_bound_code_or_contract_change_after_clean_clone": false,
+    "receipt_only_commit_pending": true,
+    "unexpected_file": false
+  },
+  "next_check": "Push the receipt-only commit, confirm the exact final PR head and changed-file set, then mark ready and merge only while GitHub remains clean and mergeable."
+}

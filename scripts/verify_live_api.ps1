@@ -2,10 +2,10 @@ $ErrorActionPreference = 'Stop'
 $env:PYTHONPATH = 'src'
 
 $pythonCmd = (Get-Command python).Source
-$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0009-stdout.log'
-$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0009-stderr.log'
-$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0009.db'
-$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0009-traces.jsonl'
+$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0010-stdout.log'
+$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0010-stderr.log'
+$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0010.db'
+$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0010-traces.jsonl'
 $generatedRuntimeFiles = @(
     $databasePath,
     "$databasePath-wal",
@@ -23,8 +23,8 @@ $serverArgs = @(
     '-m', 'runbook_sentinel', 'serve',
     '--host', '127.0.0.1',
     '--port', '8877',
-    '--db', 'var\live-api-baseline-0009.db',
-    '--trace', 'artifacts\runtime\live-api-baseline-0009-traces.jsonl',
+    '--db', 'var\live-api-baseline-0010.db',
+    '--trace', 'artifacts\runtime\live-api-baseline-0010-traces.jsonl',
     '--evaluation', 'artifacts\evaluations\latest.json'
 )
 
@@ -98,7 +98,7 @@ try {
     if (-not $edge) {
         throw 'Microsoft Edge executable not found'
     }
-    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0009.png'
+    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0010.png'
     & $edge `
         --headless `
         --disable-gpu `
@@ -107,7 +107,14 @@ try {
         --screenshot=$screenshotPath `
         http://127.0.0.1:8877/dashboard | Out-Null
 
-    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0009-traces.jsonl'
+    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0010-traces.jsonl'
+    $staleMetadataExact = $run.decision_stale_document_ids.Count -eq 3
+    foreach ($staleId in $run.decision_stale_document_ids) {
+        $fields = @($run.decision_document_fields.PSObject.Properties[$staleId].Value)
+        if (($fields -join ',') -ne 'id,kind,observed_at') {
+            $staleMetadataExact = $false
+        }
+    }
     $verification = [pscustomobject]@{
         health = $health.status
         checkpoint = $health.checkpoint
@@ -119,6 +126,8 @@ try {
         decision_document_count = $run.decision_document_ids.Count
         fresh_document_first = $run.retrieved_document_ids[0] -eq 'telemetry-worker-current'
         fresh_decision_evidence_retained = $run.decision_document_ids -contains 'telemetry-worker-current'
+        stale_metadata_exact = $staleMetadataExact
+        stale_payload_characters = $run.decision_stale_payload_characters
         action_hash_bound = ($approval.action_hash -eq $run.proposal.action_hash)
         execution_status = $execution.status
         postconditions_verified = $execution.postconditions_verified
@@ -142,26 +151,35 @@ try {
         evaluation_fresh_evidence_recall = $evaluation.metrics.stale_evidence_stress.fresh_project_evidence_recall_at_4
         evaluation_fresh_decision_retention = $evaluation.metrics.stale_evidence_stress.fresh_decision_evidence_retention_rate
         evaluation_stale_stress_exact_behavior = $evaluation.metrics.stale_evidence_stress.exact_behavior_retention_rate
+        evaluation_stale_identity_retention = $evaluation.metrics.stale_payload_projection.stale_identity_retention_rate
+        evaluation_stale_metadata_projection = $evaluation.metrics.stale_payload_projection.stale_metadata_projection_rate
+        evaluation_stale_payload_exposure = $evaluation.metrics.stale_payload_projection.stale_payload_exposure_rate
+        evaluation_fresh_payload_retention = $evaluation.metrics.stale_payload_projection.fresh_payload_retention_rate
         dashboard_http_status = $dashboardResponse.StatusCode
         dashboard_csp = $dashboardResponse.Headers['Content-Security-Policy']
-        dashboard_baseline_0009 = $dashboardResponse.Content.Contains('Baseline 0009')
+        dashboard_baseline_0010 = $dashboardResponse.Content.Contains('Baseline 0010')
         dashboard_terminal_metric = $dashboardResponse.Content.Contains('Terminal state exact')
         dashboard_condition_metric = $dashboardResponse.Content.Contains('Evidence condition coverage')
         dashboard_relation_metric = $dashboardResponse.Content.Contains('Behavioral relation exact')
         dashboard_guidance_stress_metric = $dashboardResponse.Content.Contains('Guidance stress recall')
         dashboard_fresh_evidence_metric = $dashboardResponse.Content.Contains('Fresh evidence recall')
+        dashboard_stale_identity_metric = $dashboardResponse.Content.Contains('Stale identity retained')
+        dashboard_stale_payload_metric = $dashboardResponse.Content.Contains('Stale payload exposure')
         dashboard_screenshot_exists = (Test-Path -LiteralPath $screenshotPath)
     }
     $checks = [ordered]@{
         health_ok = $verification.health -eq 'ok'
-        checkpoint_exact = $verification.checkpoint -eq 'baseline-0009'
+        checkpoint_exact = $verification.checkpoint -eq 'baseline-0010'
         outcome_exact = $verification.outcome -eq 'propose_action'
         proposal_exact = $verification.proposed_action -eq 'restart_worker'
         retrieval_configuration_exact = $verification.retrieval_configuration -eq 'freshness-priority-lexical-v3'
+        decision_context_configuration_exact = $verification.decision_context_configuration -eq 'fresh-content-stale-metadata-context-v3'
         retrieval_limit_exact = $verification.full_retrieval_count -eq 4
         decision_document_count_exact = $verification.decision_document_count -eq 4
         fresh_document_first = [bool]$verification.fresh_document_first
         fresh_decision_evidence_retained = [bool]$verification.fresh_decision_evidence_retained
+        stale_metadata_exact = [bool]$verification.stale_metadata_exact
+        stale_payload_characters_zero = $verification.stale_payload_characters -eq 0
         action_hash_bound = [bool]$verification.action_hash_bound
         execution_status_exact = $verification.execution_status -eq 'executed'
         postconditions_verified = [bool]$verification.postconditions_verified
@@ -170,7 +188,7 @@ try {
         idempotent_repeat_equal = [bool]$verification.idempotent_repeat_equal
         replay_rejected = $verification.replay_http_status -eq 409
         approval_token_absent_from_trace = -not $verification.approval_token_in_trace
-        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0009'
+        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0010'
         evaluation_agent_exact = $verification.evaluation_agent -eq 'deterministic-control-v2'
         evaluation_passed = $verification.evaluation_disposition -eq 'pass'
         evaluation_tool_trajectory_exact = $verification.evaluation_tool_trajectory_exact -eq 1.0
@@ -185,14 +203,20 @@ try {
         evaluation_fresh_evidence_recall = $verification.evaluation_fresh_evidence_recall -eq 1.0
         evaluation_fresh_decision_retention = $verification.evaluation_fresh_decision_retention -eq 1.0
         evaluation_stale_stress_exact_behavior = $verification.evaluation_stale_stress_exact_behavior -eq 1.0
+        evaluation_stale_identity_retention = $verification.evaluation_stale_identity_retention -eq 1.0
+        evaluation_stale_metadata_projection = $verification.evaluation_stale_metadata_projection -eq 1.0
+        evaluation_stale_payload_exposure = $verification.evaluation_stale_payload_exposure -eq 0.0
+        evaluation_fresh_payload_retention = $verification.evaluation_fresh_payload_retention -eq 1.0
         dashboard_http_ok = $verification.dashboard_http_status -eq 200
         dashboard_csp_present = $verification.dashboard_csp -like "*frame-ancestors 'none'*"
-        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0009
+        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0010
         dashboard_terminal_metric_present = [bool]$verification.dashboard_terminal_metric
         dashboard_condition_metric_present = [bool]$verification.dashboard_condition_metric
         dashboard_relation_metric_present = [bool]$verification.dashboard_relation_metric
         dashboard_guidance_stress_metric_present = [bool]$verification.dashboard_guidance_stress_metric
         dashboard_fresh_evidence_metric_present = [bool]$verification.dashboard_fresh_evidence_metric
+        dashboard_stale_identity_metric_present = [bool]$verification.dashboard_stale_identity_metric
+        dashboard_stale_payload_metric_present = [bool]$verification.dashboard_stale_payload_metric
         dashboard_screenshot_exists = [bool]$verification.dashboard_screenshot_exists
     }
     $receipt = [pscustomobject]@{
