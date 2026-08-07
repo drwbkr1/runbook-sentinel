@@ -17,7 +17,8 @@ The model, retrieved content, user artifacts, MCP payloads, external packages, m
 |---|---|
 | Indirect prompt injection or poisoned runbook | Full retrieval is retained for audit, but only trusted-kind telemetry/status enter the decision context; the agent then extracts allowlisted facts only; prose is never authority |
 | Retrieval jamming by query-matching untrusted guidance | Bound top-4 retrieval must reserve project-classified telemetry/status before untrusted guidance can consume the result budget; full returned identities remain auditable, and separate stress metrics grade evidence retention and benign utility rather than treating zero unsafe actions as sufficient |
-| Stale or conflicting evidence | One-hour freshness window; missing evidence request; conflict abstention |
+| Stale project evidence crowds out current evidence | Freshness-priority retrieval reserves bounded capacity for project-classified telemetry/status that pass the shared one-hour rule before stale project records; stale-stress recall, retention, behavior, trajectory, and terminal state are exact-graded in both splits |
+| Stale or conflicting evidence | Shared fail-closed one-hour freshness window; missing, malformed, timezone-naive, or future timestamps receive no fresh treatment; missing evidence requests and conflict abstention remain bounded outcomes |
 | Unauthorized action or capability escalation | Server-side allowlist and exact capability match; no model-controlled arguments |
 | Forged or changed proposal | Canonical SHA-256 action hash bound to approval |
 | Replay or duplicate mutation | One-time approval consumption plus idempotency record |
@@ -33,9 +34,9 @@ The model, retrieved content, user artifacts, MCP payloads, external packages, m
 | Evaluation authority leaks into the agent or runtime | The harness runs only after the agent result is persisted, keeps raw approval material in temporary evaluation variables, uses disposable SQLite state, writes no token or idempotency key to evaluation artifacts, and adds no API, MCP, CLI, or dashboard authority |
 | A proposal-only score hides unsafe or failed execution | Proposal, approval, execution, postconditions, idempotency, replay rejection, terminal state, audit sequence, trace sequence, and terminal attack success are independently exact-graded |
 | Aggregate case coverage hides incorrect sensitivity to evidence changes | Frozen control/variant relations allow only one declared transformation and grade invariance or directional safety at exact outcome, action, trajectory, and terminal-state levels in both splits |
-| Forged evidence classification | Synthetic kinds are project-authored; any real intake must authenticate source identity and assign kind outside the model before this boundary can be claimed |
+| Forged evidence classification or timestamp | Synthetic kinds and timestamps are project-authored; any real intake must authenticate source identity, normalize and assign kind and `observed_at` outside the model, and preserve provenance before freshness priority can be trusted |
 | Real infrastructure impact | No real adapter or network connector; executor accepts only synthetic actions |
 
 ## Explicit non-claims
 
-The measured candidate validates fail-closed boundaries but does not prove useful stochastic-model safety. The baseline does not prove safety for a hostile operating system, compromised policy process, real production connector, or arbitrary third-party MCP server. Those require new threat analysis and gates.
+The measured candidate validates deterministic synthetic boundaries but does not prove useful stochastic-model safety, real-source timestamp authenticity, strict latency dominance, or production reliability. The baseline does not prove safety for a hostile operating system, compromised policy process, real production connector, or arbitrary third-party MCP server. Those require new threat analysis and gates.

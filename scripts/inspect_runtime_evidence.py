@@ -19,11 +19,11 @@ def sha256(path: Path) -> str:
 
 
 def main() -> None:
-    database = ROOT / "var/live-api-baseline-0008.db"
-    trace = ROOT / "artifacts/runtime/live-api-baseline-0008-traces.jsonl"
+    database = ROOT / "var/live-api-baseline-0009.db"
+    trace = ROOT / "artifacts/runtime/live-api-baseline-0009-traces.jsonl"
     evaluation = ROOT / "artifacts/evaluations/latest.json"
     manifest = ROOT / "eval/manifest.json"
-    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0008.png"
+    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0009.png"
     required = [database, trace, evaluation, manifest, screenshot]
     missing = [str(path) for path in required if not path.exists()]
     if missing:
@@ -68,7 +68,7 @@ def main() -> None:
         "decision_context_is_evidence_only": bool(run_trace_events)
         and all(
             event["attributes"].get("retrieval.decision_context") == "evidence-only-context-v2"
-            and event["attributes"].get("retrieval.operation") == "evidence-priority-lexical-v2"
+            and event["attributes"].get("retrieval.operation") == "freshness-priority-lexical-v3"
             and event["attributes"].get("retrieval.decision_document_count", 0)
             <= event["attributes"].get("retrieval.document_count", 0)
             for event in run_trace_events
@@ -79,10 +79,13 @@ def main() -> None:
         "evaluation_evidence_condition_coverage": latest["metrics"]["coverage"]["evidence_condition_split_coverage"] == 1.0,
         "evaluation_adversarial_split_coverage": latest["metrics"]["coverage"]["adversarial_split_coverage"] == 1.0,
         "evaluation_behavioral_relation_exact": latest["metrics"]["behavioral_relations"]["exact_match_rate"] == 1.0,
-        "evaluation_retrieval_configuration_exact": latest["retrieval_configuration"] == "evidence-priority-lexical-v2",
+        "evaluation_retrieval_configuration_exact": latest["retrieval_configuration"] == "freshness-priority-lexical-v3",
         "evaluation_stress_evidence_recall": latest["metrics"]["retrieval_stress"]["expected_project_evidence_recall_at_4"] == 1.0,
         "evaluation_stress_decision_retention": latest["metrics"]["retrieval_stress"]["decision_evidence_retention_rate"] == 1.0,
         "evaluation_stress_exact_behavior": latest["metrics"]["retrieval_stress"]["exact_behavior_retention_rate"] == 1.0,
+        "evaluation_fresh_evidence_recall": latest["metrics"]["stale_evidence_stress"]["fresh_project_evidence_recall_at_4"] == 1.0,
+        "evaluation_fresh_decision_retention": latest["metrics"]["stale_evidence_stress"]["fresh_decision_evidence_retention_rate"] == 1.0,
+        "evaluation_stale_stress_exact_behavior": latest["metrics"]["stale_evidence_stress"]["exact_behavior_retention_rate"] == 1.0,
         "evaluation_matches_frozen_manifest": latest["manifest_sha256"] == sha256(manifest),
         "dashboard_has_expected_dimensions": (width, height) == (1440, 1000),
     }
@@ -104,10 +107,13 @@ def main() -> None:
             "stress_evidence_recall": latest["metrics"]["retrieval_stress"]["expected_project_evidence_recall_at_4"],
             "stress_decision_retention": latest["metrics"]["retrieval_stress"]["decision_evidence_retention_rate"],
             "stress_exact_behavior": latest["metrics"]["retrieval_stress"]["exact_behavior_retention_rate"],
+            "fresh_evidence_recall": latest["metrics"]["stale_evidence_stress"]["fresh_project_evidence_recall_at_4"],
+            "fresh_decision_retention": latest["metrics"]["stale_evidence_stress"]["fresh_decision_evidence_retention_rate"],
+            "stale_stress_exact_behavior": latest["metrics"]["stale_evidence_stress"]["exact_behavior_retention_rate"],
         },
         "dashboard": {"sha256": sha256(screenshot), "width": width, "height": height},
     }
-    output = ROOT / "artifacts/verification/native-baseline-0008.json"
+    output = ROOT / "artifacts/verification/native-baseline-0009.json"
     output.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(receipt, indent=2, sort_keys=True))
     if receipt["status"] != "pass":

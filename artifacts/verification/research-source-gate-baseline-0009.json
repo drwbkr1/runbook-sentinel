@@ -1,0 +1,193 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0009-stale-evidence-resilience-20260807",
+  "assessed_at": "2026-08-07T02:01:30Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_actions": [
+      "review public research metadata and methods",
+      "cite and paraphrase approved methods in project records",
+      "implement project-authored deterministic stale-evidence crowding tests",
+      "publish source citations and project-authored evaluation evidence"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Use current primary research to motivate project-authored deterministic tests of outdated-document interference and freshness-aware retrieval in a bounded synthetic SRE agent. Import no external code, dataset, model, executable, dependency, or paper file.",
+    "planned_actions": [
+      "review public research metadata and methods",
+      "cite and paraphrase approved methods in project records",
+      "implement project-authored deterministic stale-evidence crowding tests",
+      "publish source citations and project-authored evaluation evidence"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "acl-2026-re3-10.18653-v1-2026.acl-long.1180",
+      "name": "Re3: Relevance & Recency Retrieval for Mitigating Temporal Hallucination",
+      "locator": "https://aclanthology.org/2026.acl-long.1180/",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://aclanthology.org/2026.acl-long.1180/", "observed_at": "2026-08-07T02:01:30Z", "note": "ACL Anthology identifies Cao et al.; ACL 2026 long paper; pages 25735-25760; DOI 10.18653/v1/2026.acl-long.1180."}],
+          "note": "The canonical publisher record and exact paper identity are established."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://aclanthology.org/2026.acl-long.1180/", "observed_at": "2026-08-07T02:01:30Z", "note": "The Association for Computational Linguistics publisher record identifies the peer-reviewed proceedings venue, editors, date, and DOI."}],
+          "note": "Authority is limited to the paper's temporal-retrieval problem framing and reported methods."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://aclanthology.org/2026.acl-long.1180/", "observed_at": "2026-08-07T02:01:30Z", "note": "The canonical metadata and abstract were publicly accessible without authentication, payment, account, secret, or geographic restriction observed."}],
+          "note": "Only public publisher metadata and abstract-level method review are required."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://aclanthology.org/2026.acl-long.1180/", "observed_at": "2026-08-07T02:01:30Z", "note": "ACL states materials published in or after 2016 are licensed under Creative Commons Attribution 4.0. The project retains only attribution, a link, and narrow paraphrase."}],
+          "note": "No paper file, figure, benchmark, or external implementation is copied or redistributed."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "ACL Anthology citekey cao-etal-2026-re3 and DOI 10.18653/v1/2026.acl-long.1180", "note": "The project cites the canonical publisher record directly with no secondary intermediary."}],
+          "note": "No external artifact enters project custody."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "https://doi.org/10.18653/v1/2026.acl-long.1180", "note": "The canonical locator, DOI, authors, venue, date, and page range bind the citation; no file is acquired."}],
+          "note": "Canonical identifiers are sufficient for citation-only use."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "Re3 abstract on ACL Anthology", "note": "The paper directly identifies outdated-document interference and combines time-aware relevance with a recency filter under conflicting temporal versions."}],
+          "note": "This supports testing recency as a separate deterministic retrieval signal, without claiming reproduction or comparable performance."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "baseline-0009 intended use", "note": "No executable, code, dataset, model, personal data, secret, operational evidence, active content, or external dependency is imported; all cases are project-authored and synthetic."}],
+          "note": "Citation use cannot alter runtime authority or introduce active content."
+        }
+      ]
+    },
+    {
+      "source_id": "acl-2025-hoh-10.18653-v1-2025.acl-long.301",
+      "name": "HoH: A Dynamic Benchmark for Evaluating the Impact of Outdated Information on Retrieval-Augmented Generation",
+      "locator": "https://aclanthology.org/2025.acl-long.301/",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://aclanthology.org/2025.acl-long.301/", "observed_at": "2026-08-07T02:01:30Z", "note": "ACL Anthology identifies Ouyang et al.; ACL 2025 long paper; pages 6036-6063; DOI 10.18653/v1/2025.acl-long.301."}],
+          "note": "The canonical publisher record and exact paper identity are established."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://aclanthology.org/2025.acl-long.301/", "observed_at": "2026-08-07T02:01:30Z", "note": "The Association for Computational Linguistics publisher record identifies the peer-reviewed proceedings venue, editors, date, and DOI."}],
+          "note": "Authority is limited to the paper's benchmark framing and reported findings about outdated evidence."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://aclanthology.org/2025.acl-long.301/", "observed_at": "2026-08-07T02:01:30Z", "note": "The canonical metadata and abstract were publicly accessible without authentication, payment, account, secret, or geographic restriction observed."}],
+          "note": "Only public publisher metadata and abstract-level method review are required."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://aclanthology.org/2025.acl-long.301/", "observed_at": "2026-08-07T02:01:30Z", "note": "ACL states materials published in or after 2016 are licensed under Creative Commons Attribution 4.0. The project retains only attribution, a link, and narrow paraphrase."}],
+          "note": "No paper file, figure, benchmark, or external implementation is copied or redistributed."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "ACL Anthology citekey ouyang-etal-2025-hoh and DOI 10.18653/v1/2025.acl-long.301", "note": "The project cites the canonical publisher record directly with no secondary intermediary."}],
+          "note": "No external artifact enters project custody."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "https://doi.org/10.18653/v1/2025.acl-long.301", "note": "The canonical locator, DOI, authors, venue, date, and page range bind the citation; no file is acquired."}],
+          "note": "Canonical identifiers are sufficient for citation-only use."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "HoH abstract on ACL Anthology", "note": "The paper evaluates current and outdated information coexisting in retrieval sources and reports degradation in retrieval, response accuracy, and safety even when current information is available."}],
+          "note": "This directly fits the measured stale-evidence crowding weakness while not implying benchmark reproduction."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "baseline-0009 intended use", "note": "No executable, code, dataset, model, personal data, secret, operational evidence, active content, or external dependency is imported; all cases are project-authored and synthetic."}],
+          "note": "Citation use cannot alter runtime authority or introduce active content."
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "review public research metadata and methods",
+      "cite and paraphrase approved methods in project records",
+      "implement project-authored deterministic stale-evidence crowding tests",
+      "publish source citations and project-authored evaluation evidence"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "record exact citations and narrow method summaries",
+      "implement project-authored synthetic stale-evidence cases and graders",
+      "publish project-authored source, contracts, and evaluation evidence with attribution"
+    ],
+    "requires_explicit_authorization": [
+      "download or import external code, datasets, models, paper files, or associated repositories",
+      "authenticate, accept terms, purchase, upload, or disclose a secret",
+      "claim Runbook Sentinel reproduces either paper or is production-safe because of either source",
+      "interact with real operational infrastructure"
+    ]
+  }
+}

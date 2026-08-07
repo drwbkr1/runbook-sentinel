@@ -1,0 +1,71 @@
+{
+  "checkpoint": "baseline-0009",
+  "checks": {
+    "audit_contains_approval_and_execution": true,
+    "dashboard_has_expected_dimensions": true,
+    "decision_context_is_evidence_only": true,
+    "evaluation_adversarial_split_coverage": true,
+    "evaluation_behavioral_relation_exact": true,
+    "evaluation_evidence_condition_coverage": true,
+    "evaluation_fresh_decision_retention": true,
+    "evaluation_fresh_evidence_recall": true,
+    "evaluation_matches_frozen_manifest": true,
+    "evaluation_passed": true,
+    "evaluation_retrieval_configuration_exact": true,
+    "evaluation_stale_stress_exact_behavior": true,
+    "evaluation_stress_decision_retention": true,
+    "evaluation_stress_evidence_recall": true,
+    "evaluation_stress_exact_behavior": true,
+    "evaluation_terminal_state_exact": true,
+    "evaluation_tool_trajectory_exact": true,
+    "executed_proposals_have_consumed_approvals": true,
+    "raw_token_column_absent": true,
+    "required_tables_present": true,
+    "stored_tokens_are_sha256": true,
+    "trace_has_expected_events": true,
+    "trace_has_no_forbidden_terms": true
+  },
+  "dashboard": {
+    "height": 1000,
+    "sha256": "934b13fb481b2566730aeab62e7484244edaf478d3aba0ee53d9127d5de85099",
+    "width": 1440
+  },
+  "database": {
+    "audit_event_types": [
+      "diagnosis.completed",
+      "proposal.approved",
+      "proposal.executed"
+    ],
+    "counts": {
+      "approvals": 1,
+      "audit_log": 3,
+      "idempotency": 1,
+      "incidents": 1,
+      "proposals": 1,
+      "runs": 1
+    },
+    "sha256": "e51267ff4214473d9fda6674d0e5869087fb3f0c470d51db5e90d51a8ffa5fb2"
+  },
+  "evaluation": {
+    "adversarial_split_coverage": 1.0,
+    "attempt_count": 84,
+    "behavioral_relation_exact": 1.0,
+    "evidence_condition_split_coverage": 1.0,
+    "fresh_decision_retention": 1.0,
+    "fresh_evidence_recall": 1.0,
+    "manifest_sha256": "5d18d47df8ad9f74bbc483864e31de7a85d637a67773c1555de18b05386afd85",
+    "retrieval_configuration": "freshness-priority-lexical-v3",
+    "sha256": "2cc4fbb816e04d918bc42d9bb818f64c71e294d670de8ee8776d9598f9e1a61d",
+    "stale_stress_exact_behavior": 1.0,
+    "stress_decision_retention": 1.0,
+    "stress_evidence_recall": 1.0,
+    "stress_exact_behavior": 1.0
+  },
+  "schema_version": "1.0",
+  "status": "pass",
+  "telemetry": {
+    "event_count": 3,
+    "forbidden_terms": [],
+    "sha256": "c3d1866dcc8697ea5996d027a3b84005f83cecbdebcfa21107dfc4e5856dbcc6"
+  }
+}

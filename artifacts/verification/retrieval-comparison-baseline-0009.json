@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0009",
+  "compared_at_utc": "2026-08-07T02:45:00Z",
+  "manifest_sha256": "3f7ca71d8425a5d0101a398ede21b958474aaca8989b56d6bd9edfc489584a49",
+  "frozen_contract": {
+    "catalog_schema": "1.8",
+    "scenario_count": 28,
+    "trials_per_case": 3,
+    "attempts_per_run": 84,
+    "development_stale_pair": "dev-worker-stale-evidence-flood",
+    "held_out_stale_pair": "test-cache-stale-evidence-flood",
+    "held_out_first_revealed_after_candidate_complete": true,
+    "candidate_or_grader_changed_after_reveal": false
+  },
+  "configurations": [
+    {
+      "id": "evidence-priority-lexical-v2",
+      "role": "released_same_manifest_control",
+      "run_count": 2,
+      "disposition_each_run": "remediate",
+      "metrics_each_run": {
+        "aggregate_retrieval_recall_at_4": 0.9285714285714286,
+        "stale_stress_fresh_project_evidence_recall_at_4": 0.0,
+        "stale_stress_fresh_decision_evidence_retention": 0.0,
+        "stale_project_evidence_saturation_at_4": 1.0,
+        "stale_stress_exact_behavior_retention": 0.0,
+        "proposal_exact": 0.9285714285714286,
+        "tool_trajectory_exact": 0.9285714285714286,
+        "terminal_state_exact": 0.9285714285714286,
+        "pass_3": 0.9285714285714286,
+        "policy_compliance": 1.0,
+        "proposal_attack_success": 0.0,
+        "terminal_attack_success": 0.0,
+        "model_calls": 0,
+        "estimated_cost_usd": 0.0
+      },
+      "latency_ms_across_runs": {
+        "mean_of_run_medians": 63.812,
+        "mean_of_run_p95s": 97.072,
+        "mean_of_diagnosis_medians": 6.184,
+        "mean_of_diagnosis_p95s": 13.558
+      },
+      "artifacts": [
+        {
+          "report": "artifacts/evaluations/runs/baseline-0009-v2-comparison-attempt-001.json",
+          "report_sha256": "e33d9a33d35f159b7575db1ee686a68b24141869d2f6f9953c09f4edb9e20620",
+          "trace": "artifacts/evaluations/runs/baseline-0009-v2-comparison-attempt-001.traces.jsonl",
+          "trace_sha256": "7b6a10f02e4df66ab9a8fbdcd202c909b9ff0debbeac6f99458ac386f53928c5"
+        },
+        {
+          "report": "artifacts/evaluations/runs/baseline-0009-v2-comparison-attempt-002.json",
+          "report_sha256": "bb86d1d77c644aa95925f162b282bc66e230eacc566ff93a68117f23c854f10f",
+          "trace": "artifacts/evaluations/runs/baseline-0009-v2-comparison-attempt-002.traces.jsonl",
+          "trace_sha256": "212f7ae081a03f9f5002cf5276b375bc0de4e5d8b6cfef06740f6f2f76424c58"
+        }
+      ]
+    },
+    {
+      "id": "freshness-priority-lexical-v3",
+      "role": "candidate",
+      "run_count": 3,
+      "disposition_each_run": "pass",
+      "metrics_each_run": {
+        "aggregate_retrieval_recall_at_4": 1.0,
+        "stale_stress_fresh_project_evidence_recall_at_4": 1.0,
+        "stale_stress_fresh_decision_evidence_retention": 1.0,
+        "stale_project_evidence_saturation_at_4": 0.75,
+        "stale_stress_exact_behavior_retention": 1.0,
+        "proposal_exact": 1.0,
+        "tool_trajectory_exact": 1.0,
+        "terminal_state_exact": 1.0,
+        "pass_3": 1.0,
+        "policy_compliance": 1.0,
+        "proposal_attack_success": 0.0,
+        "terminal_attack_success": 0.0,
+        "model_calls": 0,
+        "estimated_cost_usd": 0.0
+      },
+      "latency_ms_across_runs": {
+        "mean_of_run_medians": 71.261,
+        "mean_of_run_p95s": 109.547,
+        "mean_of_diagnosis_medians": 6.638,
+        "mean_of_diagnosis_p95s": 15.314
+      },
+      "artifacts": [
+        {
+          "report": "artifacts/evaluations/runs/baseline-0009-attempt-001.json",
+          "report_sha256": "6efde86f495f5d8d03392f507d745904c3552ccef00e6532335a8102c073a9d8",
+          "trace": "artifacts/evaluations/runs/baseline-0009-attempt-001.traces.jsonl",
+          "trace_sha256": "26b2b2b35a553487822c07e075d0eea1db4bfcca4e0a29195ce9b4c3e59bdd2f"
+        },
+        {
+          "report": "artifacts/evaluations/runs/baseline-0009-v3-candidate-attempt-002.json",
+          "report_sha256": "0bee10bba4aa4447d38ecb268d97578d4e8417ca3c7bf309ff014d06aba97ef1",
+          "trace": "artifacts/evaluations/runs/baseline-0009-v3-candidate-attempt-002.traces.jsonl",
+          "trace_sha256": "8c09b7c91b18aa0514916250d23416d0b15ddb4461e4b78b0dd54072fb752d58"
+        },
+        {
+          "report": "artifacts/evaluations/runs/baseline-0009-v3-candidate-attempt-003.json",
+          "report_sha256": "41e2d202ee5f1f3df9c2be5dfcc39b9a1278391884b00b71190d2b723088d0a4",
+          "trace": "artifacts/evaluations/runs/baseline-0009-v3-candidate-attempt-003.traces.jsonl",
+          "trace_sha256": "2c9819f1964e5d22c582c25de271bb013a65d52fa69dc7576fbdce3ebc0fa412"
+        }
+      ]
+    }
+  ],
+  "work_equivalence_analysis": {
+    "note": "Aggregate end-to-end latency is not work-equivalent: v3 correctly completes six additional approval and execution trajectories per run while v2 fails before those steps.",
+    "common_original_case_count": 26,
+    "v2_common_attempt_count": 156,
+    "v3_common_attempt_count": 234,
+    "v2_common_diagnosis_mean_ms": 7.958,
+    "v3_common_diagnosis_mean_ms": 8.113,
+    "v2_common_diagnosis_median_ms": 6.170,
+    "v3_common_diagnosis_median_ms": 6.301,
+    "diagnosis_median_delta_ms": 0.131,
+    "v2_common_end_to_end_mean_ms": 67.957,
+    "v3_common_end_to_end_mean_ms": 71.973,
+    "v2_common_end_to_end_median_ms": 63.826,
+    "v3_common_end_to_end_median_ms": 68.507,
+    "end_to_end_median_delta_ms": 4.681,
+    "interpretation": "The small common-case latency increase is reported as a tradeoff. No frozen statistical non-inferiority margin exists, so this checkpoint does not claim strict numeric latency dominance or a general performance improvement."
+  },
+  "selection": {
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "selection_class": "reliability-gated Pareto-frontier choice",
+    "strict_numeric_pareto_dominance": false,
+    "reason": "V2 is ineligible because it fails mandatory frozen retrieval, exact behavior, trajectory, terminal-state, and repeated-reliability gates in every same-manifest run. V3 is the only evaluated configuration that passes every hard correctness, security, policy, reliability, and cost gate. It improves all failed utility and terminal metrics while leaving policy, attack success, external cost, action surface, and authority unchanged. The measured latency tradeoff is explicit and bounded to this local synthetic suite.",
+    "claim_boundary": "Runbook Sentinel remains research-informed. This comparison supports selection on the frozen synthetic suite only; it does not establish production readiness, universal temporal robustness, strict latency dominance, or comparative superiority to external systems."
+  },
+  "retained_failures": [
+    "A first PowerShell hash-inventory expression ended with an empty pipeline element and failed without changing project state; the corrected expression produced the recorded hashes."
+  ]
+}

@@ -2,6 +2,16 @@
 
 All notable verified changes are recorded here. Unverified work remains in `docs/devlog.md` and the active milestone contract.
 
+## 0.0.9 - Unreleased
+
+- Added frozen development and held-out stale-evidence flood pairs in which five stale, query-matching telemetry records compete with current project evidence under the top-4 limit.
+- Retained `evidence-priority-lexical-v2` with disposition `remediate`: fresh-evidence recall, decision retention, and exact stale-stress behavior are 0.0 while policy remains 1.0 and proposal and terminal attack success remain 0.0.
+- Selected `freshness-priority-lexical-v3` as the only hard-gate-passing configuration. It shares a fail-closed one-hour freshness predicate with the bounded agent and gives no fresh priority to missing, malformed, naive, or future timestamps.
+- Passed three same-manifest 84-trial candidate runs, including all stale-evidence and guidance-flood stress attempts, behavioral relations, 33 expected executions, 51 strict no-action results, and zero model calls or external spend.
+- Recorded that strict numeric Pareto dominance is false: common-case local diagnosis median increased 0.131 ms and end-to-end median increased 4.681 ms, while v3 completed six additional correct trajectories per run.
+- Preserved pre-change failures, superseded manifests, a failed source-gate authority draft, an initial import-path failure, expected frozen-control failures, a compile working-directory mistake, and a PowerShell inventory failure.
+- Passed the v0.0.9 version-bound 84-trial evaluation, held-out CLI, MCP authority inventory, real HTTP approval/executor/replay/postconditions, SQLite, audit, telemetry, and visually inspected dashboard gates. Container packaging remains deferred because every cached base candidate is excluded by the source gate.
+
 ## 0.0.8 - 2026-08-07
 
 - Added a frozen top-4 untrusted-guidance stress contract with one development and one held-out pair, five project-authored instruction-bearing runbooks per variant, and exact project-evidence, behavior, trajectory, and terminal expectations.

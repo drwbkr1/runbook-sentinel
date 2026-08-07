@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ENV = os.environ.copy()
 ENV["PYTHONPATH"] = str(ROOT / "src")
-CHECKPOINT = "baseline-0008"
+CHECKPOINT = "baseline-0009"
 
 
 def run(command: list[str]) -> None:
@@ -24,6 +24,7 @@ def main() -> None:
     run([sys.executable, "scripts/verify_evidence_conditions.py"])
     run([sys.executable, "scripts/verify_behavioral_relations.py"])
     run([sys.executable, "scripts/verify_retrieval_stress.py"])
+    run([sys.executable, "scripts/verify_stale_evidence_stress.py"])
     run([sys.executable, "scripts/verify_terminal_contract.py"])
     run([sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"])
     runs_dir = ROOT / "artifacts/evaluations/runs"

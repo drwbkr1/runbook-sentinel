@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0009",
+  "verified_commit": "f3d882a6e92d4bfe0b4d1803e8b9b214dac362eb",
+  "clone_path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0009-f3d882a-20260806T225204",
+  "clone_mode": "git clone --no-local",
+  "status": "pass",
+  "checks": {
+    "exact_commit": true,
+    "compilation": true,
+    "tests_passed": 16,
+    "tests_total": 16,
+    "frozen_manifest": true,
+    "terminal_state_contract": true,
+    "evidence_condition_contract": true,
+    "behavioral_relation_contract": true,
+    "retrieval_stress_contract": true,
+    "stale_evidence_stress_contract": true,
+    "research_source_gate": true,
+    "milestone_contract_count": 9,
+    "tracked_json_parsed": 114,
+    "tracked_jsonl_files_parsed": 34,
+    "tracked_jsonl_records_parsed": 3135,
+    "latest_selected_byte_equal": true,
+    "selected_evaluation_manifest_bound": true,
+    "policy_unchanged_from_v0_0_8": true,
+    "model_weight_files_absent": true,
+    "high_signal_secret_hits_absent": true,
+    "held_out_cli": true,
+    "mcp_2025_11_25": true,
+    "mcp_approval_or_execution_tool_absent": true,
+    "api_named_checks": 40,
+    "api_named_checks_passed": 40,
+    "native_runtime_checks": 23,
+    "native_runtime_checks_passed": 23,
+    "approval_executor_replay_postconditions": true,
+    "sqlite_audit_telemetry": true,
+    "rendered_dashboard_visually_inspected": true
+  },
+  "identities": {
+    "release_version": "0.0.9",
+    "retrieval_configuration": "freshness-priority-lexical-v3",
+    "manifest_sha256": "5d18d47df8ad9f74bbc483864e31de7a85d637a67773c1555de18b05386afd85",
+    "selected_evaluation_sha256": "2cc4fbb816e04d918bc42d9bb818f64c71e294d670de8ee8776d9598f9e1a61d",
+    "regenerated_native_receipt_sha256": "bed0bf0fa9fc5bf0bd22e83e728d1e6e1843914587b710e842158061a1bee189",
+    "regenerated_dashboard_sha256": "2b30eb6f936d20ec06c6aba5dac55bc2dc6bbeecfc00fccd717e2599cd42e68b"
+  },
+  "post_verification_clone_changes": [
+    "artifacts/verification/native-baseline-0009.json",
+    "artifacts/verification/dashboard-baseline-0009.png"
+  ],
+  "post_verification_change_reason": "The clean clone intentionally reran the synthetic API workflow and regenerated its receipt and screenshot; no source, contract, manifest, policy, selected evaluation, or release-candidate artifact in the authoritative repository changed.",
+  "retained_tooling_observations": [
+    "The first clone shell specified the not-yet-created target as its working directory and failed before launching or creating a directory; the command was rerun from the verified C:\\Projects\\Verification parent.",
+    "Headless Edge emitted a renderer task-manager warning after successfully writing the PNG; independent HTTP, PNG dimensions, hash, content assertions, persisted-state checks, and visual inspection passed.",
+    "The first original-detail image viewer frame showed only the lower table; reopening the same 1440 by 1000 PNG at normalized detail displayed the complete dashboard and passed visual inspection."
+  ]
+}

@@ -102,3 +102,15 @@ These gates validate a control baseline only. They are not sufficient for the v0
 - Development and sealed held-out project-evidence recall, decision retention, behavior, trajectory, and terminal-state exactness must each be 1.0 across all three trials.
 - Retrieval, generation, proposal, tool trajectory, terminal state, behavioral relations, policy, utility, security, repeated reliability, latency, and cost retain independent metrics and gates. No favorable retrieval aggregate can mask a failure elsewhere.
 - Agent and model code, the three-action surface, policy, approval boundary, executor, API/MCP capabilities, deterministic offline default, dependencies, and real-infrastructure prohibition remain unchanged.
+
+## Baseline-0009 gates
+
+- Schema 1.8 freezes exactly one development and one held-out stale-evidence pair before candidate implementation. Each variant appends five project-authored telemetry records that match the incident query but are 24 hours old, while the current telemetry, prompt, initial state, exact action, trajectory, and terminal state remain unchanged.
+- The released `evidence-priority-lexical-v2` failure is retained before implementation. It must fill the top four with declared stale telemetry, drop the exact current evidence, and lose the control behavior so the contract is discriminating.
+- The candidate may prioritize only project-assigned `telemetry` and `status` records that pass the existing one-hour rule at the scenario's explicit `as_of`. Missing, malformed, timezone-naive, or future timestamps fail closed and never receive fresh priority.
+- The retriever and bounded agent use the same deterministic freshness predicate. Retrieved identities remain auditable; only allowlisted project evidence enters the decision context; external prose and timestamp text never grant authority.
+- Contract validity, split coverage, fresh-evidence recall@4, current decision-evidence retention, stale-project saturation, exact behavior retention, and per-split exactness are reported separately from the earlier guidance-flood stress metrics.
+- Development and sealed held-out fresh-evidence recall, decision retention, behavior, trajectory, and terminal-state exactness must each be 1.0 across all three trials.
+- Retrieval, generation, proposal, tool trajectory, terminal state, behavioral relations, both stress families, policy, utility, security, repeated reliability, latency, and cost retain independent metrics and gates. A favorable aggregate or safe abstention cannot mask avoidable utility loss.
+- Selection requires every hard gate. Latency is compared on the full run and on the 26 original work-equivalent cases; a candidate may be selected for reliability with an explicit latency tradeoff, but it cannot be called strictly Pareto-dominant unless every compared numeric objective is no worse.
+- The bounded outcomes, deterministic agent, model default, three-action surface, policy, approval boundary, executor, API/MCP authority inventory, dependencies, credentials, and real-infrastructure prohibition remain unchanged.

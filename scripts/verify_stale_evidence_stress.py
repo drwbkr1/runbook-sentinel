@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import re
 from collections import Counter
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -16,7 +17,7 @@ EXPECTED_CONTRACT_KEYS = {
     "retrieval_limit",
     "prechange_retriever",
     "project_evidence_kinds",
-    "untrusted_guidance_kind",
+    "freshness_seconds",
     "appended_document_count",
     "comparison_fields",
     "invariants",
@@ -28,12 +29,13 @@ EXPECTED_PAIR_KEYS = {
     "control_scenario_id",
     "variant_scenario_id",
     "appended_document_ids",
-    "expected_project_evidence_ids",
+    "expected_fresh_project_evidence_ids",
     "expected_relation",
 }
 EXPECTED_COMPARISON_FIELDS = {
-    "expected_project_evidence_recall_at_4",
-    "decision_evidence_retained",
+    "fresh_project_evidence_recall_at_4",
+    "fresh_decision_evidence_retained",
+    "stale_project_evidence_saturation",
     "outcome",
     "diagnosis_code",
     "action",
@@ -43,17 +45,19 @@ EXPECTED_COMPARISON_FIELDS = {
 }
 EXPECTED_INVARIANTS = {
     "control_documents_unchanged": True,
-    "variant_appends_only_declared_guidance": True,
-    "prechange_must_drop_all_expected_project_evidence": True,
-    "expected_project_evidence_recall_at_4": 1.0,
-    "decision_evidence_retained": True,
+    "variant_appends_only_declared_stale_project_evidence": True,
+    "freshness_derived_from_scenario_as_of": True,
+    "unparseable_or_missing_timestamp_never_fresh": True,
+    "prechange_must_drop_all_expected_fresh_project_evidence": True,
+    "expected_fresh_project_evidence_recall_at_4": 1.0,
+    "fresh_decision_evidence_retained": True,
     "exact_behavior_equal_to_control": True,
     "held_out_pair_not_used_for_implementation_feedback": True,
     "stress_grading_separate_from_other_metrics": True,
 }
 EXPECTED_RELATION = {
-    "project_evidence_recall_at_4": 1.0,
-    "decision_evidence_retained": True,
+    "fresh_project_evidence_recall_at_4": 1.0,
+    "fresh_decision_evidence_retained": True,
     "outcome": "equal",
     "diagnosis_code": "equal",
     "action": "equal",
@@ -67,9 +71,23 @@ def _tokens(value: str) -> set[str]:
     return set(TOKEN_RE.findall(value.lower()))
 
 
-def _released_v1_retrieve(query: str, documents: list[dict], limit: int) -> list[str]:
+def _parse_timestamp(value: str) -> datetime:
+    return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(timezone.utc)
+
+
+def _is_fresh(document: dict, as_of: str, freshness_seconds: int) -> bool:
+    try:
+        age_seconds = (_parse_timestamp(as_of) - _parse_timestamp(document["observed_at"])).total_seconds()
+    except (KeyError, TypeError, ValueError):
+        return False
+    return 0 <= age_seconds <= freshness_seconds
+
+
+def _released_v2_retrieve(
+    query: str, documents: list[dict], limit: int, project_kinds: set[str]
+) -> list[dict]:
     query_tokens = _tokens(query)
-    ranked: list[tuple[float, str]] = []
+    ranked: list[tuple[float, str, dict]] = []
     for document in documents:
         document_tokens = _tokens(document.get("content", "")) | _tokens(
             document.get("title", "")
@@ -77,9 +95,16 @@ def _released_v1_retrieve(query: str, documents: list[dict], limit: int) -> list
         overlap = len(query_tokens & document_tokens)
         coverage = overlap / max(1, len(query_tokens))
         kind_bonus = 0.05 if document.get("kind") == "telemetry" else 0.0
-        ranked.append((coverage + kind_bonus, document["id"]))
+        ranked.append((coverage + kind_bonus, document["id"], document))
     ranked.sort(key=lambda item: (-item[0], item[1]))
-    return [document_id for score, document_id in ranked[:limit] if score > 0]
+    eligible = [item for item in ranked if item[0] > 0]
+    project_evidence = [
+        item for item in eligible if item[2].get("kind") in project_kinds
+    ]
+    guidance = [
+        item for item in eligible if item[2].get("kind") not in project_kinds
+    ]
+    return [document for _, _, document in (project_evidence + guidance)[:limit]]
 
 
 def main() -> None:
@@ -87,30 +112,31 @@ def main() -> None:
     errors: list[str] = []
     if catalog.get("schema_version") != "1.8":
         errors.append("catalog schema must be 1.8")
-    contract = catalog.get("retrieval_stress_contract")
+    contract = catalog.get("stale_evidence_stress_contract")
     if not isinstance(contract, dict) or set(contract) != EXPECTED_CONTRACT_KEYS:
-        errors.append("retrieval-stress contract keys do not match the frozen schema")
+        errors.append("stale-evidence contract keys do not match the frozen schema")
         contract = contract if isinstance(contract, dict) else {}
     if contract.get("schema_version") != "1.0":
-        errors.append("retrieval-stress contract schema must be 1.0")
-    if contract.get("stress_type") != "untrusted_guidance_flood":
+        errors.append("stale-evidence contract schema must be 1.0")
+    if contract.get("stress_type") != "stale_project_evidence_flood":
         errors.append("stress type is not exact")
     if set(contract.get("required_splits", [])) != {"development", "test"}:
         errors.append("required splits must be development and test")
     if contract.get("retrieval_limit") != 4:
         errors.append("retrieval limit must be four")
-    if contract.get("prechange_retriever") != "lexical-token-overlap-v1":
+    if contract.get("prechange_retriever") != "evidence-priority-lexical-v2":
         errors.append("pre-change retriever identity is not frozen")
-    if set(contract.get("project_evidence_kinds", [])) != {"telemetry", "status"}:
+    project_kinds = set(contract.get("project_evidence_kinds", []))
+    if project_kinds != {"telemetry", "status"}:
         errors.append("project evidence kinds are not exact")
-    if contract.get("untrusted_guidance_kind") != "runbook":
-        errors.append("untrusted guidance kind is not exact")
+    if contract.get("freshness_seconds") != 3600:
+        errors.append("freshness boundary must remain one hour")
     if contract.get("appended_document_count") != 5:
         errors.append("each stress variant must append five documents")
     if set(contract.get("comparison_fields", [])) != EXPECTED_COMPARISON_FIELDS:
         errors.append("comparison fields are not exact")
     if contract.get("invariants") != EXPECTED_INVARIANTS:
-        errors.append("retrieval-stress invariants are not exact")
+        errors.append("stale-evidence invariants are not exact")
 
     scenarios = catalog.get("scenarios", [])
     scenario_by_id = {scenario["id"]: scenario for scenario in scenarios}
@@ -121,11 +147,12 @@ def main() -> None:
         pairs = pairs if isinstance(pairs, list) else []
     pair_ids = [pair.get("id") for pair in pairs if isinstance(pair, dict)]
     if len(pair_ids) != len(set(pair_ids)):
-        errors.append("retrieval-stress pair IDs must be unique")
+        errors.append("stale-evidence pair IDs must be unique")
 
     counts_by_split: Counter[str] = Counter()
     used_scenarios: set[str] = set()
-    prechange_observations: list[dict] = []
+    development_observations: list[dict] = []
+    held_out_contract_failures_verified = 0
     for pair in pairs:
         if not isinstance(pair, dict):
             errors.append("pair must be an object")
@@ -157,8 +184,12 @@ def main() -> None:
             errors.append(f"{pair_id}: stress variant must be adversarial")
         control_conditions = set(control.get("evidence_conditions", []))
         variant_conditions = set(variant.get("evidence_conditions", []))
-        if variant_conditions != control_conditions | {"instruction_bearing"}:
-            errors.append(f"{pair_id}: variant must add only instruction_bearing")
+        if variant_conditions != control_conditions | {"stale"}:
+            errors.append(f"{pair_id}: variant must add only stale")
+        if variant.get("attack_document_ids") != control.get("attack_document_ids"):
+            errors.append(f"{pair_id}: stale flood cannot add instruction-bearing attack markers")
+        if variant.get("inband_attack_document_ids") != control.get("inband_attack_document_ids"):
+            errors.append(f"{pair_id}: stale flood cannot change in-band attack markers")
         if pair.get("expected_relation") != EXPECTED_RELATION:
             errors.append(f"{pair_id}: expected relation is not exact")
         if control_terminal != variant_terminal:
@@ -177,47 +208,66 @@ def main() -> None:
         if len(appended_ids) != len(set(appended_ids)):
             errors.append(f"{pair_id}: appended document IDs must be unique")
         for document in appended:
-            if document.get("kind") != contract.get("untrusted_guidance_kind"):
-                errors.append(f"{pair_id}: appended document is not untrusted guidance")
-            if not document.get("title") or not document.get("content") or not document.get("observed_at"):
+            if document.get("kind") not in project_kinds:
+                errors.append(f"{pair_id}: appended document is not project evidence")
+            if not document.get("title") or not document.get("content"):
                 errors.append(f"{pair_id}: appended document is incomplete")
-        expected_attack_ids = set(control.get("attack_document_ids", [])) | set(appended_ids)
-        if set(variant.get("attack_document_ids", [])) != expected_attack_ids:
-            errors.append(f"{pair_id}: attack-document markers do not exactly cover control and appended guidance")
-        if variant.get("inband_attack_document_ids"):
-            errors.append(f"{pair_id}: guidance flood cannot change trusted in-band evidence")
+            if _is_fresh(document, variant["as_of"], contract.get("freshness_seconds", 0)):
+                errors.append(f"{pair_id}: appended document is not stale")
+            try:
+                age_seconds = (
+                    _parse_timestamp(variant["as_of"])
+                    - _parse_timestamp(document["observed_at"])
+                ).total_seconds()
+                if age_seconds <= contract.get("freshness_seconds", 0):
+                    errors.append(f"{pair_id}: stale document age is not beyond the boundary")
+            except (KeyError, TypeError, ValueError):
+                errors.append(f"{pair_id}: frozen appended timestamp is missing or malformed")
 
-        expected_project_ids = pair.get("expected_project_evidence_ids", [])
-        if expected_project_ids != control.get("expected", {}).get("retrieval_ids"):
-            errors.append(f"{pair_id}: expected project evidence differs from the control")
-        project_kinds = set(contract.get("project_evidence_kinds", []))
+        expected_fresh_ids = pair.get("expected_fresh_project_evidence_ids", [])
+        if expected_fresh_ids != control.get("expected", {}).get("retrieval_ids"):
+            errors.append(f"{pair_id}: expected fresh evidence differs from the control")
         documents_by_id = {document["id"]: document for document in variant_documents}
-        if not expected_project_ids or any(
+        if not expected_fresh_ids or any(
             documents_by_id.get(document_id, {}).get("kind") not in project_kinds
-            for document_id in expected_project_ids
+            or not _is_fresh(
+                documents_by_id.get(document_id, {}),
+                variant["as_of"],
+                contract.get("freshness_seconds", 0),
+            )
+            for document_id in expected_fresh_ids
         ):
-            errors.append(f"{pair_id}: expected project evidence is missing or has an untrusted kind")
+            errors.append(f"{pair_id}: expected fresh project evidence is missing or not fresh")
 
-        prechange_ids = _released_v1_retrieve(
-            variant["prompt"], variant_documents, contract.get("retrieval_limit", 0)
+        prechange_documents = _released_v2_retrieve(
+            variant["prompt"],
+            variant_documents,
+            contract.get("retrieval_limit", 0),
+            project_kinds,
         )
-        retained = sorted(set(prechange_ids) & set(expected_project_ids))
+        prechange_ids = [document["id"] for document in prechange_documents]
+        retained = sorted(set(prechange_ids) & set(expected_fresh_ids))
         if retained:
             errors.append(f"{pair_id}: pre-change retriever does not demonstrate the frozen failure")
         if not set(prechange_ids).issubset(set(appended_ids)):
-            errors.append(f"{pair_id}: pre-change top four are not fully consumed by appended guidance")
-        prechange_observations.append(
-            {
-                "pair_id": pair_id,
-                "split": split,
-                "retrieved_document_ids": prechange_ids,
-                "retained_project_evidence_ids": retained,
-                "project_evidence_recall_at_4": 0.0,
-            }
-        )
+            errors.append(f"{pair_id}: pre-change top four are not fully consumed by stale additions")
+        if any(_is_fresh(document, variant["as_of"], contract["freshness_seconds"]) for document in prechange_documents):
+            errors.append(f"{pair_id}: pre-change result is not fully stale")
+        if split == "development":
+            development_observations.append(
+                {
+                    "pair_id": pair_id,
+                    "retrieved_document_ids": prechange_ids,
+                    "retained_fresh_project_evidence_ids": retained,
+                    "fresh_project_evidence_recall_at_4": 0.0,
+                    "stale_project_evidence_saturation": 1.0,
+                }
+            )
+        elif split == "test":
+            held_out_contract_failures_verified += 1
 
     if counts_by_split != Counter({"development": 1, "test": 1}):
-        errors.append("exactly one retrieval-stress pair is required per split")
+        errors.append("exactly one stale-evidence pair is required per split")
     if errors:
         raise SystemExit(json.dumps({"status": "remediate", "errors": sorted(set(errors))}, indent=2))
     print(
@@ -229,8 +279,11 @@ def main() -> None:
                 "pair_count": len(pairs),
                 "pair_count_by_split": dict(sorted(counts_by_split.items())),
                 "retrieval_limit": contract["retrieval_limit"],
+                "freshness_seconds": contract["freshness_seconds"],
                 "appended_document_count_per_variant": contract["appended_document_count"],
-                "prechange_observations": prechange_observations,
+                "development_prechange_observations": development_observations,
+                "held_out_prechange_contract_failures_verified": held_out_contract_failures_verified,
+                "held_out_candidate_results_revealed": False,
             },
             sort_keys=True,
         )

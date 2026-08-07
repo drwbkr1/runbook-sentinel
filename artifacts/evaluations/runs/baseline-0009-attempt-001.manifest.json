@@ -1,0 +1,32 @@
+{
+  "checkpoint": "baseline-0009",
+  "files": {
+    "eval/model-contract.json": "c312ce0f944dba8c681a6c0691f58d24fa2699f6db63d751157dbacd93a23ae3",
+    "pyproject.toml": "620ad0d0b9f497bf83b543b87b38ca3f952efcdb24542b19558d67f153f70c90",
+    "scripts/inspect_runtime_evidence.py": "953d5d00ecaa7e92adddd9bedaecb8d7b28e2c39de34247f906ce596c327465b",
+    "scripts/verify_baseline.py": "e547f590704d94b2645cf8c8ff599c152addcd86df04ddf6ec1005fed197beca",
+    "scripts/verify_behavioral_relations.py": "9418033d8642cf232a7ffee81414a6bf9458cb2dc95c0bcd2a3f0c9f9c88e199",
+    "scripts/verify_evidence_conditions.py": "1fb1928d9c7ad860e275b0ff3f532014fd43911e7999763ad0686051b6711971",
+    "scripts/verify_live_api.ps1": "cd783c64cfd45e2d6fd5eeb4d7aa72eb93943db80acf78716fb3d3fe8a242fd9",
+    "scripts/verify_mcp_stdio.py": "36a93d064ab38fe4a4e84e6c6be915feacbd773c4d87bfc6e0335135adfddbdc",
+    "scripts/verify_retrieval_stress.py": "17ae16b457f1a012588d74c5f517eae4e9186ec477f6a5efa3f75fc17c029b64",
+    "scripts/verify_stale_evidence_stress.py": "66194e439a952d3587ed0eceb8265ad496c7adac780fc2fbd1954d4522cf3d2b",
+    "scripts/verify_terminal_contract.py": "2e51d9025f25d28a2a3f0f5da9ccefdce8850705b2f445ded0894e3d6d5933fb",
+    "src/runbook_sentinel/__init__.py": "ddcfc27e20dfae2f4294e39f97c3b97e1c42dbefea0f3be3021c6566fed89758",
+    "src/runbook_sentinel/agent.py": "b04ac41d48708028733a31ff2d8b11a6f7f109a17f1f52f6f9ca273a171579e6",
+    "src/runbook_sentinel/api.py": "9f7775f3ade50afc73212161255d0b696fefd7847da31542fb992f76515068f1",
+    "src/runbook_sentinel/catalog.py": "85c4b98e252106b1ec056a76e99bb5390fc943d41a111459ca469f0acdc1113c",
+    "src/runbook_sentinel/cli.py": "beb4d3d1988459c384599296726a0e2b85b471e82ffe70f1491cc811abfaf364",
+    "src/runbook_sentinel/data/scenarios.json": "b41513390a05d165d845bf81426680cd51626c5978a9b28f8a542674692852de",
+    "src/runbook_sentinel/evaluation.py": "34a181f315256eaf555715d7333b9e5501db68f9bf0fb2b367c20e0f82de82d3",
+    "src/runbook_sentinel/evidence.py": "6614bac067bbe0487cce416339c8da80d7a9a7c61a72e02258dc2fd24563d0d2",
+    "src/runbook_sentinel/mcp_server.py": "3d48d2bb550579027e6fb011462f8d772e3880e94f9663f0e24499f6811190d5",
+    "src/runbook_sentinel/model_adapter.py": "75ff19c3ba51e75f4c345ac5f5e87ec4cf71549007e45b1f67245e0289effc04",
+    "src/runbook_sentinel/policy.py": "1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa",
+    "src/runbook_sentinel/retrieval.py": "1f25216a4b15bf7c87e0a3bbc37bc8a634be0045acd48f313249fc2d3df97852",
+    "src/runbook_sentinel/service.py": "6f743a8905c0f1e4eda3d41bf2277483b38354a234e7b27a880d30e34aca93c0",
+    "src/runbook_sentinel/storage.py": "1a02cbc9b7250941e264b28a2a9d7e106f961c5cae03c0e762199f5f2d337212"
+  },
+  "frozen_at_utc": "2026-08-07T02:33:06Z",
+  "schema_version": "1.0"
+}

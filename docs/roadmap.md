@@ -34,6 +34,12 @@ Make retrieval measurement discriminating by adding development and untouched he
 
 The selected `evidence-priority-lexical-v2` checkpoint passed 78 frozen trials, all six stress attempts, real CLI/API/MCP and execution-boundary verification, a clean clone, GitHub review, merged-main verification, and public release reconciliation. The next checkpoint is intentionally unchosen until a fresh run of public v0.0.8 exposes the next measurable weakness.
 
+## Active checkpoint baseline-0009 - stale-evidence retrieval resilience
+
+The fresh v0.0.8 run passed, but a bounded development probe showed that five stale, query-matching telemetry records can consume all four v2 retrieval positions and crowd out the current telemetry needed for a useful action proposal. Schema 1.8 freezes one development and one sealed held-out pair, exact behavior and terminal state, independent stale-evidence validation, and separate retrieval, utility, security, reliability, latency, and cost gates.
+
+`freshness-priority-lexical-v3` is selected as the only configuration passing the stale-evidence hard gates across three same-manifest 84-trial runs. Retained v2 comparisons remain `remediate`. The selection records a small local common-case latency increase and therefore makes no strict Pareto-dominance or general performance claim. Release remains pending version-bound, native-surface, clean-clone, GitHub, tag, and public-artifact verification.
+
 ## Research preview v0.1.0
 
 Expand to at least 48 frozen cases across the approved SRE topology, meet precommitted security and utility gates, verify all real surfaces, and release only with a reconciled evaluation report and explicit repository visibility decision.

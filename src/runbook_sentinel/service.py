@@ -72,7 +72,9 @@ class RunbookSentinel:
                 (incident_id, scenario_id, "open", _canonical(scenario["initial_state"]), now, now),
             )
 
-        retrieved = self.retriever.retrieve(scenario["prompt"], scenario["documents"])
+        retrieved = self.retriever.retrieve(
+            scenario["prompt"], scenario["documents"], as_of=scenario["as_of"]
+        )
         decision_documents = select_decision_documents(self.decision_context_configuration, retrieved)
         decision_ids = {document["id"] for document in decision_documents}
         guidance_documents = [document for document in retrieved if document["id"] not in decision_ids]

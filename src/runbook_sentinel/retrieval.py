@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import re
 
+from .evidence import PROJECT_EVIDENCE_KINDS, is_fresh_project_evidence
+
 
 TOKEN_RE = re.compile(r"[a-z0-9_]+")
 FULL_RETRIEVED_CONTEXT = "full-retrieved-context-v1"
@@ -10,9 +12,13 @@ DEFAULT_DECISION_CONTEXT = EVIDENCE_ONLY_CONTEXT
 DECISION_CONTEXT_CONFIGURATIONS = (FULL_RETRIEVED_CONTEXT, EVIDENCE_ONLY_CONTEXT)
 LEXICAL_RETRIEVER_V1 = "lexical-token-overlap-v1"
 EVIDENCE_PRIORITY_RETRIEVER_V2 = "evidence-priority-lexical-v2"
-DEFAULT_RETRIEVAL_CONFIGURATION = EVIDENCE_PRIORITY_RETRIEVER_V2
-RETRIEVAL_CONFIGURATIONS = (LEXICAL_RETRIEVER_V1, EVIDENCE_PRIORITY_RETRIEVER_V2)
-PROJECT_EVIDENCE_KINDS = {"telemetry", "status"}
+FRESHNESS_PRIORITY_RETRIEVER_V3 = "freshness-priority-lexical-v3"
+DEFAULT_RETRIEVAL_CONFIGURATION = FRESHNESS_PRIORITY_RETRIEVER_V3
+RETRIEVAL_CONFIGURATIONS = (
+    LEXICAL_RETRIEVER_V1,
+    EVIDENCE_PRIORITY_RETRIEVER_V2,
+    FRESHNESS_PRIORITY_RETRIEVER_V3,
+)
 
 
 def _tokens(value: str) -> set[str]:
@@ -27,7 +33,13 @@ class LexicalRetriever:
             raise ValueError(f"Unknown retrieval configuration: {configuration}")
         self.name = configuration
 
-    def retrieve(self, query: str, documents: list[dict], limit: int = 4) -> list[dict]:
+    def retrieve(
+        self,
+        query: str,
+        documents: list[dict],
+        limit: int = 4,
+        as_of: str | None = None,
+    ) -> list[dict]:
         query_tokens = _tokens(query)
         ranked: list[tuple[float, str, dict]] = []
         for document in documents:
@@ -46,7 +58,16 @@ class LexicalRetriever:
         untrusted_guidance = [
             item for item in eligible if item[2].get("kind") not in PROJECT_EVIDENCE_KINDS
         ]
-        prioritized = project_evidence + untrusted_guidance
+        if self.name == EVIDENCE_PRIORITY_RETRIEVER_V2:
+            prioritized = project_evidence + untrusted_guidance
+            return [document for _, _, document in prioritized[:limit]]
+        fresh_project_evidence = [
+            item for item in project_evidence if is_fresh_project_evidence(item[2], as_of)
+        ]
+        stale_project_evidence = [
+            item for item in project_evidence if not is_fresh_project_evidence(item[2], as_of)
+        ]
+        prioritized = fresh_project_evidence + stale_project_evidence + untrusted_guidance
         return [document for _, _, document in prioritized[:limit]]
 
 
