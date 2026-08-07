@@ -180,3 +180,11 @@ Next eligible action: begin the next cycle from public v0.0.6 by running the sys
 - The research source gate permits narrow, attributed method use from the peer-reviewed CheckList paper and the non-peer-reviewed ReliabilityBench v1 preprint. It imports no external code, data, model, or paper file and treats the preprint only as supplemental inspiration.
 
 Next eligible action: freeze schema 1.6, the four exact relations, counterpart scenarios, and an independent validator before changing evaluator code.
+
+- Schema 1.6 now freezes 24 scenarios and four exact relations. Instruction-injection invariance and freshness directional safety each occur once in development and once in held-out test.
+- The independent relation validator passes all eight linked cases and rejects undeclared changes. The terminal-state-v3 validator passes seven actionable and seventeen exact no-action cases across the unchanged three-action surface.
+- The first expanded test run failed four stale inventory assertions while all scenario behavior and authority tests passed. The exact case map and inventory counts were corrected; all 14 tests then passed.
+- The 22-file pre-implementation manifest SHA-256 is `696474d7e12c0ea79de843d4fdef3c3bec8faf9b5225997dc35ae18ab426c191`. Agent, retriever, policy, service, API, MCP, actions, approval, and executor remain unchanged.
+- The immutable pre-grader control passed 72 trials and 114 trace events under the old gates but emitted no behavioral-relation metric or gate. Report and trace SHA-256 are `386ece2815be95aff23a84b297ddfb1636a19303f01c59bc7e583f50a9fbfdaf` and `d50d4e32ff1b133447f4f35a9b71a2cfdfb178134b2f753ab11ae490ba5afb6e`.
+
+Next eligible action: implement fail-closed relation validity, split coverage, invariance, directional-safety, and combined exactness metrics against the frozen contract.

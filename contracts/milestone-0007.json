@@ -108,14 +108,16 @@
       "id": "UNIT-002",
       "purpose": "Freeze the relation taxonomy, four controlled pairs, allowed transformations, and exact scenario and pairwise terminal expectations before evaluator implementation",
       "depends_on": ["UNIT-001"],
-      "status": "pending",
+      "status": "complete",
       "human_gate": false,
       "action_class": "repository_change",
       "inputs": ["Schema 1.5 catalog", "Evidence-relation gap receipt", "Ready research source gate", "Unchanged v0.0.6 agent and retriever"],
       "outputs": ["Schema 1.6 catalog", "Behavioral relation contract", "Independent pair validator", "Expanded exact terminal contract", "Pre-change control identity"],
-      "gates": {"frozen_before_implementation": false, "new_actions": false, "agent_logic_change": false, "retriever_logic_change": false},
-      "disposition": null,
-      "retained_failures": [],
+      "gates": {"frozen_before_implementation": true, "new_actions": false, "agent_logic_change": false, "retriever_logic_change": false},
+      "disposition": "pass",
+      "retained_failures": [
+        "The first full test run after freezing 24 cases failed four stale inventory assertions: the exact case map omitted the four new counterparts, and scenario, evaluation, MCP, and model-call counts still expected 20 cases. All new scenario behaviors and all authority tests passed; only frozen inventory assertions were updated before evaluator implementation."
+      ],
       "next_dependency": "UNIT-003"
     },
     {
@@ -188,11 +190,17 @@
       "Fresh orientation report and trace SHA-256 are c29157b5e4614dc2e5f1cbe025f4a1665fc9f7d8d1b964f0ee8c2ebb140109df and 184f44e310ee5fb16c1a0a6f1ae9e13a097ec0e53bdcbf22e5786429f3f2238a",
       "The released catalog contains zero explicit relation links and zero controlled same-split freshness pairs; the evaluator contains no pairwise relation metric or gate",
       "The source gate approved narrow cited use of CheckList and ReliabilityBench v1 with CC BY 4.0 attribution, no external artifact import, and explicit non-peer-reviewed limitations for ReliabilityBench"
+      ,"Schema 1.6 freezes 24 scenarios and four controlled relations: instruction-injection invariance and freshness directional safety each occur exactly once in development and held-out test",
+      "The independent relation validator proves eight linked cases differ only by the declared transformation and binds exact outcome, diagnosis, action, trajectory, incident status, and terminal-state expectations",
+      "The terminal-state-v3 contract passes with seven actionable and seventeen no-action cases while retaining all three existing actions and the external approval boundary",
+      "The 22-file pre-implementation manifest has SHA-256 696474d7e12c0ea79de843d4fdef3c3bec8faf9b5225997dc35ae18ab426c191; agent, retriever, policy, service, API, MCP, and actions are unchanged",
+      "The unchanged evaluator passed all 72 expanded-suite trials under its old gates and emitted 72 run, 21 approval, and 21 execution events, while reporting no behavioral-relation metric or gate",
+      "The immutable pre-grader control report and trace SHA-256 are 386ece2815be95aff23a84b297ddfb1636a19303f01c59bc7e583f50a9fbfdaf and d50d4e32ff1b133447f4f35a9b71a2cfdfb178134b2f753ab11ae490ba5afb6e"
     ]
   },
   "handoff": {
-    "current_checkpoint": "public v0.0.6 is the exact release; BASELINE-0007 has a measured aggregate-only relation gap and a ready no-import research source gate",
-    "next_action": "Freeze schema 1.6, four controlled evidence relations, an independent pair validator, and exact scenario and terminal expectations before changing evaluator code",
+    "current_checkpoint": "public v0.0.6 is the exact release; BASELINE-0007 schema 1.6, four relations, independent validator, terminal contract, manifest, and immutable pre-grader control are frozen",
+    "next_action": "Implement separate fail-closed behavioral-relation metrics and gates against the frozen contract without changing the agent, retriever, policy, service, or authority boundary",
     "do_not_carry_forward": [
       "Condition/split coverage as proof of controlled evidence sensitivity",
       "Unlinked scenarios as implicit counterfactual pairs",

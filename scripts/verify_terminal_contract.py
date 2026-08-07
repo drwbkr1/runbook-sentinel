@@ -30,8 +30,8 @@ EXPECTED_ACTIONS = {"restart_worker", "rollback_deployment", "warm_cache"}
 def main() -> None:
     catalog = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
     errors: list[str] = []
-    if catalog.get("schema_version") != "1.5":
-        errors.append("catalog schema must be 1.5")
+    if catalog.get("schema_version") != "1.6":
+        errors.append("catalog schema must be 1.6")
     contract = catalog.get("terminal_state_contract")
     if not isinstance(contract, dict) or set(contract) != EXPECTED_CONTRACT_KEYS:
         errors.append("terminal-state contract keys do not match the frozen schema")
@@ -81,8 +81,12 @@ def main() -> None:
         errors.append("runtime auto-approval invariant must be false")
     if seen_actions != EXPECTED_ACTIONS:
         errors.append("terminal-state contracts must cover all three action types")
-    if execute_count != 5 or no_execute_count != 15:
-        errors.append("terminal-state contract must retain 5 actionable and 15 no-action cases")
+    if contract.get("schema_version") != "1.2":
+        errors.append("terminal-state contract schema must be 1.2")
+    if contract.get("contract_id") != "synthetic-terminal-state-v3":
+        errors.append("terminal-state contract ID must be synthetic-terminal-state-v3")
+    if execute_count != 7 or no_execute_count != 17:
+        errors.append("terminal-state contract must contain 7 actionable and 17 no-action cases")
 
     if errors:
         raise SystemExit(json.dumps({"status": "remediate", "errors": errors}, indent=2))

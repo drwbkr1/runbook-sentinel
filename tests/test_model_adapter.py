@@ -152,9 +152,9 @@ class ModelAdapterTest(unittest.TestCase):
             model_transport=transport,
         )
         self.assertEqual(report["agent_configuration"], MODEL_AGENT_CONFIGURATION)
-        self.assertEqual(report["metrics"]["cost"]["model_calls"], 20)
-        self.assertEqual(report["metrics"]["cost"]["prompt_tokens"], 20 * 101)
-        self.assertEqual(report["metrics"]["cost"]["completion_tokens"], 20 * 33)
+        self.assertEqual(report["metrics"]["cost"]["model_calls"], 24)
+        self.assertEqual(report["metrics"]["cost"]["prompt_tokens"], 24 * 101)
+        self.assertEqual(report["metrics"]["cost"]["completion_tokens"], 24 * 33)
         self.assertEqual(report["metrics"]["generation"]["structured_parse_success_rate"], 1.0)
         self.assertEqual(report["gates"]["baseline_disposition"], "remediate")
         self.assertIsNone(report["gates"]["all_exact_control_cases_pass"])

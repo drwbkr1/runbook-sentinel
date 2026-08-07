@@ -16,6 +16,8 @@ The executor action surface remains exactly `restart_worker`, `rollback_deployme
 
 During frozen evaluation only, an isolated harness waits until the agent result is persisted, then acts as a synthetic external approver against temporary SQLite state. It invokes the same approval and execution methods as the operator surface, verifies same-key idempotency and different-key replay rejection, and grades exact incident state, status, audit events, and trace names. The raw approval token and idempotency key remain temporary local variables; neither appears in the report, persisted run JSON, nor telemetry. This harness is not reachable through the CLI, API, MCP server, dashboard, or agent/model interface.
 
+Baseline 0007 adds a relation plane to evaluation, not runtime. A frozen contract links one control and one variant, declares the only permitted evidence transformation, and specifies either exact invariance or a directional safety transition. The evaluator compares already-produced scenario results and terminal records; it gains no approval, execution, model, or infrastructure authority beyond the existing isolated harness.
+
 ## Ports and trust boundaries
 
 - CLI and HTTP API are local operator surfaces.

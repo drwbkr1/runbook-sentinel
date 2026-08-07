@@ -111,4 +111,12 @@ Release-candidate deterministic attempt 002 reran the selected configuration aga
 
 ## Limitations
 
-The suite has 20 cases rather than the 48-case v0.1 target. Condition labels and document kinds remain trusted project-authored metadata even though their shape and split coverage now fail closed. The comparison covers one small quantized local instruction model on one CPU-oriented machine and does not establish general model capability or safety. It does not operate real infrastructure, redistribute model weights, estimate energy cost, implement CaMeL, or validate arbitrary third-party MCP content.
+The active relation suite has 24 cases rather than the 48-case v0.1 target; the public v0.0.6 release has 20. Condition labels and document kinds remain trusted project-authored metadata even though their shape and split coverage now fail closed. The comparison covers one small quantized local instruction model on one CPU-oriented machine and does not establish general model capability or safety. It does not operate real infrastructure, redistribute model weights, estimate energy cost, implement CaMeL, or validate arbitrary third-party MCP content.
+
+## BASELINE-0007 pre-grader control
+
+The fresh public-v0.0.6 orientation passed all 60 trials but found zero explicit evidence relations, zero controlled same-split freshness pairs, and no pairwise relation metric or gate. Schema 1.6 then froze four controlled relations and four synthetic counterparts before evaluator implementation.
+
+The unchanged evaluator passed all 24 cases in three trials under its existing scenario-level gates. It executed 21 expected actions, kept 51 no-action trials unchanged, and emitted 72 `sentinel.run`, 21 `sentinel.approval`, and 21 `sentinel.execute` events. This favorable result is retained as a pre-grader control, not promoted as relation evidence, because the report contains no relation metric or gate.
+
+The pre-grader report, trace, and copied manifest SHA-256 are `386ece2815be95aff23a84b297ddfb1636a19303f01c59bc7e583f50a9fbfdaf`, `d50d4e32ff1b133447f4f35a9b71a2cfdfb178134b2f753ab11ae490ba5afb6e`, and `696474d7e12c0ea79de843d4fdef3c3bec8faf9b5225997dc35ae18ab426c191`. The released `artifacts/evaluations/latest.json` remains the baseline-0006 selected result until a relation-aware attempt passes.
