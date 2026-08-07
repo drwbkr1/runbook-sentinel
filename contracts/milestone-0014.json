@@ -101,8 +101,11 @@
       "depends_on": ["UNIT-004"],
       "action_class": "github_push",
       "human_gate": false,
-      "status": "ready",
-      "outputs": ["verified public checkpoint"]
+      "status": "in_progress",
+      "outputs": ["verified public checkpoint"],
+      "gates": {"github_review_pass": true, "history_preserving_merge": true, "merged_main_pass": true, "final_release_audit_pass": true, "public_release_reconciled": false},
+      "disposition": "pass",
+      "next_dependency": "public release closure"
     }
   ],
   "verification": {
@@ -131,7 +134,10 @@
       "the completed 45-file baseline-0014 manifest verifies at SHA-256 aae568de2095570d6d142bdf9e17828cb77c51e7ced9efef46d82836349cca10",
       "version-bound source and package 84+9+6 evaluations pass with exact non-latency parity",
       "two independent package builds are byte-identical at SHA-256 9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f",
-      "source and package MCP, HTTP/dashboard, SQLite, audit, telemetry, and rendered visual gates pass"
+      "source and package MCP, HTTP/dashboard, SQLite, audit, telemetry, and rendered visual gates pass",
+      "PR 12 merged the exact reviewed head under expected-head lock with history preserved as da084e469534d0a952375a1852b20818480adfd1",
+      "fresh no-alternates public-main clone passes nine validators, 22 tests, source and package 84+9+6 evaluations, exact archive rebuild, source and package real surfaces, repository integrity, and visual inspection",
+      "final pre-publication release audit reports verified"
     ],
     "artifacts": [
       "artifacts/verification/idempotency-authorization-gap-baseline-0014.json",
@@ -143,13 +149,16 @@
       "artifacts/evaluations/runs/baseline-0014-attempt-001.json",
       "artifacts/evaluations/runs/baseline-0014-package-attempt-001.json",
       "artifacts/verification/package-verification-baseline-0014.json",
-      "artifacts/verification/clean-clone-baseline-0014.json"
+      "artifacts/verification/clean-clone-baseline-0014.json",
+      "artifacts/verification/release-audit-baseline-0014-premerge.json",
+      "artifacts/verification/merged-main-baseline-0014.json",
+      "artifacts/verification/release-audit-baseline-0014.json"
     ],
-    "disposition": "remediate"
+    "disposition": "advance_to_publication"
   },
   "handoff": {
     "latest_verified_checkpoint": "public v0.0.13 release closure with selected c14a4559 package bytes",
-    "active_weakness": "released same-proposal idempotency cache discloses a completed result for wrong or missing approval material",
-    "resume_rule": "Resume at UNIT-005 from the passing clean-clone receipt; commit the receipt, reverify the final review head, then review, merge, publish, and reconcile without changing the frozen candidate."
+    "active_weakness": "corrected and verified on merged main; public v0.0.14 reconciliation remains",
+    "resume_rule": "Resume at UNIT-005 from the verified final release audit; commit the audit, reconcile the release-closure records, publish exact v0.0.14 bytes, and verify every public surface without changing the candidate."
   }
 }

@@ -2,18 +2,18 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `codex/baseline-0014-idempotency-authorization`
+- Branch: `main`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010`, `BASELINE-0012`, and `BASELINE-0013`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.13`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
 - Candidate version: `0.0.14` / `baseline-0014`; not yet published or described as verified
 - Active milestone: `BASELINE-0014`; close the measured cached-result authorization bypass without changing executor or storage semantics
-- Current unit: `UNIT-005` ready; version-bound source/package and no-local-object clean-clone gates pass, while GitHub review and publication remain pending
-- Disposition: baseline-0014 `remediate`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Current unit: `UNIT-005` in progress; exact-head GitHub review, history-preserving merge, fresh public-main verification, and final release audit pass, while public tag/release reconciliation remains pending
+- Disposition: baseline-0014 `advance_to_publication`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: verified v0.0.13 release-closure record following PR `#11` merge `54c56411ea0ff3e1b17743fcbd8ebc225dabaabb`
-- GitHub pull request: `#11`, merged with history preserved under expected-head lock `5c4a358a3f85c21ccb27c19efcb791e5b06be283`
+- GitHub `main`: baseline-0014 merge `da084e469534d0a952375a1852b20818480adfd1`; fresh no-alternates public-main verification and final release audit pass
+- GitHub pull request: `#12`, merged with history preserved under expected-head lock `6a1e166046311f9944fead99cc25e67293fe00c6`
 - GitHub release: public, non-draft `v0.0.13` with verified `.pyz` and `.sha256` assets
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
@@ -34,8 +34,11 @@
 - Two independent 283,148-byte, 25-entry zipapps are byte-identical at SHA-256 `9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f`. The archive contract, CLI, packaged 84+9+6 evaluation, bounded MCP, 66 HTTP/dashboard checks, 35 persisted-state/telemetry checks, and rendered dashboard inspection pass.
 - Source and package non-latency results are exact after removing only declared latency and per-run state/trace fingerprint fields. Both dashboards visibly report Baseline 0014, cached result authorization 1.0, approval lifetime 1.0, human approval, disconnected real infrastructure, and persisted synthetic incidents.
 - A no-local-object clone of exact commit `aa0c70b54962594b4c14d2fd5bae390a7c22c0f1` has no alternates and initially had a clean worktree. It passes compilation, nine validators, 22 tests, fresh source and package 84+9+6 evaluations, two exact archive rebuilds, source and package MCP, 66 HTTP/dashboard checks per runtime, 35 persisted-state checks per runtime, model/secret exclusion, and visual package-dashboard inspection.
+- Final reviewed head `6a1e166046311f9944fead99cc25e67293fe00c6` contained seven expected commits and 51 exact changed paths. PR `#12` merged it under the expected-head lock with history preserved as `da084e469534d0a952375a1852b20818480adfd1`, whose parents are exact prior release closure `18c7bf30c65954713164214cc5823e4394166886` and reviewed head.
+- A fresh public-main clone of the merge has no object alternates and began clean. Nine validators, all 22 tests, fresh source and package 84+9+6 evaluations, exact selected-archive rebuild, both MCP surfaces, 66 HTTP/dashboard checks and 35 state/telemetry checks per runtime, parsing of 220 JSON and 55 JSONL files with 6,285 records, model/secret exclusion, protected-boundary comparison, and rendered dashboard inspection pass.
+- Final pre-publication audit `artifacts/verification/release-audit-baseline-0014.json` reports `verified` and authorizes the exact release-closure commit, annotated tag, two selected public assets, and immediate public verification.
 - RFC 9110 passed the external-source gate for narrow HTTP terminology and a clearly labeled project inference only. The expired and archived IETF Idempotency-Key Internet-Draft is retained as blocked and excluded from normative or design use. No external code, data, model, package, executable, or service was imported.
-- Next eligible action: commit the clean-clone receipt, reverify the final review head, then push for exact GitHub review.
+- Next eligible action: commit and push the merged-main receipt and final audit, reconcile the release-closure records, then publish and verify exact v0.0.14.
 
 ### BASELINE-0013 approval-lifetime gap and frozen contract
 
