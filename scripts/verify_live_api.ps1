@@ -2,10 +2,10 @@ $ErrorActionPreference = 'Stop'
 $env:PYTHONPATH = 'src'
 
 $pythonCmd = (Get-Command python).Source
-$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0006-stdout.log'
-$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0006-stderr.log'
-$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0006.db'
-$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0006-traces.jsonl'
+$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0007-stdout.log'
+$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0007-stderr.log'
+$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0007.db'
+$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0007-traces.jsonl'
 $generatedRuntimeFiles = @(
     $databasePath,
     "$databasePath-wal",
@@ -23,8 +23,8 @@ $serverArgs = @(
     '-m', 'runbook_sentinel', 'serve',
     '--host', '127.0.0.1',
     '--port', '8876',
-    '--db', 'var\live-api-baseline-0006.db',
-    '--trace', 'artifacts\runtime\live-api-baseline-0006-traces.jsonl',
+    '--db', 'var\live-api-baseline-0007.db',
+    '--trace', 'artifacts\runtime\live-api-baseline-0007-traces.jsonl',
     '--evaluation', 'artifacts\evaluations\latest.json'
 )
 
@@ -98,7 +98,7 @@ try {
     if (-not $edge) {
         throw 'Microsoft Edge executable not found'
     }
-    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0006.png'
+    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0007.png'
     & $edge `
         --headless `
         --disable-gpu `
@@ -107,7 +107,7 @@ try {
         --screenshot=$screenshotPath `
         http://127.0.0.1:8876/dashboard | Out-Null
 
-    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0006-traces.jsonl'
+    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0007-traces.jsonl'
     $verification = [pscustomobject]@{
         health = $health.status
         checkpoint = $health.checkpoint
@@ -131,16 +131,18 @@ try {
         evaluation_terminal_state_exact = $evaluation.metrics.terminal_state.exact_match_rate
         evaluation_evidence_condition_coverage = $evaluation.metrics.coverage.evidence_condition_split_coverage
         evaluation_adversarial_split_coverage = $evaluation.metrics.coverage.adversarial_split_coverage
+        evaluation_behavioral_relation_exact = $evaluation.metrics.behavioral_relations.exact_match_rate
         dashboard_http_status = $dashboardResponse.StatusCode
         dashboard_csp = $dashboardResponse.Headers['Content-Security-Policy']
-        dashboard_baseline_0006 = $dashboardResponse.Content.Contains('Baseline 0006')
+        dashboard_baseline_0007 = $dashboardResponse.Content.Contains('Baseline 0007')
         dashboard_terminal_metric = $dashboardResponse.Content.Contains('Terminal state exact')
         dashboard_condition_metric = $dashboardResponse.Content.Contains('Evidence condition coverage')
+        dashboard_relation_metric = $dashboardResponse.Content.Contains('Behavioral relation exact')
         dashboard_screenshot_exists = (Test-Path -LiteralPath $screenshotPath)
     }
     $checks = [ordered]@{
         health_ok = $verification.health -eq 'ok'
-        checkpoint_exact = $verification.checkpoint -eq 'baseline-0006'
+        checkpoint_exact = $verification.checkpoint -eq 'baseline-0007'
         outcome_exact = $verification.outcome -eq 'propose_action'
         proposal_exact = $verification.proposed_action -eq 'restart_worker'
         action_hash_bound = [bool]$verification.action_hash_bound
@@ -151,18 +153,20 @@ try {
         idempotent_repeat_equal = [bool]$verification.idempotent_repeat_equal
         replay_rejected = $verification.replay_http_status -eq 409
         approval_token_absent_from_trace = -not $verification.approval_token_in_trace
-        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0006'
+        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0007'
         evaluation_agent_exact = $verification.evaluation_agent -eq 'deterministic-control-v2'
         evaluation_passed = $verification.evaluation_disposition -eq 'pass'
         evaluation_tool_trajectory_exact = $verification.evaluation_tool_trajectory_exact -eq 1.0
         evaluation_terminal_state_exact = $verification.evaluation_terminal_state_exact -eq 1.0
         evaluation_evidence_condition_coverage = $verification.evaluation_evidence_condition_coverage -eq 1.0
         evaluation_adversarial_split_coverage = $verification.evaluation_adversarial_split_coverage -eq 1.0
+        evaluation_behavioral_relation_exact = $verification.evaluation_behavioral_relation_exact -eq 1.0
         dashboard_http_ok = $verification.dashboard_http_status -eq 200
         dashboard_csp_present = $verification.dashboard_csp -like "*frame-ancestors 'none'*"
-        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0006
+        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0007
         dashboard_terminal_metric_present = [bool]$verification.dashboard_terminal_metric
         dashboard_condition_metric_present = [bool]$verification.dashboard_condition_metric
+        dashboard_relation_metric_present = [bool]$verification.dashboard_relation_metric
         dashboard_screenshot_exists = [bool]$verification.dashboard_screenshot_exists
     }
     $receipt = [pscustomobject]@{

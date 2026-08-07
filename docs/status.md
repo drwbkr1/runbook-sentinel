@@ -2,12 +2,12 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0007-evidence-relations`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0006`
 - Latest verified checkpoint: public `v0.0.6`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
-- Active milestone: none; the next bounded checkpoint has not yet been selected
-- Current unit: begin the next evidence-driven cycle from the exact v0.0.6 closure
-- Disposition: baseline `pass`; local-model candidate `exclude`; container `defer`
+- Active milestone: `BASELINE-0007`
+- Current unit: version and release the selected relation-aware checkpoint
+- Disposition: released baseline `pass`; relation-aware attempt 001 `pass` and selected; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -170,3 +170,37 @@ Next eligible action: begin the next cycle from public v0.0.5 by running the sys
 - The public v0.0.6 tag, peeled remote tag, remote `main`, and non-draft release bind the exact release-closure commit containing these reconciled records; rendered public pages were verified after publication.
 
 Next eligible action: begin the next cycle from public v0.0.6 by running the system and selecting one bounded measurable weakness.
+
+## BASELINE-0007 measured gap
+
+- A fresh public-v0.0.6 orientation passed all 60 trials and emitted 60 run, 15 approval, and 15 execution events.
+- The released catalog has zero explicit evidence-relation cases and zero same-split controlled freshness pairs. The evaluator has no pairwise relation metric or gate.
+- Stale evidence has only one case per split; adversarial coverage is one development case and eight held-out cases. Aggregate condition and adversarial split coverage still report 1.0.
+- The bounded checkpoint will add four synthetic counterparts and freeze instruction-injection invariance plus fresh-to-stale directional safety in both splits. Agent, retriever, policy, service, actions, approval, executor, MCP, and real-infrastructure boundaries remain unchanged.
+- The research source gate permits narrow, attributed method use from the peer-reviewed CheckList paper and the non-peer-reviewed ReliabilityBench v1 preprint. It imports no external code, data, model, or paper file and treats the preprint only as supplemental inspiration.
+
+Next eligible action: freeze schema 1.6, the four exact relations, counterpart scenarios, and an independent validator before changing evaluator code.
+
+- Schema 1.6 now freezes 24 scenarios and four exact relations. Instruction-injection invariance and freshness directional safety each occur once in development and once in held-out test.
+- The independent relation validator passes all eight linked cases and rejects undeclared changes. The terminal-state-v3 validator passes seven actionable and seventeen exact no-action cases across the unchanged three-action surface.
+- The first expanded test run failed four stale inventory assertions while all scenario behavior and authority tests passed. The exact case map and inventory counts were corrected; all 14 tests then passed.
+- The 22-file pre-implementation manifest SHA-256 is `696474d7e12c0ea79de843d4fdef3c3bec8faf9b5225997dc35ae18ab426c191`. Agent, retriever, policy, service, API, MCP, actions, approval, and executor remain unchanged.
+- The immutable pre-grader control passed 72 trials and 114 trace events under the old gates but emitted no behavioral-relation metric or gate. Report and trace SHA-256 are `386ece2815be95aff23a84b297ddfb1636a19303f01c59bc7e583f50a9fbfdaf` and `d50d4e32ff1b133447f4f35a9b71a2cfdfb178134b2f753ab11ae490ba5afb6e`.
+- The implemented grader validates the closed relation contract and reports missing split/type pairs, coverage, invariance exactness, freshness-direction exactness, combined exactness, per-split exactness, and per-trial checks separately from scenario-level metrics.
+- Focused fail-closed tests reject a missing held-out directional relation and detect a corrupted paired action. The first integrated run failed because the new helper interrupted the existing coverage helper; the boundary was repaired without changing the frozen contract or runtime logic, and all 14 tests then passed.
+- A disposable 72-trial implementation smoke passed every gate: four relations, 12 of 12 paired attempts exact, development and held-out relation exactness 1.0, 21 expected executions, and 51 strict no-action results. Report and trace SHA-256 are `9da65549afcc80d68ec74ca025e3529d9fefc41484c30b454a57c44f61f3fced` and `80631bf38454f7302b5e2852b3b28560dc8bc7f7941917a31d64f60da3b0d1df`.
+- The completed 22-file implementation manifest passes at SHA-256 `8db0a7f5fd15dd92a82ab710e65fc6dbc84e4eec28b2d67b46a94a1427963c69`. Agent, retriever, policy, service, API, MCP, and action surfaces remain unchanged from the pre-grader freeze.
+- Immutable attempt 001 passed all 72 scenario trials and all 12 paired relation trials. Invariance, directional safety, combined relation exactness, development exactness, and held-out exactness are 1.0; 21 expected actions executed and all 51 no-action trials remained unchanged.
+- Attempt 001 emitted exactly 72 run, 21 approval, and 21 execution events. The report and trace contain no raw approval-token or concrete idempotency material. Report and trace SHA-256 are `eda653ad87436fbbc3c6e3196e2fee4c503589d32cd35795351bf6f50101bccf` and `db9ff7eaed7d67dcbbdd62bdf1f299b41abaa34a581d6476e4fbc0e506076035`.
+- The copied manifest matches the active manifest at SHA-256 `8db0a7f5fd15dd92a82ab710e65fc6dbc84e4eec28b2d67b46a94a1427963c69`, and `artifacts/evaluations/latest.json` is byte-identical to attempt 001.
+- Package metadata, API health, MCP identity, CLI default, tests, README, dashboard, and real-surface verifiers now identify `0.0.7` / baseline 0007. The dashboard visibly adds behavioral-relation exactness without exposing approval or execution controls.
+- The versioned 22-file manifest passes at SHA-256 `02ff28f3616572d3c1b6d97e5fe617594765575666f2ed74cb247b43b7ee5314`; agent, retriever, policy, service, and actions remain unchanged. Attempt 001 remains immutable and passing but is superseded for release selection; a version-bound attempt is required before live verification.
+- Immutable attempt 002 passed all 72 scenario trials and 12 paired relation trials against the versioned manifest. It is now the latest-passed pointer; report and trace SHA-256 are `6dbd86d774304ec9d6dbd3687fcc1cc72e87b8846a7f5b96343b0176063f40eb` and `1e6bbdcb7170acf5d02172e74e4d365dcbffd7fe8e33a67d6bc9e8367660ff99`.
+- The held-out CLI requested evidence without a proposal. MCP protocol `2025-11-25` reported version `0.0.7`, retained the full retrieval audit, excluded attack guidance from the decision context, and exposed three diagnostic/read tools with no approval or execution tool.
+- The real loopback API passed all 27 named checks: selected evaluation and relation metric, hash-bound approval, execution, postconditions, same-key idempotency, different-key HTTP 409 replay rejection, token redaction, CSP, and dashboard identity.
+- Independent runtime inspection passed required SQLite tables, one consumed hash-only approval, one idempotency record, one executed proposal, three ordered audit and trace events, evidence-only context, selected manifest identity, and the 1440 by 1000 dashboard. Native receipt and screenshot SHA-256 are `9dbd5f9ef37b69cef29fe28f40365f9e313a91b5463ac18e7edeccc914ee82a2` and `f308245de2fa21e5fcb0d9ad3a9c0cc05b71424259dfb011a6d4384d9570bd69`.
+- Visual inspection confirmed the dashboard accurately shows baseline 0007, evaluation pass, behavioral relation exact 1.0, evidence condition, tool trajectory, and terminal state at 1.0, human approval, disconnected real infrastructure, and one mitigated synthetic incident.
+- A no-local-object clone of exact candidate `8328c08900739d4f07afd9202a979c1bdd4f63e9` at `C:\Projects\Verification\runbook-sentinel-baseline-0007-8328c08-20260806202958` passed compilation, 14 tests, the 22-file manifest, all three validators, seven milestone contracts, 82 JSON and 22 JSONL parses, selected-evaluation identity, model-weight absence, high-signal secret scan, held-out CLI, MCP, all 27 API checks, all 16 runtime checks, and rendered-dashboard inspection.
+- The clean-clone dashboard was freshly rendered and visually inspected. Only its synthetic-incident screenshot and regenerated native receipt changed after verification; no source, contract, manifest, evaluation, policy, or service file changed.
+
+Next eligible action: commit the clean-clone receipt, push the verified branch, open GitHub review, and verify exact remote scope and mergeability.

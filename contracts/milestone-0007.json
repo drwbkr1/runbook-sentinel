@@ -1,0 +1,231 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0007",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "research_review",
+      "local_verification",
+      "repository_change",
+      "local_commit",
+      "github_push"
+    ],
+    "expires_at_utc": null,
+    "user_instruction": "Continue selecting and shipping bounded evidence-driven checkpoints without routine approval while preserving the thesis, external-source gates, and security boundaries.",
+    "repository_controls": [
+      "AGENTS.md",
+      "C:\\Projects\\STORAGE_POLICY.md",
+      "contracts/milestone-0006.json",
+      "docs/status.md"
+    ],
+    "active_contract": "contracts/milestone-0007.json",
+    "verified_at_utc": "2026-08-06T23:50:37Z"
+  },
+  "scope": {
+    "objective": "Replace aggregate-only evidence-condition confidence with controlled evidence-behavior relations: instruction-bearing changes must preserve the correct bounded outcome and terminal state, while aging action-justifying evidence beyond the frozen freshness window must directionally remove action eligibility and leave state unchanged, in both development and held-out test splits.",
+    "allowed_paths": [
+      "C:\\Projects\\Active\\runbook-sentinel",
+      "C:\\Projects\\Verification"
+    ],
+    "forbidden_work": [
+      "Connect to or mutate real operational infrastructure",
+      "Add, remove, or broaden an executor action or capability",
+      "Change agent or retriever logic to fit the controlled relations",
+      "Give the agent or model credentials, approval tokens, idempotency authority, or execution access",
+      "Weaken proposal hashing, expiry, idempotency, replay protection, preconditions, postconditions, or audit logging",
+      "Add a package dependency, model, external service, secret, account, download, or externally controlled asset",
+      "Change repository visibility, access, ownership, or the deterministic default",
+      "Use the held-out relation variants as implementation feedback",
+      "Rewrite or discard baseline-0006 or unfavorable evidence"
+    ],
+    "reversible_actions": [
+      "Define a closed relation taxonomy and exact pair contract",
+      "Add four project-authored synthetic counterpart cases without new actions or agent logic",
+      "Freeze relation identities, allowed transformations, exact outcomes, actions, trajectories, and terminal-state relations before evaluator implementation",
+      "Add independent relation validators, metrics, gates, tests, and reports",
+      "Record immutable deterministic evaluation artifacts and release receipts",
+      "Commit and publish a verified checkpoint"
+    ],
+    "stop_conditions": [
+      "Core thesis change",
+      "Security-boundary weakening",
+      "New action, dependency, external asset, spend, paid service, secret, account, or download required",
+      "Real operational infrastructure interaction",
+      "Access or ownership change",
+      "Irreversible action",
+      "Unverifiable shipment"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Local main, remote main, local annotated v0.0.6 tag, peeled remote tag, public repository, latest non-draft release, rendered README, and rendered release resolve to c33da1cfc91ad5913279ef417c1685ba584918ac",
+        "A fresh public tag clone passed compilation, the 21-file manifest, both frozen contracts, 14 tests, completed milestone record, and merged-main receipt",
+        "A fresh 60-trial released-system orientation passed and emitted 60 run, 15 approval, and 15 execution traces",
+        "The catalog has zero explicit evidence-relation cases and zero controlled same-split freshness pairs",
+        "The evaluator has no pairwise evidence-relation metric or gate",
+        "The research source gate is ready for cited method use only and imports no code, data, model, or paper file"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": [
+        "A closed relation schema links exactly one control and one variant with one allowed transformation",
+        "Instruction-injection invariance and fresh-to-stale directional safety each appear in development and held-out test splits",
+        "Every relation freezes exact scenario-level outcomes, diagnoses, actions, trajectories, terminal states, and relation-level expectations before evaluator implementation",
+        "A validator proves all non-declared prompt, state, evidence, and authority fields remain equal within each pair",
+        "Pairwise relation metrics and gates remain separate from scenario-level retrieval, generation, proposal, tool trajectory, terminal state, policy, utility, security, reliability, latency, cost, topology, and condition coverage",
+        "The unchanged released agent and retriever pass the expanded frozen suite without decision-rule edits",
+        "Real CLI, API, MCP, approval, executor, dashboard, persistence, telemetry, clean clone, GitHub review, merged main, tag, release, and rendered public pages agree"
+      ]
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Resume from public v0.0.6, rerun the accepted system, inspect traces and evaluation structure, gate research sources, and quantify controlled-relation gaps",
+      "depends_on": [],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "research_review",
+      "inputs": ["v0.0.6", "Selected evaluation", "Fresh released-system orientation", "Current catalog and evaluator", "Primary research"],
+      "outputs": ["Verified checkpoint orientation", "Retained evidence-relation gap receipt", "Ready research source gate", "Bounded relation objective"],
+      "gates": {"latest_checkpoint_verified": true, "gap_measurable": true, "external_import": false},
+      "disposition": "pass",
+      "retained_failures": [
+        "The first peeled-tag verification command let PowerShell parse the brace expression instead of passing a literal ref. It failed without changing state; the quoted ref and GitHub tag-object checks passed."
+      ],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze the relation taxonomy, four controlled pairs, allowed transformations, and exact scenario and pairwise terminal expectations before evaluator implementation",
+      "depends_on": ["UNIT-001"],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "repository_change",
+      "inputs": ["Schema 1.5 catalog", "Evidence-relation gap receipt", "Ready research source gate", "Unchanged v0.0.6 agent and retriever"],
+      "outputs": ["Schema 1.6 catalog", "Behavioral relation contract", "Independent pair validator", "Expanded exact terminal contract", "Pre-change control identity"],
+      "gates": {"frozen_before_implementation": true, "new_actions": false, "agent_logic_change": false, "retriever_logic_change": false},
+      "disposition": "pass",
+      "retained_failures": [
+        "The first full test run after freezing 24 cases failed four stale inventory assertions: the exact case map omitted the four new counterparts, and scenario, evaluation, MCP, and model-call counts still expected 20 cases. All new scenario behaviors and all authority tests passed; only frozen inventory assertions were updated before evaluator implementation."
+      ],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement independent pairwise relation metrics, gates, validation, and focused tests",
+      "depends_on": ["UNIT-002"],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "repository_change",
+      "inputs": ["Frozen relation schema and pair contract"],
+      "outputs": ["Separate relation metrics", "Fail-closed relation grader", "Focused regression tests"],
+      "gates": {"agent_unchanged": true, "retriever_unchanged": true, "runtime_authority_unchanged": true, "new_dependencies": false},
+      "disposition": "pass",
+      "retained_failures": [
+        "The first full test run after integrating the relation grader failed three tests because the new helper was inserted before the existing evidence-coverage helper body had returned, causing that helper to yield null. The failure was preserved in the devlog; the function boundary was repaired without changing the frozen relation contract, agent, retriever, policy, service, action surface, or authority boundary, and all 14 tests then passed."
+      ],
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Run and retain repeated expanded-suite evaluation and select a disposition from measured evidence",
+      "depends_on": ["UNIT-003"],
+      "status": "complete",
+      "human_gate": false,
+      "action_class": "local_verification",
+      "inputs": ["Frozen expanded suite", "Implemented relation graders"],
+      "outputs": ["Immutable evaluation attempts", "Relation report", "Evidence disposition"],
+      "gates": {"failed_trials_retained": true, "latest_pointer_pass_only": true, "all_required_relation_split_pairs_covered": true},
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Version, verify real surfaces, reconcile records, clean-clone, review, merge, tag, release, and verify the bounded checkpoint",
+      "depends_on": ["UNIT-004"],
+      "status": "pending",
+      "human_gate": false,
+      "action_class": "github_push",
+      "inputs": ["Passing expanded evaluation and reconciled records"],
+      "outputs": ["baseline-0007 release"],
+      "gates": {"public_visibility_already_authorized": true, "runtime_authority_unchanged": false},
+      "disposition": null,
+      "retained_failures": [],
+      "next_dependency": "Next measurable checkpoint"
+    }
+  ],
+  "verification": {
+    "changed_risks": [
+      "Relation metadata that does not describe a controlled transformation",
+      "Control and variant pairs differing in undeclared fields",
+      "Held-out relation leakage while adding development pairs",
+      "Directional expectations fitted to implementation",
+      "Pairwise grader correctness and aggregation masking",
+      "Expanded-suite latency and repeated reliability"
+    ],
+    "required_checks": [
+      "Exact v0.0.6 checkpoint identity and fresh orientation",
+      "Closed relation taxonomy with exact allowed transformations",
+      "One instruction-invariance and one freshness-direction relation in each split",
+      "Pair validator rejects undeclared prompt, state, evidence, action, trajectory, and terminal differences",
+      "Frozen outcomes, diagnoses, actions, trajectories, state, status, and attack fields before evaluator implementation",
+      "Unchanged agent, retriever, executor policy, service boundary, API approval boundary, MCP tool inventory, and action surface",
+      "Separate scenario-level and pairwise retrieval, generation, proposal, tool trajectory, terminal state, policy, utility, security, reliability, latency, cost, topology, condition, and relation metrics",
+      "CLI, MCP, API, approval, executor, replay, dashboard, persistence, and telemetry checks",
+      "Manifest, JSON, whitespace, secret-pattern, and diff checks",
+      "Clean clone, GitHub review, merged main, tag, release, and rendered public-page verification"
+    ],
+    "completed_checks": [
+      "v0.0.6 local, remote, tag, release, rendered pages, worktree, public tag clone, tests, manifest, relation-independent contracts, and selected evaluation were verified live",
+      "Fresh orientation report and traces were written only under C:\\Projects\\Verification and passed all baseline-0006 gates",
+      "Fresh orientation report and trace SHA-256 are c29157b5e4614dc2e5f1cbe025f4a1665fc9f7d8d1b964f0ee8c2ebb140109df and 184f44e310ee5fb16c1a0a6f1ae9e13a097ec0e53bdcbf22e5786429f3f2238a",
+      "The released catalog contains zero explicit relation links and zero controlled same-split freshness pairs; the evaluator contains no pairwise relation metric or gate",
+      "The source gate approved narrow cited use of CheckList and ReliabilityBench v1 with CC BY 4.0 attribution, no external artifact import, and explicit non-peer-reviewed limitations for ReliabilityBench"
+      ,"Schema 1.6 freezes 24 scenarios and four controlled relations: instruction-injection invariance and freshness directional safety each occur exactly once in development and held-out test",
+      "The independent relation validator proves eight linked cases differ only by the declared transformation and binds exact outcome, diagnosis, action, trajectory, incident status, and terminal-state expectations",
+      "The terminal-state-v3 contract passes with seven actionable and seventeen no-action cases while retaining all three existing actions and the external approval boundary",
+      "The 22-file pre-implementation manifest has SHA-256 696474d7e12c0ea79de843d4fdef3c3bec8faf9b5225997dc35ae18ab426c191; agent, retriever, policy, service, API, MCP, and actions are unchanged",
+      "The unchanged evaluator passed all 72 expanded-suite trials under its old gates and emitted 72 run, 21 approval, and 21 execution events, while reporting no behavioral-relation metric or gate",
+      "The immutable pre-grader control report and trace SHA-256 are 386ece2815be95aff23a84b297ddfb1636a19303f01c59bc7e583f50a9fbfdaf and d50d4e32ff1b133447f4f35a9b71a2cfdfb178134b2f753ab11ae490ba5afb6e",
+      "The fail-closed evaluator now reports contract validity, missing split/type pairs, split coverage, invariance exactness, directional-safety exactness, combined exactness, per-split exactness, and per-trial comparison details separately from scenario metrics",
+      "Focused tests prove a missing held-out directional relation invalidates coverage and a corrupted paired action lowers invariance and combined exactness",
+      "The first integrated run failed because of a misplaced helper boundary; the repair retained the frozen contract and all 14 tests then passed",
+      "A disposable 72-trial implementation smoke passed all gates with four relations and 12 of 12 paired trials exact; report and 114-event trace SHA-256 are 9da65549afcc80d68ec74ca025e3529d9fefc41484c30b454a57c44f61f3fced and 80631bf38454f7302b5e2852b3b28560dc8bc7f7941917a31d64f60da3b0d1df"
+      ,"The completed 22-file implementation manifest passes verification at SHA-256 8db0a7f5fd15dd92a82ab710e65fc6dbc84e4eec28b2d67b46a94a1427963c69; agent, retriever, policy, and service hashes remain unchanged"
+      ,"Immutable attempt 001 passed all 72 scenario trials and all 12 paired relation trials; its report, trace, and manifest SHA-256 are eda653ad87436fbbc3c6e3196e2fee4c503589d32cd35795351bf6f50101bccf, db9ff7eaed7d67dcbbdd62bdf1f299b41abaa34a581d6476e4fbc0e506076035, and 8db0a7f5fd15dd92a82ab710e65fc6dbc84e4eec28b2d67b46a94a1427963c69"
+      ,"Attempt 001 emitted exactly 72 run, 21 approval, and 21 execution events; no raw approval-token or concrete idempotency material appears in the report or trace"
+      ,"artifacts/evaluations/latest.json is byte-identical to immutable attempt 001"
+      ,"Versioned package, API health, MCP identity, CLI default, tests, README, dashboard, and real-surface verifiers now identify 0.0.7 and baseline-0007"
+      ,"The versioned 22-file manifest passes at SHA-256 02ff28f3616572d3c1b6d97e5fe617594765575666f2ed74cb247b43b7ee5314; agent, retriever, policy, service, and action hashes remain unchanged"
+      ,"Immutable version-bound attempt 002 passed all 72 scenario trials and 12 paired relation trials; report and trace SHA-256 are 6dbd86d774304ec9d6dbd3687fcc1cc72e87b8846a7f5b96343b0176063f40eb and 1e6bbdcb7170acf5d02172e74e4d365dcbffd7fe8e33a67d6bc9e8367660ff99"
+      ,"Held-out CLI requested evidence without a proposal; MCP 2025-11-25 reported version 0.0.7, retained retrieval audit, excluded attack guidance from decision context, and exposed no approval or execution tool"
+      ,"The live loopback API passed 27 named health, selected-evaluation, approval, execution, postcondition, idempotency, replay, token-redaction, CSP, and dashboard checks"
+      ,"Independent runtime inspection passed SQLite, audit, telemetry, selected-manifest binding, and screenshot checks; receipt and dashboard SHA-256 are 9dbd5f9ef37b69cef29fe28f40365f9e313a91b5463ac18e7edeccc914ee82a2 and f308245de2fa21e5fcb0d9ad3a9c0cc05b71424259dfb011a6d4384d9570bd69"
+      ,"Visual inspection confirmed the rendered dashboard accurately reports baseline 0007, pass, relation exactness 1.0, human approval, disconnected real infrastructure, and one mitigated synthetic incident"
+      ,"A no-local-object clone of candidate 8328c08900739d4f07afd9202a979c1bdd4f63e9 passed compilation, 14 tests, all three validators, 82 JSON and 22 JSONL parses, manifest and selected-evaluation identity, model and secret exclusion, CLI, MCP, 27 API checks, 16 runtime checks, and visual dashboard inspection"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "BASELINE-0007 release candidate 8328c08900739d4f07afd9202a979c1bdd4f63e9 passed exact no-local-object clean-clone source, contract, evaluation, security, real-surface, persistence, telemetry, and visual dashboard gates",
+    "next_action": "Commit the clean-clone receipt, push the verified branch, open GitHub review, and verify exact remote scope and mergeability",
+    "do_not_carry_forward": [
+      "Condition/split coverage as proof of controlled evidence sensitivity",
+      "Unlinked scenarios as implicit counterfactual pairs",
+      "Aggregate exactness as a substitute for relation-level metrics",
+      "The ReliabilityBench preprint as peer-reviewed or production-safety evidence",
+      "Changes to the agent or retriever to force the relation cases to pass",
+      "Any new action, dependency, model, external service, or real infrastructure connector"
+    ]
+  }
+}

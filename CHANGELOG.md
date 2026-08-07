@@ -2,6 +2,14 @@
 
 All notable verified changes are recorded here. Unverified work remains in `docs/devlog.md` and the active milestone contract.
 
+## 0.0.7 - 2026-08-06
+
+- Added a closed behavioral-relation contract with instruction-injection invariance and fresh-to-stale directional safety in development and held-out splits.
+- Added fail-closed relation validation and separate contract, coverage, invariance, directional-safety, combined, per-split, and per-trial metrics.
+- Passed 72 of 72 scenario trials and 12 of 12 paired relation trials with 21 expected executions and 51 exact no-action terminal states.
+- Preserved the aggregate-only gap, pre-grader control, stale inventory failures, an integration-placement failure, and the implementation smoke rather than rewriting unfavorable or superseded evidence.
+- Kept the agent, retriever, policy, service, action surface, approval, executor, and real-infrastructure boundary unchanged; release verification is in progress.
+
 ## 0.0.6 - 2026-08-06
 
 - Added a closed complete, incomplete, stale, conflicting, and instruction-bearing evidence-condition taxonomy with fail-closed validation.

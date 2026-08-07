@@ -12,9 +12,11 @@
 8. A deterministic policy gate validates capability and arguments, consumes the approval once, applies an allowlisted synthetic state transition, verifies postconditions, and records idempotency and audit evidence.
 9. SQLite persists operational state. JSONL traces record redacted runtime events and decision-context configuration. The dashboard renders current checkpoint, boundaries, evaluation disposition, and persisted incidents.
 
-The executor action surface remains exactly `restart_worker`, `rollback_deployment`, and `warm_cache`; baseline-0005 and baseline-0006 add no capability or runtime state mutation. Its optional local-model adapter is evaluation-only, direct-loopback, no-tools, and fail-closed. The excluded model candidate is not the operational default.
+The executor action surface remains exactly `restart_worker`, `rollback_deployment`, and `warm_cache`; baselines 0005 through 0007 add no capability or runtime state mutation. Its optional local-model adapter is evaluation-only, direct-loopback, no-tools, and fail-closed. The excluded model candidate is not the operational default.
 
 During frozen evaluation only, an isolated harness waits until the agent result is persisted, then acts as a synthetic external approver against temporary SQLite state. It invokes the same approval and execution methods as the operator surface, verifies same-key idempotency and different-key replay rejection, and grades exact incident state, status, audit events, and trace names. The raw approval token and idempotency key remain temporary local variables; neither appears in the report, persisted run JSON, nor telemetry. This harness is not reachable through the CLI, API, MCP server, dashboard, or agent/model interface.
+
+Baseline 0007 adds a relation plane to evaluation, not runtime. A frozen contract links one control and one variant, declares the only permitted evidence transformation, and specifies either exact invariance or a directional safety transition. The evaluator compares already-produced scenario results and terminal records; it gains no approval, execution, model, or infrastructure authority beyond the existing isolated harness.
 
 ## Ports and trust boundaries
 
