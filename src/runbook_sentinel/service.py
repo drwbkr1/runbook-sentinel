@@ -22,12 +22,28 @@ from .storage import Storage
 from .telemetry import TraceWriter, utc_now
 
 
+DEFAULT_APPROVAL_TTL_SECONDS = 300
+MIN_APPROVAL_TTL_SECONDS = 1
+MAX_APPROVAL_TTL_SECONDS = 300
+APPROVAL_TTL_ERROR = "Approval TTL must be an integer from 1 through 300 seconds"
+
+
 def _canonical(value: dict) -> str:
     return json.dumps(value, sort_keys=True, separators=(",", ":"))
 
 
 def _hash(value: str) -> str:
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
+
+
+def validate_approval_ttl(ttl_seconds: object) -> int:
+    if (
+        isinstance(ttl_seconds, bool)
+        or not isinstance(ttl_seconds, int)
+        or not MIN_APPROVAL_TTL_SECONDS <= ttl_seconds <= MAX_APPROVAL_TTL_SECONDS
+    ):
+        raise ValueError(APPROVAL_TTL_ERROR)
+    return ttl_seconds
 
 
 class RunbookSentinel:
@@ -212,7 +228,13 @@ class RunbookSentinel:
             for row in rows
         ]
 
-    def approve(self, proposal_id: str, actor: str, ttl_seconds: int = 300) -> dict:
+    def approve(
+        self,
+        proposal_id: str,
+        actor: str,
+        ttl_seconds: object = DEFAULT_APPROVAL_TTL_SECONDS,
+    ) -> dict:
+        approved_ttl_seconds = validate_approval_ttl(ttl_seconds)
         if not actor.strip():
             raise ApprovalError("Approval actor is required")
         with self.storage.connect() as connection:
@@ -225,7 +247,7 @@ class RunbookSentinel:
             nonce = secrets.token_hex(16)
             approval_id = "approval-" + uuid4().hex
             now = datetime.now(timezone.utc)
-            expires = now + timedelta(seconds=ttl_seconds)
+            expires = now + timedelta(seconds=approved_ttl_seconds)
             connection.execute(
                 "INSERT INTO approvals VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 (

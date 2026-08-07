@@ -9,7 +9,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 from .errors import ApprovalError, NotFoundError, PolicyRejected, ReplayRejected, SentinelError
-from .service import RunbookSentinel
+from .service import DEFAULT_APPROVAL_TTL_SECONDS, RunbookSentinel
 
 
 CHECKPOINT = "baseline-0012"
@@ -82,7 +82,11 @@ class SentinelHandler(BaseHTTPRequestHandler):
             elif match := re.fullmatch(r"/api/proposals/([A-Za-z0-9_-]+)/approve", path):
                 self._json(
                     HTTPStatus.CREATED,
-                    self.server.service.approve(match.group(1), body.get("actor", ""), int(body.get("ttl_seconds", 300))),
+                    self.server.service.approve(
+                        match.group(1),
+                        body.get("actor", ""),
+                        body.get("ttl_seconds", DEFAULT_APPROVAL_TTL_SECONDS),
+                    ),
                 )
             elif match := re.fullmatch(r"/api/proposals/([A-Za-z0-9_-]+)/execute", path):
                 self._json(
