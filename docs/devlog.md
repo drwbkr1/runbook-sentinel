@@ -25,6 +25,10 @@
 - Source MCP reports version 0.0.14 and exposes the same three diagnostic/read tools with no approval or execution tool. The real source HTTP/dashboard passes 66 checks, including exact wrong-token and missing-token HTTP 409 errors; 35 SQLite, audit, trace, manifest, and image checks pass.
 - Built two independent 283,148-byte zipapps with exactly 25 allowlisted entries and no runtime dependency. Both are byte-identical at SHA-256 `9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f`; the archive validator and CLI help pass.
 - Packaged attempt 001 passes all 84+9+6 evaluation cases. Source and package results are exact after removing only latency and per-run idempotency-evaluator database/trace fingerprints. Packaged MCP, 66 HTTP/dashboard checks, 35 state/telemetry checks, and visual inspection pass.
+- A no-local-object clone of exact commit `aa0c70b54962594b4c14d2fd5bae390a7c22c0f1` at `C:\Projects\Verification\runbook-sentinel-baseline-0014-aa0c70b-20260807T221516Z` has no alternates and began clean.
+- The first manual clone validator sequence omitted `src` from `PYTHONPATH`, so the stale-payload validator failed to import before evaluation. It was rerun with the documented source path and passed; this tooling failure is retained in the clean-clone receipt.
+- The clone passes compilation, nine validators, 22 tests, fresh source and package 84+9+6 evaluations, two exact rebuilds at SHA-256 `9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f`, both MCP surfaces, 66 HTTP/dashboard checks and 35 runtime checks per surface, artifact parsing, model/secret exclusion, and protected-boundary comparison.
+- Visual inspection confirms the clean-clone packaged dashboard accurately shows Baseline 0014, evaluation pass, cached result authorization 1.0, approval lifetime 1.0, human approval, disconnected real infrastructure, and a mitigated persisted incident. Headless Edge emitted one fallback renderer warning after writing the valid source PNG; the independently written package PNG is also valid.
 
 ## 2026-08-07 - BASELINE-0013 started
 

@@ -7,7 +7,7 @@
 - Latest verified checkpoint: public `v0.0.13`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
 - Candidate version: `0.0.14` / `baseline-0014`; not yet published or described as verified
 - Active milestone: `BASELINE-0014`; close the measured cached-result authorization bypass without changing executor or storage semantics
-- Current unit: `UNIT-004` in progress; the first held-out reveal and all 22 integrated tests pass, while version-bound and real-surface verification remain pending
+- Current unit: `UNIT-005` ready; version-bound source/package and no-local-object clean-clone gates pass, while GitHub review and publication remain pending
 - Disposition: baseline-0014 `remediate`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -33,8 +33,9 @@
 - Version-bound source attempt 001 passes all 84 scenario attempts plus the nine lifetime and six cache-authorization cases. Its report and trace SHA-256 values are `098be4dab2aff8585f9f252de356492ec82b5f6f2d2de881a2b202a8b196164f` and `a29e6d98d0880ba11857e9e54f485345831b72caaac44ecbb9ace601bc13f6f0`.
 - Two independent 283,148-byte, 25-entry zipapps are byte-identical at SHA-256 `9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f`. The archive contract, CLI, packaged 84+9+6 evaluation, bounded MCP, 66 HTTP/dashboard checks, 35 persisted-state/telemetry checks, and rendered dashboard inspection pass.
 - Source and package non-latency results are exact after removing only declared latency and per-run state/trace fingerprint fields. Both dashboards visibly report Baseline 0014, cached result authorization 1.0, approval lifetime 1.0, human approval, disconnected real infrastructure, and persisted synthetic incidents.
+- A no-local-object clone of exact commit `aa0c70b54962594b4c14d2fd5bae390a7c22c0f1` has no alternates and initially had a clean worktree. It passes compilation, nine validators, 22 tests, fresh source and package 84+9+6 evaluations, two exact archive rebuilds, source and package MCP, 66 HTTP/dashboard checks per runtime, 35 persisted-state checks per runtime, model/secret exclusion, and visual package-dashboard inspection.
 - RFC 9110 passed the external-source gate for narrow HTTP terminology and a clearly labeled project inference only. The expired and archived IETF Idempotency-Key Internet-Draft is retained as blocked and excluded from normative or design use. No external code, data, model, package, executable, or service was imported.
-- Next eligible action: commit the selected source/package evidence and verify an exact no-local-object clean clone with byte-identical archive rebuild.
+- Next eligible action: commit the clean-clone receipt, reverify the final review head, then push for exact GitHub review.
 
 ### BASELINE-0013 approval-lifetime gap and frozen contract
 

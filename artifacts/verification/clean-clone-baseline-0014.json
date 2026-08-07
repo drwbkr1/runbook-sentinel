@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0014",
+  "status": "pass",
+  "verified_commit": "aa0c70b54962594b4c14d2fd5bae390a7c22c0f1",
+  "clone": {
+    "path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0014-aa0c70b-20260807T221516Z",
+    "evidence_path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0014-aa0c70b-20260807T221516Z-evidence",
+    "source_head_exact": true,
+    "object_alternates_present": false,
+    "initial_worktree_clean": true
+  },
+  "source_verification": {
+    "compilation_pass": true,
+    "validator_count": 9,
+    "validators_pass": true,
+    "test_count": 22,
+    "tests_pass": true,
+    "report": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0014-aa0c70b-20260807T221516Z-evidence\\clean-source.json",
+    "report_sha256": "e4d64774f3505afe5c96400601abf944b9bcd3efbcedecba0b68842f51f9f46d",
+    "trace_sha256": "7857b418181791d430a92a0e8a6a0a5f998308ebbd4733ff1f2f2c1f17692dbb",
+    "evaluation_disposition": "pass",
+    "attempt_count": 84,
+    "approval_lifetime_case_count": 9,
+    "idempotency_authorization_case_count": 6
+  },
+  "package_verification": {
+    "archive": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0014-aa0c70b-20260807T221516Z\\dist\\runbook-sentinel-0.0.14.pyz",
+    "archive_sha256": "9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f",
+    "independent_rebuild": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0014-aa0c70b-20260807T221516Z-evidence\\rebuild-b.pyz",
+    "independent_rebuild_sha256": "9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f",
+    "selected_archive_exact": true,
+    "contract_and_archive_validator_pass": true,
+    "report": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0014-aa0c70b-20260807T221516Z-evidence\\clean-package.json",
+    "report_sha256": "da2144012ee277e9ca8dc9657565dc976080a84516eabbb95838c3d57a837bf7",
+    "trace_sha256": "d0b945ce21eaaee16b1bfba82977e2df64b3f819270fa5b806840a618ed2c030",
+    "evaluation_disposition": "pass",
+    "source_non_latency_result_exact": true
+  },
+  "real_surfaces": {
+    "source_mcp_pass": true,
+    "package_mcp_pass": true,
+    "source_http_dashboard_check_count": 66,
+    "package_http_dashboard_check_count": 66,
+    "source_runtime_check_count": 35,
+    "package_runtime_check_count": 35,
+    "wrong_and_missing_cached_tokens_rejected": true,
+    "source_native_receipt_sha256": "3b86ffa9e65e8a5354cd8a90157a476200a34dd39ceb59215d423659b5f22b7d",
+    "package_native_receipt_sha256": "16298a2d88e7306fc20ed7e2cdfe65d5e80bff320f35e7ef4b065deb8c72376c",
+    "source_dashboard_sha256": "9b13a1bd4a75d81df55a9ba26b543f348aa0c3ebd983d692559ffd672a439fe1",
+    "package_dashboard_sha256": "8c6a535a11ab4d47216d157adaa6a163c25d8e50980d78e63c9a6793c9337346",
+    "package_dashboard_visual_inspection": "pass: Baseline 0014, evaluation pass, cached result authorization 1.0, approval lifetime 1.0, human approval, disconnected real infrastructure, and a mitigated persisted incident are visible and legible at 1440 by 1000"
+  },
+  "repository_checks": {
+    "tracked_json_count": 218,
+    "tracked_jsonl_count": 55,
+    "tracked_jsonl_record_count": 6285,
+    "all_json_and_jsonl_parse": true,
+    "model_weight_paths": [],
+    "high_signal_secret_paths": [],
+    "protected_boundary_paths_changed_from_v0_0_13": [],
+    "only_post_verification_tracked_changes": [
+      "artifacts/verification/dashboard-baseline-0014.png",
+      "artifacts/verification/native-baseline-0014.json"
+    ]
+  },
+  "retained_tooling_failures": [
+    "The first manual validator sequence omitted src from PYTHONPATH, so verify_stale_payload_projection.py failed to import before evaluation. It was rerun with the documented source path and passed; the other validators and all 22 tests had already completed.",
+    "Headless Edge emitted a fallback renderer task-provider warning only after writing a valid source dashboard PNG. The package PNG was independently written and visually inspected."
+  ],
+  "boundaries": {
+    "agent_retrieval_policy_scenarios_model_and_storage_unchanged_from_v0_0_13": true,
+    "mcp_has_no_approval_or_execution_tool": true,
+    "approval_material_absent_from_evaluation_and_trace": true,
+    "real_infrastructure_disconnected": true,
+    "external_dependency_asset_model_or_service_added": false
+  },
+  "disposition": "advance_to_github_review"
+}

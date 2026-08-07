@@ -18,6 +18,8 @@ Two independent 283,148-byte zipapps are byte-identical at SHA-256 `9c9dbcba3b44
 
 Source and package MCP each expose three diagnostic/read tools and no approval or execution tool. Each real HTTP/dashboard run passes 66 checks, including exact wrong-token and missing-token denial, while each persisted SQLite/audit/trace/image inspection passes 35 checks. Both 1440 by 1000 dashboards were visually inspected and accurately show Baseline 0014, evaluation pass, cached result authorization 1.0, approval lifetime 1.0, human approval, disconnected real infrastructure, and persisted synthetic incidents. Clean-clone and publication gates remain pending.
 
+A no-local-object clone of exact commit `aa0c70b54962594b4c14d2fd5bae390a7c22c0f1` has no Git alternates and began clean. It independently passes nine validators, 22 tests, fresh source and package 84+9+6 evaluations, two rebuilds byte-identical to the selected archive, source and package MCP and real HTTP/state/telemetry checks, model and high-signal-secret exclusion, protected-boundary comparison, and rendered package-dashboard inspection. Its source/package non-latency results are exact. GitHub review, merged-main, and public-release reconciliation remain pending.
+
 ## BASELINE-0013 pre-change result
 
 The downloaded public v0.0.12 zipapp still passes the frozen 28-scenario, 84-attempt evaluation with every existing gate passing. Its trace contains 84 run, 33 approval, and 33 execute events, but the existing contract contains no invalid approval-lifetime case.

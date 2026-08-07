@@ -89,8 +89,11 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "in_progress",
-      "outputs": ["immutable evaluation", "separate authorization metrics", "real-surface evidence"]
+      "status": "complete",
+      "outputs": ["immutable evaluation", "separate authorization metrics", "real-surface evidence", "clean-clone receipt"],
+      "gates": {"all_six_cases_exact": true, "held_out_revealed_once": true, "prior_gates_preserved": true, "source_package_parity": true, "real_surfaces_pass": true, "clean_clone_pass": true},
+      "disposition": "pass",
+      "next_dependency": "UNIT-005"
     },
     {
       "id": "UNIT-005",
@@ -98,7 +101,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "github_push",
       "human_gate": false,
-      "status": "planned",
+      "status": "ready",
       "outputs": ["verified public checkpoint"]
     }
   ],
@@ -139,13 +142,14 @@
       "eval/package-contract-0014.json",
       "artifacts/evaluations/runs/baseline-0014-attempt-001.json",
       "artifacts/evaluations/runs/baseline-0014-package-attempt-001.json",
-      "artifacts/verification/package-verification-baseline-0014.json"
+      "artifacts/verification/package-verification-baseline-0014.json",
+      "artifacts/verification/clean-clone-baseline-0014.json"
     ],
     "disposition": "remediate"
   },
   "handoff": {
     "latest_verified_checkpoint": "public v0.0.13 release closure with selected c14a4559 package bytes",
     "active_weakness": "released same-proposal idempotency cache discloses a completed result for wrong or missing approval material",
-    "resume_rule": "Resume at UNIT-004 from the frozen BASELINE-0014 contract; reveal the held-out suite once, preserve the result, and do not alter the frozen boundary."
+    "resume_rule": "Resume at UNIT-005 from the passing clean-clone receipt; commit the receipt, reverify the final review head, then review, merge, publish, and reconcile without changing the frozen candidate."
   }
 }
