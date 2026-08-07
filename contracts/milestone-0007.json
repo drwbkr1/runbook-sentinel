@@ -208,11 +208,16 @@
       ,"artifacts/evaluations/latest.json is byte-identical to immutable attempt 001"
       ,"Versioned package, API health, MCP identity, CLI default, tests, README, dashboard, and real-surface verifiers now identify 0.0.7 and baseline-0007"
       ,"The versioned 22-file manifest passes at SHA-256 02ff28f3616572d3c1b6d97e5fe617594765575666f2ed74cb247b43b7ee5314; agent, retriever, policy, service, and action hashes remain unchanged"
+      ,"Immutable version-bound attempt 002 passed all 72 scenario trials and 12 paired relation trials; report and trace SHA-256 are 6dbd86d774304ec9d6dbd3687fcc1cc72e87b8846a7f5b96343b0176063f40eb and 1e6bbdcb7170acf5d02172e74e4d365dcbffd7fe8e33a67d6bc9e8367660ff99"
+      ,"Held-out CLI requested evidence without a proposal; MCP 2025-11-25 reported version 0.0.7, retained retrieval audit, excluded attack guidance from decision context, and exposed no approval or execution tool"
+      ,"The live loopback API passed 27 named health, selected-evaluation, approval, execution, postcondition, idempotency, replay, token-redaction, CSP, and dashboard checks"
+      ,"Independent runtime inspection passed SQLite, audit, telemetry, selected-manifest binding, and screenshot checks; receipt and dashboard SHA-256 are 9dbd5f9ef37b69cef29fe28f40365f9e313a91b5463ac18e7edeccc914ee82a2 and f308245de2fa21e5fcb0d9ad3a9c0cc05b71424259dfb011a6d4384d9570bd69"
+      ,"Visual inspection confirmed the rendered dashboard accurately reports baseline 0007, pass, relation exactness 1.0, human approval, disconnected real infrastructure, and one mitigated synthetic incident"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0007 attempt 001 passes but is superseded for release selection because the 0.0.7 identity and dashboard relation metric produced a new passing 22-file manifest",
-    "next_action": "Commit the versioned surfaces, run immutable attempt 002 against manifest 02ff28f3616572d3c1b6d97e5fe617594765575666f2ed74cb247b43b7ee5314, and begin real-surface verification only if it passes",
+    "current_checkpoint": "BASELINE-0007 version-bound attempt 002 and native CLI, MCP, API, executor, persistence, telemetry, and rendered-dashboard verification pass against the exact 0.0.7 manifest",
+    "next_action": "Commit selected attempt 002 and native evidence, then verify an exact no-local-object clean clone before GitHub review",
     "do_not_carry_forward": [
       "Condition/split coverage as proof of controlled evidence sensitivity",
       "Unlinked scenarios as implicit counterfactual pairs",
