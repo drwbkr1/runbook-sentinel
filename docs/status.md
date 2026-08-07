@@ -6,13 +6,13 @@
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.12`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, and rendered public pages to the release-closure commit
 - Active milestone: `BASELINE-0013`; enforce a typed approval lifetime of 1 through 300 seconds outside the model and reject invalid input before any approval mutation
-- Current unit: `UNIT-005` in progress; exact remote-branch clean clone passes and GitHub review is next
-- Disposition: baseline-0013 source and package candidate `pass`; clean-clone, GitHub review, merge, public release, downloaded-byte, and rendered-public-page gates remain pending; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Current unit: `UNIT-005` in progress; exact remote-branch and final-review-head clones pass, and the verified pre-merge audit is being committed for final PR-head reconciliation
+- Disposition: baseline-0013 source, package, clean-clone, and initial GitHub review gates `pass`; final receipt-head review, merge, public release, downloaded-byte, and rendered-public-page gates remain pending; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
 - GitHub `main`: pull request `#10` merged as `e4dcde1227d0f235f8725df3e15f91ad5675e7ab` before the release-closure record
-- GitHub pull request: `#10`, merged with history preserved
+- GitHub pull request: `#11` is open, non-draft, mergeable, and bound to reviewed head `536378ced68d0e145e3be836adbe25d2b7f83535`; its receipt-only final head remains to be revalidated before merge
 - GitHub release: public, non-draft `v0.0.12` with verified `.pyz` and `.sha256` assets
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately

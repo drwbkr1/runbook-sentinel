@@ -1,0 +1,187 @@
+{
+  "schema_version": "1.0",
+  "release_id": "RUNBOOK-SENTINEL-v0.0.13-PREMERGE",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2 and user-selected public GitHub visibility",
+    "authorized_actions": [
+      "commit release audit record",
+      "push release audit record",
+      "merge verified pull request",
+      "verify merged main",
+      "commit release closure",
+      "tag verified release closure",
+      "publish public GitHub release",
+      "verify public release artifacts"
+    ]
+  },
+  "risk_classes": ["documentation", "runtime", "package", "security", "public"],
+  "candidate": {
+    "base_commit": "9829f4e2309b9ebde83f7e1fc4f53f9e7e408b2a",
+    "commit": "536378ced68d0e145e3be836adbe25d2b7f83535",
+    "version": "0.0.13",
+    "tag": "v0.0.13",
+    "manifest_sha256": "249513aca8911a1a574a48e2546458db0b3d1e37ecdd4416db40cbb8638bc4c9",
+    "archive_sha256": "c14a4559f3cfc4f53d5ce501115747252c9f33e7f299eb34f088c605930fbd41",
+    "artifacts": [
+      "artifacts/evaluations/runs/baseline-0013-approval-lifetime-attempt-001.json",
+      "artifacts/evaluations/runs/baseline-0013-attempt-002.json",
+      "artifacts/evaluations/runs/baseline-0013-package-attempt-001.json",
+      "artifacts/verification/package-verification-baseline-0013.json",
+      "artifacts/verification/clean-clone-baseline-0013.json",
+      "artifacts/verification/native-baseline-0013.json",
+      "artifacts/verification/dashboard-baseline-0013.png"
+    ]
+  },
+  "live_truth": {
+    "verified_at_utc": "2026-08-07T20:48:40Z",
+    "branch": "codex/baseline-0013-approval-lifetime",
+    "remote_commit": "536378ced68d0e145e3be836adbe25d2b7f83535",
+    "pull_request": "https://github.com/drwbkr1/runbook-sentinel/pull/11",
+    "tag_target": "",
+    "deployment": null
+  },
+  "checks": [
+    {
+      "id": "CHECK-SCOPE-AND-BOUNDARIES",
+      "category": "scope",
+      "required": true,
+      "status": "pass",
+      "method": "Review the public-v0.0.12-to-candidate diff, frozen contracts, implementation, package allowlist, and authority boundaries",
+      "evidence": [
+        "49 exact changed files from 9829f4e2309b9ebde83f7e1fc4f53f9e7e408b2a to 536378ced68d0e145e3be836adbe25d2b7f83535",
+        "change is bounded to typed approval lifetime validation, independent evaluation, versioning, packaging, and evidence",
+        "agent outputs, untrusted-retrieval treatment, capabilities, human approval, executor, idempotency, replay, postconditions, and disconnected real-infrastructure boundary remain intact",
+        "no external code, data, model, asset, dependency, service, secret, credential, or container was imported or added"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-EVALUATION-AND-PACKAGE",
+      "category": "runtime",
+      "required": true,
+      "status": "pass",
+      "method": "Run the frozen approval-lifetime contract, version-bound source and package evaluations, independent validators, tests, and repeatable archive builds",
+      "evidence": [
+        "all nine approval-lifetime cases pass with invalid no-mutation and valid lifetime exactness both 1.0",
+        "eight validators and 21 tests pass",
+        "source and package each pass 84 scenario attempts plus nine separate approval-lifetime cases",
+        "two independent 257847-byte archives and the clean-clone rebuild are exact at SHA-256 c14a4559f3cfc4f53d5ce501115747252c9f33e7f299eb34f088c605930fbd41"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-REAL-SURFACES",
+      "category": "runtime",
+      "required": true,
+      "status": "pass",
+      "method": "Exercise source and packaged MCP, loopback HTTP approval and executor flow, replay, postconditions, dashboard, SQLite, audit, trace, telemetry, and visual rendering",
+      "evidence": [
+        "source and packaged MCP expose three diagnostic/read tools and no approval or execution tool",
+        "source and package each pass 58 HTTP/dashboard checks",
+        "source and package each pass 31 persisted-state and telemetry checks",
+        "rendered 1440 by 1000 dashboards visibly report Baseline 0013, approval lifetime exact 1.0, human approval, and disconnected real infrastructure"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-CLEAN-CLONE",
+      "category": "portability",
+      "required": true,
+      "status": "pass",
+      "method": "Clone the exact pushed branch without object alternates, rerun the complete candidate verification, and clone the final receipt head for static and archive-identity checks",
+      "evidence": [
+        "artifacts/verification/clean-clone-baseline-0013.json",
+        "full remote-branch clone at 2f50f5e8d2098d593fea1d5fefa2ca846422fe9f passes fresh source and package evaluation plus all real surfaces",
+        "final review-head clone at 536378ced68d0e145e3be836adbe25d2b7f83535 has no object alternates, passes eight validators and 21 tests, and reproduces the selected archive exactly"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-GITHUB-REVIEW",
+      "category": "public",
+      "required": true,
+      "status": "pass",
+      "method": "Fetch live GitHub PR metadata, changed filenames, and combined commit status, then compare them with local base, head, and file inventory",
+      "evidence": [
+        "PR #11 is OPEN, non-draft, and mergeable with base 9829f4e2309b9ebde83f7e1fc4f53f9e7e408b2a and head 536378ced68d0e145e3be836adbe25d2b7f83535",
+        "local and GitHub inventories contain the same 49 expected paths",
+        "PR #11 contains five expected commits and GitHub reports zero configured commit statuses",
+        "repository and release target remain public under drwbkr1/runbook-sentinel"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-PUBLICATION-ACTION",
+      "category": "public",
+      "required": true,
+      "status": "not_applicable",
+      "method": "",
+      "evidence": [],
+      "reason": "This is the pre-merge audit. Merged-main, tag, release assets, downloaded-byte identity, and rendered public-page verification intentionally follow a verified history-preserving merge."
+    }
+  ],
+  "retained_failures": [
+    "released v0.0.12 negative approval lifetime mutates a proposal into an unrecoverable approved state",
+    "two integrated verifier attempts falsely matched the safe approval_token_hashed field name",
+    "the first version-bound verification wrapper exceeded its observation timeout after child processes continued",
+    "source live-API attempt 001 failed to parse a PowerShell 5.1 HTTP error body and remains retained",
+    "the first high-signal secret inventory matched forbidden-pattern labels and was corrected without deleting the failed result",
+    "the first feature-branch push and this audit's direct ls-remote probe hit transient DNS-resolution failures before mutation"
+  ],
+  "truth_surfaces": [
+    {
+      "path_or_uri": "C:\\Projects\\Active\\runbook-sentinel",
+      "expected_state": "clean authoritative worktree at the exact reviewed candidate head before adding this audit record",
+      "observed_state": "clean at 536378ced68d0e145e3be836adbe25d2b7f83535 with 49 exact paths relative to main",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/pull/11",
+      "expected_state": "open non-draft review surface with exact candidate head and no unresolved merge blocker",
+      "observed_state": "OPEN, non-draft, mergeable, five commits, 49 exact files, and zero configured commit statuses",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0013-2f50f5e-20260807T203842Z",
+      "expected_state": "remote-branch clone with complete fresh source, package, MCP, API, state, telemetry, and dashboard verification",
+      "observed_state": "exact runtime candidate, no object alternates, every declared gate passes, and selected archive is reproduced",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0013-final-536378c-20260807T204222Z",
+      "expected_state": "final review-head clone with static and selected-archive identity verification",
+      "observed_state": "exact review head, no object alternates, eight validators and 21 tests pass, selected archive is reproduced",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.13",
+      "expected_state": "absent before merged-main and pre-publication verification",
+      "observed_state": "publication intentionally follows this audit and merged-main verification",
+      "status": "not_applicable"
+    }
+  ],
+  "limitations": [
+    "Synthetic SRE only; no real operational infrastructure or credentials.",
+    "Container packaging remains independently deferred and no package-registry release is claimed.",
+    "The deterministic control remains selected; no model-comparative improvement is claimed in this checkpoint.",
+    "The project remains research-informed and makes no production, universal prompt-injection-resistance, strict latency-dominance, or external-system superiority claim.",
+    "A transient direct Git DNS-resolution failure is retained; the authenticated GitHub PR surface remained available, and remote truth must be rechecked after this audit commit before merge.",
+    "This audit record and associated status text are evidence-only changes; their committed PR head must be revalidated before merge."
+  ],
+  "decision": {
+    "reported_status": "verified",
+    "rationale": "The bounded candidate, frozen evaluation, package identity, source and packaged real surfaces, no-alternates clones, and live GitHub review all pass without a changed-risk or security-boundary discrepancy.",
+    "next_action": "Commit and push this audit record, revalidate the evidence-only PR head and exact delta, merge PR #11 with an expected-head lock and history preserved, then verify a fresh public-main clone before publication.",
+    "authorized_next_actions": [
+      "commit release audit record",
+      "push release audit record",
+      "merge verified pull request",
+      "verify merged main",
+      "commit release closure",
+      "tag verified release closure",
+      "publish public GitHub release",
+      "verify public release artifacts"
+    ]
+  }
+}

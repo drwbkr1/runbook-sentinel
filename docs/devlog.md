@@ -21,6 +21,9 @@
 - The first ad hoc precommit secret scan falsely matched the package contracts' literal forbidden-pattern labels. JSON/JSONL parsing, the package validator's content-aware secret exclusions, and a corrected scan requiring credential-length tokens or an anchored private-key header pass; no secret-shaped value was found.
 - The first feature-branch push failed before remote mutation when the shell temporarily could not resolve `github.com`. DNS recovered on the read-only reachability check and the exact branch push then succeeded.
 - A fresh public-branch clone of exact candidate `2f50f5e8d2098d593fea1d5fefa2ca846422fe9f` has no object alternates and passed compilation, eight validators, 21 tests, fresh source and package evaluations, exact archive rebuild, packaged MCP, 58 HTTP/dashboard checks, 31 runtime checks, and visual inspection. The retained receipt advances the candidate to GitHub review.
+- A second no-alternates clone of final review head `536378ced68d0e145e3be836adbe25d2b7f83535` passes eight validators, 21 tests, and exact selected-archive rebuild. GitHub PR `#11` is open, non-draft, mergeable, contains five expected commits, lists the same 49 paths as the local diff, and has zero configured commit statuses.
+- A direct read-only `git ls-remote` check then hit a transient GitHub DNS-resolution failure while the authenticated GitHub PR surface remained available. The failed probe is retained in the task record; the remote and receipt-only PR head must be rechecked before merge.
+- The pre-merge release audit computes `verified` and releases only the inherited receipt commit, push, expected-head merge, merged-main verification, and later publication actions. It does not treat GitHub's provisional open-PR merge SHA as a completed merge.
 
 
 ## 2026-08-06 — BASELINE-0001 started
