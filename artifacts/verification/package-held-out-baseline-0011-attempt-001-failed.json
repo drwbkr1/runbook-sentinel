@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0011",
+  "revealed_at_utc": "2026-08-07T18:40:00Z",
+  "candidate_commit": "dd78ceb",
+  "candidate_archive": {
+    "path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0011-dev-e.pyz",
+    "sha256": "41f86d19770fe17f00e028c5e54acd2392aa56dfc4991602632b53b8cc259c55",
+    "bytes": 238867,
+    "contract_validator": "pass",
+    "repeated_build_byte_identity": true
+  },
+  "source_baseline": {
+    "validators_passed": 7,
+    "unit_tests_passed": 19,
+    "evaluation_report": "artifacts/evaluations/runs/baseline-0011-attempt-001.json",
+    "evaluation_report_sha256": "0543342c1b3eea9f88da516bf471aefbcfdf1f91c6ceedaa7f1b8401d8e9e710",
+    "evaluation_trace_sha256": "80d3efa6ad6ff7dc2f8d86d51331969cf3dd8ab5178910d43b4da1eda8aae27c",
+    "manifest_copy_sha256": "04feff0c2151188ed21d48ec544ccb37a9548fe88f4681ebeeca7a8449adc219",
+    "latest_byte_identical_to_report": true,
+    "scenario_count": 28,
+    "attempt_count": 84,
+    "every_gate_passed": true,
+    "disposition": "pass"
+  },
+  "packaged_mcp": {
+    "status": "pass",
+    "server_version": "0.0.11",
+    "tool_count": 3,
+    "approval_or_execution_tool_exposed": false,
+    "attack_document_in_decision_context": false,
+    "stale_payload_characters": 0,
+    "database_sha256": "f424cd4927abc14712251e390d3d45b9a1730e4670b83e45a71424d10aaf3296",
+    "trace_sha256": "ad3ea7716bd6a2c772780ca7d0433f391e617b114d5ecbe19d5b7a7acaa0463a"
+  },
+  "packaged_http_dashboard_runtime": {
+    "status": "fail",
+    "checks_passed": 49,
+    "checks_total": 50,
+    "only_failed_check": "dashboard_baseline_exact",
+    "health_checkpoint": "baseline-0011",
+    "evaluation_checkpoint": "baseline-0011",
+    "rendered_dashboard_checkpoint": "Baseline 0010",
+    "source_location": "src/runbook_sentinel/api.py:188",
+    "source_text": "Baseline 0010 - synthetic SRE only",
+    "api_approval_executor_replay_postconditions": "pass",
+    "approval_token_absent_from_trace": true,
+    "persisted_state_telemetry_checks_passed": 27,
+    "native_receipt": "artifacts/verification/native-baseline-0011.json",
+    "native_receipt_sha256": "fbcf74e63bdcc66de46b28ca37624282334df832b286f687a2323670e24e2d05",
+    "database_sha256": "a7a173582348ff767376203541f2e6be9201078fc32abcd63a66939b5466285c",
+    "trace_sha256": "dd7b48b142c47b50f89b424471a4da59f5dce0174ad82044372ee2330f2abb45",
+    "dashboard_png": "artifacts/verification/dashboard-baseline-0011.png",
+    "dashboard_png_sha256": "24358d72123483dcbe2d3e5ddc986f70f389604082da6fff9ca053fe123cf139",
+    "visual_inspection": "The rendered 1440 by 1000 dashboard accurately shows all evaluated metrics and security boundaries but visibly labels itself Baseline 0010."
+  },
+  "held_out_integrity": {
+    "first_reveal": true,
+    "failure_retained": true,
+    "candidate_changed_after_reveal": false,
+    "contract_changed_after_reveal": false,
+    "same_candidate_may_be_released": false
+  },
+  "disposition": "failed",
+  "release_decision": "reject",
+  "next_action": "Close BASELINE-0011 without publication. A new milestone may treat the stale rendered checkpoint identity as a known regression, but must not rewrite this candidate as passing or call the repeated surface held-out."
+}

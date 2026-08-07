@@ -4,6 +4,10 @@
 
 No external runtime package, model, dataset, or third-party code is imported. The runtime uses Python 3.12 standard-library modules only. Project-authored synthetic scenarios are the only dataset.
 
+## Approved specification use for baseline-0011 and baseline-0012
+
+Official Python 3.12.13 `zipapp`, `zipfile`, and PSF licensing documentation passed the eight-criterion source gate in `artifacts/verification/research-source-gate-baseline-0011.json`. Approval covers citation, narrow paraphrase, and a project-authored standard-library zipapp builder and verifier. No external code, package, sample archive, executable, data, model, or service was imported. The same reviewed primitives support the superseding v0.0.12 package contract.
+
 ## Pending before use
 
 | Asset | Current local observation | Required gate |

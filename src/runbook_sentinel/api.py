@@ -12,7 +12,7 @@ from .errors import ApprovalError, NotFoundError, PolicyRejected, ReplayRejected
 from .service import RunbookSentinel
 
 
-CHECKPOINT = "baseline-0010"
+CHECKPOINT = "baseline-0012"
 
 
 class SentinelHTTPServer(ThreadingHTTPServer):
@@ -172,6 +172,7 @@ class SentinelHandler(BaseHTTPRequestHandler):
             f"<tr><td>{html.escape(item['id'])}</td><td>{html.escape(item['scenario_id'])}</td><td>{html.escape(item['status'])}</td></tr>"
             for item in incidents
         ) or "<tr><td colspan='3'>No incidents have been run in this process.</td></tr>"
+        checkpoint_display = html.escape(CHECKPOINT.removeprefix("baseline-"))
         return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Runbook Sentinel</title><style>
@@ -185,7 +186,7 @@ h1 {{ font-size:clamp(2rem,6vw,4.5rem); margin:.25rem 0; }}
 .value {{ font-size:1.8rem; color:#75d7c6; }} table {{ width:100%; border-collapse:collapse; }}
 th,td {{ text-align:left; padding:12px; border-bottom:1px solid #21354b; }} .boundary {{ color:#ffcf70; }}
 </style></head><body><main>
-<div class="eyebrow">Baseline 0010 - synthetic SRE only</div><h1>Runbook Sentinel</h1>
+<div class="eyebrow">Baseline {checkpoint_display} - synthetic SRE only</div><h1>Runbook Sentinel</h1>
 <p class="promise">Evidence can be incomplete, stale, or hostile. The agent may diagnose, request evidence, propose a bounded action, or abstain. It never executes.</p>
 <section class="grid">
 <div class="card"><div>Evaluation</div><div class="value">{html.escape(disposition)}</div></div>

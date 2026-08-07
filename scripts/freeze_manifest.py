@@ -11,10 +11,15 @@ ROOT = Path(__file__).resolve().parents[1]
 FILES = [
     "pyproject.toml",
     "eval/model-contract.json",
+    "eval/package-contract.json",
+    "eval/package-contract-0012.json",
+    "eval/dashboard-identity-contract.json",
     "src/runbook_sentinel/__init__.py",
+    "src/runbook_sentinel/__main__.py",
     "src/runbook_sentinel/data/scenarios.json",
     "src/runbook_sentinel/catalog.py",
     "src/runbook_sentinel/cli.py",
+    "src/runbook_sentinel/errors.py",
     "src/runbook_sentinel/retrieval.py",
     "src/runbook_sentinel/evidence.py",
     "src/runbook_sentinel/agent.py",
@@ -22,6 +27,7 @@ FILES = [
     "src/runbook_sentinel/policy.py",
     "src/runbook_sentinel/service.py",
     "src/runbook_sentinel/storage.py",
+    "src/runbook_sentinel/telemetry.py",
     "src/runbook_sentinel/api.py",
     "src/runbook_sentinel/mcp_server.py",
     "src/runbook_sentinel/evaluation.py",
@@ -36,6 +42,8 @@ FILES = [
     "scripts/verify_stale_evidence_stress.py",
     "scripts/verify_stale_payload_projection.py",
     "scripts/evaluate_stale_payload_projection.py",
+    "scripts/build_zipapp.py",
+    "scripts/verify_package_contract.py",
 ]
 
 

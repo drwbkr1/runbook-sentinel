@@ -1,0 +1,215 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0011",
+  "status": "stopped",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": ["research_review", "local_verification", "repository_change", "local_commit", "github_push"],
+    "user_instruction": "Continue selecting and shipping bounded evidence-driven checkpoints without routine approval while preserving the thesis, external-source gates, and security boundaries.",
+    "repository_controls": ["AGENTS.md", "C:\\Projects\\STORAGE_POLICY.md", "contracts/milestone-0010.json", "docs/status.md"],
+    "active_contract": "contracts/milestone-0011.json",
+    "verified_at_utc": "2026-08-07T18:16:10Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Produce and release a reproducible, dependency-free executable zipapp that preserves the exact bounded source-runtime behavior and frozen evaluation identity while excluding cache, secret, credential, approval, execution-authority, and non-runtime material.",
+    "allowed_paths": ["C:\\Projects\\Active\\runbook-sentinel", "C:\\Projects\\Verification"],
+    "forbidden_work": [
+      "Connect to or mutate real operational infrastructure",
+      "Add, remove, or broaden an executor action or capability",
+      "Give the agent or model credentials, approval material, idempotency authority, or execution access",
+      "Weaken authorization, hashing, expiry, idempotency, replay protection, preconditions, postconditions, audit logging, evidence boundaries, or freshness rules",
+      "Add a package dependency, build backend, model, external service, secret, account, download, or externally controlled asset",
+      "Publish to a package registry or claim container, sandbox, or production-deployment equivalence",
+      "Change repository visibility, access, ownership, deterministic default, scenario expectations, or graders to favor the package",
+      "Use held-out packaged API/dashboard results as implementation feedback",
+      "Rewrite or discard unfavorable, failed, stale, blocked, or superseded evidence"
+    ],
+    "reversible_actions": [
+      "Freeze a project-authored package-content and parity contract",
+      "Add a deterministic standard-library ZIP builder and verifier",
+      "Make frozen-manifest loading archive-aware without changing manifest identity semantics",
+      "Build disposable and release-candidate pyz files under project and verification custody",
+      "Compare source and packaged CLI, evaluation, MCP, API, persistence, telemetry, and dashboard outputs",
+      "Attach a verified pyz and checksum file to the public GitHub release",
+      "Commit and publish a verified checkpoint"
+    ],
+    "stop_conditions": [
+      "Core thesis change",
+      "Security-boundary weakening",
+      "New action, dependency, build backend, external asset, spend, paid service, secret, account, or download required",
+      "Real operational infrastructure interaction",
+      "Access or ownership change",
+      "Irreversible action",
+      "Unverifiable package or shipment"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.10 local main, remote main, annotated tag, non-draft release, rendered pages, and release closure reconcile to 01791052b80748bb0f8e01c57152d00b53822aee",
+        "Fresh v0.0.10 orientation passes all 84 trials and every declared gate with zero model calls or cost",
+        "The public v0.0.10 release has zero attached package assets and no package-registry claim",
+        "The current environment has zipapp but no setuptools or wheel build backend",
+        "Two default zipapp builds differ, contain 17 pycache entries, and packaged evaluation fails because the frozen manifest is unavailable",
+        "The official Python 3.12.13 packaging specification source gate is ready and imports no external artifact"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {"id": "EXIT-001", "status": "fail", "evidence": ["The first packaged held-out dashboard rendered Baseline 0010 while health and evaluation reported baseline-0011; publication is rejected."]}
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Verify public v0.0.10, run a fresh orientation, inspect traces and release truth, measure the package gap, and gate official specifications",
+      "depends_on": [],
+      "action_class": "research_review",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["public v0.0.10", "fresh orientation", "release assets", "local Python runtime", "official Python documentation"],
+      "outputs": ["verified checkpoint orientation", "portable-package gap receipt", "ready source gate", "bounded objective"],
+      "gates": {"latest_checkpoint_verified": true, "gap_measurable": true, "external_import": false},
+      "disposition": "pass",
+      "retained_failures": [
+        "The first GitHub release-asset query had a transient API connection error; the identical read-only retry returned an empty asset list.",
+        "The first nested setuptools.build_meta spec probe raised because the parent setuptools package is absent; the corrected top-level probe established setuptools false, wheel false, and zipapp true.",
+        "The first official-page hash inventory used .NET methods unavailable in this PowerShell runtime and returned no evidence items; compatible SHA-256 hashing then captured all three live pages.",
+        "The default zipapp evaluation failed with FileNotFoundError for the frozen manifest; the full stderr is retained outside the repository and the failure is part of the discriminating gap."
+      ],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze exact package contents, reproducibility, source-parity surfaces, held-out boundary, and immutable pre-change evidence before implementation",
+      "depends_on": ["UNIT-001"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["v0.0.10 manifest", "portable-package gap", "ready official-specification gate"],
+      "outputs": ["package contract", "independent package validator", "expanded frozen manifest", "pre-change package control"],
+      "gates": {"frozen_before_implementation": true, "held_out_not_feedback": true, "new_dependencies": false, "runtime_authority_change": false},
+      "evidence": [
+        "eval/package-contract.json freezes the exact 21-entry allowlist, stable ZIP metadata, dependency-free artifact identity, parity surfaces, held-out boundary, and release gates",
+        "scripts/verify_package_contract.py passed the contract-only check and independently rejected the unfavorable v0.0.10 default zipapp",
+        "artifacts/verification/package-contract-freeze-baseline-0011.json binds the contract, validator, source manifest, source gate, gap, and pre-change control before candidate implementation",
+        "scripts/freeze_manifest.py now requires the package contract, complete packaged runtime surface, deterministic builder, and independent package validator"
+      ],
+      "disposition": "pass",
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement one deterministic allowlist builder, archive-aware frozen-manifest loading, and focused development package parity",
+      "depends_on": ["UNIT-002"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["frozen package contract", "pre-change control"],
+      "outputs": ["deterministic builder", "package verifier", "development parity evidence"],
+      "gates": {"agent_purpose_unchanged": true, "action_surface_unchanged": true, "new_dependencies": false, "manifest_semantics_preserved": true},
+      "evidence": [
+        "Two independent passing builds are byte-identical at SHA-256 2ce3147aaec755ab6ee72109c281e5f306ad9cb2d6f83963fc251d925e014f28 and independently satisfy the 21-entry archive contract",
+        "Source and package CLI help and the frozen development scenario match on outcome, diagnosis, proposal, missing evidence, retrieval identity, and decision identity",
+        "Source and package 84-attempt evaluations both pass every gate and match on all non-latency metric families",
+        "The initial reproducible archive's launcher ImportError remains retained; the generic absolute-import fix changed neither the frozen package contract nor any security boundary"
+      ],
+      "disposition": "pass",
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Reveal held-out packaged surfaces once, run repeated independent builds and source/package comparisons, and select only a measured portability improvement",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "failed",
+      "inputs": ["completed generic package candidate", "frozen parity contract"],
+      "outputs": ["immutable package attempts", "source/package comparison", "evidence disposition"],
+      "gates": {"failed_attempts_retained": true, "same_manifest_comparison": true, "byte_reproducibility": true, "held_out_revealed_once": true},
+      "evidence": [
+        "Source and package same-manifest evaluation results passed every gate and matched on all non-latency metric families",
+        "Packaged MCP passed with only three bounded diagnostic/read tools and no approval or execution authority",
+        "Packaged HTTP, approval, executor, replay, terminal postconditions, persistence, telemetry, and dashboard checks passed 49 of 50 assertions",
+        "The sole held-out failure was a visibly stale Baseline 0010 dashboard label while runtime health and evaluation reported baseline-0011"
+      ],
+      "retained_failures": [
+        "artifacts/verification/package-held-out-baseline-0011-attempt-001-failed.json retains the exact failed candidate, screenshot, source location, and rejected release disposition; the candidate and contract were not changed after reveal"
+      ],
+      "disposition": "remediate",
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Version, validate source and packaged real surfaces, reconcile records, clean-clone, review, merge, attach package and checksums, release, and verify the bounded checkpoint",
+      "depends_on": ["UNIT-004"],
+      "action_class": "github_push",
+      "human_gate": false,
+      "status": "excluded",
+      "inputs": ["passing selected package candidate", "reconciled living records"],
+      "outputs": ["baseline-0011 public release with verified portable artifact"],
+      "gates": {"release_candidate_accepted": false, "publication_authorized": false, "candidate_verified": false},
+      "retained_failures": ["Publication is excluded because UNIT-004 rejected the fixed candidate after its first held-out reveal."],
+      "disposition": "exclude"
+    }
+  ],
+  "verification": {
+    "changed_risks": [
+      "Nondeterministic archive bytes preventing identity verification",
+      "Machine-local pycache, secrets, credentials, runtime state, or unrelated files entering the package",
+      "Packaged evaluation losing or misrepresenting frozen manifest identity",
+      "Source and packaged CLI, MCP, API, persistence, telemetry, or dashboard behavior diverging",
+      "An archive path weakening approval, policy, executor, or real-infrastructure boundaries",
+      "Package verification trusting self-reported metadata without checking entries and hashes",
+      "A favorable package smoke test masking held-out or repeated-build failure"
+    ],
+    "required_checks": [
+      "Exact public v0.0.10 identity and fresh orientation",
+      "Ready official-specification source gate with no imported asset",
+      "Frozen allowlisted archive entries, metadata, timestamps, permissions, and package manifest",
+      "Independent validator rejects extra, missing, reordered, timestamp-shifted, permission-shifted, hash-mismatched, cache, secret, or manifest-mismatched archives",
+      "Pre-change default zipapp nondeterminism, cache inclusion, and evaluation failure retained before implementation",
+      "Repeated independent candidate builds are byte-identical and package checksum is exact",
+      "Embedded frozen manifest matches the authoritative version-bound manifest",
+      "Source and package evaluation metrics and exact outcomes match on development and held-out splits",
+      "Unchanged agent purpose, three-action set, approval boundary, executor policy, API/MCP capabilities, and deterministic default",
+      "Source and package CLI, MCP, API, approval, executor, replay, dashboard, persistence, telemetry, tests, clean clone, GitHub review, merged main, release asset download, checksum, and rendered public pages"
+    ],
+    "completed_checks": [
+      "Public v0.0.10 release closure and clean authoritative main verified",
+      "Fresh 84-trial orientation passed every existing gate and is retained outside the repository",
+      "Public release asset count is zero; current release explicitly makes no package-registry or package-artifact claim",
+      "Default zipapp builds are runnable but byte-different, include 17 pycache entries, and cannot run frozen evaluation",
+      "Python 3.12.13 official packaging documentation source gate is ready for citation and project-authored implementation only"
+    ],
+    "artifacts": [
+      "artifacts/verification/portable-package-gap-baseline-0011.json",
+      "artifacts/verification/research-source-gate-baseline-0011.json",
+      "C:\\Projects\\Verification\\runbook-sentinel-baseline-0011-orientation-20260807T181134Z.json",
+      "C:\\Projects\\Verification\\runbook-sentinel-baseline-0011-orientation-20260807T181134Z.traces.jsonl",
+      "C:\\Projects\\Verification\\runbook-sentinel-v0010-default-a.pyz",
+      "C:\\Projects\\Verification\\runbook-sentinel-v0010-default-b.pyz"
+    ],
+    "disposition": "in_progress"
+  },
+  "handoff": {
+    "current_checkpoint": "Public v0.0.10 is verified; BASELINE-0011 selects reproducible portable zipapp parity as its one bounded improvement.",
+    "next_action": "Complete UNIT-002 by freezing the archive-content, reproducibility, source-parity, held-out, and pre-change package contract before implementation.",
+    "do_not_carry_forward": [
+      "Do not add a build backend, package dependency, container base, or external asset.",
+      "Do not treat a runnable help command as package parity or reproducibility.",
+      "Do not use held-out packaged API/dashboard results as implementation feedback.",
+      "Do not broaden agent, approval, executor, credential, or real-infrastructure authority.",
+      "Do not rewrite unfavorable, failed, or superseded package evidence."
+    ]
+  },
+  "records": {
+    "required_updates": ["docs/status.md", "docs/roadmap.md", "docs/architecture.md", "docs/threat-model.md", "docs/evaluation-contract.md", "docs/evaluation-report.md", "docs/research-ledger.md", "docs/devlog.md", "CHANGELOG.md", "docs/version-history.md", "ADRs if a package decision survives comparison"],
+    "preserve_unfavorable_results": true,
+    "latest_verified_checkpoint": "public v0.0.10 release closure",
+    "next_resume_point": "BASELINE-0011 UNIT-002 package-contract freeze"
+  }
+}

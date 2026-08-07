@@ -125,3 +125,14 @@ These gates validate a control baseline only. They are not sufficient for the v0
 - Retrieval, generation, proposal, tool trajectory, terminal state, controlled relations, both retrieval-stress families, policy, utility, security, repeated reliability, latency, and cost retain independent metrics and gates. Zero attack action cannot mask payload exposure.
 - Selection requires every hard gate. A candidate may be selected as a security-gated Pareto-frontier choice with an explicit measured latency tradeoff, but cannot be called strictly Pareto-dominant unless every numeric objective is no worse.
 - The bounded outcomes, deterministic agent, default model configuration, three-action surface, policy, approval boundary, executor, API/MCP authority inventory, dependency set, credential absence, and real-infrastructure prohibition remain unchanged.
+
+## Baseline-0012 package and release-identity gates
+
+- Preserve the stopped v0.0.11 candidate, default-zipapp failure, root-launcher failure, and first packaged dashboard mismatch. The known dashboard regression is not held-out evidence.
+- Build exactly the 21 frozen runtime entries with copied source bytes, fixed ZIP timestamp and permissions, stored compression, empty comments and extras, an embedded frozen evaluation manifest, and a generated package manifest bound to the package contract and every non-self entry hash.
+- An independent verifier must reject extra, missing, reordered, source-divergent, metadata-divergent, cache, bytecode, runtime-state, secret-pattern, entry-hash, package-contract, or frozen-manifest differences.
+- Two independent local builds must be byte-identical. Source and package must share the frozen evaluation manifest and match every gate and non-latency metric family; latency remains separately reported.
+- Source and package CLI, MCP, API, approval, executor, replay, postconditions, dashboard HTML, rendered dashboard, SQLite state, audit, and JSONL telemetry must pass. MCP must expose no approval or execution tool.
+- Health and dashboard identity must derive from the canonical baseline-0012 checkpoint. The known regression requires `Baseline 0012` and forbids both stale candidate labels.
+- Release requires a clean-clone rebuild byte-identical to the selected archive and a downloaded public GitHub release asset byte-identical to the published checksum. Failure blocks publication.
+- The agent, retriever, decision context, model default, scenarios and split, three-action surface, policy, approval boundary, executor, dependencies, credentials, and real-infrastructure prohibition remain unchanged.

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0012",
+  "frozen_at_utc": "2026-08-07T18:47:00Z",
+  "frozen_before_candidate_runtime_change": true,
+  "inputs": [
+    {
+      "path": "eval/dashboard-identity-contract.json",
+      "bytes": 2188,
+      "sha256": "10ccc78dda8e909343a01aa15a8d287b3dd3aa5480a3922ef5c820dfdd8e4ac6",
+      "role": "canonical rendered identity and known-regression contract"
+    },
+    {
+      "path": "eval/package-contract-0012.json",
+      "bytes": 6977,
+      "sha256": "d431bbaaedb3178516114de193130e5382c09464fd10beea98b7c10071800433",
+      "role": "v0.0.12 package, parity, clean-clone, and public-asset contract"
+    },
+    {
+      "path": "scripts/verify_package_contract.py",
+      "bytes": 15846,
+      "sha256": "a35d9ab1fffc3cdb87fa3ff05d6c725a9ef206b0469f53158c4319f294e262ec",
+      "role": "generic independent verifier for both retained v0.0.11 and new v0.0.12 contracts"
+    },
+    {
+      "path": "artifacts/verification/dashboard-identity-gap-baseline-0012.json",
+      "bytes": 2526,
+      "sha256": "b4aa0f26bdc915265edf79596fc4c331d4158cd1c1dc5fc5d0bd0c271f4cbb21",
+      "role": "exact known rendered-identity regression"
+    },
+    {
+      "path": "artifacts/verification/package-held-out-baseline-0011-attempt-001-failed.json",
+      "bytes": 3247,
+      "sha256": "854ba244c052942c9d3376fccb3d337bdc1f263e129e20c892e96422f1e44ac9",
+      "role": "immutable stopped candidate and first-reveal failure"
+    }
+  ],
+  "validation": {
+    "retained_v0011_contract": "pass",
+    "new_v0012_contract": "pass",
+    "milestone_contract": "pass",
+    "known_dashboard_regression_described_as_held_out": false,
+    "external_source_or_asset_used": false,
+    "new_dependency": false
+  },
+  "disposition": "pass",
+  "supersession_rule": "Do not edit this freeze or the stopped BASELINE-0011 evidence. New results must be retained as later candidate attempts."
+}

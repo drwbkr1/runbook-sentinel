@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+from importlib.resources import files
 import json
 import math
 import tempfile
@@ -68,6 +69,16 @@ BEHAVIORAL_RELATION_KEYS = {
     "parameters",
     "expected_relation",
 }
+
+
+def load_frozen_manifest_bytes() -> bytes:
+    repository_manifest = Path(__file__).resolve().parents[2] / "eval/manifest.json"
+    if repository_manifest.is_file():
+        return repository_manifest.read_bytes()
+    try:
+        return files("runbook_sentinel").joinpath("data/eval-manifest.json").read_bytes()
+    except (FileNotFoundError, ModuleNotFoundError) as exc:
+        raise FileNotFoundError("Evaluation requires the frozen manifest") from exc
 INVARIANCE_RELATION_EXPECTATION = {
     "outcome": "equal",
     "diagnosis_code": "equal",
@@ -1564,10 +1575,7 @@ def run_evaluation(
     retrieval_stress_contract = catalog["retrieval_stress_contract"]
     stale_evidence_stress_contract = catalog["stale_evidence_stress_contract"]
     stale_payload_projection_contract = catalog["stale_payload_projection_contract"]
-    manifest_path = Path(__file__).resolve().parents[2] / "eval/manifest.json"
-    if not manifest_path.exists():
-        raise FileNotFoundError("Evaluation requires the frozen manifest")
-    manifest_bytes = manifest_path.read_bytes()
+    manifest_bytes = load_frozen_manifest_bytes()
     manifest = json.loads(manifest_bytes)
     manifest_checkpoint = manifest.get("checkpoint")
     if not isinstance(manifest_checkpoint, str) or not manifest_checkpoint.startswith("baseline-"):

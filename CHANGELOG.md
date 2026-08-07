@@ -2,6 +2,22 @@
 
 All notable verified changes are recorded here. Unverified work remains in `docs/devlog.md` and the active milestone contract.
 
+## 0.0.12 - Unreleased
+
+- Added a project-authored, Python-standard-library-only zipapp builder with an exact 21-entry allowlist, fixed timestamps and permissions, stored compression, embedded frozen evaluation identity, per-entry hashes, and adjacent SHA-256 checksum.
+- Added an independent archive verifier that checks ordering, metadata, source parity, package and evaluation manifest bindings, and cache, runtime-state, and secret exclusions.
+- Preserved the stopped `0.0.11` candidate and fixed its known rendered checkpoint mismatch in a new candidate by deriving the dashboard and its source-test expectation from the canonical runtime checkpoint.
+- The pre-merge audit caught impossible future-dated provenance metadata before promotion. The functionally passing 239,184-byte candidate and its clean-clone receipt remain retained with disposition `superseded`; no release action used those bytes.
+- Corrected only project-authored provenance metadata and the embedded frozen-manifest identity, then passed two byte-identical 239,183-byte builds at SHA-256 `679f7ad301689bee62a5bcb33df8c4778f9f0307135cf30632b13408e2f31083`.
+- Passed 19 tests, seven validators, source and package 84-attempt evaluations, bounded MCP, 51 packaged HTTP/dashboard checks, 27 state/telemetry checks, and rendered dashboard inspection under the same frozen manifest.
+- Passed a renewed no-local-object clean clone through source and package evaluation, byte-identical rebuild, packaged MCP, 51 API/dashboard checks, 27 state/telemetry checks, and visual inspection. Makes no package-registry, container, production-readiness, or external-system superiority claim. GitHub review, merged-main, release-asset, and public-download gates remain pending.
+
+## 0.0.11 - Unpublished stopped candidate
+
+- Produced the first reproducible dependency-free zipapp and passed package structure, source/package evaluation parity, MCP, approval, executor, replay, postconditions, persistence, telemetry, and 49 of 50 HTTP/dashboard checks.
+- Rejected the fixed candidate after its first packaged real-surface reveal showed `Baseline 0010` while health and evaluation reported baseline-0011.
+- Did not patch, merge, tag, publish, or relabel the rejected candidate. The failed package, screenshot, and stopped milestone remain retained.
+
 ## 0.0.10 - 2026-08-07
 
 - Added frozen development and held-out field-level cases requiring stale project identity and timestamp retention without stale title/content exposure.

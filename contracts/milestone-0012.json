@@ -1,0 +1,215 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0012",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": ["local_verification", "repository_change", "local_commit", "github_push"],
+    "user_instruction": "Continue selecting and shipping bounded evidence-driven checkpoints without routine approval while preserving the thesis, failed experiments, external-source gates, and security boundaries.",
+    "repository_controls": ["AGENTS.md", "C:\\Projects\\STORAGE_POLICY.md", "contracts/milestone-0011.json", "docs/status.md"],
+    "active_contract": "contracts/milestone-0012.json",
+    "verified_at_utc": "2026-08-07T18:45:00Z",
+    "expires_at_utc": null
+  },
+  "objective": "Release a new reproducible v0.0.12 zipapp only if its rendered checkpoint identity is derived from the canonical baseline-0012 runtime identity and every source, package, clean-clone, and public-asset gate passes.",
+  "scope": {
+    "objective": "Correct the stale rendered checkpoint identity in a new candidate, preserve all stopped BASELINE-0011 evidence, and release only after source, package, clean-clone, and public-asset verification pass.",
+    "allowed_paths": ["C:\\Projects\\Active\\runbook-sentinel", "C:\\Projects\\Verification"],
+    "forbidden_work": [
+      "Publish or relabel the failed v0.0.11 candidate",
+      "Call the known dashboard regression check held-out",
+      "Change agent, retrieval, decision context, policy, approval, executor, replay, postconditions, scenarios, synthetic splits, or real-infrastructure boundary",
+      "Add dependencies, build backends, package registries, containers, external assets, paid services, secrets, accounts, or real infrastructure",
+      "Rewrite or discard failed, blocked, stale, or superseded evidence"
+    ],
+    "reversible_actions": [
+      "Freeze a new dashboard identity and package contract",
+      "Derive the dashboard label and test expectation from the canonical checkpoint",
+      "Version, build, and verify a deterministic dependency-free zipapp",
+      "Run source, package, clean-clone, and public-release verification",
+      "Commit, push, merge, tag, attach assets, release, and verify a passing checkpoint"
+    ],
+    "stop_conditions": [
+      "Core thesis change",
+      "Security-boundary weakening",
+      "Dependency, external asset, spend, secret, access, ownership, real infrastructure, or irreversible action required",
+      "Candidate or shipment cannot be verified"
+    ],
+    "included": [
+      "preserve the stopped BASELINE-0011 candidate and skipped v0.0.11 identity",
+      "derive the dashboard label and its source-test expectation from the canonical checkpoint",
+      "version the new candidate as 0.0.12/baseline-0012",
+      "rebuild and independently verify the deterministic dependency-free zipapp",
+      "re-run frozen evaluation and all real source and packaged surfaces",
+      "clean-clone rebuild and public GitHub release-asset download verification"
+    ],
+    "excluded": [
+      "changing agent, retrieval, decision context, policy, approval, executor, replay, postconditions, scenarios, synthetic split, or real-infrastructure boundary",
+      "rewriting BASELINE-0011 as passing or describing the known dashboard regression check as held-out",
+      "dependencies, build backends, package registries, containers, external code or assets, paid services, secrets, or real infrastructure"
+    ]
+  },
+  "verification": {
+    "changed_risks": [
+      "Rendered checkpoint identity can disagree with health, evaluation, package metadata, or release identity",
+      "A matching stale source test can hide the rendered mismatch",
+      "Changing release identity can break otherwise passing CLI, MCP, API, persistence, telemetry, or package reproducibility",
+      "A rebuilt or downloaded release artifact can differ from the selected local archive"
+    ],
+    "required_checks": [
+      "New dashboard and package contracts frozen before runtime implementation",
+      "Known source and package dashboard regression passes and is not described as held-out",
+      "Two independent package builds are byte-identical and satisfy the exact allowlist and embedded-manifest contract",
+      "Frozen evaluation, tests, CLI, MCP, API, approval, executor, replay, postconditions, rendered dashboard, SQLite, and telemetry pass for source and package",
+      "Clean-clone rebuild is byte-identical to the selected archive",
+      "Merged-main archive and public release download match the published checksum"
+    ],
+    "completed_checks": [
+      "Public v0.0.10 remains the latest verified release",
+      "Stopped BASELINE-0011 and its unpublished v0.0.11 candidate are retained",
+      "The single rendered checkpoint mismatch is reproduced at exact source and test locations",
+      "New dashboard and v0.0.12 package contracts are drafted without external sources or imports"
+    ],
+    "artifacts": [
+      "artifacts/verification/dashboard-identity-gap-baseline-0012.json",
+      "artifacts/verification/package-held-out-baseline-0011-attempt-001-failed.json",
+      "artifacts/verification/provenance-correction-baseline-0012.json",
+      "artifacts/verification/package-verification-baseline-0012-attempt-002.json",
+      "artifacts/verification/clean-clone-baseline-0012-attempt-002.json",
+      "eval/dashboard-identity-contract.json",
+      "eval/package-contract-0012.json"
+    ],
+    "disposition": "in_progress"
+  },
+  "boundaries": {
+    "model_outputs": ["diagnose", "request_evidence", "propose_action", "abstain"],
+    "model_has_credentials": false,
+    "model_has_approval_authority": false,
+    "model_has_execution_authority": false,
+    "retrieved_content_trusted": false,
+    "authorization_enforced_outside_model": true,
+    "capabilities_enforced_outside_model": true,
+    "approvals_enforced_outside_model": true,
+    "idempotency_enforced_outside_model": true,
+    "replay_protection_enforced_outside_model": true,
+    "postconditions_enforced_outside_model": true,
+    "real_infrastructure_connected": false
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.10 remains the latest verified release at 01791052b80748bb0f8e01c57152d00b53822aee",
+        "BASELINE-0011 is validly stopped and unpublished; its exact failed candidate and screenshot are retained",
+        "The first package candidate passed every evaluated system boundary except one stale rendered checkpoint label",
+        "The stale source literal and matching stale unit-test assertion make the weakness exact, bounded, and reproducible"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {"id": "EXIT-001", "status": "pending", "evidence": []}
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Reconcile public v0.0.10, stopped BASELINE-0011, and the first packaged real-surface failure into one measurable weakness",
+      "depends_on": [],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["public v0.0.10", "BASELINE-0011 evidence", "rendered dashboard", "source and tests"],
+      "outputs": ["dashboard identity gap"],
+      "gates": {"latest_public_checkpoint_verified": true, "failed_candidate_retained": true, "gap_measurable": true},
+      "disposition": "pass",
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze the canonical dashboard identity regression and a new v0.0.12 package contract before changing candidate runtime code",
+      "depends_on": ["UNIT-001"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["dashboard identity gap", "retained package contracts and validator"],
+      "outputs": ["dashboard identity contract", "v0.0.12 package contract", "generic package validator", "expanded frozen manifest inputs"],
+      "gates": {"frozen_before_implementation": true, "known_regression_not_held_out": true, "new_dependencies": false},
+      "evidence": [
+        "eval/dashboard-identity-contract.json freezes the canonical rendered identity and explicitly classifies the known mismatch as a regression, not held-out evidence",
+        "eval/package-contract-0012.json freezes the new v0.0.12 artifact, metadata, source/package parity, clean-clone, and public-download gates",
+        "The generalized independent validator passes both the retained v0.0.11 contract and the new v0.0.12 contract",
+        "artifacts/verification/dashboard-package-contract-freeze-baseline-0012.json binds all inputs before the candidate runtime change"
+      ],
+      "disposition": "pass",
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement the single-source rendered checkpoint identity and version-bound package candidate without changing system behavior or security boundaries",
+      "depends_on": ["UNIT-002"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["frozen identity contract", "frozen v0.0.12 package contract"],
+      "outputs": ["v0.0.12 candidate", "reproducible package", "known-regression proof"],
+      "gates": {"canonical_identity": true, "byte_reproducibility": true, "security_boundaries_unchanged": true},
+      "evidence": [
+        "The dashboard and source test now derive Baseline 0012 from the canonical baseline-0012 runtime CHECKPOINT rather than carrying an independent release number",
+        "The pre-merge audit retained the earlier 239184-byte functionally passing archive as superseded after detecting impossible future-dated provenance metadata",
+        "Two corrected 239183-byte candidate archives are byte-identical at SHA-256 679f7ad301689bee62a5bcb33df8c4778f9f0307135cf30632b13408e2f31083 and pass the exact 21-entry package contract",
+        "Source and packaged known-regression checks contain Baseline 0012 and exclude Baseline 0010 and Baseline 0011",
+        "No agent, retrieval, policy, approval, executor, scenario, synthetic split, or real-infrastructure boundary changed"
+      ],
+      "disposition": "pass",
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Verify frozen evaluation and every real source and packaged surface, then select or reject the candidate without hiding failures",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["fixed candidate"],
+      "outputs": ["evaluation", "MCP", "API", "dashboard", "state", "telemetry", "package comparison"],
+      "gates": {"all_source_surfaces": true, "all_package_surfaces": true, "rendered_identity_exact": true},
+      "evidence": [
+        "Source validation passes 35 frozen files, seven validators, 19 tests, and all 84 evaluation attempts",
+        "Corrected packaged evaluation passes all 84 attempts and matches corrected source on every gate and non-latency metric family under frozen manifest 63a02909d62c0bb6f156d6700df7b2b9453a7b9e7385e9bf524243c184ccd028",
+        "Packaged MCP exposes only three bounded diagnostic/read tools and no approval or execution authority",
+        "Packaged HTTP/dashboard passes 51 of 51 checks and persisted state/telemetry passes all 27 checks",
+        "Visual inspection confirms Baseline 0012 and the expected metrics, human-approval boundary, disconnected real infrastructure, and mitigated synthetic incident"
+      ],
+      "disposition": "pass",
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Reconcile records, clean-clone, review, merge, build from merged main, publish v0.0.12 with package assets, and verify downloaded public bytes",
+      "depends_on": ["UNIT-004"],
+      "action_class": "github_push",
+      "human_gate": false,
+      "status": "in_progress",
+      "inputs": ["selected passing candidate", "reconciled living records"],
+      "outputs": ["verified public v0.0.12 checkpoint"],
+      "gates": {"clean_clone_rebuild_identity": true, "public_release_asset_identity": false, "release_verified": false},
+      "disposition": "remediate"
+    }
+  ],
+  "stop_conditions": [
+    {"id": "STOP-THESIS", "active": false, "condition": "Change the core product thesis."},
+    {"id": "STOP-SECURITY", "active": false, "condition": "Weaken a security boundary or cross an explicit no-go boundary."},
+    {"id": "STOP-COST", "active": false, "condition": "Spend money or add a paid service or secret."},
+    {"id": "STOP-RIGHTS", "active": false, "condition": "Import externally controlled assets with unresolved rights or safety."},
+    {"id": "STOP-ACCESS", "active": false, "condition": "Change access or ownership."},
+    {"id": "STOP-INFRA", "active": false, "condition": "Interact with real operational infrastructure."},
+    {"id": "STOP-IRREVERSIBLE", "active": false, "condition": "Take an irreversible action."},
+    {"id": "STOP-UNVERIFIED", "active": false, "condition": "Ship something that cannot be verified."}
+  ],
+  "handoff": {
+    "latest_verified_checkpoint": "public v0.0.10 at 01791052b80748bb0f8e01c57152d00b53822aee",
+    "retained_failed_checkpoint": "stopped unpublished BASELINE-0011 at dc99727",
+    "resume_rule": "Resume from the public checkpoint plus retained failed evidence; do not call BASELINE-0011 verified or publish v0.0.11."
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0011",
+  "frozen_at_utc": "2026-08-07T18:35:00Z",
+  "frozen_before_candidate_implementation": true,
+  "source_checkpoint": {
+    "version": "0.0.10",
+    "commit": "01791052b80748bb0f8e01c57152d00b53822aee",
+    "evaluation_manifest": "eval/manifest.json",
+    "evaluation_manifest_sha256": "4b22c5dbd99dd778c5dcca5bb6bbd230178170775b22dcc5b579872e6c9b0ce4"
+  },
+  "frozen_inputs": [
+    {
+      "path": "eval/package-contract.json",
+      "sha256": "2bc1419bc3dfae64f98e6f2df89402980579d58c1ddeceb27dfcb8734cb25f76",
+      "bytes": 7081,
+      "role": "package contents, metadata, parity, held-out, and release contract"
+    },
+    {
+      "path": "scripts/verify_package_contract.py",
+      "sha256": "cea1faa816c08bae71cfe46cb08b46ce5ebc96a939639153f925f8f7638a13b3",
+      "bytes": 15149,
+      "role": "independent contract and candidate-archive grader"
+    },
+    {
+      "path": "artifacts/verification/package-prechange-control-baseline-0011.json",
+      "sha256": "e386c4b9d761df2d24d2edbcd6df1d9f96a995c9ab44bcfdd4dc966cc407e77e",
+      "bytes": 2202,
+      "role": "immutable unfavorable v0.0.10 default-zipapp control"
+    },
+    {
+      "path": "artifacts/verification/portable-package-gap-baseline-0011.json",
+      "sha256": "5c8f43eef6abd7b94bf953b19c68fcf400a7a4a36e4bf35540342a69eda46f59",
+      "bytes": 3024,
+      "role": "fresh orientation and measured package gap"
+    },
+    {
+      "path": "artifacts/verification/research-source-gate-baseline-0011.json",
+      "sha256": "b9bbe78691096e4e67934508e6484464abb1e531032f19e6790987a43f3f9446",
+      "bytes": 8806,
+      "role": "ready official-specification gate"
+    }
+  ],
+  "contract_validation": {
+    "command": "python scripts/verify_package_contract.py",
+    "status": "pass",
+    "contract_sha256_reported": "2bc1419bc3dfae64f98e6f2df89402980579d58c1ddeceb27dfcb8734cb25f76",
+    "errors": []
+  },
+  "held_out_state": {
+    "sealed": true,
+    "api_dashboard_persistence_telemetry_results_observed": false,
+    "candidate_or_contract_changed_after_reveal": false
+  },
+  "disposition": "pass",
+  "supersession_rule": "Candidate evidence may add results but must not rewrite this freeze or the unfavorable pre-change control."
+}

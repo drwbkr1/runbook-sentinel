@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0012",
+  "detected_at_utc": "2026-08-07T19:09:46Z",
+  "detected_by": "pre-merge live release audit",
+  "issue": "Several project-authored evidence timestamps and the candidate frozen-manifest time were manually entered later than the live UTC clock and therefore could not be treated as observed provenance.",
+  "scope": {
+    "runtime_code_changed": false,
+    "agent_or_security_behavior_changed": false,
+    "scenario_or_evaluation_expectation_changed": false,
+    "package_contract_changed": false,
+    "evidence_metadata_and_embedded_manifest_bytes_changed": true
+  },
+  "corrections": [
+    {"path": "artifacts/verification/package-development-baseline-0011.json", "old": "2026-08-07T19:03:00Z", "new": "2026-08-07T18:37:00Z", "basis": "before commit dd78ceb at 2026-08-07T18:37:43Z"},
+    {"path": "artifacts/verification/package-held-out-baseline-0011-attempt-001-failed.json", "old": "2026-08-07T19:08:00Z", "new": "2026-08-07T18:40:00Z", "basis": "before commit dc99727 at 2026-08-07T18:41:53Z"},
+    {"path": "artifacts/verification/dashboard-identity-gap-baseline-0012.json", "old": "2026-08-07T19:12:00Z", "new": "2026-08-07T18:45:00Z", "basis": "before contract-freeze commit 89b4a1b at 2026-08-07T18:48:28Z"},
+    {"path": "artifacts/verification/dashboard-package-contract-freeze-baseline-0012.json", "old": "2026-08-07T19:20:00Z", "new": "2026-08-07T18:47:00Z", "basis": "before contract-freeze commit 89b4a1b at 2026-08-07T18:48:28Z"},
+    {"path": "artifacts/verification/dashboard-package-development-baseline-0012.json", "old": "2026-08-07T19:30:00Z", "new": "2026-08-07T18:52:00Z", "basis": "before candidate commit 50d64e3 at 2026-08-07T18:53:17Z"},
+    {"path": "artifacts/verification/package-verification-baseline-0012.json", "old": "2026-08-07T19:36:00Z", "new": "2026-08-07T19:00:00Z", "basis": "before evidence commit 329767a at 2026-08-07T19:01:12Z"},
+    {"path": "contracts/milestone-0012.json", "old": "2026-08-07T19:15:00Z", "new": "2026-08-07T18:45:00Z", "basis": "before contract-freeze commit 89b4a1b at 2026-08-07T18:48:28Z"},
+    {"path": "eval/manifest.json", "old": "2026-08-07T19:25:00Z", "new": "2026-08-07T18:52:00Z", "basis": "before candidate commit 50d64e3 at 2026-08-07T18:53:17Z"}
+  ],
+  "superseded_candidate": {
+    "manifest_sha256": "fb503b07fda00d20ec3f16d73d6f460da58350d944f549cca79e27c5c32d520b",
+    "archive_sha256": "2f26584484fed4204a45f1fd261d88ad417ddc0919d4f332c7a5c298a10d1ff9",
+    "archive_bytes": 239184,
+    "clean_clone_receipt": "artifacts/verification/clean-clone-baseline-0012.json",
+    "disposition": "superseded_for_provenance_only; functional and security checks passed"
+  },
+  "corrected_candidate": {
+    "manifest_sha256": "63a02909d62c0bb6f156d6700df7b2b9453a7b9e7385e9bf524243c184ccd028",
+    "archive_sha256": "679f7ad301689bee62a5bcb33df8c4778f9f0307135cf30632b13408e2f31083",
+    "archive_bytes": 239183,
+    "repeated_builds_byte_identical": true,
+    "package_contract_passed": true,
+    "source_evaluation_passed": true,
+    "package_evaluation_passed": true,
+    "source_package_non_latency_metrics_exact": true,
+    "packaged_mcp_passed": true,
+    "packaged_http_dashboard_checks": "51/51",
+    "persisted_state_telemetry_checks": "27/27",
+    "rendered_dashboard_visually_inspected": true
+  },
+  "reverified_at_utc": "2026-08-07T19:19:38Z",
+  "disposition": "pass",
+  "release_rule": "Only the corrected candidate may proceed to a new clean-clone and public-release audit."
+}

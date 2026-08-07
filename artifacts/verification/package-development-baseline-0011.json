@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0011",
+  "completed_at_utc": "2026-08-07T18:37:00Z",
+  "contract_sha256": "2bc1419bc3dfae64f98e6f2df89402980579d58c1ddeceb27dfcb8734cb25f76",
+  "candidate_identity": {
+    "version": "0.0.11",
+    "frozen_manifest_sha256": "04feff0c2151188ed21d48ec544ccb37a9548fe88f4681ebeeca7a8449adc219",
+    "builder_sha256": "fa73a34359e32e1c356e8f302b6c882a7cb10f7f70680b650a0a9e2467165269",
+    "evaluation_sha256": "c4a693dbd248e5698e7845c24d0ecca4e76c50b4028783b904dea7753bff52f3",
+    "launcher_sha256": "eff3aef1ed0a4e55867dea88e940fc652ce7d3dee819930d58b48b4935b75f55",
+    "runtime_dependencies": []
+  },
+  "attempts": [
+    {
+      "ids": ["dev-a", "dev-b"],
+      "archive_sha256": "1e18c9e8cfbde3f024779e690fabe9aefca3a440baa948a6ebd1719685b6f20f",
+      "archive_bytes": 238835,
+      "repeated_builds_byte_identical": true,
+      "contract_validator": "pass",
+      "cli_help": "fail",
+      "failure": "Root __main__.py used a package-relative import and raised ImportError when executed as a zipapp launcher.",
+      "disposition": "failed",
+      "retained_at": [
+        "C:\\Projects\\Verification\\runbook-sentinel-baseline-0011-dev-a.pyz",
+        "C:\\Projects\\Verification\\runbook-sentinel-baseline-0011-dev-b.pyz"
+      ]
+    },
+    {
+      "ids": ["dev-c", "dev-d"],
+      "archive_sha256": "2ce3147aaec755ab6ee72109c281e5f306ad9cb2d6f83963fc251d925e014f28",
+      "archive_bytes": 238867,
+      "entry_count": 21,
+      "repeated_builds_byte_identical": true,
+      "contract_validator_each": "pass",
+      "cli_help_each": "pass",
+      "fix": "Use the same absolute runbook_sentinel.cli import in package and root launcher contexts.",
+      "frozen_contract_changed": false,
+      "security_boundary_changed": false,
+      "disposition": "pass",
+      "retained_at": [
+        "C:\\Projects\\Verification\\runbook-sentinel-baseline-0011-dev-c.pyz",
+        "C:\\Projects\\Verification\\runbook-sentinel-baseline-0011-dev-d.pyz"
+      ]
+    },
+    {
+      "ids": ["dev-e", "dev-f"],
+      "archive_sha256": "41f86d19770fe17f00e028c5e54acd2392aa56dfc4991602632b53b8cc259c55",
+      "archive_bytes": 238867,
+      "entry_count": 21,
+      "repeated_builds_byte_identical": true,
+      "contract_validator_each": "pass",
+      "cli_help": "pass",
+      "change_from_dev-c-dev-d": "The pre-reveal test harness now accepts an explicit package import path and the dashboard grader is version-bound to baseline-0011; runtime package code and frozen package contract are unchanged.",
+      "held_out_revealed": false,
+      "disposition": "selected_for_first_held_out_reveal",
+      "retained_at": [
+        "C:\\Projects\\Verification\\runbook-sentinel-baseline-0011-dev-e.pyz",
+        "C:\\Projects\\Verification\\runbook-sentinel-baseline-0011-dev-f.pyz"
+      ]
+    }
+  ],
+  "development_scenario_parity": {
+    "scenario_id": "dev-worker-backlog",
+    "source_outcome": "propose_action",
+    "package_outcome": "propose_action",
+    "exact_fields": [
+      "outcome",
+      "diagnosis",
+      "proposed_action",
+      "missing_evidence",
+      "retrieved_document_ids",
+      "decision_document_ids"
+    ],
+    "all_exact": true,
+    "source_database_sha256": "25b857cd4f1408ac7f8be48276223269d4de14e4e269f9bf450394ac19c86b0e",
+    "source_trace_sha256": "36a6a4b68dbe5087e609da8210144702f5843cf2a5d46ae31b7d3d8cba7040b7",
+    "package_database_sha256": "8980de81626ab6dfaf1042a599b43ff894e1916c75712811c35427eec069c7ea",
+    "package_trace_sha256": "4802bfe3215f048c6dadc04696050573321ec45bd38f8d9aba74caad8f141a28"
+  },
+  "development_evaluation_parity": {
+    "scenario_count_each": 28,
+    "attempt_count_each": 84,
+    "checkpoint_each": "baseline-0011",
+    "disposition_each": "pass",
+    "every_gate_each": true,
+    "gates_exact_across_source_and_package": true,
+    "all_non_latency_metrics_exact_across_source_and_package": true,
+    "same_manifest_sha256": "04feff0c2151188ed21d48ec544ccb37a9548fe88f4681ebeeca7a8449adc219",
+    "superseded_prior_same_contract_run": {
+      "manifest_sha256": "11e84007f512ee9e55362b1753321e9ad6d2cbdc0db48aeb4ea6805a7166aa02",
+      "source_report_sha256": "182ed4442bb1d14a4bd4ca8c4aaa31c2f7ceccf28c9ca381c75edde4c2b9174f",
+      "package_report_sha256": "93b6b911fd1858c180e2b93c0061ab21e8e58d085d0a066142ba30506e5e2adc",
+      "disposition": "superseded_by_pre_reveal_harness_binding"
+    },
+    "source": {
+      "report": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0011-dev-source-evaluation-002.json",
+      "report_sha256": "c20218fd83aa73f641e0cad930651bceea60452ffebf1c5966d1b37204000217",
+      "trace_sha256": "f3f13016aa44961953e1c2ded410ef1c46c699534ec2bebac54ecf13cf8b9f74",
+      "latency_ms": {"median": 108.181, "p95": 189.702, "diagnosis_median": 12.798, "diagnosis_p95": 33.003}
+    },
+    "package": {
+      "report": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0011-dev-package-evaluation-002.json",
+      "report_sha256": "748f1617fa1f23f6dda3be33db1711d2aa7549324291b78a24f650bf084e3c7e",
+      "trace_sha256": "61c57d6e4ac650293b1fbf07909d5745024bf6921f55992f54737dfdec6beecd",
+      "latency_ms": {"median": 107.834, "p95": 168.994, "diagnosis_median": 12.234, "diagnosis_p95": 30.888}
+    },
+    "model_calls_each": 0,
+    "estimated_cost_usd_each": 0.0
+  },
+  "held_out_state": {
+    "api_dashboard_persistence_telemetry_results_observed": false,
+    "generic_candidate_complete": true,
+    "candidate_frozen_for_first_reveal": true
+  },
+  "disposition": "pass"
+}

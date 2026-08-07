@@ -22,6 +22,10 @@ Baseline 0009 adds a second retrieval-stress plane. Frozen pairs append stale qu
 
 Baseline 0010 narrows the decision and optional-model plane after retrieval. Full returned documents remain available for audit, while the field-preserving serializer cannot reconstruct stale `title` or `content` that the projection removed. The independent projection validator and evaluator separately grade contract validity, split coverage, stale identity retention, exact metadata fields, stale payload exposure, fresh payload retention, and behavior. The record ID and timestamp support an exact request for replacement evidence but grant no authority.
 
+Baseline 0012 adds a packaging plane without changing runtime authority. A standard-library builder reads an exact 21-entry allowlist, copies project bytes without transformation, fixes ZIP timestamps and permissions, excludes caches and runtime state, embeds the frozen evaluation manifest, and generates a package manifest with the package-contract hash and every non-self entry hash. An independent verifier checks source parity, ordering, metadata, exclusions, and both manifest bindings. The archive is invoked with Python 3.12 or newer and contains no dependency, credential, approval material, executor expansion, or real-infrastructure connector.
+
+The dashboard checkpoint label derives from the same `CHECKPOINT` constant returned by health. The stopped baseline-0011 candidate showed why release identity is a real-surface invariant: its health and evaluation were correct while an independent HTML literal was stale. Baseline 0012 removes that duplicate identity and verifies the rendered output for source and packaged runtimes.
+
 ## Ports and trust boundaries
 
 - CLI and HTTP API are local operator surfaces.

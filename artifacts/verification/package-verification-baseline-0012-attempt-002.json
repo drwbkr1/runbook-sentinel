@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0012",
+  "verified_at_utc": "2026-08-07T19:19:38Z",
+  "reason": "Full re-verification after correcting impossible future-dated provenance metadata; runtime code, security boundaries, scenarios, expectations, and package contract are unchanged.",
+  "candidate_archive": {
+    "sha256": "679f7ad301689bee62a5bcb33df8c4778f9f0307135cf30632b13408e2f31083",
+    "bytes": 239183,
+    "entry_count": 21,
+    "repeated_builds_byte_identical": true,
+    "contract_validator": "pass",
+    "runtime_dependencies": []
+  },
+  "source_verification": {
+    "manifest_sha256": "63a02909d62c0bb6f156d6700df7b2b9453a7b9e7385e9bf524243c184ccd028",
+    "manifest_files": 35,
+    "validators_passed": 7,
+    "unit_tests_passed": 19,
+    "evaluation_report": "artifacts/evaluations/runs/baseline-0012-attempt-002.json",
+    "evaluation_report_sha256": "e910b6edb94c333b3904e4d284b59005aa162f2eea06f2f059526dfeb13921fa",
+    "evaluation_trace_sha256": "44a3f249e58243127c2d73e1757f28a7fe98dc33bc93020c200691d0b1d7b3f2",
+    "scenario_count": 28,
+    "attempt_count": 84,
+    "every_gate_passed": true,
+    "latency_ms": {"median": 151.838, "p95": 286.728, "diagnosis_median": 22.489, "diagnosis_p95": 59.96}
+  },
+  "package_evaluation": {
+    "report": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0012-package-evaluation-002.json",
+    "report_sha256": "01be802b4143d341b6bd7b26e2e1c36062453ca25efa265988a17eb731110d9c",
+    "trace_sha256": "c53dccdd6629b5af6711f2bc67219217868e7e1af1b32b9e4a5d03fa71b5bc0b",
+    "scenario_count": 28,
+    "attempt_count": 84,
+    "every_gate_passed": true,
+    "same_manifest_sha256": "63a02909d62c0bb6f156d6700df7b2b9453a7b9e7385e9bf524243c184ccd028",
+    "gates_exact_across_source_and_package": true,
+    "all_non_latency_metric_families_exact": true,
+    "latency_ms": {"median": 151.586, "p95": 280.487, "diagnosis_median": 22.346, "diagnosis_p95": 70.268},
+    "performance_claim": "none"
+  },
+  "packaged_mcp": {
+    "status": "pass",
+    "version": "0.0.12",
+    "tool_count": 3,
+    "approval_or_execution_tool_exposed": false,
+    "attack_document_in_decision_context": false,
+    "stale_payload_characters": 0,
+    "database_sha256": "cfb3e614b0b385e0d26b0fb4648c9e7ffb81e1f670ab563d6c1f097f87a18b24",
+    "trace_sha256": "a434358f2b59e1945c28c78bd29d094942b3664347cb1b4be499725df6ad729e"
+  },
+  "packaged_http_dashboard_runtime": {
+    "status": "pass",
+    "checks_passed": 51,
+    "checks_total": 51,
+    "persisted_state_telemetry_checks_passed": 27,
+    "approval_executor_replay_postconditions": "pass",
+    "rendered_checkpoint": "Baseline 0012",
+    "stale_baseline_0010_or_0011_present": false,
+    "native_receipt_sha256": "5c426d0f06e0bc1e28d164c54a77871fdd176a87369b98b6af01e42281f0f8fc",
+    "database_sha256": "e8ee4912262f953cc44678275d015649c00979b50317803ab3055555e41517d4",
+    "trace_sha256": "c6b8c25ecaf428707c755dd29bba5e6273eb47ed8a58355cbffbd2c010629c78",
+    "dashboard_sha256": "a714e4e3da6745501d07eded0617124ec6e75c479f0d64e948b1be3210ec67fa",
+    "dashboard_dimensions": [1440, 1000],
+    "visual_inspection": "pass"
+  },
+  "behavior_and_security": {
+    "policy_compliance": 1.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "pass_3": 1.0,
+    "model_calls": 0,
+    "estimated_cost_usd": 0.0,
+    "agent_boundary_unchanged": true,
+    "real_infrastructure_disconnected": true
+  },
+  "supersedes": "artifacts/verification/package-verification-baseline-0012.json",
+  "disposition": "pass",
+  "next_gate": "new clean-clone rebuild identity and renewed live release audit"
+}
