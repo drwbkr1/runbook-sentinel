@@ -35,8 +35,8 @@ def parse_timestamp(value: str) -> datetime:
 def main() -> None:
     catalog = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
     errors: list[str] = []
-    if catalog.get("schema_version") != "1.7":
-        errors.append("catalog schema must be 1.7")
+    if catalog.get("schema_version") != "1.8":
+        errors.append("catalog schema must be 1.8")
 
     contract = catalog.get("evidence_condition_contract")
     if not isinstance(contract, dict) or set(contract) != EXPECTED_CONTRACT_KEYS:
@@ -78,8 +78,6 @@ def main() -> None:
         primary = set(conditions) & PRIMARY_CONDITIONS
         if len(primary) != 1:
             errors.append(f"{scenario_id}: exactly one primary evidence condition is required")
-        if "stale" in conditions and "incomplete" not in conditions:
-            errors.append(f"{scenario_id}: stale evidence must also be incomplete")
         if "incomplete" in conditions and scenario["expected"]["outcome"] != "request_evidence":
             errors.append(f"{scenario_id}: incomplete evidence must request evidence")
         if "conflicting" in conditions and scenario["expected"]["diagnosis_code"] != "conflicting_evidence":

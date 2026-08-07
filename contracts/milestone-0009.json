@@ -103,12 +103,16 @@
       "depends_on": ["UNIT-001"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["schema 1.7 catalog", "gap receipt", "ready source gate", "unchanged v0.0.8 retriever"],
       "outputs": ["schema 1.8 catalog", "stale-evidence contract", "independent validator", "expanded frozen manifest", "pre-change comparison"],
-      "gates": {"frozen_before_implementation": false, "held_out_not_feedback": true, "new_actions": false, "runtime_authority_change": false},
-      "disposition": "planned",
-      "retained_failures": [],
+      "gates": {"frozen_before_implementation": true, "held_out_not_feedback": true, "new_actions": false, "runtime_authority_change": false},
+      "disposition": "pass",
+      "retained_failures": [
+        "The first frozen manifest at SHA-256 fc4936ddd55420e3526425971f3136beb833e832b5205f8ce1b48104287bb611 was superseded after the fail-closed evidence-coverage test was corrected for the new second development stale case; pre-change attempt 001 remains retained and is not selected.",
+        "The first expanded test run failed the two intended stale-evidence scenarios and aggregate disposition, plus a stale-coverage corruption test that removed only one of two development stale labels. The corruption test was generalized to remove every development stale label; no frozen scenario, expectation, candidate rule, or held-out result changed.",
+        "The final pre-implementation test run retains exactly three expected failures: both stale-evidence variants request evidence instead of their frozen action, and aggregate disposition is remediate."
+      ],
       "next_dependency": "UNIT-003"
     },
     {
@@ -117,7 +121,7 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": ["frozen stale-evidence contract", "pre-change control"],
       "outputs": ["candidate retriever", "shared deterministic freshness helper", "fail-closed metrics", "focused development regressions"],
       "gates": {"agent_purpose_unchanged": true, "action_surface_unchanged": true, "freshness_duration_unchanged": true, "new_dependencies": false},
@@ -181,11 +185,19 @@
       "Public v0.0.8 identity, release, rendered pages, and clean local starting state verified",
       "Fresh 78-trial orientation passed with all release metrics favorable and report and trace retained outside the repository",
       "Development-only probe measured fresh project-evidence recall@4 at zero and an avoidable request_evidence outcome under five stale query-matching telemetry records",
-      "Two-source ACL primary-research gate is ready with all 16 criteria passing and no external import"
+      "Two-source ACL primary-research gate is ready with all 16 criteria passing and no external import",
+      "Schema 1.8 freezes 28 scenarios, one development and one test stale-evidence pair, five stale project records per variant, exact fresh-evidence retention, unchanged behavior and terminal state, and terminal-state-v5 with 11 actionable and 17 no-action cases",
+      "All five independent validators pass and the final 24-file pre-implementation manifest passes at SHA-256 558833491e8813f14e0a9d08edd7f8fc4c5cae7ba97a64c85c974d06e5bf52f8",
+      "Immutable v2 pre-change attempt 002 has disposition remediate across 84 trials: fresh evidence recall, decision retention, and exact stale-stress behavior are 0.0; stale saturation is 1.0; pass^3 is 0.928571; 27 of 33 expected actions execute; all 51 no-action trials remain unchanged; policy is 1.0; proposal and terminal attack success are 0.0",
+      "Pre-change attempt 002 report and trace SHA-256 are 834dcca5a13051c72633282af651b3c4035edf4c5bcc659e7f9aeccfefe22612 and 033f9f6fdf8fe384e47c0471a748bb47daced5b957a48c57b5e5fab170651933"
     ],
     "artifacts": [
       "artifacts/verification/stale-evidence-gap-baseline-0009.json",
       "artifacts/verification/research-source-gate-baseline-0009.json",
+      "artifacts/evaluations/runs/baseline-0009-v2-prechange-control-attempt-001.json",
+      "artifacts/evaluations/runs/baseline-0009-v2-prechange-control-attempt-001.traces.jsonl",
+      "artifacts/evaluations/runs/baseline-0009-v2-prechange-control-attempt-002.json",
+      "artifacts/evaluations/runs/baseline-0009-v2-prechange-control-attempt-002.traces.jsonl",
       "C:\\Projects\\Verification\\runbook-sentinel-baseline-0009-orientation-20260807T015613Z.json",
       "C:\\Projects\\Verification\\runbook-sentinel-baseline-0009-orientation-20260807T015613Z.traces.jsonl"
     ],
@@ -193,7 +205,7 @@
   },
   "handoff": {
     "current_checkpoint": "Public v0.0.8 is verified; BASELINE-0009 UNIT-001 passed and UNIT-002 is active on the frozen stale-evidence weakness.",
-    "next_action": "Freeze schema 1.8, exact development and untouched held-out stale-evidence pairs, independent validator, immutable manifest, and pre-change v2 control before implementing the candidate.",
+    "next_action": "Implement the generic freshness-priority lexical v3 candidate against development evidence only, including shared fail-closed timestamp classification, before revealing the held-out candidate result.",
     "do_not_carry_forward": [
       "Do not use held-out candidate results as implementation feedback.",
       "Do not import external paper, code, data, model, dependency, or executable.",
@@ -216,6 +228,6 @@
     ],
     "preserve_unfavorable_results": true,
     "latest_verified_checkpoint": "v0.0.8 at dcf45468c0d5c460f6872d50f00128c8fb8a124e",
-    "next_resume_point": "BASELINE-0009 UNIT-002: freeze stale-evidence contract and pre-change control before candidate implementation"
+    "next_resume_point": "BASELINE-0009 UNIT-003: implement generic freshness-priority lexical v3 using the frozen one-hour rule and development evidence only"
   }
 }

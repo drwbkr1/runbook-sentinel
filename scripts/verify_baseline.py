@@ -24,6 +24,7 @@ def main() -> None:
     run([sys.executable, "scripts/verify_evidence_conditions.py"])
     run([sys.executable, "scripts/verify_behavioral_relations.py"])
     run([sys.executable, "scripts/verify_retrieval_stress.py"])
+    run([sys.executable, "scripts/verify_stale_evidence_stress.py"])
     run([sys.executable, "scripts/verify_terminal_contract.py"])
     run([sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"])
     runs_dir = ROOT / "artifacts/evaluations/runs"
