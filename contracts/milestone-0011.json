@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0011",
-  "status": "active",
+  "status": "stopped",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -60,7 +60,7 @@
     }
   ],
   "exit_conditions": [
-    {"id": "EXIT-001", "status": "pending", "evidence": []}
+    {"id": "EXIT-001", "status": "fail", "evidence": ["The first packaged held-out dashboard rendered Baseline 0010 while health and evaluation reported baseline-0011; publication is rejected."]}
   ],
   "units": [
     {
@@ -126,11 +126,20 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "failed",
       "inputs": ["completed generic package candidate", "frozen parity contract"],
       "outputs": ["immutable package attempts", "source/package comparison", "evidence disposition"],
-      "gates": {"failed_attempts_retained": true, "same_manifest_comparison": false, "byte_reproducibility": false, "held_out_revealed_once": false},
-      "disposition": "in_progress",
+      "gates": {"failed_attempts_retained": true, "same_manifest_comparison": true, "byte_reproducibility": true, "held_out_revealed_once": true},
+      "evidence": [
+        "Source and package same-manifest evaluation results passed every gate and matched on all non-latency metric families",
+        "Packaged MCP passed with only three bounded diagnostic/read tools and no approval or execution authority",
+        "Packaged HTTP, approval, executor, replay, terminal postconditions, persistence, telemetry, and dashboard checks passed 49 of 50 assertions",
+        "The sole held-out failure was a visibly stale Baseline 0010 dashboard label while runtime health and evaluation reported baseline-0011"
+      ],
+      "retained_failures": [
+        "artifacts/verification/package-held-out-baseline-0011-attempt-001-failed.json retains the exact failed candidate, screenshot, source location, and rejected release disposition; the candidate and contract were not changed after reveal"
+      ],
+      "disposition": "remediate",
       "next_dependency": "UNIT-005"
     },
     {
@@ -139,10 +148,12 @@
       "depends_on": ["UNIT-004"],
       "action_class": "github_push",
       "human_gate": false,
-      "status": "planned",
+      "status": "excluded",
       "inputs": ["passing selected package candidate", "reconciled living records"],
       "outputs": ["baseline-0011 public release with verified portable artifact"],
-      "disposition": "planned"
+      "gates": {"release_candidate_accepted": false, "publication_authorized": false, "candidate_verified": false},
+      "retained_failures": ["Publication is excluded because UNIT-004 rejected the fixed candidate after its first held-out reveal."],
+      "disposition": "exclude"
     }
   ],
   "verification": {
