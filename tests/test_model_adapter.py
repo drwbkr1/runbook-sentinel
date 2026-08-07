@@ -128,6 +128,41 @@ class ModelAdapterTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "loopback boundary"):
             OllamaIncidentAgent(altered, transport=lambda *_: {})
 
+    def test_metadata_only_stale_evidence_reaches_model_without_payload_fields(self):
+        calls = []
+        content = {
+            "outcome": "request_evidence",
+            "diagnosis_code": "insufficient_fresh_evidence",
+            "evidence_ids": [],
+            "missing_evidence": ["fresh_telemetry"],
+            "proposal": None,
+            "reason": "Fresh evidence is required before making a bounded decision.",
+        }
+
+        def transport(endpoint, payload, timeout):
+            del endpoint, timeout
+            calls.append(payload)
+            return model_response(content)
+
+        agent = OllamaIncidentAgent(CONTRACT_PATH, transport=transport)
+        result = agent.analyze(
+            "Assess stale cache telemetry.",
+            [
+                {
+                    "id": "telemetry-cache-stale-dev",
+                    "kind": "telemetry",
+                    "observed_at": "2026-08-06T12:00:00Z",
+                }
+            ],
+            "2026-08-06T16:00:00Z",
+        )
+        self.assertEqual(result["outcome"], "request_evidence")
+        user_message = calls[0]["messages"][1]["content"]
+        self.assertIn('"id":"telemetry-cache-stale-dev"', user_message)
+        self.assertIn('"observed_at":"2026-08-06T12:00:00Z"', user_message)
+        self.assertNotIn('"title"', user_message)
+        self.assertNotIn('"content"', user_message)
+
     def test_candidate_evaluation_reports_model_metrics_without_tools(self):
         calls = []
         content = {

@@ -2,12 +2,12 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `codex/baseline-0009-stale-evidence-resilience`
+- Branch: `codex/baseline-0010-stale-payload-projection`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0009`
-- Latest verified checkpoint: public `v0.0.9`; release reconciliation binds the local annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, and rendered public pages to the release-closure commit
-- Active milestone: none; the next cycle must resume from public `v0.0.9`, run it, inspect traces and evaluation results, and select the highest-leverage measurable weakness before creating `BASELINE-0010`
-- Current unit: release closure complete; preserve this checkpoint and begin the next evidence-driven cycle from it
-- Disposition: freshness-priority v3 `select`; baseline-0009 `pass`; strict numeric latency dominance is false; local-model candidate `exclude`; container `defer`
+- Latest verified checkpoint: public `v0.0.9`; BASELINE-0010 is a versioned release candidate and is not yet public
+- Active milestone: `BASELINE-0010` stale-payload decision-boundary projection
+- Current unit: `UNIT-005`, version-bound real-surface, clean-clone, GitHub, and public-release verification
+- Disposition: decision-context v3 `select` as a security-gated Pareto-frontier choice; release `in_progress`; strict numeric Pareto and latency dominance are false; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -19,6 +19,26 @@
 - Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
 
 ## Verified evidence
+
+### BASELINE-0010 release-candidate evidence
+
+- Fresh public-v0.0.9 orientation: all 84 trials pass; the report and trace are retained outside the repository under `C:\Projects\Verification`.
+- Measured weakness: the released decision context forwards 27 stale project records across 15 of 84 attempts, exposing 2,913 stale title/content characters even though the agent uses no stale record for facts.
+- Research gate: CaMeL and StruQ pass all 16 criteria for citation and narrow paraphrase; no external code, data, paper, model, dependency, executable, or service was imported.
+- Frozen schema 1.9: 28 scenarios; one development and one sealed held-out projection case; exact stale fields `id`, `kind`, and `observed_at`; forbidden stale fields `title` and `content`; unchanged fresh payload and behavior.
+- Pre-change v2: stale identity retention 1.0, stale metadata projection 0.0, stale payload exposure 1.0, fresh payload retention 1.0, and exact behavior 1.0. The immutable disposition is `remediate`.
+- Candidate v3: six same-manifest 84-trial runs pass; stale identity retention, metadata projection, fresh payload retention, and exact behavior are 1.0; stale payload exposure is 0.0 in development and held-out test.
+- All compared retrieval, generation, proposal, tool trajectory, terminal state, behavioral relations, both retrieval-stress families, policy, benign utility, security, repeated reliability, model calls, and estimated cost are unchanged and passing across 1,008 comparison attempts.
+- Selection: v3 is the only configuration that passes the mandatory projection gate. It is not strictly numerically Pareto-dominant: versus v2, the median of diagnosis medians is 0.141 ms lower, while diagnosis p95, end-to-end median, and end-to-end p95 are 2.265, 1.794, and 4.778 ms higher.
+- Retained failures: the first full candidate suite exposed a model-adapter field-assumption defect and stale checkpoint assertion; both were fixed generically without changing frozen cases, expectations, or graders. V2 comparison attempt 005's latency outlier remains in the record.
+- Version-bound manifest: 27 files, SHA-256 `4b22c5dbd99dd778c5dcca5bb6bbd230178170775b22dcc5b579872e6c9b0ce4`.
+- Version-bound attempt 001: all 84 trials and every gate pass; report and trace SHA-256 are `55d1b5be051e8985c0235ad64e1bba88171484e2f1c425360ae03b5962e81cc7` and `3b3e3688918a552886beaba6e45edd60a17ec8174e8ea0127e5950aa0d81747b`; `latest.json` is byte-identical to the report.
+- Held-out CLI and MCP: stale metadata is exact, stale payload characters are zero, fresh payload remains complete, MCP version is 0.0.10, and no approval or execution tool is exposed.
+- Real API and runtime: all 50 HTTP/dashboard checks and all 27 persisted-state/telemetry checks pass. The native receipt and rendered dashboard SHA-256 are `54c3f7709fb6e52a0d1f1c6fc34e4559078bb204bb98e5768737b7a3831aeef7` and `a4a15564f7a1d4523cc6f0cdfefe8152497ea265f4319176fd7c82fb781cb241`.
+- Rendered dashboard: visually inspected at 1440 by 1000; it accurately reports baseline 0010, decision-context v3, stale identity 1.0, stale payload exposure 0.0, human approval, disconnected real infrastructure, and one mitigated synthetic incident.
+- Container: Docker is currently off; packaging remains deferred independently because all reviewed base-image candidates are excluded by the existing source gate. No image was imported or run.
+- Package probe: local wheel construction is not a release gate and failed because `setuptools.build_meta` is absent. No dependency was added or downloaded; this checkpoint ships a dependency-free source repository, not a PyPI package.
+- Release evidence pending: clean clone, GitHub review, merged-main verification, tag, release, and rendered-public reconciliation.
 
 ### BASELINE-0009 release-candidate evidence
 

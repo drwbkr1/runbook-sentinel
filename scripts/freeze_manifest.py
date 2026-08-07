@@ -34,6 +34,8 @@ FILES = [
     "scripts/verify_behavioral_relations.py",
     "scripts/verify_retrieval_stress.py",
     "scripts/verify_stale_evidence_stress.py",
+    "scripts/verify_stale_payload_projection.py",
+    "scripts/evaluate_stale_payload_projection.py",
 ]
 
 

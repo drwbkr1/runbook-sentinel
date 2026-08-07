@@ -142,10 +142,9 @@ class OllamaIncidentAgent:
     def analyze(self, prompt: str, documents: list[dict], as_of: str) -> dict:
         evidence = [
             {
-                "id": document["id"],
-                "kind": document["kind"],
-                "observed_at": document["observed_at"],
-                "content": document["content"],
+                field: document[field]
+                for field in ("id", "kind", "observed_at", "content")
+                if field in document
             }
             for document in documents
         ]

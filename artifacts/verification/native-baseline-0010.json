@@ -1,0 +1,79 @@
+{
+  "checkpoint": "baseline-0010",
+  "checks": {
+    "audit_contains_approval_and_execution": true,
+    "dashboard_has_expected_dimensions": true,
+    "decision_context_is_stale_metadata_v3": true,
+    "evaluation_adversarial_split_coverage": true,
+    "evaluation_behavioral_relation_exact": true,
+    "evaluation_evidence_condition_coverage": true,
+    "evaluation_fresh_decision_retention": true,
+    "evaluation_fresh_evidence_recall": true,
+    "evaluation_fresh_payload_retained": true,
+    "evaluation_matches_frozen_manifest": true,
+    "evaluation_passed": true,
+    "evaluation_retrieval_configuration_exact": true,
+    "evaluation_stale_identity_retained": true,
+    "evaluation_stale_metadata_projected": true,
+    "evaluation_stale_payload_exposure_zero": true,
+    "evaluation_stale_stress_exact_behavior": true,
+    "evaluation_stress_decision_retention": true,
+    "evaluation_stress_evidence_recall": true,
+    "evaluation_stress_exact_behavior": true,
+    "evaluation_terminal_state_exact": true,
+    "evaluation_tool_trajectory_exact": true,
+    "executed_proposals_have_consumed_approvals": true,
+    "raw_token_column_absent": true,
+    "required_tables_present": true,
+    "stored_tokens_are_sha256": true,
+    "trace_has_expected_events": true,
+    "trace_has_no_forbidden_terms": true
+  },
+  "dashboard": {
+    "height": 1000,
+    "sha256": "a4a15564f7a1d4523cc6f0cdfefe8152497ea265f4319176fd7c82fb781cb241",
+    "width": 1440
+  },
+  "database": {
+    "audit_event_types": [
+      "diagnosis.completed",
+      "proposal.approved",
+      "proposal.executed"
+    ],
+    "counts": {
+      "approvals": 1,
+      "audit_log": 3,
+      "idempotency": 1,
+      "incidents": 1,
+      "proposals": 1,
+      "runs": 1
+    },
+    "sha256": "787a133631969b14b4f2adcf0e75d5012807be0b50f3ac3e17d1809040f1cbf3"
+  },
+  "evaluation": {
+    "adversarial_split_coverage": 1.0,
+    "attempt_count": 84,
+    "behavioral_relation_exact": 1.0,
+    "evidence_condition_split_coverage": 1.0,
+    "fresh_decision_retention": 1.0,
+    "fresh_evidence_recall": 1.0,
+    "fresh_payload_retention": 1.0,
+    "manifest_sha256": "4b22c5dbd99dd778c5dcca5bb6bbd230178170775b22dcc5b579872e6c9b0ce4",
+    "retrieval_configuration": "freshness-priority-lexical-v3",
+    "sha256": "55d1b5be051e8985c0235ad64e1bba88171484e2f1c425360ae03b5962e81cc7",
+    "stale_identity_retention": 1.0,
+    "stale_metadata_projection": 1.0,
+    "stale_payload_exposure": 0.0,
+    "stale_stress_exact_behavior": 1.0,
+    "stress_decision_retention": 1.0,
+    "stress_evidence_recall": 1.0,
+    "stress_exact_behavior": 1.0
+  },
+  "schema_version": "1.0",
+  "status": "pass",
+  "telemetry": {
+    "event_count": 3,
+    "forbidden_terms": [],
+    "sha256": "f94143eabfcc9ec3ae0b3694335f4304b8260968129a6a363889d760829cc23b"
+  }
+}

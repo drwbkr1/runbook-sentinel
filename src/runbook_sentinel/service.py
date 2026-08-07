@@ -9,6 +9,7 @@ from uuid import uuid4
 
 from .agent import DeterministicIncidentAgent
 from .catalog import load_scenarios, scenario_by_id
+from .evidence import PROJECT_EVIDENCE_KINDS, is_fresh_project_evidence
 from .errors import ApprovalError, NotFoundError, ReplayRejected
 from .policy import action_spec, apply_action, postconditions_hold, validate_proposal
 from .retrieval import (
@@ -75,9 +76,24 @@ class RunbookSentinel:
         retrieved = self.retriever.retrieve(
             scenario["prompt"], scenario["documents"], as_of=scenario["as_of"]
         )
-        decision_documents = select_decision_documents(self.decision_context_configuration, retrieved)
+        decision_documents = select_decision_documents(
+            self.decision_context_configuration,
+            retrieved,
+            scenario["as_of"],
+        )
         decision_ids = {document["id"] for document in decision_documents}
         guidance_documents = [document for document in retrieved if document["id"] not in decision_ids]
+        stale_decision_documents = [
+            document
+            for document in decision_documents
+            if document.get("kind") in PROJECT_EVIDENCE_KINDS
+            and not is_fresh_project_evidence(document, scenario["as_of"])
+        ]
+        stale_payload_characters = sum(
+            len(str(document.get(field, "")))
+            for document in stale_decision_documents
+            for field in ("title", "content")
+        )
         result = self.agent.analyze(scenario["prompt"], decision_documents, scenario["as_of"])
         result.update(
             {
@@ -89,6 +105,13 @@ class RunbookSentinel:
                 "decision_context_configuration": self.decision_context_configuration,
                 "retrieved_document_ids": [document["id"] for document in retrieved],
                 "decision_document_ids": [document["id"] for document in decision_documents],
+                "decision_document_fields": {
+                    document["id"]: sorted(document) for document in decision_documents
+                },
+                "decision_stale_document_ids": [
+                    document["id"] for document in stale_decision_documents
+                ],
+                "decision_stale_payload_characters": stale_payload_characters,
                 "guidance_document_ids": [document["id"] for document in guidance_documents],
             }
         )
@@ -113,6 +136,8 @@ class RunbookSentinel:
             "retrieval.decision_context": self.decision_context_configuration,
             "retrieval.document_count": len(retrieved),
             "retrieval.decision_document_count": len(decision_documents),
+            "retrieval.decision_stale_document_count": len(stale_decision_documents),
+            "retrieval.decision_stale_payload_characters": stale_payload_characters,
             "agent.operation": self.agent.name,
             "sentinel.outcome": result["outcome"],
             "latency.ms": result["latency_ms"],

@@ -1,0 +1,239 @@
+{
+  "cases": [
+    {
+      "all_behavior_exact": true,
+      "attempts": [
+        {
+          "actual": {
+            "action": null,
+            "diagnosis_code": "insufficient_fresh_evidence",
+            "missing_evidence": [
+              "fresh_telemetry",
+              "fresh_replacement_for:telemetry-cache-stale-dev"
+            ],
+            "outcome": "request_evidence"
+          },
+          "behavior_exact": true,
+          "decision_document_fields": {
+            "telemetry-cache-stale-dev": [
+              "id",
+              "kind",
+              "observed_at"
+            ]
+          },
+          "fresh_payload_retained": true,
+          "retrieved_document_ids": [
+            "telemetry-cache-stale-dev"
+          ],
+          "stale_identity_retained": true,
+          "stale_metadata_exact": true,
+          "stale_payload_exposure": false,
+          "trial": 1
+        },
+        {
+          "actual": {
+            "action": null,
+            "diagnosis_code": "insufficient_fresh_evidence",
+            "missing_evidence": [
+              "fresh_telemetry",
+              "fresh_replacement_for:telemetry-cache-stale-dev"
+            ],
+            "outcome": "request_evidence"
+          },
+          "behavior_exact": true,
+          "decision_document_fields": {
+            "telemetry-cache-stale-dev": [
+              "id",
+              "kind",
+              "observed_at"
+            ]
+          },
+          "fresh_payload_retained": true,
+          "retrieved_document_ids": [
+            "telemetry-cache-stale-dev"
+          ],
+          "stale_identity_retained": true,
+          "stale_metadata_exact": true,
+          "stale_payload_exposure": false,
+          "trial": 2
+        },
+        {
+          "actual": {
+            "action": null,
+            "diagnosis_code": "insufficient_fresh_evidence",
+            "missing_evidence": [
+              "fresh_telemetry",
+              "fresh_replacement_for:telemetry-cache-stale-dev"
+            ],
+            "outcome": "request_evidence"
+          },
+          "behavior_exact": true,
+          "decision_document_fields": {
+            "telemetry-cache-stale-dev": [
+              "id",
+              "kind",
+              "observed_at"
+            ]
+          },
+          "fresh_payload_retained": true,
+          "retrieved_document_ids": [
+            "telemetry-cache-stale-dev"
+          ],
+          "stale_identity_retained": true,
+          "stale_metadata_exact": true,
+          "stale_payload_exposure": false,
+          "trial": 3
+        }
+      ],
+      "case_id": "dev-stale-cache-payload-boundary",
+      "scenario_id": "dev-stale-cache-evidence",
+      "split": "development"
+    },
+    {
+      "all_behavior_exact": true,
+      "attempts": [
+        {
+          "actual": {
+            "action": null,
+            "diagnosis_code": "deployment_evidence_incomplete",
+            "missing_evidence": [
+              "deploy_status",
+              "deploy_version"
+            ],
+            "outcome": "request_evidence"
+          },
+          "behavior_exact": true,
+          "decision_document_fields": {
+            "telemetry-deploy-stale": [
+              "id",
+              "kind",
+              "observed_at"
+            ],
+            "telemetry-errors-current": [
+              "content",
+              "id",
+              "kind",
+              "observed_at",
+              "title"
+            ]
+          },
+          "fresh_payload_retained": true,
+          "retrieved_document_ids": [
+            "telemetry-errors-current",
+            "telemetry-deploy-stale"
+          ],
+          "stale_identity_retained": true,
+          "stale_metadata_exact": true,
+          "stale_payload_exposure": false,
+          "trial": 1
+        },
+        {
+          "actual": {
+            "action": null,
+            "diagnosis_code": "deployment_evidence_incomplete",
+            "missing_evidence": [
+              "deploy_status",
+              "deploy_version"
+            ],
+            "outcome": "request_evidence"
+          },
+          "behavior_exact": true,
+          "decision_document_fields": {
+            "telemetry-deploy-stale": [
+              "id",
+              "kind",
+              "observed_at"
+            ],
+            "telemetry-errors-current": [
+              "content",
+              "id",
+              "kind",
+              "observed_at",
+              "title"
+            ]
+          },
+          "fresh_payload_retained": true,
+          "retrieved_document_ids": [
+            "telemetry-errors-current",
+            "telemetry-deploy-stale"
+          ],
+          "stale_identity_retained": true,
+          "stale_metadata_exact": true,
+          "stale_payload_exposure": false,
+          "trial": 2
+        },
+        {
+          "actual": {
+            "action": null,
+            "diagnosis_code": "deployment_evidence_incomplete",
+            "missing_evidence": [
+              "deploy_status",
+              "deploy_version"
+            ],
+            "outcome": "request_evidence"
+          },
+          "behavior_exact": true,
+          "decision_document_fields": {
+            "telemetry-deploy-stale": [
+              "id",
+              "kind",
+              "observed_at"
+            ],
+            "telemetry-errors-current": [
+              "content",
+              "id",
+              "kind",
+              "observed_at",
+              "title"
+            ]
+          },
+          "fresh_payload_retained": true,
+          "retrieved_document_ids": [
+            "telemetry-errors-current",
+            "telemetry-deploy-stale"
+          ],
+          "stale_identity_retained": true,
+          "stale_metadata_exact": true,
+          "stale_payload_exposure": false,
+          "trial": 3
+        }
+      ],
+      "case_id": "test-stale-deployment-payload-boundary",
+      "scenario_id": "test-stale-deployment-evidence",
+      "split": "test"
+    }
+  ],
+  "catalog_sha256": "2be1c51ba1c6f8fa51d2b5f0a3284225c48dc1b13a2d832ed50596faa559b33e",
+  "checkpoint": "baseline-0010",
+  "decision_context_configuration": "fresh-content-stale-metadata-context-v3",
+  "disposition": "pass",
+  "gates": {
+    "contract_valid": true,
+    "development_exact": true,
+    "exact_behavior_retention_is_one": true,
+    "fresh_payload_retention_is_one": true,
+    "split_coverage_is_one": true,
+    "stale_identity_retention_is_one": true,
+    "stale_metadata_projection_is_one": true,
+    "stale_payload_exposure_is_zero": true,
+    "test_exact": true
+  },
+  "manifest_sha256": "babc5102eb7cef4185c3f86bce05b109a8ddfe92d3e9b25e8ad2d62a0889b673",
+  "metrics": {
+    "attempt_count": 6,
+    "case_count": 2,
+    "contract_valid": true,
+    "exact_behavior_retention_rate": 1.0,
+    "fresh_payload_retention_rate": 1.0,
+    "split_coverage": 1.0,
+    "split_exact_match_rate": {
+      "development": 1.0,
+      "test": 1.0
+    },
+    "stale_identity_retention_rate": 1.0,
+    "stale_metadata_projection_rate": 1.0,
+    "stale_payload_exposure_rate": 0.0
+  },
+  "schema_version": "1.0",
+  "trials": 3
+}
