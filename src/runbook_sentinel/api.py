@@ -13,7 +13,7 @@ from .operator_auth import AUTHENTICATION_CHALLENGE, OperatorAuthenticator
 from .service import DEFAULT_APPROVAL_TTL_SECONDS, RunbookSentinel
 
 
-CHECKPOINT = "baseline-0014"
+CHECKPOINT = "baseline-0015"
 
 
 class SentinelHTTPServer(ThreadingHTTPServer):
@@ -193,6 +193,11 @@ class SentinelHandler(BaseHTTPRequestHandler):
         idempotency_authorization_exact = metrics.get(
             "idempotency_authorization", {}
         ).get("exact_match_rate")
+        operator_authentication_exact = (
+            metrics.get("operator_authentication", {})
+            .get("metrics", {})
+            .get("exact_match_rate")
+        )
         trajectory_display = f"{trajectory_exact:.1f}" if isinstance(trajectory_exact, (int, float)) else "not run"
         terminal_display = f"{terminal_exact:.1f}" if isinstance(terminal_exact, (int, float)) else "not run"
         condition_display = (
@@ -235,6 +240,11 @@ class SentinelHandler(BaseHTTPRequestHandler):
             if isinstance(idempotency_authorization_exact, (int, float))
             else "not run"
         )
+        operator_authentication_display = (
+            f"{operator_authentication_exact:.1f}"
+            if isinstance(operator_authentication_exact, (int, float))
+            else "not run"
+        )
         rows = "".join(
             f"<tr><td>{html.escape(item['id'])}</td><td>{html.escape(item['scenario_id'])}</td><td>{html.escape(item['status'])}</td></tr>"
             for item in incidents
@@ -270,6 +280,7 @@ th,td {{ text-align:left; padding:12px; border-bottom:1px solid #21354b; }} .bou
 <div class="card"><div>Stale payload exposure</div><div class="value">{stale_payload_display}</div></div>
 <div class="card"><div>Approval lifetime exact</div><div class="value">{approval_lifetime_display}</div></div>
 <div class="card"><div>Cached result authorization</div><div class="value">{idempotency_authorization_display}</div></div>
+<div class="card"><div>Operator authentication</div><div class="value">{operator_authentication_display}</div></div>
 <div class="card"><div>Execution boundary</div><div class="value boundary">authenticated external operator</div></div>
 <div class="card"><div>Real infrastructure</div><div class="value boundary">disconnected</div></div>
 </section>

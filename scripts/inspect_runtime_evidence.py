@@ -19,12 +19,14 @@ def sha256(path: Path) -> str:
 
 
 def main() -> None:
-    database = ROOT / "var/live-api-baseline-0014.db"
-    trace = ROOT / "artifacts/runtime/live-api-baseline-0014-traces.jsonl"
+    database = ROOT / "var/live-api-baseline-0015.db"
+    trace = ROOT / "artifacts/runtime/live-api-baseline-0015-traces.jsonl"
     evaluation = ROOT / "artifacts/evaluations/latest.json"
     manifest = ROOT / "eval/manifest.json"
-    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0014.png"
-    required = [database, trace, evaluation, manifest, screenshot]
+    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0015.png"
+    stdout_log = ROOT / "artifacts/runtime/live-api-baseline-0015-stdout.log"
+    stderr_log = ROOT / "artifacts/runtime/live-api-baseline-0015-stderr.log"
+    required = [database, trace, evaluation, manifest, screenshot, stdout_log, stderr_log]
     missing = [str(path) for path in required if not path.exists()]
     if missing:
         raise SystemExit(json.dumps({"status": "fail", "missing": missing}, indent=2))
@@ -38,6 +40,7 @@ def main() -> None:
         required_tables = {"incidents", "runs", "proposals", "approvals", "idempotency", "audit_log"}
         approval_columns = [row[1] for row in connection.execute("PRAGMA table_info(approvals)")]
         token_hashes = [row[0] for row in connection.execute("SELECT token_hash FROM approvals")]
+        approval_actors = [row[0] for row in connection.execute("SELECT actor FROM approvals")]
         counts = {
             table: connection.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]
             for table in sorted(required_tables)
@@ -49,7 +52,24 @@ def main() -> None:
     trace_text = trace.read_text(encoding="utf-8")
     trace_events = [json.loads(line) for line in trace_text.splitlines() if line.strip()]
     run_trace_events = [event for event in trace_events if event["name"] == "sentinel.run"]
-    forbidden_trace_terms = [term for term in ("approval_token", "Authorization", "Bearer ", "secret") if term in trace_text]
+    forbidden_trace_terms = [
+        term
+        for term in (
+            "approval_token",
+            "Authorization",
+            "Bearer ",
+            "Sentinel-Capability",
+            "operator capability",
+            "secret",
+        )
+        if term in trace_text
+    ]
+    log_text = stdout_log.read_text(encoding="utf-8") + stderr_log.read_text(encoding="utf-8")
+    forbidden_log_terms = [
+        term
+        for term in ("Sentinel-Capability", "operator capability", "Authorization")
+        if term in log_text
+    ]
     latest = json.loads(evaluation.read_text(encoding="utf-8"))
     with screenshot.open("rb") as handle:
         signature = handle.read(24)
@@ -61,10 +81,24 @@ def main() -> None:
         "required_tables_present": required_tables.issubset(table_names),
         "raw_token_column_absent": "approval_token" not in approval_columns and "token" not in approval_columns,
         "stored_tokens_are_sha256": bool(token_hashes) and all(len(value) == 64 for value in token_hashes),
+        "operator_identity_is_server_derived": bool(approval_actors)
+        and all(
+            len(value) == 25
+            and value.startswith("operator-")
+            and all(character in "0123456789abcdef" for character in value[9:])
+            for value in approval_actors
+        ),
+        "caller_declared_operator_identity_absent": not {
+            "claimed-human",
+            "verified-local-operator",
+            "invalid-lifetime-probe",
+            "valid-lifetime-recovery",
+        }.intersection(approval_actors),
         "executed_proposals_have_consumed_approvals": executed > 0 and executed == consumed,
         "audit_contains_approval_and_execution": "proposal.approved" in audit_types and "proposal.executed" in audit_types,
         "trace_has_expected_events": {"sentinel.run", "sentinel.approval", "sentinel.execute"}.issubset({event["name"] for event in trace_events}),
         "trace_has_no_forbidden_terms": not forbidden_trace_terms,
+        "logs_have_no_authentication_material": not forbidden_log_terms,
         "decision_context_is_stale_metadata_v3": bool(run_trace_events)
         and all(
             event["attributes"].get("retrieval.decision_context")
@@ -102,6 +136,13 @@ def main() -> None:
         "evaluation_authorized_cache_utility_exact": latest["metrics"]["idempotency_authorization"]["authorized_cache_utility_rate"] == 1.0,
         "evaluation_unauthorized_cache_denial_exact": latest["metrics"]["idempotency_authorization"]["unauthorized_cache_denial_rate"] == 1.0,
         "evaluation_idempotency_retry_no_mutation": latest["metrics"]["idempotency_authorization"]["retry_no_mutation_rate"] == 1.0,
+        "evaluation_operator_authentication_exact": latest["metrics"]["operator_authentication"]["metrics"]["exact_match_rate"] == 1.0,
+        "evaluation_operator_authentication_denial_exact": latest["metrics"]["operator_authentication"]["metrics"]["authentication_denial_exact_rate"] == 1.0,
+        "evaluation_operator_authentication_utility_exact": latest["metrics"]["operator_authentication"]["metrics"]["authorized_utility_exact_rate"] == 1.0,
+        "evaluation_operator_authentication_no_mutation": latest["metrics"]["operator_authentication"]["metrics"]["unauthorized_no_mutation_rate"] == 1.0,
+        "evaluation_operator_identity_server_derived": latest["metrics"]["operator_authentication"]["metrics"]["server_derived_identity_rate"] == 1.0,
+        "evaluation_operator_capability_exclusion": latest["metrics"]["operator_authentication"]["metrics"]["capability_exclusion_rate"] == 1.0,
+        "evaluation_prior_launch_rejection": latest["metrics"]["operator_authentication"]["metrics"]["prior_launch_rejection_rate"] == 1.0,
         "evaluation_contains_no_raw_approval_token_field": '"approval_token":' not in evaluation.read_text(encoding="utf-8"),
         "evaluation_matches_frozen_manifest": latest["manifest_sha256"] == sha256(manifest),
         "dashboard_has_expected_dimensions": (width, height) == (1440, 1000),
@@ -111,8 +152,13 @@ def main() -> None:
         "checkpoint": latest["checkpoint"],
         "status": "pass" if all(checks.values()) else "fail",
         "checks": checks,
-        "database": {"sha256": sha256(database), "counts": counts, "audit_event_types": audit_types},
+        "database": {"sha256": sha256(database), "counts": counts, "audit_event_types": audit_types, "operator_identities": approval_actors},
         "telemetry": {"sha256": sha256(trace), "event_count": len(trace_events), "forbidden_terms": forbidden_trace_terms},
+        "logs": {
+            "stdout_sha256": sha256(stdout_log),
+            "stderr_sha256": sha256(stderr_log),
+            "forbidden_terms": forbidden_log_terms,
+        },
         "evaluation": {
             "sha256": sha256(evaluation),
             "manifest_sha256": latest["manifest_sha256"],
@@ -138,10 +184,17 @@ def main() -> None:
             "authorized_cache_utility": latest["metrics"]["idempotency_authorization"]["authorized_cache_utility_rate"],
             "unauthorized_cache_denial": latest["metrics"]["idempotency_authorization"]["unauthorized_cache_denial_rate"],
             "idempotency_retry_no_mutation": latest["metrics"]["idempotency_authorization"]["retry_no_mutation_rate"],
+            "operator_authentication_exact": latest["metrics"]["operator_authentication"]["metrics"]["exact_match_rate"],
+            "operator_authentication_denial": latest["metrics"]["operator_authentication"]["metrics"]["authentication_denial_exact_rate"],
+            "operator_authentication_utility": latest["metrics"]["operator_authentication"]["metrics"]["authorized_utility_exact_rate"],
+            "operator_authentication_no_mutation": latest["metrics"]["operator_authentication"]["metrics"]["unauthorized_no_mutation_rate"],
+            "operator_identity_server_derived": latest["metrics"]["operator_authentication"]["metrics"]["server_derived_identity_rate"],
+            "operator_capability_exclusion": latest["metrics"]["operator_authentication"]["metrics"]["capability_exclusion_rate"],
+            "prior_launch_rejection": latest["metrics"]["operator_authentication"]["metrics"]["prior_launch_rejection_rate"],
         },
         "dashboard": {"sha256": sha256(screenshot), "width": width, "height": height},
     }
-    output = ROOT / "artifacts/verification/native-baseline-0014.json"
+    output = ROOT / "artifacts/verification/native-baseline-0015.json"
     output.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(receipt, indent=2, sort_keys=True))
     if receipt["status"] != "pass":

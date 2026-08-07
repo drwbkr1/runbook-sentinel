@@ -500,7 +500,7 @@ class BaselineTest(unittest.TestCase):
         server = MCPServer(self.service)
         initialized = server.handle({"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
         self.assertEqual(initialized["result"]["protocolVersion"], "2025-11-25")
-        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.14")
+        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.15")
         listed = server.handle({"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         self.assertEqual({tool["name"] for tool in listed["result"]["tools"]}, names)
         called = server.handle(
@@ -715,9 +715,10 @@ class BaselineTest(unittest.TestCase):
                 self.assertIn("Stale payload exposure", dashboard)
                 self.assertIn("Approval lifetime exact", dashboard)
                 self.assertIn("Cached result authorization", dashboard)
+                self.assertIn("Operator authentication", dashboard)
                 self.assertIn("frame-ancestors 'none'", response.headers["Content-Security-Policy"])
             with urlopen(f"http://127.0.0.1:{server.server_port}/health") as response:
-                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0014")
+                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0015")
             request = Request(
                 f"http://127.0.0.1:{server.server_port}/api/runs",
                 data=json.dumps({"scenario_id": "dev-bad-deployment"}).encode("utf-8"),
@@ -760,8 +761,8 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["coverage"]["adversarial_split_coverage"], 1.0)
         self.assertEqual(report["metrics"]["coverage"]["missing_condition_split_pairs"], [])
         self.assertEqual(report["metrics"]["coverage"]["missing_adversarial_splits"], [])
-        self.assertEqual(report["schema_version"], "2.1")
-        self.assertEqual(report["checkpoint"], "baseline-0014")
+        self.assertEqual(report["schema_version"], "2.2")
+        self.assertEqual(report["checkpoint"], "baseline-0015")
         self.assertEqual(report["metrics"]["proposal"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["development"]["tool_trajectory"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["test"]["tool_trajectory"]["exact_match"], 1.0)
@@ -830,6 +831,50 @@ class BaselineTest(unittest.TestCase):
         )
         self.assertTrue(report["gates"]["idempotency_retry_no_mutation_is_one"])
         self.assertNotIn('"approval_token":', json.dumps(idempotency_authorization))
+        operator_authentication = report["metrics"]["operator_authentication"]
+        self.assertEqual(
+            report["operator_authentication_contract_id"],
+            "operator-authentication-v1",
+        )
+        self.assertEqual(operator_authentication["metrics"]["case_count"], 10)
+        self.assertEqual(
+            sum(record["split"] == "development" for record in operator_authentication["records"]),
+            4,
+        )
+        self.assertEqual(
+            sum(record["split"] == "test" for record in operator_authentication["records"]),
+            6,
+        )
+        self.assertEqual(operator_authentication["metrics"]["exact_match_rate"], 1.0)
+        self.assertEqual(
+            operator_authentication["metrics"]["authentication_denial_exact_rate"],
+            1.0,
+        )
+        self.assertEqual(
+            operator_authentication["metrics"]["authorized_utility_exact_rate"],
+            1.0,
+        )
+        self.assertEqual(
+            operator_authentication["metrics"]["unauthorized_no_mutation_rate"],
+            1.0,
+        )
+        self.assertEqual(
+            operator_authentication["metrics"]["server_derived_identity_rate"],
+            1.0,
+        )
+        self.assertEqual(
+            operator_authentication["metrics"]["capability_exclusion_rate"],
+            1.0,
+        )
+        self.assertEqual(
+            operator_authentication["metrics"]["prior_launch_rejection_rate"],
+            1.0,
+        )
+        self.assertTrue(
+            report["gates"]["operator_authentication_all_ten_cases_exact"]
+        )
+        self.assertTrue(report["gates"]["development_operator_authentication_exact"])
+        self.assertTrue(report["gates"]["test_operator_authentication_exact"])
         relation_metrics = report["metrics"]["behavioral_relations"]
         self.assertTrue(report["gates"]["behavioral_relation_contract_valid"])
         self.assertTrue(report["gates"]["behavioral_relation_split_coverage_is_one"])
