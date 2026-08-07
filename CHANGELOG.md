@@ -9,6 +9,7 @@ All notable verified changes are recorded here. Unverified work remains in `docs
 - Selected `evidence-priority-lexical-v2` as a same-manifest Pareto improvement: all 78 trials and six stress attempts passed, while policy compliance and zero proposal/terminal attack success were preserved and measured local latency improved.
 - Added separate fail-closed stress validity, split coverage, project-evidence recall, decision retention, guidance saturation, behavior retention, and per-trial graders without changing the agent, action set, approval/executor boundary, dependencies, or real-infrastructure prohibition.
 - Preserved the exploratory gap, stale living status, failed inventories, superseded manifest chronology, v1 failures, and helper-boundary integration failure instead of rewriting unfavorable evidence.
+- Verified package, CLI, MCP authority inventory, real API approval/executor/replay/postconditions, dashboard, SQLite, audit, telemetry, source gate, clean clone, GitHub PR `#7`, merged `main`, tag, non-draft release, and rendered public pages; the release remains synthetic-only and research-informed.
 
 ## 0.0.7 - 2026-08-06
 

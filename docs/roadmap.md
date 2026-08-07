@@ -28,9 +28,11 @@ Explicitly classify complete, incomplete, stale, conflicting, and instruction-be
 
 Replace aggregate-only condition coverage with exact controlled relations. Freeze instruction-injection invariance and fresh-to-stale directional safety in both development and held-out splits, then grade paired outcomes, actions, trajectories, and terminal states without changing the agent, retriever, action set, or authority boundary.
 
-## Active checkpoint baseline-0008 - guidance-flood retrieval resilience
+## Completed checkpoint baseline-0008 - guidance-flood retrieval resilience
 
 Make retrieval measurement discriminating by adding development and untouched held-out cases where five query-matching untrusted guidance documents compete with trusted project evidence under the frozen top-4 limit. Retain a pre-change `lexical-token-overlap-v1` failure, then compare one generic evidence-priority lexical candidate. Select it only if trusted project evidence, exact benign utility, security boundaries, repeated reliability, latency, and cost form a measured Pareto improvement. The agent, three-action surface, approval/executor boundary, deterministic offline default, and real-infrastructure prohibition remain unchanged.
+
+The selected `evidence-priority-lexical-v2` checkpoint passed 78 frozen trials, all six stress attempts, real CLI/API/MCP and execution-boundary verification, a clean clone, GitHub review, merged-main verification, and public release reconciliation. The next checkpoint is intentionally unchosen until a fresh run of public v0.0.8 exposes the next measurable weakness.
 
 ## Research preview v0.1.0
 

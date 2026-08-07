@@ -2,18 +2,18 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `codex/baseline-0008-guidance-flood-resilience`
-- Completed milestones: `BASELINE-0001` through `BASELINE-0007`
-- Latest verified checkpoint: public `v0.0.7`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
-- Active milestone: `BASELINE-0008` - guidance-flood retrieval resilience
-- Current unit: push the clean-clone-verified branch, perform GitHub scope/mergeability review, merge with history preserved, then verify remote merged main before release closure
-- Disposition: evidence-priority v2 `select`; baseline-0008 release candidate `pass`; local-model candidate `exclude`; container `defer`
+- Branch: `main`
+- Completed milestones: `BASELINE-0001` through `BASELINE-0008`
+- Latest verified checkpoint: public `v0.0.8`; release reconciliation binds the local annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, and rendered public pages to the exact closure commit
+- Active milestone: none; the next cycle must resume from public `v0.0.8`, run it, inspect traces and evaluation results, and select the highest-leverage measurable weakness before creating `BASELINE-0009`
+- Current unit: release closure complete; preserve this checkpoint and begin the next evidence-driven cycle from it
+- Disposition: evidence-priority v2 `select`; baseline-0008 `pass`; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: pull request `#6` merged as `5c690c9f4f6b00e577eef84a1dc33437f5cd7ba1` before the exact closure record
-- GitHub pull request: `#6`, merged with history preserved
-- GitHub release: public, non-draft `v0.0.7`
+- GitHub `main`: pull request `#7` merged as `6b79b9e6a02ee083747fc0a8c7559e0222f1b24a` before the exact closure record
+- GitHub pull request: `#7`, merged with history preserved
+- GitHub release: public, non-draft `v0.0.8`
 - Docker: daemon verified live; container packaging deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
 - Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
@@ -33,9 +33,10 @@
 - Retrieval-stress project-evidence recall, decision-evidence retention, exact behavior, and development/held-out exactness: 1.0; guidance saturation at four: 0.75
 - Selected release-candidate end-to-end latency: median 45.245 ms, p95 92.216 ms; diagnosis-only median 6.994 ms, p95 15.746 ms; no general performance claim
 - Live CLI, MCP stdio, HTTP approval/executor, dashboard, SQLite, audit log, and JSONL telemetry: pass
-- Clean clone: candidate `8328c08900739d4f07afd9202a979c1bdd4f63e9` passed compilation, 14 tests, all three validators, the manifest, selected-evaluation identity, model/secret exclusion, CLI, MCP, 27-check API, persistence, telemetry, and rendered-dashboard gates
-- GitHub review: pull request `#6`, 7 commits, 45 changed files, `CLEAN`, `MERGEABLE`, no configured checks, merged with history preserved
-- Merged main `5c690c9f4f6b00e577eef84a1dc33437f5cd7ba1`: fresh public clone passed compilation, 14 tests, all contracts, selected evaluation, CLI, MCP, all 27 API checks, approval, executor, replay, postconditions, dashboard, SQLite, audit, telemetry, model-weight exclusion, and high-signal secret scan
+- Clean clone: candidate `3bcbad6aab640fad3eb4948a69161f5a73e99640` passed compilation, 15 tests, all four validators, the source gate, manifest, selected-evaluation identity, policy/model/secret exclusion, CLI, MCP, 34-check API, persistence, telemetry, and rendered-dashboard gates
+- GitHub review: pull request `#7`, 7 commits, 52 changed files, `CLEAN`, `MERGEABLE`, no configured checks, merged with history preserved
+- Merged main `6b79b9e6a02ee083747fc0a8c7559e0222f1b24a`: a fresh public clone passed compilation, 15 tests, all contracts, the 16-criterion source gate, 98 JSON and 26 JSONL parses, selected evaluation, unchanged policy, model/secret exclusion, held-out CLI, MCP, all 34 API checks, approval, executor, replay, postconditions, dashboard, SQLite, audit, and telemetry
+- Public release: local annotated `v0.0.8`, peeled remote tag, remote `main`, non-draft GitHub release, rendered README, rendered release page, and a fresh public-tag clone agree on the release-closure commit
 - Container: deferred after three base images failed the source gate
 
 ## BASELINE-0002 measured gap

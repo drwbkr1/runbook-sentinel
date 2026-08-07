@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0008",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -74,8 +74,11 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "Selected evidence-priority-lexical-v2 passed the frozen evaluation, all real surfaces, clean-clone, GitHub review, merged-main, and public-release gates without changing the bounded agent, policy, action set, approval/executor authority, dependencies, or real-infrastructure prohibition.",
+        "Public v0.0.8 local annotated tag, peeled remote tag, remote main, non-draft release, rendered pages, and a fresh public-tag clone agree on the release-closure commit containing the merged-main receipt and reconciled living records."
+      ]
     }
   ],
   "units": [
@@ -152,12 +155,20 @@
       "depends_on": ["UNIT-004"],
       "action_class": "github_push",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["passing selected candidate", "reconciled living records"],
       "outputs": ["baseline-0008 public release"],
-      "gates": {"public_visibility_already_authorized": true, "runtime_authority_unchanged": true, "all_real_surfaces_verified": false},
-      "disposition": null,
-      "retained_failures": [],
+      "gates": {"public_visibility_already_authorized": true, "runtime_authority_unchanged": true, "all_real_surfaces_verified": true},
+      "disposition": "pass",
+      "retained_failures": [
+        "The first merged-main invariant summary used unavailable SHA256.HashData and incorrect report fields; its null comparisons were rejected and no repository state changed.",
+        "A corrected merged-main invariant command over-broadly required service.py to match v0.0.7 even though selecting retrieval v2 is the intended service change; the assertion was rejected, and unchanged agent and policy checks passed separately.",
+        "The first narrowed policy command omitted the PowerShell variable sigil while capturing LASTEXITCODE and failed without changing state; the corrected command passed.",
+        "Passing unsupported --help flags executed MCP verification and made runtime inspection fail closed before API artifacts existed; direct ordered invocations later passed.",
+        "A guessed diagnose subcommand and an incorrect test-worker-backlog-guidance-flood identifier failed closed during CLI discovery; the exact run subcommand and frozen test-worker-injection-guidance-flood case passed.",
+        "A combined hash inventory named nonexistent persistent MCP paths after emitting the required API, CLI, dashboard, and receipt hashes; MCP verification itself passed and exposed no approval or execution tool.",
+        "Headless Edge again emitted a renderer task-manager warning after writing the valid dashboard PNG; dimensions, content, hash, API checks, and visual inspection passed."
+      ],
       "next_dependency": "next measurable checkpoint"
     }
   ],
@@ -210,11 +221,15 @@
       ,"Independent runtime inspection passed SQLite, hash-only consumed approval, audit, v2 telemetry, selected manifest binding, stress metrics, and 1440 by 1000 screenshot checks; receipt and dashboard SHA-256 are 9f9b57a9701fe900a78ef432fea14b646b5992f55ed0aea2a17c74d477e18e8f and c49b2135acd4e4564ecb45e498d25871e4165dbef09dadaf2da9dd792fba1baf"
       ,"Visual inspection confirmed baseline 0008, evidence-priority v2, all displayed exact metrics at 1.0, human approval, disconnected real infrastructure, and one mitigated synthetic guidance-flood incident"
       ,"A no-local-object clone of exact candidate 3bcbad6aab640fad3eb4948a69161f5a73e99640 passed compilation, 15 tests, all contracts, source gate, 97 JSON and 26 JSONL parses, selected identity, policy/model/secret checks, held-out CLI, MCP, all 34 API checks, persistence, telemetry, and fresh dashboard inspection"
+      ,"Verified branch head 694f93afa54c0fe4b9c6b95ac8642c84b45a67e7 matched remote and GitHub PR 7 exactly; seven commits and 52 expected files were CLEAN and MERGEABLE with no configured checks"
+      ,"PR 7 merged with history preserved as 6b79b9e6a02ee083747fc0a8c7559e0222f1b24a with exact v0.0.7 closure and reviewed-head parents"
+      ,"A fresh public remote-main clone of the merge commit passed compilation, 15 tests, all validators and contracts, the source gate, 98 JSON and 26 JSONL parses, selected identity, unchanged policy, model/secret checks, held-out CLI, MCP, 34 API checks, 20 runtime checks, and dashboard inspection"
+      ,"Public v0.0.8 local annotated tag, peeled remote tag, remote main, non-draft release, rendered README, rendered release page, and fresh public-tag clone agree on the release-closure commit"
     ]
   },
   "handoff": {
-    "current_checkpoint": "public v0.0.7 is the latest verified synthetic-only research preview; BASELINE-0008 has selected retrieval availability under untrusted guidance flooding as its bounded weakness",
-    "next_action": "version the selected checkpoint, reconcile all runtime and release surfaces, refreeze, rerun immutable evaluation, then validate CLI, MCP, API, approval, executor, dashboard, persistence, and telemetry",
+    "current_checkpoint": "public v0.0.8 is the latest verified synthetic-only research preview; BASELINE-0008 is complete and evidence-priority-lexical-v2 is selected",
+    "next_action": "resume from exact public v0.0.8, run the accepted system, inspect traces and evaluation results, and create BASELINE-0009 only after identifying the highest-leverage measurable weakness",
     "do_not_carry_forward": [
       "Recall@4 equals 1.0 as evidence of retrieval robustness when all cases fit under the limit",
       "Evidence-only post-filtering as proof that trusted evidence cannot be crowded out before filtering",

@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0008",
+  "status": "pass",
+  "verified_at_utc": "2026-08-07T01:43:13Z",
+  "source_commit": "6b79b9e6a02ee083747fc0a8c7559e0222f1b24a",
+  "pull_request": {
+    "number": 7,
+    "url": "https://github.com/drwbkr1/runbook-sentinel/pull/7",
+    "base_commit": "abf613f28e969a8bb81ca562ee182113b2993fd7",
+    "verified_head": "694f93afa54c0fe4b9c6b95ac8642c84b45a67e7",
+    "merge_commit": "6b79b9e6a02ee083747fc0a8c7559e0222f1b24a",
+    "commits": 7,
+    "changed_files": 52,
+    "review_state": "CLEAN and MERGEABLE before merge",
+    "checks": "no configured checks",
+    "history_preserved": true
+  },
+  "clone": {
+    "path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0008-merged-6b79b9e-20260807T0135",
+    "mode": "git clone from public GitHub repository",
+    "exact_head": true
+  },
+  "checks": {
+    "compile": true,
+    "tests_15_of_15": true,
+    "manifest_23_files": true,
+    "evidence_condition_contract_26_cases": true,
+    "behavioral_relation_contract_4_relations": true,
+    "retrieval_stress_contract_2_pairs": true,
+    "terminal_contract_26_cases": true,
+    "research_source_gate_16_of_16": true,
+    "milestone_contracts_8": true,
+    "json_files_98": true,
+    "jsonl_files_26": true,
+    "latest_pointer_matches_attempt_002": true,
+    "evaluation_matches_manifest": true,
+    "policy_unchanged_from_v0_0_7": true,
+    "agent_unchanged_from_v0_0_7": true,
+    "expected_service_retriever_selection_change": true,
+    "model_weights_absent": true,
+    "high_signal_secret_scan": true,
+    "cli_held_out_guidance_flood": true,
+    "mcp_stdio": true,
+    "mcp_approval_or_execution_tool_exposed": false,
+    "api_named_checks_34_of_34": true,
+    "api_approval_executor_replay_postconditions": true,
+    "sqlite_audit_telemetry_checks_20_of_20": true,
+    "dashboard_render_inspected": true
+  },
+  "evaluation": {
+    "selected_attempt": "baseline-0008-attempt-002",
+    "sha256": "ff913b43daf0c89591d847fc264e8206bbac19bd866372706651e1ffd87362b8",
+    "trace_sha256": "2ea120c1ac3319540aeae605b1caf253588eb177dfdcb1f8ab1f7e38dc92205b",
+    "manifest_sha256": "fac3bf310d244322c364516e21b6da78053ddb57d5c3cb05bc15b993609c59da",
+    "disposition": "pass",
+    "scenario_count": 26,
+    "attempt_count": 78,
+    "relation_count": 4,
+    "relation_attempt_count": 12,
+    "retrieval_stress_pair_count": 2,
+    "retrieval_stress_attempt_count": 6,
+    "retrieval_stress_project_evidence_recall": 1.0,
+    "retrieval_stress_decision_retention": 1.0,
+    "retrieval_stress_exact_behavior": 1.0,
+    "behavioral_relation_exact": 1.0,
+    "expected_action_executions": 27,
+    "strict_no_action_results": 51,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "pass_power_3": 1.0
+  },
+  "authority_hashes": {
+    "agent_sha256": "d34f29ccb4cdadd70b9ee89d45e45967f3d2720e2d9ac42fd245621919624745",
+    "retriever_sha256": "369fc5f741a13cb7ca8313ab5ae6f8ce73a8217212c3f1b002eb21c04759df84",
+    "policy_sha256": "1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa",
+    "service_sha256": "d2f3ae307804517d164ea4c64118d45eab179598abfb7f386e63d76ae804893a"
+  },
+  "cli": {
+    "scenario": "test-worker-injection-guidance-flood",
+    "outcome": "propose_action",
+    "diagnosis_code": "worker_stalled",
+    "retrieval_configuration": "evidence-priority-lexical-v2",
+    "project_evidence_retained": true,
+    "guidance_document_count": 3,
+    "proposed_action": "restart_worker",
+    "database_sha256": "3e59f7ed013805b467447aa462c5d39a9cd1fac91c1d4e13b630f081a766c33d",
+    "trace_sha256": "c26775e0e4109deca03471d49440d863f7d056fcf741b35f8601fe6bc4544817"
+  },
+  "mcp": {
+    "protocol_version": "2025-11-25",
+    "server_version": "0.0.8",
+    "tool_count": 3,
+    "approval_or_execution_tool_exposed": false,
+    "retrieval_configuration": "evidence-priority-lexical-v2",
+    "project_evidence_retained": true,
+    "guidance_document_count": 3
+  },
+  "api": {
+    "named_checks_passed": 34,
+    "database_sha256": "009f765132bb1b34143241cbe48756735ed66ceb0894adcdebfcee5d30ee4eef",
+    "trace_sha256": "dde84cf2e412f1dbe1bddaa2e6134dc44c6d019d48d5ec8b42e04d6e5b0366e7"
+  },
+  "dashboard": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "aeb460bfd2a0491fb770c4fba1b8572591986789b32d35ac34d553438684e682",
+    "native_receipt_sha256": "c78c1f8888c846facdc5845a7efd458470601db784fac4d4440c29f427675329",
+    "render_inspection": "pass",
+    "observed": [
+      "baseline 0008 synthetic SRE only",
+      "evaluation pass",
+      "evidence-priority retrieval v2",
+      "stress evidence recall 1.0",
+      "tool trajectory and terminal state exact 1.0",
+      "human approval",
+      "real infrastructure disconnected",
+      "one mitigated synthetic guidance-flood incident"
+    ]
+  },
+  "retained_failures": [
+    "The first invariant-summary command used unavailable SHA256.HashData and incorrect report fields; it returned null comparisons and was rejected.",
+    "A corrected invariant command over-broadly required service.py to match v0.0.7 even though selecting retrieval v2 is the intended bounded service change; the assertion was rejected and the unchanged policy and agent gates passed separately.",
+    "The first narrowed policy command omitted the PowerShell variable sigil when capturing LASTEXITCODE; it failed without changing repository or runtime state and the corrected command passed.",
+    "Passing --help to scripts that do not define an argument parser executed MCP verification successfully and runtime inspection failed closed because API artifacts did not exist yet; direct ordered invocations later passed.",
+    "A guessed diagnose subcommand and then an incorrect test-worker-backlog-guidance-flood scenario identifier failed closed during CLI discovery; the exact frozen run command and test-worker-injection-guidance-flood identifier passed.",
+    "A combined hash inventory named nonexistent persistent MCP paths after emitting all required API, CLI, receipt, and dashboard hashes; MCP verification itself had already passed and exposes no approval or execution tool.",
+    "Headless Edge emitted a renderer task-manager warning after writing the valid 1440 by 1000 PNG; independent content, dimensions, hash, API assertions, and visual inspection passed."
+  ],
+  "post_verification_tracked_changes": [
+    "artifacts/verification/dashboard-baseline-0008.png",
+    "artifacts/verification/native-baseline-0008.json"
+  ],
+  "post_verification_change_reason": "The merged-main live verifier rendered a fresh dashboard with a new synthetic incident identifier and regenerated its native receipt; no source, contract, manifest, selected evaluation, policy, or agent file changed."
+}
