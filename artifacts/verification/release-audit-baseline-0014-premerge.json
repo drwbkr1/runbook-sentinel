@@ -1,0 +1,180 @@
+{
+  "schema_version": "1.0",
+  "release_id": "BASELINE-0014-PREMERGE",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2 and contracts/milestone-0014.json",
+    "authorized_actions": [
+      "commit the premerge audit receipt",
+      "push the receipt-only review head",
+      "reverify pull request head, scope, checks, and mergeability",
+      "mark pull request 12 ready for review",
+      "merge pull request 12 under the exact expected-head lock",
+      "verify merged main from a fresh public clone",
+      "commit and push the release-closure evidence",
+      "create and push annotated tag v0.0.14",
+      "create public GitHub release v0.0.14 with the selected archive and checksum assets",
+      "verify the public release, downloaded assets, rendered pages, and fresh public-tag clone"
+    ]
+  },
+  "risk_classes": ["documentation", "runtime", "data", "package", "public", "security", "external"],
+  "candidate": {
+    "base_commit": "18c7bf30c65954713164214cc5823e4394166886",
+    "commit": "5d07988bf617a7aa734318d5c2a4edb9cebcda51",
+    "version": "0.0.14",
+    "tag": "v0.0.14",
+    "artifacts": [
+      "dist/runbook-sentinel-0.0.14.pyz#sha256=9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f",
+      "dist/runbook-sentinel-0.0.14.pyz.sha256#sha256=6067bcd24b368ecb7909c4be96e7f26a450dbfea945167ed84a180105a296b02",
+      "artifacts/evaluations/runs/baseline-0014-attempt-001.json#sha256=098be4dab2aff8585f9f252de356492ec82b5f6f2d2de881a2b202a8b196164f",
+      "artifacts/evaluations/runs/baseline-0014-package-attempt-001.json#sha256=5c4c0e4d145debd6ddbd127410406aca7c0b30ed3d2645b79aaed129a756377d"
+    ]
+  },
+  "live_truth": {
+    "verified_at_utc": "2026-08-07T22:23:57Z",
+    "branch": "codex/baseline-0014-idempotency-authorization",
+    "remote_commit": "5d07988bf617a7aa734318d5c2a4edb9cebcda51",
+    "pull_request": {
+      "number": 12,
+      "url": "https://github.com/drwbkr1/runbook-sentinel/pull/12",
+      "state": "OPEN",
+      "draft": true,
+      "base_commit": "18c7bf30c65954713164214cc5823e4394166886",
+      "head_commit": "5d07988bf617a7aa734318d5c2a4edb9cebcda51",
+      "commit_count": 6,
+      "changed_path_count": 50,
+      "mergeable": "MERGEABLE",
+      "merge_state": "CLEAN",
+      "configured_check_count": 0
+    },
+    "tag_target": "absent before merge",
+    "deployment": null
+  },
+  "checks": [
+    {
+      "id": "CHECK-SCOPE",
+      "category": "scope",
+      "required": true,
+      "status": "pass",
+      "method": "Compare local candidate, remote branch, pull request base/head, commit inventory, and changed paths.",
+      "evidence": ["Local, remote, and PR head equal 5d07988bf617a7aa734318d5c2a4edb9cebcda51; base and merge-base equal the v0.0.13 closure; six commits and all 50 local/remote paths are exact."],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-TESTS",
+      "category": "runtime",
+      "required": true,
+      "status": "pass",
+      "method": "Run compilation, nine independent validators, and the full test suite in authoritative and no-alternates clone worktrees.",
+      "evidence": ["Compilation, nine validators, and all 22 tests pass; the final review-head clone at 5d07988 is clean and has no object alternates."],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-EVALUATION",
+      "category": "data",
+      "required": true,
+      "status": "pass",
+      "method": "Run frozen schema 2.1 source and package evaluations and compare metric families after declared nondeterministic-field normalization.",
+      "evidence": ["Source and package each pass 84 scenario attempts, nine approval-lifetime cases, six idempotency-authorization cases, all hard gates, both splits, policy, pass^3, attack-success, latency, and cost reporting; non-latency results are exact."],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-PACKAGE",
+      "category": "package",
+      "required": true,
+      "status": "pass",
+      "method": "Validate the frozen 25-entry contract and reproduce the selected standard-library zipapp independently and in two no-alternates clones.",
+      "evidence": ["All builds are 283148 bytes at SHA-256 9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f; archive ordering, metadata, source parity, embedded manifest, per-entry hashes, exclusions, and CLI smoke pass."],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-REAL-SURFACES",
+      "category": "runtime",
+      "required": true,
+      "status": "pass",
+      "method": "Invoke real source and package MCP, loopback HTTP, approval, executor, idempotency, replay, SQLite, audit, trace, and dashboard paths.",
+      "evidence": ["Source and package MCP expose three diagnostic/read tools and no approval or execution tool; each passes 66 HTTP/dashboard and 35 state/telemetry checks, including exact wrong-token and missing-token HTTP 409 denial."],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-RENDER",
+      "category": "public",
+      "required": true,
+      "status": "pass",
+      "method": "Render and visually inspect 1440 by 1000 source, package, and clean-clone dashboards.",
+      "evidence": ["Rendered dashboards visibly show Baseline 0014, evaluation pass, cached result authorization 1.0, approval lifetime 1.0, human approval, disconnected real infrastructure, and persisted synthetic incidents."],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-SECURITY",
+      "category": "security",
+      "required": true,
+      "status": "pass",
+      "method": "Inspect changed boundary paths, archive content, approval material, MCP authority, secrets, model weights, and real-infrastructure state.",
+      "evidence": ["Agent, retrieval, policy, scenarios, model adapter, and storage are unchanged from v0.0.13; approval material is hashed and absent from evaluation/trace; no high-signal secret or model weight is tracked; real infrastructure remains disconnected."],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-PORTABILITY",
+      "category": "package",
+      "required": true,
+      "status": "pass",
+      "method": "Clone with --no-local, verify no object alternates, rebuild, run source/package evaluations, and inspect real surfaces.",
+      "evidence": ["The exact aa0c70b clean clone passed the full stack and the exact 5d07988 review-head clone passed validators, 22 tests, and the selected archive rebuild."],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-GITHUB",
+      "category": "external",
+      "required": true,
+      "status": "pass",
+      "method": "Read the live GitHub pull request and remote refs immediately before audit.",
+      "evidence": ["PR 12 is open and draft at exact head 5d07988, exact v0.0.13 base, six commits, 50 exact paths, MERGEABLE, CLEAN, and zero configured checks; remote main remains the verified base."],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-RECOVERY",
+      "category": "recovery",
+      "required": false,
+      "status": "not_applicable",
+      "method": "",
+      "evidence": [],
+      "reason": "No deployment, state migration, credential, package registry, or real infrastructure changes exist. Public v0.0.13 remains intact until the new immutable tag and release are verified; a failed candidate can be left unpublished or superseded."
+    }
+  ],
+  "truth_surfaces": [
+    {"path_or_uri": "local branch", "expected_state": "clean exact reviewed candidate", "observed_state": "clean at 5d07988bf617a7aa734318d5c2a4edb9cebcda51", "status": "current"},
+    {"path_or_uri": "origin/codex/baseline-0014-idempotency-authorization", "expected_state": "exact reviewed candidate", "observed_state": "5d07988bf617a7aa734318d5c2a4edb9cebcda51", "status": "current"},
+    {"path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/pull/12", "expected_state": "draft exact-head review", "observed_state": "OPEN, draft, CLEAN, MERGEABLE, six commits, 50 exact paths", "status": "current"},
+    {"path_or_uri": "README.md", "expected_state": "v0.0.13 latest verified and v0.0.14 candidate", "observed_state": "matches", "status": "current"},
+    {"path_or_uri": "docs/status.md", "expected_state": "baseline-0014 UNIT-005 with GitHub review pending", "observed_state": "matches before audit receipt", "status": "current"},
+    {"path_or_uri": "docs/version-history.md", "expected_state": "v0.0.14 candidate not published", "observed_state": "matches", "status": "current"},
+    {"path_or_uri": "docs/roadmap.md", "expected_state": "baseline-0014 active", "observed_state": "matches", "status": "current"},
+    {"path_or_uri": "CHANGELOG.md", "expected_state": "no verified v0.0.14 entry before release", "observed_state": "matches", "status": "current"},
+    {"path_or_uri": "origin/main", "expected_state": "verified v0.0.13 closure before merge", "observed_state": "18c7bf30c65954713164214cc5823e4394166886", "status": "current"},
+    {"path_or_uri": "refs/tags/v0.0.14", "expected_state": "absent before merge", "observed_state": "absent", "status": "current"},
+    {"path_or_uri": "GitHub release v0.0.14", "expected_state": "absent before merge", "observed_state": "absent", "status": "current"}
+  ],
+  "limitations": [
+    "No configured GitHub status checks exist; repository and clean-clone gates provide the recorded verification.",
+    "The system and evidence are synthetic-only and do not establish production reliability, universal attack resistance, or safety for real infrastructure.",
+    "Container packaging remains independently deferred; v0.0.14 is a dependency-free zipapp release candidate."
+  ],
+  "decision": {
+    "reported_status": "verified",
+    "rationale": "Every changed-risk check passes, all premerge truth surfaces agree, and the active director goal already grants the exact bounded review, merge, publication, and verification actions.",
+    "next_action": "Commit this audit, rebind GitHub review to the receipt-only head, mark PR 12 ready, and merge only under an exact expected-head lock.",
+    "authorized_next_actions": [
+      "commit the premerge audit receipt",
+      "push the receipt-only review head",
+      "reverify pull request head, scope, checks, and mergeability",
+      "mark pull request 12 ready for review",
+      "merge pull request 12 under the exact expected-head lock",
+      "verify merged main from a fresh public clone",
+      "commit and push the release-closure evidence",
+      "create and push annotated tag v0.0.14",
+      "create public GitHub release v0.0.14 with the selected archive and checksum assets",
+      "verify the public release, downloaded assets, rendered pages, and fresh public-tag clone"
+    ]
+  }
+}
