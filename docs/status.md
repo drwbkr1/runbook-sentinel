@@ -6,7 +6,7 @@
 - Completed milestones: `BASELINE-0001` through `BASELINE-0007`
 - Latest verified checkpoint: public `v0.0.7`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
 - Active milestone: `BASELINE-0008` - guidance-flood retrieval resilience
-- Current unit: implement one generic evidence-priority lexical candidate and separate fail-closed retrieval-stress metrics using the frozen contract and development result
+- Current unit: run the immutable repeated comparison and select v1 or evidence-priority v2 from separate utility, security, reliability, latency, and cost evidence
 - Disposition: released baseline `pass`; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`

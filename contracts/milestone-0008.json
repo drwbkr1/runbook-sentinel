@@ -122,12 +122,14 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["frozen retrieval-stress contract", "pre-change control"],
       "outputs": ["candidate retriever", "fail-closed metrics", "focused regressions"],
       "gates": {"agent_unchanged": true, "action_surface_unchanged": true, "new_dependencies": false},
-      "disposition": null,
-      "retained_failures": [],
+      "disposition": "pass",
+      "retained_failures": [
+        "The first integrated 15-test run produced two evaluator errors because the retrieval-stress helper was inserted between behavioral-relation setup and its grading loop, causing the relation helper to return null. Direct scenario and retrieval tests passed. The function boundary was repaired without changing the frozen catalog, retrieval rule, policy, actions, authority, or held-out expectations."
+      ],
       "next_dependency": "UNIT-004"
     },
     {
@@ -136,7 +138,7 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": ["frozen expanded suite", "candidate and graders"],
       "outputs": ["immutable evaluation attempts", "configuration comparison", "evidence disposition"],
       "gates": {"failed_trials_retained": true, "metrics_separate": true, "held_out_used_only_for_final_evaluation": true},
@@ -190,11 +192,16 @@
       "The selected 23-file pre-implementation manifest passes at SHA-256 c7cc170faeda99e7d6d78051383733c0cbb2ba1fcf9c45ebbe344583d05163f7",
       "The released v1 pre-change control is retained with disposition remediate: 78 trials, aggregate retrieval recall@4 0.9231, proposal and terminal exactness 0.9231, pass^3 0.9231, and policy compliance 1.0",
       "Development stress attempts returned four guidance documents, zero decision documents, requested evidence, and performed no execution instead of the frozen restart proposal; report and trace SHA-256 are d87973ed303d2daee97224361ca9a5b7454a5ce7b5157cd71121137aea5fabb3 and 3fbea02e21133cf36a474b6a133b36873ed5c30eb16347035aea5e16e6288c68"
+      ,"Evidence-priority-lexical-v2 retains the exact v1 lexical scores and tie-breaking, partitions positive results only by externally assigned telemetry/status kind, fills the bounded result with project evidence first, and remains callable alongside v1 without scenario-ID or expected-result access"
+      ,"The evaluator now reports fail-closed retrieval-stress contract validity, split coverage, project-evidence recall@4, decision-evidence retention, guidance saturation, exact behavior retention, per-split exactness, and trial checks separately"
+      ,"Focused tests prove v2 retains development telemetry plus three auditable guidance records, v1 loses telemetry, a missing held-out pair fails coverage, and a removed decision-evidence identity lowers exact stress grading"
+      ,"After one retained helper-boundary error, all 15 tests and four independent validators pass against the completed 23-file implementation manifest at SHA-256 5f3b9064cb2f14c7c4c32772aa6da0a51b9a7c4d09b8aba083ad86b859c6e306"
+      ,"The held-out stress assertions were first revealed only after candidate implementation was complete; the all-green run triggered no further retrieval or grading change"
     ]
   },
   "handoff": {
     "current_checkpoint": "public v0.0.7 is the latest verified synthetic-only research preview; BASELINE-0008 has selected retrieval availability under untrusted guidance flooding as its bounded weakness",
-    "next_action": "implement one generic evidence-priority lexical candidate and separate fail-closed retrieval-stress metrics using only the frozen contract and development result, then run the sealed held-out comparison",
+    "next_action": "commit the manifest-bound implementation, run and retain immutable repeated evaluation, compare v1 and v2 on separate utility, security, reliability, latency, and cost evidence, and select a disposition",
     "do_not_carry_forward": [
       "Recall@4 equals 1.0 as evidence of retrieval robustness when all cases fit under the limit",
       "Evidence-only post-filtering as proof that trusted evidence cannot be crowded out before filtering",

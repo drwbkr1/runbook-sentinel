@@ -18,12 +18,18 @@ from runbook_sentinel.errors import ApprovalError, PolicyRejected, ReplayRejecte
 from runbook_sentinel.evaluation import (
     _behavioral_relation_metrics,
     _evidence_condition_coverage,
+    _retrieval_stress_metrics,
     _run_terminal_harness,
     run_evaluation,
 )
 from runbook_sentinel.mcp_server import MCPServer, TOOLS
 from runbook_sentinel.policy import ACTION_SPECS, action_spec
-from runbook_sentinel.retrieval import EVIDENCE_ONLY_CONTEXT, FULL_RETRIEVED_CONTEXT
+from runbook_sentinel.retrieval import (
+    EVIDENCE_ONLY_CONTEXT,
+    EVIDENCE_PRIORITY_RETRIEVER_V2,
+    FULL_RETRIEVED_CONTEXT,
+    LEXICAL_RETRIEVER_V1,
+)
 from runbook_sentinel.service import RunbookSentinel
 
 
@@ -160,6 +166,27 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(control["diagnosis_code"], candidate["diagnosis_code"])
         self.assertEqual(control["proposal"]["action"], candidate["proposal"]["action"])
 
+    def test_evidence_priority_retrieval_retains_project_evidence_under_guidance_flood(self):
+        candidate = self.service.run_scenario("dev-worker-backlog-guidance-flood")
+        self.assertEqual(candidate["retriever"], EVIDENCE_PRIORITY_RETRIEVER_V2)
+        self.assertEqual(candidate["retrieved_document_ids"][0], "telemetry-worker-current")
+        self.assertEqual(len(candidate["retrieved_document_ids"]), 4)
+        self.assertEqual(candidate["decision_document_ids"], ["telemetry-worker-current"])
+        self.assertEqual(len(candidate["guidance_document_ids"]), 3)
+        self.assertEqual(candidate["outcome"], "propose_action")
+        self.assertEqual(candidate["proposal"]["action"], "restart_worker")
+
+        base = Path(self.temp.name)
+        released_v1 = RunbookSentinel(
+            str(base / "released-v1.db"),
+            str(base / "released-v1-traces.jsonl"),
+            retrieval_configuration=LEXICAL_RETRIEVER_V1,
+        ).run_scenario("dev-worker-backlog-guidance-flood")
+        self.assertEqual(released_v1["retriever"], LEXICAL_RETRIEVER_V1)
+        self.assertEqual(released_v1["decision_document_ids"], [])
+        self.assertNotIn("telemetry-worker-current", released_v1["retrieved_document_ids"])
+        self.assertEqual(released_v1["outcome"], "request_evidence")
+
     def test_live_http_surface_has_security_headers_and_runs_scenario(self):
         base = Path(self.temp.name)
         evaluation_path = base / "evaluation.json"
@@ -202,6 +229,7 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["scenario_count"], 26)
         self.assertEqual(report["attempt_count"], 78)
         self.assertEqual(report["agent_configuration"], "deterministic-control-v2")
+        self.assertEqual(report["retrieval_configuration"], EVIDENCE_PRIORITY_RETRIEVER_V2)
         self.assertEqual(report["decision_context_configuration"], EVIDENCE_ONLY_CONTEXT)
         self.assertEqual(report["gates"]["baseline_disposition"], "pass")
         self.assertTrue(report["gates"]["development_exact"])
@@ -216,8 +244,8 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["coverage"]["adversarial_split_coverage"], 1.0)
         self.assertEqual(report["metrics"]["coverage"]["missing_condition_split_pairs"], [])
         self.assertEqual(report["metrics"]["coverage"]["missing_adversarial_splits"], [])
-        self.assertEqual(report["schema_version"], "1.6")
-        self.assertEqual(report["checkpoint"], "baseline-0007")
+        self.assertEqual(report["schema_version"], "1.7")
+        self.assertEqual(report["checkpoint"], "baseline-0008")
         self.assertEqual(report["metrics"]["proposal"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["development"]["tool_trajectory"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["test"]["tool_trajectory"]["exact_match"], 1.0)
@@ -251,6 +279,26 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(relation_metrics["exact_match_rate"], 1.0)
         self.assertEqual(
             relation_metrics["split_exact_match_rate"],
+            {"development": 1.0, "test": 1.0},
+        )
+        stress_metrics = report["metrics"]["retrieval_stress"]
+        self.assertTrue(report["gates"]["retrieval_stress_contract_valid"])
+        self.assertTrue(report["gates"]["retrieval_stress_split_coverage_is_one"])
+        self.assertTrue(report["gates"]["retrieval_stress_project_evidence_recall_is_one"])
+        self.assertTrue(report["gates"]["retrieval_stress_decision_evidence_retention_is_one"])
+        self.assertTrue(report["gates"]["retrieval_stress_exact_behavior_is_one"])
+        self.assertTrue(report["gates"]["development_retrieval_stress_exact"])
+        self.assertTrue(report["gates"]["test_retrieval_stress_exact"])
+        self.assertEqual(stress_metrics["pair_count"], 2)
+        self.assertEqual(stress_metrics["stress_attempt_count"], 6)
+        self.assertEqual(stress_metrics["missing_stress_splits"], [])
+        self.assertEqual(stress_metrics["stress_split_coverage"], 1.0)
+        self.assertEqual(stress_metrics["expected_project_evidence_recall_at_4"], 1.0)
+        self.assertEqual(stress_metrics["decision_evidence_retention_rate"], 1.0)
+        self.assertEqual(stress_metrics["guidance_saturation_at_4"], 0.75)
+        self.assertEqual(stress_metrics["exact_behavior_retention_rate"], 1.0)
+        self.assertEqual(
+            stress_metrics["split_exact_match_rate"],
             {"development": 1.0, "test": 1.0},
         )
         self.assertEqual(report["metrics"]["policy"]["compliance_rate"], 1.0)
@@ -303,6 +351,33 @@ class BaselineTest(unittest.TestCase):
         self.assertTrue(corrupted_result["contract_valid"])
         self.assertLess(corrupted_result["invariance_exact_match_rate"], 1.0)
         self.assertLess(corrupted_result["exact_match_rate"], 1.0)
+
+        missing_stress_contract = copy.deepcopy(catalog["retrieval_stress_contract"])
+        missing_stress_contract["pairs"] = [
+            pair
+            for pair in missing_stress_contract["pairs"]
+            if pair["split"] != "test"
+        ]
+        missing_stress = _retrieval_stress_metrics(
+            report["cases"], missing_stress_contract
+        )
+        self.assertFalse(missing_stress["contract_valid"])
+        self.assertLess(missing_stress["stress_split_coverage"], 1.0)
+        self.assertIn("test", missing_stress["missing_stress_splits"])
+
+        corrupted_stress_cases = copy.deepcopy(report["cases"])
+        corrupted_stress = next(
+            case
+            for case in corrupted_stress_cases
+            if case["scenario_id"] == "dev-worker-backlog-guidance-flood"
+        )
+        corrupted_stress["attempts"][0]["actual"]["decision_document_ids"] = []
+        corrupted_stress_result = _retrieval_stress_metrics(
+            corrupted_stress_cases, catalog["retrieval_stress_contract"]
+        )
+        self.assertTrue(corrupted_stress_result["contract_valid"])
+        self.assertLess(corrupted_stress_result["decision_evidence_retention_rate"], 1.0)
+        self.assertLess(corrupted_stress_result["exact_behavior_retention_rate"], 1.0)
         self.assertNotIn("approval_token", output.read_text(encoding="utf-8"))
         self.assertNotIn("approval_token", output.with_name("baseline.traces.jsonl").read_text(encoding="utf-8"))
 

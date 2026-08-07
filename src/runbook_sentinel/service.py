@@ -11,7 +11,12 @@ from .agent import DeterministicIncidentAgent
 from .catalog import load_scenarios, scenario_by_id
 from .errors import ApprovalError, NotFoundError, ReplayRejected
 from .policy import action_spec, apply_action, postconditions_hold, validate_proposal
-from .retrieval import DEFAULT_DECISION_CONTEXT, LexicalRetriever, select_decision_documents
+from .retrieval import (
+    DEFAULT_DECISION_CONTEXT,
+    DEFAULT_RETRIEVAL_CONFIGURATION,
+    LexicalRetriever,
+    select_decision_documents,
+)
 from .storage import Storage
 from .telemetry import TraceWriter, utc_now
 
@@ -30,11 +35,12 @@ class RunbookSentinel:
         db_path: str,
         trace_path: str | None = None,
         decision_context_configuration: str = DEFAULT_DECISION_CONTEXT,
+        retrieval_configuration: str = DEFAULT_RETRIEVAL_CONFIGURATION,
         agent=None,
     ):
         self.storage = Storage(db_path)
         self.traces = TraceWriter(trace_path)
-        self.retriever = LexicalRetriever()
+        self.retriever = LexicalRetriever(retrieval_configuration)
         self.agent = agent or DeterministicIncidentAgent()
         self.decision_context_configuration = decision_context_configuration
 

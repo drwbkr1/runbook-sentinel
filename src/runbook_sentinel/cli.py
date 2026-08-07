@@ -7,7 +7,12 @@ from pathlib import Path
 from .api import create_server
 from .evaluation import AGENT_CONFIGURATIONS, CONTROL_AGENT_CONFIGURATION, run_evaluation
 from .mcp_server import main as mcp_main
-from .retrieval import DECISION_CONTEXT_CONFIGURATIONS, DEFAULT_DECISION_CONTEXT
+from .retrieval import (
+    DECISION_CONTEXT_CONFIGURATIONS,
+    DEFAULT_DECISION_CONTEXT,
+    DEFAULT_RETRIEVAL_CONFIGURATION,
+    RETRIEVAL_CONFIGURATIONS,
+)
 from .service import RunbookSentinel
 
 
@@ -51,6 +56,11 @@ def main(argv: list[str] | None = None) -> None:
         choices=DECISION_CONTEXT_CONFIGURATIONS,
         default=DEFAULT_DECISION_CONTEXT,
     )
+    evaluate_parser.add_argument(
+        "--retrieval-configuration",
+        choices=RETRIEVAL_CONFIGURATIONS,
+        default=DEFAULT_RETRIEVAL_CONFIGURATION,
+    )
 
     serve_parser = subparsers.add_parser("serve")
     serve_parser.add_argument("--host", default="127.0.0.1")
@@ -71,6 +81,7 @@ def main(argv: list[str] | None = None) -> None:
             args.decision_context,
             args.agent_configuration,
             Path(args.model_contract),
+            retrieval_configuration=args.retrieval_configuration,
         )
         _print({"metrics": report["metrics"], "gates": report["gates"]})
     elif args.command == "serve":
