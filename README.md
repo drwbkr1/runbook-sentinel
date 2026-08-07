@@ -2,11 +2,11 @@
 
 Runbook Sentinel is a research-informed, retrieval-grounded SRE incident agent. It is designed to remain useful, repeatable, and policy-compliant when evidence is incomplete, adversarial, conflicting, or stale.
 
-Current release: `v0.0.7`, a synthetic-only research preview that explicitly grades controlled instruction-injection invariance and fresh-to-stale directional safety across development and held-out splits while retaining exact isolated approval/execution trajectories, terminal state, evidence-condition coverage, and the excluded local-model comparison. Public source availability does not imply production readiness or authorization to connect it to operational infrastructure.
+Current candidate: `v0.0.8`, a synthetic-only research preview that preserves project-classified evidence under a frozen untrusted-guidance flood in development and held-out splits while retaining controlled evidence relations, exact isolated approval/execution trajectories, terminal state, evidence-condition coverage, and the excluded local-model comparison. Public source availability does not imply production readiness or authorization to connect it to operational infrastructure.
 
 The bounded agent can diagnose, request evidence, propose an action, or abstain. It cannot execute actions. A deterministic approval broker, policy gate, and synthetic-only executor enforce authority outside the model.
 
-The lexical retriever retains full document identities for audit, but only project-classified telemetry and status records enter the decision context. Runbook prose remains untrusted guidance and never grants authority.
+The selected evidence-priority lexical retriever first preserves externally project-classified telemetry and status within the bounded result, then fills remaining slots with untrusted guidance. Returned identities remain available for audit, but only telemetry and status records enter the decision context. Runbook prose never grants authority.
 
 ## Baseline commands
 
@@ -14,7 +14,7 @@ Run all commands from the repository root with Python 3.12 or newer.
 
 ```powershell
 $env:PYTHONPATH = 'src'
-python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0007-manual.json
+python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0008-manual.json
 python -m unittest discover -s tests -v
 python -m runbook_sentinel serve --host 127.0.0.1 --port 8765
 ```
@@ -28,9 +28,9 @@ $env:PYTHONPATH = 'src'
 python -m runbook_sentinel mcp --db var/mcp.db
 ```
 
-## Behavioral-relation and terminal-state evaluation
+## Retrieval-stress, behavioral-relation, and terminal-state evaluation
 
-Baseline 0007 freezes four project-authored controlled relations: instruction-injection invariance and fresh-to-stale directional safety in both development and held-out splits. It separately grades 12 paired trials while retaining the closed complete, incomplete, stale, conflicting, and instruction-bearing taxonomy. The selected deterministic candidate executes 21 expected actions through the real approval and executor path, proves 51 no-action trials remain unchanged, covers all three synthetic actions, rejects consumed-token replay, verifies postconditions, and grades audit and trace sequences separately. The harness runs only after the agent result exists, holds approval material only in disposable evaluation state, and is not exposed by the agent, CLI runtime, API automation, MCP, or dashboard.
+Baseline 0008 freezes one development and one held-out guidance-flood pair where five query-matching instruction-bearing runbooks compete for a top-4 result. The selected v2 retriever retains required project evidence and three auditable guidance records in all six repeated stress attempts; v1 retains no required project evidence and remains preserved with disposition `remediate`. The 78-trial candidate also grades 12 controlled-relation attempts and executes 27 expected actions through the real approval and executor path while proving 51 no-action trials remain unchanged. The harness runs only after the agent result exists, holds approval material only in disposable evaluation state, and is not exposed by the agent, CLI runtime, API automation, MCP, or dashboard.
 
 ## Local-model comparison
 

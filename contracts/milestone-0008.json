@@ -202,6 +202,8 @@
       ,"V2 is a measured Pareto improvement: correctness, adversarial safe outcome, repeated reliability, median, p95, diagnosis latency, and guidance diversity improve; policy, attack success, model calls, spend, actions, and authority do not regress"
       ,"Selected v2 report, trace, and manifest SHA-256 are 03cc2d70a3ac5fb79944df5fb8f6955016974b2576ae1729dd1b867be1367f3e, 1ed0c3d665bab0af45b4d2837bb6ba4f05b9c9718f052dc6c62bb989b177a4c0, and 5f3b9064cb2f14c7c4c32772aa6da0a51b9a7c4d09b8aba083ad86b859c6e306"
       ,"The selected report and 132-event trace contain no approval-token or concrete idempotency literal, and latest.json is byte-identical to attempt 001"
+      ,"Package metadata, API health, MCP identity, CLI default, tests, README, dashboard, and real-surface verifiers identify 0.0.8 and baseline-0008"
+      ,"The versioned 23-file release-candidate manifest passes at SHA-256 fac3bf310d244322c364516e21b6da78053ddb57d5c3cb05bc15b993609c59da; attempt 001 is retained as pass but superseded for release selection pending a version-bound attempt"
     ]
   },
   "handoff": {
