@@ -19,6 +19,8 @@
 - A static evaluator import check first failed because the ad hoc command omitted `src` from Python's import path. No evaluator case ran and no output file existed. The corrected read-only mapping check passed before reveal; the tooling failure remains retained here.
 - The first held-out reveal passed all six frozen cases. Authorized cache utility, unauthorized cache denial, retry no-mutation, new-key replay rejection, development exactness, test exactness, and overall exactness are 1.0. The immutable 10,782-byte result SHA-256 is `90ec001f063d97755014d32c84832687c67b5a3130aca89e57b3c427a26d3306`; no raw approval-token field is present.
 - Integrated the isolated plane into evaluator schema 2.1 and the dashboard while preserving separate metrics and a fail-closed release disposition. All 22 tests pass after integration.
+- Versioned the candidate as `0.0.14` / `baseline-0014` and froze `eval/package-contract-0014.json` before any archive build. Its 25-entry allowlist adds only the project-authored idempotency-authorization contract and evaluator to the v0.0.13 package surface; contract SHA-256 is `b6d6544e9bf98d1c8201b0970daeb6b5775c8fc92cd6d62f0ef58e3101d29b47`.
+- Froze the completed 45-file evaluation surface at manifest SHA-256 `aae568de2095570d6d142bdf9e17828cb77c51e7ced9efef46d82836349cca10`. Compilation, PowerShell verifier parsing, 22 tests, manifest verification, and prebuild package-contract verification pass.
 
 ## 2026-08-07 - BASELINE-0013 started
 

@@ -123,14 +123,17 @@
       "released real API reproduces wrong-token and missing-token cached-success responses with no second mutation",
       "RFC 9110 is gated for narrow terminology and the expired idempotency-key draft is retained as excluded",
       "the first held-out reveal passes all six frozen cases with every isolated metric at 1.0 and no raw approval-token field",
-      "evaluator schema 2.1 integration and all 22 tests pass"
+      "evaluator schema 2.1 integration and all 22 tests pass",
+      "v0.0.14 package contract froze before archive build with 25 exact entries",
+      "the completed 45-file baseline-0014 manifest verifies at SHA-256 aae568de2095570d6d142bdf9e17828cb77c51e7ced9efef46d82836349cca10"
     ],
     "artifacts": [
       "artifacts/verification/idempotency-authorization-gap-baseline-0014.json",
       "eval/idempotency-authorization-contract.json",
       "artifacts/verification/research-source-gate-baseline-0014-rfc9110.json",
       "artifacts/verification/research-source-gate-baseline-0014-idempotency-draft.json",
-      "artifacts/evaluations/runs/baseline-0014-idempotency-authorization-attempt-001.json"
+      "artifacts/evaluations/runs/baseline-0014-idempotency-authorization-attempt-001.json",
+      "eval/package-contract-0014.json"
     ],
     "disposition": "remediate"
   },

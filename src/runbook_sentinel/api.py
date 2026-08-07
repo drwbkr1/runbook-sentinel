@@ -12,7 +12,7 @@ from .errors import ApprovalError, NotFoundError, PolicyRejected, ReplayRejected
 from .service import DEFAULT_APPROVAL_TTL_SECONDS, RunbookSentinel
 
 
-CHECKPOINT = "baseline-0013"
+CHECKPOINT = "baseline-0014"
 
 
 class SentinelHTTPServer(ThreadingHTTPServer):

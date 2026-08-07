@@ -5,6 +5,7 @@
 - Branch: `codex/baseline-0014-idempotency-authorization`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010`, `BASELINE-0012`, and `BASELINE-0013`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.13`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
+- Candidate version: `0.0.14` / `baseline-0014`; not yet published or described as verified
 - Active milestone: `BASELINE-0014`; close the measured cached-result authorization bypass without changing executor or storage semantics
 - Current unit: `UNIT-004` in progress; the first held-out reveal and all 22 integrated tests pass, while version-bound and real-surface verification remain pending
 - Disposition: baseline-0014 `remediate`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
@@ -28,8 +29,9 @@
 - `eval/idempotency-authorization-contract.json` freezes six cases before implementation: three revealed development cases and three held-out test cases. It requires a hash-matching consumed approval before same-proposal cache disclosure, permits the original completed retry even after token expiry, preserves different-key replay rejection, and requires byte-exact state, audit, and trace stability on every retry.
 - The first isolated candidate reveal passes all six cases. Authorized cache utility, unauthorized denial, retry no-mutation, new-key replay rejection, development exactness, and test exactness are 1.0. The 10,782-byte immutable result SHA-256 is `90ec001f063d97755014d32c84832687c67b5a3130aca89e57b3c427a26d3306` and contains no raw approval-token field.
 - The integrated evaluator schema is 2.1 and reports idempotency authorization separately from the 84 repeated scenarios and nine approval-lifetime cases. All 22 tests pass.
+- Candidate identity is now `0.0.14` / `baseline-0014`. The package contract froze before any archive build with 25 exact entries and SHA-256 `b6d6544e9bf98d1c8201b0970daeb6b5775c8fc92cd6d62f0ef58e3101d29b47`; the 45-file evaluation manifest passes at SHA-256 `aae568de2095570d6d142bdf9e17828cb77c51e7ced9efef46d82836349cca10`.
 - RFC 9110 passed the external-source gate for narrow HTTP terminology and a clearly labeled project inference only. The expired and archived IETF Idempotency-Key Internet-Draft is retained as blocked and excluded from normative or design use. No external code, data, model, package, executable, or service was imported.
-- Next eligible action: freeze the completed versioned manifest, run an immutable full source attempt, and verify API, MCP, dashboard, persistence, telemetry, and package surfaces.
+- Next eligible action: run an immutable full source attempt and verify API, MCP, dashboard, persistence, telemetry, and package surfaces.
 
 ### BASELINE-0013 approval-lifetime gap and frozen contract
 
