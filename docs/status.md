@@ -2,18 +2,18 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `codex/baseline-0012-dashboard-identity`
-- Completed milestones: `BASELINE-0001` through `BASELINE-0010`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
-- Latest verified checkpoint: public `v0.0.10`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, and rendered public pages to the release-closure commit
-- Active milestone: `BASELINE-0012`
-- Current unit: `UNIT-005` release reconciliation; corrected local and renewed clean-clone source, package, real-surface, persistence, telemetry, rendered-dashboard, and byte-rebuild gates pass; GitHub and public release gates remain
-- Disposition: v0.0.12 package candidate `pass` locally; v0.0.11 `stop` and unpublished; decision-context v3 remains selected; local-model candidate `exclude`; container `defer`
+- Branch: `main`
+- Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
+- Latest verified checkpoint: public `v0.0.12`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, and rendered public pages to the release-closure commit
+- Active milestone: none; the next cycle must resume from public `v0.0.12`, run it, inspect traces and evaluation results, and select the highest-leverage measurable weakness before creating `BASELINE-0013`
+- Current unit: release closure complete; preserve this checkpoint and begin the next evidence-driven cycle from it
+- Disposition: baseline-0012 `pass`; v0.0.11 `stop` and unpublished; decision-context v3 remains selected; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: pull request `#9` merged as `ccbdafc40777ce7b20ed1375463193ecdbaa7d6c` before the release-closure record
-- GitHub pull request: draft `#10` targets `main`; corrected clean-clone verification passes and promotion remains held until the renewed live release audit passes
-- GitHub release: public, non-draft `v0.0.10`
+- GitHub `main`: pull request `#10` merged as `e4dcde1227d0f235f8725df3e15f91ad5675e7ab` before the release-closure record
+- GitHub pull request: `#10`, merged with history preserved
+- GitHub release: public, non-draft `v0.0.12` with verified `.pyz` and `.sha256` assets
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
 - Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
@@ -33,7 +33,10 @@
 - The corrected 1440 by 1000 dashboard was visually inspected. It visibly reports Baseline 0012, evaluation pass, deterministic v2, decision-context v3, retrieval v3, exact metrics, human approval, disconnected real infrastructure, and one mitigated synthetic incident; PNG SHA-256 `a714e4e3da6745501d07eded0617124ec6e75c479f0d64e948b1be3210ec67fa`.
 - Official Python 3.12.13 packaging documentation passed the source gate for citation and project-authored standard-library implementation only. No external code, package, sample, data, model, executable, or service was imported.
 - The earlier no-local-object clone of exact candidate `329767a6995aa261509d44e806729f94d166f180` remains retained as functionally passing but superseded. A renewed no-local-object clone of corrected commit `59bb7d7763ad3f132d443a79359a05fd60648c44` has no object alternates, independently reproduces SHA-256 `679f7ad301689bee62a5bcb33df8c4778f9f0307135cf30632b13408e2f31083` twice, and passes compilation, 19 tests, seven validators, 12 milestone contracts, 183 tracked JSON files, 50 JSONL files with 5,535 records, source/package 84-attempt evaluations, packaged MCP, 51 API checks, 27 runtime checks, secret/model exclusion, and visual inspection.
-- Renewed live release audit, PR promotion, merged-main, release asset, downloaded checksum, tag, and rendered public-page verification remain pending. No v0.0.12 release claim is made yet.
+- The final reviewed PR head `12e2c71897a3965fc0d64c1f718e8f110cc4f7e1` contained 11 expected commits and 63 exact changed paths, then merged with history preserved as `e4dcde1227d0f235f8725df3e15f91ad5675e7ab` with exact prior-main and reviewed-head parents.
+- A fresh public-main clone of the merge commit passed compilation, 19 tests, seven validators, both package contracts, the source gate, 12 milestone contracts, 185 tracked JSON files, 50 JSONL files with 5,535 records, model/secret exclusion, exact repeated archive rebuild, source/package 84-attempt evaluations, packaged MCP, 51 API checks, 27 runtime checks, persistence, telemetry, and visual dashboard inspection.
+- The final pre-publication audit computes `verified` and releases only the inherited release-closure, annotated-tag, public-release, asset, and immediate public-verification actions.
+- Public release reconciliation verifies the annotated `v0.0.12` tag, peeled remote tag, remote `main`, non-draft GitHub release, selected 239,183-byte zipapp at SHA-256 `679f7ad301689bee62a5bcb33df8c4778f9f0307135cf30632b13408e2f31083`, adjacent checksum, downloaded public bytes, rendered README and release page, and fresh public-tag clone against the release-closure commit.
 
 ### BASELINE-0010 release-candidate evidence
 

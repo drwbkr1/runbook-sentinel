@@ -2,7 +2,7 @@
 
 All notable verified changes are recorded here. Unverified work remains in `docs/devlog.md` and the active milestone contract.
 
-## 0.0.12 - Unreleased
+## 0.0.12 - 2026-08-07
 
 - Added a project-authored, Python-standard-library-only zipapp builder with an exact 21-entry allowlist, fixed timestamps and permissions, stored compression, embedded frozen evaluation identity, per-entry hashes, and adjacent SHA-256 checksum.
 - Added an independent archive verifier that checks ordering, metadata, source parity, package and evaluation manifest bindings, and cache, runtime-state, and secret exclusions.
@@ -10,7 +10,8 @@ All notable verified changes are recorded here. Unverified work remains in `docs
 - The pre-merge audit caught impossible future-dated provenance metadata before promotion. The functionally passing 239,184-byte candidate and its clean-clone receipt remain retained with disposition `superseded`; no release action used those bytes.
 - Corrected only project-authored provenance metadata and the embedded frozen-manifest identity, then passed two byte-identical 239,183-byte builds at SHA-256 `679f7ad301689bee62a5bcb33df8c4778f9f0307135cf30632b13408e2f31083`.
 - Passed 19 tests, seven validators, source and package 84-attempt evaluations, bounded MCP, 51 packaged HTTP/dashboard checks, 27 state/telemetry checks, and rendered dashboard inspection under the same frozen manifest.
-- Passed a renewed no-local-object clean clone through source and package evaluation, byte-identical rebuild, packaged MCP, 51 API/dashboard checks, 27 state/telemetry checks, and visual inspection. Makes no package-registry, container, production-readiness, or external-system superiority claim. GitHub review, merged-main, release-asset, and public-download gates remain pending.
+- Passed a renewed no-local-object clean clone through source and package evaluation, byte-identical rebuild, packaged MCP, 51 API/dashboard checks, 27 state/telemetry checks, and visual inspection.
+- Verified exact GitHub PR head and 63-file inventory, history-preserving merge, fresh public merged-main clone, annotated tag, non-draft release, selected zipapp and checksum assets, downloaded public-byte identity, and rendered public pages. Makes no package-registry, container, production-readiness, or external-system superiority claim.
 
 ## 0.0.11 - Unpublished stopped candidate
 

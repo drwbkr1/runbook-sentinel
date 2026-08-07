@@ -1,0 +1,199 @@
+{
+  "schema_version": "1.0",
+  "release_id": "RUNBOOK-SENTINEL-v0.0.12",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2 and user-selected public GitHub visibility",
+    "authorized_actions": [
+      "commit verified release closure",
+      "push verified release closure",
+      "create annotated v0.0.12 tag",
+      "push v0.0.12 tag",
+      "publish public GitHub release with selected archive and checksum",
+      "verify public release artifacts and rendered pages"
+    ]
+  },
+  "risk_classes": [
+    "documentation",
+    "runtime",
+    "package",
+    "security",
+    "public"
+  ],
+  "candidate": {
+    "base_commit": "01791052b80748bb0f8e01c57152d00b53822aee",
+    "commit": "e4dcde1227d0f235f8725df3e15f91ad5675e7ab",
+    "version": "0.0.12",
+    "tag": "v0.0.12",
+    "artifacts": [
+      "artifacts/evaluations/runs/baseline-0012-attempt-002.json",
+      "artifacts/verification/provenance-correction-baseline-0012.json",
+      "artifacts/verification/package-verification-baseline-0012-attempt-002.json",
+      "artifacts/verification/clean-clone-baseline-0012-attempt-002.json",
+      "artifacts/verification/release-audit-baseline-0012-premerge.json",
+      "artifacts/verification/merged-main-baseline-0012.json"
+    ]
+  },
+  "live_truth": {
+    "verified_at_utc": "2026-08-07T19:49:41Z",
+    "branch": "main",
+    "remote_commit": "e4dcde1227d0f235f8725df3e15f91ad5675e7ab",
+    "pull_request": "https://github.com/drwbkr1/runbook-sentinel/pull/10",
+    "tag_target": "",
+    "deployment": null
+  },
+  "checks": [
+    {
+      "id": "CHECK-SCOPE-AND-BOUNDARIES",
+      "category": "scope",
+      "required": true,
+      "status": "pass",
+      "method": "Review the v0.0.10-to-merged-main diff, stopped and superseded evidence, exact package allowlist, and unchanged behavioral/security core",
+      "evidence": [
+        "PR #10 reviewed 63 exact paths and merged with history preserved",
+        "agent.py, policy.py, executor.py, and storage.py remain unchanged from v0.0.10",
+        "BASELINE-0011 and v0.0.11 remain stopped and unpublished",
+        "the provenance-defective BASELINE-0012 candidate remains retained as superseded"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-PROVENANCE-CORRECTION",
+      "category": "package",
+      "required": true,
+      "status": "pass",
+      "method": "Retain impossible future-dated evidence as superseded, correct project-authored provenance metadata, and bind every subsequent candidate and clone to corrected manifest and archive hashes",
+      "evidence": [
+        "artifacts/verification/provenance-correction-baseline-0012.json",
+        "corrected manifest SHA-256 63a02909d62c0bb6f156d6700df7b2b9453a7b9e7385e9bf524243c184ccd028",
+        "corrected archive SHA-256 679f7ad301689bee62a5bcb33df8c4778f9f0307135cf30632b13408e2f31083"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-EVALUATION-AND-PACKAGE",
+      "category": "runtime",
+      "required": true,
+      "status": "pass",
+      "method": "Run frozen source and package evaluations, independent validators, tests, and repeated deterministic archive builds before and after merge",
+      "evidence": [
+        "source and package each pass 84 attempts and every separate retrieval, generation, trajectory, terminal, policy, utility, security, reliability, latency, and cost gate",
+        "source and package gates and non-latency metric families are exact",
+        "candidate, clean-clone, and merged-main archive builds all match SHA-256 679f7ad301689bee62a5bcb33df8c4778f9f0307135cf30632b13408e2f31083"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-REAL-SURFACES",
+      "category": "runtime",
+      "required": true,
+      "status": "pass",
+      "method": "Exercise packaged MCP, loopback HTTP approval and executor flow, replay, postconditions, dashboard, SQLite, audit, telemetry, and visual rendering before and after merge",
+      "evidence": [
+        "packaged MCP exposes three diagnostic/read tools and no approval or execution tool",
+        "51 of 51 packaged API/dashboard checks pass",
+        "27 of 27 persisted-state and telemetry checks pass",
+        "merged-main dashboard visibly reports Baseline 0012, human approval, and disconnected real infrastructure"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-CLEAN-CLONE",
+      "category": "portability",
+      "required": true,
+      "status": "pass",
+      "method": "Run complete verification in a no-local-object candidate clone and retain exact generated identities",
+      "evidence": [
+        "artifacts/verification/clean-clone-baseline-0012-attempt-002.json",
+        "candidate clean clone has no object alternates and reproduces the selected archive twice"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-GITHUB-REVIEW",
+      "category": "public",
+      "required": true,
+      "status": "pass",
+      "method": "Verify exact PR head, file inventory, zero configured checks, CLEAN and MERGEABLE state, expected-head lock, merge state, and merge parents",
+      "evidence": [
+        "final reviewed PR head 12e2c71897a3965fc0d64c1f718e8f110cc4f7e1",
+        "PR #10 merged as e4dcde1227d0f235f8725df3e15f91ad5675e7ab",
+        "merge parents are exact prior main 01791052b80748bb0f8e01c57152d00b53822aee and reviewed head 12e2c71897a3965fc0d64c1f718e8f110cc4f7e1"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-MERGED-MAIN",
+      "category": "public",
+      "required": true,
+      "status": "pass",
+      "method": "Clone public main without local object sharing and rerun static, archive, evaluation, packaged MCP, API, persistence, telemetry, and visual gates",
+      "evidence": [
+        "artifacts/verification/merged-main-baseline-0012.json",
+        "fresh public-main clone exact at e4dcde1227d0f235f8725df3e15f91ad5675e7ab",
+        "merged main reproduces the selected archive twice and passes every declared gate"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-PUBLICATION-ACTION",
+      "category": "public",
+      "required": true,
+      "status": "not_applicable",
+      "method": "",
+      "evidence": [],
+      "reason": "This is the final pre-publication audit. Its verified decision authorizes the exact release-closure commit, annotated tag, public release with two selected assets, and immediate post-publication verification."
+    }
+  ],
+  "truth_surfaces": [
+    {
+      "path_or_uri": "C:\\Projects\\Active\\runbook-sentinel",
+      "expected_state": "merged public main with only release-closure records pending",
+      "observed_state": "main at e4dcde1227d0f235f8725df3e15f91ad5675e7ab plus uncommitted merged-main receipt and final audit",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/pull/10",
+      "expected_state": "history-preserving merge of exact reviewed head",
+      "observed_state": "merged as e4dcde1227d0f235f8725df3e15f91ad5675e7ab with exact parents",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0012-merged-e4dcde1-20260807T194647Z",
+      "expected_state": "fresh public-main clone at the exact merge commit",
+      "observed_state": "exact commit, no object alternates, and complete merged-main gates pass",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/releases/latest",
+      "expected_state": "v0.0.10 remains latest until this audit's publication action completes",
+      "observed_state": "public non-draft v0.0.10 is latest",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.12",
+      "expected_state": "non-draft public release at the release-closure commit with .pyz and .sha256 assets",
+      "observed_state": "publication action intentionally follows this audit",
+      "status": "not_applicable"
+    }
+  ],
+  "limitations": [
+    "Synthetic SRE only; no real operational infrastructure or credentials.",
+    "Container packaging remains independently deferred and no package-registry release is claimed.",
+    "The deterministic control remains selected; no model-comparative improvement is claimed in this checkpoint.",
+    "The project remains research-informed and makes no production, universal prompt-injection-resistance, strict latency-dominance, or external-system superiority claim."
+  ],
+  "decision": {
+    "reported_status": "verified",
+    "rationale": "The corrected candidate, deterministic archive identity, every local and packaged real surface, renewed clean clone, exact GitHub review and merge, and fresh public-main clone pass with no unresolved changed-risk or truth-surface discrepancy.",
+    "next_action": "Commit and push the release closure, create and push annotated v0.0.12, publish the selected .pyz and adjacent checksum as a non-draft public GitHub release, and immediately reconcile public tag, assets, downloads, and rendered pages.",
+    "authorized_next_actions": [
+      "commit verified release closure",
+      "push verified release closure",
+      "create annotated v0.0.12 tag",
+      "push v0.0.12 tag",
+      "publish public GitHub release with selected archive and checksum",
+      "verify public release artifacts and rendered pages"
+    ]
+  }
+}

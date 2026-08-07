@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0012",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -66,10 +66,11 @@
       "Merged-main archive and public release download match the published checksum"
     ],
     "completed_checks": [
-      "Public v0.0.10 remains the latest verified release",
+      "Public v0.0.10 was the exact starting release",
       "Stopped BASELINE-0011 and its unpublished v0.0.11 candidate are retained",
       "The single rendered checkpoint mismatch is reproduced at exact source and test locations",
-      "New dashboard and v0.0.12 package contracts are drafted without external sources or imports"
+      "New dashboard and v0.0.12 package contracts were frozen without external sources or imports",
+      "Corrected local, clean-clone, GitHub review, merged-main, package-asset, downloaded-byte, tag, release, and rendered-public gates pass"
     ],
     "artifacts": [
       "artifacts/verification/dashboard-identity-gap-baseline-0012.json",
@@ -77,10 +78,13 @@
       "artifacts/verification/provenance-correction-baseline-0012.json",
       "artifacts/verification/package-verification-baseline-0012-attempt-002.json",
       "artifacts/verification/clean-clone-baseline-0012-attempt-002.json",
+      "artifacts/verification/release-audit-baseline-0012-premerge.json",
+      "artifacts/verification/merged-main-baseline-0012.json",
+      "artifacts/verification/release-audit-baseline-0012.json",
       "eval/dashboard-identity-contract.json",
       "eval/package-contract-0012.json"
     ],
-    "disposition": "in_progress"
+    "disposition": "pass"
   },
   "boundaries": {
     "model_outputs": ["diagnose", "request_evidence", "propose_action", "abstain"],
@@ -109,7 +113,7 @@
     }
   ],
   "exit_conditions": [
-    {"id": "EXIT-001", "status": "pending", "evidence": []}
+    {"id": "EXIT-001", "status": "pass", "evidence": ["Public v0.0.12, annotated tag, selected zipapp and checksum assets, downloaded bytes, remote main, rendered pages, and fresh public-tag clone reconcile to the release-closure commit"]}
   ],
   "units": [
     {
@@ -190,11 +194,11 @@
       "depends_on": ["UNIT-004"],
       "action_class": "github_push",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["selected passing candidate", "reconciled living records"],
       "outputs": ["verified public v0.0.12 checkpoint"],
-      "gates": {"clean_clone_rebuild_identity": true, "public_release_asset_identity": false, "release_verified": false},
-      "disposition": "remediate"
+      "gates": {"clean_clone_rebuild_identity": true, "public_release_asset_identity": true, "release_verified": true},
+      "disposition": "pass"
     }
   ],
   "stop_conditions": [
@@ -208,8 +212,8 @@
     {"id": "STOP-UNVERIFIED", "active": false, "condition": "Ship something that cannot be verified."}
   ],
   "handoff": {
-    "latest_verified_checkpoint": "public v0.0.10 at 01791052b80748bb0f8e01c57152d00b53822aee",
+    "latest_verified_checkpoint": "public v0.0.12 release closure",
     "retained_failed_checkpoint": "stopped unpublished BASELINE-0011 at dc99727",
-    "resume_rule": "Resume from the public checkpoint plus retained failed evidence; do not call BASELINE-0011 verified or publish v0.0.11."
+    "resume_rule": "Resume from public v0.0.12 plus retained failed and superseded evidence, run the released system first, and do not call BASELINE-0011 verified or publish v0.0.11."
   }
 }
