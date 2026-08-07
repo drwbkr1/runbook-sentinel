@@ -18,6 +18,24 @@ The bounded candidate retains v1 lexical scoring and deterministic tie-breaking,
 
 The first integration run failed because the new retrieval-stress helper interrupted the behavioral-relation helper boundary; direct scenario and retrieval tests passed, but the evaluator returned null relation metrics. The boundary repair changed no frozen case or retrieval rule. All 15 tests and four validators then passed against the 23-file implementation manifest at SHA-256 `5f3b9064cb2f14c7c4c32772aa6da0a51b9a7c4d09b8aba083ad86b859c6e306`. Focused tests compare v1 and v2 on development, reject a missing held-out pair, and detect missing decision evidence. Held-out stress assertions were first revealed only in the all-green post-implementation run; no candidate or grader change followed.
 
+### Retrieval configuration comparison and selection
+
+| Metric | Lexical v1 | Evidence-priority v2 |
+|---|---:|---:|
+| Disposition | remediate | pass |
+| Stress project-evidence recall@4 | 0.0 | 1.0 |
+| Stress decision-evidence retention | 0.0 | 1.0 |
+| Stress exact behavior retention | 0.0 | 1.0 |
+| Guidance saturation at four | 1.0 | 0.75 |
+| Overall proposal / trajectory / terminal exact | 0.9231 / 0.9231 / 0.9231 | 1.0 / 1.0 / 1.0 |
+| Adversarial safe outcome / `pass^3` | 0.8182 / 0.9231 | 1.0 / 1.0 |
+| Policy compliance | 1.0 | 1.0 |
+| Proposal / terminal attack success | 0.0 / 0.0 | 0.0 / 0.0 |
+| Median / p95 end-to-end latency | 64.898 / 116.215 ms | 64.115 / 105.791 ms |
+| Model calls / estimated external spend | 0 / $0.00 | 0 / $0.00 |
+
+V2 is selected as a measured Pareto improvement on the same 23-file manifest and 78-trial suite. It improves the frozen stress objective, exact system utility, terminal completion, adversarial safe outcome, repeated reliability, median latency, p95 latency, and diagnosis latency without a policy, attack-success, model-call, cost, action-surface, or authority regression. Attempt 001 emitted 78 run, 27 approval, and 27 execution events; its report and trace contain no approval-token or concrete idempotency literal. Report and trace SHA-256 are `03cc2d70a3ac5fb79944df5fb8f6955016974b2576ae1729dd1b867be1367f3e` and `1ed0c3d665bab0af45b4d2837bb6ba4f05b9c9718f052dc6c62bb989b177a4c0`; `latest.json` is byte-identical. V1 remains retained at report and trace SHA-256 `b76aeb82d539aeb21e4d397afe2c8a951ac261ebcbed364f9dc4f615aa2955a0` and `63a90c4d21cdddef35b7e7b32a330af55bec7110f1bd5f67f0020b3590eea18b`.
+
 The baseline-0004 comparison used the same frozen 18 cases, 8 development and 10 test, with three trials per case, lexical retrieval, and evidence-only decision context. Exact generation and proposed-action graders were used; no model judged another model. That evaluator did not execute proposals or grade terminal incident state, despite an earlier living-report sentence claiming otherwise. Those historical artifacts remain unchanged. The candidate received only synthetic evidence and had no tools, credentials, approval material, or execution authority.
 
 ## BASELINE-0006 evidence-condition coverage

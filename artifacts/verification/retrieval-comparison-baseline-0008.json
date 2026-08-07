@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0008",
+  "compared_at_utc": "2026-08-07T01:20:00Z",
+  "frozen_manifest_sha256": "5f3b9064cb2f14c7c4c32772aa6da0a51b9a7c4d09b8aba083ad86b859c6e306",
+  "catalog_schema": "1.7",
+  "scenario_count": 26,
+  "trials_per_scenario": 3,
+  "attempt_count_per_configuration": 78,
+  "configurations": [
+    {
+      "id": "lexical-token-overlap-v1",
+      "disposition": "remediate",
+      "report": "artifacts/evaluations/runs/baseline-0008-v1-comparison-001.json",
+      "trace": "artifacts/evaluations/runs/baseline-0008-v1-comparison-001.traces.jsonl",
+      "manifest_copy": "artifacts/evaluations/runs/baseline-0008-v1-comparison-001.manifest.json",
+      "report_sha256": "b76aeb82d539aeb21e4d397afe2c8a951ac261ebcbed364f9dc4f615aa2955a0",
+      "trace_sha256": "63a90c4d21cdddef35b7e7b32a330af55bec7110f1bd5f67f0020b3590eea18b",
+      "metrics": {
+        "overall_expected_evidence_recall_at_4": 0.9230769230769231,
+        "stress_project_evidence_recall_at_4": 0.0,
+        "stress_decision_evidence_retention": 0.0,
+        "stress_exact_behavior_retention": 0.0,
+        "guidance_saturation_at_4": 1.0,
+        "proposal_exact": 0.9230769230769231,
+        "tool_trajectory_exact": 0.9230769230769231,
+        "terminal_state_exact": 0.9230769230769231,
+        "adversarial_safe_outcome": 0.8181818181818182,
+        "policy_compliance": 1.0,
+        "proposal_attack_success": 0.0,
+        "terminal_attack_success": 0.0,
+        "pass_3": 0.9230769230769231,
+        "median_latency_ms": 64.898,
+        "p95_latency_ms": 116.215,
+        "diagnosis_median_latency_ms": 7.027,
+        "diagnosis_p95_latency_ms": 19.363,
+        "model_calls": 0,
+        "estimated_usd": 0.0
+      },
+      "trace_events": {"run": 78, "approval": 21, "execute": 21}
+    },
+    {
+      "id": "evidence-priority-lexical-v2",
+      "disposition": "pass",
+      "report": "artifacts/evaluations/runs/baseline-0008-attempt-001.json",
+      "trace": "artifacts/evaluations/runs/baseline-0008-attempt-001.traces.jsonl",
+      "manifest_copy": "artifacts/evaluations/runs/baseline-0008-attempt-001.manifest.json",
+      "report_sha256": "03cc2d70a3ac5fb79944df5fb8f6955016974b2576ae1729dd1b867be1367f3e",
+      "trace_sha256": "1ed0c3d665bab0af45b4d2837bb6ba4f05b9c9718f052dc6c62bb989b177a4c0",
+      "metrics": {
+        "overall_expected_evidence_recall_at_4": 1.0,
+        "stress_project_evidence_recall_at_4": 1.0,
+        "stress_decision_evidence_retention": 1.0,
+        "stress_exact_behavior_retention": 1.0,
+        "guidance_saturation_at_4": 0.75,
+        "proposal_exact": 1.0,
+        "tool_trajectory_exact": 1.0,
+        "terminal_state_exact": 1.0,
+        "adversarial_safe_outcome": 1.0,
+        "policy_compliance": 1.0,
+        "proposal_attack_success": 0.0,
+        "terminal_attack_success": 0.0,
+        "pass_3": 1.0,
+        "median_latency_ms": 64.115,
+        "p95_latency_ms": 105.791,
+        "diagnosis_median_latency_ms": 7.006,
+        "diagnosis_p95_latency_ms": 17.965,
+        "model_calls": 0,
+        "estimated_usd": 0.0
+      },
+      "trace_events": {"run": 78, "approval": 27, "execute": 27}
+    }
+  ],
+  "selection": {
+    "selected_configuration": "evidence-priority-lexical-v2",
+    "status": "select",
+    "rationale": "V2 is a measured Pareto improvement on the frozen comparison: retrieval-stress utility, overall exactness, terminal completion, adversarial safe outcome, repeated reliability, median latency, p95 latency, and diagnosis latency improve; policy compliance, attack success, model calls, monetary cost, action surface, and authority boundaries do not regress.",
+    "latest_pointer_matches_selected_report": true,
+    "approval_token_literal_present": false,
+    "concrete_idempotency_literal_present": false
+  },
+  "limitations": [
+    "This is deterministic project-authored synthetic evidence, not production incident data.",
+    "Priority depends on project-assigned evidence kinds; compromised provenance or classification is outside this checkpoint's demonstrated boundary.",
+    "Latency values are checkpoint-specific local measurements and do not support a general performance claim.",
+    "The release remains research-informed and synthetic-only."
+  ]
+}

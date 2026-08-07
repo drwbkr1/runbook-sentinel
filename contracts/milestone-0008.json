@@ -138,11 +138,11 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["frozen expanded suite", "candidate and graders"],
       "outputs": ["immutable evaluation attempts", "configuration comparison", "evidence disposition"],
       "gates": {"failed_trials_retained": true, "metrics_separate": true, "held_out_used_only_for_final_evaluation": true},
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [],
       "next_dependency": "UNIT-005"
     },
@@ -152,7 +152,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "github_push",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": ["passing selected candidate", "reconciled living records"],
       "outputs": ["baseline-0008 public release"],
       "gates": {"public_visibility_already_authorized": true, "runtime_authority_unchanged": true, "all_real_surfaces_verified": false},
@@ -197,11 +197,16 @@
       ,"Focused tests prove v2 retains development telemetry plus three auditable guidance records, v1 loses telemetry, a missing held-out pair fails coverage, and a removed decision-evidence identity lowers exact stress grading"
       ,"After one retained helper-boundary error, all 15 tests and four independent validators pass against the completed 23-file implementation manifest at SHA-256 5f3b9064cb2f14c7c4c32772aa6da0a51b9a7c4d09b8aba083ad86b859c6e306"
       ,"The held-out stress assertions were first revealed only after candidate implementation was complete; the all-green run triggered no further retrieval or grading change"
+      ,"Immutable evidence-priority v2 attempt 001 passed all 78 trials, all six retrieval-stress attempts, all 12 behavioral-relation attempts, 27 expected executions, 51 strict no-action results, both splits, and every policy, security, reliability, latency, and cost gate"
+      ,"The same-manifest retained v1 comparison has disposition remediate: stress recall, decision retention, and exact behavior are 0.0; pass^3 and exact terminal state are 0.9231; policy remains 1.0 and attack success remains 0.0"
+      ,"V2 is a measured Pareto improvement: correctness, adversarial safe outcome, repeated reliability, median, p95, diagnosis latency, and guidance diversity improve; policy, attack success, model calls, spend, actions, and authority do not regress"
+      ,"Selected v2 report, trace, and manifest SHA-256 are 03cc2d70a3ac5fb79944df5fb8f6955016974b2576ae1729dd1b867be1367f3e, 1ed0c3d665bab0af45b4d2837bb6ba4f05b9c9718f052dc6c62bb989b177a4c0, and 5f3b9064cb2f14c7c4c32772aa6da0a51b9a7c4d09b8aba083ad86b859c6e306"
+      ,"The selected report and 132-event trace contain no approval-token or concrete idempotency literal, and latest.json is byte-identical to attempt 001"
     ]
   },
   "handoff": {
     "current_checkpoint": "public v0.0.7 is the latest verified synthetic-only research preview; BASELINE-0008 has selected retrieval availability under untrusted guidance flooding as its bounded weakness",
-    "next_action": "commit the manifest-bound implementation, run and retain immutable repeated evaluation, compare v1 and v2 on separate utility, security, reliability, latency, and cost evidence, and select a disposition",
+    "next_action": "version the selected checkpoint, reconcile all runtime and release surfaces, refreeze, rerun immutable evaluation, then validate CLI, MCP, API, approval, executor, dashboard, persistence, and telemetry",
     "do_not_carry_forward": [
       "Recall@4 equals 1.0 as evidence of retrieval robustness when all cases fit under the limit",
       "Evidence-only post-filtering as proof that trusted evidence cannot be crowded out before filtering",
