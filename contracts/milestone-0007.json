@@ -75,7 +75,7 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "complete",
+      "status": "pending",
       "evidence": [
         "A closed relation schema links exactly one control and one variant with one allowed transformation",
         "Instruction-injection invariance and fresh-to-stale directional safety each appear in development and held-out test splits",
@@ -124,7 +124,7 @@
       "id": "UNIT-003",
       "purpose": "Implement independent pairwise relation metrics, gates, validation, and focused tests",
       "depends_on": ["UNIT-002"],
-      "status": "pending",
+      "status": "complete",
       "human_gate": false,
       "action_class": "repository_change",
       "inputs": ["Frozen relation schema and pair contract"],
@@ -140,13 +140,13 @@
       "id": "UNIT-004",
       "purpose": "Run and retain repeated expanded-suite evaluation and select a disposition from measured evidence",
       "depends_on": ["UNIT-003"],
-      "status": "pending",
+      "status": "complete",
       "human_gate": false,
       "action_class": "local_verification",
       "inputs": ["Frozen expanded suite", "Implemented relation graders"],
       "outputs": ["Immutable evaluation attempts", "Relation report", "Evidence disposition"],
-      "gates": {"failed_trials_retained": false, "latest_pointer_pass_only": false, "all_required_relation_split_pairs_covered": false},
-      "disposition": null,
+      "gates": {"failed_trials_retained": true, "latest_pointer_pass_only": true, "all_required_relation_split_pairs_covered": true},
+      "disposition": "pass",
       "retained_failures": [],
       "next_dependency": "UNIT-005"
     },
@@ -203,11 +203,14 @@
       "The first integrated run failed because of a misplaced helper boundary; the repair retained the frozen contract and all 14 tests then passed",
       "A disposable 72-trial implementation smoke passed all gates with four relations and 12 of 12 paired trials exact; report and 114-event trace SHA-256 are 9da65549afcc80d68ec74ca025e3529d9fefc41484c30b454a57c44f61f3fced and 80631bf38454f7302b5e2852b3b28560dc8bc7f7941917a31d64f60da3b0d1df"
       ,"The completed 22-file implementation manifest passes verification at SHA-256 8db0a7f5fd15dd92a82ab710e65fc6dbc84e4eec28b2d67b46a94a1427963c69; agent, retriever, policy, and service hashes remain unchanged"
+      ,"Immutable attempt 001 passed all 72 scenario trials and all 12 paired relation trials; its report, trace, and manifest SHA-256 are eda653ad87436fbbc3c6e3196e2fee4c503589d32cd35795351bf6f50101bccf, db9ff7eaed7d67dcbbdd62bdf1f299b41abaa34a581d6476e4fbc0e506076035, and 8db0a7f5fd15dd92a82ab710e65fc6dbc84e4eec28b2d67b46a94a1427963c69"
+      ,"Attempt 001 emitted exactly 72 run, 21 approval, and 21 execution events; no raw approval-token or concrete idempotency material appears in the report or trace"
+      ,"artifacts/evaluations/latest.json is byte-identical to immutable attempt 001"
     ]
   },
   "handoff": {
-    "current_checkpoint": "public v0.0.6 is the exact release; BASELINE-0007 schema 1.6, four relations, fail-closed pairwise grader, passing tests and smoke, and the completed 22-file manifest are frozen",
-    "next_action": "Commit the manifest-bound implementation, run immutable expanded-suite attempt 001, and promote only a passing relation-aware result",
+    "current_checkpoint": "BASELINE-0007 immutable attempt 001 is the selected relation-aware result: all 72 scenario trials and 12 paired relation trials pass against the exact 22-file manifest",
+    "next_action": "Commit the selected attempt, version the bounded checkpoint as 0.0.7, refreeze versioned surfaces, and verify real CLI, MCP, API, executor, dashboard, persistence, telemetry, clean clone, GitHub review, merged main, tag, release, and public pages",
     "do_not_carry_forward": [
       "Condition/split coverage as proof of controlled evidence sensitivity",
       "Unlinked scenarios as implicit counterfactual pairs",

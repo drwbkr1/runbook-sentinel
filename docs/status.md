@@ -6,8 +6,8 @@
 - Completed milestones: `BASELINE-0001` through `BASELINE-0006`
 - Latest verified checkpoint: public `v0.0.6`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
 - Active milestone: `BASELINE-0007`
-- Current unit: freeze the completed relation-aware evaluator and run an immutable expanded-suite attempt
-- Disposition: released baseline `pass`; implementation smoke `pass`; immutable relation-aware selection pending; local-model candidate `exclude`; container `defer`
+- Current unit: version and release the selected relation-aware checkpoint
+- Disposition: released baseline `pass`; relation-aware attempt 001 `pass` and selected; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -190,5 +190,8 @@ Next eligible action: freeze schema 1.6, the four exact relations, counterpart s
 - Focused fail-closed tests reject a missing held-out directional relation and detect a corrupted paired action. The first integrated run failed because the new helper interrupted the existing coverage helper; the boundary was repaired without changing the frozen contract or runtime logic, and all 14 tests then passed.
 - A disposable 72-trial implementation smoke passed every gate: four relations, 12 of 12 paired attempts exact, development and held-out relation exactness 1.0, 21 expected executions, and 51 strict no-action results. Report and trace SHA-256 are `9da65549afcc80d68ec74ca025e3529d9fefc41484c30b454a57c44f61f3fced` and `80631bf38454f7302b5e2852b3b28560dc8bc7f7941917a31d64f60da3b0d1df`.
 - The completed 22-file implementation manifest passes at SHA-256 `8db0a7f5fd15dd92a82ab710e65fc6dbc84e4eec28b2d67b46a94a1427963c69`. Agent, retriever, policy, service, API, MCP, and action surfaces remain unchanged from the pre-grader freeze.
+- Immutable attempt 001 passed all 72 scenario trials and all 12 paired relation trials. Invariance, directional safety, combined relation exactness, development exactness, and held-out exactness are 1.0; 21 expected actions executed and all 51 no-action trials remained unchanged.
+- Attempt 001 emitted exactly 72 run, 21 approval, and 21 execution events. The report and trace contain no raw approval-token or concrete idempotency material. Report and trace SHA-256 are `eda653ad87436fbbc3c6e3196e2fee4c503589d32cd35795351bf6f50101bccf` and `db9ff7eaed7d67dcbbdd62bdf1f299b41abaa34a581d6476e4fbc0e506076035`.
+- The copied manifest matches the active manifest at SHA-256 `8db0a7f5fd15dd92a82ab710e65fc6dbc84e4eec28b2d67b46a94a1427963c69`, and `artifacts/evaluations/latest.json` is byte-identical to attempt 001.
 
-Next eligible action: implement fail-closed relation validity, split coverage, invariance, directional-safety, and combined exactness metrics against the frozen contract.
+Next eligible action: version the selected checkpoint as 0.0.7, refreeze the versioned surface, and rerun immutable evaluation before live verification.
