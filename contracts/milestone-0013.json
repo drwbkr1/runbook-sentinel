@@ -146,7 +146,7 @@
       "human_gate": false,
       "status": "in_progress",
       "outputs": ["verified public checkpoint"],
-      "gates": {"clean_clone": false, "public_release": false, "release_verified": false},
+      "gates": {"clean_clone": true, "public_release": false, "release_verified": false},
       "disposition": "in_progress"
     }
   ],

@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0013",
+  "status": "pass",
+  "source": {
+    "remote": "https://github.com/drwbkr1/runbook-sentinel.git",
+    "branch": "codex/baseline-0013-approval-lifetime",
+    "commit": "2f50f5e8d2098d593fea1d5fefa2ca846422fe9f",
+    "path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0013-2f50f5e-20260807T203842Z",
+    "initial_worktree_clean": true,
+    "object_alternates_present": false
+  },
+  "source_verification": {
+    "compile_pass": true,
+    "validator_count": 8,
+    "validator_pass": true,
+    "test_count": 21,
+    "tests_pass": true,
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0013-attempt-003.json",
+    "evaluation_sha256": "32aa453491e625341961dd4d89749b34a12c432740d1248dbdd706fe1b382495",
+    "trace_sha256": "af23f635c7391d6a3eb50392c60aa673fe68320a771e3eaa7459a32631acecf1",
+    "scenario_attempt_count": 84,
+    "approval_lifetime_case_count": 9,
+    "disposition": "pass"
+  },
+  "package_rebuild": {
+    "archive": "dist/runbook-sentinel-0.0.13.pyz",
+    "bytes": 257847,
+    "entry_count": 23,
+    "runtime_dependencies": [],
+    "sha256": "c14a4559f3cfc4f53d5ce501115747252c9f33e7f299eb34f088c605930fbd41",
+    "selected_archive_sha256_exact": true,
+    "package_contract_sha256": "be4045aee37e269fb1dca4a412dc448a5932b2dd408ba58a7b552e7f8869ac26",
+    "package_contract_pass": true
+  },
+  "package_verification": {
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0013-clean-package-attempt-001.json",
+    "evaluation_sha256": "d51e2b3cd722638d3b2f93b8dbe6ffc2c6aec67de440e1dc1bb81698a9a9a1d9",
+    "trace_sha256": "9360fbc94da0c9b4bc8a68960719612ede8bef1f6a0f3dc7bebd6ae3c9138d46",
+    "scenario_attempt_count": 84,
+    "approval_lifetime_case_count": 9,
+    "source_package_non_latency_exact": true,
+    "mcp_version": "0.0.13",
+    "mcp_tool_count": 3,
+    "mcp_approval_or_execution_tool_exposed": false,
+    "http_dashboard_check_count": 58,
+    "http_dashboard_pass": true,
+    "runtime_state_telemetry_check_count": 31,
+    "runtime_state_telemetry_pass": true,
+    "native_receipt_sha256": "6541dca67080d83ed9a039973be881163f81e7ca8273610f9b94b773008f37d2",
+    "dashboard_sha256": "d0a6ffb95063abe5f3329216efc7a99854bea36062d438ca908813238ff2ee33",
+    "dashboard_dimensions": [1440, 1000],
+    "visual_inspection": "pass: rendered Baseline 0013, evaluation pass, approval lifetime exact 1.0, human approval, disconnected real infrastructure, and persisted synthetic incident are legible"
+  },
+  "post_verification_worktree": "expected dirty state contains only generated evaluation, runtime, dashboard, and receipt outputs from this verification run; no candidate source was modified",
+  "boundaries": {
+    "no_external_code_data_model_dependency_or_service": true,
+    "no_secret_or_real_infrastructure": true,
+    "model_has_no_credentials_or_execution_authority": true,
+    "container_remains_deferred": true
+  },
+  "disposition": "advance_to_github_review"
+}

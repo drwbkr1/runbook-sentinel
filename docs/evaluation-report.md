@@ -16,6 +16,8 @@ Version-bound attempt 001 passed under its 40-file manifest, but the subsequent 
 
 The selected source and package results both pass. Their non-latency fields are exact; both retain policy and `pass^3` at 1.0, proposal and terminal attack success at 0.0, approval-lifetime exactness at 1.0, invalid no-mutation at 1.0, valid-lifetime exactness at 1.0, and zero model calls or estimated external cost. Source/package live MCP, 58 HTTP/dashboard checks, 31 persistence/telemetry checks, and rendered visual inspection pass independently.
 
+A no-local-object public-branch clone of exact commit `2f50f5e8d2098d593fea1d5fefa2ca846422fe9f` independently passes the same eight validators and 21 tests, a new source evaluation, exact archive rebuild, a new package evaluation, MCP authority inventory, 58 HTTP/dashboard checks, 31 runtime checks, and visual dashboard inspection. Its source and package reports remain exact after excluding only declared latency fields.
+
 Status: public baseline-0012 v0.0.12 is the latest verified checkpoint. Baseline-0011 remains stopped and unpublished. Corrected local, renewed clean-clone, merged-main, package-asset, downloaded-byte, and rendered-public verification pass. `fresh-content-stale-metadata-context-v3` remains selected, the baseline-0004 local-model candidate remains excluded, and deterministic control remains the default.
 
 ## BASELINE-0012 reproducible package and canonical dashboard identity

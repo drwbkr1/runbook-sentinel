@@ -19,6 +19,8 @@
 - Built two independent 257,847-byte zipapps with exactly 23 allowlisted entries and no runtime dependencies. Both are byte-identical at SHA-256 `c14a4559f3cfc4f53d5ce501115747252c9f33e7f299eb34f088c605930fbd41`.
 - The packaged evaluator passes all 84 scenario attempts and all nine approval-lifetime cases. Source and package results are exact after removing only declared latency fields. Packaged MCP, 58 HTTP/dashboard checks, 31 persisted-state/telemetry checks, CLI help, and visual inspection pass.
 - The first ad hoc precommit secret scan falsely matched the package contracts' literal forbidden-pattern labels. JSON/JSONL parsing, the package validator's content-aware secret exclusions, and a corrected scan requiring credential-length tokens or an anchored private-key header pass; no secret-shaped value was found.
+- The first feature-branch push failed before remote mutation when the shell temporarily could not resolve `github.com`. DNS recovered on the read-only reachability check and the exact branch push then succeeded.
+- A fresh public-branch clone of exact candidate `2f50f5e8d2098d593fea1d5fefa2ca846422fe9f` has no object alternates and passed compilation, eight validators, 21 tests, fresh source and package evaluations, exact archive rebuild, packaged MCP, 58 HTTP/dashboard checks, 31 runtime checks, and visual inspection. The retained receipt advances the candidate to GitHub review.
 
 
 ## 2026-08-06 — BASELINE-0001 started
