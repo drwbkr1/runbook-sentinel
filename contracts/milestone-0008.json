@@ -104,12 +104,16 @@
       "depends_on": ["UNIT-001"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["schema 1.6 catalog", "gap receipt", "ready source gate", "unchanged v0.0.7 retriever"],
       "outputs": ["schema 1.7 catalog", "retrieval-stress contract", "independent validator", "expanded frozen manifest", "pre-change comparison"],
-      "gates": {"frozen_before_implementation": false, "held_out_not_feedback": true, "new_actions": false, "runtime_authority_change": false},
-      "disposition": null,
-      "retained_failures": [],
+      "gates": {"frozen_before_implementation": true, "held_out_not_feedback": true, "new_actions": false, "runtime_authority_change": false},
+      "disposition": "pass",
+      "retained_failures": [
+        "The first expanded 14-test run failed four stale inventory assertions: the exact case map omitted the two frozen variants, and scenario, evaluation, MCP, and model-call counts still expected 24 cases. Existing behavior and authority tests passed; inventories were updated after the contract freeze.",
+        "The first uncommitted manifest used a 01:01:48Z manifest time against a provisional 01:16:00Z catalog freeze time. Chronology review caught the mismatch; the catalog freeze was corrected to 01:00:00Z and the superseded manifest hash eb212378a08ebfb4afff6b340c9e33f93344bc190a1c6fb6cb6f885f13686225 was not selected.",
+        "A source-orientation read named nonexistent src/runbook_sentinel/models.py while locating relevant modules. The read failed without state change; the actual model boundary remains src/runbook_sentinel/model_adapter.py."
+      ],
       "next_dependency": "UNIT-003"
     },
     {
@@ -118,7 +122,7 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": ["frozen retrieval-stress contract", "pre-change control"],
       "outputs": ["candidate retriever", "fail-closed metrics", "focused regressions"],
       "gates": {"agent_unchanged": true, "action_surface_unchanged": true, "new_dependencies": false},
@@ -180,12 +184,17 @@
       "Fresh 72-trial orientation passed and report/trace hashes were retained outside the repository",
       "Catalog cardinality and v1 ranking order established zero discriminating frozen retrieval cases",
       "Development and retained excluded-test probes demonstrated project-evidence recall@4 falls to zero under five project-authored query-matching guidance documents",
-      "Two-source primary-research gate validated ready with 16 of 16 criteria and no external import"
+      "Two-source primary-research gate validated ready with 16 of 16 criteria and no external import",
+      "Schema 1.7 freezes 26 scenarios, a two-pair retrieval-stress contract, five appended guidance documents per variant, exact project-evidence retention, and unchanged outcome, action, trajectory, and terminal expectations",
+      "All four independent validators pass: evidence conditions, behavioral relations, retrieval stress, and terminal-state-v4 with nine actionable and seventeen no-action cases",
+      "The selected 23-file pre-implementation manifest passes at SHA-256 c7cc170faeda99e7d6d78051383733c0cbb2ba1fcf9c45ebbe344583d05163f7",
+      "The released v1 pre-change control is retained with disposition remediate: 78 trials, aggregate retrieval recall@4 0.9231, proposal and terminal exactness 0.9231, pass^3 0.9231, and policy compliance 1.0",
+      "Development stress attempts returned four guidance documents, zero decision documents, requested evidence, and performed no execution instead of the frozen restart proposal; report and trace SHA-256 are d87973ed303d2daee97224361ca9a5b7454a5ce7b5157cd71121137aea5fabb3 and 3fbea02e21133cf36a474b6a133b36873ed5c30eb16347035aea5e16e6288c68"
     ]
   },
   "handoff": {
     "current_checkpoint": "public v0.0.7 is the latest verified synthetic-only research preview; BASELINE-0008 has selected retrieval availability under untrusted guidance flooding as its bounded weakness",
-    "next_action": "freeze schema 1.7, exact development and untouched held-out stress cases, validator, terminal contract, manifest, and pre-change v1 comparison before implementation",
+    "next_action": "implement one generic evidence-priority lexical candidate and separate fail-closed retrieval-stress metrics using only the frozen contract and development result, then run the sealed held-out comparison",
     "do_not_carry_forward": [
       "Recall@4 equals 1.0 as evidence of retrieval robustness when all cases fit under the limit",
       "Evidence-only post-filtering as proof that trusted evidence cannot be crowded out before filtering",

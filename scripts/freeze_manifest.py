@@ -31,6 +31,7 @@ FILES = [
     "scripts/verify_terminal_contract.py",
     "scripts/verify_evidence_conditions.py",
     "scripts/verify_behavioral_relations.py",
+    "scripts/verify_retrieval_stress.py",
 ]
 
 
