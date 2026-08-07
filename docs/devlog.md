@@ -341,3 +341,15 @@
 ## BASELINE-0007 release closure
 
 - The public v0.0.7 tag, peeled remote tag, remote `main`, non-draft release, rendered README, and rendered release page bind the exact release-closure commit containing the merged-main receipt and reconciled records.
+
+## 2026-08-07 - BASELINE-0008 started
+
+- Resumed from exact public v0.0.7 closure `abf613f28e969a8bb81ca562ee182113b2993fd7`. Local and remote main, annotated and peeled tags, public non-draft release, rendered pages, a fresh public-tag clone, and the completed BASELINE-0007 contract agree.
+- Ran a fresh 72-trial orientation outside the repository. All baseline-0007 gates passed with four relations, 12 of 12 paired attempts exact, 21 expected executions, 51 strict no-action results, and 114 trace events. Report and trace SHA-256 are `5613736289de85f002cea7dfdd3d2e5b227f54cb7c3eff2a58a198d340da2c95` and `67389e02512041a65b90d3987144efeee69a03f0865ad679643dec1517d5ebc4`.
+- Measured that every released scenario contains at most two documents under a top-4 retriever, so recall@4 cannot expose retrieval crowding. Five project-authored query-matching guidance documents displaced all expected project telemetry in a `dev-worker-backlog` probe.
+- A second exploratory probe also used `test-cold-cache` and produced the same zero-retention result. That observation is preserved but excluded from held-out contract selection and implementation feedback; unprobed `test-worker-injection` will supply the held-out control.
+- Source-gated the peer-reviewed PoisonedRAG and Machine Against the RAG publisher records for citation, method paraphrase, and project-authored synthetic tests only. No external paper, code, dataset, model, dependency, or executable is imported.
+- Selected a bounded retrieval-only checkpoint: freeze two guidance-flood cases and separate evidence-retention metrics, retain the released v1 failure, then compare one generic evidence-priority lexical candidate. Agent, policy, actions, approval, executor, API, MCP, deterministic default, and real-infrastructure boundaries remain unchanged.
+- Corrected the living status summary, which still named the baseline-0007 branch and baseline-0006 evidence after v0.0.7 release. Immutable release evidence was not altered.
+- `Get-Date -AsUTC` failed because the host PowerShell lacks that parameter; `[datetime]::UtcNow` supplied the timestamp without changing state. A milestone-template lookup also first named a nonexistent `templates` directory before locating the skill asset under `assets`.
+- The first BASELINE-0008 milestone validation used `in_progress` as the top-level status. The validator requires milestone `active` and unit `in_progress`; validation failed without changing runtime behavior, and the vocabulary was corrected.

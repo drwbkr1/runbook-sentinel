@@ -1,6 +1,14 @@
 # Evaluation report
 
-Status: baseline-0006 evidence-condition coverage attempt 002 passed as the version-bound release candidate; baseline-0004 local-model candidate remains excluded; deterministic control remains the default.
+Status: public baseline-0007 controlled-evidence-relations attempt 002 is the latest verified release candidate; baseline-0008 is active after a fresh accepted-system orientation exposed non-discriminating retrieval measurement and a concrete guidance-flood failure. The baseline-0004 local-model candidate remains excluded; deterministic control remains the default.
+
+## BASELINE-0008 orientation and measured retrieval gap
+
+The exact public `v0.0.7` checkpoint was rerun before selecting work. The fresh orientation passed 24 frozen scenarios three times, all four behavioral relations, 21 expected executions, 51 strict no-action checks, policy, terminal security, and repeated reliability. It emitted 72 run, 21 approval, and 21 execution traces. Report and trace SHA-256 are `5613736289de85f002cea7dfdd3d2e5b227f54cb7c3eff2a58a198d340da2c95` and `67389e02512041a65b90d3987144efeee69a03f0865ad679643dec1517d5ebc4`; these orientation files remain under `C:\Projects\Verification` rather than entering release evidence.
+
+The favorable recall@4 score of 1.0 was not discriminating: every released scenario contains at most two documents and the retriever returns up to four. A project-authored exploratory variant added five query-matching runbook documents to `dev-worker-backlog`. The released lexical retriever returned four guidance documents and zero expected project telemetry, so expected project-evidence recall@4 fell to 0.0 before the evidence-only post-filter could help. A separate exploratory probe reproduced the result on `test-cold-cache`; that test observation is retained but excluded from held-out contract selection and implementation feedback. The unprobed `test-worker-injection` case is the held-out source for the frozen checkpoint.
+
+Disposition: `remediate` through a retrieval-only comparison. Schema 1.7 will freeze one development and one untouched held-out guidance-flood case before candidate implementation, grade trusted project-evidence retention separately from outcome, proposal, tool trajectory, terminal state, policy, benign utility, attack success, repeated reliability, latency, and cost, and retain the released v1 failure. No agent, action, approval, executor, MCP/API authority, dependency, model, external asset, secret, or real-infrastructure boundary changes.
 
 The baseline-0004 comparison used the same frozen 18 cases, 8 development and 10 test, with three trials per case, lexical retrieval, and evidence-only decision context. Exact generation and proposed-action graders were used; no model judged another model. That evaluator did not execute proposals or grade terminal incident state, despite an earlier living-report sentence claiming otherwise. Those historical artifacts remain unchanged. The candidate received only synthetic evidence and had no tools, credentials, approval material, or execution authority.
 

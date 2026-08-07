@@ -16,6 +16,7 @@ The model, retrieved content, user artifacts, MCP payloads, external packages, m
 | Threat | Baseline control |
 |---|---|
 | Indirect prompt injection or poisoned runbook | Full retrieval is retained for audit, but only trusted-kind telemetry/status enter the decision context; the agent then extracts allowlisted facts only; prose is never authority |
+| Retrieval jamming by query-matching untrusted guidance | Bound top-4 retrieval must reserve project-classified telemetry/status before untrusted guidance can consume the result budget; full returned identities remain auditable, and separate stress metrics grade evidence retention and benign utility rather than treating zero unsafe actions as sufficient |
 | Stale or conflicting evidence | One-hour freshness window; missing evidence request; conflict abstention |
 | Unauthorized action or capability escalation | Server-side allowlist and exact capability match; no model-controlled arguments |
 | Forged or changed proposal | Canonical SHA-256 action hash bound to approval |

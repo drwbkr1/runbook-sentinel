@@ -1,0 +1,197 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0008",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "research_review",
+      "local_verification",
+      "repository_change",
+      "local_commit",
+      "github_push"
+    ],
+    "user_instruction": "Continue selecting and shipping bounded evidence-driven checkpoints without routine approval while preserving the thesis, external-source gates, and security boundaries.",
+    "repository_controls": [
+      "AGENTS.md",
+      "C:\\Projects\\STORAGE_POLICY.md",
+      "contracts/milestone-0007.json",
+      "docs/status.md"
+    ],
+    "active_contract": "contracts/milestone-0008.json",
+    "verified_at_utc": "2026-08-07T00:47:22Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Make retrieval measurement discriminating and preserve trusted project evidence under untrusted guidance flooding in development and held-out splits without changing the agent, action set, executor, approval boundary, or runtime authority.",
+    "allowed_paths": [
+      "C:\\Projects\\Active\\runbook-sentinel",
+      "C:\\Projects\\Verification"
+    ],
+    "forbidden_work": [
+      "Connect to or mutate real operational infrastructure",
+      "Add, remove, or broaden an executor action or capability",
+      "Give the agent or model credentials, approval tokens, idempotency authority, or execution access",
+      "Weaken proposal hashing, expiry, idempotency, replay protection, preconditions, postconditions, or audit logging",
+      "Add a package dependency, model, external service, secret, account, download, or externally controlled asset",
+      "Change repository visibility, access, ownership, or the deterministic default",
+      "Use the held-out guidance-flood variant as implementation feedback",
+      "Rewrite or discard v0.0.7 or unfavorable evidence"
+    ],
+    "reversible_actions": [
+      "Freeze two project-authored guidance-flood variants and exact retrieval/behavior expectations",
+      "Add a fail-closed independent retrieval-stress validator and separate metrics",
+      "Compare the released lexical retriever with one evidence-priority lexical candidate",
+      "Select only a measured Pareto improvement",
+      "Record immutable deterministic evaluation artifacts and release receipts",
+      "Commit and publish a verified checkpoint"
+    ],
+    "stop_conditions": [
+      "Core thesis change",
+      "Security-boundary weakening",
+      "New action, dependency, external asset, spend, paid service, secret, account, or download required",
+      "Real operational infrastructure interaction",
+      "Access or ownership change",
+      "Irreversible action",
+      "Unverifiable shipment"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.7 local main, remote main, local annotated tag, peeled remote tag, public repository, non-draft release, rendered pages, and a fresh public-tag clone resolve to abf613f28e969a8bb81ca562ee182113b2993fd7",
+        "A fresh 72-trial orientation passed all baseline-0007 gates and emitted 72 run, 21 approval, and 21 execution traces",
+        "Every frozen case contains at most two documents under a retrieval limit of four, so current recall@4 cannot expose crowding",
+        "Five query-matching guidance documents displaced all expected project telemetry in the development probe while policy filtering remained downstream",
+        "The held-out test-worker-injection source was not used in the guidance-flood probe",
+        "The research source gate is ready for citation and project-authored synthetic tests only; it imports no external code, data, model, or paper"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Resume from public v0.0.7, rerun the accepted system, inspect traces and catalog structure, gate primary research, and quantify retrieval crowding",
+      "depends_on": [],
+      "action_class": "research_review",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["v0.0.7", "fresh released-system orientation", "current catalog and retriever", "primary research"],
+      "outputs": ["verified checkpoint orientation", "guidance-flood gap receipt", "ready research source gate", "bounded objective"],
+      "gates": {"latest_checkpoint_verified": true, "gap_measurable": true, "external_import": false},
+      "disposition": "pass",
+      "retained_failures": [
+        "Get-Date -AsUTC is unsupported on this PowerShell host and failed without changing state; [datetime]::UtcNow supplied the timestamp.",
+        "The first milestone-template lookup named a nonexistent templates directory; the installed asset was found under assets and no project state changed.",
+        "An exploratory probe also used test-cold-cache; that observation is retained but the case is excluded from held-out contract selection and implementation feedback.",
+        "The first BASELINE-0008 milestone validation used in_progress at the top level; the contract requires active for a milestone and in_progress for its unit. Validation failed without project behavior changing, and the state vocabulary was corrected."
+      ],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze a discriminating retrieval-stress contract, development and untouched held-out guidance-flood cases, exact terminal expectations, and a pre-change control before retriever implementation",
+      "depends_on": ["UNIT-001"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "in_progress",
+      "inputs": ["schema 1.6 catalog", "gap receipt", "ready source gate", "unchanged v0.0.7 retriever"],
+      "outputs": ["schema 1.7 catalog", "retrieval-stress contract", "independent validator", "expanded frozen manifest", "pre-change comparison"],
+      "gates": {"frozen_before_implementation": false, "held_out_not_feedback": true, "new_actions": false, "runtime_authority_change": false},
+      "disposition": null,
+      "retained_failures": [],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement and test one generic evidence-priority lexical candidate plus separate retrieval-stress metrics and gates",
+      "depends_on": ["UNIT-002"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": ["frozen retrieval-stress contract", "pre-change control"],
+      "outputs": ["candidate retriever", "fail-closed metrics", "focused regressions"],
+      "gates": {"agent_unchanged": true, "action_surface_unchanged": true, "new_dependencies": false},
+      "disposition": null,
+      "retained_failures": [],
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Run retained repeated evaluation, compare v1 and candidate evidence, and select only a Pareto improvement",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": ["frozen expanded suite", "candidate and graders"],
+      "outputs": ["immutable evaluation attempts", "configuration comparison", "evidence disposition"],
+      "gates": {"failed_trials_retained": true, "metrics_separate": true, "held_out_used_only_for_final_evaluation": true},
+      "disposition": null,
+      "retained_failures": [],
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Version, validate real CLI/API/MCP/approval/executor/dashboard/persistence/telemetry surfaces, reconcile records, clean-clone, review, merge, tag, release, and verify the bounded checkpoint",
+      "depends_on": ["UNIT-004"],
+      "action_class": "github_push",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": ["passing selected candidate", "reconciled living records"],
+      "outputs": ["baseline-0008 public release"],
+      "gates": {"public_visibility_already_authorized": true, "runtime_authority_unchanged": true, "all_real_surfaces_verified": false},
+      "disposition": null,
+      "retained_failures": [],
+      "next_dependency": "next measurable checkpoint"
+    }
+  ],
+  "verification": {
+    "changed_risks": [
+      "Trusted-kind metadata being treated as content-derived authority",
+      "Guidance flooding causing safe but useless evidence loss",
+      "Held-out leakage while authoring paired stress cases",
+      "A retrieval metric masking generation or policy regression",
+      "Priority retrieval dropping audit evidence or overfitting exact IDs",
+      "Repeated-suite latency and reliability regression"
+    ],
+    "required_checks": [
+      "Exact public v0.0.7 identity and fresh orientation",
+      "Frozen retrieval-stress schema and exact development and held-out cases",
+      "Independent validator rejects missing, mismatched, or non-discriminating stressors",
+      "Pre-change v1 failure retained before candidate implementation",
+      "Generic trusted-kind priority rather than scenario-ID fitting",
+      "Full retrieved identities retained for audit while decision evidence remains allowlisted",
+      "Separate retrieval, generation, proposal, trajectory, terminal, policy, utility, security, reliability, latency, cost, relation, and stress metrics",
+      "Unchanged agent authority, three-action set, approval boundary, executor policy, API/MCP capability surface, and deterministic offline default",
+      "CLI, MCP, API, approval, executor, replay, dashboard, persistence, telemetry, manifest, tests, clean clone, GitHub review, merged main, tag, release, and rendered public pages"
+    ],
+    "completed_checks": [
+      "Public v0.0.7 identity, release, fresh public-tag clone, and clean local starting state verified",
+      "Fresh 72-trial orientation passed and report/trace hashes were retained outside the repository",
+      "Catalog cardinality and v1 ranking order established zero discriminating frozen retrieval cases",
+      "Development and retained excluded-test probes demonstrated project-evidence recall@4 falls to zero under five project-authored query-matching guidance documents",
+      "Two-source primary-research gate validated ready with 16 of 16 criteria and no external import"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "public v0.0.7 is the latest verified synthetic-only research preview; BASELINE-0008 has selected retrieval availability under untrusted guidance flooding as its bounded weakness",
+    "next_action": "freeze schema 1.7, exact development and untouched held-out stress cases, validator, terminal contract, manifest, and pre-change v1 comparison before implementation",
+    "do_not_carry_forward": [
+      "Recall@4 equals 1.0 as evidence of retrieval robustness when all cases fit under the limit",
+      "Evidence-only post-filtering as proof that trusted evidence cannot be crowded out before filtering",
+      "Policy compliance or zero attack-action success as a substitute for benign utility and availability",
+      "The exploratory test-cold-cache probe as held-out evidence",
+      "Any production-readiness or comparative-safety claim"
+    ]
+  }
+}

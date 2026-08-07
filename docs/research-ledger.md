@@ -1,9 +1,11 @@
 # Research ledger
 
-Reviewed 2026-08-06. References inform design; they are not imported datasets or code.
+Reviewed 2026-08-07. References inform design; they are not imported datasets or code.
 
 | Source | Identity and authority | Design use |
 |---|---|---|
+| [PoisonedRAG: Knowledge Corruption Attacks to Retrieval-Augmented Generation of Large Language Models](https://www.usenix.org/conference/usenixsecurity25/presentation/zou-poisonedrag), USENIX Security 2025 | Primary peer-reviewed USENIX publisher record; checked live 2026-08-07; source gate `artifacts/verification/research-source-gate-baseline-0008.json` | Treat the retrieval corpus as an attack surface and test small project-authored sets of competing malicious texts; citation and method paraphrase only, with no external paper, code, data, or model import |
+| [Machine Against the RAG: Jamming Retrieval-Augmented Generation with Blocker Documents](https://www.usenix.org/conference/usenixsecurity25/presentation/shafran), USENIX Security 2025 | Primary peer-reviewed USENIX publisher record; checked live 2026-08-07; source gate `artifacts/verification/research-source-gate-baseline-0008.json` | Measure retrieval jamming as availability and benign-utility loss separately from instruction-following and attack-action success; use project-authored synthetic guidance documents only |
 | Beyond Accuracy: Behavioral Testing of NLP Models with CheckList, ACL 2020, DOI 10.18653/v1/2020.acl-main.442 | Primary peer-reviewed ACL proceedings paper; CC BY 4.0; checked live 2026-08-06; source gate `artifacts/verification/research-source-gate-baseline-0007.json` | Use project-authored minimum-functionality, invariance, and directional-expectation relations; no CheckList code or data is imported |
 | ReliabilityBench, arXiv:2601.06112v1 | Primary author-submitted preprint; not peer reviewed; CC BY 4.0; checked live 2026-08-06; source gate `artifacts/verification/research-source-gate-baseline-0007.json` | Supplemental inspiration for action metamorphic relations based on end-state equivalence; not evidence of production readiness or comparative safety |
 | Meta Llama 3.2 model card, Community License, and AUP | Primary publisher records in `meta-llama/llama-models`; checked live 2026-08-06 | Bound a local 3B Instruct evaluation to synthetic evidence, no model tools, system-level safeguards, application-specific adversarial evaluation, and no real critical-infrastructure operation |
