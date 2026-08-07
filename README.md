@@ -2,11 +2,11 @@
 
 Runbook Sentinel is a research-informed, retrieval-grounded SRE incident agent. It is designed to remain useful, repeatable, and policy-compliant when evidence is incomplete, adversarial, conflicting, or stale.
 
-Current candidate: `v0.0.8`, a synthetic-only research preview that preserves project-classified evidence under a frozen untrusted-guidance flood in development and held-out splits while retaining controlled evidence relations, exact isolated approval/execution trajectories, terminal state, evidence-condition coverage, and the excluded local-model comparison. Public source availability does not imply production readiness or authorization to connect it to operational infrastructure.
+Current release candidate: `v0.0.9`, a synthetic-only research preview that preserves current project-classified evidence when stale, query-matching telemetry crowds a bounded retrieval result. It retains the earlier untrusted-guidance, behavioral-relation, evidence-condition, approval/execution, terminal-state, and excluded local-model evaluations. Public source availability does not imply production readiness or authorization to connect it to operational infrastructure.
 
 The bounded agent can diagnose, request evidence, propose an action, or abstain. It cannot execute actions. A deterministic approval broker, policy gate, and synthetic-only executor enforce authority outside the model.
 
-The selected evidence-priority lexical retriever first preserves externally project-classified telemetry and status within the bounded result, then fills remaining slots with untrusted guidance. Returned identities remain available for audit, but only telemetry and status records enter the decision context. Runbook prose never grants authority.
+The selected freshness-priority lexical retriever first preserves externally project-classified telemetry and status that pass a fail-closed one-hour freshness rule, then ranks stale project evidence and untrusted guidance. Returned identities remain available for audit, but only telemetry and status records enter the decision context. Missing, malformed, naive, or future timestamps never receive fresh priority. Runbook prose never grants authority.
 
 ## Baseline commands
 
@@ -14,7 +14,7 @@ Run all commands from the repository root with Python 3.12 or newer.
 
 ```powershell
 $env:PYTHONPATH = 'src'
-python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0008-manual.json
+python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0009-manual.json
 python -m unittest discover -s tests -v
 python -m runbook_sentinel serve --host 127.0.0.1 --port 8765
 ```
@@ -28,9 +28,11 @@ $env:PYTHONPATH = 'src'
 python -m runbook_sentinel mcp --db var/mcp.db
 ```
 
-## Retrieval-stress, behavioral-relation, and terminal-state evaluation
+## Stale-evidence, retrieval-stress, behavioral-relation, and terminal-state evaluation
 
-Baseline 0008 freezes one development and one held-out guidance-flood pair where five query-matching instruction-bearing runbooks compete for a top-4 result. The selected v2 retriever retains required project evidence and three auditable guidance records in all six repeated stress attempts; v1 retains no required project evidence and remains preserved with disposition `remediate`. The 78-trial candidate also grades 12 controlled-relation attempts and executes 27 expected actions through the real approval and executor path while proving 51 no-action trials remain unchanged. The harness runs only after the agent result exists, holds approval material only in disposable evaluation state, and is not exposed by the agent, CLI runtime, API automation, MCP, or dashboard.
+Baseline 0009 adds one development and one held-out pair where five stale, query-matching telemetry records compete with current decision evidence for a top-4 result. The selected v3 retriever retains the current evidence and exact behavior in all six repeated stale-evidence attempts. Retained v2 comparisons lose the current evidence and remain `remediate`. Across 28 scenarios and 84 trials, v3 also passes the earlier six guidance-flood attempts and 12 controlled-relation attempts, executes all 33 expected actions through the real approval and executor path, and leaves all 51 no-action trials unchanged. The local comparison does not show strict latency dominance: v3 is selected because it is the only configuration that passes the hard reliability gates, with the measured latency tradeoff recorded rather than hidden.
+
+The harness runs only after the agent result exists, holds approval material only in disposable evaluation state, and is not exposed by the agent, CLI runtime, API automation, MCP, or dashboard.
 
 ## Local-model comparison
 

@@ -1,6 +1,47 @@
 # Evaluation report
 
-Status: public baseline-0008 guidance-flood-resilience attempt 002 is the latest verified checkpoint. `evidence-priority-lexical-v2` is selected from a retained same-manifest comparison; the baseline-0004 local-model candidate remains excluded and deterministic control remains the default.
+Status: public baseline-0008 remains the latest verified release. Baseline-0009 selects `freshness-priority-lexical-v3` as the only hard-gate-passing release candidate after a retained same-manifest comparison; version-bound, real-surface, clean-clone, and public verification remain pending. The baseline-0004 local-model candidate remains excluded and deterministic control remains the default.
+
+## BASELINE-0009 stale-evidence retrieval resilience
+
+The exact public `v0.0.8` checkpoint was rerun before work selection. The fresh orientation passed all 26 frozen scenarios three times, all six guidance-flood attempts, all 12 behavioral-relation attempts, 27 expected executions, 51 strict no-action trials, policy, terminal security, and repeated reliability. The report and trace are retained outside the repository under `C:\Projects\Verification`; their SHA-256 values are `ab33e17a74e8dcc64c76d4680f4a241495297fb5bc6e0b24f61fa6e1117ba92` and `9c0ba0c90bffb7e4d663fdb01329b0a9d4bd4848afe4a2ea6df5d421d5e62fc`.
+
+The highest-leverage measured weakness was stale project evidence crowding out current project evidence. A development probe appended five 24-hour-old, query-matching telemetry records to `dev-worker-backlog`. V2 filled the top four with stale records, dropped `telemetry-worker-current`, produced fresh-evidence recall@4 of 0.0, and safely requested evidence instead of proposing the frozen `restart_worker`. The development gap is preserved at `artifacts/verification/stale-evidence-gap-baseline-0009.json`; no held-out candidate result was inspected before the generic candidate was complete.
+
+Two primary ACL sources were reviewed through the 16-criterion source gate at `artifacts/verification/research-source-gate-baseline-0009.json`. The gate permits citation, narrow paraphrase, project-authored synthetic tests, and publication only. It imports no paper, code, data, model, dependency, executable, service, or externally controlled asset.
+
+Schema 1.8 freezes 28 scenarios, one development and one held-out stale-evidence pair, five declared stale telemetry records per variant, exact current evidence, and unchanged behavior, trajectory, and terminal state. Terminal-state-v5 requires 11 actionable and 17 no-action cases. All five independent validators pass. The version-2 pre-change attempt 002 remains immutable with disposition `remediate`: across 84 trials, fresh-evidence recall, current decision-evidence retention, and exact stale-stress behavior are 0.0; stale saturation is 1.0; `pass^3` is 0.928571; 27 of 33 expected actions execute; all 51 no-action trials remain unchanged; policy is 1.0; proposal and terminal attack success are 0.0. Its report and trace SHA-256 are `834dcca5a13051c72633282af651b3c4035edf4c5bcc659e7f9aeccfefe22612` and `033f9f6fdf8fe384e47c0471a748bb47daced5b957a48c57b5e5fab170651933`.
+
+V3 retains lexical scoring and deterministic tie-breaking, uses the scenario's explicit `as_of`, and ranks fresh project evidence before stale project evidence and guidance. The retriever and bounded agent share a fail-closed one-hour predicate: missing, malformed, timezone-naive, or future timestamps receive no fresh treatment. The rule does not inspect scenario IDs, expected results, actions, trajectories, or terminal state. The held-out cache pair passed on first reveal after implementation completion; no candidate, case, expectation, or grader changed afterward. All 16 tests passed.
+
+### V2 and v3 same-manifest comparison
+
+| Metric | Evidence-priority v2, two runs | Freshness-priority v3, three runs |
+|---|---:|---:|
+| Disposition per run | remediate | pass |
+| Fresh project-evidence recall@4 | 0.0 | 1.0 |
+| Current decision-evidence retention | 0.0 | 1.0 |
+| Exact stale-stress behavior | 0.0 | 1.0 |
+| Stale saturation at four | 1.0 | 0.75 |
+| Proposal / trajectory / terminal exact | 0.928571 / 0.928571 / 0.928571 | 1.0 / 1.0 / 1.0 |
+| Policy compliance | 1.0 | 1.0 |
+| Proposal / terminal attack success | 0.0 / 0.0 | 0.0 / 0.0 |
+| `pass^3` | 0.928571 | 1.0 |
+| Mean of run median / p95 latency | 63.812 / 97.072 ms | 71.261 / 109.547 ms |
+| Mean diagnosis median / p95 | 6.184 / 13.558 ms | 6.638 / 15.314 ms |
+| Model calls / estimated external spend | 0 / $0.00 | 0 / $0.00 |
+
+All compared runs use the same 25-file manifest at SHA-256 `3f7ca71d8425a5d0101a398ede21b958474aaca8989b56d6bd9edfc489584a49`. V2 reports are `e33d9a33d35f159b7575db1ee686a68b24141869d2f6f9953c09f4edb9e20620` and `bb86d1d77c644aa95925f162b282bc66e230eacc566ff93a68117f23c854f10f`; v3 reports are `6efde86f495f5d8d03392f507d745904c3552ccef00e6532335a8102c073a9d8`, `0bee10bba4aa4447d38ecb268d97578d4e8417ca3c7bf309ff014d06aba97ef1`, and `41e2d202ee5f1f3df9c2be5dfcc39b9a1278391884b00b71190d2b723088d0a4`.
+
+Aggregate end-to-end latency is not work-equivalent because v3 completes six additional correct approval and execution trajectories per run. On the 26 original cases, v2 and v3 diagnosis medians are 6.170 and 6.301 ms, and end-to-end medians are 63.826 and 68.507 ms. The 0.131 ms and 4.681 ms increases are explicit tradeoffs. With no frozen non-inferiority margin, strict numeric Pareto dominance is false. V3 is selected as a reliability-gated Pareto-frontier choice because it is the only configuration passing every hard correctness, security, policy, reliability, and cost gate. This supports selection on the frozen synthetic suite only, not production readiness, universal temporal robustness, strict latency dominance, or comparative superiority to external systems.
+
+The versioned 25-file manifest passes at SHA-256 `5d18d47df8ad9f74bbc483864e31de7a85d637a67773c1555de18b05386afd85`. Version-bound attempt 002 passed all 84 trials and became `artifacts/evaluations/latest.json`; median/p95 end-to-end latency is 72.339/104.912 ms and diagnosis median/p95 is 6.821/14.939 ms. Report and 150-event trace SHA-256 are `2cc4fbb816e04d918bc42d9bb818f64c71e294d670de8ee8776d9598f9e1a61d` and `cdd5567bc563f43db7b5cdb53ec2779364ccc057ceed18769ef77c8c80bfeb90`. Model calls and external spend remain zero.
+
+The direct held-out CLI and MCP stdio paths used v3, ranked the current telemetry ahead of three stale telemetry records, proposed the exact frozen action, retained all four identities for audit, and exposed no approval or execution MCP tool. The real loopback API passed 40 named checks for health, selected evaluation, stale and guidance stress metrics, hash-bound approval, execution, postconditions, same-key idempotency, different-key HTTP 409 replay rejection, token redaction, CSP, and dashboard content. Independent SQLite, audit, telemetry, manifest binding, and screenshot inspection passed 23 checks. Native receipt and dashboard SHA-256 are `fef021cea1a5a58536f684bec2a99017837239f1eea89d3d10d2a0657dac743d` and `934b13fb481b2566730aeab62e7484244edaf478d3aba0ee53d9127d5de85099`.
+
+Visual inspection confirmed the 1440 by 1000 dashboard accurately reports baseline 0009, passing deterministic v2 agent behavior, freshness-priority v3 retrieval, guidance and fresh-evidence recall 1.0, human approval, disconnected real infrastructure, and one mitigated synthetic stale-evidence incident. The headless browser emitted a renderer task-manager warning only after writing the verified PNG; it is retained as tooling evidence.
+
+Docker 29.4.3 is live. Container packaging remains deferred because all three locally cached official Python base candidates remain excluded by the current source gate for unresolved high or critical findings; no excluded image was run and no new image was imported. Clean-clone, GitHub, tag, release, and rendered-public-page evidence must still pass before v0.0.9 becomes a verified checkpoint.
 
 ## BASELINE-0008 orientation and measured retrieval gap
 

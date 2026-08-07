@@ -156,9 +156,12 @@
       "status": "in_progress",
       "inputs": ["passing selected candidate", "reconciled living records"],
       "outputs": ["baseline-0009 public release"],
-      "gates": {"public_visibility_already_authorized": true, "runtime_authority_unchanged": true, "all_real_surfaces_verified": false},
+      "gates": {"public_visibility_already_authorized": true, "runtime_authority_unchanged": true, "all_real_surfaces_verified": true, "container_disposition_verified": true, "clean_clone_verified": false},
       "disposition": "planned",
-      "retained_failures": [],
+      "retained_failures": [
+        "The first direct held-out CLI invocation passed the scenario positionally instead of using required --scenario; argparse failed before scenario execution or state mutation, and the corrected invocation passed.",
+        "The headless browser emitted a renderer task-manager warning only after writing the verified dashboard PNG; HTTP, screenshot, persisted-state, and visual checks passed."
+      ],
       "next_dependency": "next measurable checkpoint"
     }
   ],
@@ -200,6 +203,10 @@
       ,"Three immutable v3 runs pass all 84 trials, all stale and guidance stress attempts, all behavioral relations, 33 expected executions, 51 no-action trials, policy, security, reliability, and zero-cost gates on the same 25-file manifest at SHA-256 3f7ca71d8425a5d0101a398ede21b958474aaca8989b56d6bd9edfc489584a49"
       ,"Two same-manifest v2 runs retain disposition remediate with fresh recall, decision retention, and exact stale-stress behavior at 0.0; pass^3 is 0.928571; policy is 1.0; attack success and external cost are 0.0"
       ,"V3 is selected as the only hard-gate-passing reliability configuration. The comparison explicitly records that strict numeric latency dominance is false: common-case diagnosis median is 0.131 ms higher and common-case end-to-end median is 4.681 ms higher on this local suite, while aggregate v3 performs six additional correct execution trajectories per run"
+      ,"The final version-bound 25-file manifest passes at SHA-256 5d18d47df8ad9f74bbc483864e31de7a85d637a67773c1555de18b05386afd85; all five validators, compilation, and 16 tests pass"
+      ,"Version-bound attempt 002 passes all 84 trials, both stress families, all relations, 33 expected executions, 51 unchanged no-action trials, policy, security, reliability, and zero-cost gates; report and trace SHA-256 are 2cc4fbb816e04d918bc42d9bb818f64c71e294d670de8ee8776d9598f9e1a61d and cdd5567bc563f43db7b5cdb53ec2779364ccc057ceed18769ef77c8c80bfeb90"
+      ,"Held-out CLI, MCP 2025-11-25 authority inventory, 40-check real API approval and executor flow, 23-check persisted-state and telemetry inspection, and visual dashboard inspection pass"
+      ,"Docker 29.4.3 is live, but every cached official Python base candidate remains excluded by the existing source gate; container packaging stays deferred without running an excluded image or importing a new one"
     ],
     "artifacts": [
       "artifacts/verification/stale-evidence-gap-baseline-0009.json",
@@ -219,14 +226,18 @@
       "artifacts/evaluations/runs/baseline-0009-v3-candidate-attempt-003.json",
       "artifacts/evaluations/runs/baseline-0009-v3-candidate-attempt-003.traces.jsonl",
       "artifacts/verification/retrieval-comparison-baseline-0009.json",
+      "artifacts/evaluations/runs/baseline-0009-attempt-002.json",
+      "artifacts/evaluations/runs/baseline-0009-attempt-002.traces.jsonl",
+      "artifacts/verification/native-baseline-0009.json",
+      "artifacts/verification/dashboard-baseline-0009.png",
       "C:\\Projects\\Verification\\runbook-sentinel-baseline-0009-orientation-20260807T015613Z.json",
       "C:\\Projects\\Verification\\runbook-sentinel-baseline-0009-orientation-20260807T015613Z.traces.jsonl"
     ],
     "disposition": "in_progress"
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.8 is verified; BASELINE-0009 UNIT-001 passed and UNIT-002 is active on the frozen stale-evidence weakness.",
-    "next_action": "Version and reconcile the selected v3 checkpoint, validate every real and container surface, clean-clone, review, merge, tag, release, and verify the public artifact.",
+    "current_checkpoint": "Public v0.0.8 remains the latest verified release; BASELINE-0009 v0.0.9 version-bound evaluation and native CLI, MCP, API, approval, executor, persistence, telemetry, and rendered-dashboard surfaces pass.",
+    "next_action": "Commit the candidate evidence, validate an exact no-local-object clean clone, review and publish through GitHub, merge, tag, release, and verify the public artifact.",
     "do_not_carry_forward": [
       "Do not use held-out candidate results as implementation feedback.",
       "Do not import external paper, code, data, model, dependency, or executable.",

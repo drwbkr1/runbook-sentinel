@@ -2,12 +2,12 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0009-stale-evidence-resilience`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0008`
 - Latest verified checkpoint: public `v0.0.8`; release reconciliation binds the local annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, and rendered public pages to the exact closure commit
-- Active milestone: none; the next cycle must resume from public `v0.0.8`, run it, inspect traces and evaluation results, and select the highest-leverage measurable weakness before creating `BASELINE-0009`
-- Current unit: release closure complete; preserve this checkpoint and begin the next evidence-driven cycle from it
-- Disposition: evidence-priority v2 `select`; baseline-0008 `pass`; local-model candidate `exclude`; container `defer`
+- Active milestone: `BASELINE-0009`; stale-evidence resilience, `UNIT-005` release verification in progress
+- Current unit: preserve the passing v0.0.9 version-bound and native receipts, validate a clean clone, then review and publish only if all remaining gates pass
+- Disposition: freshness-priority v3 `select` as the only hard-gate-passing candidate; strict numeric latency dominance is false; v0.0.9 release candidate `pending`; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -19,6 +19,23 @@
 - Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
 
 ## Verified evidence
+
+### BASELINE-0009 release-candidate evidence
+
+- Fresh public-v0.0.8 orientation: all 78 trials and every baseline-0008 gate pass; the report and trace are retained under `C:\Projects\Verification`
+- Measured weakness: five stale, query-matching telemetry records displace current telemetry from v2 top-4 retrieval, producing a safe but avoidable evidence request
+- Research gate: two current primary ACL sources pass all 16 criteria for citation and project-authored synthetic tests; no external code, data, paper, model, dependency, executable, or service was imported
+- Frozen schema 1.8: 28 scenarios, one development and one held-out stale-evidence pair, six repeated stale-stress attempts, and terminal-state-v5 with 11 actionable and 17 no-action scenarios
+- Pre-change v2 attempt 002: 84 trials, fresh-evidence recall, decision retention, and exact stale-stress behavior 0.0; `pass^3` 0.928571; 27 of 33 expected actions executed; 51 no-action trials unchanged; policy 1.0; proposal and terminal attack success 0.0
+- Candidate v3: three same-manifest runs pass all 84 trials, all stale and guidance stress attempts, all relations, all 33 expected executions, all 51 no-action trials, policy, security, reliability, and zero-cost gates
+- Selection: v3 is the only hard-gate-passing reliability configuration. Strict numeric latency dominance is false; common-case diagnosis median is 0.131 ms higher and common-case end-to-end median is 4.681 ms higher in this local comparison
+- Version-bound manifest: 25 files, SHA-256 `5d18d47df8ad9f74bbc483864e31de7a85d637a67773c1555de18b05386afd85`; supersedes the retained pre-version manifest without rewriting it
+- Version-bound attempt 002: all 84 trials pass; median/p95 end-to-end latency 72.339/104.912 ms; diagnosis median/p95 6.821/14.939 ms; report and trace SHA-256 `2cc4fbb816e04d918bc42d9bb818f64c71e294d670de8ee8776d9598f9e1a61d` and `cdd5567bc563f43db7b5cdb53ec2779364ccc057ceed18769ef77c8c80bfeb90`
+- Held-out CLI and MCP: v3 preserves current evidence ahead of three stale records, proposes the frozen action, retains full audit identities, and MCP version 0.0.9 exposes no approval or execution tool
+- Real API and runtime: all 40 HTTP/dashboard checks and all 23 persisted-state/telemetry checks pass; native receipt SHA-256 `fef021cea1a5a58536f684bec2a99017837239f1eea89d3d10d2a0657dac743d`
+- Rendered dashboard: visually inspected at 1440 by 1000; accurately reports baseline 0009, v3, both retrieval recalls 1.0, human approval, disconnected real infrastructure, and the mitigated synthetic incident; PNG SHA-256 `934b13fb481b2566730aeab62e7484244edaf478d3aba0ee53d9127d5de85099`
+- Container: daemon 29.4.3 is live, but every locally cached Python base candidate remains excluded by `artifacts/verification/container-source-gate.json`; packaging is deferred and no image was imported or run for this checkpoint
+- Clean-clone, GitHub review, merged main, tag, release, and public-page verification: pending
 
 - Contract schema: pass
 - Frozen manifest: 23 files, SHA-256 `fac3bf310d244322c364516e21b6da78053ddb57d5c3cb05bc15b993609c59da`, pass

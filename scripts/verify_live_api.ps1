@@ -2,10 +2,10 @@ $ErrorActionPreference = 'Stop'
 $env:PYTHONPATH = 'src'
 
 $pythonCmd = (Get-Command python).Source
-$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0008-stdout.log'
-$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0008-stderr.log'
-$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0008.db'
-$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0008-traces.jsonl'
+$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0009-stdout.log'
+$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0009-stderr.log'
+$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0009.db'
+$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0009-traces.jsonl'
 $generatedRuntimeFiles = @(
     $databasePath,
     "$databasePath-wal",
@@ -23,8 +23,8 @@ $serverArgs = @(
     '-m', 'runbook_sentinel', 'serve',
     '--host', '127.0.0.1',
     '--port', '8877',
-    '--db', 'var\live-api-baseline-0008.db',
-    '--trace', 'artifacts\runtime\live-api-baseline-0008-traces.jsonl',
+    '--db', 'var\live-api-baseline-0009.db',
+    '--trace', 'artifacts\runtime\live-api-baseline-0009-traces.jsonl',
     '--evaluation', 'artifacts\evaluations\latest.json'
 )
 
@@ -57,7 +57,7 @@ try {
         -Method Post `
         -Uri 'http://127.0.0.1:8877/api/runs' `
         -ContentType 'application/json' `
-        -Body (@{scenario_id = 'dev-worker-backlog-guidance-flood'} | ConvertTo-Json -Compress)
+        -Body (@{scenario_id = 'dev-worker-backlog-stale-evidence-flood'} | ConvertTo-Json -Compress)
 
     $approval = Invoke-RestMethod `
         -Method Post `
@@ -98,7 +98,7 @@ try {
     if (-not $edge) {
         throw 'Microsoft Edge executable not found'
     }
-    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0008.png'
+    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0009.png'
     & $edge `
         --headless `
         --disable-gpu `
@@ -107,7 +107,7 @@ try {
         --screenshot=$screenshotPath `
         http://127.0.0.1:8877/dashboard | Out-Null
 
-    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0008-traces.jsonl'
+    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0009-traces.jsonl'
     $verification = [pscustomobject]@{
         health = $health.status
         checkpoint = $health.checkpoint
@@ -117,6 +117,8 @@ try {
         retrieval_configuration = $run.retriever
         full_retrieval_count = $run.retrieved_document_ids.Count
         decision_document_count = $run.decision_document_ids.Count
+        fresh_document_first = $run.retrieved_document_ids[0] -eq 'telemetry-worker-current'
+        fresh_decision_evidence_retained = $run.decision_document_ids -contains 'telemetry-worker-current'
         action_hash_bound = ($approval.action_hash -eq $run.proposal.action_hash)
         execution_status = $execution.status
         postconditions_verified = $execution.postconditions_verified
@@ -137,23 +139,29 @@ try {
         evaluation_stress_evidence_recall = $evaluation.metrics.retrieval_stress.expected_project_evidence_recall_at_4
         evaluation_stress_decision_retention = $evaluation.metrics.retrieval_stress.decision_evidence_retention_rate
         evaluation_stress_exact_behavior = $evaluation.metrics.retrieval_stress.exact_behavior_retention_rate
+        evaluation_fresh_evidence_recall = $evaluation.metrics.stale_evidence_stress.fresh_project_evidence_recall_at_4
+        evaluation_fresh_decision_retention = $evaluation.metrics.stale_evidence_stress.fresh_decision_evidence_retention_rate
+        evaluation_stale_stress_exact_behavior = $evaluation.metrics.stale_evidence_stress.exact_behavior_retention_rate
         dashboard_http_status = $dashboardResponse.StatusCode
         dashboard_csp = $dashboardResponse.Headers['Content-Security-Policy']
-        dashboard_baseline_0008 = $dashboardResponse.Content.Contains('Baseline 0008')
+        dashboard_baseline_0009 = $dashboardResponse.Content.Contains('Baseline 0009')
         dashboard_terminal_metric = $dashboardResponse.Content.Contains('Terminal state exact')
         dashboard_condition_metric = $dashboardResponse.Content.Contains('Evidence condition coverage')
         dashboard_relation_metric = $dashboardResponse.Content.Contains('Behavioral relation exact')
-        dashboard_stress_metric = $dashboardResponse.Content.Contains('Stress evidence recall')
+        dashboard_guidance_stress_metric = $dashboardResponse.Content.Contains('Guidance stress recall')
+        dashboard_fresh_evidence_metric = $dashboardResponse.Content.Contains('Fresh evidence recall')
         dashboard_screenshot_exists = (Test-Path -LiteralPath $screenshotPath)
     }
     $checks = [ordered]@{
         health_ok = $verification.health -eq 'ok'
-        checkpoint_exact = $verification.checkpoint -eq 'baseline-0008'
+        checkpoint_exact = $verification.checkpoint -eq 'baseline-0009'
         outcome_exact = $verification.outcome -eq 'propose_action'
         proposal_exact = $verification.proposed_action -eq 'restart_worker'
-        retrieval_configuration_exact = $verification.retrieval_configuration -eq 'evidence-priority-lexical-v2'
+        retrieval_configuration_exact = $verification.retrieval_configuration -eq 'freshness-priority-lexical-v3'
         retrieval_limit_exact = $verification.full_retrieval_count -eq 4
-        decision_document_count_exact = $verification.decision_document_count -eq 1
+        decision_document_count_exact = $verification.decision_document_count -eq 4
+        fresh_document_first = [bool]$verification.fresh_document_first
+        fresh_decision_evidence_retained = [bool]$verification.fresh_decision_evidence_retained
         action_hash_bound = [bool]$verification.action_hash_bound
         execution_status_exact = $verification.execution_status -eq 'executed'
         postconditions_verified = [bool]$verification.postconditions_verified
@@ -162,7 +170,7 @@ try {
         idempotent_repeat_equal = [bool]$verification.idempotent_repeat_equal
         replay_rejected = $verification.replay_http_status -eq 409
         approval_token_absent_from_trace = -not $verification.approval_token_in_trace
-        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0008'
+        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0009'
         evaluation_agent_exact = $verification.evaluation_agent -eq 'deterministic-control-v2'
         evaluation_passed = $verification.evaluation_disposition -eq 'pass'
         evaluation_tool_trajectory_exact = $verification.evaluation_tool_trajectory_exact -eq 1.0
@@ -170,17 +178,21 @@ try {
         evaluation_evidence_condition_coverage = $verification.evaluation_evidence_condition_coverage -eq 1.0
         evaluation_adversarial_split_coverage = $verification.evaluation_adversarial_split_coverage -eq 1.0
         evaluation_behavioral_relation_exact = $verification.evaluation_behavioral_relation_exact -eq 1.0
-        evaluation_retrieval_configuration_exact = $verification.evaluation_retrieval_configuration -eq 'evidence-priority-lexical-v2'
+        evaluation_retrieval_configuration_exact = $verification.evaluation_retrieval_configuration -eq 'freshness-priority-lexical-v3'
         evaluation_stress_evidence_recall = $verification.evaluation_stress_evidence_recall -eq 1.0
         evaluation_stress_decision_retention = $verification.evaluation_stress_decision_retention -eq 1.0
         evaluation_stress_exact_behavior = $verification.evaluation_stress_exact_behavior -eq 1.0
+        evaluation_fresh_evidence_recall = $verification.evaluation_fresh_evidence_recall -eq 1.0
+        evaluation_fresh_decision_retention = $verification.evaluation_fresh_decision_retention -eq 1.0
+        evaluation_stale_stress_exact_behavior = $verification.evaluation_stale_stress_exact_behavior -eq 1.0
         dashboard_http_ok = $verification.dashboard_http_status -eq 200
         dashboard_csp_present = $verification.dashboard_csp -like "*frame-ancestors 'none'*"
-        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0008
+        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0009
         dashboard_terminal_metric_present = [bool]$verification.dashboard_terminal_metric
         dashboard_condition_metric_present = [bool]$verification.dashboard_condition_metric
         dashboard_relation_metric_present = [bool]$verification.dashboard_relation_metric
-        dashboard_stress_metric_present = [bool]$verification.dashboard_stress_metric
+        dashboard_guidance_stress_metric_present = [bool]$verification.dashboard_guidance_stress_metric
+        dashboard_fresh_evidence_metric_present = [bool]$verification.dashboard_fresh_evidence_metric
         dashboard_screenshot_exists = [bool]$verification.dashboard_screenshot_exists
     }
     $receipt = [pscustomobject]@{
