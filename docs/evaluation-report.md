@@ -22,6 +22,8 @@ An exact no-local-object clone of candidate `1fafe2c99e96d84693a4ba54271694611b3
 
 GitHub review, merged main, and public-release reconciliation remain pending and must pass before this section can claim a verified release. Docker is currently off, but container packaging remains independently deferred because all reviewed bases are excluded; no image was imported or run. A non-gating wheel probe found no local `setuptools.build_meta`; no unreviewed dependency was downloaded or added, and this release makes no package-registry claim.
 
+Draft GitHub PR `#9` matches reviewed head `54032842e26f8b6d2e6bb30a4138f20fa3cc22f2`, contains two expected commits and 89 expected changed files, and is `CLEAN` and `MERGEABLE` with no configured checks. Local and GitHub changed-file sets are exact. A receipt-only final head must be reconfirmed before review promotion or merge.
+
 ## BASELINE-0009 stale-evidence retrieval resilience
 
 The exact public `v0.0.8` checkpoint was rerun before work selection. The fresh orientation passed all 26 frozen scenarios three times, all six guidance-flood attempts, all 12 behavioral-relation attempts, 27 expected executions, 51 strict no-action trials, policy, terminal security, and repeated reliability. The report and trace are retained outside the repository under `C:\Projects\Verification`; their SHA-256 values are `ab33e17a74e8dcc64c76d4680f4a241495297fb5bc6e0b24f61fa6e1117ba92` and `9c0ba0c90bffb7e4d663fdb01329b0a9d4bd4848afe4a2ea6df5d421d5e62fc`.

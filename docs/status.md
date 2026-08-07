@@ -40,7 +40,8 @@
 - Package probe: local wheel construction is not a release gate and failed because `setuptools.build_meta` is absent. No dependency was added or downloaded; this checkpoint ships a dependency-free source repository, not a PyPI package.
 - Clean clone: exact candidate `1fafe2c99e96d84693a4ba54271694611b3602e4` at `C:\Projects\Verification\runbook-sentinel-baseline-0010-1fafe2c-20260807T134131` passed compilation, 19 tests, seven validators, the source gate, ten milestone contracts, 152 tracked JSON files, 47 tracked JSONL files with 5,085 records, selected-manifest identity, unchanged authority files, model/secret exclusion, held-out CLI, MCP, 50 API checks, 27 runtime checks, persistence, telemetry, and rendered-dashboard inspection.
 - Release audit: the retained pending audit correctly computes `blocked` only because GitHub review and public-release truth have not yet run; all local and clean-clone checks pass.
-- Release evidence pending: GitHub review, merged-main verification, tag, release, and rendered-public reconciliation.
+- GitHub review: draft PR `#9` at reviewed head `54032842e26f8b6d2e6bb30a4138f20fa3cc22f2` has two expected commits, 89 expected changed files, exact local/remote file-set equality, `CLEAN`, `MERGEABLE`, and no configured checks. A receipt-only final head must be reconfirmed before promotion or merge.
+- Release evidence pending: final PR-head review, merged-main verification, tag, release, and rendered-public reconciliation.
 
 ### BASELINE-0009 release-candidate evidence
 
