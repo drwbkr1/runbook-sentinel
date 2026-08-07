@@ -19,11 +19,11 @@ def sha256(path: Path) -> str:
 
 
 def main() -> None:
-    database = ROOT / "var/live-api-baseline-0011.db"
-    trace = ROOT / "artifacts/runtime/live-api-baseline-0011-traces.jsonl"
+    database = ROOT / "var/live-api-baseline-0012.db"
+    trace = ROOT / "artifacts/runtime/live-api-baseline-0012-traces.jsonl"
     evaluation = ROOT / "artifacts/evaluations/latest.json"
     manifest = ROOT / "eval/manifest.json"
-    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0011.png"
+    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0012.png"
     required = [database, trace, evaluation, manifest, screenshot]
     missing = [str(path) for path in required if not path.exists()]
     if missing:
@@ -126,7 +126,7 @@ def main() -> None:
         },
         "dashboard": {"sha256": sha256(screenshot), "width": width, "height": height},
     }
-    output = ROOT / "artifacts/verification/native-baseline-0011.json"
+    output = ROOT / "artifacts/verification/native-baseline-0012.json"
     output.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(receipt, indent=2, sort_keys=True))
     if receipt["status"] != "pass":

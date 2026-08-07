@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0012",
+  "completed_at_utc": "2026-08-07T19:30:00Z",
+  "candidate": {
+    "version": "0.0.12",
+    "frozen_manifest_sha256": "fb503b07fda00d20ec3f16d73d6f460da58350d944f549cca79e27c5c32d520b",
+    "api_sha256": "e5e8af2b54bb555e97de5c063eb28462769c0657273c9795a5af889b223dee72",
+    "source_test_sha256": "3cc85b94433d17170b5ba539df06e49d741474475fd20b6f962af46e744749aa",
+    "builder_sha256": "53f5783b1cc6aaf9915cca5dd8bf329660cc31f734a092341884953a263ca9b7",
+    "package_validator_sha256": "c05ddb903815f538c338c38bd2a23ee00db163ce61b7b71ea7d3a41b74f86b7b",
+    "runtime_dependencies": []
+  },
+  "implementation": {
+    "canonical_checkpoint": "baseline-0012",
+    "rendered_checkpoint": "Baseline 0012",
+    "dashboard_derives_identity_from_canonical_checkpoint": true,
+    "source_test_derives_expectation_from_canonical_checkpoint": true,
+    "independent_numbered_dashboard_literal_present": false,
+    "agent_or_security_behavior_changed": false
+  },
+  "package_attempts": [
+    {
+      "ids": ["candidate-a", "candidate-b"],
+      "archive_sha256": "2f26584484fed4204a45f1fd261d88ad417ddc0919d4f332c7a5c298a10d1ff9",
+      "archive_bytes": 239184,
+      "entry_count": 21,
+      "repeated_builds_byte_identical": true,
+      "contract_validator_each": "pass",
+      "disposition": "pass"
+    }
+  ],
+  "known_regression": {
+    "classified_as_held_out": false,
+    "source_unit_test": "pass",
+    "package_health_checkpoint": "baseline-0012",
+    "package_contains_baseline_0012": true,
+    "package_contains_baseline_0011": false,
+    "package_contains_baseline_0010": false,
+    "disposition": "pass"
+  },
+  "retained_orchestration_failures": [
+    "Two combined PowerShell Start-Process regression commands were rejected by the command-policy parser before execution. No candidate, process, file, or contract action occurred; an in-process packaged HTTP probe then passed."
+  ],
+  "unchanged": [
+    "scenario catalog and synthetic split",
+    "agent purpose and outputs",
+    "retrieval and decision context",
+    "policy and action set",
+    "approval, executor, idempotency, replay, and postconditions",
+    "MCP capability boundary",
+    "real infrastructure disconnected"
+  ],
+  "disposition": "pass"
+}

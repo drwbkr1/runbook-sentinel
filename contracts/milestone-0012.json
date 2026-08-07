@@ -147,11 +147,17 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["frozen identity contract", "frozen v0.0.12 package contract"],
       "outputs": ["v0.0.12 candidate", "reproducible package", "known-regression proof"],
-      "gates": {"canonical_identity": false, "byte_reproducibility": false, "security_boundaries_unchanged": false},
-      "disposition": "remediate",
+      "gates": {"canonical_identity": true, "byte_reproducibility": true, "security_boundaries_unchanged": true},
+      "evidence": [
+        "The dashboard and source test now derive Baseline 0012 from the canonical baseline-0012 runtime CHECKPOINT rather than carrying an independent release number",
+        "Two 239184-byte candidate archives are byte-identical at SHA-256 2f26584484fed4204a45f1fd261d88ad417ddc0919d4f332c7a5c298a10d1ff9 and pass the exact 21-entry package contract",
+        "Source and packaged known-regression checks contain Baseline 0012 and exclude Baseline 0010 and Baseline 0011",
+        "No agent, retrieval, policy, approval, executor, scenario, synthetic split, or real-infrastructure boundary changed"
+      ],
+      "disposition": "pass",
       "next_dependency": "UNIT-004"
     },
     {
@@ -160,7 +166,7 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": ["fixed candidate"],
       "outputs": ["evaluation", "MCP", "API", "dashboard", "state", "telemetry", "package comparison"],
       "gates": {"all_source_surfaces": false, "all_package_surfaces": false, "rendered_identity_exact": false},

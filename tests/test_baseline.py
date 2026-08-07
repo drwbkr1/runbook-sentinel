@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "src"))
 
-from runbook_sentinel.api import create_server
+from runbook_sentinel.api import CHECKPOINT, create_server
 from runbook_sentinel.agent import DeterministicIncidentAgent
 from runbook_sentinel.catalog import load_catalog
 from runbook_sentinel.evidence import is_fresh_project_evidence
@@ -137,7 +137,7 @@ class BaselineTest(unittest.TestCase):
         server = MCPServer(self.service)
         initialized = server.handle({"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
         self.assertEqual(initialized["result"]["protocolVersion"], "2025-11-25")
-        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.11")
+        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.12")
         listed = server.handle({"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         self.assertEqual({tool["name"] for tool in listed["result"]["tools"]}, names)
         called = server.handle(
@@ -336,7 +336,9 @@ class BaselineTest(unittest.TestCase):
                 dashboard = response.read().decode("utf-8")
                 self.assertIn("Runbook Sentinel", dashboard)
                 self.assertIn("human approval", dashboard)
-                self.assertIn("Baseline 0010", dashboard)
+                self.assertIn(f"Baseline {CHECKPOINT.removeprefix('baseline-')}", dashboard)
+                self.assertNotIn("Baseline 0010", dashboard)
+                self.assertNotIn("Baseline 0011", dashboard)
                 self.assertIn("Terminal state exact", dashboard)
                 self.assertIn("Evidence condition coverage", dashboard)
                 self.assertIn("Behavioral relation exact", dashboard)
@@ -346,7 +348,7 @@ class BaselineTest(unittest.TestCase):
                 self.assertIn("Stale payload exposure", dashboard)
                 self.assertIn("frame-ancestors 'none'", response.headers["Content-Security-Policy"])
             with urlopen(f"http://127.0.0.1:{server.server_port}/health") as response:
-                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0011")
+                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0012")
             request = Request(
                 f"http://127.0.0.1:{server.server_port}/api/runs",
                 data=json.dumps({"scenario_id": "dev-bad-deployment"}).encode("utf-8"),
@@ -389,7 +391,7 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["coverage"]["missing_condition_split_pairs"], [])
         self.assertEqual(report["metrics"]["coverage"]["missing_adversarial_splits"], [])
         self.assertEqual(report["schema_version"], "1.9")
-        self.assertEqual(report["checkpoint"], "baseline-0011")
+        self.assertEqual(report["checkpoint"], "baseline-0012")
         self.assertEqual(report["metrics"]["proposal"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["development"]["tool_trajectory"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["test"]["tool_trajectory"]["exact_match"], 1.0)
