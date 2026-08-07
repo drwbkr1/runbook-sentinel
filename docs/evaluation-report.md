@@ -1,6 +1,16 @@
 # Evaluation report
 
-Status: public baseline-0010 stale-payload decision-boundary attempt 001 is the latest verified checkpoint. `fresh-content-stale-metadata-context-v3` is selected as the only configuration passing the frozen boundary gates after a retained same-manifest comparison. Strict numeric Pareto and latency dominance are false. The baseline-0004 local-model candidate remains excluded and deterministic control remains the default.
+Status: public baseline-0010 remains the latest verified checkpoint. Baseline-0011 is stopped and unpublished. The local baseline-0012 v0.0.12 package candidate passes frozen evaluation and real-surface gates; clean-clone and public-release verification remain pending. `fresh-content-stale-metadata-context-v3` remains selected, the baseline-0004 local-model candidate remains excluded, and deterministic control remains the default.
+
+## BASELINE-0012 reproducible package and canonical dashboard identity
+
+The public v0.0.10 orientation passed all 84 trials and every declared gate, but the release had no package asset. A default zipapp control produced two equal-length but byte-different archives, included 17 cache/bytecode entries, and failed evaluation because the frozen manifest was unavailable. BASELINE-0011 then produced a clean reproducible package, but its first packaged real-surface run passed 49 of 50 checks and visibly rendered the stale label `Baseline 0010`. That fixed candidate was rejected and never published.
+
+BASELINE-0012 treats that label as a known regression, not held-out evidence. Its dashboard and source test derive `Baseline 0012` from the canonical runtime checkpoint. Two independent package builds are byte-identical at SHA-256 `2f26584484fed4204a45f1fd261d88ad417ddc0919d4f332c7a5c298a10d1ff9`. The archive contains 21 exact entries, fixed timestamps and permissions, no cache, bytecode, runtime state, dependency, or secret, an embedded frozen evaluation manifest, and per-entry hashes bound to the frozen package contract.
+
+Source and package each pass 28 scenarios and 84 attempts under manifest SHA-256 `fb503b07fda00d20ec3f16d73d6f460da58350d944f549cca79e27c5c32d520b`. Every gate and non-latency metric family is exact across runtimes. Source end-to-end median/p95 latency is 130.422/213.675 ms and package latency is 112.759/182.355 ms; diagnosis median/p95 is 16.607/36.561 ms and 13.642/31.391 ms respectively. These are local observations, not a general performance or dominance claim. Both runs make zero model calls and incur zero estimated cost.
+
+Packaged MCP exposes only three diagnostic/read tools and no approval or execution authority. Packaged HTTP/dashboard passes all 51 checks; persisted SQLite, audit, trace, manifest, redaction, and telemetry pass all 27 checks. The rendered 1440 by 1000 dashboard visibly reports Baseline 0012 and the expected security boundaries. Clean-clone rebuild identity, GitHub review, merged-main verification, release assets, downloaded public checksum, tag, and rendered public-page verification remain pending, so this section makes no public v0.0.12 release claim.
 
 ## BASELINE-0010 stale-payload decision boundary
 

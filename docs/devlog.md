@@ -468,3 +468,22 @@
 - A PowerShell merged-main hash inventory accidentally concatenated `Test-Path` and its variable and emitted command-not-found errors. The corrected read-only inventory produced the hashes preserved in `artifacts/verification/merged-main-baseline-0010.json`.
 - The final pre-publication release audit computes `verified` and releases only the inherited annotated-tag, public-release, and immediate public-verification actions. The earlier pending audit remains retained with its intentional blocked disposition.
 - Prepared the release-closure commit for local annotated tag `v0.0.10`, remote tag, public non-draft GitHub release, rendered README and release page, and fresh public-tag clone reconciliation. The next cycle must resume from this verified checkpoint and select work only after a fresh run exposes a measurable weakness.
+
+## 2026-08-07 - BASELINE-0011 stopped portable-package candidate
+
+- Reconciled public v0.0.10 at `01791052b80748bb0f8e01c57152d00b53822aee`, then ran a fresh 84-attempt orientation outside the repository. Every existing gate passed with zero model calls and cost; the release asset inventory was empty.
+- Reviewed official Python 3.12.13 `zipapp`, `zipfile`, and PSF licensing documentation through an eight-criterion source gate. No external code, package, sample, executable, data, model, or service was imported.
+- Retained two default zipapp controls with different hashes, 17 cache/bytecode entries, and a frozen-manifest evaluation failure. Froze an exact 21-entry package contract and independent verifier before implementation.
+- The first two project-authored builds were byte-identical and contract-valid but failed CLI startup because the root launcher used a package-relative import. Those artifacts remain retained. A generic absolute-import correction produced passing repeated builds without changing the frozen contract or security boundary.
+- Source and package evaluations passed all 84 attempts and matched every non-latency metric family. Packaged MCP passed and exposed no approval or execution authority.
+- The first packaged API/dashboard reveal passed 49 of 50 assertions. Health and evaluation reported baseline-0011, but the rendered dashboard visibly said `Baseline 0010`. Per the frozen contract, the candidate was not patched after reveal. BASELINE-0011 was stopped, v0.0.11 was not published, and the exact failure remains in `artifacts/verification/package-held-out-baseline-0011-attempt-001-failed.json`.
+
+## 2026-08-07 - BASELINE-0012 canonical package identity
+
+- Resumed from public v0.0.10 plus the retained stopped candidate. Classified the dashboard mismatch as a known regression rather than held-out evidence and froze a new v0.0.12 dashboard and package contract before runtime changes.
+- Generalized the independent package validator so it continues to validate the retained v0.0.11 contract and the new v0.0.12 contract. The candidate dashboard and source test now derive their displayed expectation from the canonical runtime checkpoint.
+- Two combined PowerShell `Start-Process` regression probes were rejected by command policy before execution. An in-process packaged HTTP probe then verified baseline-0012 health and rendered identity with both stale labels absent.
+- Built two independent 239,184-byte archives at identical SHA-256 `2f26584484fed4204a45f1fd261d88ad417ddc0919d4f332c7a5c298a10d1ff9`; both pass all archive-content, metadata, manifest, exclusion, and source-parity checks.
+- Passed 19 tests, seven validators, source and package 84-attempt evaluations, packaged MCP, all 51 packaged API/dashboard checks, all 27 persistence/telemetry checks, and visual inspection. Source and package share manifest SHA-256 `fb503b07fda00d20ec3f16d73d6f460da58350d944f549cca79e27c5c32d520b` and match on every gate and non-latency metric family.
+- Docker client 29.4.3 remains installed but the daemon is currently off. Container packaging remains independently deferred by the retained source gate and is not part of this candidate.
+- Updated architecture, ADR, roadmap, status, research/source ledgers, evaluation report, version history, changelog, and README. Clean-clone, GitHub review, merged-main, asset publication, public download, and release reconciliation remain pending.

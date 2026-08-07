@@ -46,6 +46,14 @@ The fresh v0.0.9 run passed but showed that the released decision context still 
 
 `fresh-content-stale-metadata-context-v3` is selected as the only hard-gate-passing configuration across six same-manifest 84-trial runs. It retains complete retrieval records for audit, passes full fresh records to the decision context, and projects stale records to `id`, `kind`, and `observed_at`. Retained v2 controls expose stale payloads and remain `remediate`. Version-bound, native-surface, clean-clone, GitHub, merged-main, tag, release, and rendered-public verification pass. The selection is a security-gated Pareto-frontier choice, not a strict latency, production-readiness, or external-system superiority claim. The next checkpoint remains intentionally unchosen until a fresh run of public v0.0.10 exposes the next measurable weakness.
 
+## Stopped checkpoint baseline-0011 - first portable package candidate
+
+The public v0.0.10 run passed every existing system gate, but its release had no portable package asset. BASELINE-0011 froze an exact standard-library zipapp contract, retained a nondeterministic default-zipapp control, produced byte-identical clean candidate archives, and passed source/package evaluation parity and packaged MCP. The candidate was stopped and never published after the first packaged real-surface reveal passed 49 of 50 checks but rendered `Baseline 0010` while health and evaluation reported baseline-0011. The candidate and contract were not changed after reveal.
+
+## Active checkpoint baseline-0012 - canonical package and rendered identity
+
+Treat the BASELINE-0011 dashboard mismatch as a known regression, not held-out evidence. Create a new v0.0.12 candidate whose dashboard and source test derive the rendered checkpoint from one canonical runtime value. Preserve the agent, retrieval, decision-context, policy, approval, executor, scenario, synthetic-split, and real-infrastructure boundaries. Local source/package, package reproducibility, MCP, HTTP/dashboard, state, telemetry, and visual gates pass. Clean-clone rebuild identity, GitHub review, merged-main verification, release assets, and downloaded public-byte identity remain before publication.
+
 ## Research preview v0.1.0
 
 Expand to at least 48 frozen cases across the approved SRE topology, meet precommitted security and utility gates, verify all real surfaces, and release only with a reconciled evaluation report and explicit repository visibility decision.

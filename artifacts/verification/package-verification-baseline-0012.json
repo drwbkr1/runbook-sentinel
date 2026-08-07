@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0012",
+  "verified_at_utc": "2026-08-07T19:36:00Z",
+  "candidate_commit": "50d64e3",
+  "candidate_archive": {
+    "sha256": "2f26584484fed4204a45f1fd261d88ad417ddc0919d4f332c7a5c298a10d1ff9",
+    "bytes": 239184,
+    "entry_count": 21,
+    "repeated_builds_byte_identical": true,
+    "contract_validator": "pass",
+    "runtime_dependencies": []
+  },
+  "source_verification": {
+    "manifest_files": 35,
+    "validators_passed": 7,
+    "unit_tests_passed": 19,
+    "evaluation_report": "artifacts/evaluations/runs/baseline-0012-attempt-001.json",
+    "evaluation_report_sha256": "b1328fd43bec63567b8403fd56debd6426f399571e7e37b69d8bc660664cdfde",
+    "evaluation_trace_sha256": "8530ff477da24cbb13620fca716844739cdbdcd2eda4b0a0d6e1d7aa1160d393",
+    "scenario_count": 28,
+    "attempt_count": 84,
+    "every_gate_passed": true,
+    "latency_ms": {"median": 130.422, "p95": 213.675, "diagnosis_median": 16.607, "diagnosis_p95": 36.561}
+  },
+  "package_evaluation": {
+    "report": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0012-package-evaluation.json",
+    "report_sha256": "ccb8d46ad5fa0a546d6fe1169175c5cc4b799d345abd3a18336bf1bc2b2c1bde",
+    "trace_sha256": "7e14070a3443b7198e28c58b15e9ceb355a47b86b54da17e869c00c003f44134",
+    "scenario_count": 28,
+    "attempt_count": 84,
+    "every_gate_passed": true,
+    "same_manifest_sha256": "fb503b07fda00d20ec3f16d73d6f460da58350d944f549cca79e27c5c32d520b",
+    "gates_exact_across_source_and_package": true,
+    "all_non_latency_metric_families_exact": true,
+    "latency_ms": {"median": 112.759, "p95": 182.355, "diagnosis_median": 13.642, "diagnosis_p95": 31.391},
+    "performance_claim": "none; local timing is reported separately and not generalized"
+  },
+  "packaged_mcp": {
+    "status": "pass",
+    "version": "0.0.12",
+    "tool_count": 3,
+    "approval_or_execution_tool_exposed": false,
+    "attack_document_in_decision_context": false,
+    "stale_payload_characters": 0,
+    "database_sha256": "2c8c744dad222942c14d776445b6ea43d82f4ca580612d2d4ebbabe7efdc3479",
+    "trace_sha256": "3f6010ffbddeb948ec71b3d6b8c8313ca374f0aec9977bfe80f38e41f0cec0a5"
+  },
+  "packaged_http_dashboard_runtime": {
+    "status": "pass",
+    "checks_passed": 51,
+    "checks_total": 51,
+    "health_checkpoint": "baseline-0012",
+    "evaluation_checkpoint": "baseline-0012",
+    "rendered_checkpoint": "Baseline 0012",
+    "stale_baseline_0010_or_0011_present": false,
+    "approval_executor_replay_postconditions": "pass",
+    "approval_token_absent_from_trace": true,
+    "persisted_state_telemetry_checks_passed": 27,
+    "native_receipt": "artifacts/verification/native-baseline-0012.json",
+    "native_receipt_sha256": "16f78e5e465d19a30c7d79b804763b7c84365d0130026a38e2b46c5665fa2ce9",
+    "database_sha256": "ce0f75bb7e4ff491ec7722f66d03d4e85ed1b5d8816bf8a31ea0b56043542e88",
+    "trace_sha256": "3fd27775bc69f063348a2306e09b3a77609e106e0b3dc98049856c4bc1155756",
+    "dashboard_png": "artifacts/verification/dashboard-baseline-0012.png",
+    "dashboard_png_sha256": "12640baf7d30bf8e6985beb7d425855ff0c94d595c3473cf7bd7ed92d3668da3",
+    "dashboard_dimensions": [1440, 1000],
+    "visual_inspection": "Pass: the rendered dashboard visibly reports Baseline 0012, evaluation pass, canonical configurations and metrics, human approval, disconnected real infrastructure, and one mitigated synthetic incident."
+  },
+  "behavior_and_security": {
+    "retrieval_generation_trajectory_terminal_policy_utility_security_reliability_cost_separate": true,
+    "policy_compliance": 1.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "pass_3": 1.0,
+    "model_calls": 0,
+    "estimated_cost_usd": 0.0,
+    "agent_boundary_unchanged": true,
+    "real_infrastructure_disconnected": true
+  },
+  "retained_failures": [
+    "Stopped BASELINE-0011 and its stale rendered label remain preserved and unpublished.",
+    "Two pre-execution combined PowerShell orchestration commands were rejected by command policy and remain documented in the development receipt."
+  ],
+  "disposition": "pass",
+  "next_gate": "clean-clone rebuild identity and public release verification"
+}

@@ -166,11 +166,18 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["fixed candidate"],
       "outputs": ["evaluation", "MCP", "API", "dashboard", "state", "telemetry", "package comparison"],
-      "gates": {"all_source_surfaces": false, "all_package_surfaces": false, "rendered_identity_exact": false},
-      "disposition": "remediate",
+      "gates": {"all_source_surfaces": true, "all_package_surfaces": true, "rendered_identity_exact": true},
+      "evidence": [
+        "Source validation passes 35 frozen files, seven validators, 19 tests, and all 84 evaluation attempts",
+        "Packaged evaluation passes all 84 attempts and matches source on every gate and non-latency metric family under frozen manifest fb503b07fda00d20ec3f16d73d6f460da58350d944f549cca79e27c5c32d520b",
+        "Packaged MCP exposes only three bounded diagnostic/read tools and no approval or execution authority",
+        "Packaged HTTP/dashboard passes 51 of 51 checks and persisted state/telemetry passes all 27 checks",
+        "Visual inspection confirms Baseline 0012 and the expected metrics, human-approval boundary, disconnected real infrastructure, and mitigated synthetic incident"
+      ],
+      "disposition": "pass",
       "next_dependency": "UNIT-005"
     },
     {
@@ -179,7 +186,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "github_push",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": ["selected passing candidate", "reconciled living records"],
       "outputs": ["verified public v0.0.12 checkpoint"],
       "gates": {"clean_clone_rebuild_identity": false, "public_release_asset_identity": false, "release_verified": false},

@@ -2,7 +2,7 @@
 
 Runbook Sentinel is a research-informed, retrieval-grounded SRE incident agent. It is designed to remain useful, repeatable, and policy-compliant when evidence is incomplete, adversarial, conflicting, or stale.
 
-Current release: `v0.0.10`, a synthetic-only research preview that keeps stale project-record payloads out of the decision and model boundary while preserving their identity and timestamp for evidence requests and audit. Fresh project evidence remains complete. It retains the earlier stale-evidence, untrusted-guidance, behavioral-relation, evidence-condition, approval/execution, terminal-state, and excluded local-model evaluations. Public source availability does not imply production readiness or authorization to connect it to operational infrastructure.
+Latest verified public release: `v0.0.10`. Candidate `v0.0.12` adds a reproducible, dependency-free Python zipapp while preserving the v0.0.10 agent, retrieval, evaluation, policy, approval, executor, and synthetic-only boundaries. Candidate `v0.0.11` was rejected and never published after its rendered dashboard carried a stale checkpoint label; that failure remains in the evidence record. Public source or package availability does not imply production readiness or authorization to connect Runbook Sentinel to operational infrastructure.
 
 The bounded agent can diagnose, request evidence, propose an action, or abstain. It cannot execute actions. A deterministic approval broker, policy gate, and synthetic-only executor enforce authority outside the model.
 
@@ -14,12 +14,22 @@ Run all commands from the repository root with Python 3.12 or newer.
 
 ```powershell
 $env:PYTHONPATH = 'src'
-python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0010-manual.json
+python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0012-manual.json
 python -m unittest discover -s tests -v
 python -m runbook_sentinel serve --host 127.0.0.1 --port 8765
 ```
 
 Then open `http://127.0.0.1:8765/dashboard`.
+
+Build and verify the standard-library-only zipapp without installing a build backend or dependency:
+
+```powershell
+python scripts/build_zipapp.py
+python scripts/verify_package_contract.py --archive dist/runbook-sentinel-0.0.12.pyz
+python dist/runbook-sentinel-0.0.12.pyz --help
+```
+
+The builder uses an exact 21-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. No package-registry or container claim is made.
 
 The MCP server uses JSON-RPC over standard input/output:
 
@@ -40,7 +50,7 @@ Baseline 0004 adds an optional direct-loopback Ollama evaluation adapter. The me
 
 The repository never downloads a model or supplies tools, credentials, approvals, or execution authority. See `artifacts/verification/model-source-gate-baseline-0004.json`, `artifacts/evaluations/baseline-0004-comparison.json`, and ADR 0003 for the exact source gate, evidence, and decision.
 
-Container packaging is currently deferred. Three official Python base candidates failed the baseline source gate; see `artifacts/verification/container-source-gate.json`. The native Python workflow is the only accepted runtime for this checkpoint.
+Container packaging remains deferred. Docker is currently off, and three previously reviewed official Python base candidates failed the source gate; see `artifacts/verification/container-source-gate.json`. The source workflow and independently verified dependency-free zipapp are the only candidate runtimes for this checkpoint.
 
 ## Security boundary
 

@@ -27,7 +27,8 @@ The model, retrieved content, user artifacts, MCP payloads, external packages, m
 | Credential exposure | No credentials or secrets exist; tokens are hashed at rest and omitted from traces |
 | MCP overreach | No approval or execution tool; closed-world annotations; enforcement ignores annotations as authority |
 | XSS or dashboard injection | Escaped dynamic values and restrictive browser security headers |
-| Supply-chain compromise | Standard-library baseline; external-source gate and ledger before import |
+| Supply-chain compromise | Standard-library baseline; external-source gate and ledger before import; zipapp exact allowlist, fixed metadata, copied source bytes, embedded evaluation identity, per-entry hashes, independent verification, clean-clone rebuild identity, and public-download checksum gate |
+| Release identity drift across health, package, evaluation, and dashboard | One canonical runtime checkpoint drives health and rendered identity; package and evaluation manifests bind checkpoint and bytes; source, package, clean-clone, and public-release surfaces are compared before publication |
 | Model output is malformed, over-broad, or capability-confused | Exact schema and identifier parser; server-side action/capability binding; invalid output becomes abstention with no fallback |
 | Loopback model request is redirected or proxied off-machine | Literal `127.0.0.1:11434` endpoint validation; redirects and environment proxies disabled; streaming and tools disabled |
 | Model failure is hidden by a stronger deterministic fallback | Configurations are evaluated separately; candidate failure is retained and never replaced with the control result |

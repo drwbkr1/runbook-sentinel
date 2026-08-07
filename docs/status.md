@@ -2,23 +2,36 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
-- Completed milestones: `BASELINE-0001` through `BASELINE-0010`
+- Branch: `codex/baseline-0012-dashboard-identity`
+- Completed milestones: `BASELINE-0001` through `BASELINE-0010`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.10`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, and rendered public pages to the release-closure commit
-- Active milestone: none; the next cycle must resume from public `v0.0.10`, run it, inspect traces and evaluation results, and select the highest-leverage measurable weakness before creating `BASELINE-0011`
-- Current unit: release closure complete; preserve this checkpoint and begin the next evidence-driven cycle from it
-- Disposition: decision-context v3 `select` as a security-gated Pareto-frontier choice; baseline-0010 `pass`; strict numeric Pareto and latency dominance are false; local-model candidate `exclude`; container `defer`
+- Active milestone: `BASELINE-0012`
+- Current unit: `UNIT-005` release reconciliation; local source, package, real-surface, persistence, telemetry, and rendered-dashboard candidate gates pass; clean-clone and public release gates remain
+- Disposition: v0.0.12 package candidate `pass` locally; v0.0.11 `stop` and unpublished; decision-context v3 remains selected; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
 - GitHub `main`: pull request `#9` merged as `ccbdafc40777ce7b20ed1375463193ecdbaa7d6c` before the release-closure record
-- GitHub pull request: `#9`, merged with history preserved
+- GitHub pull request: baseline-0012 pull request not yet opened; `#9` is the latest merged release PR
 - GitHub release: public, non-draft `v0.0.10`
-- Docker: daemon verified live; container packaging deferred after three base-image candidates failed the source gate
+- Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
 - Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
 
 ## Verified evidence
+
+### BASELINE-0012 package release-candidate evidence
+
+- Public v0.0.10 remains the latest verified checkpoint. BASELINE-0011 and v0.0.11 are stopped and unpublished after the first packaged real-surface reveal rendered `Baseline 0010` while health and evaluation reported baseline-0011; the candidate, screenshot, and 49-of-50 result remain retained.
+- Frozen baseline-0012 contracts classify the stale dashboard label as a known regression rather than held-out evidence and require a new v0.0.12 candidate, exact package contents and metadata, source/package parity, clean-clone rebuild identity, and public-download checksum identity.
+- Two independent 239,184-byte archives are byte-identical at SHA-256 `2f26584484fed4204a45f1fd261d88ad417ddc0919d4f332c7a5c298a10d1ff9`; each has exactly 21 allowlisted entries, fixed metadata, no cache, bytecode, runtime state, dependency, or secret, and exact package/evaluation manifest bindings.
+- Source validation passes a 35-file frozen manifest, seven validators, 19 tests, and all 84 evaluation attempts. The package evaluation passes all 84 attempts and matches every source gate and non-latency metric family under manifest SHA-256 `fb503b07fda00d20ec3f16d73d6f460da58350d944f549cca79e27c5c32d520b`.
+- Retrieval, generation, proposal, tool trajectory, terminal state, policy, utility, attack success, repeated reliability, latency, cost, behavioral relations, guidance stress, stale-evidence stress, and stale-payload projection remain separately reported. Policy and `pass^3` are 1.0; proposal and terminal attack success are 0.0; model calls and estimated cost are zero.
+- Packaged MCP reports v0.0.12, exposes three diagnostic/read tools and no approval or execution tool, retains the full retrieval audit, excludes the attack document from decisions, and exposes zero stale payload characters.
+- Packaged HTTP/dashboard passes all 51 checks, including approval hashing, execution, replay rejection, postconditions, redaction, CSP, baseline-0012 health/evaluation/rendered identity, and absence of stale baseline labels. SQLite, audit, trace, manifest binding, and telemetry pass all 27 checks.
+- The 1440 by 1000 dashboard was visually inspected. It visibly reports Baseline 0012, evaluation pass, deterministic v2, decision-context v3, retrieval v3, exact metrics, human approval, disconnected real infrastructure, and one mitigated synthetic incident; PNG SHA-256 `12640baf7d30bf8e6985beb7d425855ff0c94d595c3473cf7bd7ed92d3668da3`.
+- Official Python 3.12.13 packaging documentation passed the source gate for citation and project-authored standard-library implementation only. No external code, package, sample, data, model, executable, or service was imported.
+- Clean-clone, GitHub review, merged-main, release asset, downloaded checksum, tag, and rendered public-page verification remain pending. No v0.0.12 release claim is made yet.
 
 ### BASELINE-0010 release-candidate evidence
 
