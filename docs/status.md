@@ -2,12 +2,12 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `codex/baseline-0007-evidence-relations`
+- Branch: `codex/baseline-0008-guidance-flood-resilience`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0007`
 - Latest verified checkpoint: public `v0.0.7`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
-- Active milestone: next evidence-driven checkpoint not yet selected
-- Current unit: begin the next cycle by running the released system and measuring the highest-leverage weakness
-- Disposition: released baseline `pass`; local-model candidate `exclude`; container `defer`
+- Active milestone: `BASELINE-0008` - guidance-flood retrieval resilience
+- Current unit: push the clean-clone-verified branch, perform GitHub scope/mergeability review, merge with history preserved, then verify remote merged main before release closure
+- Disposition: evidence-priority v2 `select`; baseline-0008 release candidate `pass`; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -21,19 +21,21 @@
 ## Verified evidence
 
 - Contract schema: pass
-- Frozen manifest: 21 files, SHA-256 `9f70f756ab93d4ba8732ed70455e0ce3c26f3cc84558baff24d8f56b7e101573`, pass
-- Tests: 14 of 14 pass
-- Frozen evaluation: version-bound attempt 002 passed 20 scenarios, 60 attempts, 15 expected executions, and 45 strict no-action results
+- Frozen manifest: 23 files, SHA-256 `fac3bf310d244322c364516e21b6da78053ddb57d5c3cb05bc15b993609c59da`, pass
+- Tests: 15 of 15 pass
+- Frozen evaluation: version-bound attempt 002 passed 26 scenarios, 78 attempts, 27 expected executions, 51 strict no-action results, all 6 stress attempts, and all 12 relation attempts
 - Retrieval recall@4, outcome accuracy, diagnosis accuracy, proposal exactness, actual tool-trajectory exactness, terminal-state exactness, policy compliance, benign utility, adversarial safe outcome, and `pass^3`: 1.0
 - Instruction-bearing attack-document decision exposure: 0.0
 - Proposal attack success: 0.0
 - Terminal attack success: 0.0
 - Evidence-condition split coverage: 10 of 10 required pairs, 1.0; adversarial split coverage: 2 of 2, 1.0
-- Latest selected-control end-to-end latency: median 60.221 ms, p95 103.683 ms; diagnosis-only median 5.450 ms, p95 13.473 ms; no general performance claim
+- Behavioral-relation exactness: 12 of 12 relation attempts, 1.0 across invariance, directional safety, development, and held-out test
+- Retrieval-stress project-evidence recall, decision-evidence retention, exact behavior, and development/held-out exactness: 1.0; guidance saturation at four: 0.75
+- Selected release-candidate end-to-end latency: median 45.245 ms, p95 92.216 ms; diagnosis-only median 6.994 ms, p95 15.746 ms; no general performance claim
 - Live CLI, MCP stdio, HTTP approval/executor, dashboard, SQLite, audit log, and JSONL telemetry: pass
-- Clean clone: candidate `173e42e822def559b870c2e38ca27c6d34b84df4` passed source, contract, 14-test, selected-evaluation, authority-hash, model/secret-exclusion, CLI, MCP, 25-check API, persistence, telemetry, and rendered-dashboard gates
-- GitHub review: pull request `#5`, 7 commits, 39 changed files, `CLEAN`, `MERGEABLE`, no configured checks, merged with history preserved
-- Merged main `1f0635a008d8fdf6e94c9fedf1c39da40651a465`: fresh public clone passed compilation, 14 tests, manifest, evidence-condition and terminal contracts, selected evaluation, CLI, MCP, all 25 API checks, approval, executor, replay, postconditions, dashboard, SQLite, audit, telemetry, model-weight exclusion, and high-signal secret scan
+- Clean clone: candidate `8328c08900739d4f07afd9202a979c1bdd4f63e9` passed compilation, 14 tests, all three validators, the manifest, selected-evaluation identity, model/secret exclusion, CLI, MCP, 27-check API, persistence, telemetry, and rendered-dashboard gates
+- GitHub review: pull request `#6`, 7 commits, 45 changed files, `CLEAN`, `MERGEABLE`, no configured checks, merged with history preserved
+- Merged main `5c690c9f4f6b00e577eef84a1dc33437f5cd7ba1`: fresh public clone passed compilation, 14 tests, all contracts, selected evaluation, CLI, MCP, all 27 API checks, approval, executor, replay, postconditions, dashboard, SQLite, audit, telemetry, model-weight exclusion, and high-signal secret scan
 - Container: deferred after three base images failed the source gate
 
 ## BASELINE-0002 measured gap

@@ -20,8 +20,8 @@ def request(process: subprocess.Popen, payload: dict) -> dict:
 
 
 def main() -> None:
-    database = ROOT / "var/live-mcp-baseline-0007.db"
-    trace = ROOT / "artifacts/runtime/live-mcp-baseline-0007-traces.jsonl"
+    database = ROOT / "var/live-mcp-baseline-0008.db"
+    trace = ROOT / "artifacts/runtime/live-mcp-baseline-0008-traces.jsonl"
     for generated in (database, Path(str(database) + "-wal"), Path(str(database) + "-shm"), trace):
         generated.unlink(missing_ok=True)
     env = os.environ.copy()
@@ -33,9 +33,9 @@ def main() -> None:
             "runbook_sentinel",
             "mcp",
             "--db",
-            "var/live-mcp-baseline-0007.db",
+            "var/live-mcp-baseline-0008.db",
             "--trace",
-            "artifacts/runtime/live-mcp-baseline-0007-traces.jsonl",
+            "artifacts/runtime/live-mcp-baseline-0008-traces.jsonl",
         ],
         cwd=ROOT,
         env=env,
@@ -46,7 +46,7 @@ def main() -> None:
     )
     try:
         initialized = request(process, {"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
-        if initialized["result"]["serverInfo"]["version"] != "0.0.7":
+        if initialized["result"]["serverInfo"]["version"] != "0.0.8":
             raise AssertionError("MCP reported an unexpected release version")
         listed = request(process, {"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         names = [tool["name"] for tool in listed["result"]["tools"]]
@@ -69,11 +69,29 @@ def main() -> None:
             raise AssertionError("MCP result did not retain the full retrieval audit")
         if "runbook-worker-poisoned" in result["decision_document_ids"]:
             raise AssertionError("MCP decision context exposed an instruction-bearing attack document")
-        incident = request(
+        stressed = request(
             process,
             {
                 "jsonrpc": "2.0",
                 "id": 4,
+                "method": "tools/call",
+                "params": {
+                    "name": "diagnose_synthetic_incident",
+                    "arguments": {"scenario_id": "test-worker-injection-guidance-flood"},
+                },
+            },
+        )["result"]["structuredContent"]["result"]
+        if stressed["retriever"] != "evidence-priority-lexical-v2":
+            raise AssertionError("MCP did not use the selected retrieval configuration")
+        if stressed["decision_document_ids"] != ["telemetry-worker-attack-current"]:
+            raise AssertionError("MCP stress result did not retain exact project evidence")
+        if len(stressed["retrieved_document_ids"]) != 4 or len(stressed["guidance_document_ids"]) != 3:
+            raise AssertionError("MCP stress result did not retain the bounded retrieval audit")
+        incident = request(
+            process,
+            {
+                "jsonrpc": "2.0",
+                "id": 5,
                 "method": "tools/call",
                 "params": {
                     "name": "get_synthetic_incident",
@@ -90,6 +108,10 @@ def main() -> None:
             "decision_context_configuration": result["decision_context_configuration"],
             "full_retrieval_audit_retained": True,
             "attack_document_in_decision_context": False,
+            "retrieval_configuration": stressed["retriever"],
+            "stress_project_evidence_retained": True,
+            "stress_full_retrieval_count": len(stressed["retrieved_document_ids"]),
+            "stress_guidance_document_count": len(stressed["guidance_document_ids"]),
             "incident_status": incident["result"]["structuredContent"]["incident"]["status"],
             "approval_or_execution_tool_exposed": False,
         }

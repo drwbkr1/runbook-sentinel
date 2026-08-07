@@ -2,6 +2,14 @@
 
 All notable verified changes are recorded here. Unverified work remains in `docs/devlog.md` and the active milestone contract.
 
+## 0.0.8 - 2026-08-07
+
+- Added a frozen top-4 untrusted-guidance stress contract with one development and one held-out pair, five project-authored instruction-bearing runbooks per variant, and exact project-evidence, behavior, trajectory, and terminal expectations.
+- Retained `lexical-token-overlap-v1` with disposition `remediate` after stress evidence recall, decision retention, and exact behavior were 0.0 in both splits.
+- Selected `evidence-priority-lexical-v2` as a same-manifest Pareto improvement: all 78 trials and six stress attempts passed, while policy compliance and zero proposal/terminal attack success were preserved and measured local latency improved.
+- Added separate fail-closed stress validity, split coverage, project-evidence recall, decision retention, guidance saturation, behavior retention, and per-trial graders without changing the agent, action set, approval/executor boundary, dependencies, or real-infrastructure prohibition.
+- Preserved the exploratory gap, stale living status, failed inventories, superseded manifest chronology, v1 failures, and helper-boundary integration failure instead of rewriting unfavorable evidence.
+
 ## 0.0.7 - 2026-08-06
 
 - Added a closed behavioral-relation contract with instruction-injection invariance and fresh-to-stale directional safety in development and held-out splits.

@@ -7,7 +7,12 @@ from pathlib import Path
 from .api import create_server
 from .evaluation import AGENT_CONFIGURATIONS, CONTROL_AGENT_CONFIGURATION, run_evaluation
 from .mcp_server import main as mcp_main
-from .retrieval import DECISION_CONTEXT_CONFIGURATIONS, DEFAULT_DECISION_CONTEXT
+from .retrieval import (
+    DECISION_CONTEXT_CONFIGURATIONS,
+    DEFAULT_DECISION_CONTEXT,
+    DEFAULT_RETRIEVAL_CONFIGURATION,
+    RETRIEVAL_CONFIGURATIONS,
+)
 from .service import RunbookSentinel
 
 
@@ -38,7 +43,7 @@ def main(argv: list[str] | None = None) -> None:
     execute_parser.add_argument("--trace", default="var/traces.jsonl")
 
     evaluate_parser = subparsers.add_parser("evaluate")
-    evaluate_parser.add_argument("--output", default="artifacts/evaluations/runs/baseline-0007-manual.json")
+    evaluate_parser.add_argument("--output", default="artifacts/evaluations/runs/baseline-0008-manual.json")
     evaluate_parser.add_argument("--trials", type=int, default=3)
     evaluate_parser.add_argument(
         "--agent-configuration",
@@ -50,6 +55,11 @@ def main(argv: list[str] | None = None) -> None:
         "--decision-context",
         choices=DECISION_CONTEXT_CONFIGURATIONS,
         default=DEFAULT_DECISION_CONTEXT,
+    )
+    evaluate_parser.add_argument(
+        "--retrieval-configuration",
+        choices=RETRIEVAL_CONFIGURATIONS,
+        default=DEFAULT_RETRIEVAL_CONFIGURATION,
     )
 
     serve_parser = subparsers.add_parser("serve")
@@ -71,6 +81,7 @@ def main(argv: list[str] | None = None) -> None:
             args.decision_context,
             args.agent_configuration,
             Path(args.model_contract),
+            retrieval_configuration=args.retrieval_configuration,
         )
         _print({"metrics": report["metrics"], "gates": report["gates"]})
     elif args.command == "serve":

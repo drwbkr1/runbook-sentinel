@@ -1,0 +1,193 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0008-guidance-flood-resilience-20260807",
+  "assessed_at": "2026-08-07T00:47:22Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_actions": [
+      "review public research metadata and methods",
+      "cite and paraphrase approved methods in project records",
+      "implement project-authored synthetic retrieval-jamming tests",
+      "publish source citations and project-authored evaluation evidence"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Use primary peer-reviewed security research to motivate project-authored deterministic tests for untrusted guidance crowding trusted synthetic SRE evidence out of a bounded retrieval window. Import no external code, dataset, model, executable, or paper file.",
+    "planned_actions": [
+      "review public research metadata and methods",
+      "cite and paraphrase approved methods in project records",
+      "implement project-authored synthetic retrieval-jamming tests",
+      "publish source citations and project-authored evaluation evidence"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "usenix-security-2025-poisonedrag-307726",
+      "name": "PoisonedRAG: Knowledge Corruption Attacks to Retrieval-Augmented Generation of Large Language Models",
+      "locator": "https://www.usenix.org/conference/usenixsecurity25/presentation/zou-poisonedrag",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.usenix.org/conference/usenixsecurity25/presentation/zou-poisonedrag", "observed_at": "2026-08-07T00:47:22Z", "note": "USENIX identifies Zou, Geng, Wang, and Jia; 34th USENIX Security Symposium; 2025; pages 3827-3844; ISBN 978-1-939133-52-6; BibTeX key 307726."}],
+          "note": "The exact proceedings paper and canonical publisher page are identified."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.usenix.org/conference/usenixsecurity25/presentation/zou-poisonedrag", "observed_at": "2026-08-07T00:47:22Z", "note": "The USENIX Association proceedings page is the primary publisher record for the peer-reviewed USENIX Security 2025 paper."}],
+          "note": "Authority is limited to the paper's threat framing, methods, and results."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.usenix.org/conference/usenixsecurity25/presentation/zou-poisonedrag", "observed_at": "2026-08-07T00:47:22Z", "note": "The publisher page, abstract, BibTeX, and paper links were publicly accessible without authentication, fee, account, secret, or geographic restriction observed."}],
+          "note": "Only public metadata and abstract-level method review are required."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.usenix.org/conference/usenixsecurity25/presentation/zou-poisonedrag", "observed_at": "2026-08-07T00:47:22Z", "note": "USENIX states the paper and proceedings are freely available as Open Access media. The project will retain only bibliographic attribution, a hyperlink, and narrow paraphrase; it will not redistribute the paper."}],
+          "note": "Citation-only use does not require importing, modifying, or redistributing the copyrighted paper."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "USENIX Security 2025 proceedings, BibTeX key 307726", "note": "The project uses the canonical publisher record directly with no secondary content intermediary."}],
+          "note": "No external artifact enters repository custody."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "https://www.usenix.org/conference/usenixsecurity25/presentation/zou-poisonedrag", "note": "The canonical proceedings locator, author list, ISBN, page range, and BibTeX key bind the citation. No file is acquired."}],
+          "note": "Canonical identifiers are sufficient for citation-only use."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "PoisonedRAG abstract and USENIX proceedings metadata", "note": "The paper treats attacker-injected texts as a retrieval-database attack surface and evaluates small injected sets, including five malicious texts per target query."}],
+          "note": "The general corpus-poisoning threat supports testing a five-document synthetic flood, but Runbook Sentinel does not reproduce the paper's optimization attack or claim comparable results."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "baseline-0008 intended use", "note": "No executable, code, dataset, model, personal data, secret, operational evidence, or active paper content is imported; all test records are project-authored and synthetic."}],
+          "note": "Citation use cannot alter runtime authority or introduce active content."
+        }
+      ]
+    },
+    {
+      "source_id": "usenix-security-2025-machine-against-rag-308054",
+      "name": "Machine Against the RAG: Jamming Retrieval-Augmented Generation with Blocker Documents",
+      "locator": "https://www.usenix.org/conference/usenixsecurity25/presentation/shafran",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.usenix.org/conference/usenixsecurity25/presentation/shafran", "observed_at": "2026-08-07T00:47:22Z", "note": "USENIX identifies Shafran, Schuster, and Shmatikov; 34th USENIX Security Symposium; 2025; pages 3787-3806; ISBN 978-1-939133-52-6; BibTeX key 308054."}],
+          "note": "The exact proceedings paper and canonical publisher page are identified."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.usenix.org/conference/usenixsecurity25/presentation/shafran", "observed_at": "2026-08-07T00:47:22Z", "note": "The USENIX Association proceedings page is the primary publisher record for the peer-reviewed USENIX Security 2025 paper."}],
+          "note": "Authority is limited to the paper's threat framing, methods, and results."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.usenix.org/conference/usenixsecurity25/presentation/shafran", "observed_at": "2026-08-07T00:47:22Z", "note": "The publisher page, abstract, BibTeX, and paper links were publicly accessible without authentication, fee, account, secret, or geographic restriction observed."}],
+          "note": "Only public metadata and abstract-level method review are required."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.usenix.org/conference/usenixsecurity25/presentation/shafran", "observed_at": "2026-08-07T00:47:22Z", "note": "USENIX states the paper and proceedings are freely available as Open Access media. The project will retain only bibliographic attribution, a hyperlink, and narrow paraphrase; it will not redistribute the paper."}],
+          "note": "Citation-only use does not require importing, modifying, or redistributing the copyrighted paper."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "USENIX Security 2025 proceedings, BibTeX key 308054", "note": "The project uses the canonical publisher record directly with no secondary content intermediary."}],
+          "note": "No external artifact enters repository custody."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "https://www.usenix.org/conference/usenixsecurity25/presentation/shafran", "note": "The canonical proceedings locator, author list, ISBN, page range, and BibTeX key bind the citation. No file is acquired."}],
+          "note": "Canonical identifiers are sufficient for citation-only use."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "Machine Against the RAG abstract and USENIX proceedings metadata", "note": "The paper defines retrieval jamming as untrusted content causing a RAG system not to answer and notes that standard LLM safety metrics do not capture this availability failure."}],
+          "note": "This directly fits the measured Runbook Sentinel failure where untrusted guidance removes required project evidence and safe utility, without implying equivalent attack sophistication."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "baseline-0008 intended use", "note": "No executable, code, dataset, model, personal data, secret, operational evidence, or active paper content is imported; all test records are project-authored and synthetic."}],
+          "note": "Citation use cannot alter runtime authority or introduce active content."
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "review public research metadata and methods",
+      "cite and paraphrase approved methods in project records",
+      "implement project-authored synthetic retrieval-jamming tests",
+      "publish source citations and project-authored evaluation evidence"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "record exact citations and narrow method summaries",
+      "implement project-authored synthetic guidance-flood cases and graders",
+      "publish project-authored source, contracts, and evaluation evidence with attribution"
+    ],
+    "requires_explicit_authorization": [
+      "download or import external code, datasets, models, paper files, or associated repositories",
+      "authenticate, accept terms, purchase, upload, or disclose a secret",
+      "claim Runbook Sentinel reproduces either paper or is production-safe because of either source",
+      "interact with real operational infrastructure"
+    ]
+  }
+}

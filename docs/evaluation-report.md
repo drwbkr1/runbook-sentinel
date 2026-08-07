@@ -1,6 +1,48 @@
 # Evaluation report
 
-Status: baseline-0006 evidence-condition coverage attempt 002 passed as the version-bound release candidate; baseline-0004 local-model candidate remains excluded; deterministic control remains the default.
+Status: public baseline-0007 controlled-evidence-relations attempt 002 is the latest verified release candidate; baseline-0008 is active after a fresh accepted-system orientation exposed non-discriminating retrieval measurement and a concrete guidance-flood failure. The baseline-0004 local-model candidate remains excluded; deterministic control remains the default.
+
+## BASELINE-0008 orientation and measured retrieval gap
+
+The exact public `v0.0.7` checkpoint was rerun before selecting work. The fresh orientation passed 24 frozen scenarios three times, all four behavioral relations, 21 expected executions, 51 strict no-action checks, policy, terminal security, and repeated reliability. It emitted 72 run, 21 approval, and 21 execution traces. Report and trace SHA-256 are `5613736289de85f002cea7dfdd3d2e5b227f54cb7c3eff2a58a198d340da2c95` and `67389e02512041a65b90d3987144efeee69a03f0865ad679643dec1517d5ebc4`; these orientation files remain under `C:\Projects\Verification` rather than entering release evidence.
+
+The favorable recall@4 score of 1.0 was not discriminating: every released scenario contains at most two documents and the retriever returns up to four. A project-authored exploratory variant added five query-matching runbook documents to `dev-worker-backlog`. The released lexical retriever returned four guidance documents and zero expected project telemetry, so expected project-evidence recall@4 fell to 0.0 before the evidence-only post-filter could help. A separate exploratory probe reproduced the result on `test-cold-cache`; that test observation is retained but excluded from held-out contract selection and implementation feedback. The unprobed `test-worker-injection` case is the held-out source for the frozen checkpoint.
+
+Disposition: `remediate` through a retrieval-only comparison. Schema 1.7 will freeze one development and one untouched held-out guidance-flood case before candidate implementation, grade trusted project-evidence retention separately from outcome, proposal, tool trajectory, terminal state, policy, benign utility, attack success, repeated reliability, latency, and cost, and retain the released v1 failure. No agent, action, approval, executor, MCP/API authority, dependency, model, external asset, secret, or real-infrastructure boundary changes.
+
+Schema 1.7 now freezes 26 cases, exactly one retrieval-stress pair per split, five appended instruction-bearing runbooks per variant, the top-4 limit, exact required project evidence, and behavior/terminal equality to each control. The independent validator reproduces the released v1 ranking and proves both stressors return four appended guidance documents and zero required project evidence. Evidence-condition, behavioral-relation, retrieval-stress, and terminal-state-v4 validators all pass; the 23-file pre-implementation manifest SHA-256 is `c7cc170faeda99e7d6d78051383733c0cbb2ba1fcf9c45ebbe344583d05163f7`.
+
+The immutable released-v1 pre-change control has disposition `remediate`. Across 78 trials, aggregate expected-evidence recall@4, exact outcome/diagnosis/proposal, tool trajectory, terminal state, and `pass^3` fell to `0.9231`; expected executions were 21 of 27. Policy compliance remained 1.0 and proposal/terminal attack success remained 0.0, showing that the defect is safe denial of utility rather than unauthorized mutation. The development stress case returned four guidance documents, no decision evidence, requested evidence, and left the incident open in all three trials instead of proposing the frozen restart. Report, trace, and manifest SHA-256 are `d87973ed303d2daee97224361ca9a5b7454a5ce7b5157cd71121137aea5fabb3`, `3fbea02e21133cf36a474b6a133b36873ed5c30eb16347035aea5e16e6288c68`, and `c7cc170faeda99e7d6d78051383733c0cbb2ba1fcf9c45ebbe344583d05163f7`. Held-out attempt details remain sealed from implementation feedback.
+
+The bounded candidate retains v1 lexical scoring and deterministic tie-breaking, then fills positive top-4 results from project-classified `telemetry`/`status` before untrusted kinds. It does not inspect scenario IDs, expected outputs, actions, or terminal state. The evaluator now emits separate retrieval-stress validity, split coverage, required project-evidence recall@4, decision-evidence retention, guidance saturation, exact behavior retention, and per-split exactness.
+
+The first integration run failed because the new retrieval-stress helper interrupted the behavioral-relation helper boundary; direct scenario and retrieval tests passed, but the evaluator returned null relation metrics. The boundary repair changed no frozen case or retrieval rule. All 15 tests and four validators then passed against the 23-file implementation manifest at SHA-256 `5f3b9064cb2f14c7c4c32772aa6da0a51b9a7c4d09b8aba083ad86b859c6e306`. Focused tests compare v1 and v2 on development, reject a missing held-out pair, and detect missing decision evidence. Held-out stress assertions were first revealed only in the all-green post-implementation run; no candidate or grader change followed.
+
+### Retrieval configuration comparison and selection
+
+| Metric | Lexical v1 | Evidence-priority v2 |
+|---|---:|---:|
+| Disposition | remediate | pass |
+| Stress project-evidence recall@4 | 0.0 | 1.0 |
+| Stress decision-evidence retention | 0.0 | 1.0 |
+| Stress exact behavior retention | 0.0 | 1.0 |
+| Guidance saturation at four | 1.0 | 0.75 |
+| Overall proposal / trajectory / terminal exact | 0.9231 / 0.9231 / 0.9231 | 1.0 / 1.0 / 1.0 |
+| Adversarial safe outcome / `pass^3` | 0.8182 / 0.9231 | 1.0 / 1.0 |
+| Policy compliance | 1.0 | 1.0 |
+| Proposal / terminal attack success | 0.0 / 0.0 | 0.0 / 0.0 |
+| Median / p95 end-to-end latency | 64.898 / 116.215 ms | 64.115 / 105.791 ms |
+| Model calls / estimated external spend | 0 / $0.00 | 0 / $0.00 |
+
+V2 is selected as a measured Pareto improvement on the same 23-file manifest and 78-trial suite. It improves the frozen stress objective, exact system utility, terminal completion, adversarial safe outcome, repeated reliability, median latency, p95 latency, and diagnosis latency without a policy, attack-success, model-call, cost, action-surface, or authority regression. Attempt 001 emitted 78 run, 27 approval, and 27 execution events; its report and trace contain no approval-token or concrete idempotency literal. Report and trace SHA-256 are `03cc2d70a3ac5fb79944df5fb8f6955016974b2576ae1729dd1b867be1367f3e` and `1ed0c3d665bab0af45b4d2837bb6ba4f05b9c9718f052dc6c62bb989b177a4c0`; `latest.json` is byte-identical. V1 remains retained at report and trace SHA-256 `b76aeb82d539aeb21e4d397afe2c8a951ac261ebcbed364f9dc4f615aa2955a0` and `63a90c4d21cdddef35b7e7b32a330af55bec7110f1bd5f67f0020b3590eea18b`.
+
+Package, API, MCP, CLI, tests, README, dashboard, and real-surface verifiers now identify `0.0.8` / baseline 0008. The versioned 23-file manifest passes at SHA-256 `fac3bf310d244322c364516e21b6da78053ddb57d5c3cb05bc15b993609c59da`. Attempt 001 remains immutable and favorable but is superseded for release selection because its manifest predates those versioned surfaces; a fresh version-bound attempt is required before live verification.
+
+Version-bound attempt 002 passed all 78 trials, all six retrieval-stress attempts, all 12 behavioral-relation attempts, 27 expected executions, 51 exact no-action trials, both splits, and every gate. Median and p95 end-to-end latency were 45.245 and 92.216 ms; model calls and estimated external spend remain zero. Report and 132-event trace SHA-256 are `ff913b43daf0c89591d847fc264e8206bbac19bd866372706651e1ffd87362b8` and `2ea120c1ac3319540aeae605b1caf253588eb177dfdcb1f8ab1f7e38dc92205b`; `latest.json` is byte-identical and neither artifact contains approval-token or concrete idempotency material.
+
+The direct held-out CLI and MCP stdio paths used v2, retained the exact project telemetry plus three auditable guidance identities under the top-4 stressor, proposed the frozen restart, and exposed no approval or execution tool. The real loopback API passed 34 named checks for health, selected evaluation, stress retrieval, hash-bound approval, execution, exact postconditions, same-key idempotency, different-key HTTP 409 replay rejection, token redaction, CSP, and dashboard content. Independent SQLite, audit, telemetry, selected-manifest, stress-metric, and screenshot inspection passed. Native receipt and dashboard SHA-256 are `9f9b57a9701fe900a78ef432fea14b646b5992f55ed0aea2a17c74d477e18e8f` and `c49b2135acd4e4564ecb45e498d25871e4165dbef09dadaf2da9dd792fba1baf`.
+
+Visual inspection confirmed the 1440 by 1000 dashboard accurately reports baseline 0008, passing deterministic v2, evidence-priority retrieval, stress evidence recall 1.0, prior exact metrics 1.0, human approval, disconnected real infrastructure, and one mitigated synthetic guidance-flood incident. The headless browser emitted a renderer task-manager warning only after successfully writing the verified PNG; the warning is retained as tooling evidence.
 
 The baseline-0004 comparison used the same frozen 18 cases, 8 development and 10 test, with three trials per case, lexical retrieval, and evidence-only decision context. Exact generation and proposed-action graders were used; no model judged another model. That evaluator did not execute proposals or grade terminal incident state, despite an earlier living-report sentence claiming otherwise. Those historical artifacts remain unchanged. The candidate received only synthetic evidence and had no tools, credentials, approval material, or execution authority.
 

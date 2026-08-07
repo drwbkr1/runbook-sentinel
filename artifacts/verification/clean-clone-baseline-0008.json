@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0008",
+  "verified_commit": "3bcbad6aab640fad3eb4948a69161f5a73e99640",
+  "clone_path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0008-3bcbad6-20260807T0130",
+  "clone_mode": "git clone --no-local",
+  "status": "pass",
+  "checks": {
+    "exact_commit": true,
+    "compilation": true,
+    "tests_passed": 15,
+    "tests_total": 15,
+    "frozen_manifest": true,
+    "evidence_condition_contract": true,
+    "behavioral_relation_contract": true,
+    "retrieval_stress_contract": true,
+    "terminal_state_contract": true,
+    "research_source_gate": true,
+    "milestone_contract_count": 8,
+    "tracked_json_parsed": 97,
+    "tracked_jsonl_parsed": 26,
+    "latest_selected_byte_equal": true,
+    "selected_evaluation_manifest_bound": true,
+    "policy_unchanged_from_v0_0_7": true,
+    "model_weight_files_absent": true,
+    "high_signal_secret_hits_absent": true,
+    "held_out_cli": true,
+    "mcp_2025_11_25": true,
+    "mcp_approval_or_execution_tool_absent": true,
+    "api_named_checks": 34,
+    "api_named_checks_passed": 34,
+    "approval_executor_replay_postconditions": true,
+    "sqlite_audit_telemetry": true,
+    "rendered_dashboard_visually_inspected": true
+  },
+  "identities": {
+    "release_version": "0.0.8",
+    "retrieval_configuration": "evidence-priority-lexical-v2",
+    "manifest_sha256": "fac3bf310d244322c364516e21b6da78053ddb57d5c3cb05bc15b993609c59da",
+    "selected_evaluation_sha256": "ff913b43daf0c89591d847fc264e8206bbac19bd866372706651e1ffd87362b8",
+    "regenerated_native_receipt_sha256": "8ab59cc3b28559c6c1267396db0ad2be55652650bc77ec80055ba8bc2177e3dd",
+    "regenerated_dashboard_sha256": "5a054ebd0390b3414667aae0bc0dad06fd4687e38b17e310eafcff948632f1d9"
+  },
+  "post_verification_clone_changes": [
+    "artifacts/verification/native-baseline-0008.json",
+    "artifacts/verification/dashboard-baseline-0008.png"
+  ],
+  "post_verification_change_reason": "The clean clone intentionally reran the synthetic API workflow and regenerated its receipt and screenshot; no source, contract, manifest, policy, service, or selected evaluation changed.",
+  "retained_tooling_observations": [
+    "Headless Edge emitted a renderer task-manager warning after successfully writing the PNG; independent PNG dimensions, hash, content assertions, and visual inspection passed."
+  ]
+}
