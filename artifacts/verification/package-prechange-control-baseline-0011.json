@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0011",
+  "control_version": "0.0.10",
+  "measured_at_utc": "2026-08-07T18:13:00Z",
+  "source_commit": "01791052b80748bb0f8e01c57152d00b53822aee",
+  "source_frozen_manifest_sha256": "4b22c5dbd99dd778c5dcca5bb6bbd230178170775b22dcc5b579872e6c9b0ce4",
+  "probe": {
+    "command_class": "python -m zipapp src -m runbook_sentinel.cli:main",
+    "builder": "Python 3.12 standard-library zipapp default behavior",
+    "external_dependencies": [],
+    "source_tree_changed": false
+  },
+  "attempts": [
+    {
+      "id": "default-zipapp-a",
+      "artifact": "C:\\Projects\\Verification\\runbook-sentinel-v0010-default-a.pyz",
+      "bytes": 408715,
+      "sha256": "8205f85cfc50d89bcf2b893fefb4ffac39bec005c36d5a52c868d3758e6082e5"
+    },
+    {
+      "id": "default-zipapp-b",
+      "artifact": "C:\\Projects\\Verification\\runbook-sentinel-v0010-default-b.pyz",
+      "bytes": 408715,
+      "sha256": "3c17b8d233b4a2e6d80bba43941277eafe30733612974d99ca1c425451e5b5cc"
+    }
+  ],
+  "archive_observations": {
+    "entry_count": 37,
+    "pycache_or_bytecode_entry_count": 17,
+    "generated_main_timestamp_varied_between_builds": true,
+    "byte_identical": false,
+    "same_length": true,
+    "cli_help_exit_code": 0
+  },
+  "evaluation_probe": {
+    "exit_code": 1,
+    "report_created": false,
+    "failure_type": "FileNotFoundError",
+    "failure_message": "Evaluation requires the frozen manifest",
+    "stderr_artifact": "C:\\Projects\\Verification\\runbook-sentinel-v0010-default-evaluation.stderr.log",
+    "stderr_sha256": "21959f007cf39bc9d7005be1f02c4c23ae1bd7e8ff920cb871cca20bf63248fa"
+  },
+  "measured_weakness": {
+    "summary": "The public v0.0.10 release has no downloadable package asset. A default source-tree zipapp is neither reproducible nor clean and cannot run the frozen evaluation because the repository-relative manifest is absent.",
+    "release_asset_count": 0,
+    "reproducible": false,
+    "portable_frozen_evaluation": false,
+    "cache_free": false,
+    "security_boundary_regression_observed": false
+  },
+  "disposition": "remediate",
+  "retention": "immutable unfavorable control; do not replace with candidate results"
+}

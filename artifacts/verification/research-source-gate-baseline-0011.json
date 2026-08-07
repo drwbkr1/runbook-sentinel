@@ -1,0 +1,191 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0011-python-zipapp-specifications-20260807",
+  "assessed_at": "2026-08-07T18:16:10Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_actions": [
+      "review official Python packaging specifications",
+      "cite and narrowly paraphrase approved specification text",
+      "implement a project-authored standard-library deterministic zipapp builder and verifier",
+      "publish project-authored package evidence and artifact"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Use the official Python 3.12 zipapp, zipfile, and licensing documentation to design and explain a project-authored deterministic executable ZIP package. Import no external code, sample, package, executable, repository, dataset, model, or service.",
+    "planned_actions": [
+      "review official Python packaging specifications",
+      "cite and narrowly paraphrase approved specification text",
+      "implement a project-authored standard-library deterministic zipapp builder and verifier",
+      "publish project-authored package evidence and artifact"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "python-3.12.13-standard-library-packaging-docs",
+      "name": "Python 3.12.13 zipapp, zipfile, and licensing documentation",
+      "locator": "https://docs.python.org/3.12/library/zipapp.html",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://docs.python.org/3.12/library/zipapp.html",
+              "observed_at": "2026-08-07T18:16:10Z",
+              "note": "The official page identifies Python 3.12.13 zipapp documentation and the create_archive and main interfaces. UTF-8 response SHA-256 f0dc4d3ab76a15fbf4be7ad0884b3c8a02f609fa67b20b579fb359bb92055166."
+            },
+            {
+              "type": "live",
+              "locator": "https://docs.python.org/3.12/library/zipfile.html",
+              "observed_at": "2026-08-07T18:16:10Z",
+              "note": "The official page identifies Python 3.12.13 zipfile documentation including ZipInfo and date_time. UTF-8 response SHA-256 2a0d4f0f547949b0ca69c70076e56f6ed656f3397f65013e7bb26c4ed6fcb887."
+            }
+          ],
+          "note": "Exact runtime family, documentation version, publisher domain, and relevant interfaces are established."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://docs.python.org/3.12/library/zipapp.html",
+              "observed_at": "2026-08-07T18:16:10Z",
+              "note": "docs.python.org is the primary Python Software Foundation documentation surface for the installed Python standard-library feature."
+            }
+          ],
+          "note": "Authority is limited to Python archive format and API behavior."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://docs.python.org/3.12/library/zipapp.html",
+              "observed_at": "2026-08-07T18:16:10Z",
+              "note": "The page returned HTTP 200 without authentication, account, secret, payment, download, or terms acceptance."
+            },
+            {
+              "type": "live",
+              "locator": "https://docs.python.org/3.12/library/zipfile.html",
+              "observed_at": "2026-08-07T18:16:10Z",
+              "note": "The page returned HTTP 200 without authentication, account, secret, payment, download, or terms acceptance."
+            }
+          ],
+          "note": "Only public documentation review is required."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://docs.python.org/3.12/copyright.html",
+              "observed_at": "2026-08-07T18:16:10Z",
+              "note": "The official Python 3.12.13 copyright page presents the Python Software Foundation License terms. UTF-8 response SHA-256 42c21b6d3def7b78df3a58e371f5efc805a4d29ea81b7180ad3a6c863b799de1."
+            }
+          ],
+          "note": "The project uses attribution, links, and narrow paraphrase only; no documentation or code sample is copied or redistributed."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "Python 3.12.13 standard library and docs.python.org/3.12",
+              "note": "The installed zipapp and zipfile modules and the version-matched primary documentation are used directly without an intermediary."
+            }
+          ],
+          "note": "No external artifact enters project custody."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "Live-response SHA-256 values in this gate and installed Python 3.12 runtime",
+              "note": "Exact documentation-response digests, HTTPS locators, Python version, and project-authored archive verification bind the use."
+            }
+          ],
+          "note": "No acquired file requires a publisher checksum or signature."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "Python 3.12.13 zipapp and zipfile interfaces",
+              "note": "zipapp defines executable Python ZIP archives; zipfile exposes explicit entry metadata needed for sorted paths, fixed timestamps, permissions, and stored bytes."
+            },
+            {
+              "type": "static",
+              "locator": "C:\\Projects\\Verification\\runbook-sentinel-v0010-default-a.pyz",
+              "note": "A project-local probe confirms the installed interpreter runs a zipapp while exposing nondeterminism, pycache inclusion, and missing frozen-manifest evaluation support that the bounded design must correct."
+            }
+          ],
+          "note": "The specifications fit a dependency-free portable package; they do not establish Runbook Sentinel package correctness without project tests."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "BASELINE-0011 intended use",
+              "note": "No executable, code, sample, personal data, secret, active content, package dependency, model, or service is imported. The builder will include only allowlisted project-authored source, frozen metadata, and synthetic catalog files."
+            }
+          ],
+          "note": "The source review cannot broaden runtime or execution authority."
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "review official Python packaging specifications",
+      "cite and narrowly paraphrase approved specification text",
+      "implement a project-authored standard-library deterministic zipapp builder and verifier",
+      "publish project-authored package evidence and artifact"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "record exact official documentation links and narrow summaries",
+      "implement project-authored standard-library archive construction and verification",
+      "publish project-authored package source, checksums, evaluation evidence, and release artifact"
+    ],
+    "requires_explicit_authorization": [
+      "download or import external code, packages, samples, executables, repositories, datasets, or models",
+      "authenticate, accept terms, purchase, upload to a package registry, or disclose a secret",
+      "claim a zipapp is a sandbox, production deployment, or container replacement",
+      "interact with real operational infrastructure"
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0011",
+  "measured_at_utc": "2026-08-07T18:16:10Z",
+  "base_release": {
+    "version": "0.0.10",
+    "commit": "01791052b80748bb0f8e01c57152d00b53822aee",
+    "tag": "v0.0.10",
+    "public_release_asset_count": 0,
+    "authoritative_repository_clean": true
+  },
+  "fresh_orientation": {
+    "report": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0011-orientation-20260807T181134Z.json",
+    "trace": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0011-orientation-20260807T181134Z.traces.jsonl",
+    "report_sha256": "c77ba1d8ded1ac12bab1299f9bbae49f76a718058b0f90dbb74100e3fbc98f8f",
+    "trace_sha256": "fa75682f016bba03bff28b48d76398765195b61739d0bde473a5a173da791f28",
+    "attempt_count": 84,
+    "baseline_disposition": "pass",
+    "all_declared_gates_pass": true,
+    "pass_power_3": 1.0,
+    "model_calls": 0,
+    "estimated_cost_usd": 0.0
+  },
+  "current_package_surface": {
+    "pyproject_build_system_declared": false,
+    "setuptools_available": false,
+    "wheel_available": false,
+    "zipapp_available": true,
+    "repository_packaging_files": [],
+    "container_disposition": "defer",
+    "package_registry_claim": false
+  },
+  "default_zipapp_probe": {
+    "command_class": "python -m zipapp src -m runbook_sentinel.cli:main",
+    "artifact_a": "C:\\Projects\\Verification\\runbook-sentinel-v0010-default-a.pyz",
+    "artifact_b": "C:\\Projects\\Verification\\runbook-sentinel-v0010-default-b.pyz",
+    "artifact_a_sha256": "8205f85cfc50d89bcf2b893fefb4ffac39bec005c36d5a52c868d3758e6082e5",
+    "artifact_b_sha256": "3c17b8d233b4a2e6d80bba43941277eafe30733612974d99ca1c425451e5b5cc",
+    "artifact_length_bytes": 408715,
+    "byte_identical_repeated_builds": false,
+    "entry_count": 37,
+    "pycache_entry_count": 17,
+    "help_surface_runnable": true,
+    "evaluation_exit_code": 1,
+    "evaluation_output_created": false,
+    "evaluation_failure": "FileNotFoundError: Evaluation requires the frozen manifest"
+  },
+  "measured_weakness": "Public v0.0.10 has no runnable package asset. The available default standard-library archive path is executable but not reproducible, includes machine-local bytecode caches, and cannot run the frozen evaluation because it omits package-aware manifest custody.",
+  "bounded_objective": "Ship one project-authored, standard-library-only deterministic zipapp whose repeated builds are byte-identical, whose allowlisted contents exclude cache and secret material, whose embedded package manifest and frozen evaluation identity verify exactly, and whose CLI, evaluation, MCP, API, persistence, telemetry, and dashboard behavior match the source runtime.",
+  "unchanged_boundaries": [
+    "single bounded deterministic agent",
+    "three synthetic executor actions",
+    "external approval and policy enforcement",
+    "no credentials or secrets",
+    "no real infrastructure",
+    "no external runtime dependency",
+    "no container or package-registry claim"
+  ],
+  "disposition": "remediate"
+}
