@@ -213,11 +213,12 @@
       ,"The live loopback API passed 27 named health, selected-evaluation, approval, execution, postcondition, idempotency, replay, token-redaction, CSP, and dashboard checks"
       ,"Independent runtime inspection passed SQLite, audit, telemetry, selected-manifest binding, and screenshot checks; receipt and dashboard SHA-256 are 9dbd5f9ef37b69cef29fe28f40365f9e313a91b5463ac18e7edeccc914ee82a2 and f308245de2fa21e5fcb0d9ad3a9c0cc05b71424259dfb011a6d4384d9570bd69"
       ,"Visual inspection confirmed the rendered dashboard accurately reports baseline 0007, pass, relation exactness 1.0, human approval, disconnected real infrastructure, and one mitigated synthetic incident"
+      ,"A no-local-object clone of candidate 8328c08900739d4f07afd9202a979c1bdd4f63e9 passed compilation, 14 tests, all three validators, 82 JSON and 22 JSONL parses, manifest and selected-evaluation identity, model and secret exclusion, CLI, MCP, 27 API checks, 16 runtime checks, and visual dashboard inspection"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0007 version-bound attempt 002 and native CLI, MCP, API, executor, persistence, telemetry, and rendered-dashboard verification pass against the exact 0.0.7 manifest",
-    "next_action": "Commit selected attempt 002 and native evidence, then verify an exact no-local-object clean clone before GitHub review",
+    "current_checkpoint": "BASELINE-0007 release candidate 8328c08900739d4f07afd9202a979c1bdd4f63e9 passed exact no-local-object clean-clone source, contract, evaluation, security, real-surface, persistence, telemetry, and visual dashboard gates",
+    "next_action": "Commit the clean-clone receipt, push the verified branch, open GitHub review, and verify exact remote scope and mergeability",
     "do_not_carry_forward": [
       "Condition/split coverage as proof of controlled evidence sensitivity",
       "Unlinked scenarios as implicit counterfactual pairs",
