@@ -209,6 +209,7 @@
       ,"The real loopback API passed 34 named health, selected-evaluation, stress retrieval, approval, execution, postcondition, idempotency, replay, redaction, CSP, and dashboard checks"
       ,"Independent runtime inspection passed SQLite, hash-only consumed approval, audit, v2 telemetry, selected manifest binding, stress metrics, and 1440 by 1000 screenshot checks; receipt and dashboard SHA-256 are 9f9b57a9701fe900a78ef432fea14b646b5992f55ed0aea2a17c74d477e18e8f and c49b2135acd4e4564ecb45e498d25871e4165dbef09dadaf2da9dd792fba1baf"
       ,"Visual inspection confirmed baseline 0008, evidence-priority v2, all displayed exact metrics at 1.0, human approval, disconnected real infrastructure, and one mitigated synthetic guidance-flood incident"
+      ,"A no-local-object clone of exact candidate 3bcbad6aab640fad3eb4948a69161f5a73e99640 passed compilation, 15 tests, all contracts, source gate, 97 JSON and 26 JSONL parses, selected identity, policy/model/secret checks, held-out CLI, MCP, all 34 API checks, persistence, telemetry, and fresh dashboard inspection"
     ]
   },
   "handoff": {

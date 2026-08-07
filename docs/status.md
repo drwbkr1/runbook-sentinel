@@ -6,7 +6,7 @@
 - Completed milestones: `BASELINE-0001` through `BASELINE-0007`
 - Latest verified checkpoint: public `v0.0.7`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
 - Active milestone: `BASELINE-0008` - guidance-flood retrieval resilience
-- Current unit: commit the version-bound candidate and native evidence, verify an exact no-local-object clean clone, then perform GitHub review and merged-main verification
+- Current unit: push the clean-clone-verified branch, perform GitHub scope/mergeability review, merge with history preserved, then verify remote merged main before release closure
 - Disposition: evidence-priority v2 `select`; baseline-0008 release candidate `pass`; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
