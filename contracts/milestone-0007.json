@@ -75,7 +75,7 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
+      "status": "complete",
       "evidence": [
         "A closed relation schema links exactly one control and one variant with one allowed transformation",
         "Instruction-injection invariance and fresh-to-stale directional safety each appear in development and held-out test splits",
@@ -129,9 +129,11 @@
       "action_class": "repository_change",
       "inputs": ["Frozen relation schema and pair contract"],
       "outputs": ["Separate relation metrics", "Fail-closed relation grader", "Focused regression tests"],
-      "gates": {"agent_unchanged": false, "retriever_unchanged": false, "runtime_authority_unchanged": false, "new_dependencies": false},
-      "disposition": null,
-      "retained_failures": [],
+      "gates": {"agent_unchanged": true, "retriever_unchanged": true, "runtime_authority_unchanged": true, "new_dependencies": false},
+      "disposition": "pass",
+      "retained_failures": [
+        "The first full test run after integrating the relation grader failed three tests because the new helper was inserted before the existing evidence-coverage helper body had returned, causing that helper to yield null. The failure was preserved in the devlog; the function boundary was repaired without changing the frozen relation contract, agent, retriever, policy, service, action surface, or authority boundary, and all 14 tests then passed."
+      ],
       "next_dependency": "UNIT-004"
     },
     {
@@ -195,12 +197,17 @@
       "The terminal-state-v3 contract passes with seven actionable and seventeen no-action cases while retaining all three existing actions and the external approval boundary",
       "The 22-file pre-implementation manifest has SHA-256 696474d7e12c0ea79de843d4fdef3c3bec8faf9b5225997dc35ae18ab426c191; agent, retriever, policy, service, API, MCP, and actions are unchanged",
       "The unchanged evaluator passed all 72 expanded-suite trials under its old gates and emitted 72 run, 21 approval, and 21 execution events, while reporting no behavioral-relation metric or gate",
-      "The immutable pre-grader control report and trace SHA-256 are 386ece2815be95aff23a84b297ddfb1636a19303f01c59bc7e583f50a9fbfdaf and d50d4e32ff1b133447f4f35a9b71a2cfdfb178134b2f753ab11ae490ba5afb6e"
+      "The immutable pre-grader control report and trace SHA-256 are 386ece2815be95aff23a84b297ddfb1636a19303f01c59bc7e583f50a9fbfdaf and d50d4e32ff1b133447f4f35a9b71a2cfdfb178134b2f753ab11ae490ba5afb6e",
+      "The fail-closed evaluator now reports contract validity, missing split/type pairs, split coverage, invariance exactness, directional-safety exactness, combined exactness, per-split exactness, and per-trial comparison details separately from scenario metrics",
+      "Focused tests prove a missing held-out directional relation invalidates coverage and a corrupted paired action lowers invariance and combined exactness",
+      "The first integrated run failed because of a misplaced helper boundary; the repair retained the frozen contract and all 14 tests then passed",
+      "A disposable 72-trial implementation smoke passed all gates with four relations and 12 of 12 paired trials exact; report and 114-event trace SHA-256 are 9da65549afcc80d68ec74ca025e3529d9fefc41484c30b454a57c44f61f3fced and 80631bf38454f7302b5e2852b3b28560dc8bc7f7941917a31d64f60da3b0d1df"
+      ,"The completed 22-file implementation manifest passes verification at SHA-256 8db0a7f5fd15dd92a82ab710e65fc6dbc84e4eec28b2d67b46a94a1427963c69; agent, retriever, policy, and service hashes remain unchanged"
     ]
   },
   "handoff": {
-    "current_checkpoint": "public v0.0.6 is the exact release; BASELINE-0007 schema 1.6, four relations, independent validator, terminal contract, manifest, and immutable pre-grader control are frozen",
-    "next_action": "Implement separate fail-closed behavioral-relation metrics and gates against the frozen contract without changing the agent, retriever, policy, service, or authority boundary",
+    "current_checkpoint": "public v0.0.6 is the exact release; BASELINE-0007 schema 1.6, four relations, fail-closed pairwise grader, passing tests and smoke, and the completed 22-file manifest are frozen",
+    "next_action": "Commit the manifest-bound implementation, run immutable expanded-suite attempt 001, and promote only a passing relation-aware result",
     "do_not_carry_forward": [
       "Condition/split coverage as proof of controlled evidence sensitivity",
       "Unlinked scenarios as implicit counterfactual pairs",

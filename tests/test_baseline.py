@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import copy
 import json
 import sys
 import tempfile
@@ -15,6 +16,7 @@ from runbook_sentinel.api import create_server
 from runbook_sentinel.catalog import load_catalog
 from runbook_sentinel.errors import ApprovalError, PolicyRejected, ReplayRejected
 from runbook_sentinel.evaluation import (
+    _behavioral_relation_metrics,
     _evidence_condition_coverage,
     _run_terminal_harness,
     run_evaluation,
@@ -211,7 +213,7 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["coverage"]["adversarial_split_coverage"], 1.0)
         self.assertEqual(report["metrics"]["coverage"]["missing_condition_split_pairs"], [])
         self.assertEqual(report["metrics"]["coverage"]["missing_adversarial_splits"], [])
-        self.assertEqual(report["schema_version"], "1.5")
+        self.assertEqual(report["schema_version"], "1.6")
         self.assertEqual(report["checkpoint"], "baseline-0007")
         self.assertEqual(report["metrics"]["proposal"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["development"]["tool_trajectory"]["exact_match"], 1.0)
@@ -229,6 +231,25 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["terminal_state"]["no_action_no_mutation_rate"], 1.0)
         self.assertEqual(report["metrics"]["terminal_state"]["action_type_coverage"], 1.0)
         self.assertEqual(report["metrics"]["terminal_state"]["executed_expected_action_trial_count"], 21)
+        relation_metrics = report["metrics"]["behavioral_relations"]
+        self.assertTrue(report["gates"]["behavioral_relation_contract_valid"])
+        self.assertTrue(report["gates"]["behavioral_relation_split_coverage_is_one"])
+        self.assertTrue(report["gates"]["behavioral_relation_invariance_exact_is_one"])
+        self.assertTrue(report["gates"]["behavioral_relation_directional_safety_exact_is_one"])
+        self.assertTrue(report["gates"]["behavioral_relation_exact_is_one"])
+        self.assertTrue(report["gates"]["development_behavioral_relations_exact"])
+        self.assertTrue(report["gates"]["test_behavioral_relations_exact"])
+        self.assertEqual(relation_metrics["relation_count"], 4)
+        self.assertEqual(relation_metrics["relation_attempt_count"], 12)
+        self.assertEqual(relation_metrics["missing_relation_split_pairs"], [])
+        self.assertEqual(relation_metrics["relation_split_coverage"], 1.0)
+        self.assertEqual(relation_metrics["invariance_exact_match_rate"], 1.0)
+        self.assertEqual(relation_metrics["directional_safety_exact_match_rate"], 1.0)
+        self.assertEqual(relation_metrics["exact_match_rate"], 1.0)
+        self.assertEqual(
+            relation_metrics["split_exact_match_rate"],
+            {"development": 1.0, "test": 1.0},
+        )
         self.assertEqual(report["metrics"]["policy"]["compliance_rate"], 1.0)
         self.assertEqual(report["metrics"]["security"]["proposal_attack_success_rate"], 0.0)
         self.assertEqual(report["metrics"]["security"]["terminal_attack_success_rate"], 0.0)
@@ -242,6 +263,43 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["reliability"]["pass^3"], 1.0)
         self.assertEqual(report["metrics"]["cost"]["model_calls"], 0)
         self.assertIsNone(report["metrics"]["generation"]["structured_parse_success_rate"])
+
+        catalog = load_catalog()
+        missing_contract = copy.deepcopy(catalog["behavioral_relation_contract"])
+        missing_contract["relations"] = [
+            relation
+            for relation in missing_contract["relations"]
+            if relation["id"] != "test-cache-freshness-direction"
+        ]
+        missing_result = _behavioral_relation_metrics(
+            catalog["scenarios"],
+            catalog["terminal_state_contract"],
+            report["cases"],
+            missing_contract,
+        )
+        self.assertFalse(missing_result["contract_valid"])
+        self.assertLess(missing_result["relation_split_coverage"], 1.0)
+        self.assertIn(
+            {"split": "test", "relation_type": "directional_safety"},
+            missing_result["missing_relation_split_pairs"],
+        )
+
+        corrupted_cases = copy.deepcopy(report["cases"])
+        corrupted_variant = next(
+            case
+            for case in corrupted_cases
+            if case["scenario_id"] == "dev-inband-worker-action-injection"
+        )
+        corrupted_variant["attempts"][0]["actual"]["action"] = "rollback_deployment"
+        corrupted_result = _behavioral_relation_metrics(
+            catalog["scenarios"],
+            catalog["terminal_state_contract"],
+            corrupted_cases,
+            catalog["behavioral_relation_contract"],
+        )
+        self.assertTrue(corrupted_result["contract_valid"])
+        self.assertLess(corrupted_result["invariance_exact_match_rate"], 1.0)
+        self.assertLess(corrupted_result["exact_match_rate"], 1.0)
         self.assertNotIn("approval_token", output.read_text(encoding="utf-8"))
         self.assertNotIn("approval_token", output.with_name("baseline.traces.jsonl").read_text(encoding="utf-8"))
 

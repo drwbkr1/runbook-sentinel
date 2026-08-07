@@ -6,8 +6,8 @@
 - Completed milestones: `BASELINE-0001` through `BASELINE-0006`
 - Latest verified checkpoint: public `v0.0.6`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
 - Active milestone: `BASELINE-0007`
-- Current unit: freeze controlled evidence relations before evaluator implementation
-- Disposition: released baseline `pass`; evidence-relation coverage `remediate`; local-model candidate `exclude`; container `defer`
+- Current unit: freeze the completed relation-aware evaluator and run an immutable expanded-suite attempt
+- Disposition: released baseline `pass`; implementation smoke `pass`; immutable relation-aware selection pending; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -186,5 +186,9 @@ Next eligible action: freeze schema 1.6, the four exact relations, counterpart s
 - The first expanded test run failed four stale inventory assertions while all scenario behavior and authority tests passed. The exact case map and inventory counts were corrected; all 14 tests then passed.
 - The 22-file pre-implementation manifest SHA-256 is `696474d7e12c0ea79de843d4fdef3c3bec8faf9b5225997dc35ae18ab426c191`. Agent, retriever, policy, service, API, MCP, actions, approval, and executor remain unchanged.
 - The immutable pre-grader control passed 72 trials and 114 trace events under the old gates but emitted no behavioral-relation metric or gate. Report and trace SHA-256 are `386ece2815be95aff23a84b297ddfb1636a19303f01c59bc7e583f50a9fbfdaf` and `d50d4e32ff1b133447f4f35a9b71a2cfdfb178134b2f753ab11ae490ba5afb6e`.
+- The implemented grader validates the closed relation contract and reports missing split/type pairs, coverage, invariance exactness, freshness-direction exactness, combined exactness, per-split exactness, and per-trial checks separately from scenario-level metrics.
+- Focused fail-closed tests reject a missing held-out directional relation and detect a corrupted paired action. The first integrated run failed because the new helper interrupted the existing coverage helper; the boundary was repaired without changing the frozen contract or runtime logic, and all 14 tests then passed.
+- A disposable 72-trial implementation smoke passed every gate: four relations, 12 of 12 paired attempts exact, development and held-out relation exactness 1.0, 21 expected executions, and 51 strict no-action results. Report and trace SHA-256 are `9da65549afcc80d68ec74ca025e3529d9fefc41484c30b454a57c44f61f3fced` and `80631bf38454f7302b5e2852b3b28560dc8bc7f7941917a31d64f60da3b0d1df`.
+- The completed 22-file implementation manifest passes at SHA-256 `8db0a7f5fd15dd92a82ab710e65fc6dbc84e4eec28b2d67b46a94a1427963c69`. Agent, retriever, policy, service, API, MCP, and action surfaces remain unchanged from the pre-grader freeze.
 
 Next eligible action: implement fail-closed relation validity, split coverage, invariance, directional-safety, and combined exactness metrics against the frozen contract.
