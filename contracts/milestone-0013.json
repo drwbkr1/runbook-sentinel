@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0013",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": ["local_verification", "repository_change", "local_commit", "github_push"],
+    "user_instruction": "Continue selecting and shipping bounded evidence-driven checkpoints without routine approval while preserving the thesis, failed experiments, external-source gates, and security boundaries.",
+    "repository_controls": ["AGENTS.md", "C:\\Projects\\STORAGE_POLICY.md", "contracts/milestone-0012.json", "docs/status.md"],
+    "active_contract": "contracts/milestone-0013.json",
+    "verified_at_utc": "2026-08-07T20:05:11Z",
+    "expires_at_utc": null
+  },
+  "objective": "Reject non-integer, nonpositive, and over-maximum approval lifetimes before mutation, prove exact recovery-preserving behavior across frozen development and held-out cases, and release only if every existing agent, policy, execution, package, and real-surface gate remains passing.",
+  "scope": {
+    "allowed_paths": ["C:\\Projects\\Active\\runbook-sentinel", "C:\\Projects\\Verification"],
+    "included": [
+      "freeze an exact approval lifetime contract with development and held-out test cases",
+      "enforce integer TTL from 1 through 300 seconds in the deterministic approval broker",
+      "reject invalid API input with HTTP 400 before proposal, approval, audit, trace, or incident mutation",
+      "add an independent contract validator and separate evaluation metrics",
+      "version and verify CLI, API, MCP, dashboard, persistence, telemetry, package, clean clone, and public release"
+    ],
+    "excluded": [
+      "changing the agent, retriever, decision context, scenario catalog, action set, capability policy, executor, idempotency, replay, preconditions, postconditions, credentials, or real-infrastructure boundary",
+      "adding dependencies, services, secrets, external code, data, models, assets, containers, or package registries",
+      "describing the known negative-TTL development probe as held-out evidence"
+    ],
+    "stop_conditions": [
+      "core thesis change",
+      "security-boundary weakening",
+      "dependency, external asset, spend, secret, access, ownership, real infrastructure, or irreversible action required",
+      "candidate or shipment cannot be verified"
+    ]
+  },
+  "verification": {
+    "changed_risks": [
+      "strict type and range validation can reject formerly coerced operator input",
+      "invalid input can still mutate proposal, approval, audit, trace, or incident state if validation occurs too late",
+      "valid minimum, maximum, and default approval lifetimes can regress",
+      "new evaluation logic can hide or rewrite the released negative-TTL failure"
+    ],
+    "required_checks": [
+      "approval lifetime contract freezes before candidate implementation",
+      "independent validator rejects split, type, bound, mutation, and expected-result corruption",
+      "released negative-TTL development control remains retained as fail",
+      "candidate passes all nine contract cases with held-out results revealed only after generic implementation",
+      "existing frozen 84-attempt evaluation and every real and packaged surface remain passing",
+      "clean clone, GitHub review, merged main, and public release reconcile"
+    ],
+    "completed_checks": [
+      "public v0.0.12 release closure and selected package bytes reconcile",
+      "fresh public-package orientation passes all 84 attempts and every existing gate",
+      "released real API accepts negative TTL and wedges the proposal in approved state",
+      "the exact bounded policy uses the existing 300-second default and imports no external source or asset",
+      "all nine frozen approval-lifetime cases and all existing source and package gates pass",
+      "two independent builds and the remote clean-clone rebuild reproduce the selected c14a4559 archive bytes",
+      "final review-head clone passes validators, tests, and exact archive rebuild",
+      "initial GitHub review binds PR 11 to exact head 536378ced68d0e145e3be836adbe25d2b7f83535 and 49 expected paths"
+    ],
+    "artifacts": [
+      "artifacts/verification/approval-lifetime-gap-baseline-0013.json",
+      "eval/approval-lifetime-contract.json",
+      "artifacts/evaluations/runs/baseline-0013-approval-lifetime-attempt-001.json",
+      "artifacts/evaluations/runs/baseline-0013-attempt-002.json",
+      "artifacts/evaluations/runs/baseline-0013-package-attempt-001.json",
+      "artifacts/verification/package-verification-baseline-0013.json",
+      "artifacts/verification/clean-clone-baseline-0013.json",
+      "artifacts/verification/release-audit-baseline-0013-premerge.json"
+    ],
+    "disposition": "in_progress"
+  },
+  "boundaries": {
+    "model_outputs": ["diagnose", "request_evidence", "propose_action", "abstain"],
+    "model_has_credentials": false,
+    "model_has_approval_authority": false,
+    "model_has_execution_authority": false,
+    "retrieved_content_trusted": false,
+    "authorization_enforced_outside_model": true,
+    "capabilities_enforced_outside_model": true,
+    "approvals_enforced_outside_model": true,
+    "idempotency_enforced_outside_model": true,
+    "replay_protection_enforced_outside_model": true,
+    "postconditions_enforced_outside_model": true,
+    "real_infrastructure_connected": false
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.12 is verified at release closure 9829f4e2309b9ebde83f7e1fc4f53f9e7e408b2a",
+        "Fresh public asset evaluation passes 28 scenarios and 84 attempts",
+        "Released dev-negative-ttl probe returns approval 201, expired execution 409, recovery approval 409, open incident, approved proposal, and unconsumed approval"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {"id": "EXIT-001", "status": "pending", "evidence": []}
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Run public v0.0.12, inspect evaluation and traces, and measure one approval-lifetime weakness on the real released API",
+      "depends_on": [],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": ["fresh orientation", "negative-TTL gap receipt"],
+      "gates": {"released_checkpoint_exact": true, "fresh_run_complete": true, "weakness_measurable": true},
+      "disposition": "pass",
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze exact approval lifetime policy, split cases, invalid no-mutation terminal state, and unchanged boundaries before implementation",
+      "depends_on": ["UNIT-001"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": ["approval lifetime contract", "milestone contract"],
+      "gates": {"frozen_before_implementation": true, "development_probe_not_held_out": true, "external_sources_or_assets": false},
+      "disposition": "pass",
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement strict deterministic TTL validation and an independent fail-closed contract validator",
+      "depends_on": ["UNIT-002"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": ["approval lifetime policy", "validator", "focused tests"],
+      "gates": {"invalid_input_rejected_before_mutation": true, "valid_boundaries_preserved": true, "security_boundaries_unchanged": true},
+      "disposition": "pass",
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Reveal the frozen approval-lifetime suite once, add separate metrics, and compare all prior system gates",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": ["immutable evaluation", "approval lifetime metrics", "real-surface evidence"],
+      "gates": {"all_nine_cases_exact": true, "held_out_revealed_once": true, "prior_gates_preserved": true},
+      "disposition": "pass",
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Version, package, clean-clone, review, merge, publish, and verify the bounded checkpoint",
+      "depends_on": ["UNIT-004"],
+      "action_class": "github_push",
+      "human_gate": false,
+      "status": "in_progress",
+      "outputs": ["verified public checkpoint"],
+      "gates": {"clean_clone": true, "github_review": true, "premerge_audit": true, "public_release": false, "release_verified": false},
+      "disposition": "in_progress"
+    }
+  ],
+  "stop_conditions": [
+    {"id": "STOP-THESIS", "active": false, "condition": "Change the core product thesis."},
+    {"id": "STOP-SECURITY", "active": false, "condition": "Weaken a security boundary or cross an explicit no-go boundary."},
+    {"id": "STOP-COST", "active": false, "condition": "Spend money or add a paid service or secret."},
+    {"id": "STOP-RIGHTS", "active": false, "condition": "Import externally controlled assets with unresolved rights or safety."},
+    {"id": "STOP-ACCESS", "active": false, "condition": "Change access or ownership."},
+    {"id": "STOP-INFRA", "active": false, "condition": "Interact with real operational infrastructure."},
+    {"id": "STOP-IRREVERSIBLE", "active": false, "condition": "Take an irreversible action."},
+    {"id": "STOP-UNVERIFIED", "active": false, "condition": "Ship something that cannot be verified."}
+  ],
+  "handoff": {
+    "latest_verified_checkpoint": "public v0.0.12 release closure 9829f4e2309b9ebde83f7e1fc4f53f9e7e408b2a",
+    "active_weakness": "candidate closes the released invalid approval-lifetime mutation gap; final receipt-head review, merge, and public-release truth remain",
+    "resume_rule": "Resume from UNIT-005, selected c14a4559 package bytes, and PR 11; revalidate the receipt-only head before merge and do not alter the runtime candidate or rerun broad ideation."
+  }
+}

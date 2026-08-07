@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0013",
+  "version": "0.0.13",
+  "status": "pass",
+  "frozen_manifest": {
+    "file_count": 40,
+    "sha256": "249513aca8911a1a574a48e2546458db0b3d1e37ecdd4416db40cbb8638bc4c9",
+    "frozen_at_utc": "2026-08-07T20:31:00Z"
+  },
+  "package_contract": {
+    "path": "eval/package-contract-0013.json",
+    "sha256": "be4045aee37e269fb1dca4a412dc448a5932b2dd408ba58a7b552e7f8869ac26",
+    "status": "frozen_before_archive_build",
+    "validator_pass": true
+  },
+  "selected_archive": {
+    "path": "dist/runbook-sentinel-0.0.13.pyz",
+    "bytes": 257847,
+    "sha256": "c14a4559f3cfc4f53d5ce501115747252c9f33e7f299eb34f088c605930fbd41",
+    "entry_count": 23,
+    "runtime_dependencies": [],
+    "checksum_path": "dist/runbook-sentinel-0.0.13.pyz.sha256",
+    "checksum_sha256": "e7672cae6b17ba3fc74ef0e87f0af77625d463bfe1321a7bea8e27e143a4d742",
+    "checksum_line": "c14a4559f3cfc4f53d5ce501115747252c9f33e7f299eb34f088c605930fbd41  runbook-sentinel-0.0.13.pyz"
+  },
+  "independent_build": {
+    "path": "C:\\Projects\\Verification\\runbook-sentinel-0.0.13-build2.pyz",
+    "bytes": 257847,
+    "sha256": "c14a4559f3cfc4f53d5ce501115747252c9f33e7f299eb34f088c605930fbd41",
+    "byte_identical": true
+  },
+  "source_evaluation": {
+    "path": "artifacts/evaluations/runs/baseline-0013-attempt-002.json",
+    "sha256": "288b8e416a8d259b05b0162df42f1b598d50605dcbf9f54f1439f81406c1d9f4",
+    "trace_sha256": "599189f103df0a5797c44bccc909460135f0bbc9a351511c873807fb45834c1f",
+    "disposition": "pass",
+    "attempt_count": 84,
+    "approval_lifetime_exact": 1.0,
+    "invalid_lifetime_no_mutation": 1.0,
+    "valid_lifetime_exact": 1.0
+  },
+  "package_evaluation": {
+    "path": "artifacts/evaluations/runs/baseline-0013-package-attempt-001.json",
+    "sha256": "3219d098aefbb3be44f50a3290f1a590948d6a5a885715ad2be56c0f9e508b7e",
+    "trace_sha256": "3f832851c6d993f4e3f43a3a4318bf132e3e393daa88c67dbf7938a35775fa85",
+    "disposition": "pass",
+    "attempt_count": 84,
+    "approval_lifetime_exact": 1.0,
+    "invalid_lifetime_no_mutation": 1.0,
+    "valid_lifetime_exact": 1.0,
+    "source_non_latency_result_exact": true
+  },
+  "real_surfaces": {
+    "source_runtime_evidence": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0013-source-runtime-20260807T203304Z",
+    "source_native_receipt_sha256": "778491d870491319a3f950adc8bca790564e450520088bc107f30389b01e6f95",
+    "source_dashboard_sha256": "d5020210a41e41f95109384470371f69847d1fe3fa36e705a12625b9349cadcb",
+    "package_native_receipt": "artifacts/verification/native-baseline-0013.json",
+    "package_native_receipt_sha256": "74644fc06dbb9ab73f7ad9ac3d202f5a834a6299b91c18dd498e498461b83682",
+    "package_dashboard": "artifacts/verification/dashboard-baseline-0013.png",
+    "package_dashboard_sha256": "989dab01b89bd253de6c28e4522092279e5d8e250ca0eba384cefbc7c5891bb6",
+    "source_runtime_check_count": 31,
+    "package_runtime_check_count": 31,
+    "source_http_dashboard_check_count": 58,
+    "package_http_dashboard_check_count": 58,
+    "source_mcp_pass": true,
+    "package_mcp_pass": true,
+    "package_cli_commands": ["run", "approve", "execute", "evaluate", "serve", "mcp"],
+    "visual_inspection": "pass: Baseline 0013, evaluation pass, approval lifetime exact 1.0, human approval, disconnected real infrastructure, and persisted incidents are legible at 1440 by 1000"
+  },
+  "retained_failures": [
+    "artifacts/verification/approval-lifetime-gap-baseline-0013.json",
+    "artifacts/verification/live-api-baseline-0013-attempt-001-failed.json",
+    "two integrated verifier false positives recorded in docs/devlog.md"
+  ],
+  "boundaries": {
+    "agent_retrieval_scenarios_actions_capabilities_executor_unchanged": true,
+    "approval_token_hashed_and_absent_from_evidence": true,
+    "mcp_has_no_approval_or_execution_tool": true,
+    "real_infrastructure_disconnected": true,
+    "external_code_data_model_service_or_dependency_added": false,
+    "container_claim": false
+  },
+  "disposition": "advance_to_clean_clone"
+}

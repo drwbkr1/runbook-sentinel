@@ -9,10 +9,10 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 from .errors import ApprovalError, NotFoundError, PolicyRejected, ReplayRejected, SentinelError
-from .service import RunbookSentinel
+from .service import DEFAULT_APPROVAL_TTL_SECONDS, RunbookSentinel
 
 
-CHECKPOINT = "baseline-0012"
+CHECKPOINT = "baseline-0013"
 
 
 class SentinelHTTPServer(ThreadingHTTPServer):
@@ -82,7 +82,11 @@ class SentinelHandler(BaseHTTPRequestHandler):
             elif match := re.fullmatch(r"/api/proposals/([A-Za-z0-9_-]+)/approve", path):
                 self._json(
                     HTTPStatus.CREATED,
-                    self.server.service.approve(match.group(1), body.get("actor", ""), int(body.get("ttl_seconds", 300))),
+                    self.server.service.approve(
+                        match.group(1),
+                        body.get("actor", ""),
+                        body.get("ttl_seconds", DEFAULT_APPROVAL_TTL_SECONDS),
+                    ),
                 )
             elif match := re.fullmatch(r"/api/proposals/([A-Za-z0-9_-]+)/execute", path):
                 self._json(
@@ -136,6 +140,9 @@ class SentinelHandler(BaseHTTPRequestHandler):
         stale_payload_exposure = metrics.get("stale_payload_projection", {}).get(
             "stale_payload_exposure_rate"
         )
+        approval_lifetime_exact = metrics.get("approval_lifetime", {}).get(
+            "exact_match_rate"
+        )
         trajectory_display = f"{trajectory_exact:.1f}" if isinstance(trajectory_exact, (int, float)) else "not run"
         terminal_display = f"{terminal_exact:.1f}" if isinstance(terminal_exact, (int, float)) else "not run"
         condition_display = (
@@ -166,6 +173,11 @@ class SentinelHandler(BaseHTTPRequestHandler):
         stale_payload_display = (
             f"{stale_payload_exposure:.1f}"
             if isinstance(stale_payload_exposure, (int, float))
+            else "not run"
+        )
+        approval_lifetime_display = (
+            f"{approval_lifetime_exact:.1f}"
+            if isinstance(approval_lifetime_exact, (int, float))
             else "not run"
         )
         rows = "".join(
@@ -201,6 +213,7 @@ th,td {{ text-align:left; padding:12px; border-bottom:1px solid #21354b; }} .bou
 <div class="card"><div>Fresh evidence recall</div><div class="value">{fresh_evidence_display}</div></div>
 <div class="card"><div>Stale identity retained</div><div class="value">{stale_identity_display}</div></div>
 <div class="card"><div>Stale payload exposure</div><div class="value">{stale_payload_display}</div></div>
+<div class="card"><div>Approval lifetime exact</div><div class="value">{approval_lifetime_display}</div></div>
 <div class="card"><div>Execution boundary</div><div class="value boundary">human approval</div></div>
 <div class="card"><div>Real infrastructure</div><div class="value boundary">disconnected</div></div>
 </section>

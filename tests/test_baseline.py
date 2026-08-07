@@ -6,6 +6,7 @@ import sys
 import tempfile
 import threading
 import unittest
+from datetime import datetime
 from pathlib import Path
 from urllib.request import Request, urlopen
 
@@ -41,6 +42,7 @@ from runbook_sentinel.retrieval import (
 )
 from runbook_sentinel.service import RunbookSentinel
 from scripts.verify_stale_payload_projection import validate as validate_stale_payload_projection
+from scripts.verify_approval_lifetime_contract import validate as validate_approval_lifetime_contract
 
 
 class BaselineTest(unittest.TestCase):
@@ -123,6 +125,88 @@ class BaselineTest(unittest.TestCase):
         with self.assertRaises(ApprovalError):
             self.service.execute(second["proposal"]["id"], second_approval["approval_token"], "restart-once")
 
+    def test_development_approval_lifetime_cases_are_exact_and_precede_mutation(self):
+        for ttl_seconds in (-1, 301):
+            with self.subTest(ttl_seconds=ttl_seconds):
+                result = self.service.run_scenario("dev-worker-backlog")
+                proposal_id = result["proposal"]["id"]
+                incident_before = self.service.get_incident(result["incident_id"])
+                with self.assertRaisesRegex(
+                    ValueError,
+                    "Approval TTL must be an integer from 1 through 300 seconds",
+                ):
+                    self.service.approve(proposal_id, "lifetime-test", ttl_seconds)
+                with self.service.storage.connect() as connection:
+                    proposal = connection.execute(
+                        "SELECT status FROM proposals WHERE id = ?", (proposal_id,)
+                    ).fetchone()
+                    approval_count = connection.execute(
+                        "SELECT COUNT(*) FROM approvals WHERE proposal_id = ?", (proposal_id,)
+                    ).fetchone()[0]
+                    audit_count = connection.execute(
+                        "SELECT COUNT(*) FROM audit_log WHERE subject_id = ? AND event_type = 'proposal.approved'",
+                        (proposal_id,),
+                    ).fetchone()[0]
+                trace_events = [
+                    json.loads(line)
+                    for line in (Path(self.temp.name) / "traces.jsonl")
+                    .read_text(encoding="utf-8")
+                    .splitlines()
+                ]
+                self.assertEqual(proposal["status"], "pending")
+                self.assertEqual(approval_count, 0)
+                self.assertEqual(audit_count, 0)
+                self.assertFalse(
+                    any(
+                        event["name"] == "sentinel.approval"
+                        and event["attributes"].get("proposal.id") == proposal_id
+                        for event in trace_events
+                    )
+                )
+                self.assertEqual(self.service.get_incident(result["incident_id"]), incident_before)
+
+        minimum = self.service.run_scenario("dev-worker-backlog")
+        approval = self.service.approve(minimum["proposal"]["id"], "lifetime-test", 1)
+        with self.service.storage.connect() as connection:
+            stored = connection.execute(
+                "SELECT created_at, expires_at FROM approvals WHERE id = ?",
+                (approval["approval_id"],),
+            ).fetchone()
+        lifetime = datetime.fromisoformat(stored["expires_at"]) - datetime.fromisoformat(
+            stored["created_at"]
+        )
+        self.assertEqual(lifetime.total_seconds(), 1)
+
+    def test_approval_lifetime_contract_validator_fails_closed_on_corruption(self):
+        contract = json.loads(
+            (ROOT / "eval/approval-lifetime-contract.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(validate_approval_lifetime_contract(copy.deepcopy(contract)), [])
+
+        corruptions = []
+        changed_maximum = copy.deepcopy(contract)
+        changed_maximum["policy"]["maximum_ttl_seconds"] = 3600
+        corruptions.append(changed_maximum)
+        changed_split = copy.deepcopy(contract)
+        changed_split["cases"][3]["split"] = "development"
+        corruptions.append(changed_split)
+        coerced_type = copy.deepcopy(contract)
+        coerced_type["cases"][2]["ttl_value"] = True
+        corruptions.append(coerced_type)
+        weakened_mutation = copy.deepcopy(contract)
+        weakened_mutation["cases"][0]["expected"]["proposal_status"] = "approved"
+        corruptions.append(weakened_mutation)
+        leaked_held_out = copy.deepcopy(contract)
+        leaked_held_out["prechange_evidence"]["held_out_candidate_results_revealed"] = True
+        corruptions.append(leaked_held_out)
+        changed_boundary = copy.deepcopy(contract)
+        changed_boundary["unchanged_boundaries"].pop()
+        corruptions.append(changed_boundary)
+
+        for corrupted in corruptions:
+            with self.subTest(corruption=corruptions.index(corrupted)):
+                self.assertTrue(validate_approval_lifetime_contract(corrupted))
+
     def test_forbidden_action_has_no_policy_or_executor(self):
         self.assertEqual(set(ACTION_SPECS), {"restart_worker", "rollback_deployment", "warm_cache"})
         with self.assertRaises(PolicyRejected):
@@ -137,7 +221,7 @@ class BaselineTest(unittest.TestCase):
         server = MCPServer(self.service)
         initialized = server.handle({"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
         self.assertEqual(initialized["result"]["protocolVersion"], "2025-11-25")
-        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.12")
+        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.13")
         listed = server.handle({"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         self.assertEqual({tool["name"] for tool in listed["result"]["tools"]}, names)
         called = server.handle(
@@ -339,6 +423,7 @@ class BaselineTest(unittest.TestCase):
                 self.assertIn(f"Baseline {CHECKPOINT.removeprefix('baseline-')}", dashboard)
                 self.assertNotIn("Baseline 0010", dashboard)
                 self.assertNotIn("Baseline 0011", dashboard)
+                self.assertNotIn("Baseline 0012", dashboard)
                 self.assertIn("Terminal state exact", dashboard)
                 self.assertIn("Evidence condition coverage", dashboard)
                 self.assertIn("Behavioral relation exact", dashboard)
@@ -346,9 +431,10 @@ class BaselineTest(unittest.TestCase):
                 self.assertIn("Fresh evidence recall", dashboard)
                 self.assertIn("Stale identity retained", dashboard)
                 self.assertIn("Stale payload exposure", dashboard)
+                self.assertIn("Approval lifetime exact", dashboard)
                 self.assertIn("frame-ancestors 'none'", response.headers["Content-Security-Policy"])
             with urlopen(f"http://127.0.0.1:{server.server_port}/health") as response:
-                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0012")
+                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0013")
             request = Request(
                 f"http://127.0.0.1:{server.server_port}/api/runs",
                 data=json.dumps({"scenario_id": "dev-bad-deployment"}).encode("utf-8"),
@@ -390,8 +476,8 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["coverage"]["adversarial_split_coverage"], 1.0)
         self.assertEqual(report["metrics"]["coverage"]["missing_condition_split_pairs"], [])
         self.assertEqual(report["metrics"]["coverage"]["missing_adversarial_splits"], [])
-        self.assertEqual(report["schema_version"], "1.9")
-        self.assertEqual(report["checkpoint"], "baseline-0012")
+        self.assertEqual(report["schema_version"], "2.0")
+        self.assertEqual(report["checkpoint"], "baseline-0013")
         self.assertEqual(report["metrics"]["proposal"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["development"]["tool_trajectory"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["test"]["tool_trajectory"]["exact_match"], 1.0)
@@ -408,6 +494,24 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["terminal_state"]["no_action_no_mutation_rate"], 1.0)
         self.assertEqual(report["metrics"]["terminal_state"]["action_type_coverage"], 1.0)
         self.assertEqual(report["metrics"]["terminal_state"]["executed_expected_action_trial_count"], 33)
+        approval_lifetime = report["metrics"]["approval_lifetime"]
+        self.assertEqual(report["approval_lifetime_contract_id"], "approval-lifetime-v1")
+        self.assertEqual(approval_lifetime["case_count"], 9)
+        self.assertEqual(approval_lifetime["invalid_case_count"], 6)
+        self.assertEqual(approval_lifetime["valid_case_count"], 3)
+        self.assertEqual(approval_lifetime["exact_match_rate"], 1.0)
+        self.assertEqual(approval_lifetime["invalid_no_mutation_rate"], 1.0)
+        self.assertEqual(approval_lifetime["valid_lifetime_exact_rate"], 1.0)
+        self.assertEqual(
+            approval_lifetime["split_exact_match_rate"],
+            {"development": 1.0, "test": 1.0},
+        )
+        self.assertTrue(report["gates"]["approval_lifetime_all_nine_cases_exact"])
+        self.assertTrue(
+            report["gates"]["approval_lifetime_invalid_no_mutation_is_one"]
+        )
+        self.assertTrue(report["gates"]["approval_lifetime_valid_boundaries_exact"])
+        self.assertNotIn('"approval_token":', json.dumps(approval_lifetime))
         relation_metrics = report["metrics"]["behavioral_relations"]
         self.assertTrue(report["gates"]["behavioral_relation_contract_valid"])
         self.assertTrue(report["gates"]["behavioral_relation_split_coverage_is_one"])
@@ -617,8 +721,11 @@ class BaselineTest(unittest.TestCase):
         self.assertLess(
             corrupted_payload_result["split_exact_match_rate"]["development"], 1.0
         )
-        self.assertNotIn("approval_token", output.read_text(encoding="utf-8"))
-        self.assertNotIn("approval_token", output.with_name("baseline.traces.jsonl").read_text(encoding="utf-8"))
+        self.assertNotIn('"approval_token":', output.read_text(encoding="utf-8"))
+        self.assertNotIn(
+            '"approval_token":',
+            output.with_name("baseline.traces.jsonl").read_text(encoding="utf-8"),
+        )
 
         control_output = Path(self.temp.name) / "full-context-control.json"
         control = run_evaluation(

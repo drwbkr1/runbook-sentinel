@@ -1,5 +1,23 @@
 # Evaluation report
 
+## BASELINE-0013 pre-change result
+
+The downloaded public v0.0.12 zipapp still passes the frozen 28-scenario, 84-attempt evaluation with every existing gate passing. Its trace contains 84 run, 33 approval, and 33 execute events, but the existing contract contains no invalid approval-lifetime case.
+
+A development probe through the released real loopback HTTP API supplied `ttl_seconds: -1`. The API returned HTTP 201, persisted the proposal as approved, and issued an already-expired approval; execution then returned HTTP 409, a second approval returned HTTP 409 because the proposal was no longer pending, and the incident remained open. This is a measured benign-liveness failure. The same missing upper bound also permits approvals to outlive the intended short-lived authorization window.
+
+Disposition: `remediate`. The frozen approval-lifetime contract defines nine exact cases, separate development and held-out splits, strict no-mutation results for six invalid values, and exact one-, 300-, and default-300-second results for three valid values. Only `dev-negative-ttl` is revealed as a pre-change failure. Candidate held-out results remain sealed until the generic implementation and independent validator exist.
+
+The generic candidate was committed before reveal. The first and only frozen reveal then passed all nine isolated real loopback HTTP cases: six invalid values returned the exact HTTP 400 `ValueError` with proposal status pending, zero approval rows, zero approval audit events, zero approval trace events, and unchanged open incidents; the minimum, maximum, and omitted values returned HTTP 201 with exact lifetimes of 1, 300, and 300 seconds. Invalid no-mutation, valid-lifetime exactness, development exactness, test exactness, and overall exactness are all 1.0.
+
+The integrated schema 2.0 evaluator retains the approval-lifetime plane separately from the 28 scenarios and 84 repeated attempts. All 21 tests pass after preserving and correcting two verifier false positives that matched the safe field name `approval_token_hashed` as if it were a raw token value. Full version-bound evaluation and real/package release gates remain pending.
+
+Version-bound attempt 001 passed under its 40-file manifest, but the subsequent live HTTP verifier failed while parsing a PowerShell 5.1 error response and did not grade the product. After retaining that failure and freezing a corrected manifest, attempt 002 passes eight validators, 21 tests, 84 scenario attempts, and nine approval-lifetime cases. Its report and trace SHA-256 values are `288b8e416a8d259b05b0162df42f1b598d50605dcbf9f54f1439f81406c1d9f4` and `599189f103df0a5797c44bccc909460135f0bbc9a351511c873807fb45834c1f`.
+
+The selected source and package results both pass. Their non-latency fields are exact; both retain policy and `pass^3` at 1.0, proposal and terminal attack success at 0.0, approval-lifetime exactness at 1.0, invalid no-mutation at 1.0, valid-lifetime exactness at 1.0, and zero model calls or estimated external cost. Source/package live MCP, 58 HTTP/dashboard checks, 31 persistence/telemetry checks, and rendered visual inspection pass independently.
+
+A no-local-object public-branch clone of exact commit `2f50f5e8d2098d593fea1d5fefa2ca846422fe9f` independently passes the same eight validators and 21 tests, a new source evaluation, exact archive rebuild, a new package evaluation, MCP authority inventory, 58 HTTP/dashboard checks, 31 runtime checks, and visual dashboard inspection. Its source and package reports remain exact after excluding only declared latency fields.
+
 Status: public baseline-0012 v0.0.12 is the latest verified checkpoint. Baseline-0011 remains stopped and unpublished. Corrected local, renewed clean-clone, merged-main, package-asset, downloaded-byte, and rendered-public verification pass. `fresh-content-stale-metadata-context-v3` remains selected, the baseline-0004 local-model candidate remains excluded, and deterministic control remains the default.
 
 ## BASELINE-0012 reproducible package and canonical dashboard identity

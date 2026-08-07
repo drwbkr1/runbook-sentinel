@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0013",
+  "attempt": 1,
+  "surface": "source live loopback HTTP and rendered dashboard verifier",
+  "manifest_sha256": "7b8019bbe1832a68b6d68fd9442992737faa1e1e86907f06a626c93e62c0d767",
+  "started_after_source_attempt": "artifacts/evaluations/runs/baseline-0013-attempt-001.json",
+  "status": "fail",
+  "failure_class": "verifier_http_error_body_compatibility",
+  "observed": "The invalid approval request entered the HTTP error path, but Windows PowerShell 5.1 provided a null ErrorDetails.Message. ConvertFrom-Json then failed before the verifier could retain or grade the HTTP 400 body.",
+  "exact_error": "ConvertFrom-Json: Cannot bind argument to parameter InputObject because it is null.",
+  "product_disposition": "not graded by this attempt",
+  "evidence_disposition": "retained; remediate the verifier and freeze a new manifest because scripts/verify_live_api.ps1 is manifest-bound",
+  "mutation_or_external_impact": "The loopback server was stopped by the verifier finally block. Only synthetic local runtime files were created; no real infrastructure, secret, credential, service, or external asset was used."
+}

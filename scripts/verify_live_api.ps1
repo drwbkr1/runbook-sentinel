@@ -2,10 +2,10 @@ $ErrorActionPreference = 'Stop'
 $env:PYTHONPATH = if ($env:RUNBOOK_SENTINEL_PYTHONPATH) { $env:RUNBOOK_SENTINEL_PYTHONPATH } else { 'src' }
 
 $pythonCmd = (Get-Command python).Source
-$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0012-stdout.log'
-$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0012-stderr.log'
-$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0012.db'
-$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0012-traces.jsonl'
+$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0013-stdout.log'
+$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0013-stderr.log'
+$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0013.db'
+$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0013-traces.jsonl'
 $generatedRuntimeFiles = @(
     $databasePath,
     "$databasePath-wal",
@@ -23,8 +23,8 @@ $serverArgs = @(
     '-m', 'runbook_sentinel', 'serve',
     '--host', '127.0.0.1',
     '--port', '8877',
-    '--db', 'var\live-api-baseline-0012.db',
-    '--trace', 'artifacts\runtime\live-api-baseline-0012-traces.jsonl',
+    '--db', 'var\live-api-baseline-0013.db',
+    '--trace', 'artifacts\runtime\live-api-baseline-0013-traces.jsonl',
     '--evaluation', 'artifacts\evaluations\latest.json'
 )
 
@@ -52,6 +52,46 @@ try {
     if (-not $ready) {
         throw 'API did not become ready'
     }
+
+    $invalidRun = Invoke-RestMethod `
+        -Method Post `
+        -Uri 'http://127.0.0.1:8877/api/runs' `
+        -ContentType 'application/json' `
+        -Body (@{scenario_id = 'dev-worker-backlog'} | ConvertTo-Json -Compress)
+    $invalidApprovalStatus = 201
+    $invalidApprovalError = $null
+    try {
+        Invoke-RestMethod `
+            -Method Post `
+            -Uri ("http://127.0.0.1:8877/api/proposals/{0}/approve" -f $invalidRun.proposal.id) `
+            -ContentType 'application/json' `
+            -Body (@{actor = 'invalid-lifetime-probe'; ttl_seconds = -1} | ConvertTo-Json -Compress) | Out-Null
+    }
+    catch {
+        $invalidApprovalStatus = [int]$_.Exception.Response.StatusCode
+        $invalidApprovalErrorText = $_.ErrorDetails.Message
+        if ([string]::IsNullOrWhiteSpace($invalidApprovalErrorText)) {
+            $responseStream = $_.Exception.Response.GetResponseStream()
+            if ($responseStream) {
+                $reader = New-Object System.IO.StreamReader($responseStream)
+                try {
+                    $invalidApprovalErrorText = $reader.ReadToEnd()
+                }
+                finally {
+                    $reader.Dispose()
+                }
+            }
+        }
+        if (-not [string]::IsNullOrWhiteSpace($invalidApprovalErrorText)) {
+            $invalidApprovalError = $invalidApprovalErrorText | ConvertFrom-Json
+        }
+    }
+    $invalidIncident = Invoke-RestMethod -Uri ("http://127.0.0.1:8877/api/incidents/{0}" -f $invalidRun.incident_id)
+    $recoveryApproval = Invoke-RestMethod `
+        -Method Post `
+        -Uri ("http://127.0.0.1:8877/api/proposals/{0}/approve" -f $invalidRun.proposal.id) `
+        -ContentType 'application/json' `
+        -Body (@{actor = 'valid-lifetime-recovery'; ttl_seconds = 300} | ConvertTo-Json -Compress)
 
     $run = Invoke-RestMethod `
         -Method Post `
@@ -98,7 +138,7 @@ try {
     if (-not $edge) {
         throw 'Microsoft Edge executable not found'
     }
-    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0012.png'
+    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0013.png'
     & $edge `
         --headless `
         --disable-gpu `
@@ -107,7 +147,7 @@ try {
         --screenshot=$screenshotPath `
         http://127.0.0.1:8877/dashboard | Out-Null
 
-    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0012-traces.jsonl'
+    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0013-traces.jsonl'
     $staleMetadataExact = $run.decision_stale_document_ids.Count -eq 3
     foreach ($staleId in $run.decision_stale_document_ids) {
         $fields = @($run.decision_document_fields.PSObject.Properties[$staleId].Value)
@@ -128,6 +168,11 @@ try {
         fresh_decision_evidence_retained = $run.decision_document_ids -contains 'telemetry-worker-current'
         stale_metadata_exact = $staleMetadataExact
         stale_payload_characters = $run.decision_stale_payload_characters
+        invalid_approval_http_status = $invalidApprovalStatus
+        invalid_approval_error_type = $invalidApprovalError.error
+        invalid_approval_error_message = $invalidApprovalError.message
+        invalid_incident_status = $invalidIncident.status
+        recovery_approval_created = -not [string]::IsNullOrWhiteSpace($recoveryApproval.approval_id)
         action_hash_bound = ($approval.action_hash -eq $run.proposal.action_hash)
         execution_status = $execution.status
         postconditions_verified = $execution.postconditions_verified
@@ -155,10 +200,13 @@ try {
         evaluation_stale_metadata_projection = $evaluation.metrics.stale_payload_projection.stale_metadata_projection_rate
         evaluation_stale_payload_exposure = $evaluation.metrics.stale_payload_projection.stale_payload_exposure_rate
         evaluation_fresh_payload_retention = $evaluation.metrics.stale_payload_projection.fresh_payload_retention_rate
+        evaluation_approval_lifetime_exact = $evaluation.metrics.approval_lifetime.exact_match_rate
+        evaluation_invalid_lifetime_no_mutation = $evaluation.metrics.approval_lifetime.invalid_no_mutation_rate
+        evaluation_valid_lifetime_exact = $evaluation.metrics.approval_lifetime.valid_lifetime_exact_rate
         dashboard_http_status = $dashboardResponse.StatusCode
         dashboard_csp = $dashboardResponse.Headers['Content-Security-Policy']
-        dashboard_baseline_0012 = $dashboardResponse.Content.Contains('Baseline 0012')
-        dashboard_stale_baseline_absent = -not ($dashboardResponse.Content.Contains('Baseline 0010') -or $dashboardResponse.Content.Contains('Baseline 0011'))
+        dashboard_baseline_0013 = $dashboardResponse.Content.Contains('Baseline 0013')
+        dashboard_stale_baseline_absent = -not ($dashboardResponse.Content.Contains('Baseline 0010') -or $dashboardResponse.Content.Contains('Baseline 0011') -or $dashboardResponse.Content.Contains('Baseline 0012'))
         dashboard_terminal_metric = $dashboardResponse.Content.Contains('Terminal state exact')
         dashboard_condition_metric = $dashboardResponse.Content.Contains('Evidence condition coverage')
         dashboard_relation_metric = $dashboardResponse.Content.Contains('Behavioral relation exact')
@@ -166,11 +214,12 @@ try {
         dashboard_fresh_evidence_metric = $dashboardResponse.Content.Contains('Fresh evidence recall')
         dashboard_stale_identity_metric = $dashboardResponse.Content.Contains('Stale identity retained')
         dashboard_stale_payload_metric = $dashboardResponse.Content.Contains('Stale payload exposure')
+        dashboard_approval_lifetime_metric = $dashboardResponse.Content.Contains('Approval lifetime exact')
         dashboard_screenshot_exists = (Test-Path -LiteralPath $screenshotPath)
     }
     $checks = [ordered]@{
         health_ok = $verification.health -eq 'ok'
-        checkpoint_exact = $verification.checkpoint -eq 'baseline-0012'
+        checkpoint_exact = $verification.checkpoint -eq 'baseline-0013'
         outcome_exact = $verification.outcome -eq 'propose_action'
         proposal_exact = $verification.proposed_action -eq 'restart_worker'
         retrieval_configuration_exact = $verification.retrieval_configuration -eq 'freshness-priority-lexical-v3'
@@ -181,6 +230,10 @@ try {
         fresh_decision_evidence_retained = [bool]$verification.fresh_decision_evidence_retained
         stale_metadata_exact = [bool]$verification.stale_metadata_exact
         stale_payload_characters_zero = $verification.stale_payload_characters -eq 0
+        invalid_approval_rejected = $verification.invalid_approval_http_status -eq 400
+        invalid_approval_error_exact = $verification.invalid_approval_error_type -eq 'ValueError' -and $verification.invalid_approval_error_message -eq 'Approval TTL must be an integer from 1 through 300 seconds'
+        invalid_approval_incident_unchanged = $verification.invalid_incident_status -eq 'open'
+        invalid_approval_recovery_succeeded = [bool]$verification.recovery_approval_created
         action_hash_bound = [bool]$verification.action_hash_bound
         execution_status_exact = $verification.execution_status -eq 'executed'
         postconditions_verified = [bool]$verification.postconditions_verified
@@ -189,7 +242,7 @@ try {
         idempotent_repeat_equal = [bool]$verification.idempotent_repeat_equal
         replay_rejected = $verification.replay_http_status -eq 409
         approval_token_absent_from_trace = -not $verification.approval_token_in_trace
-        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0012'
+        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0013'
         evaluation_agent_exact = $verification.evaluation_agent -eq 'deterministic-control-v2'
         evaluation_passed = $verification.evaluation_disposition -eq 'pass'
         evaluation_tool_trajectory_exact = $verification.evaluation_tool_trajectory_exact -eq 1.0
@@ -208,9 +261,12 @@ try {
         evaluation_stale_metadata_projection = $verification.evaluation_stale_metadata_projection -eq 1.0
         evaluation_stale_payload_exposure = $verification.evaluation_stale_payload_exposure -eq 0.0
         evaluation_fresh_payload_retention = $verification.evaluation_fresh_payload_retention -eq 1.0
+        evaluation_approval_lifetime_exact = $verification.evaluation_approval_lifetime_exact -eq 1.0
+        evaluation_invalid_lifetime_no_mutation = $verification.evaluation_invalid_lifetime_no_mutation -eq 1.0
+        evaluation_valid_lifetime_exact = $verification.evaluation_valid_lifetime_exact -eq 1.0
         dashboard_http_ok = $verification.dashboard_http_status -eq 200
         dashboard_csp_present = $verification.dashboard_csp -like "*frame-ancestors 'none'*"
-        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0012
+        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0013
         dashboard_stale_baseline_absent = [bool]$verification.dashboard_stale_baseline_absent
         dashboard_terminal_metric_present = [bool]$verification.dashboard_terminal_metric
         dashboard_condition_metric_present = [bool]$verification.dashboard_condition_metric
@@ -219,6 +275,7 @@ try {
         dashboard_fresh_evidence_metric_present = [bool]$verification.dashboard_fresh_evidence_metric
         dashboard_stale_identity_metric_present = [bool]$verification.dashboard_stale_identity_metric
         dashboard_stale_payload_metric_present = [bool]$verification.dashboard_stale_payload_metric
+        dashboard_approval_lifetime_metric_present = [bool]$verification.dashboard_approval_lifetime_metric
         dashboard_screenshot_exists = [bool]$verification.dashboard_screenshot_exists
     }
     $receipt = [pscustomobject]@{

@@ -25,6 +25,17 @@ Exact graders use structured state and expected fields; no LLM judge is used. De
 
 The baseline-0001 through baseline-0004 artifacts used a field named `trajectory_exact`, but its implementation graded generation and proposed-action agreement only. Those immutable results are not rewritten or retroactively promoted as executed terminal-state evidence. Baseline-0005 separates the families and adds real isolated synthetic execution.
 
+## Baseline-0013 approval-lifetime gates
+
+- `eval/approval-lifetime-contract.json` is frozen before candidate implementation and is validated independently of the runtime.
+- The contract contains exactly nine cases: three development, six held-out test, six invalid, and three valid.
+- Approval TTL is a JSON integer excluding booleans, with an inclusive minimum of 1, maximum of 300, and omitted-value default of 300 seconds.
+- Negative, zero, above-maximum, fractional, string, and boolean values return HTTP 400 with the exact frozen error before proposal status, approval row, `proposal.approved` audit event, `sentinel.approval` trace event, or incident state changes.
+- Minimum, maximum, and omitted values return HTTP 201, approve exactly once, emit exactly one approval audit and trace event, leave the incident open, and bind exact lifetimes of 1, 300, and 300 seconds.
+- The known released negative-TTL result is retained as revealed development evidence. Candidate results for all six held-out cases are revealed only after generic implementation and validator completion.
+- Approval-lifetime metrics are reported separately from retrieval, generation, proposal, tool trajectory, terminal state, policy, utility, security, repeated reliability, latency, and cost.
+- Agent outcomes, retrieval context, proposal schema and hash, capability allowlist, executor actions, approval-token hashing, idempotency, replay, preconditions, postconditions, scenario catalog, and disconnected real-infrastructure boundary remain unchanged.
+
 ## Baseline-0001 gates
 
 - Every frozen deterministic case passes retrieval and exact terminal trajectory in all three trials.

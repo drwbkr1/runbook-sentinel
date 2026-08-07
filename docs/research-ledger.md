@@ -2,6 +2,8 @@
 
 Reviewed 2026-08-07. References inform design; they are not imported datasets or code.
 
+Baseline-0013 adds no external source or asset. Its 1-through-300-second approval-lifetime policy, exact error, synthetic cases, validator, and evaluator are project-authored and reuse the existing 300-second default; no code, data, paper, model, dependency, executable, or service was imported.
+
 | Source | Identity and authority | Design use |
 |---|---|---|
 | [Python 3.12 `zipapp`](https://docs.python.org/3.12/library/zipapp.html), [`zipfile`](https://docs.python.org/3.12/library/zipfile.html), and [PSF licensing](https://docs.python.org/3.12/copyright.html) documentation | Official Python 3.12.13 documentation and license page; checked live 2026-08-07; source gate `artifacts/verification/research-source-gate-baseline-0011.json` | Defines the executable ZIP and entry-metadata primitives used by the project-authored deterministic builder and verifier; no external code, sample, package, executable, data, model, or service imported |

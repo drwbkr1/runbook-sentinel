@@ -1,5 +1,31 @@
 # Development log
 
+## 2026-08-07 - BASELINE-0013 started
+
+- Resumed from the verified public v0.0.12 release closure instead of restarting architecture work.
+- Ran the downloaded public zipapp in a fresh external output directory. All 84 existing attempts and every prior metric gate pass.
+- Inspected the 150-event trace and found 84 run, 33 approval, and 33 execution events but no invalid approval-lifetime coverage.
+- Reproduced a released real-API failure: `ttl_seconds: -1` is accepted with HTTP 201 before mutation, creates an already-expired approval, makes execution fail, prevents reapproval because the proposal is no longer pending, and leaves the incident open.
+- Retained the released failure, exact external paths, hashes, terminal state, and an earlier command-policy-blocked launch attempt in `artifacts/verification/approval-lifetime-gap-baseline-0013.json`.
+- Selected a bounded policy: approval TTL must be a JSON integer excluding booleans, from 1 through 300 seconds inclusive, with 300 as the default. Invalid values must return HTTP 400 before approval-related mutation.
+- Froze nine exact development and held-out cases in `eval/approval-lifetime-contract.json` before changing runtime code. The known negative-TTL case is development evidence; held-out candidate results remain unrevealed.
+- Created `contracts/milestone-0013.json` with resume point `UNIT-003`. The agent, retriever, proposal schema, capabilities, executor, idempotency, replay, postconditions, and real-infrastructure boundary remain out of scope.
+- The first frozen nine-case reveal passed every development and held-out real-API, SQLite, audit, trace, no-mutation, and exact-lifetime check. Its immutable result remains at `artifacts/evaluations/runs/baseline-0013-approval-lifetime-attempt-001.json`.
+- The first two integrated full-test attempts then failed on adjacent verifier false positives: substring assertions treated the boolean check name `approval_token_hashed` as raw approval material in the metric and full report. The retained evaluation contains no approval token value; both assertions were narrowed to reject an actual serialized `approval_token` field before rerunning the full suite.
+- Versioned the candidate as v0.0.13/baseline-0013 and froze `eval/package-contract-0013.json` before any archive build. The contract adds only the project-authored approval-lifetime module and frozen contract to the existing dependency-free zipapp allowlist; it preserves the v0.0.12 package contract and explicitly records that runtime implementation and the nine-case reveal already preceded this packaging contract.
+- Version-bound source attempt 001 passed the 40-file manifest, eight validators, 21 tests, all 84 scenario attempts, and all nine approval-lifetime cases. An earlier launch lost its output after the orchestration shell timed out while child processes continued; no immutable attempt files existed, so the completed captured launch became attempt 001.
+- Live API verifier attempt 001 then failed before grading the product because Windows PowerShell 5.1 left the HTTP 400 `ErrorDetails.Message` null and `ConvertFrom-Json` rejected it. The failure is retained at `artifacts/verification/live-api-baseline-0013-attempt-001-failed.json`; the verifier now reads the response stream as a compatibility fallback, which requires a new frozen manifest and source attempt.
+- Version-bound source attempt 002 passed under corrected 40-file manifest SHA-256 `249513aca8911a1a574a48e2546458db0b3d1e37ecdd4416db40cbb8638bc4c9`. Source MCP, 58 HTTP/dashboard checks, 31 persisted-state/telemetry checks, and visual inspection pass.
+- Built two independent 257,847-byte zipapps with exactly 23 allowlisted entries and no runtime dependencies. Both are byte-identical at SHA-256 `c14a4559f3cfc4f53d5ce501115747252c9f33e7f299eb34f088c605930fbd41`.
+- The packaged evaluator passes all 84 scenario attempts and all nine approval-lifetime cases. Source and package results are exact after removing only declared latency fields. Packaged MCP, 58 HTTP/dashboard checks, 31 persisted-state/telemetry checks, CLI help, and visual inspection pass.
+- The first ad hoc precommit secret scan falsely matched the package contracts' literal forbidden-pattern labels. JSON/JSONL parsing, the package validator's content-aware secret exclusions, and a corrected scan requiring credential-length tokens or an anchored private-key header pass; no secret-shaped value was found.
+- The first feature-branch push failed before remote mutation when the shell temporarily could not resolve `github.com`. DNS recovered on the read-only reachability check and the exact branch push then succeeded.
+- A fresh public-branch clone of exact candidate `2f50f5e8d2098d593fea1d5fefa2ca846422fe9f` has no object alternates and passed compilation, eight validators, 21 tests, fresh source and package evaluations, exact archive rebuild, packaged MCP, 58 HTTP/dashboard checks, 31 runtime checks, and visual inspection. The retained receipt advances the candidate to GitHub review.
+- A second no-alternates clone of final review head `536378ced68d0e145e3be836adbe25d2b7f83535` passes eight validators, 21 tests, and exact selected-archive rebuild. GitHub PR `#11` is open, non-draft, mergeable, contains five expected commits, lists the same 49 paths as the local diff, and has zero configured commit statuses.
+- A direct read-only `git ls-remote` check then hit a transient GitHub DNS-resolution failure while the authenticated GitHub PR surface remained available. The failed probe is retained in the task record; the remote and receipt-only PR head must be rechecked before merge.
+- The pre-merge release audit computes `verified` and releases only the inherited receipt commit, push, expected-head merge, merged-main verification, and later publication actions. It does not treat GitHub's provisional open-PR merge SHA as a completed merge.
+
+
 ## 2026-08-06 — BASELINE-0001 started
 
 - User approved the long-running goal with the SRE domain.

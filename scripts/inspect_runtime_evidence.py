@@ -19,11 +19,11 @@ def sha256(path: Path) -> str:
 
 
 def main() -> None:
-    database = ROOT / "var/live-api-baseline-0012.db"
-    trace = ROOT / "artifacts/runtime/live-api-baseline-0012-traces.jsonl"
+    database = ROOT / "var/live-api-baseline-0013.db"
+    trace = ROOT / "artifacts/runtime/live-api-baseline-0013-traces.jsonl"
     evaluation = ROOT / "artifacts/evaluations/latest.json"
     manifest = ROOT / "eval/manifest.json"
-    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0012.png"
+    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0013.png"
     required = [database, trace, evaluation, manifest, screenshot]
     missing = [str(path) for path in required if not path.exists()]
     if missing:
@@ -95,6 +95,10 @@ def main() -> None:
         "evaluation_stale_metadata_projected": latest["metrics"]["stale_payload_projection"]["stale_metadata_projection_rate"] == 1.0,
         "evaluation_stale_payload_exposure_zero": latest["metrics"]["stale_payload_projection"]["stale_payload_exposure_rate"] == 0.0,
         "evaluation_fresh_payload_retained": latest["metrics"]["stale_payload_projection"]["fresh_payload_retention_rate"] == 1.0,
+        "evaluation_approval_lifetime_exact": latest["metrics"]["approval_lifetime"]["exact_match_rate"] == 1.0,
+        "evaluation_invalid_lifetime_no_mutation": latest["metrics"]["approval_lifetime"]["invalid_no_mutation_rate"] == 1.0,
+        "evaluation_valid_lifetime_exact": latest["metrics"]["approval_lifetime"]["valid_lifetime_exact_rate"] == 1.0,
+        "evaluation_contains_no_raw_approval_token_field": '"approval_token":' not in evaluation.read_text(encoding="utf-8"),
         "evaluation_matches_frozen_manifest": latest["manifest_sha256"] == sha256(manifest),
         "dashboard_has_expected_dimensions": (width, height) == (1440, 1000),
     }
@@ -123,10 +127,13 @@ def main() -> None:
             "stale_metadata_projection": latest["metrics"]["stale_payload_projection"]["stale_metadata_projection_rate"],
             "stale_payload_exposure": latest["metrics"]["stale_payload_projection"]["stale_payload_exposure_rate"],
             "fresh_payload_retention": latest["metrics"]["stale_payload_projection"]["fresh_payload_retention_rate"],
+            "approval_lifetime_exact": latest["metrics"]["approval_lifetime"]["exact_match_rate"],
+            "invalid_lifetime_no_mutation": latest["metrics"]["approval_lifetime"]["invalid_no_mutation_rate"],
+            "valid_lifetime_exact": latest["metrics"]["approval_lifetime"]["valid_lifetime_exact_rate"],
         },
         "dashboard": {"sha256": sha256(screenshot), "width": width, "height": height},
     }
-    output = ROOT / "artifacts/verification/native-baseline-0012.json"
+    output = ROOT / "artifacts/verification/native-baseline-0013.json"
     output.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(receipt, indent=2, sort_keys=True))
     if receipt["status"] != "pass":
