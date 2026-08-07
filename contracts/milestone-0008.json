@@ -204,6 +204,11 @@
       ,"The selected report and 132-event trace contain no approval-token or concrete idempotency literal, and latest.json is byte-identical to attempt 001"
       ,"Package metadata, API health, MCP identity, CLI default, tests, README, dashboard, and real-surface verifiers identify 0.0.8 and baseline-0008"
       ,"The versioned 23-file release-candidate manifest passes at SHA-256 fac3bf310d244322c364516e21b6da78053ddb57d5c3cb05bc15b993609c59da; attempt 001 is retained as pass but superseded for release selection pending a version-bound attempt"
+      ,"Immutable version-bound attempt 002 passed all 78 trials, all stress and relation gates, 27 expected executions, and 51 strict no-action results; report and trace SHA-256 are ff913b43daf0c89591d847fc264e8206bbac19bd866372706651e1ffd87362b8 and 2ea120c1ac3319540aeae605b1caf253588eb177dfdcb1f8ab1f7e38dc92205b"
+      ,"Held-out CLI and MCP 2025-11-25 used evidence-priority-lexical-v2, retained exact stress telemetry and three auditable guidance records, proposed restart_worker, and exposed no approval or execution tool"
+      ,"The real loopback API passed 34 named health, selected-evaluation, stress retrieval, approval, execution, postcondition, idempotency, replay, redaction, CSP, and dashboard checks"
+      ,"Independent runtime inspection passed SQLite, hash-only consumed approval, audit, v2 telemetry, selected manifest binding, stress metrics, and 1440 by 1000 screenshot checks; receipt and dashboard SHA-256 are 9f9b57a9701fe900a78ef432fea14b646b5992f55ed0aea2a17c74d477e18e8f and c49b2135acd4e4564ecb45e498d25871e4165dbef09dadaf2da9dd792fba1baf"
+      ,"Visual inspection confirmed baseline 0008, evidence-priority v2, all displayed exact metrics at 1.0, human approval, disconnected real infrastructure, and one mitigated synthetic guidance-flood incident"
     ]
   },
   "handoff": {

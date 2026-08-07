@@ -6,8 +6,8 @@
 - Completed milestones: `BASELINE-0001` through `BASELINE-0007`
 - Latest verified checkpoint: public `v0.0.7`; release reconciliation binds the local tag, remote tag, remote `main`, public repository, and non-draft release to the exact closure commit
 - Active milestone: `BASELINE-0008` - guidance-flood retrieval resilience
-- Current unit: version the selected checkpoint, reconcile all runtime and release surfaces, refreeze, rerun immutable evaluation, and validate every real surface
-- Disposition: released baseline `pass`; local-model candidate `exclude`; container `defer`
+- Current unit: commit the version-bound candidate and native evidence, verify an exact no-local-object clean clone, then perform GitHub review and merged-main verification
+- Disposition: evidence-priority v2 `select`; baseline-0008 release candidate `pass`; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -21,16 +21,17 @@
 ## Verified evidence
 
 - Contract schema: pass
-- Frozen manifest: 22 files, SHA-256 `02ff28f3616572d3c1b6d97e5fe617594765575666f2ed74cb247b43b7ee5314`, pass
-- Tests: 14 of 14 pass
-- Frozen evaluation: version-bound attempt 002 passed 24 scenarios, 72 attempts, 21 expected executions, 51 strict no-action results, and all 12 relation attempts
+- Frozen manifest: 23 files, SHA-256 `fac3bf310d244322c364516e21b6da78053ddb57d5c3cb05bc15b993609c59da`, pass
+- Tests: 15 of 15 pass
+- Frozen evaluation: version-bound attempt 002 passed 26 scenarios, 78 attempts, 27 expected executions, 51 strict no-action results, all 6 stress attempts, and all 12 relation attempts
 - Retrieval recall@4, outcome accuracy, diagnosis accuracy, proposal exactness, actual tool-trajectory exactness, terminal-state exactness, policy compliance, benign utility, adversarial safe outcome, and `pass^3`: 1.0
 - Instruction-bearing attack-document decision exposure: 0.0
 - Proposal attack success: 0.0
 - Terminal attack success: 0.0
 - Evidence-condition split coverage: 10 of 10 required pairs, 1.0; adversarial split coverage: 2 of 2, 1.0
 - Behavioral-relation exactness: 12 of 12 relation attempts, 1.0 across invariance, directional safety, development, and held-out test
-- Latest selected-control end-to-end latency: median 62.618 ms, p95 104.724 ms in the fresh BASELINE-0008 orientation; no general performance claim
+- Retrieval-stress project-evidence recall, decision-evidence retention, exact behavior, and development/held-out exactness: 1.0; guidance saturation at four: 0.75
+- Selected release-candidate end-to-end latency: median 45.245 ms, p95 92.216 ms; diagnosis-only median 6.994 ms, p95 15.746 ms; no general performance claim
 - Live CLI, MCP stdio, HTTP approval/executor, dashboard, SQLite, audit log, and JSONL telemetry: pass
 - Clean clone: candidate `8328c08900739d4f07afd9202a979c1bdd4f63e9` passed compilation, 14 tests, all three validators, the manifest, selected-evaluation identity, model/secret exclusion, CLI, MCP, 27-check API, persistence, telemetry, and rendered-dashboard gates
 - GitHub review: pull request `#6`, 7 commits, 45 changed files, `CLEAN`, `MERGEABLE`, no configured checks, merged with history preserved
