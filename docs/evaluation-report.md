@@ -1,6 +1,6 @@
 # Evaluation report
 
-Status: public baseline-0008 remains the latest verified release. Baseline-0009 selects `freshness-priority-lexical-v3` as the only hard-gate-passing release candidate after a retained same-manifest comparison; version-bound, real-surface, clean-clone, and public verification remain pending. The baseline-0004 local-model candidate remains excluded and deterministic control remains the default.
+Status: public baseline-0009 stale-evidence-resilience attempt 002 is the latest verified checkpoint. `freshness-priority-lexical-v3` is selected as the only hard-gate-passing configuration after a retained same-manifest comparison; strict numeric latency dominance is false. The baseline-0004 local-model candidate remains excluded and deterministic control remains the default.
 
 ## BASELINE-0009 stale-evidence retrieval resilience
 
@@ -46,6 +46,8 @@ Docker 29.4.3 is live. Container packaging remains deferred because all three lo
 An exact no-local-object clone of candidate `f3d882a6e92d4bfe0b4d1803e8b9b214dac362eb` passed compilation, 16 tests, all five validators, the 16-criterion research gate, nine milestone contracts, 114 tracked JSON files, 34 JSONL files with 3,135 records, selected-evaluation and manifest identity, unchanged policy, model-weight and high-signal-secret exclusion, held-out CLI, MCP, all 40 API checks, all 23 native checks, persistence, telemetry, and a fresh visual dashboard inspection. The receipt is `artifacts/verification/clean-clone-baseline-0009.json`.
 
 Draft GitHub PR `#8` matched reviewed head `d80426a7ef0736b04303d568bcd93580fb07d345`, contained five expected commits and 62 expected changed files, and was `CLEAN` and `MERGEABLE` with no configured checks. A receipt-only final head must be reconfirmed before review promotion or merge. Tag, release, and rendered-public-page evidence must still pass before v0.0.9 becomes a verified checkpoint.
+
+The final PR head `a1fd78c7c242bed6cf780ba13e1e59eba9095e67` contained six expected commits and 63 expected files, remained `CLEAN` and `MERGEABLE` after draft promotion, and merged with history preserved as `4f302820c8452c83226b834b76ea208842f626fd`. A fresh public clone of that merge independently passed compilation, 16 tests, every frozen validator and milestone contract, the current source gate, artifact parsing and selected-manifest identity, unchanged policy, model/secret exclusion, held-out CLI, MCP authority inventory, all 40 API checks, all 23 persistence/telemetry checks, and visual dashboard inspection. The public `v0.0.9` tag and non-draft release bind the release-closure commit; Runbook Sentinel remains a synthetic-only, research-informed preview rather than a production, universal temporal-robustness, strict latency-dominance, or external comparative claim.
 
 ## BASELINE-0008 orientation and measured retrieval gap
 

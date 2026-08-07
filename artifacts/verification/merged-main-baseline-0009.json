@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0009",
+  "status": "pass",
+  "verified_at_utc": "2026-08-07T03:01:25Z",
+  "source_commit": "4f302820c8452c83226b834b76ea208842f626fd",
+  "pull_request": {
+    "number": 8,
+    "url": "https://github.com/drwbkr1/runbook-sentinel/pull/8",
+    "base_commit": "dcf45468c0d5c460f6872d50f00128c8fb8a124e",
+    "verified_head": "a1fd78c7c242bed6cf780ba13e1e59eba9095e67",
+    "merge_commit": "4f302820c8452c83226b834b76ea208842f626fd",
+    "commits": 6,
+    "changed_files": 63,
+    "review_state": "CLEAN and MERGEABLE before merge",
+    "checks": "no configured checks",
+    "history_preserved": true
+  },
+  "clone": {
+    "path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0009-merged-main-4f30282-20260807T025930Z",
+    "mode": "git clone from public GitHub repository",
+    "exact_head": true
+  },
+  "checks": {
+    "compile": true,
+    "tests_16_of_16": true,
+    "manifest_25_files": true,
+    "terminal_contract_28_cases": true,
+    "evidence_condition_contract_28_cases": true,
+    "behavioral_relation_contract_4_relations": true,
+    "retrieval_stress_contract_2_pairs": true,
+    "stale_evidence_stress_contract_2_pairs": true,
+    "research_source_gate_16_of_16": true,
+    "milestone_contracts_9": true,
+    "json_files_116": true,
+    "jsonl_files_34": true,
+    "jsonl_records_3135": true,
+    "latest_pointer_matches_attempt_002": true,
+    "evaluation_matches_manifest": true,
+    "policy_unchanged_from_v0_0_8": true,
+    "model_weights_absent": true,
+    "high_signal_secret_scan": true,
+    "cli_held_out_stale_evidence_flood": true,
+    "mcp_stdio": true,
+    "mcp_approval_or_execution_tool_exposed": false,
+    "api_named_checks_40_of_40": true,
+    "api_approval_executor_replay_postconditions": true,
+    "sqlite_audit_telemetry_checks_23_of_23": true,
+    "dashboard_render_inspected": true
+  },
+  "evaluation": {
+    "selected_attempt": "baseline-0009-attempt-002",
+    "sha256": "2cc4fbb816e04d918bc42d9bb818f64c71e294d670de8ee8776d9598f9e1a61d",
+    "trace_sha256": "cdd5567bc563f43db7b5cdb53ec2779364ccc057ceed18769ef77c8c80bfeb90",
+    "manifest_sha256": "5d18d47df8ad9f74bbc483864e31de7a85d637a67773c1555de18b05386afd85",
+    "disposition": "pass",
+    "scenario_count": 28,
+    "attempt_count": 84,
+    "relation_count": 4,
+    "relation_attempt_count": 12,
+    "retrieval_stress_pair_count": 2,
+    "retrieval_stress_attempt_count": 6,
+    "stale_evidence_stress_pair_count": 2,
+    "stale_evidence_stress_attempt_count": 6,
+    "fresh_project_evidence_recall": 1.0,
+    "fresh_decision_evidence_retention": 1.0,
+    "stale_stress_exact_behavior": 1.0,
+    "guidance_stress_exact_behavior": 1.0,
+    "behavioral_relation_exact": 1.0,
+    "expected_action_executions": 33,
+    "strict_no_action_results": 51,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "pass_power_3": 1.0
+  },
+  "authority_hashes": {
+    "agent_sha256": "b04ac41d48708028733a31ff2d8b11a6f7f109a17f1f52f6f9ca273a171579e6",
+    "retriever_sha256": "1f25216a4b15bf7c87e0a3bbc37bc8a634be0045acd48f313249fc2d3df97852",
+    "policy_sha256": "1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa",
+    "service_sha256": "6f743a8905c0f1e4eda3d41bf2277483b38354a234e7b27a880d30e34aca93c0"
+  },
+  "cli": {
+    "scenario": "test-cold-cache-stale-evidence-flood",
+    "outcome": "propose_action",
+    "diagnosis_code": "cold_cache",
+    "retrieval_configuration": "freshness-priority-lexical-v3",
+    "fresh_project_evidence_retained": true,
+    "stale_document_count": 3,
+    "proposed_action": "warm_cache",
+    "database_sha256": "0dce50dfe4c28a8b23180f613ef8100752f9ec0401ba25b71ad2ec87e876332b",
+    "trace_sha256": "6fb2f6cb8e082c6a609a6b14cae5273cdc5a43a56840de4123534b4454061e96"
+  },
+  "mcp": {
+    "protocol_version": "2025-11-25",
+    "server_version": "0.0.9",
+    "tool_count": 3,
+    "approval_or_execution_tool_exposed": false,
+    "retrieval_configuration": "freshness-priority-lexical-v3",
+    "fresh_project_evidence_retained": true,
+    "stale_document_count": 3
+  },
+  "api": {
+    "named_checks_passed": 40,
+    "database_sha256": "58202eff47d469000ef7e37671ffa3750b567d57f37cb3aceb238f0975ea2b93",
+    "trace_sha256": "3a5038216c288e9669073f240fd5ca1938c398fb6619dcd990e96f904d094d05"
+  },
+  "dashboard": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "5a74b9b4537e36edc50dd569c1735d45fc68d01c2302589cad5eeb7006e6f687",
+    "native_receipt_sha256": "9398e6373717e12ef3ce14acb3c146375ed7eb048bf90a9717ed7e782826e4fa",
+    "render_inspection": "pass",
+    "observed": [
+      "baseline 0009 synthetic SRE only",
+      "evaluation pass",
+      "freshness-priority retrieval v3",
+      "guidance and fresh-evidence recall 1.0",
+      "tool trajectory and terminal state exact 1.0",
+      "human approval",
+      "real infrastructure disconnected",
+      "one mitigated synthetic stale-evidence incident"
+    ]
+  },
+  "retained_failures": [
+    "The first receipt-only push was rejected by GitHub with an internal server error and request ID DE6E:21C8CC:8723B1:8CA970:6A7549B1; remote reachability remained available and the identical retry succeeded.",
+    "A supplemental gh api jq expression was parsed as multiple arguments in PowerShell and failed; independent git ls-remote, git push, and gh pr view checks established the required state.",
+    "After the receipt-only push GitHub temporarily reported mergeability UNKNOWN while recalculating; the state settled to CLEAN and MERGEABLE before review promotion and merge.",
+    "Headless Edge emitted a renderer task-manager warning after writing the valid 1440 by 1000 PNG; independent content, dimensions, hash, API assertions, persisted-state checks, and visual inspection passed.",
+    "The image viewer initially displayed only the lower strip; reopening the same PNG displayed the complete dashboard and passed visual inspection."
+  ],
+  "post_verification_tracked_changes": [
+    "artifacts/verification/dashboard-baseline-0009.png",
+    "artifacts/verification/native-baseline-0009.json"
+  ],
+  "post_verification_change_reason": "The merged-main live verifier rendered a fresh dashboard with a new synthetic incident identifier and regenerated its native receipt; no source, contract, manifest, selected evaluation, policy, or agent file changed."
+}

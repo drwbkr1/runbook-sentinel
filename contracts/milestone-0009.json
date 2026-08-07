@@ -75,8 +75,14 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "Version-bound attempt 002 passes all 84 trials and every frozen correctness, security, policy, reliability, and cost gate on the final 25-file manifest",
+        "Native CLI, MCP, API, approval, executor, replay, postconditions, persistence, telemetry, and rendered dashboard verification pass",
+        "Exact no-local-object candidate and fresh public merged-main clones pass all required checks",
+        "GitHub PR 8 merged with history preserved after exact-head CLEAN and MERGEABLE review",
+        "The local annotated v0.0.9 tag, peeled remote tag, remote main, public non-draft release, rendered public pages, and fresh public-tag clone reconcile to the release-closure commit"
+      ]
     }
   ],
   "units": [
@@ -153,11 +159,11 @@
       "depends_on": ["UNIT-004"],
       "action_class": "github_push",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["passing selected candidate", "reconciled living records"],
       "outputs": ["baseline-0009 public release"],
       "gates": {"public_visibility_already_authorized": true, "runtime_authority_unchanged": true, "all_real_surfaces_verified": true, "container_disposition_verified": true, "clean_clone_verified": true},
-      "disposition": "planned",
+      "disposition": "pass",
       "retained_failures": [
         "The first direct held-out CLI invocation passed the scenario positionally instead of using required --scenario; argparse failed before scenario execution or state mutation, and the corrected invocation passed.",
         "The headless browser emitted a renderer task-manager warning only after writing the verified dashboard PNG; HTTP, screenshot, persisted-state, and visual checks passed."
@@ -209,6 +215,9 @@
       ,"Docker 29.4.3 is live, but every cached official Python base candidate remains excluded by the existing source gate; container packaging stays deferred without running an excluded image or importing a new one"
       ,"A no-local-object clone of exact candidate f3d882a6e92d4bfe0b4d1803e8b9b214dac362eb passed compilation, 16 tests, all five validators, the research gate, nine milestone contracts, 114 JSON files, 34 JSONL files and 3135 records, selected identity, unchanged policy, model and secret exclusion, held-out CLI, MCP, all 40 API checks, all 23 runtime checks, persistence, telemetry, and visual dashboard inspection"
       ,"Draft GitHub PR 8 at reviewed head d80426a7ef0736b04303d568bcd93580fb07d345 has five expected commits, 62 expected changed files, CLEAN and MERGEABLE state, no configured checks, and an exact local and remote head match"
+      ,"Final PR head a1fd78c7c242bed6cf780ba13e1e59eba9095e67 had six expected commits and 63 expected files, was CLEAN and MERGEABLE, and merged with history preserved as 4f302820c8452c83226b834b76ea208842f626fd"
+      ,"A fresh public remote-main clone of merge commit 4f302820c8452c83226b834b76ea208842f626fd passed compilation, 16 tests, all validators and contracts, the research gate, 116 JSON files, 34 JSONL files and 3135 records, selected identity, unchanged policy, model and secret exclusion, held-out CLI, MCP, 40 API checks, 23 runtime checks, persistence, telemetry, and dashboard inspection"
+      ,"Local annotated tag v0.0.9, peeled remote tag, remote main, public non-draft release, rendered README and release page, and a fresh public-tag clone reconcile to the release-closure commit"
     ],
     "artifacts": [
       "artifacts/verification/stale-evidence-gap-baseline-0009.json",
@@ -234,14 +243,15 @@
       "artifacts/verification/dashboard-baseline-0009.png",
       "artifacts/verification/clean-clone-baseline-0009.json",
       "artifacts/verification/github-pr-baseline-0009.json",
+      "artifacts/verification/merged-main-baseline-0009.json",
       "C:\\Projects\\Verification\\runbook-sentinel-baseline-0009-orientation-20260807T015613Z.json",
       "C:\\Projects\\Verification\\runbook-sentinel-baseline-0009-orientation-20260807T015613Z.traces.jsonl"
     ],
-    "disposition": "in_progress"
+    "disposition": "pass"
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.8 remains the latest verified release; BASELINE-0009 v0.0.9 version-bound, native, exact clean-clone, and initial GitHub PR review pass.",
-    "next_action": "Commit and push the GitHub review receipt, reconfirm the exact final PR head, promote review, merge, tag, release, and verify the public artifact.",
+    "current_checkpoint": "Public v0.0.9 is the latest verified release; BASELINE-0009 is complete with version-bound, native, clean-clone, GitHub, merged-main, tag, release, rendered-page, and public-tag reconciliation.",
+    "next_action": "Resume from public v0.0.9, run the exact released system, inspect traces and evaluation results, and select the next bounded measurable weakness before opening BASELINE-0010.",
     "do_not_carry_forward": [
       "Do not use held-out candidate results as implementation feedback.",
       "Do not import external paper, code, data, model, dependency, or executable.",
@@ -263,7 +273,7 @@
       "ADRs if an architecture decision survives comparison"
     ],
     "preserve_unfavorable_results": true,
-    "latest_verified_checkpoint": "v0.0.8 at dcf45468c0d5c460f6872d50f00128c8fb8a124e",
-    "next_resume_point": "BASELINE-0009 UNIT-005: version, reconcile, verify real surfaces, and release the selected v3 checkpoint"
+    "latest_verified_checkpoint": "public v0.0.9 release closure",
+    "next_resume_point": "Fresh public-v0.0.9 orientation before BASELINE-0010 work selection"
   }
 }

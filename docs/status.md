@@ -3,17 +3,17 @@
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
 - Branch: `codex/baseline-0009-stale-evidence-resilience`
-- Completed milestones: `BASELINE-0001` through `BASELINE-0008`
-- Latest verified checkpoint: public `v0.0.8`; release reconciliation binds the local annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, and rendered public pages to the exact closure commit
-- Active milestone: `BASELINE-0009`; stale-evidence resilience, `UNIT-005` release verification in progress
-- Current unit: preserve the passing v0.0.9 candidate and clean-clone receipt, publish the branch for GitHub review, then merge, tag, release, and verify only if all remaining gates pass
-- Disposition: freshness-priority v3 `select` as the only hard-gate-passing candidate; strict numeric latency dominance is false; v0.0.9 release candidate `pending`; local-model candidate `exclude`; container `defer`
+- Completed milestones: `BASELINE-0001` through `BASELINE-0009`
+- Latest verified checkpoint: public `v0.0.9`; release reconciliation binds the local annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, and rendered public pages to the release-closure commit
+- Active milestone: none; the next cycle must resume from public `v0.0.9`, run it, inspect traces and evaluation results, and select the highest-leverage measurable weakness before creating `BASELINE-0010`
+- Current unit: release closure complete; preserve this checkpoint and begin the next evidence-driven cycle from it
+- Disposition: freshness-priority v3 `select`; baseline-0009 `pass`; strict numeric latency dominance is false; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: pull request `#7` merged as `6b79b9e6a02ee083747fc0a8c7559e0222f1b24a` before the exact closure record
-- GitHub pull request: `#7`, merged with history preserved
-- GitHub release: public, non-draft `v0.0.8`
+- GitHub `main`: pull request `#8` merged as `4f302820c8452c83226b834b76ea208842f626fd` before the release-closure record
+- GitHub pull request: `#8`, merged with history preserved
+- GitHub release: public, non-draft `v0.0.9`
 - Docker: daemon verified live; container packaging deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
 - Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
@@ -36,8 +36,9 @@
 - Rendered dashboard: visually inspected at 1440 by 1000; accurately reports baseline 0009, v3, both retrieval recalls 1.0, human approval, disconnected real infrastructure, and the mitigated synthetic incident; PNG SHA-256 `934b13fb481b2566730aeab62e7484244edaf478d3aba0ee53d9127d5de85099`
 - Container: daemon 29.4.3 is live, but every locally cached Python base candidate remains excluded by `artifacts/verification/container-source-gate.json`; packaging is deferred and no image was imported or run for this checkpoint
 - Clean clone: exact candidate `f3d882a6e92d4bfe0b4d1803e8b9b214dac362eb` at `C:\Projects\Verification\runbook-sentinel-baseline-0009-f3d882a-20260806T225204` passed compilation, 16 tests, five validators, the research source gate, nine milestone contracts, 114 JSON files, 34 JSONL files and 3,135 records, selected-manifest identity, unchanged policy, model/secret exclusion, held-out CLI, MCP, 40 API checks, 23 runtime checks, persistence, telemetry, and rendered-dashboard inspection
-- GitHub review: draft PR `#8` at reviewed head `d80426a7ef0736b04303d568bcd93580fb07d345` has five expected commits, 62 expected changed files, `CLEAN`, `MERGEABLE`, and no configured checks; the receipt-only final head must be reconfirmed before merge
-- Merged main, tag, release, and public-page verification: pending
+- GitHub review: PR `#8` final head `a1fd78c7c242bed6cf780ba13e1e59eba9095e67` had six expected commits, 63 expected changed files, `CLEAN`, `MERGEABLE`, and no configured checks before history-preserving merge
+- Merged main: fresh public clone of `4f302820c8452c83226b834b76ea208842f626fd` passed compilation, 16 tests, all contracts and source gates, 116 JSON files, 34 JSONL files/3,135 records, selected identity, unchanged policy, model/secret exclusion, CLI, MCP, 40 API checks, 23 runtime checks, persistence, telemetry, and rendered-dashboard inspection
+- Public release: local annotated `v0.0.9`, peeled remote tag, remote `main`, non-draft GitHub release, rendered README and release page, and a fresh public-tag clone agree on the release-closure commit
 
 - Contract schema: pass
 - Frozen manifest: 23 files, SHA-256 `fac3bf310d244322c364516e21b6da78053ddb57d5c3cb05bc15b993609c59da`, pass

@@ -2,7 +2,7 @@
 
 All notable verified changes are recorded here. Unverified work remains in `docs/devlog.md` and the active milestone contract.
 
-## 0.0.9 - Unreleased
+## 0.0.9 - 2026-08-07
 
 - Added frozen development and held-out stale-evidence flood pairs in which five stale, query-matching telemetry records compete with current project evidence under the top-4 limit.
 - Retained `evidence-priority-lexical-v2` with disposition `remediate`: fresh-evidence recall, decision retention, and exact stale-stress behavior are 0.0 while policy remains 1.0 and proposal and terminal attack success remain 0.0.
@@ -11,6 +11,7 @@ All notable verified changes are recorded here. Unverified work remains in `docs
 - Recorded that strict numeric Pareto dominance is false: common-case local diagnosis median increased 0.131 ms and end-to-end median increased 4.681 ms, while v3 completed six additional correct trajectories per run.
 - Preserved pre-change failures, superseded manifests, a failed source-gate authority draft, an initial import-path failure, expected frozen-control failures, a compile working-directory mistake, and a PowerShell inventory failure.
 - Passed the v0.0.9 version-bound 84-trial evaluation, held-out CLI, MCP authority inventory, real HTTP approval/executor/replay/postconditions, SQLite, audit, telemetry, and visually inspected dashboard gates. Container packaging remains deferred because every cached base candidate is excluded by the source gate.
+- Verified an exact clean clone, GitHub PR `#8`, history-preserving merge, fresh public merged-main clone, and rendered dashboard before binding the public tag and non-draft release to the closure commit.
 
 ## 0.0.8 - 2026-08-07
 
