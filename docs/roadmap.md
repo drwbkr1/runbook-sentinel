@@ -1,8 +1,8 @@
 # Roadmap
 
-## Active checkpoint baseline-0014 - idempotency cache authorization
+## Completed checkpoint baseline-0014 - idempotency cache authorization
 
-A fresh run of the verified public v0.0.13 package passes all existing gates, but a real API probe shows that the same-proposal idempotency cache returns an exact completed execution result for wrong or missing approval tokens. The released calls cause no second mutation, yet they disclose protected result data and return false authorization success. Baseline 0014 freezes six development and held-out real-API cases, requires a matching consumed approval before cached-result disclosure, preserves the original completed retry even after expiry, and exact-grades state, audit, trace, replay, and split outcomes separately. The bounded work does not change the agent, retrieval, actions, capabilities, executor, storage schema, dependencies, credentials, or synthetic-only infrastructure boundary.
+A fresh run of the verified public v0.0.13 package passed all existing gates, but a real API probe showed that the same-proposal idempotency cache returned an exact completed execution result for wrong or missing approval tokens. The released calls caused no second mutation, yet they disclosed protected result data and returned false authorization success. Baseline 0014 freezes six development and held-out real-API cases, requires a matching consumed approval before cached-result disclosure, preserves the original completed retry even after expiry, and exact-grades state, audit, trace, replay, and split outcomes separately. Version-bound source/package, no-alternates clone, GitHub review, merged-main, selected-asset, downloaded-byte, and rendered-public gates pass. The bounded work does not change the agent, retrieval, actions, capabilities, executor, storage schema, dependencies, credentials, or synthetic-only infrastructure boundary. The next checkpoint remains intentionally unchosen until a fresh run of public v0.0.14 exposes the next measurable weakness.
 
 ## Completed checkpoint baseline-0013 - approval lifetime integrity
 

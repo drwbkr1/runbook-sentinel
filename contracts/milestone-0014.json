@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0014",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -44,7 +44,7 @@
     }
   ],
   "exit_conditions": [
-    {"id": "EXIT-001", "status": "pending", "evidence": []}
+    {"id": "EXIT-001", "status": "pass", "evidence": ["v0.0.14 release closure, annotated tag, public assets, downloaded bytes, rendered pages, and fresh public-tag clone reconcile"]}
   ],
   "units": [
     {
@@ -101,9 +101,9 @@
       "depends_on": ["UNIT-004"],
       "action_class": "github_push",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "outputs": ["verified public checkpoint"],
-      "gates": {"github_review_pass": true, "history_preserving_merge": true, "merged_main_pass": true, "final_release_audit_pass": true, "public_release_reconciled": false},
+      "gates": {"github_review_pass": true, "history_preserving_merge": true, "merged_main_pass": true, "final_release_audit_pass": true, "public_release_reconciled": true},
       "disposition": "pass",
       "next_dependency": "public release closure"
     }
@@ -137,7 +137,8 @@
       "source and package MCP, HTTP/dashboard, SQLite, audit, telemetry, and rendered visual gates pass",
       "PR 12 merged the exact reviewed head under expected-head lock with history preserved as da084e469534d0a952375a1852b20818480adfd1",
       "fresh no-alternates public-main clone passes nine validators, 22 tests, source and package 84+9+6 evaluations, exact archive rebuild, source and package real surfaces, repository integrity, and visual inspection",
-      "final pre-publication release audit reports verified"
+      "final pre-publication release audit reports verified",
+      "annotated v0.0.14, non-draft public release, selected archive and checksum, public downloads, rendered pages, and fresh public-tag clone reconcile"
     ],
     "artifacts": [
       "artifacts/verification/idempotency-authorization-gap-baseline-0014.json",
@@ -154,11 +155,11 @@
       "artifacts/verification/merged-main-baseline-0014.json",
       "artifacts/verification/release-audit-baseline-0014.json"
     ],
-    "disposition": "advance_to_publication"
+    "disposition": "pass"
   },
   "handoff": {
-    "latest_verified_checkpoint": "public v0.0.13 release closure with selected c14a4559 package bytes",
-    "active_weakness": "corrected and verified on merged main; public v0.0.14 reconciliation remains",
-    "resume_rule": "Resume at UNIT-005 from the verified final release audit; commit the audit, reconcile the release-closure records, publish exact v0.0.14 bytes, and verify every public surface without changing the candidate."
+    "latest_verified_checkpoint": "public v0.0.14 release closure with selected 9c9dbcba package bytes",
+    "active_weakness": "intentionally unchosen until a fresh public-v0.0.14 run exposes a measurable gap",
+    "resume_rule": "Resume from public v0.0.14 by running the system, inspecting traces and separate evaluation results, and selecting one highest-leverage measurable weakness before changing code."
   }
 }

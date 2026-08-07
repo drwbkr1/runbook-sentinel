@@ -33,6 +33,7 @@
 - A fresh public-main clone at the merge has no local object sharing or alternates and began clean. Nine validators, 22 tests, fresh source and package 84+9+6 evaluations, the exact selected archive, both bounded MCP surfaces, 66 HTTP/dashboard checks and 35 state/telemetry checks per runtime, artifact parsing, model/secret exclusion, protected-boundary comparison, and package-dashboard visual inspection pass.
 - The first merged-main credential-shaped scan matched only four package contracts' declared forbidden-pattern literals. Excluding exactly those definition files left zero hits; the initial result remains recorded rather than rewritten.
 - `artifacts/verification/merged-main-baseline-0014.json` and the final release audit record the exact merge, public clone, archive and evidence hashes, real-surface results, retained Edge renderer warnings, and a `verified` pre-publication decision.
+- Prepared the release-closure record for annotated `v0.0.14`, the selected 283,148-byte zipapp at SHA-256 `9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f`, its adjacent checksum, a non-draft public GitHub release, downloaded-byte verification, rendered public pages, and a fresh public-tag clone. The next cycle must resume from this verified checkpoint and select work only after a fresh run exposes a measurable weakness.
 
 ## 2026-08-07 - BASELINE-0013 started
 

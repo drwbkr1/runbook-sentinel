@@ -2,6 +2,15 @@
 
 All notable verified changes are recorded here. Unverified work remains in `docs/devlog.md` and the active milestone contract.
 
+## 0.0.14 - 2026-08-07
+
+- Require a supplied token hash matching a consumed approval before a same-proposal idempotency cache can disclose a completed execution result; wrong, missing, and other-proposal tokens fail closed without mutation.
+- Preserve the original authorized completed retry even after token expiry, keep different-key replay denied, and exact-grade ordered SQLite state, audit, trace, and idempotency stability.
+- Add an independently validated six-case authorization contract with separate development and held-out results; retain the released wrong-token and missing-token HTTP 200 failures rather than rewriting them.
+- Report authorized cache utility, unauthorized cache denial, retry no-mutation, and replay exactness separately from the existing retrieval, generation, trajectory, terminal-state, approval-lifetime, policy, utility, security, reliability, latency, and cost metrics.
+- Keep the agent, retrieval, decision context, scenarios, model adapter, action set, capability policy, approval broker, executor, storage, credentials, dependencies, and disconnected real-infrastructure boundary unchanged.
+- Verify the exact PR head and 51-path inventory, history-preserving merge, fresh public-main source/package and real-surface gates, 25-entry 283,148-byte archive at SHA-256 `9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f`, annotated tag, non-draft release, checksum asset, downloaded public-byte identity, rendered public pages, and fresh public-tag clone.
+
 ## 0.0.13 - 2026-08-07
 
 - Reject non-integer, boolean, nonpositive, and over-300-second approval lifetimes before proposal, approval, audit, trace, or incident mutation; preserve the omitted-value default at 300 seconds.
