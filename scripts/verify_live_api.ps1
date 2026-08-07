@@ -96,6 +96,18 @@ try {
         $missingCapabilityStatus = [int]$_.Exception.Response.StatusCode
         $missingCapabilityChallenge = [string]$_.Exception.Response.Headers['WWW-Authenticate']
         $missingCapabilityErrorText = $_.ErrorDetails.Message
+        if ([string]::IsNullOrWhiteSpace($missingCapabilityErrorText)) {
+            $responseStream = $_.Exception.Response.GetResponseStream()
+            if ($responseStream) {
+                $reader = New-Object System.IO.StreamReader($responseStream)
+                try {
+                    $missingCapabilityErrorText = $reader.ReadToEnd()
+                }
+                finally {
+                    $reader.Dispose()
+                }
+            }
+        }
         if (-not [string]::IsNullOrWhiteSpace($missingCapabilityErrorText)) {
             $missingCapabilityError = $missingCapabilityErrorText | ConvertFrom-Json
         }
@@ -116,6 +128,18 @@ try {
         $wrongCapabilityStatus = [int]$_.Exception.Response.StatusCode
         $wrongCapabilityChallenge = [string]$_.Exception.Response.Headers['WWW-Authenticate']
         $wrongCapabilityErrorText = $_.ErrorDetails.Message
+        if ([string]::IsNullOrWhiteSpace($wrongCapabilityErrorText)) {
+            $responseStream = $_.Exception.Response.GetResponseStream()
+            if ($responseStream) {
+                $reader = New-Object System.IO.StreamReader($responseStream)
+                try {
+                    $wrongCapabilityErrorText = $reader.ReadToEnd()
+                }
+                finally {
+                    $reader.Dispose()
+                }
+            }
+        }
         if (-not [string]::IsNullOrWhiteSpace($wrongCapabilityErrorText)) {
             $wrongCapabilityError = $wrongCapabilityErrorText | ConvertFrom-Json
         }
@@ -134,6 +158,18 @@ try {
     catch {
         $callerActorStatus = [int]$_.Exception.Response.StatusCode
         $callerActorErrorText = $_.ErrorDetails.Message
+        if ([string]::IsNullOrWhiteSpace($callerActorErrorText)) {
+            $responseStream = $_.Exception.Response.GetResponseStream()
+            if ($responseStream) {
+                $reader = New-Object System.IO.StreamReader($responseStream)
+                try {
+                    $callerActorErrorText = $reader.ReadToEnd()
+                }
+                finally {
+                    $reader.Dispose()
+                }
+            }
+        }
         if (-not [string]::IsNullOrWhiteSpace($callerActorErrorText)) {
             $callerActorError = $callerActorErrorText | ConvertFrom-Json
         }
