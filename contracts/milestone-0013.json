@@ -57,7 +57,10 @@
       "all nine frozen approval-lifetime cases and all existing source and package gates pass",
       "two independent builds and the remote clean-clone rebuild reproduce the selected c14a4559 archive bytes",
       "final review-head clone passes validators, tests, and exact archive rebuild",
-      "initial GitHub review binds PR 11 to exact head 536378ced68d0e145e3be836adbe25d2b7f83535 and 49 expected paths"
+      "initial GitHub review binds PR 11 to exact head 536378ced68d0e145e3be836adbe25d2b7f83535 and 49 expected paths",
+      "final evidence-only head 5c4a358a3f85c21ccb27c19efcb791e5b06be283 reconciles at 50 expected paths and merges under expected-head lock",
+      "fresh public-main clone of merge 54c56411ea0ff3e1b17743fcbd8ebc225dabaabb passes every declared release gate",
+      "final pre-publication release audit is verified"
     ],
     "artifacts": [
       "artifacts/verification/approval-lifetime-gap-baseline-0013.json",
@@ -67,7 +70,9 @@
       "artifacts/evaluations/runs/baseline-0013-package-attempt-001.json",
       "artifacts/verification/package-verification-baseline-0013.json",
       "artifacts/verification/clean-clone-baseline-0013.json",
-      "artifacts/verification/release-audit-baseline-0013-premerge.json"
+      "artifacts/verification/release-audit-baseline-0013-premerge.json",
+      "artifacts/verification/merged-main-baseline-0013.json",
+      "artifacts/verification/release-audit-baseline-0013.json"
     ],
     "disposition": "in_progress"
   },
@@ -156,7 +161,7 @@
       "human_gate": false,
       "status": "in_progress",
       "outputs": ["verified public checkpoint"],
-      "gates": {"clean_clone": true, "github_review": true, "premerge_audit": true, "public_release": false, "release_verified": false},
+      "gates": {"clean_clone": true, "github_review": true, "premerge_audit": true, "merged_main": true, "final_release_audit": true, "public_release": false, "release_verified": false},
       "disposition": "in_progress"
     }
   ],
@@ -172,7 +177,7 @@
   ],
   "handoff": {
     "latest_verified_checkpoint": "public v0.0.12 release closure 9829f4e2309b9ebde83f7e1fc4f53f9e7e408b2a",
-    "active_weakness": "candidate closes the released invalid approval-lifetime mutation gap; final receipt-head review, merge, and public-release truth remain",
-    "resume_rule": "Resume from UNIT-005, selected c14a4559 package bytes, and PR 11; revalidate the receipt-only head before merge and do not alter the runtime candidate or rerun broad ideation."
+    "active_weakness": "candidate closes the released invalid approval-lifetime mutation gap; only release-closure, public-asset, downloaded-byte, and rendered-public-page truth remain",
+    "resume_rule": "Resume from UNIT-005, merged main 54c56411ea0ff3e1b17743fcbd8ebc225dabaabb, verified final audit, and selected c14a4559 package bytes; prepare the release closure without altering the runtime candidate or restarting ideation."
   }
 }

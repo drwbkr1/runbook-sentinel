@@ -2,18 +2,18 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `codex/baseline-0013-approval-lifetime`
+- Branch: `main`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.12`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, and rendered public pages to the release-closure commit
 - Active milestone: `BASELINE-0013`; enforce a typed approval lifetime of 1 through 300 seconds outside the model and reject invalid input before any approval mutation
-- Current unit: `UNIT-005` in progress; exact remote-branch and final-review-head clones pass, and the verified pre-merge audit is being committed for final PR-head reconciliation
-- Disposition: baseline-0013 source, package, clean-clone, and initial GitHub review gates `pass`; final receipt-head review, merge, public release, downloaded-byte, and rendered-public-page gates remain pending; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Current unit: `UNIT-005` in progress; PR `#11` is merged with history preserved, a fresh public-main clone passes every release gate, and the final audit authorizes release closure and publication
+- Disposition: baseline-0013 source, package, clean-clone, GitHub review, merge, and merged-main gates `pass`; release-closure, annotated-tag, public asset, downloaded-byte, and rendered-public-page gates remain pending; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: pull request `#10` merged as `e4dcde1227d0f235f8725df3e15f91ad5675e7ab` before the release-closure record
-- GitHub pull request: `#11` is open, non-draft, mergeable, and bound to reviewed head `536378ced68d0e145e3be836adbe25d2b7f83535`; its receipt-only final head remains to be revalidated before merge
-- GitHub release: public, non-draft `v0.0.12` with verified `.pyz` and `.sha256` assets
+- GitHub `main`: PR `#11` merged as `54c56411ea0ff3e1b17743fcbd8ebc225dabaabb` with exact prior-main and reviewed-head parents
+- GitHub pull request: `#11`, merged with history preserved under expected-head lock `5c4a358a3f85c21ccb27c19efcb791e5b06be283`
+- GitHub release: public, non-draft `v0.0.12` remains latest while verified `v0.0.13` release closure and publication are pending
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
 - Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
@@ -35,6 +35,10 @@
 - Two independent 257,847-byte, 23-entry, dependency-free zipapps are byte-identical at SHA-256 `c14a4559f3cfc4f53d5ce501115747252c9f33e7f299eb34f088c605930fbd41`. Source and package evaluation results are exact after excluding declared latency fields.
 - Source and packaged dashboards were visually inspected at 1440 by 1000. Both visibly report Baseline 0013, evaluation pass, approval lifetime exact 1.0, human approval, disconnected real infrastructure, and persisted synthetic incidents.
 - A public-branch clone of exact commit `2f50f5e8d2098d593fea1d5fefa2ca846422fe9f` has no object alternates and initially has a clean worktree. It passes compilation, eight validators, 21 tests, fresh 84+9 source evaluation, exact selected-archive rebuild, fresh packaged 84+9 evaluation, packaged MCP, 58 HTTP/dashboard checks, 31 runtime checks, and visual inspection.
+- Final reviewed head `5c4a358a3f85c21ccb27c19efcb791e5b06be283` contained six expected commits and 50 expected paths, then PR `#11` merged with history preserved as `54c56411ea0ff3e1b17743fcbd8ebc225dabaabb` with exact parents.
+- A no-alternates public-main clone of the merge commit passes compilation, eight validators, 21 tests, 202 tracked JSON files, 53 JSONL files with 5,985 records, model/secret exclusion, source and package 84+9 evaluations, exact selected-archive rebuild, packaged MCP, 58 HTTP/dashboard checks, 31 runtime checks, persistence, telemetry, and visual dashboard inspection.
+- The merged-main dashboard visibly reports Baseline 0013, approval lifetime exact 1.0, human approval, disconnected real infrastructure, and a mitigated persisted synthetic incident. The receipt is `artifacts/verification/merged-main-baseline-0013.json`.
+- The final pre-publication audit computes `verified` and releases only the inherited release-closure, annotated-tag, selected-asset publication, and immediate public-verification actions.
 
 ### BASELINE-0012 package release-candidate evidence
 
