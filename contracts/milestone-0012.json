@@ -74,6 +74,9 @@
     "artifacts": [
       "artifacts/verification/dashboard-identity-gap-baseline-0012.json",
       "artifacts/verification/package-held-out-baseline-0011-attempt-001-failed.json",
+      "artifacts/verification/provenance-correction-baseline-0012.json",
+      "artifacts/verification/package-verification-baseline-0012-attempt-002.json",
+      "artifacts/verification/clean-clone-baseline-0012-attempt-002.json",
       "eval/dashboard-identity-contract.json",
       "eval/package-contract-0012.json"
     ],
@@ -190,7 +193,7 @@
       "status": "in_progress",
       "inputs": ["selected passing candidate", "reconciled living records"],
       "outputs": ["verified public v0.0.12 checkpoint"],
-      "gates": {"clean_clone_rebuild_identity": false, "public_release_asset_identity": false, "release_verified": false},
+      "gates": {"clean_clone_rebuild_identity": true, "public_release_asset_identity": false, "release_verified": false},
       "disposition": "remediate"
     }
   ],

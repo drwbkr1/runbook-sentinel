@@ -10,7 +10,7 @@ All notable verified changes are recorded here. Unverified work remains in `docs
 - The pre-merge audit caught impossible future-dated provenance metadata before promotion. The functionally passing 239,184-byte candidate and its clean-clone receipt remain retained with disposition `superseded`; no release action used those bytes.
 - Corrected only project-authored provenance metadata and the embedded frozen-manifest identity, then passed two byte-identical 239,183-byte builds at SHA-256 `679f7ad301689bee62a5bcb33df8c4778f9f0307135cf30632b13408e2f31083`.
 - Passed 19 tests, seven validators, source and package 84-attempt evaluations, bounded MCP, 51 packaged HTTP/dashboard checks, 27 state/telemetry checks, and rendered dashboard inspection under the same frozen manifest.
-- A renewed no-local-object clean clone is required for the corrected bytes. Makes no package-registry, container, production-readiness, or external-system superiority claim. Clean-clone, GitHub review, merged-main, release-asset, and public-download gates remain pending.
+- Passed a renewed no-local-object clean clone through source and package evaluation, byte-identical rebuild, packaged MCP, 51 API/dashboard checks, 27 state/telemetry checks, and visual inspection. Makes no package-registry, container, production-readiness, or external-system superiority claim. GitHub review, merged-main, release-asset, and public-download gates remain pending.
 
 ## 0.0.11 - Unpublished stopped candidate
 
