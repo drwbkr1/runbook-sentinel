@@ -38,7 +38,9 @@
 - Rendered dashboard: visually inspected at 1440 by 1000; it accurately reports baseline 0010, decision-context v3, stale identity 1.0, stale payload exposure 0.0, human approval, disconnected real infrastructure, and one mitigated synthetic incident.
 - Container: Docker is currently off; packaging remains deferred independently because all reviewed base-image candidates are excluded by the existing source gate. No image was imported or run.
 - Package probe: local wheel construction is not a release gate and failed because `setuptools.build_meta` is absent. No dependency was added or downloaded; this checkpoint ships a dependency-free source repository, not a PyPI package.
-- Release evidence pending: clean clone, GitHub review, merged-main verification, tag, release, and rendered-public reconciliation.
+- Clean clone: exact candidate `1fafe2c99e96d84693a4ba54271694611b3602e4` at `C:\Projects\Verification\runbook-sentinel-baseline-0010-1fafe2c-20260807T134131` passed compilation, 19 tests, seven validators, the source gate, ten milestone contracts, 152 tracked JSON files, 47 tracked JSONL files with 5,085 records, selected-manifest identity, unchanged authority files, model/secret exclusion, held-out CLI, MCP, 50 API checks, 27 runtime checks, persistence, telemetry, and rendered-dashboard inspection.
+- Release audit: the retained pending audit correctly computes `blocked` only because GitHub review and public-release truth have not yet run; all local and clean-clone checks pass.
+- Release evidence pending: GitHub review, merged-main verification, tag, release, and rendered-public reconciliation.
 
 ### BASELINE-0009 release-candidate evidence
 
