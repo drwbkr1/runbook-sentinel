@@ -1,5 +1,17 @@
 # Development log
 
+## 2026-08-07 - BASELINE-0014 started
+
+- Resumed from the verified public v0.0.13 release closure rather than restarting architecture work.
+- Downloaded and ran the selected public zipapp in `C:\Projects\Verification`. All 28 scenarios, 84 attempts, and existing gates pass; the report and trace remain external with exact SHA-256 receipts.
+- Inspected 150 trace events: 84 run, 33 approval, and 33 execution. All approval actors are `frozen-evaluation-harness`; no metric tests whether a cached execution result still requires approval authorization.
+- Reproduced a released real-API weakness after one valid execution: wrong and missing approval tokens each returned HTTP 200 with the exact same-key cached success. The unauthorized calls caused no second executor, SQLite, audit, or trace mutation, but disclosed the result and falsely represented authorization success.
+- Retained the exact public version, archive, external database and trace paths, hashes, identifiers, terminal counts, and the first command-policy-blocked launch attempt in `artifacts/verification/idempotency-authorization-gap-baseline-0014.json`.
+- Selected a bounded policy: a same-proposal cached result requires a token hash matching a consumed approval for that proposal. The original consumed token may retrieve its completed result even after expiry; a new key remains replay-rejected.
+- Froze six exact development and held-out cases plus ordered SQLite and trace fingerprints in `eval/idempotency-authorization-contract.json` before runtime implementation. Wrong-token, missing-token, and original-token results are revealed development evidence; the other-proposal, expired-completed, and new-key cases remain held out.
+- The independent contract validator passes. `contracts/milestone-0014.json` holds `UNIT-002` in progress and excludes changes to the agent, retrieval, actions, capabilities, executor, schemas, dependencies, external assets, credentials, and real infrastructure.
+- The official RFC 9110 source gate passes only for narrow terminology and an explicitly labeled project inference. The official IETF Datatracker labels revision 07 of the Idempotency-Key draft expired and archived; its separate gate is blocked and the document is excluded from downstream use.
+
 ## 2026-08-07 - BASELINE-0013 started
 
 - Resumed from the verified public v0.0.12 release closure instead of restarting architecture work.

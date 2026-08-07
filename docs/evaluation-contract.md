@@ -25,6 +25,17 @@ Exact graders use structured state and expected fields; no LLM judge is used. De
 
 The baseline-0001 through baseline-0004 artifacts used a field named `trajectory_exact`, but its implementation graded generation and proposed-action agreement only. Those immutable results are not rewritten or retroactively promoted as executed terminal-state evidence. Baseline-0005 separates the families and adds real isolated synthetic execution.
 
+## Baseline-0014 idempotency authorization gates
+
+- `eval/idempotency-authorization-contract.json` and its independent validator freeze before candidate runtime implementation.
+- Six ordered real-loopback HTTP cases are split into three revealed development cases and three held-out test cases. Wrong token, missing token, original consumed token, other-proposal token, expired original consumed token, and original token with a new key are graded separately.
+- A same-proposal cache hit returns HTTP 200 only when the supplied token hash matches a consumed approval row for that proposal. Wrong, missing, or cross-proposal material returns exact HTTP 409 `ApprovalError` without the cached result.
+- A completed operation remains retryable with its original consumed token and original key even after approval expiry. A new key remains an exact `ReplayRejected` response and cannot create a second idempotency record.
+- Every retry fingerprints ordered incident, run, proposal, approval, idempotency, and audit rows plus trace bytes before and after. Any mutation fails the case, including a favorable authorized retry.
+- Authorized cache utility, unauthorized cache denial, retry no-mutation, new-key replay rejection, and development/test exactness are separate metrics. They cannot be replaced by the existing same-key idempotency rate.
+- The released wrong-token and missing-token successes remain retained failures. Held-out candidate results are revealed once only after the generic implementation and development checks complete.
+- Agent outcomes, retrieval, proposal and action hash, capabilities, executor actions, approval creation and direct-execution expiry, storage schema, scenarios, postconditions, and disconnected real-infrastructure boundary remain unchanged.
+
 ## Baseline-0013 approval-lifetime gates
 
 - `eval/approval-lifetime-contract.json` is frozen before candidate implementation and is validated independently of the runtime.

@@ -2,12 +2,12 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0014-idempotency-authorization`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010`, `BASELINE-0012`, and `BASELINE-0013`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.13`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Active milestone: none; the next checkpoint remains intentionally unchosen until a fresh public-v0.0.13 run exposes the highest-leverage measurable weakness
-- Current unit: `UNIT-005` complete
-- Disposition: baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Active milestone: `BASELINE-0014`; close the measured cached-result authorization bypass without changing executor or storage semantics
+- Current unit: `UNIT-003` ready; the exact six-case contract and independent validator are frozen before runtime implementation
+- Disposition: baseline-0014 `remediate`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -19,6 +19,15 @@
 - Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
 
 ## Verified evidence
+
+### BASELINE-0014 cached-result authorization gap and frozen contract
+
+- A fresh run of the downloaded public v0.0.13 zipapp passes all 28 scenarios and 84 attempts. Its 150-event trace contains 84 run, 33 approval, and 33 execution events; every approval actor is the evaluation harness, and no separate cached-result authorization metric exists.
+- A real loopback HTTP probe executed one proposal with a valid approval, then retried the same proposal and idempotency key with a wrong token and with no token. Both unauthorized retries returned HTTP 200 and the exact cached successful result. SQLite, audit, and trace inspection prove there was no second executor or state mutation.
+- The gap is bounded to cached-result disclosure and response truth. Direct execution still requires a valid unconsumed, unexpired, action-bound approval, and the model, agent, MCP tools, capabilities, executor, postconditions, credentials, and real-infrastructure boundaries remain unchanged.
+- `eval/idempotency-authorization-contract.json` freezes six cases before implementation: three revealed development cases and three held-out test cases. It requires a hash-matching consumed approval before same-proposal cache disclosure, permits the original completed retry even after token expiry, preserves different-key replay rejection, and requires byte-exact state, audit, and trace stability on every retry.
+- RFC 9110 passed the external-source gate for narrow HTTP terminology and a clearly labeled project inference only. The expired and archived IETF Idempotency-Key Internet-Draft is retained as blocked and excluded from normative or design use. No external code, data, model, package, executable, or service was imported.
+- Next eligible action after the freeze commit: implement the generic same-proposal cache authorization check, run development-only checks, and reveal held-out cases once.
 
 ### BASELINE-0013 approval-lifetime gap and frozen contract
 

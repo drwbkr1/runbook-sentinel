@@ -1,0 +1,117 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0014-rfc9110-http-semantics-20260807",
+  "assessed_at": "2026-08-07T21:33:08Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_actions": [
+      "review current primary official HTTP semantics",
+      "cite and narrowly paraphrase approved specification text",
+      "use a clearly labeled project inference to explain the cached-result authorization boundary"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Use RFC 9110 only for narrow HTTP authentication and response-reuse terminology. The project-authored application policy, threat finding, code, and tests remain independently justified by measured Runbook Sentinel behavior.",
+    "planned_actions": [
+      "review current primary official HTTP semantics",
+      "cite and narrowly paraphrase approved specification text",
+      "use a clearly labeled project inference to explain the cached-result authorization boundary"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "rfc9110-http-semantics",
+      "name": "RFC 9110: HTTP Semantics",
+      "locator": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/info/rfc9110/", "observed_at": "2026-08-07T21:33:08Z", "note": "The official RFC Editor record identifies RFC 9110, HTTP Semantics, as an Internet Standard published June 2022. Live UTF-8 response SHA-256 da8c0aba56aaaa7e62e7fea029cd7c3bd093402e04f30339fc40691816e1bfaf."}],
+          "note": "Exact document number, title, status, publisher surface, and publication date are established."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/rfc/rfc9110.html", "observed_at": "2026-08-07T21:33:08Z", "note": "The RFC Editor is the primary publication surface for the IETF HTTP Semantics standard. Live response SHA-256 d431760660ea44e130f6e919dab216df2d0b3a490567a98089267523368fe1e5."}],
+          "note": "Authority is limited to HTTP semantics, not the product-specific application approval policy."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/rfc/rfc9110.html", "observed_at": "2026-08-07T21:33:08Z", "note": "The official HTML returned HTTP 200 without authentication, account, secret, payment, or terms acceptance."}],
+          "note": "Public review requires no account or new service."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/rfc/rfc9110.html#copyright", "observed_at": "2026-08-07T21:33:08Z", "note": "The official document contains its IETF Trust copyright and legal-provisions notice."}],
+          "note": "Use is limited to attribution, links, facts, and narrow paraphrase; no specification text or code component is imported or redistributed."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "RFC Editor RFC 9110 record and HTML", "note": "The source is reviewed directly from the primary publisher without an intermediary."}],
+          "note": "No external artifact enters project custody."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "HTTPS locators and live-response SHA-256 values in this gate", "note": "Exact official locators and observed response digests bind the review session."}],
+          "note": "No acquired file requires a publisher checksum or signature."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "RFC 9110 authentication and cache semantics", "note": "The standard is fit for narrow terminology about invalid credentials and response reuse; it does not directly specify Runbook Sentinel approval tokens or its idempotency store."}],
+          "note": "The product conclusion is labeled as an inference from the standard plus the measured application behavior."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "BASELINE-0014 intended use", "note": "No executable, code, sample, personal data, secret, dependency, model, data, service, or active content is imported."}],
+          "note": "Review cannot broaden runtime or execution authority."
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "review current primary official HTTP semantics",
+      "cite and narrowly paraphrase approved specification text",
+      "use a clearly labeled project inference to explain the cached-result authorization boundary"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "record links, metadata, hashes, and narrow project-authored summaries",
+      "implement and test project-authored authorization-before-cache-disclosure behavior"
+    ],
+    "requires_explicit_authorization": [
+      "download or import external code, packages, samples, executables, repositories, datasets, or models",
+      "authenticate, accept terms, purchase, add a secret, or interact with real operational infrastructure",
+      "claim RFC 9110 directly standardizes the Runbook Sentinel approval token or idempotency design"
+    ]
+  }
+}

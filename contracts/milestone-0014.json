@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0014",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": ["local_verification", "repository_change", "local_commit", "github_push"],
+    "user_instruction": "Continue selecting and shipping bounded evidence-driven checkpoints without routine approval while preserving the thesis, failed experiments, external-source gates, and security boundaries.",
+    "repository_controls": ["AGENTS.md", "C:\\Projects\\STORAGE_POLICY.md", "contracts/milestone-0013.json", "docs/status.md"],
+    "active_contract": "contracts/milestone-0014.json",
+    "verified_at_utc": "2026-08-07T21:33:08Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Require authorization before a same-proposal idempotency cache can disclose a completed execution result, preserve exact authorized retry and replay behavior, and release only if every existing system and real-surface gate remains passing.",
+    "allowed_paths": ["C:\\Projects\\Active\\runbook-sentinel", "C:\\Projects\\Verification"],
+    "forbidden_work": [
+      "change the agent, retriever, decision context, scenario catalog, action set, capability policy, executor action, proposal schema, or idempotency schema",
+      "add dependencies, services, secrets, external code, data, models, assets, containers, or package registries",
+      "treat the expired IETF idempotency-key draft as a current standard",
+      "reveal held-out candidate results before the generic implementation is complete"
+    ],
+    "reversible_actions": [
+      "create and validate project-authored contracts, evidence, code, tests, and documentation",
+      "run local synthetic evaluations, API, MCP, package, dashboard, persistence, and telemetry checks",
+      "version, commit, push, review, merge, publish, and verify a passing checkpoint"
+    ],
+    "stop_conditions": [
+      "core thesis change or security-boundary weakening",
+      "dependency, external asset, spend, secret, access, ownership, real infrastructure, or irreversible action required",
+      "candidate or shipment cannot be verified"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.13 release closure 18c7bf30c65954713164214cc5823e4394166886 and selected c14a4559 package bytes reconcile.",
+        "Fresh public-package orientation passes 28 scenarios and 84 attempts.",
+        "Released real API returns cached success for wrong and missing approval tokens after one authorized execution, without a second mutation."
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {"id": "EXIT-001", "status": "pending", "evidence": []}
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Run public v0.0.13, inspect evaluation and traces, and measure one idempotency-cache authorization weakness on the real released API.",
+      "depends_on": [],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": ["fresh orientation", "cached-result authorization gap receipt"],
+      "gates": {"released_checkpoint_exact": true, "fresh_run_complete": true, "weakness_measurable": true, "second_mutation_absent": true},
+      "disposition": "pass",
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze exact cache-disclosure authorization, authorized completed-retry semantics, split cases, immutable-state checks, source decisions, and unchanged boundaries before implementation.",
+      "depends_on": ["UNIT-001"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": ["idempotency authorization contract", "independent validator", "source gates", "milestone contract"],
+      "gates": {"frozen_before_implementation": true, "development_failures_retained": true, "held_out_unrevealed": true, "rfc_source_ready": true, "expired_draft_excluded": true, "external_import": false},
+      "disposition": "pass",
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement authorization before same-proposal cache disclosure and focused development tests without changing direct execution or storage semantics.",
+      "depends_on": ["UNIT-002"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "ready",
+      "outputs": ["bounded service correction", "focused tests"]
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Reveal the frozen suite once, add separate cached-result authorization metrics, and verify every prior system, package, API, MCP, dashboard, state, and telemetry gate.",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "planned",
+      "outputs": ["immutable evaluation", "separate authorization metrics", "real-surface evidence"]
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Version, package, clean-clone, review, merge, publish, and verify the bounded checkpoint.",
+      "depends_on": ["UNIT-004"],
+      "action_class": "github_push",
+      "human_gate": false,
+      "status": "planned",
+      "outputs": ["verified public checkpoint"]
+    }
+  ],
+  "verification": {
+    "changed_risks": [
+      "a wrong, missing, or cross-proposal token can still retrieve a cached result if authorization occurs after cache return",
+      "a correction can accidentally break the original consumed-token retry or reapply expiry after completion",
+      "rejected cache lookups can mutate state, audit, trace, or idempotency records",
+      "new evaluation logic can hide or rewrite the released failure or leak held-out results"
+    ],
+    "required_checks": [
+      "exact contract and independent validator freeze before runtime implementation",
+      "released wrong-token and missing-token failures remain retained as development evidence",
+      "all six cases pass after one held-out reveal with byte-exact retry-state fingerprints",
+      "separate authorized cache utility, unauthorized cache denial, no-mutation, and new-key replay metrics equal 1.0",
+      "existing frozen 84-attempt evaluation and every real and packaged surface remain passing",
+      "clean clone, GitHub review, merged main, and public release reconcile"
+    ],
+    "completed_checks": [
+      "public v0.0.13 release closure and selected package bytes reconcile",
+      "fresh public-package orientation passes all 84 attempts and existing gates",
+      "released real API reproduces wrong-token and missing-token cached-success responses with no second mutation",
+      "RFC 9110 is gated for narrow terminology and the expired idempotency-key draft is retained as excluded"
+    ],
+    "artifacts": [
+      "artifacts/verification/idempotency-authorization-gap-baseline-0014.json",
+      "eval/idempotency-authorization-contract.json",
+      "artifacts/verification/research-source-gate-baseline-0014-rfc9110.json",
+      "artifacts/verification/research-source-gate-baseline-0014-idempotency-draft.json"
+    ],
+    "disposition": "remediate"
+  },
+  "handoff": {
+    "latest_verified_checkpoint": "public v0.0.13 release closure with selected c14a4559 package bytes",
+    "active_weakness": "released same-proposal idempotency cache discloses a completed result for wrong or missing approval material",
+    "resume_rule": "Resume at UNIT-003 from the frozen BASELINE-0014 contract; do not restart ideation or alter the selected boundary."
+  }
+}
