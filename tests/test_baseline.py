@@ -13,7 +13,9 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from runbook_sentinel.api import create_server
+from runbook_sentinel.agent import DeterministicIncidentAgent
 from runbook_sentinel.catalog import load_catalog
+from runbook_sentinel.evidence import is_fresh_project_evidence
 from runbook_sentinel.errors import ApprovalError, PolicyRejected, ReplayRejected
 from runbook_sentinel.evaluation import (
     _behavioral_relation_metrics,
@@ -28,8 +30,11 @@ from runbook_sentinel.policy import ACTION_SPECS, action_spec
 from runbook_sentinel.retrieval import (
     EVIDENCE_ONLY_CONTEXT,
     EVIDENCE_PRIORITY_RETRIEVER_V2,
+    FRESHNESS_PRIORITY_RETRIEVER_V3,
     FULL_RETRIEVED_CONTEXT,
     LEXICAL_RETRIEVER_V1,
+    LexicalRetriever,
+    select_decision_documents,
 )
 from runbook_sentinel.service import RunbookSentinel
 
@@ -171,7 +176,7 @@ class BaselineTest(unittest.TestCase):
 
     def test_evidence_priority_retrieval_retains_project_evidence_under_guidance_flood(self):
         candidate = self.service.run_scenario("dev-worker-backlog-guidance-flood")
-        self.assertEqual(candidate["retriever"], EVIDENCE_PRIORITY_RETRIEVER_V2)
+        self.assertEqual(candidate["retriever"], FRESHNESS_PRIORITY_RETRIEVER_V3)
         self.assertEqual(candidate["retrieved_document_ids"][0], "telemetry-worker-current")
         self.assertEqual(len(candidate["retrieved_document_ids"]), 4)
         self.assertEqual(candidate["decision_document_ids"], ["telemetry-worker-current"])
@@ -180,6 +185,14 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(candidate["proposal"]["action"], "restart_worker")
 
         base = Path(self.temp.name)
+        released_v2 = RunbookSentinel(
+            str(base / "released-v2-guidance.db"),
+            str(base / "released-v2-guidance-traces.jsonl"),
+            retrieval_configuration=EVIDENCE_PRIORITY_RETRIEVER_V2,
+        ).run_scenario("dev-worker-backlog-guidance-flood")
+        self.assertEqual(released_v2["retriever"], EVIDENCE_PRIORITY_RETRIEVER_V2)
+        self.assertEqual(released_v2["decision_document_ids"], ["telemetry-worker-current"])
+        self.assertEqual(released_v2["outcome"], "propose_action")
         released_v1 = RunbookSentinel(
             str(base / "released-v1.db"),
             str(base / "released-v1-traces.jsonl"),
@@ -189,6 +202,66 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(released_v1["decision_document_ids"], [])
         self.assertNotIn("telemetry-worker-current", released_v1["retrieved_document_ids"])
         self.assertEqual(released_v1["outcome"], "request_evidence")
+
+    def test_freshness_priority_retains_current_development_evidence_and_fails_closed(self):
+        candidate = self.service.run_scenario("dev-worker-backlog-stale-evidence-flood")
+        self.assertEqual(candidate["retriever"], FRESHNESS_PRIORITY_RETRIEVER_V3)
+        self.assertEqual(candidate["retrieved_document_ids"][0], "telemetry-worker-current")
+        self.assertEqual(len(candidate["retrieved_document_ids"]), 4)
+        self.assertIn("telemetry-worker-current", candidate["decision_document_ids"])
+        self.assertEqual(candidate["outcome"], "propose_action")
+        self.assertEqual(candidate["proposal"]["action"], "restart_worker")
+
+        base = Path(self.temp.name)
+        released_v2 = RunbookSentinel(
+            str(base / "released-v2.db"),
+            str(base / "released-v2-traces.jsonl"),
+            retrieval_configuration=EVIDENCE_PRIORITY_RETRIEVER_V2,
+        ).run_scenario("dev-worker-backlog-stale-evidence-flood")
+        self.assertEqual(released_v2["retriever"], EVIDENCE_PRIORITY_RETRIEVER_V2)
+        self.assertNotIn("telemetry-worker-current", released_v2["retrieved_document_ids"])
+        self.assertEqual(released_v2["outcome"], "request_evidence")
+
+        malformed_documents = [
+            {
+                "id": "telemetry-malformed-time",
+                "title": "worker evidence",
+                "kind": "telemetry",
+                "observed_at": "not-a-time",
+                "content": "queue_depth=900; worker_heartbeat=stale",
+            },
+            {
+                "id": "status-missing-time",
+                "title": "worker evidence",
+                "kind": "status",
+                "content": "queue_depth=900; worker_heartbeat=stale",
+            },
+            {
+                "id": "telemetry-future-time",
+                "title": "worker evidence",
+                "kind": "telemetry",
+                "observed_at": "2026-08-06T17:00:00Z",
+                "content": "queue_depth=900; worker_heartbeat=stale",
+            },
+        ]
+        as_of = "2026-08-06T16:00:00Z"
+        self.assertTrue(
+            all(
+                not is_fresh_project_evidence(document, as_of)
+                for document in malformed_documents
+            )
+        )
+        retrieved = LexicalRetriever(FRESHNESS_PRIORITY_RETRIEVER_V3).retrieve(
+            "worker evidence", malformed_documents, as_of=as_of
+        )
+        decision = select_decision_documents(EVIDENCE_ONLY_CONTEXT, retrieved)
+        malformed_result = DeterministicIncidentAgent().analyze(
+            "worker evidence", decision, as_of
+        )
+        self.assertEqual(malformed_result["outcome"], "request_evidence")
+        self.assertEqual(
+            malformed_result["diagnosis_code"], "insufficient_fresh_evidence"
+        )
 
     def test_live_http_surface_has_security_headers_and_runs_scenario(self):
         base = Path(self.temp.name)
@@ -233,7 +306,7 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["scenario_count"], 28)
         self.assertEqual(report["attempt_count"], 84)
         self.assertEqual(report["agent_configuration"], "deterministic-control-v2")
-        self.assertEqual(report["retrieval_configuration"], EVIDENCE_PRIORITY_RETRIEVER_V2)
+        self.assertEqual(report["retrieval_configuration"], FRESHNESS_PRIORITY_RETRIEVER_V3)
         self.assertEqual(report["decision_context_configuration"], EVIDENCE_ONLY_CONTEXT)
         self.assertEqual(report["gates"]["baseline_disposition"], "pass")
         self.assertTrue(report["gates"]["development_exact"])

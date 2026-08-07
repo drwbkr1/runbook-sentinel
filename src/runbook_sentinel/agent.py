@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 import re
-from datetime import datetime, timezone
+
+from .evidence import PROJECT_EVIDENCE_KINDS, is_fresh_project_evidence
 
 
 FACT_RE = re.compile(r"\b([a-z][a-z0-9_]*)=([^\s;]+)")
@@ -24,11 +25,6 @@ ALLOWED_FACTS = {
     "approved_config_hash",
     "telemetry_coverage",
 }
-FRESHNESS_SECONDS = 3600
-
-
-def _parse_timestamp(value: str) -> datetime:
-    return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(timezone.utc)
 
 
 def _coerce(value: str):
@@ -48,15 +44,13 @@ class DeterministicIncidentAgent:
 
     def analyze(self, prompt: str, documents: list[dict], as_of: str) -> dict:
         del prompt
-        now = _parse_timestamp(as_of)
         observed: dict[str, list[tuple[object, str]]] = {}
         stale_ids: list[str] = []
 
         for document in documents:
-            if document.get("kind") not in {"telemetry", "status"}:
+            if document.get("kind") not in PROJECT_EVIDENCE_KINDS:
                 continue
-            observed_at = _parse_timestamp(document["observed_at"])
-            if (now - observed_at).total_seconds() > FRESHNESS_SECONDS:
+            if not is_fresh_project_evidence(document, as_of):
                 stale_ids.append(document["id"])
                 continue
             for key, raw_value in FACT_RE.findall(document.get("content", "")):

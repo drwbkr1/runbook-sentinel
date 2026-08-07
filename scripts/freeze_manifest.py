@@ -16,6 +16,7 @@ FILES = [
     "src/runbook_sentinel/catalog.py",
     "src/runbook_sentinel/cli.py",
     "src/runbook_sentinel/retrieval.py",
+    "src/runbook_sentinel/evidence.py",
     "src/runbook_sentinel/agent.py",
     "src/runbook_sentinel/model_adapter.py",
     "src/runbook_sentinel/policy.py",

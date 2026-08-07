@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ENV = os.environ.copy()
 ENV["PYTHONPATH"] = str(ROOT / "src")
-CHECKPOINT = "baseline-0008"
+CHECKPOINT = "baseline-0009"
 
 
 def run(command: list[str]) -> None:

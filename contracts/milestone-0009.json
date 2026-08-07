@@ -121,12 +121,14 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["frozen stale-evidence contract", "pre-change control"],
       "outputs": ["candidate retriever", "shared deterministic freshness helper", "fail-closed metrics", "focused development regressions"],
       "gates": {"agent_purpose_unchanged": true, "action_surface_unchanged": true, "freshness_duration_unchanged": true, "new_dependencies": false},
-      "disposition": "planned",
-      "retained_failures": [],
+      "disposition": "pass",
+      "retained_failures": [
+        "A combined compile-and-focused-test command was launched from the tests directory, so compileall reported that src, scripts, and tests were not present there while returning success; compilation was rerun from the repository root and passed before candidate completion."
+      ],
       "next_dependency": "UNIT-004"
     },
     {
@@ -135,12 +137,14 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "complete",
       "inputs": ["frozen expanded suite", "completed generic candidate and graders"],
       "outputs": ["immutable evaluation attempts", "configuration comparison", "evidence disposition"],
       "gates": {"failed_trials_retained": true, "metrics_separate": true, "held_out_revealed_once_after_implementation": true},
-      "disposition": "planned",
-      "retained_failures": [],
+      "disposition": "pass",
+      "retained_failures": [
+        "The first PowerShell comparison hash inventory ended with an empty pipeline element and failed without changing project state; the corrected expression produced exact report and trace hashes."
+      ],
       "next_dependency": "UNIT-005"
     },
     {
@@ -149,7 +153,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "github_push",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": ["passing selected candidate", "reconciled living records"],
       "outputs": ["baseline-0009 public release"],
       "gates": {"public_visibility_already_authorized": true, "runtime_authority_unchanged": true, "all_real_surfaces_verified": false},
@@ -190,6 +194,12 @@
       "All five independent validators pass and the final 24-file pre-implementation manifest passes at SHA-256 558833491e8813f14e0a9d08edd7f8fc4c5cae7ba97a64c85c974d06e5bf52f8",
       "Immutable v2 pre-change attempt 002 has disposition remediate across 84 trials: fresh evidence recall, decision retention, and exact stale-stress behavior are 0.0; stale saturation is 1.0; pass^3 is 0.928571; 27 of 33 expected actions execute; all 51 no-action trials remain unchanged; policy is 1.0; proposal and terminal attack success are 0.0",
       "Pre-change attempt 002 report and trace SHA-256 are 834dcca5a13051c72633282af651b3c4035edf4c5bcc659e7f9aeccfefe22612 and 033f9f6fdf8fe384e47c0471a748bb47daced5b957a48c57b5e5fab170651933"
+      ,"Freshness-priority lexical v3 was implemented without scenario IDs or expected results: it reuses a shared fail-closed one-hour predicate, ranks fresh project evidence before stale project evidence and guidance, retains v1 and v2, and passes scenario as_of explicitly"
+      ,"Development-only focused tests pass for stale telemetry flooding, existing guidance flooding, retained v1 and v2 comparisons, and malformed, missing, and future timestamps; no held-out candidate result was run before implementation completion"
+      ,"The held-out cache pair passed on first reveal after candidate completion; all 16 tests passed and no candidate, case, expectation, or grader changed afterward"
+      ,"Three immutable v3 runs pass all 84 trials, all stale and guidance stress attempts, all behavioral relations, 33 expected executions, 51 no-action trials, policy, security, reliability, and zero-cost gates on the same 25-file manifest at SHA-256 3f7ca71d8425a5d0101a398ede21b958474aaca8989b56d6bd9edfc489584a49"
+      ,"Two same-manifest v2 runs retain disposition remediate with fresh recall, decision retention, and exact stale-stress behavior at 0.0; pass^3 is 0.928571; policy is 1.0; attack success and external cost are 0.0"
+      ,"V3 is selected as the only hard-gate-passing reliability configuration. The comparison explicitly records that strict numeric latency dominance is false: common-case diagnosis median is 0.131 ms higher and common-case end-to-end median is 4.681 ms higher on this local suite, while aggregate v3 performs six additional correct execution trajectories per run"
     ],
     "artifacts": [
       "artifacts/verification/stale-evidence-gap-baseline-0009.json",
@@ -198,6 +208,17 @@
       "artifacts/evaluations/runs/baseline-0009-v2-prechange-control-attempt-001.traces.jsonl",
       "artifacts/evaluations/runs/baseline-0009-v2-prechange-control-attempt-002.json",
       "artifacts/evaluations/runs/baseline-0009-v2-prechange-control-attempt-002.traces.jsonl",
+      "artifacts/evaluations/runs/baseline-0009-attempt-001.json",
+      "artifacts/evaluations/runs/baseline-0009-attempt-001.traces.jsonl",
+      "artifacts/evaluations/runs/baseline-0009-v2-comparison-attempt-001.json",
+      "artifacts/evaluations/runs/baseline-0009-v2-comparison-attempt-001.traces.jsonl",
+      "artifacts/evaluations/runs/baseline-0009-v2-comparison-attempt-002.json",
+      "artifacts/evaluations/runs/baseline-0009-v2-comparison-attempt-002.traces.jsonl",
+      "artifacts/evaluations/runs/baseline-0009-v3-candidate-attempt-002.json",
+      "artifacts/evaluations/runs/baseline-0009-v3-candidate-attempt-002.traces.jsonl",
+      "artifacts/evaluations/runs/baseline-0009-v3-candidate-attempt-003.json",
+      "artifacts/evaluations/runs/baseline-0009-v3-candidate-attempt-003.traces.jsonl",
+      "artifacts/verification/retrieval-comparison-baseline-0009.json",
       "C:\\Projects\\Verification\\runbook-sentinel-baseline-0009-orientation-20260807T015613Z.json",
       "C:\\Projects\\Verification\\runbook-sentinel-baseline-0009-orientation-20260807T015613Z.traces.jsonl"
     ],
@@ -205,7 +226,7 @@
   },
   "handoff": {
     "current_checkpoint": "Public v0.0.8 is verified; BASELINE-0009 UNIT-001 passed and UNIT-002 is active on the frozen stale-evidence weakness.",
-    "next_action": "Implement the generic freshness-priority lexical v3 candidate against development evidence only, including shared fail-closed timestamp classification, before revealing the held-out candidate result.",
+    "next_action": "Version and reconcile the selected v3 checkpoint, validate every real and container surface, clean-clone, review, merge, tag, release, and verify the public artifact.",
     "do_not_carry_forward": [
       "Do not use held-out candidate results as implementation feedback.",
       "Do not import external paper, code, data, model, dependency, or executable.",
@@ -228,6 +249,6 @@
     ],
     "preserve_unfavorable_results": true,
     "latest_verified_checkpoint": "v0.0.8 at dcf45468c0d5c460f6872d50f00128c8fb8a124e",
-    "next_resume_point": "BASELINE-0009 UNIT-003: implement generic freshness-priority lexical v3 using the frozen one-hour rule and development evidence only"
+    "next_resume_point": "BASELINE-0009 UNIT-005: version, reconcile, verify real surfaces, and release the selected v3 checkpoint"
   }
 }
