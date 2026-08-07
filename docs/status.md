@@ -6,7 +6,7 @@
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010`, `BASELINE-0012`, and `BASELINE-0013`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.13`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
 - Active milestone: `BASELINE-0014`; close the measured cached-result authorization bypass without changing executor or storage semantics
-- Current unit: `UNIT-003` ready; the exact six-case contract and independent validator are frozen before runtime implementation
+- Current unit: `UNIT-004` ready; the generic runtime correction and 22 tests pass, and held-out candidate cases remain unrevealed
 - Disposition: baseline-0014 `remediate`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`

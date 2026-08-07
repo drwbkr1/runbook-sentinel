@@ -291,6 +291,12 @@ class RunbookSentinel:
             if cached:
                 if cached["proposal_id"] != proposal_id:
                     raise ApprovalError("Idempotency key is already bound to a different proposal")
+                cached_approval = connection.execute(
+                    "SELECT consumed_at FROM approvals WHERE proposal_id = ? AND token_hash = ?",
+                    (proposal_id, _hash(approval_token)),
+                ).fetchone()
+                if not cached_approval or cached_approval["consumed_at"] is None:
+                    raise ApprovalError("Approval token is invalid")
                 return json.loads(cached["result_json"])
             proposal = connection.execute("SELECT * FROM proposals WHERE id = ?", (proposal_id,)).fetchone()
             if not proposal:

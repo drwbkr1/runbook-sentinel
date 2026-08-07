@@ -43,6 +43,9 @@ from runbook_sentinel.retrieval import (
 from runbook_sentinel.service import RunbookSentinel
 from scripts.verify_stale_payload_projection import validate as validate_stale_payload_projection
 from scripts.verify_approval_lifetime_contract import validate as validate_approval_lifetime_contract
+from scripts.verify_idempotency_authorization_contract import (
+    validate as validate_idempotency_authorization_contract,
+)
 
 
 class BaselineTest(unittest.TestCase):
@@ -114,8 +117,38 @@ class BaselineTest(unittest.TestCase):
         self.assertTrue(executed["after"]["worker_healthy"])
         self.assertEqual(executed["after"]["restart_count"], 1)
 
+        def persisted_snapshot():
+            with self.service.storage.connect() as connection:
+                tables = {}
+                for table in (
+                    "incidents",
+                    "runs",
+                    "proposals",
+                    "approvals",
+                    "idempotency",
+                    "audit_log",
+                ):
+                    tables[table] = [
+                        dict(row)
+                        for row in connection.execute(
+                            f"SELECT * FROM {table} ORDER BY rowid"
+                        ).fetchall()
+                    ]
+            return {
+                "tables": tables,
+                "trace": (Path(self.temp.name) / "traces.jsonl").read_bytes(),
+            }
+
+        completed = persisted_snapshot()
+        for invalid_token in ("wrong-same-key-token", ""):
+            with self.subTest(invalid_token=invalid_token or "missing"):
+                with self.assertRaisesRegex(ApprovalError, "Approval token is invalid"):
+                    self.service.execute(proposal_id, invalid_token, "restart-once")
+                self.assertEqual(persisted_snapshot(), completed)
+
         cached = self.service.execute(proposal_id, approval["approval_token"], "restart-once")
         self.assertEqual(cached, executed)
+        self.assertEqual(persisted_snapshot(), completed)
         with self.assertRaises(ReplayRejected):
             self.service.execute(proposal_id, approval["approval_token"], "restart-twice")
         self.assertEqual(self.service.get_incident(result["incident_id"])["state"]["restart_count"], 1)
@@ -206,6 +239,35 @@ class BaselineTest(unittest.TestCase):
         for corrupted in corruptions:
             with self.subTest(corruption=corruptions.index(corrupted)):
                 self.assertTrue(validate_approval_lifetime_contract(corrupted))
+
+    def test_idempotency_authorization_contract_validator_fails_closed_on_corruption(self):
+        contract = json.loads(
+            (ROOT / "eval/idempotency-authorization-contract.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        self.assertEqual(validate_idempotency_authorization_contract(copy.deepcopy(contract)), [])
+
+        changed_policy = copy.deepcopy(contract)
+        changed_policy["policy"]["invalid_http_status"] = 200
+        changed_split = copy.deepcopy(contract)
+        changed_split["cases"][3]["split"] = "development"
+        weakened_mutation = copy.deepcopy(contract)
+        weakened_mutation["cases"][0]["expected"]["state_unchanged"] = False
+        leaked_held_out = copy.deepcopy(contract)
+        leaked_held_out["prechange_evidence"]["held_out_candidate_results_revealed"] = True
+        removed_trace_boundary = copy.deepcopy(contract)
+        removed_trace_boundary["state_contract"]["fingerprint_before_and_after_retry"].pop()
+
+        for corrupted in (
+            changed_policy,
+            changed_split,
+            weakened_mutation,
+            leaked_held_out,
+            removed_trace_boundary,
+        ):
+            with self.subTest(corruption=corrupted):
+                self.assertTrue(validate_idempotency_authorization_contract(corrupted))
 
     def test_forbidden_action_has_no_policy_or_executor(self):
         self.assertEqual(set(ACTION_SPECS), {"restart_worker", "rollback_deployment", "warm_cache"})

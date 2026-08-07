@@ -11,6 +11,10 @@
 - Froze six exact development and held-out cases plus ordered SQLite and trace fingerprints in `eval/idempotency-authorization-contract.json` before runtime implementation. Wrong-token, missing-token, and original-token results are revealed development evidence; the other-proposal, expired-completed, and new-key cases remain held out.
 - The independent contract validator passes. `contracts/milestone-0014.json` holds `UNIT-002` in progress and excludes changes to the agent, retrieval, actions, capabilities, executor, schemas, dependencies, external assets, credentials, and real infrastructure.
 - The official RFC 9110 source gate passes only for narrow terminology and an explicitly labeled project inference. The official IETF Datatracker labels revision 07 of the Idempotency-Key draft expired and archived; its separate gate is blocked and the document is excluded from downstream use.
+- Committed the contract, source decisions, ADR, gap receipt, and milestone as `d88e52d` before changing runtime code.
+- Implemented the bounded candidate as one same-proposal cache-hit approval lookup. A cached result now requires a hash-matching approval whose `consumed_at` is non-null; direct execution, expiry, action-hash, executor, and schema paths are unchanged.
+- Added development-only checks for wrong and missing same-key tokens, original consumed-token retry utility, exact persisted-table and trace stability, and fail-closed contract corruption. Held-out candidate cases remain unrevealed.
+- Both focused development tests, compilation, the independent contract validator, and all 22 existing tests pass before held-out reveal.
 
 ## 2026-08-07 - BASELINE-0013 started
 

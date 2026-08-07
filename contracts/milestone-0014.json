@@ -77,8 +77,11 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "ready",
-      "outputs": ["bounded service correction", "focused tests"]
+      "status": "complete",
+      "outputs": ["bounded service correction", "focused tests"],
+      "gates": {"development_wrong_token_rejected": true, "development_missing_token_rejected": true, "authorized_retry_preserved": true, "retry_state_unchanged": true, "held_out_unrevealed": true, "existing_tests_pass": true},
+      "disposition": "pass",
+      "next_dependency": "UNIT-004"
     },
     {
       "id": "UNIT-004",
@@ -86,7 +89,7 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "ready",
       "outputs": ["immutable evaluation", "separate authorization metrics", "real-surface evidence"]
     },
     {
@@ -131,6 +134,6 @@
   "handoff": {
     "latest_verified_checkpoint": "public v0.0.13 release closure with selected c14a4559 package bytes",
     "active_weakness": "released same-proposal idempotency cache discloses a completed result for wrong or missing approval material",
-    "resume_rule": "Resume at UNIT-003 from the frozen BASELINE-0014 contract; do not restart ideation or alter the selected boundary."
+    "resume_rule": "Resume at UNIT-004 from the frozen BASELINE-0014 contract; reveal the held-out suite once, preserve the result, and do not alter the frozen boundary."
   }
 }
