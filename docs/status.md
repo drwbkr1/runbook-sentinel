@@ -5,10 +5,10 @@
 - Branch: `codex/baseline-0015-approval-authority`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0014`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.14`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Candidate version: none; no v0.0.15 candidate exists before the approval-authority architecture decision and frozen contract
+- Candidate version: none; the baseline-0015 architecture and ten-case contract are frozen before implementation, but no v0.0.15 candidate exists yet
 - Active milestone: `BASELINE-0015`; establish truthful and enforceable approval authority without giving the agent or MCP approval capability
-- Current unit: `UNIT-002` waiting at an explicit architecture gate after public-v0.0.14 orientation and a real approval-identity gap measurement
-- Disposition: baseline-0015 `requires_architecture_decision`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Current unit: `UNIT-003` ready to implement the approved and frozen per-launch operator capability
+- Disposition: baseline-0015 `remediate`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -30,6 +30,7 @@
 - This does not expose real infrastructure, put a credential in the model, or add an MCP approval tool. It does show that the public dashboard's `human approval` label is not backed by authenticated identity: any local HTTP caller can self-declare the approver and mint an execution-authorizing token.
 - The smallest enforcement options require a new local operator credential or OS-authenticated access boundary, which cross the standing secret/access gate. Label correction alone is reversible and honest but does not enforce identity. No implementation or frozen candidate expectation will be created until the user chooses the architecture.
 - Current official-source review rejects direct Bearer/OAuth use on this surface: RFC 6750 requires TLS, while Runbook Sentinel uses bare loopback HTTP, and OAuth would add roles and flows without a matching product need. RFC 9110 is fit only for generic HTTP authentication semantics. Python 3.12 standard-library primitives make a project-specific per-launch capability feasible without a new dependency, but no capability or credential has been created; the recommended label would be `authenticated external operator`, not proof of human presence.
+- The user approved the recommended option verbatim: `yes, implement the recommended option`. The closed human-review workflow locked and reconciled one `approve-per-launch-operator-capability` decision, no alternative decision, and no fabricated response. `operator-authentication-v1` now freezes ten ordered development and held-out cases before runtime implementation.
 
 ### BASELINE-0014 cached-result authorization gap and frozen contract
 

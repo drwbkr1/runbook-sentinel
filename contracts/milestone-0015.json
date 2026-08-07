@@ -5,33 +5,36 @@
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
-    "authorized_action_classes": ["local_verification", "evidence_preservation", "repository_change", "local_commit", "github_push"],
-    "user_instruction": "Continue automatically inside standing authority, but stop before adding any secret or credential or changing access architecture.",
+    "authorized_action_classes": ["local_verification", "evidence_preservation", "repository_change", "local_commit", "github_push", "add_secret_or_credential", "change_access_architecture"],
+    "user_instruction": "yes, implement the recommended option",
     "repository_controls": ["AGENTS.md", "C:\\Projects\\STORAGE_POLICY.md", "docs/status.md", "contracts/milestone-0015.json"],
     "active_contract": "contracts/milestone-0015.json",
-    "verified_at_utc": "2026-08-07T22:55:26Z",
+    "verified_at_utc": "2026-08-07T23:15:25Z",
     "expires_at_utc": null,
-    "withheld_action_classes": ["add_secret_or_credential", "change_access_architecture"],
-    "gate_reason": "The highest-leverage measured weakness is unauthenticated approval creation; an honest enforcement fix requires operator authentication or a different access boundary, both explicitly reserved for user approval."
+    "withheld_action_classes": [],
+    "gate_reason": "The user explicitly selected the no-cost project-specific per-launch operator capability. The exact response is locked and reconciled; implementation remains bounded by the frozen operator-authentication contract."
   },
   "scope": {
     "objective": "Establish truthful and enforceable approval authority for the synthetic operator surface without giving the agent, model, or MCP approval material or final execution authority.",
     "allowed_paths": ["C:\\Projects\\Active\\runbook-sentinel", "C:\\Projects\\Verification"],
     "forbidden_work": [
-      "add, generate, store, transmit, or request any credential or secret",
-      "change approval or execution endpoint access",
+      "persist, log, trace, render, package, commit, or expose the raw operator capability",
+      "load the operator capability from a command-line value, environment variable, repository file, package file, or database",
+      "give the agent, model, MCP, retrieved content, or user artifact approval material or approval authority",
+      "accept caller-declared actor identity on the approval surface",
+      "label the capability Bearer or OAuth, claim proof of human presence, or add TLS, OAuth, an identity service, or a new dependency",
       "change ownership, repository visibility, or real infrastructure",
-      "implement a caller-asserted allowlist and describe it as authenticated identity",
       "change agent, retriever, decision context, actions, capabilities, executor transitions, or scenario truth"
     ],
     "reversible_actions": [
-      "inspect local and official-source evidence without importing code or assets",
-      "preserve and validate project-authored gap, threat, roadmap, status, and milestone records",
-      "commit and push evidence-only checkpoint records"
+      "freeze and validate project-authored architecture and evaluation records",
+      "implement the approved standard-library in-memory operator capability boundary",
+      "run development, held-out, regression, package, real-surface, clean-clone, and release verification",
+      "version, commit, push, publish, and verify only after every gate passes"
     ],
     "stop_conditions": [
       "core thesis change or security-boundary weakening",
-      "user does not authorize the selected secret or access architecture",
+      "raw capability cannot be excluded from every frozen forbidden surface",
       "candidate or shipment cannot be verified"
     ]
   },
@@ -68,15 +71,15 @@
       "depends_on": ["UNIT-001"],
       "action_class": "architecture_decision",
       "human_gate": true,
-      "status": "ready",
+      "status": "complete",
       "outputs": ["approved architecture decision", "frozen approval-authority contract"],
       "decision_options": [
         "no-cost project-specific per-launch operator capability with server-derived identity and authenticated-external-operator label",
         "claim correction only with no identity enforcement",
         "remove the network approval surface"
       ],
-      "gates": {"explicit_secret_or_access_authority": false},
-      "disposition": null,
+      "gates": {"explicit_secret_or_access_authority": true, "exact_human_response_locked": true, "operator_authentication_contract_frozen": true},
+      "disposition": "pass",
       "next_dependency": "UNIT-003"
     },
     {
@@ -85,7 +88,7 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "planned",
+      "status": "ready",
       "outputs": ["bounded implementation", "focused tests"]
     },
     {
@@ -128,19 +131,27 @@
       "two probe reporter failures remain retained alongside the complete third result",
       "controlled-milestone validation passes with UNIT-002 as the only ready human-gated unit and no authorized ready unit",
       "RFC 9110 and Python standard-library feasibility source gates validate ready without importing assets or adding a secret",
-      "RFC 6750 and RFC 9700 source gate validates blocked and excludes Bearer/OAuth from the current bare-HTTP bounded architecture"
+      "RFC 6750 and RFC 9700 source gate validates blocked and excludes Bearer/OAuth from the current bare-HTTP bounded architecture",
+      "the user's exact approval of the recommended option is locked and reconciled with one selected decision and zero alternatives",
+      "operator-authentication-v1 freezes ten development and held-out cases before candidate implementation"
     ],
     "artifacts": [
       "artifacts/verification/approval-authority-gap-baseline-0015.json",
       "artifacts/verification/research-source-gate-baseline-0015-http-auth.json",
       "artifacts/verification/research-source-gate-baseline-0015-bearer-oauth-exclusion.json",
-      "artifacts/verification/research-source-gate-baseline-0015-python-local-auth.json"
+      "artifacts/verification/research-source-gate-baseline-0015-python-local-auth.json",
+      "contracts/human-review-baseline-0015-approval-architecture.json",
+      "artifacts/verification/human-review-context-baseline-0015.json",
+      "artifacts/verification/human-review-reconciliation-baseline-0015.json",
+      "eval/operator-authentication-contract.json",
+      "scripts/verify_operator_authentication_contract.py",
+      "docs/adr/0011-authenticate-external-operator-with-per-launch-capability.md"
     ],
-    "disposition": "requires_architecture_decision"
+    "disposition": "remediate"
   },
   "handoff": {
     "latest_verified_checkpoint": "public v0.0.14 release closure with selected 9c9dbcba package bytes",
     "active_weakness": "approval creation trusts an unauthenticated caller-declared actor while public truth says human approval",
-    "resume_rule": "Resume at UNIT-002 only after the user chooses whether to authorize a local credential/access boundary or selects claim correction without enforcement. Do not implement, freeze candidate expectations, or relabel the choice as equivalent security before that decision."
+    "resume_rule": "Resume at UNIT-003 from the frozen operator-authentication-v1 contract. Implement only the selected in-memory per-launch capability boundary, run development checks before the one-time held-out reveal, and preserve every failure."
   }
 }

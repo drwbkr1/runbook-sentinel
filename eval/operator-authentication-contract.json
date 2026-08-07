@@ -1,0 +1,176 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "operator-authentication-v1",
+  "checkpoint": "baseline-0015",
+  "frozen_at_utc": "2026-08-07T23:18:58Z",
+  "frozen_before_candidate_implementation": true,
+  "purpose": "Require a project-specific per-launch operator capability before approval creation, derive the persisted operator identity server-side, and keep the capability outside the agent, model, MCP, repository, package, persistence, logs, traces, and rendered surfaces.",
+  "architecture": {
+    "protected_surface": "POST /api/proposals/{proposal_id}/approve",
+    "http_authentication_scheme": "Sentinel-Capability",
+    "http_challenge": "Sentinel-Capability realm=\"runbook-sentinel-operator\"",
+    "not_bearer_or_oauth": true,
+    "capability_lifecycle": "Supplied interactively for each server launch, retained only as an in-process verifier, and never loaded from an argument, environment variable, repository file, package file, database, audit event, or trace.",
+    "operator_identity": "A launch-scoped operator-[0-9a-f]{16} identifier derived server-side from the capability and a fresh in-memory launch nonce.",
+    "approval_cli": "The approve command is an HTTP client, accepts no actor, obtains the capability from a hidden prompt or standard input, and cannot call the approval store directly.",
+    "server_cli": "The serve command obtains the capability from a hidden prompt or standard input and has no command-line capability value option.",
+    "dashboard_label": "authenticated external operator"
+  },
+  "policy": {
+    "capability_shape": "43 through 128 ASCII URL-safe characters matching [A-Za-z0-9_-]+",
+    "recommended_generation": "secrets.token_urlsafe(32)",
+    "comparison": "SHA-256 verifier bytes compared with hmac.compare_digest",
+    "authorization_header_count": 1,
+    "authentication_precedes_body_parsing": true,
+    "caller_actor_field_forbidden": true,
+    "caller_actor_error_status": 400,
+    "caller_actor_error_type": "ValueError",
+    "caller_actor_error_message": "Approval request must not contain actor",
+    "invalid_status": 401,
+    "invalid_error_type": "OperatorAuthenticationError",
+    "invalid_error_message": "Operator capability is invalid",
+    "unauthorized_mutation_forbidden": [
+      "proposal status or updated_at change",
+      "approval row",
+      "proposal.approved audit event",
+      "sentinel.approval trace event",
+      "incident state or status change",
+      "executor invocation",
+      "idempotency row"
+    ]
+  },
+  "cases": [
+    {
+      "case_id": "dev-missing-authorization-caller-actor",
+      "split": "development",
+      "authorization": "missing",
+      "body": {"actor": "sentinel-agent-self-declared"},
+      "expected": {"accepted": false, "http_status": 401, "challenge_exact": true, "error_type": "OperatorAuthenticationError", "error_message": "Operator capability is invalid", "state_unchanged": true}
+    },
+    {
+      "case_id": "dev-missing-authorization-malformed-body",
+      "split": "development",
+      "authorization": "missing",
+      "body": "malformed_json",
+      "expected": {"accepted": false, "http_status": 401, "challenge_exact": true, "error_type": "OperatorAuthenticationError", "error_message": "Operator capability is invalid", "body_not_parsed": true, "state_unchanged": true}
+    },
+    {
+      "case_id": "dev-wrong-capability",
+      "split": "development",
+      "authorization": "wrong_valid_shape",
+      "body": {},
+      "expected": {"accepted": false, "http_status": 401, "challenge_exact": true, "error_type": "OperatorAuthenticationError", "error_message": "Operator capability is invalid", "state_unchanged": true}
+    },
+    {
+      "case_id": "dev-valid-default-lifetime",
+      "split": "development",
+      "authorization": "current_launch",
+      "body": {},
+      "expected": {"accepted": true, "http_status": 201, "challenge_exact": false, "proposal_status": "approved", "approval_count": 1, "approval_audit_count": 1, "approval_trace_count": 1, "operator_identity_server_derived": true, "caller_actor_absent": true, "capability_absent_from_surfaces": true, "lifetime_seconds": 300, "execution_http_status": 200, "postconditions_verified": true}
+    },
+    {
+      "case_id": "test-caller-actor-rejected",
+      "split": "test",
+      "authorization": "current_launch",
+      "body": {"actor": "claimed-human"},
+      "expected": {"accepted": false, "http_status": 400, "challenge_exact": false, "error_type": "ValueError", "error_message": "Approval request must not contain actor", "state_unchanged": true}
+    },
+    {
+      "case_id": "test-bearer-scheme-rejected",
+      "split": "test",
+      "authorization": "bearer_current_capability",
+      "body": {},
+      "expected": {"accepted": false, "http_status": 401, "challenge_exact": true, "error_type": "OperatorAuthenticationError", "error_message": "Operator capability is invalid", "state_unchanged": true}
+    },
+    {
+      "case_id": "test-missing-scheme-value-rejected",
+      "split": "test",
+      "authorization": "scheme_without_value",
+      "body": {},
+      "expected": {"accepted": false, "http_status": 401, "challenge_exact": true, "error_type": "OperatorAuthenticationError", "error_message": "Operator capability is invalid", "state_unchanged": true}
+    },
+    {
+      "case_id": "test-duplicate-authorization-rejected",
+      "split": "test",
+      "authorization": "duplicate_current_launch",
+      "body": {},
+      "expected": {"accepted": false, "http_status": 401, "challenge_exact": true, "error_type": "OperatorAuthenticationError", "error_message": "Operator capability is invalid", "state_unchanged": true}
+    },
+    {
+      "case_id": "test-prior-launch-capability-rejected",
+      "split": "test",
+      "authorization": "prior_launch",
+      "body": {},
+      "expected": {"accepted": false, "http_status": 401, "challenge_exact": true, "error_type": "OperatorAuthenticationError", "error_message": "Operator capability is invalid", "state_unchanged": true}
+    },
+    {
+      "case_id": "test-valid-maximum-lifetime",
+      "split": "test",
+      "authorization": "current_launch",
+      "body": {"ttl_seconds": 300},
+      "expected": {"accepted": true, "http_status": 201, "challenge_exact": false, "proposal_status": "approved", "approval_count": 1, "approval_audit_count": 1, "approval_trace_count": 1, "operator_identity_server_derived": true, "caller_actor_absent": true, "capability_absent_from_surfaces": true, "lifetime_seconds": 300, "execution_http_status": 200, "postconditions_verified": true}
+    }
+  ],
+  "state_contract": {
+    "fingerprint_before_and_after_denied_request": [
+      "incidents ordered rows",
+      "runs ordered rows",
+      "proposals ordered rows",
+      "approvals ordered rows",
+      "idempotency ordered rows",
+      "audit_log ordered rows",
+      "trace file bytes"
+    ],
+    "authorized_terminal_state": {
+      "incident_status": "mitigated",
+      "proposal_status": "executed",
+      "approval_consumed": true,
+      "idempotency_record_count": 1,
+      "execution_audit_count": 1,
+      "execution_trace_count": 1
+    }
+  },
+  "secret_exclusion_contract": {
+    "raw_capability_permitted_locations": [
+      "operator input process memory",
+      "approval HTTP Authorization field in transit over loopback",
+      "server request-processing memory"
+    ],
+    "raw_capability_forbidden_locations": [
+      "agent or model input, output, configuration, or telemetry",
+      "MCP request, response, tool schema, or server state",
+      "repository tracked or untracked files",
+      "package entries or package metadata",
+      "database rows, audit payloads, or idempotency results",
+      "trace events, evaluation reports, dashboard HTML, HTTP error bodies, or structured logs",
+      "process arguments or environment variables"
+    ],
+    "persisted_identity_is_not_human_presence": true,
+    "same_process_or_hostile_os_out_of_scope": true
+  },
+  "coverage": {
+    "required_splits": ["development", "test"],
+    "case_count": 10,
+    "authorized_case_count": 2,
+    "authentication_denial_case_count": 7,
+    "authorized_actor_rejection_case_count": 1,
+    "development_case_count": 4,
+    "test_case_count": 6
+  },
+  "prechange_evidence": {
+    "revealed_case_ids": ["dev-missing-authorization-caller-actor"],
+    "released_result": "fail",
+    "held_out_candidate_results_revealed": false,
+    "receipt": "artifacts/verification/approval-authority-gap-baseline-0015.json"
+  },
+  "unchanged_boundaries": [
+    "agent outcomes, model contract, retrieval, and decision context",
+    "proposal schema, action hash, capability allowlist, and executor actions",
+    "approval-token hashing, expiry, action binding, and one-time consumption",
+    "idempotency, replay, precondition, postcondition, and state-transition enforcement",
+    "synthetic scenario catalog and every prior frozen expectation",
+    "MCP exposes no approval or execution authority",
+    "loopback-only HTTP and disconnected real infrastructure",
+    "no new dependency, paid service, external asset, or OAuth component"
+  ]
+}

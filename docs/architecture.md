@@ -26,6 +26,8 @@ Baseline 0012 adds a packaging plane without changing runtime authority. A stand
 
 The dashboard checkpoint label derives from the same `CHECKPOINT` constant returned by health. The stopped baseline-0011 candidate showed why release identity is a real-surface invariant: its health and evaluation were correct while an independent HTML literal was stale. Baseline 0012 removes that duplicate identity and verifies the rendered output for source and packaged runtimes.
 
+Baseline 0015 selects but has not yet implemented a project-specific per-launch operator capability for approval creation. The frozen design requires one `Sentinel-Capability` authorization field before body parsing, rejects caller-declared `actor`, derives a launch-scoped pseudonymous identity server-side, and retains only an in-memory verifier. The public approve CLI becomes an HTTP client with hidden-prompt or standard-input custody and no direct approval-store path. Raw capability values are forbidden from arguments, environment variables, repository and package files, SQLite, audit, traces, evaluation reports, dashboard HTML, structured logs, the model, and MCP. The boundary is labeled authenticated external operator, not human presence, Bearer, OAuth, or production identity.
+
 ## Ports and trust boundaries
 
 - CLI and HTTP API are local operator surfaces.
