@@ -143,6 +143,9 @@ class SentinelHandler(BaseHTTPRequestHandler):
         approval_lifetime_exact = metrics.get("approval_lifetime", {}).get(
             "exact_match_rate"
         )
+        idempotency_authorization_exact = metrics.get(
+            "idempotency_authorization", {}
+        ).get("exact_match_rate")
         trajectory_display = f"{trajectory_exact:.1f}" if isinstance(trajectory_exact, (int, float)) else "not run"
         terminal_display = f"{terminal_exact:.1f}" if isinstance(terminal_exact, (int, float)) else "not run"
         condition_display = (
@@ -180,6 +183,11 @@ class SentinelHandler(BaseHTTPRequestHandler):
             if isinstance(approval_lifetime_exact, (int, float))
             else "not run"
         )
+        idempotency_authorization_display = (
+            f"{idempotency_authorization_exact:.1f}"
+            if isinstance(idempotency_authorization_exact, (int, float))
+            else "not run"
+        )
         rows = "".join(
             f"<tr><td>{html.escape(item['id'])}</td><td>{html.escape(item['scenario_id'])}</td><td>{html.escape(item['status'])}</td></tr>"
             for item in incidents
@@ -214,6 +222,7 @@ th,td {{ text-align:left; padding:12px; border-bottom:1px solid #21354b; }} .bou
 <div class="card"><div>Stale identity retained</div><div class="value">{stale_identity_display}</div></div>
 <div class="card"><div>Stale payload exposure</div><div class="value">{stale_payload_display}</div></div>
 <div class="card"><div>Approval lifetime exact</div><div class="value">{approval_lifetime_display}</div></div>
+<div class="card"><div>Cached result authorization</div><div class="value">{idempotency_authorization_display}</div></div>
 <div class="card"><div>Execution boundary</div><div class="value boundary">human approval</div></div>
 <div class="card"><div>Real infrastructure</div><div class="value boundary">disconnected</div></div>
 </section>

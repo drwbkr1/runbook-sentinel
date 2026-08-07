@@ -494,6 +494,7 @@ class BaselineTest(unittest.TestCase):
                 self.assertIn("Stale identity retained", dashboard)
                 self.assertIn("Stale payload exposure", dashboard)
                 self.assertIn("Approval lifetime exact", dashboard)
+                self.assertIn("Cached result authorization", dashboard)
                 self.assertIn("frame-ancestors 'none'", response.headers["Content-Security-Policy"])
             with urlopen(f"http://127.0.0.1:{server.server_port}/health") as response:
                 self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0013")
@@ -538,7 +539,7 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["coverage"]["adversarial_split_coverage"], 1.0)
         self.assertEqual(report["metrics"]["coverage"]["missing_condition_split_pairs"], [])
         self.assertEqual(report["metrics"]["coverage"]["missing_adversarial_splits"], [])
-        self.assertEqual(report["schema_version"], "2.0")
+        self.assertEqual(report["schema_version"], "2.1")
         self.assertEqual(report["checkpoint"], "baseline-0013")
         self.assertEqual(report["metrics"]["proposal"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["development"]["tool_trajectory"]["exact_match"], 1.0)
@@ -574,6 +575,40 @@ class BaselineTest(unittest.TestCase):
         )
         self.assertTrue(report["gates"]["approval_lifetime_valid_boundaries_exact"])
         self.assertNotIn('"approval_token":', json.dumps(approval_lifetime))
+        idempotency_authorization = report["metrics"]["idempotency_authorization"]
+        self.assertEqual(
+            report["idempotency_authorization_contract_id"],
+            "idempotency-authorization-v1",
+        )
+        self.assertEqual(idempotency_authorization["case_count"], 6)
+        self.assertEqual(idempotency_authorization["authorized_cache_case_count"], 2)
+        self.assertEqual(
+            idempotency_authorization["unauthorized_cache_case_count"], 3
+        )
+        self.assertEqual(idempotency_authorization["new_key_replay_case_count"], 1)
+        self.assertEqual(idempotency_authorization["exact_match_rate"], 1.0)
+        self.assertEqual(
+            idempotency_authorization["authorized_cache_utility_rate"], 1.0
+        )
+        self.assertEqual(
+            idempotency_authorization["unauthorized_cache_denial_rate"], 1.0
+        )
+        self.assertEqual(idempotency_authorization["retry_no_mutation_rate"], 1.0)
+        self.assertEqual(
+            idempotency_authorization["new_key_replay_rejection_rate"], 1.0
+        )
+        self.assertEqual(
+            idempotency_authorization["split_exact_match_rate"],
+            {"development": 1.0, "test": 1.0},
+        )
+        self.assertTrue(
+            report["gates"]["idempotency_authorization_all_six_cases_exact"]
+        )
+        self.assertTrue(
+            report["gates"]["unauthorized_idempotency_cache_denial_is_one"]
+        )
+        self.assertTrue(report["gates"]["idempotency_retry_no_mutation_is_one"])
+        self.assertNotIn('"approval_token":', json.dumps(idempotency_authorization))
         relation_metrics = report["metrics"]["behavioral_relations"]
         self.assertTrue(report["gates"]["behavioral_relation_contract_valid"])
         self.assertTrue(report["gates"]["behavioral_relation_split_coverage_is_one"])

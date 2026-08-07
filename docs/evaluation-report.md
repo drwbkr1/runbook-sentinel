@@ -1,5 +1,17 @@
 # Evaluation report
 
+## BASELINE-0014 pre-change and isolated candidate result
+
+The downloaded public v0.0.13 zipapp passes the frozen 28-scenario, 84-attempt evaluation and every existing gate. Its 150-event trace contains 84 run, 33 approval, and 33 execute events. Same-key idempotency is 1.0 only because the released evaluator retries with the original valid approval token; it has no cached-result authorization metric.
+
+A development probe through the released real loopback HTTP API first executed one proposal correctly, then retried the same proposal and idempotency key with a wrong token and with no token. Both retries returned HTTP 200 and the exact cached successful execution result. SQLite, audit, and trace evidence proves there was no second executor or state mutation. The measured issue is unauthorized result disclosure and false authorization success, not duplicate execution.
+
+Disposition: `remediate`. The frozen contract defines six cases across separate development and held-out splits. A same-proposal cache hit requires a supplied token hash matching a consumed approval for that proposal. The original consumed token remains valid for its exact completed retry even after expiry, while a new key remains replay-rejected. Ordered incident, run, proposal, approval, idempotency, and audit rows plus trace bytes must remain identical around every retry.
+
+The generic service correction and development tests were committed after the freeze and before held-out reveal. The first isolated reveal then passed all six real-loopback cases without a contract, candidate, expected-result, or grader change. Authorized cache utility, unauthorized cache denial, retry no-mutation, new-key replay rejection, development exactness, test exactness, and overall exactness are all 1.0. The immutable result SHA-256 is `90ec001f063d97755014d32c84832687c67b5a3130aca89e57b3c427a26d3306`; it contains no raw approval-token field.
+
+The schema 2.1 evaluator now reports this plane separately from the 84 repeated scenario attempts and nine approval-lifetime cases. All 22 tests pass. Version-bound evaluation, real surfaces, package, clean clone, review, merged main, and public release remain pending; therefore this is candidate evidence, not a release claim.
+
 ## BASELINE-0013 pre-change result
 
 The downloaded public v0.0.12 zipapp still passes the frozen 28-scenario, 84-attempt evaluation with every existing gate passing. Its trace contains 84 run, 33 approval, and 33 execute events, but the existing contract contains no invalid approval-lifetime case.

@@ -15,6 +15,10 @@
 - Implemented the bounded candidate as one same-proposal cache-hit approval lookup. A cached result now requires a hash-matching approval whose `consumed_at` is non-null; direct execution, expiry, action-hash, executor, and schema paths are unchanged.
 - Added development-only checks for wrong and missing same-key tokens, original consumed-token retry utility, exact persisted-table and trace stability, and fail-closed contract corruption. Held-out candidate cases remain unrevealed.
 - Both focused development tests, compilation, the independent contract validator, and all 22 existing tests pass before held-out reveal.
+- Implemented the isolated six-case real-loopback evaluator without running it. It fingerprints all ordered mutable tables and trace bytes around each retry and reports authorized utility, unauthorized denial, no-mutation, replay, and split exactness separately.
+- A static evaluator import check first failed because the ad hoc command omitted `src` from Python's import path. No evaluator case ran and no output file existed. The corrected read-only mapping check passed before reveal; the tooling failure remains retained here.
+- The first held-out reveal passed all six frozen cases. Authorized cache utility, unauthorized cache denial, retry no-mutation, new-key replay rejection, development exactness, test exactness, and overall exactness are 1.0. The immutable 10,782-byte result SHA-256 is `90ec001f063d97755014d32c84832687c67b5a3130aca89e57b3c427a26d3306`; no raw approval-token field is present.
+- Integrated the isolated plane into evaluator schema 2.1 and the dashboard while preserving separate metrics and a fail-closed release disposition. All 22 tests pass after integration.
 
 ## 2026-08-07 - BASELINE-0013 started
 
