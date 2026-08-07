@@ -6,13 +6,13 @@
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.10`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, and rendered public pages to the release-closure commit
 - Active milestone: `BASELINE-0012`
-- Current unit: `UNIT-005` release reconciliation; local and clean-clone source, package, real-surface, persistence, telemetry, rendered-dashboard, and byte-rebuild gates pass; GitHub and public release gates remain
+- Current unit: `UNIT-005` release reconciliation; corrected local source, package, real-surface, persistence, telemetry, rendered-dashboard, and byte-rebuild gates pass; renewed clean-clone, GitHub, and public release gates remain
 - Disposition: v0.0.12 package candidate `pass` locally; v0.0.11 `stop` and unpublished; decision-context v3 remains selected; local-model candidate `exclude`; container `defer`
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
 - GitHub `main`: pull request `#9` merged as `ccbdafc40777ce7b20ed1375463193ecdbaa7d6c` before the release-closure record
-- GitHub pull request: baseline-0012 pull request not yet opened; `#9` is the latest merged release PR
+- GitHub pull request: draft `#10` targets `main`; promotion is held until the corrected candidate passes renewed clean-clone and release-audit gates
 - GitHub release: public, non-draft `v0.0.10`
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
@@ -24,15 +24,16 @@
 
 - Public v0.0.10 remains the latest verified checkpoint. BASELINE-0011 and v0.0.11 are stopped and unpublished after the first packaged real-surface reveal rendered `Baseline 0010` while health and evaluation reported baseline-0011; the candidate, screenshot, and 49-of-50 result remain retained.
 - Frozen baseline-0012 contracts classify the stale dashboard label as a known regression rather than held-out evidence and require a new v0.0.12 candidate, exact package contents and metadata, source/package parity, clean-clone rebuild identity, and public-download checksum identity.
-- Two independent 239,184-byte archives are byte-identical at SHA-256 `2f26584484fed4204a45f1fd261d88ad417ddc0919d4f332c7a5c298a10d1ff9`; each has exactly 21 allowlisted entries, fixed metadata, no cache, bytecode, runtime state, dependency, or secret, and exact package/evaluation manifest bindings.
-- Source validation passes a 35-file frozen manifest, seven validators, 19 tests, and all 84 evaluation attempts. The package evaluation passes all 84 attempts and matches every source gate and non-latency metric family under manifest SHA-256 `fb503b07fda00d20ec3f16d73d6f460da58350d944f549cca79e27c5c32d520b`.
+- The pre-merge release audit caught impossible future-dated project-authored provenance metadata. The earlier functionally passing archive, evaluation, and clean-clone receipt remain retained with disposition `superseded`; they were not promoted, merged, tagged, or released.
+- Two corrected independent 239,183-byte archives are byte-identical at SHA-256 `679f7ad301689bee62a5bcb33df8c4778f9f0307135cf30632b13408e2f31083`; each has exactly 21 allowlisted entries, fixed metadata, no cache, bytecode, runtime state, dependency, or secret, and exact package/evaluation manifest bindings.
+- Corrected source validation passes a 35-file frozen manifest, seven validators, 19 tests, and all 84 evaluation attempts. The corrected package evaluation passes all 84 attempts and matches every source gate and non-latency metric family under manifest SHA-256 `63a02909d62c0bb6f156d6700df7b2b9453a7b9e7385e9bf524243c184ccd028`.
 - Retrieval, generation, proposal, tool trajectory, terminal state, policy, utility, attack success, repeated reliability, latency, cost, behavioral relations, guidance stress, stale-evidence stress, and stale-payload projection remain separately reported. Policy and `pass^3` are 1.0; proposal and terminal attack success are 0.0; model calls and estimated cost are zero.
 - Packaged MCP reports v0.0.12, exposes three diagnostic/read tools and no approval or execution tool, retains the full retrieval audit, excludes the attack document from decisions, and exposes zero stale payload characters.
 - Packaged HTTP/dashboard passes all 51 checks, including approval hashing, execution, replay rejection, postconditions, redaction, CSP, baseline-0012 health/evaluation/rendered identity, and absence of stale baseline labels. SQLite, audit, trace, manifest binding, and telemetry pass all 27 checks.
-- The 1440 by 1000 dashboard was visually inspected. It visibly reports Baseline 0012, evaluation pass, deterministic v2, decision-context v3, retrieval v3, exact metrics, human approval, disconnected real infrastructure, and one mitigated synthetic incident; PNG SHA-256 `12640baf7d30bf8e6985beb7d425855ff0c94d595c3473cf7bd7ed92d3668da3`.
+- The corrected 1440 by 1000 dashboard was visually inspected. It visibly reports Baseline 0012, evaluation pass, deterministic v2, decision-context v3, retrieval v3, exact metrics, human approval, disconnected real infrastructure, and one mitigated synthetic incident; PNG SHA-256 `a714e4e3da6745501d07eded0617124ec6e75c479f0d64e948b1be3210ec67fa`.
 - Official Python 3.12.13 packaging documentation passed the source gate for citation and project-authored standard-library implementation only. No external code, package, sample, data, model, executable, or service was imported.
-- A no-local-object clone of exact candidate `329767a6995aa261509d44e806729f94d166f180` passed compilation, 19 tests, both package contracts, the source gate, 12 milestone contracts, 178 tracked JSON files, 49 JSONL files with 5,385 records, model/secret exclusion, source and package evaluations, MCP, 51 API checks, 27 runtime checks, and visual inspection. Two clean-clone builds are byte-identical to the selected archive at SHA-256 `2f26584484fed4204a45f1fd261d88ad417ddc0919d4f332c7a5c298a10d1ff9`.
-- GitHub review, merged-main, release asset, downloaded checksum, tag, and rendered public-page verification remain pending. No v0.0.12 release claim is made yet.
+- The earlier no-local-object clone of exact candidate `329767a6995aa261509d44e806729f94d166f180` remains retained as functionally passing but is superseded because it rebuilt the earlier provenance-defective bytes. A new no-local-object clone must independently reproduce SHA-256 `679f7ad301689bee62a5bcb33df8c4778f9f0307135cf30632b13408e2f31083` before promotion.
+- Renewed clean-clone, GitHub review, merged-main, release asset, downloaded checksum, tag, and rendered public-page verification remain pending. No v0.0.12 release claim is made yet.
 
 ### BASELINE-0010 release-candidate evidence
 

@@ -7,9 +7,10 @@ All notable verified changes are recorded here. Unverified work remains in `docs
 - Added a project-authored, Python-standard-library-only zipapp builder with an exact 21-entry allowlist, fixed timestamps and permissions, stored compression, embedded frozen evaluation identity, per-entry hashes, and adjacent SHA-256 checksum.
 - Added an independent archive verifier that checks ordering, metadata, source parity, package and evaluation manifest bindings, and cache, runtime-state, and secret exclusions.
 - Preserved the stopped `0.0.11` candidate and fixed its known rendered checkpoint mismatch in a new candidate by deriving the dashboard and its source-test expectation from the canonical runtime checkpoint.
-- Passed two byte-identical 239,184-byte builds at SHA-256 `2f26584484fed4204a45f1fd261d88ad417ddc0919d4f332c7a5c298a10d1ff9`.
+- The pre-merge audit caught impossible future-dated provenance metadata before promotion. The functionally passing 239,184-byte candidate and its clean-clone receipt remain retained with disposition `superseded`; no release action used those bytes.
+- Corrected only project-authored provenance metadata and the embedded frozen-manifest identity, then passed two byte-identical 239,183-byte builds at SHA-256 `679f7ad301689bee62a5bcb33df8c4778f9f0307135cf30632b13408e2f31083`.
 - Passed 19 tests, seven validators, source and package 84-attempt evaluations, bounded MCP, 51 packaged HTTP/dashboard checks, 27 state/telemetry checks, and rendered dashboard inspection under the same frozen manifest.
-- Passed a no-local-object clean clone through source and package verification and byte-identical rebuild. Makes no package-registry, container, production-readiness, or external-system superiority claim. GitHub review, merged-main, release-asset, and public-download gates remain pending.
+- A renewed no-local-object clean clone is required for the corrected bytes. Makes no package-registry, container, production-readiness, or external-system superiority claim. Clean-clone, GitHub review, merged-main, release-asset, and public-download gates remain pending.
 
 ## 0.0.11 - Unpublished stopped candidate
 

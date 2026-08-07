@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "checkpoint": "baseline-0012",
-  "verified_at_utc": "2026-08-07T19:36:00Z",
+  "verified_at_utc": "2026-08-07T19:00:00Z",
   "candidate_commit": "50d64e3",
   "candidate_archive": {
     "sha256": "2f26584484fed4204a45f1fd261d88ad417ddc0919d4f332c7a5c298a10d1ff9",

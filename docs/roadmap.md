@@ -52,7 +52,7 @@ The public v0.0.10 run passed every existing system gate, but its release had no
 
 ## Active checkpoint baseline-0012 - canonical package and rendered identity
 
-Treat the BASELINE-0011 dashboard mismatch as a known regression, not held-out evidence. Create a new v0.0.12 candidate whose dashboard and source test derive the rendered checkpoint from one canonical runtime value. Preserve the agent, retrieval, decision-context, policy, approval, executor, scenario, synthetic-split, and real-infrastructure boundaries. Local and no-local-object clean-clone source/package, package reproducibility, MCP, HTTP/dashboard, state, telemetry, visual, and byte-rebuild gates pass. GitHub review, merged-main verification, release assets, and downloaded public-byte identity remain before publication.
+Treat the BASELINE-0011 dashboard mismatch as a known regression, not held-out evidence. Create a new v0.0.12 candidate whose dashboard and source test derive the rendered checkpoint from one canonical runtime value. Preserve the agent, retrieval, decision-context, policy, approval, executor, scenario, synthetic-split, and real-infrastructure boundaries. A pre-merge audit stopped promotion after detecting impossible future-dated provenance metadata; the earlier functionally passing candidate and clean-clone receipt remain retained as superseded. The corrected local source/package, package reproducibility, MCP, HTTP/dashboard, state, telemetry, visual, and byte-rebuild gates pass. Renewed clean-clone, GitHub review, merged-main verification, release assets, and downloaded public-byte identity remain before publication.
 
 ## Research preview v0.1.0
 

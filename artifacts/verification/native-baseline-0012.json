@@ -31,7 +31,7 @@
   },
   "dashboard": {
     "height": 1000,
-    "sha256": "12640baf7d30bf8e6985beb7d425855ff0c94d595c3473cf7bd7ed92d3668da3",
+    "sha256": "a714e4e3da6745501d07eded0617124ec6e75c479f0d64e948b1be3210ec67fa",
     "width": 1440
   },
   "database": {
@@ -48,7 +48,7 @@
       "proposals": 1,
       "runs": 1
     },
-    "sha256": "ce0f75bb7e4ff491ec7722f66d03d4e85ed1b5d8816bf8a31ea0b56043542e88"
+    "sha256": "e8ee4912262f953cc44678275d015649c00979b50317803ab3055555e41517d4"
   },
   "evaluation": {
     "adversarial_split_coverage": 1.0,
@@ -58,9 +58,9 @@
     "fresh_decision_retention": 1.0,
     "fresh_evidence_recall": 1.0,
     "fresh_payload_retention": 1.0,
-    "manifest_sha256": "fb503b07fda00d20ec3f16d73d6f460da58350d944f549cca79e27c5c32d520b",
+    "manifest_sha256": "63a02909d62c0bb6f156d6700df7b2b9453a7b9e7385e9bf524243c184ccd028",
     "retrieval_configuration": "freshness-priority-lexical-v3",
-    "sha256": "b1328fd43bec63567b8403fd56debd6426f399571e7e37b69d8bc660664cdfde",
+    "sha256": "e910b6edb94c333b3904e4d284b59005aa162f2eea06f2f059526dfeb13921fa",
     "stale_identity_retention": 1.0,
     "stale_metadata_projection": 1.0,
     "stale_payload_exposure": 0.0,
@@ -74,6 +74,6 @@
   "telemetry": {
     "event_count": 3,
     "forbidden_terms": [],
-    "sha256": "3fd27775bc69f063348a2306e09b3a77609e106e0b3dc98049856c4bc1155756"
+    "sha256": "c6b8c25ecaf428707c755dd29bba5e6273eb47ed8a58355cbffbd2c010629c78"
   }
 }

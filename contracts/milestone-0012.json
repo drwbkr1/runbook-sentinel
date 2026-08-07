@@ -9,7 +9,7 @@
     "user_instruction": "Continue selecting and shipping bounded evidence-driven checkpoints without routine approval while preserving the thesis, failed experiments, external-source gates, and security boundaries.",
     "repository_controls": ["AGENTS.md", "C:\\Projects\\STORAGE_POLICY.md", "contracts/milestone-0011.json", "docs/status.md"],
     "active_contract": "contracts/milestone-0012.json",
-    "verified_at_utc": "2026-08-07T19:15:00Z",
+    "verified_at_utc": "2026-08-07T18:45:00Z",
     "expires_at_utc": null
   },
   "objective": "Release a new reproducible v0.0.12 zipapp only if its rendered checkpoint identity is derived from the canonical baseline-0012 runtime identity and every source, package, clean-clone, and public-asset gate passes.",
@@ -153,7 +153,8 @@
       "gates": {"canonical_identity": true, "byte_reproducibility": true, "security_boundaries_unchanged": true},
       "evidence": [
         "The dashboard and source test now derive Baseline 0012 from the canonical baseline-0012 runtime CHECKPOINT rather than carrying an independent release number",
-        "Two 239184-byte candidate archives are byte-identical at SHA-256 2f26584484fed4204a45f1fd261d88ad417ddc0919d4f332c7a5c298a10d1ff9 and pass the exact 21-entry package contract",
+        "The pre-merge audit retained the earlier 239184-byte functionally passing archive as superseded after detecting impossible future-dated provenance metadata",
+        "Two corrected 239183-byte candidate archives are byte-identical at SHA-256 679f7ad301689bee62a5bcb33df8c4778f9f0307135cf30632b13408e2f31083 and pass the exact 21-entry package contract",
         "Source and packaged known-regression checks contain Baseline 0012 and exclude Baseline 0010 and Baseline 0011",
         "No agent, retrieval, policy, approval, executor, scenario, synthetic split, or real-infrastructure boundary changed"
       ],
@@ -172,7 +173,7 @@
       "gates": {"all_source_surfaces": true, "all_package_surfaces": true, "rendered_identity_exact": true},
       "evidence": [
         "Source validation passes 35 frozen files, seven validators, 19 tests, and all 84 evaluation attempts",
-        "Packaged evaluation passes all 84 attempts and matches source on every gate and non-latency metric family under frozen manifest fb503b07fda00d20ec3f16d73d6f460da58350d944f549cca79e27c5c32d520b",
+        "Corrected packaged evaluation passes all 84 attempts and matches corrected source on every gate and non-latency metric family under frozen manifest 63a02909d62c0bb6f156d6700df7b2b9453a7b9e7385e9bf524243c184ccd028",
         "Packaged MCP exposes only three bounded diagnostic/read tools and no approval or execution authority",
         "Packaged HTTP/dashboard passes 51 of 51 checks and persisted state/telemetry passes all 27 checks",
         "Visual inspection confirms Baseline 0012 and the expected metrics, human-approval boundary, disconnected real infrastructure, and mitigated synthetic incident"
@@ -189,7 +190,7 @@
       "status": "in_progress",
       "inputs": ["selected passing candidate", "reconciled living records"],
       "outputs": ["verified public v0.0.12 checkpoint"],
-      "gates": {"clean_clone_rebuild_identity": true, "public_release_asset_identity": false, "release_verified": false},
+      "gates": {"clean_clone_rebuild_identity": false, "public_release_asset_identity": false, "release_verified": false},
       "disposition": "remediate"
     }
   ],

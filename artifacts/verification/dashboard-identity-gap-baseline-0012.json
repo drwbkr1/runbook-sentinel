@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "checkpoint": "baseline-0012",
-  "measured_at_utc": "2026-08-07T19:12:00Z",
+  "measured_at_utc": "2026-08-07T18:45:00Z",
   "latest_verified_public_checkpoint": {
     "version": "0.0.10",
     "commit": "01791052b80748bb0f8e01c57152d00b53822aee",

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "checkpoint": "baseline-0011",
-  "revealed_at_utc": "2026-08-07T19:08:00Z",
+  "revealed_at_utc": "2026-08-07T18:40:00Z",
   "candidate_commit": "dd78ceb",
   "candidate_archive": {
     "path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0011-dev-e.pyz",

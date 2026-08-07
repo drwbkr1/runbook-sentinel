@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "checkpoint": "baseline-0012",
-  "completed_at_utc": "2026-08-07T19:30:00Z",
+  "completed_at_utc": "2026-08-07T18:52:00Z",
   "candidate": {
     "version": "0.0.12",
     "frozen_manifest_sha256": "fb503b07fda00d20ec3f16d73d6f460da58350d944f549cca79e27c5c32d520b",
