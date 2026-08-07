@@ -1,5 +1,16 @@
 # Development log
 
+## 2026-08-07 - BASELINE-0015 started
+
+- Resumed from the verified public v0.0.14 release closure and downloaded public bytes instead of restarting architecture work.
+- The annotated tag, remote main, downloaded 283,148-byte archive, checksum, fresh public-tag clone, nine validators, 22 tests, exact rebuild, source/package 84+9+6 evaluations, bounded MCP, real API/state/telemetry checks, and rendered dashboards reconcile.
+- Retained public-verification tooling observations: package help was invoked before the ignored archive was rebuilt; a post-pass byte comparison used unsupported PowerShell 5.1 `-AsByteStream`; a successful release creation was followed by an unsupported `gh` JSON field; the generic repository landing fetch served stale cached v0.0.10 text while the commit-bound rendered README, raw main, release page, refs, and tag clone were current; and an initial background-process probe was blocked before launch. Corrected verification paths passed without changing release bytes or product behavior.
+- Inspected the 150-event public-package trace. All 33 approval events use the evaluator's caller-supplied actor `frozen-evaluation-harness`; no metric authenticates or authorizes that actor or grades separation of duties.
+- Probed the released loopback HTTP API with `actor: sentinel-agent-self-declared`. The API created an approval token with HTTP 201 and accepted it for HTTP 200 execution; the worker became healthy, restart count became 1, and postconditions passed.
+- The first two probes completed the product flow but their reporters failed after execution by assuming a nonexistent health version and then a nested incident response. Their SQLite and trace evidence remains external and hashed. A corrected third report passed without changing the product request or expected finding.
+- The gap is approval provenance, not token hashing or executor escape: approval tokens remain hashed at rest and absent from traces, the model and MCP receive no approval capability, and only disposable synthetic loopback state changed.
+- An honest enforcement fix requires a no-cost local operator credential or an OS-authenticated access boundary. Both cross the explicit secret/access gate in the standing goal. A label-only correction would remove the unsupported `human approval` claim but would not enforce identity. `contracts/milestone-0015.json` therefore waits at `UNIT-002` before contract freeze or implementation.
+
 ## 2026-08-07 - BASELINE-0014 started
 
 - Resumed from the verified public v0.0.13 release closure rather than restarting architecture work.

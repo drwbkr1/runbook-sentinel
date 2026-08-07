@@ -2,13 +2,13 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0015-approval-authority`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0014`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.14`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Candidate version: none; the next checkpoint is intentionally unchosen until a fresh public-v0.0.14 run exposes a measurable weakness
-- Active milestone: none; `BASELINE-0014` is complete
-- Current unit: release reconciliation complete; resume by running public v0.0.14, inspecting traces and evaluation results, and selecting one highest-leverage measurable weakness
-- Disposition: baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Candidate version: none; no v0.0.15 candidate exists before the approval-authority architecture decision and frozen contract
+- Active milestone: `BASELINE-0015`; establish truthful and enforceable approval authority without giving the agent or MCP approval capability
+- Current unit: `UNIT-002` waiting at an explicit architecture gate after public-v0.0.14 orientation and a real approval-identity gap measurement
+- Disposition: baseline-0015 `requires_architecture_decision`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -20,6 +20,15 @@
 - Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
 
 ## Verified evidence
+
+### BASELINE-0015 approval-authority gap
+
+- Fresh public v0.0.14 reconciliation passes: remote main, annotated tag, downloaded assets, a no-alternates public-tag clone, nine validators, 22 tests, exact archive rebuild, source/package 84+9+6 evaluations, both real MCP/API/state/telemetry surfaces, and rendered dashboard inspection agree.
+- The current 150-event evaluation trace uses only the fixed caller-supplied actor `frozen-evaluation-harness`. The evaluation has no approver identity-authentication, approver authorization, or separation-of-duties metric.
+- A real loopback probe against the downloaded public zipapp submitted `actor: sentinel-agent-self-declared` in the unauthenticated approval JSON body. Approval returned HTTP 201 with a token, execution returned HTTP 200, `restart_worker` changed the synthetic incident from unhealthy/restart count 0 to healthy/restart count 1, and postconditions passed.
+- SQLite, audit, and trace evidence preserves that self-declared actor and the consumed approval across all three probes. The first two product flows executed but their diagnostic reporters failed on incorrect response-shape assumptions; those failures remain retained with the complete third result in `artifacts/verification/approval-authority-gap-baseline-0015.json`.
+- This does not expose real infrastructure, put a credential in the model, or add an MCP approval tool. It does show that the public dashboard's `human approval` label is not backed by authenticated identity: any local HTTP caller can self-declare the approver and mint an execution-authorizing token.
+- The smallest enforcement options require a new local operator credential or OS-authenticated access boundary, which cross the standing secret/access gate. Label correction alone is reversible and honest but does not enforce identity. No implementation or frozen candidate expectation will be created until the user chooses the architecture.
 
 ### BASELINE-0014 cached-result authorization gap and frozen contract
 

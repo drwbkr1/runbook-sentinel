@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0015",
+  "observed_at_utc": "2026-08-07T22:50:34Z",
+  "disposition": "requires_architecture_decision",
+  "released_surface": {
+    "version": "0.0.14",
+    "tag": "v0.0.14",
+    "release_closure_commit": "0dcd245dc286df297d2b431fa7079f65c6793c39",
+    "public_archive": "https://github.com/drwbkr1/runbook-sentinel/releases/download/v0.0.14/runbook-sentinel-0.0.14.pyz",
+    "public_archive_sha256": "9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f",
+    "public_archive_bytes": 283148,
+    "verification_root": "C:\\Projects\\Verification\\runbook-sentinel-v0.0.14-public-20260807T224100Z"
+  },
+  "fresh_orientation": {
+    "remote_main_tag_and_clone_exact": true,
+    "downloaded_asset_and_rebuild_byte_identical": true,
+    "validators_passed": 9,
+    "tests_passed": 22,
+    "source_attempts": 84,
+    "package_attempts": 84,
+    "approval_lifetime_cases_per_runtime": 9,
+    "idempotency_authorization_cases_per_runtime": 6,
+    "source_and_package_all_gates_pass": true,
+    "source_package_non_latency_exact": true,
+    "source_report_sha256": "c782d92b22a17c8c04be8879410d68dc7a61ebd09e7ce39271793c163977b261",
+    "source_trace_sha256": "0021a7faba0e8ba8b73328d2948035af2a1a4a4141917ce56704996423b7f487",
+    "package_report_sha256": "d172ead988f80c1de50b17615f0af5325959472559bf86bfc227282edd596b5d",
+    "package_trace_sha256": "4406e362f1116340b89bb40ae45cfeb14d55c55c3cdd9fb3f95bd2aa888521ea",
+    "source_real_surface_pass": true,
+    "package_real_surface_pass": true,
+    "package_dashboard_visual_inspection": "pass: Baseline 0014, evaluation pass, cached result authorization 1.0, approval lifetime 1.0, human approval, disconnected real infrastructure, and a mitigated synthetic incident are visible",
+    "commit_bound_readme_render_pass": true,
+    "raw_public_main_readme_pass": true,
+    "release_page_render_pass": true,
+    "retained_tooling_observations": [
+      "The first package-help discovery call ran before the tag clone rebuilt its ignored dist archive and failed with file not found; the public download already existed externally, and the subsequent exact rebuild, package verification, and help-capable archive passed.",
+      "The complete tag-clone validators, 22 tests, build, and package verification passed before a final byte-array comparison used unsupported Windows PowerShell 5.1 Get-Content -AsByteStream; a .NET byte comparison then proved the downloaded and rebuilt archives exact.",
+      "GitHub release creation succeeded before the chained metadata read rejected unsupported gh JSON field isLatest; a valid metadata query then confirmed the non-draft latest v0.0.14 release and both uploaded asset digests.",
+      "A generic repository landing-page fetch returned a stale cached v0.0.10 README, while the commit-bound rendered README, raw public main, raw closure commit, remote refs, release page, and fresh tag clone all returned current v0.0.14 truth.",
+      "The first PowerShell background-process approval probe was blocked by host command policy before server launch; an in-process loopback server then produced three retained product-flow attempts."
+    ]
+  },
+  "measured_gap": {
+    "surface": "real loopback HTTP approval and execution API from the downloaded public zipapp",
+    "request_actor": "sentinel-agent-self-declared",
+    "actor_source": "unauthenticated client-controlled JSON body",
+    "run_http_status": 201,
+    "approval_http_status": 201,
+    "approval_token_created": true,
+    "execution_http_status": 200,
+    "execution_status": "executed",
+    "action": "restart_worker",
+    "before": {"worker_healthy": false, "restart_count": 0},
+    "after": {"worker_healthy": true, "restart_count": 1},
+    "postconditions_verified": true,
+    "persisted_actor_exact": true,
+    "approval_consumed": true,
+    "approval_and_execution_audit_exact": true,
+    "approval_and_execution_trace_exact": true,
+    "raw_approval_token_persisted_or_logged": false,
+    "model_or_agent_received_approval_tool_or_credential": false,
+    "real_infrastructure_used": false,
+    "finding": "Any loopback caller that supplies a nonblank actor string can mint an approval token and authorize a synthetic action; the system records the self-declared string as if it were an authenticated approver.",
+    "claim_impact": "The dashboard's human approval label is not supported by identity authentication or approver authorization. The current boundary is external token acquisition, not verified human approval."
+  },
+  "attempts": [
+    {
+      "id": "attempt-001",
+      "product_flow": "executed",
+      "reporting_disposition": "failed",
+      "failure": "The diagnostic reporter expected a nonexistent health.version field after successful execution.",
+      "database_sha256": "cf351caab1ab74ec581c2fd8e7b800710d269d6bcadc9a67c0276f31d4c6de77",
+      "trace_sha256": "7caa3b9a30c1262893620bbdce26ca6571a16dd09308a85446d481d766fbb421"
+    },
+    {
+      "id": "attempt-002",
+      "product_flow": "executed",
+      "reporting_disposition": "failed",
+      "failure": "The diagnostic reporter expected a nested execution.incident object after successful execution.",
+      "database_sha256": "e3918496fc067c3cc838c191081b8708281ba011e36f60a5ec14514d9f071098",
+      "trace_sha256": "ea93923a1d8ab3eb1922ac5ca00f8dd0fb5f6c4878c5b45516b2c154a6d6c10f"
+    },
+    {
+      "id": "attempt-003",
+      "product_flow": "executed",
+      "reporting_disposition": "pass",
+      "database_sha256": "24e7f0096401aca983651024409fde8f70c586d2954f3685b593cef918fb290b",
+      "trace_sha256": "ae7d792af27597443b115a650d6ac3bc8d564d66841ca92d84af15014e67fef5"
+    }
+  ],
+  "current_evaluation_blind_spot": {
+    "approval_actor": "frozen-evaluation-harness",
+    "actor_is_always_client_supplied": true,
+    "approver_identity_authentication_metric": false,
+    "approver_authorization_metric": false,
+    "separation_of_duties_metric": false,
+    "existing_token_hash_expiry_action_binding_idempotency_replay_and_postcondition_metrics": true
+  },
+  "bounded_options": [
+    {
+      "id": "authenticated-operator-capability",
+      "effect": "Require a no-cost local operator credential or OS-authenticated access before approval creation; keep it unavailable to the agent and MCP.",
+      "strengthens_identity_boundary": true,
+      "crosses_explicit_gate": ["add a secret or credential", "possibly change access control"]
+    },
+    {
+      "id": "truthful-external-approval-label",
+      "effect": "Rename human approval to external approval token and document that caller identity is not authenticated.",
+      "strengthens_identity_boundary": false,
+      "crosses_explicit_gate": [],
+      "limitation": "Corrects the product claim but does not prevent arbitrary local callers from approving."
+    },
+    {
+      "id": "remove-network-approval-surface",
+      "effect": "Remove approval and execution writes from the loopback HTTP surface and retain only a separately invoked local operator path.",
+      "strengthens_identity_boundary": "depends on operating-system access assumptions",
+      "crosses_explicit_gate": ["change access architecture"],
+      "limitation": "Would reduce the real API approval-flow product surface and still requires an explicit trust model."
+    }
+  ],
+  "next_gate": "User must choose whether to authorize a no-cost local authenticated operator boundary, select claim correction only, or approve another access architecture before implementation or contract freeze."
+}

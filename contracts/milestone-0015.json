@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0015",
+  "status": "awaiting_architecture_decision",
+  "authority": {
+    "mode": "inherited_with_explicit_gate",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": ["local_verification", "evidence_preservation", "repository_change", "local_commit", "github_push"],
+    "withheld_action_classes": ["add_secret_or_credential", "change_access_architecture"],
+    "gate_reason": "The highest-leverage measured weakness is unauthenticated approval creation; an honest enforcement fix requires operator authentication or a different access boundary, both explicitly reserved for user approval."
+  },
+  "scope": {
+    "objective": "Establish truthful and enforceable approval authority for the synthetic operator surface without giving the agent, model, or MCP approval material or final execution authority.",
+    "allowed_paths": ["C:\\Projects\\Active\\runbook-sentinel", "C:\\Projects\\Verification"],
+    "forbidden_work_before_decision": [
+      "add, generate, store, transmit, or request any credential or secret",
+      "change approval or execution endpoint access",
+      "change ownership, repository visibility, or real infrastructure",
+      "implement a caller-asserted allowlist and describe it as authenticated identity",
+      "change agent, retriever, decision context, actions, capabilities, executor transitions, or scenario truth"
+    ],
+    "stop_conditions": [
+      "core thesis change or security-boundary weakening",
+      "user does not authorize the selected secret or access architecture",
+      "candidate or shipment cannot be verified"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.14 release closure, tag, downloaded bytes, and fresh public-tag clone reconcile.",
+        "Fresh source and package evaluations pass all 84 scenario attempts, nine approval-lifetime cases, six idempotency-authorization cases, and every prior gate.",
+        "Three real public-package probes show that caller-declared actor sentinel-agent-self-declared can create and consume an approval; two reporter failures and one complete report are retained."
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {"id": "EXIT-001", "status": "pending", "evidence": []}
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Run public v0.0.14, inspect evaluation and traces, and measure approval-authority truth on the real released API.",
+      "depends_on": [],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": ["fresh public orientation", "approval-authority gap receipt"],
+      "gates": {"released_checkpoint_exact": true, "fresh_run_complete": true, "weakness_measurable": true, "failed_probe_reports_retained": true},
+      "disposition": "pass",
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Choose the approval identity and access architecture and freeze exact security, utility, recovery, and evaluation requirements before implementation.",
+      "depends_on": ["UNIT-001"],
+      "action_class": "architecture_decision",
+      "human_gate": true,
+      "status": "waiting",
+      "outputs": ["approved architecture decision", "frozen approval-authority contract"],
+      "decision_options": ["authenticated-operator-capability", "truthful-external-approval-label", "remove-network-approval-surface"],
+      "disposition": "requires_user_decision",
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement one bounded approved improvement and development-only checks without changing model or executor authority.",
+      "depends_on": ["UNIT-002"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "not_ready",
+      "outputs": ["bounded implementation", "focused tests"]
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Run the frozen approval-authority suite and every prior source, package, API, MCP, state, telemetry, dashboard, and clean-clone gate.",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "not_ready",
+      "outputs": ["immutable evaluation", "real-surface evidence", "clean-clone receipt"]
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Version, package, review, merge, publish, and verify the bounded checkpoint only if every gate passes.",
+      "depends_on": ["UNIT-004"],
+      "action_class": "github_push",
+      "human_gate": false,
+      "status": "not_ready",
+      "outputs": ["verified public checkpoint"]
+    }
+  ],
+  "verification": {
+    "changed_risks": [
+      "a caller can self-declare an approver identity and mint an execution-authorizing token",
+      "a credential-based fix can leak approval authority into the agent, MCP, logs, traces, package, or repository",
+      "an access change can break the real approval flow or create an unverifiable human-presence claim",
+      "a label-only change can correct truth while leaving the authorization weakness intact"
+    ],
+    "required_checks_after_decision": [
+      "identity and authorization requirements frozen before implementation",
+      "agent, model, and MCP never receive the approval credential or approval capability",
+      "unauthorized approval creation fails before proposal, approval, audit, trace, or incident mutation",
+      "authorized operator utility, expiry, action binding, replay, idempotency, and postconditions remain exact",
+      "source/package, real-surface, clean-clone, GitHub, merged-main, and public-release gates reconcile"
+    ],
+    "completed_checks": [
+      "public v0.0.14 release and selected package bytes reconcile",
+      "fresh public-tag source and package evaluations and real surfaces pass",
+      "released real API accepts and consumes a token created for an arbitrary caller-declared actor",
+      "two probe reporter failures remain retained alongside the complete third result"
+    ],
+    "artifacts": ["artifacts/verification/approval-authority-gap-baseline-0015.json"],
+    "disposition": "requires_architecture_decision"
+  },
+  "handoff": {
+    "latest_verified_checkpoint": "public v0.0.14 release closure with selected 9c9dbcba package bytes",
+    "active_weakness": "approval creation trusts an unauthenticated caller-declared actor while public truth says human approval",
+    "resume_rule": "Resume at UNIT-002 only after the user chooses whether to authorize a local credential/access boundary or selects claim correction without enforcement. Do not implement, freeze candidate expectations, or relabel the choice as equivalent security before that decision."
+  }
+}

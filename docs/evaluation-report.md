@@ -1,5 +1,13 @@
 # Evaluation report
 
+## BASELINE-0015 approval-authority pre-change result
+
+The public v0.0.14 package remains fully passing: remote identities and downloaded bytes reconcile, nine validators and 22 tests pass, source and package each pass 84 repeated scenarios plus nine approval-lifetime and six idempotency-authorization cases, non-latency results are exact, and both real MCP/API/state/telemetry/dashboard surfaces pass. Its 150-event package trace includes 33 approval events, all attributed to the caller-supplied `frozen-evaluation-harness` actor. No existing metric authenticates the approver, checks approver authorization, or grades separation of duties.
+
+A real loopback HTTP probe against the downloaded package declared `sentinel-agent-self-declared` as the approval actor. The endpoint accepted the unauthenticated JSON value, returned an approval token with HTTP 201, and accepted that token for HTTP 200 execution. The synthetic worker changed from unhealthy with restart count 0 to healthy with restart count 1, and postconditions passed. SQLite stores the actor string with a consumed token hash; audit and trace record `proposal.approved` and execution. The raw token is not persisted or logged, no model or MCP tool received it, and no real infrastructure was used.
+
+The first two probes executed successfully but their diagnostic reporters failed afterward on incorrect response-shape assumptions. Their databases and traces remain retained and hashed; the third probe reports the same product outcome completely. Disposition: `requires_architecture_decision`. Authenticated enforcement needs a local operator credential or OS access control, while a label-only correction would improve truth without preventing arbitrary local approval. The standing goal reserves both secret addition and access changes for user approval, so no candidate contract or implementation exists yet.
+
 ## BASELINE-0014 cached-result authorization and selected release
 
 The downloaded public v0.0.13 zipapp passes the frozen 28-scenario, 84-attempt evaluation and every existing gate. Its 150-event trace contains 84 run, 33 approval, and 33 execute events. Same-key idempotency is 1.0 only because the released evaluator retries with the original valid approval token; it has no cached-result authorization metric.
