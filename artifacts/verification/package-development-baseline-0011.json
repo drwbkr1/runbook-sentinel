@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0011",
+  "completed_at_utc": "2026-08-07T18:55:00Z",
+  "contract_sha256": "2bc1419bc3dfae64f98e6f2df89402980579d58c1ddeceb27dfcb8734cb25f76",
+  "candidate_identity": {
+    "version": "0.0.11",
+    "frozen_manifest_sha256": "11e84007f512ee9e55362b1753321e9ad6d2cbdc0db48aeb4ea6805a7166aa02",
+    "builder_sha256": "fa73a34359e32e1c356e8f302b6c882a7cb10f7f70680b650a0a9e2467165269",
+    "evaluation_sha256": "c4a693dbd248e5698e7845c24d0ecca4e76c50b4028783b904dea7753bff52f3",
+    "launcher_sha256": "eff3aef1ed0a4e55867dea88e940fc652ce7d3dee819930d58b48b4935b75f55",
+    "runtime_dependencies": []
+  },
+  "attempts": [
+    {
+      "ids": ["dev-a", "dev-b"],
+      "archive_sha256": "1e18c9e8cfbde3f024779e690fabe9aefca3a440baa948a6ebd1719685b6f20f",
+      "archive_bytes": 238835,
+      "repeated_builds_byte_identical": true,
+      "contract_validator": "pass",
+      "cli_help": "fail",
+      "failure": "Root __main__.py used a package-relative import and raised ImportError when executed as a zipapp launcher.",
+      "disposition": "failed",
+      "retained_at": [
+        "C:\\Projects\\Verification\\runbook-sentinel-baseline-0011-dev-a.pyz",
+        "C:\\Projects\\Verification\\runbook-sentinel-baseline-0011-dev-b.pyz"
+      ]
+    },
+    {
+      "ids": ["dev-c", "dev-d"],
+      "archive_sha256": "2ce3147aaec755ab6ee72109c281e5f306ad9cb2d6f83963fc251d925e014f28",
+      "archive_bytes": 238867,
+      "entry_count": 21,
+      "repeated_builds_byte_identical": true,
+      "contract_validator_each": "pass",
+      "cli_help_each": "pass",
+      "fix": "Use the same absolute runbook_sentinel.cli import in package and root launcher contexts.",
+      "frozen_contract_changed": false,
+      "security_boundary_changed": false,
+      "disposition": "pass",
+      "retained_at": [
+        "C:\\Projects\\Verification\\runbook-sentinel-baseline-0011-dev-c.pyz",
+        "C:\\Projects\\Verification\\runbook-sentinel-baseline-0011-dev-d.pyz"
+      ]
+    }
+  ],
+  "development_scenario_parity": {
+    "scenario_id": "dev-worker-backlog",
+    "source_outcome": "propose_action",
+    "package_outcome": "propose_action",
+    "exact_fields": [
+      "outcome",
+      "diagnosis",
+      "proposed_action",
+      "missing_evidence",
+      "retrieved_document_ids",
+      "decision_document_ids"
+    ],
+    "all_exact": true,
+    "source_database_sha256": "25b857cd4f1408ac7f8be48276223269d4de14e4e269f9bf450394ac19c86b0e",
+    "source_trace_sha256": "36a6a4b68dbe5087e609da8210144702f5843cf2a5d46ae31b7d3d8cba7040b7",
+    "package_database_sha256": "8980de81626ab6dfaf1042a599b43ff894e1916c75712811c35427eec069c7ea",
+    "package_trace_sha256": "4802bfe3215f048c6dadc04696050573321ec45bd38f8d9aba74caad8f141a28"
+  },
+  "development_evaluation_parity": {
+    "scenario_count_each": 28,
+    "attempt_count_each": 84,
+    "checkpoint_each": "baseline-0011",
+    "disposition_each": "pass",
+    "every_gate_each": true,
+    "gates_exact_across_source_and_package": true,
+    "all_non_latency_metrics_exact_across_source_and_package": true,
+    "source": {
+      "report": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0011-dev-source-evaluation.json",
+      "report_sha256": "182ed4442bb1d14a4bd4ca8c4aaa31c2f7ceccf28c9ca381c75edde4c2b9174f",
+      "trace_sha256": "3cc5dfd2cdb6b470e56bfbd2e3542695d50400d003cb5e55a30766c6fcd3d55d",
+      "latency_ms": {"median": 111.971, "p95": 176.794, "diagnosis_median": 15.689, "diagnosis_p95": 35.095}
+    },
+    "package": {
+      "report": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0011-dev-package-evaluation.json",
+      "report_sha256": "93b6b911fd1858c180e2b93c0061ab21e8e58d085d0a066142ba30506e5e2adc",
+      "trace_sha256": "63ca65a5e9fc6a1a945f5b9d2d5d98586bbb75a4aa8879c6e964928caa02d923",
+      "latency_ms": {"median": 113.576, "p95": 181.905, "diagnosis_median": 14.962, "diagnosis_p95": 28.749}
+    },
+    "model_calls_each": 0,
+    "estimated_cost_usd_each": 0.0
+  },
+  "held_out_state": {
+    "api_dashboard_persistence_telemetry_results_observed": false,
+    "generic_candidate_complete": true,
+    "candidate_frozen_for_first_reveal": true
+  },
+  "disposition": "pass"
+}

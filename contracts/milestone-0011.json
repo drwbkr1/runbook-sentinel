@@ -107,11 +107,17 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["frozen package contract", "pre-change control"],
       "outputs": ["deterministic builder", "package verifier", "development parity evidence"],
-      "gates": {"agent_purpose_unchanged": false, "action_surface_unchanged": false, "new_dependencies": false, "manifest_semantics_preserved": false},
-      "disposition": "in_progress",
+      "gates": {"agent_purpose_unchanged": true, "action_surface_unchanged": true, "new_dependencies": false, "manifest_semantics_preserved": true},
+      "evidence": [
+        "Two independent passing builds are byte-identical at SHA-256 2ce3147aaec755ab6ee72109c281e5f306ad9cb2d6f83963fc251d925e014f28 and independently satisfy the 21-entry archive contract",
+        "Source and package CLI help and the frozen development scenario match on outcome, diagnosis, proposal, missing evidence, retrieval identity, and decision identity",
+        "Source and package 84-attempt evaluations both pass every gate and match on all non-latency metric families",
+        "The initial reproducible archive's launcher ImportError remains retained; the generic absolute-import fix changed neither the frozen package contract nor any security boundary"
+      ],
+      "disposition": "pass",
       "next_dependency": "UNIT-004"
     },
     {
@@ -120,11 +126,11 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": ["completed generic package candidate", "frozen parity contract"],
       "outputs": ["immutable package attempts", "source/package comparison", "evidence disposition"],
       "gates": {"failed_attempts_retained": true, "same_manifest_comparison": false, "byte_reproducibility": false, "held_out_revealed_once": false},
-      "disposition": "planned",
+      "disposition": "in_progress",
       "next_dependency": "UNIT-005"
     },
     {

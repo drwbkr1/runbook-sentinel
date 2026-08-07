@@ -2,10 +2,10 @@ $ErrorActionPreference = 'Stop'
 $env:PYTHONPATH = 'src'
 
 $pythonCmd = (Get-Command python).Source
-$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0010-stdout.log'
-$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0010-stderr.log'
-$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0010.db'
-$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0010-traces.jsonl'
+$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0011-stdout.log'
+$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0011-stderr.log'
+$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0011.db'
+$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0011-traces.jsonl'
 $generatedRuntimeFiles = @(
     $databasePath,
     "$databasePath-wal",
@@ -23,8 +23,8 @@ $serverArgs = @(
     '-m', 'runbook_sentinel', 'serve',
     '--host', '127.0.0.1',
     '--port', '8877',
-    '--db', 'var\live-api-baseline-0010.db',
-    '--trace', 'artifacts\runtime\live-api-baseline-0010-traces.jsonl',
+    '--db', 'var\live-api-baseline-0011.db',
+    '--trace', 'artifacts\runtime\live-api-baseline-0011-traces.jsonl',
     '--evaluation', 'artifacts\evaluations\latest.json'
 )
 
@@ -98,7 +98,7 @@ try {
     if (-not $edge) {
         throw 'Microsoft Edge executable not found'
     }
-    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0010.png'
+    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0011.png'
     & $edge `
         --headless `
         --disable-gpu `
@@ -107,7 +107,7 @@ try {
         --screenshot=$screenshotPath `
         http://127.0.0.1:8877/dashboard | Out-Null
 
-    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0010-traces.jsonl'
+    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0011-traces.jsonl'
     $staleMetadataExact = $run.decision_stale_document_ids.Count -eq 3
     foreach ($staleId in $run.decision_stale_document_ids) {
         $fields = @($run.decision_document_fields.PSObject.Properties[$staleId].Value)
@@ -169,7 +169,7 @@ try {
     }
     $checks = [ordered]@{
         health_ok = $verification.health -eq 'ok'
-        checkpoint_exact = $verification.checkpoint -eq 'baseline-0010'
+        checkpoint_exact = $verification.checkpoint -eq 'baseline-0011'
         outcome_exact = $verification.outcome -eq 'propose_action'
         proposal_exact = $verification.proposed_action -eq 'restart_worker'
         retrieval_configuration_exact = $verification.retrieval_configuration -eq 'freshness-priority-lexical-v3'
@@ -188,7 +188,7 @@ try {
         idempotent_repeat_equal = [bool]$verification.idempotent_repeat_equal
         replay_rejected = $verification.replay_http_status -eq 409
         approval_token_absent_from_trace = -not $verification.approval_token_in_trace
-        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0010'
+        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0011'
         evaluation_agent_exact = $verification.evaluation_agent -eq 'deterministic-control-v2'
         evaluation_passed = $verification.evaluation_disposition -eq 'pass'
         evaluation_tool_trajectory_exact = $verification.evaluation_tool_trajectory_exact -eq 1.0
