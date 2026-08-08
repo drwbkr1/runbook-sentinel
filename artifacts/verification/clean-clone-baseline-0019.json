@@ -1,0 +1,129 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0019",
+  "verified_at_utc": "2026-08-08T20:38:13Z",
+  "status": "pass",
+  "candidate": {
+    "commit": "4dd8ea92157bbd28cd02e2bf8301e9098da3dd67",
+    "branch": "codex/baseline-0019-split-topology-coverage",
+    "clone_path": "C:/Projects/Verification/runbook-sentinel-baseline-0019-clean-4dd8ea9-20260808T203003Z",
+    "initial_worktree_clean": true,
+    "git_alternates_present": false,
+    "clone_mode": "git clone --no-local --single-branch from the public GitHub branch"
+  },
+  "source_gate": {
+    "manifest_sha256": "adf637300cfbbda77b8c2b239313535899098f5a131a5ded7fdf334974b8ecbc",
+    "validators_passed": 17,
+    "test_count": 36,
+    "tests_passed": true,
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0019-attempt-003.json",
+    "evaluation_bytes": 547972,
+    "evaluation_sha256": "3f6373791df30fd17502a55323fac003f907eccc71f8553558c0e4dcd70a4e9c",
+    "trace_path": "artifacts/evaluations/runs/baseline-0019-attempt-003.traces.jsonl",
+    "trace_sha256": "54ca493973ddf065197ce3781367c68257564bc4cab6b89951ddb24e2bc417ad",
+    "trace_event_count": 156,
+    "trace_final_event_sha256": "dee7f256130dd195f3ba08429e5584e351ca5816dbde203667ef24e094d34825",
+    "trace_anchor_independently_verified": true,
+    "scenario_attempt_count": 90,
+    "topology_split_coverage": 1.0,
+    "disposition": "pass"
+  },
+  "package_gate": {
+    "package_contract_sha256": "e059cf9e70637cce8217135b7ffb08107def5900409734d9dfa2044604666336",
+    "archive_paths": [
+      "dist/runbook-sentinel-0.0.19-clean-build-001.pyz",
+      "dist/runbook-sentinel-0.0.19-clean-build-002.pyz"
+    ],
+    "archive_bytes": 423787,
+    "archive_sha256": "f840d5a1ff4da1b1a1e61f0719c65925075af3a776cb52d29b890749848a70ab",
+    "selected_archive_sha256_exact": true,
+    "independent_builds_byte_identical": true,
+    "entry_count": 34,
+    "runtime_dependencies": [],
+    "validators_passed": 17,
+    "test_count": 36,
+    "tests_passed": true,
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0019-package-attempt-002.json",
+    "evaluation_bytes": 547978,
+    "evaluation_sha256": "62a558d064a01fcb6280f44e36a0b9bbbba3b5d39db0cfb87a61554bd25aebe1",
+    "trace_path": "artifacts/evaluations/runs/baseline-0019-package-attempt-002.traces.jsonl",
+    "trace_sha256": "26ea9afd53c66eb3888da021a8aef209868e5cfb8d77fc5f5dfa07aae6498544",
+    "trace_event_count": 156,
+    "trace_final_event_sha256": "fe62345f00f5b2d1f4d8065e5f02e459285714dbc3040c07a941d69d73b472af",
+    "trace_anchor_independently_verified": true,
+    "scenario_attempt_count": 90,
+    "topology_split_coverage": 1.0,
+    "disposition": "pass"
+  },
+  "real_surfaces": {
+    "source_and_package_mcp_version": "0.0.19",
+    "source_and_package_mcp_protocol": "2025-11-25",
+    "source_and_package_mcp_tool_count": 3,
+    "mcp_approval_or_execution_tool_exposed": false,
+    "source_and_package_mcp_trace_chain_valid": true,
+    "source_and_package_mcp_trace_endpoint_anchored": true,
+    "source_and_package_http_authentication_approval_execution_replay_postconditions_pass": true,
+    "source_and_package_sqlite_state_and_audit_pass": true,
+    "source_and_package_api_trace_chain_valid": true,
+    "source_and_package_api_trace_endpoint_anchored": true,
+    "source_api_trace_final_event_sha256": "99942ed9a686d4adb5b368f5f234793ce0395c94f8b2563472d29d431c549295",
+    "source_api_anchor_sha256": "ec9e34c35f7988dc35705e1959512f25a3ca9981dd797a8f90b679b5cd7f5c02",
+    "package_api_trace_final_event_sha256": "9ddfee6e56bf3e25193e57f8a0ec3cb03deefd76ac3ead197abc9b787f378fd8",
+    "package_api_anchor_sha256": "2ea521af4cb4680cae97ddc82c47e6f114718da5cbd1f409cc291cece00d972a",
+    "source_and_package_evaluation_companion_trace_anchor_exact": true,
+    "forbidden_authentication_material_absent": true,
+    "source_native_receipt_sha256": "f4b998d40ab799edf7f7745c5421a8f81f204772d5d5d87092d089e8d7ded7a3",
+    "package_native_receipt_sha256": "fc3d972848b6b3c67e6125e438cec87d99a358beb9eda0cf5dbcbea4c1fe6f33"
+  },
+  "rendered_dashboards": {
+    "dimensions": [1440, 1000],
+    "source_path": "artifacts/verification/dashboard-baseline-0019-clean-source.png",
+    "source_bytes": 76817,
+    "source_sha256": "5774ed41874a6bc635cfa0ceb0534364c1148df50117bf569038a3e7e3007125",
+    "package_path": "artifacts/verification/dashboard-baseline-0019-clean-package.png",
+    "package_bytes": 76794,
+    "package_sha256": "676adc9176a8cb094296506da9e3b41a39803a628dcf09dcc5d5b24235ca6201",
+    "visual_inspection": "pass at normalized high detail: Baseline 0019, evaluation pass, topology split coverage 1.0, all required exact metrics, authenticated external operator, disconnected real infrastructure, and both complete persisted-incident rows are legible and internally consistent",
+    "pixel_structure_comparison": "source and package match outside the expected persisted-incident identifier region; both contain complete non-background dashboard content throughout the 1440 by 1000 frame"
+  },
+  "artifact_parsing": {
+    "tracked_files": 544,
+    "json_files": 347,
+    "jsonl_files": 80,
+    "jsonl_records": 9706,
+    "status": "pass"
+  },
+  "security_scan": {
+    "model_artifact_count": 0,
+    "package_contract_definition_files_excluded": 10,
+    "credential_shaped_matches_outside_frozen_forbidden_pattern_definitions": 0,
+    "status": "pass"
+  },
+  "post_verification_changes_in_clone": {
+    "expected": true,
+    "scope": "fresh source and package evaluation attempts, latest pointer, two reproducibility archives, synthetic runtime state, native receipts, and rendered dashboards only",
+    "source_contract_manifest_policy_or_authority_changed": false
+  },
+  "retained_observations": [
+    {
+      "stage": "initial high-signal secret scan",
+      "result": "expected_definition_match",
+      "detail": "The first scan matched only eval/package-contract.json's frozen private-key forbidden-pattern definition. Excluding all ten package-contract definition records produced zero credential-shaped hits."
+    },
+    {
+      "stage": "archive verifier invocation",
+      "result": "command_error",
+      "detail": "The first post-build command named a nonexistent scripts/verify_package.py and stopped after both exact archives were written. The corrected scripts/verify_package_contract.py invocation passed both unchanged archives."
+    },
+    {
+      "stage": "dashboard image viewer",
+      "result": "non_fatal_viewer_artifact",
+      "detail": "The original-detail package frame displayed only the incident-table strip. Pixel inspection showed the unchanged PNG was complete and structurally matched the full source image outside expected incident identifiers; normalized high detail displayed the complete dashboard and passed visual inspection."
+    }
+  ],
+  "non_claims": [
+    "The unkeyed trace chain and sibling endpoint do not authenticate the writer or resist full chain-and-anchor recomputation.",
+    "Thirty scenarios do not satisfy the separate at-least-48-case v0.1.0 target.",
+    "The checkpoint remains a synthetic-only research-informed preview and is not authorized for real operational infrastructure."
+  ]
+}

@@ -145,18 +145,21 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["bounded candidate"],
       "outputs": ["verified candidate and release audit"],
       "gates": {
         "source_and_package_full_gate": true,
         "real_surfaces_pass": true,
         "reproducible_package_pass": true,
-        "clean_clone_pass": false
+        "clean_clone_pass": true
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [
-        "The first packaged dashboard PNG passed machine checks but original-detail review found only the lower incident-table strip. The exact PNG and machine-pass native receipt remain retained; unchanged package bytes produced the selected complete rerun."
+        "The first packaged dashboard original-detail viewer frame showed only the lower incident-table strip. Pixel inspection established that the exact PNG contained the complete dashboard; normalized high detail rendered it fully. The viewer artifact remains retained.",
+        "The clean clone's first archive-verifier command named nonexistent scripts/verify_package.py after writing both exact archives. The corrected scripts/verify_package_contract.py invocation passed both unchanged archives.",
+        "The clean clone's first high-signal secret scan matched only a frozen package-contract private-key definition. Excluding all ten package-contract definition records produced zero hits.",
+        "The first combined post-clone regression wrapper reached its 124-second shell timeout while output remained buffered. The unchanged-tree rerun completed in 168.6 seconds with all 17 validators, both 36-test executions, and a fresh exact 90-attempt evaluation passing."
       ],
       "next_dependency": "UNIT-005"
     },
@@ -166,7 +169,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "planned",
+      "status": "ready",
       "inputs": ["verified candidate and release audit"],
       "outputs": ["verified public checkpoint"],
       "gates": {
@@ -210,12 +213,15 @@
       ,
       "final-manifest source and package evaluations pass all 90 scenario attempts and exact 156-event anchors",
       "two independent 34-entry 423787-byte archives are byte-identical at SHA-256 f840d5a1ff4da1b1a1e61f0719c65925075af3a776cb52d29b890749848a70ab",
-      "source and package MCP, real API, state, audit, redaction, telemetry, endpoint-anchor, native, and selected dashboard gates pass; the first cropped package capture remains retained"
+      "source and package MCP, real API, state, audit, redaction, telemetry, endpoint-anchor, native, and selected dashboard gates pass; the first viewer-framing artifact remains retained and reconciled against complete PNG bytes",
+      "remote-only clean clone of exact candidate 4dd8ea92157bbd28cd02e2bf8301e9098da3dd67 begins clean without object alternates, passes 17 validators and 36 tests, reproduces source/package 90-attempt evaluations and exact 156-event anchors, and passes bounded MCP, real surfaces, artifact parsing, security scans, and complete rendered dashboards",
+      "two independent clean-clone builds reproduce the selected 34-entry 423787-byte archive exactly at SHA-256 f840d5a1ff4da1b1a1e61f0719c65925075af3a776cb52d29b890749848a70ab",
+      "post-clone evidence-only regression passes all 17 validators, two complete 36-test executions, and fresh local source attempt 003 with exact 156-event anchor"
     ]
   },
   "handoff": {
-    "current_checkpoint": "passing baseline-0019 source attempt 001 on top of verified public v0.0.18",
-    "next_action": "Commit and push the exact locally verified candidate, then reproduce its source, package, MCP, API, state, telemetry, parsing, scan, and dashboard evidence from a remote-only clean clone.",
+    "current_checkpoint": "exact baseline-0019 candidate 4dd8ea92157bbd28cd02e2bf8301e9098da3dd67 passes source, package, real-surface, reproducibility, and remote-only clean-clone gates on top of verified public v0.0.18",
+    "next_action": "Commit and push the clean-clone receipt, run the release-truth premerge audit, then review, merge, release, and independently verify only the exact passing checkpoint.",
     "do_not_carry_forward": [
       "Do not change existing scenarios or runtime behavior to satisfy a coverage metric.",
       "Do not claim 30 scenarios satisfy the separate at-least-48-case v0.1.0 target.",
