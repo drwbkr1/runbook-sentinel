@@ -2,12 +2,12 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0018-model-failure-taxonomy`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0017`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.17`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Candidate version: none; `0.0.17` / `baseline-0017` is the selected public checkpoint
-- Active milestone: none; the next checkpoint is intentionally unchosen until a fresh public v0.0.17 run exposes one measurable weakness
-- Current unit: none; `BASELINE-0017` is complete
+- Candidate version: unversioned `baseline-0018`; no release version is assigned before candidate gates
+- Active milestone: `BASELINE-0018` - deterministic model-output failure taxonomy
+- Current unit: `UNIT-003` in progress - implement only the frozen generic parser error-code boundary
 - Disposition: baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -17,9 +17,19 @@
 - GitHub release: public, non-draft `v0.0.17` with verified `.pyz` and `.sha256` assets
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
-- Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
+- Local model source gate: refreshed and ready for the already installed, publisher-signed Ollama 0.32.6 executable and unchanged `llama3.2:3b` manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six content-addressed blobs pass exact SHA-256 and size checks. No download, update, copy, redistribution, remote call, model tool, secret, or real-infrastructure access is authorized.
 
 ## Verified evidence
+
+### BASELINE-0018 model-failure observability gap and frozen contract
+
+- Fresh public v0.0.17 source and package runs pass all deterministic `84+9+6+10+10+10` gates and 33 tests, but generation structured-parse success is null because the selected control makes zero model calls.
+- The retained baseline-0004 local-model candidate produced only 5 valid structured outputs and 49 `schema_invalid` outputs in 54 attempts; benign utility and `pass^3` are 0.0, and no action proposal was accepted. That unfavorable result remains excluded.
+- All 49 content failures retain response digests and the broad parse status, but no stable machine-readable rejection reason. A non-destructive current parser probe confirms invalid JSON, key mismatch, and out-of-context evidence expose only generic exception types and messages.
+- The bounded improvement adds classification only: 17 closed failure codes, one optional metadata field, aggregate and split counts, and classification-completeness metrics. It cannot change parser acceptance, fail-closed abstention, prompts, schemas, actions, approval, executor, or default selection.
+- `model-output-failure-taxonomy-v1` freezes 19 exact cases before implementation: eight development, eleven held-out test, every code once, and two valid controls. Its independent validator passes with no candidate results.
+- Official Ollama 0.32.6 release/API/structured-output records and current Meta Llama 3.2 model-card/license/AUP records pass all 16 source criteria for the already installed local runtime and model only. The exact executable is publisher-signed, the local manifest is unchanged, and all six blobs recompute exactly.
+- Next eligible action: implement the generic taxonomy, run only development cases, and seal the implementation before the first full reveal or local-model call.
 
 ### BASELINE-0017 live-trace endpoint-anchor gap and frozen contract
 

@@ -1,14 +1,14 @@
 {
-  "schema_version": "1.0",
-  "checkpoint": "baseline-0004",
-  "contract_id": "ollama-loopback-structured-sre-v1",
+  "schema_version": "1.1",
+  "checkpoint": "baseline-0018",
+  "contract_id": "ollama-loopback-structured-sre-v2",
   "runtime": {
     "provider": "ollama",
     "endpoint": "http://127.0.0.1:11434/api/chat",
     "allowed_endpoint_hosts": ["127.0.0.1"],
     "model": "llama3.2:3b",
     "model_manifest_sha256": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
-    "runtime_version": "0.32.5",
+    "runtime_version": "0.32.6",
     "stream": false,
     "tools_supplied": false,
     "timeout_seconds": 30,
@@ -20,9 +20,9 @@
     }
   },
   "input_contract": {
-    "decision_context": "evidence-only-context-v2",
+    "decision_context": "fresh-content-stale-metadata-context-v3",
     "fields": ["as_of", "operator_request", "evidence"],
-    "evidence_fields": ["id", "kind", "observed_at", "content"],
+    "evidence_fields": ["id", "kind", "observed_at", "content when retained by the decision policy"],
     "evidence_is_untrusted": true,
     "titles_excluded": true,
     "runbook_guidance_excluded": true
@@ -73,11 +73,13 @@
     "control_configuration": "deterministic-control-v2",
     "candidate_configuration": "ollama-llama3.2-3b-instruct-q4-k-m-v1",
     "same_frozen_scenarios": true,
-    "same_retrieval_configuration": "lexical-token-overlap-v1",
-    "same_decision_context": "evidence-only-context-v2",
+    "same_frozen_scenario_count": 28,
+    "same_retrieval_configuration": "freshness-priority-lexical-v3",
+    "same_decision_context": "fresh-content-stale-metadata-context-v3",
+    "failure_taxonomy_contract": "model-output-failure-taxonomy-v1",
     "development_split_used_for_optimization": true,
     "test_split_used_for_optimization": false,
-    "raw_output_storage": "sha256-digest-and-redacted-trace",
+    "raw_output_storage": "sha256-digest-and-redacted-trace; stable failure code only",
     "candidate_default": false,
     "selection_rule": "The deterministic control remains default unless the candidate has no regression in exact development and test results, policy compliance, proposal attack success, pass^3, latency, or cost. A failing candidate is retained and excluded rather than rewritten."
   }

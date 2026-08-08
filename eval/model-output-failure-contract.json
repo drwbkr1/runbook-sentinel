@@ -1,0 +1,238 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "model-output-failure-taxonomy-v1",
+  "checkpoint": "baseline-0018",
+  "status": "frozen",
+  "frozen_before_implementation": true,
+  "objective": "Classify every exact model-content parser rejection with one stable non-sensitive code while preserving the existing fail-closed abstention and acceptance boundary.",
+  "metadata_contract": {
+    "field": "model_output_error_code",
+    "valid_output_value": null,
+    "non_content_failure_value": null,
+    "content_failure_value": "exactly one value from error_codes",
+    "raw_output_storage": "sha256_digest_only",
+    "parse_status_unchanged": true,
+    "failure_outcome_unchanged": "abstain",
+    "failure_diagnosis_code_unchanged": "model_output_invalid"
+  },
+  "error_codes": [
+    "json_invalid",
+    "top_level_not_object",
+    "top_level_keys_mismatch",
+    "outcome_invalid",
+    "diagnosis_code_invalid",
+    "evidence_ids_invalid",
+    "evidence_ids_duplicate",
+    "evidence_id_out_of_context",
+    "missing_evidence_invalid",
+    "missing_evidence_duplicate",
+    "missing_evidence_identifier_invalid",
+    "reason_invalid",
+    "proposal_shape_invalid",
+    "proposal_action_invalid",
+    "proposal_capability_mismatch",
+    "proposal_arguments_invalid",
+    "proposal_nonnull_for_outcome"
+  ],
+  "base_payload": {
+    "outcome": "diagnose",
+    "diagnosis_code": "worker_stalled",
+    "evidence_ids": ["telemetry-worker-current"],
+    "missing_evidence": [],
+    "proposal": null,
+    "reason": "Fresh synthetic worker telemetry supports the diagnosis."
+  },
+  "cases": [
+    {
+      "case_id": "dev-valid-nonproposal",
+      "split": "development",
+      "content_encoding": "canonical_json",
+      "payload": {"outcome": "diagnose", "diagnosis_code": "worker_stalled", "evidence_ids": ["telemetry-worker-current"], "missing_evidence": [], "proposal": null, "reason": "Fresh synthetic worker telemetry supports the diagnosis."},
+      "allowed_document_ids": ["telemetry-worker-current"],
+      "expected": {"accepted": true, "error_code": null}
+    },
+    {
+      "case_id": "dev-invalid-json",
+      "split": "development",
+      "content_encoding": "literal",
+      "content_literal": "{",
+      "allowed_document_ids": [],
+      "expected": {"accepted": false, "error_code": "json_invalid"}
+    },
+    {
+      "case_id": "dev-top-level-not-object",
+      "split": "development",
+      "content_encoding": "canonical_json",
+      "payload": [],
+      "allowed_document_ids": [],
+      "expected": {"accepted": false, "error_code": "top_level_not_object"}
+    },
+    {
+      "case_id": "dev-top-level-keys-mismatch",
+      "split": "development",
+      "content_encoding": "canonical_json",
+      "payload": {"outcome": "diagnose", "diagnosis_code": "worker_stalled", "evidence_ids": [], "missing_evidence": [], "proposal": null},
+      "allowed_document_ids": [],
+      "expected": {"accepted": false, "error_code": "top_level_keys_mismatch"}
+    },
+    {
+      "case_id": "dev-outcome-invalid",
+      "split": "development",
+      "content_encoding": "canonical_json",
+      "payload": {"outcome": "execute", "diagnosis_code": "worker_stalled", "evidence_ids": [], "missing_evidence": [], "proposal": null, "reason": "Synthetic invalid outcome."},
+      "allowed_document_ids": [],
+      "expected": {"accepted": false, "error_code": "outcome_invalid"}
+    },
+    {
+      "case_id": "dev-diagnosis-code-invalid",
+      "split": "development",
+      "content_encoding": "canonical_json",
+      "payload": {"outcome": "diagnose", "diagnosis_code": "Worker Stalled", "evidence_ids": [], "missing_evidence": [], "proposal": null, "reason": "Synthetic invalid identifier."},
+      "allowed_document_ids": [],
+      "expected": {"accepted": false, "error_code": "diagnosis_code_invalid"}
+    },
+    {
+      "case_id": "dev-evidence-ids-invalid",
+      "split": "development",
+      "content_encoding": "canonical_json",
+      "payload": {"outcome": "diagnose", "diagnosis_code": "worker_stalled", "evidence_ids": [7], "missing_evidence": [], "proposal": null, "reason": "Synthetic invalid evidence list."},
+      "allowed_document_ids": [],
+      "expected": {"accepted": false, "error_code": "evidence_ids_invalid"}
+    },
+    {
+      "case_id": "dev-evidence-ids-duplicate",
+      "split": "development",
+      "content_encoding": "canonical_json",
+      "payload": {"outcome": "diagnose", "diagnosis_code": "worker_stalled", "evidence_ids": ["telemetry-worker-current", "telemetry-worker-current"], "missing_evidence": [], "proposal": null, "reason": "Synthetic duplicate evidence."},
+      "allowed_document_ids": ["telemetry-worker-current"],
+      "expected": {"accepted": false, "error_code": "evidence_ids_duplicate"}
+    },
+    {
+      "case_id": "test-evidence-id-out-of-context",
+      "split": "test",
+      "content_encoding": "canonical_json",
+      "payload": {"outcome": "diagnose", "diagnosis_code": "worker_stalled", "evidence_ids": ["telemetry-not-present"], "missing_evidence": [], "proposal": null, "reason": "Synthetic out-of-context citation."},
+      "allowed_document_ids": ["telemetry-worker-current"],
+      "expected": {"accepted": false, "error_code": "evidence_id_out_of_context"}
+    },
+    {
+      "case_id": "test-missing-evidence-invalid",
+      "split": "test",
+      "content_encoding": "canonical_json",
+      "payload": {"outcome": "request_evidence", "diagnosis_code": "insufficient_evidence", "evidence_ids": [], "missing_evidence": [7], "proposal": null, "reason": "Synthetic invalid missing-evidence list."},
+      "allowed_document_ids": [],
+      "expected": {"accepted": false, "error_code": "missing_evidence_invalid"}
+    },
+    {
+      "case_id": "test-missing-evidence-duplicate",
+      "split": "test",
+      "content_encoding": "canonical_json",
+      "payload": {"outcome": "request_evidence", "diagnosis_code": "insufficient_evidence", "evidence_ids": [], "missing_evidence": ["fresh_telemetry", "fresh_telemetry"], "proposal": null, "reason": "Synthetic duplicate missing evidence."},
+      "allowed_document_ids": [],
+      "expected": {"accepted": false, "error_code": "missing_evidence_duplicate"}
+    },
+    {
+      "case_id": "test-missing-evidence-identifier-invalid",
+      "split": "test",
+      "content_encoding": "canonical_json",
+      "payload": {"outcome": "request_evidence", "diagnosis_code": "insufficient_evidence", "evidence_ids": [], "missing_evidence": ["fresh telemetry"], "proposal": null, "reason": "Synthetic invalid missing-evidence identifier."},
+      "allowed_document_ids": [],
+      "expected": {"accepted": false, "error_code": "missing_evidence_identifier_invalid"}
+    },
+    {
+      "case_id": "test-reason-invalid",
+      "split": "test",
+      "content_encoding": "canonical_json",
+      "payload": {"outcome": "diagnose", "diagnosis_code": "worker_stalled", "evidence_ids": [], "missing_evidence": [], "proposal": null, "reason": ""},
+      "allowed_document_ids": [],
+      "expected": {"accepted": false, "error_code": "reason_invalid"}
+    },
+    {
+      "case_id": "test-proposal-shape-invalid",
+      "split": "test",
+      "content_encoding": "canonical_json",
+      "payload": {"outcome": "propose_action", "diagnosis_code": "worker_stalled", "evidence_ids": [], "missing_evidence": [], "proposal": null, "reason": "Synthetic missing proposal."},
+      "allowed_document_ids": [],
+      "expected": {"accepted": false, "error_code": "proposal_shape_invalid"}
+    },
+    {
+      "case_id": "test-proposal-action-invalid",
+      "split": "test",
+      "content_encoding": "canonical_json",
+      "payload": {"outcome": "propose_action", "diagnosis_code": "worker_stalled", "evidence_ids": [], "missing_evidence": [], "proposal": {"action": "delete_database", "capability": "synthetic.worker.restart", "arguments": {}}, "reason": "Synthetic invalid action."},
+      "allowed_document_ids": [],
+      "expected": {"accepted": false, "error_code": "proposal_action_invalid"}
+    },
+    {
+      "case_id": "test-proposal-capability-mismatch",
+      "split": "test",
+      "content_encoding": "canonical_json",
+      "payload": {"outcome": "propose_action", "diagnosis_code": "worker_stalled", "evidence_ids": [], "missing_evidence": [], "proposal": {"action": "restart_worker", "capability": "synthetic.cache.warm", "arguments": {}}, "reason": "Synthetic mismatched capability."},
+      "allowed_document_ids": [],
+      "expected": {"accepted": false, "error_code": "proposal_capability_mismatch"}
+    },
+    {
+      "case_id": "test-proposal-arguments-invalid",
+      "split": "test",
+      "content_encoding": "canonical_json",
+      "payload": {"outcome": "propose_action", "diagnosis_code": "worker_stalled", "evidence_ids": [], "missing_evidence": [], "proposal": {"action": "restart_worker", "capability": "synthetic.worker.restart", "arguments": {"force": true}}, "reason": "Synthetic invalid arguments."},
+      "allowed_document_ids": [],
+      "expected": {"accepted": false, "error_code": "proposal_arguments_invalid"}
+    },
+    {
+      "case_id": "test-proposal-nonnull-for-outcome",
+      "split": "test",
+      "content_encoding": "canonical_json",
+      "payload": {"outcome": "diagnose", "diagnosis_code": "worker_stalled", "evidence_ids": [], "missing_evidence": [], "proposal": {"action": "restart_worker", "capability": "synthetic.worker.restart", "arguments": {}}, "reason": "Synthetic nonnull proposal."},
+      "allowed_document_ids": [],
+      "expected": {"accepted": false, "error_code": "proposal_nonnull_for_outcome"}
+    },
+    {
+      "case_id": "test-valid-proposal",
+      "split": "test",
+      "content_encoding": "canonical_json",
+      "payload": {"outcome": "propose_action", "diagnosis_code": "worker_stalled", "evidence_ids": ["telemetry-worker-current"], "missing_evidence": [], "proposal": {"action": "restart_worker", "capability": "synthetic.worker.restart", "arguments": {}}, "reason": "Fresh synthetic worker telemetry supports a bounded restart proposal."},
+      "allowed_document_ids": ["telemetry-worker-current"],
+      "expected": {"accepted": true, "error_code": null}
+    }
+  ],
+  "metrics": {
+    "case_count": 19,
+    "development_case_count": 8,
+    "test_case_count": 11,
+    "error_code_count": 17,
+    "required": [
+      "exact_match_rate",
+      "development_exact",
+      "test_exact",
+      "invalid_output_classification_rate",
+      "valid_output_acceptance_rate",
+      "unclassified_content_failure_count"
+    ]
+  },
+  "gates": {
+    "all_nineteen_cases_exact": true,
+    "development_exact": true,
+    "test_exact": true,
+    "invalid_output_classification_rate": 1.0,
+    "valid_output_acceptance_rate": 1.0,
+    "unclassified_content_failure_count": 0,
+    "prior_acceptance_and_failure_outcomes_unchanged": true
+  },
+  "allowed_runtime_changes": [
+    "project-authored ModelOutputValidationError with one exact code",
+    "model_output_error_code in model metadata and immutable evaluation attempts",
+    "aggregate and split failure-code counts plus classification completeness",
+    "independent contract validator and evaluator",
+    "evaluation-only Ollama runtime identity refresh from 0.32.5 to 0.32.6",
+    "version, manifest, package, tests, documentation, and evidence required by this checkpoint"
+  ],
+  "forbidden_changes": [
+    "parser acceptance rules, failure outcome, diagnosis outcome, proposal semantics, model prompt, output schema, generation options, or raw-output retention",
+    "deterministic default, retrieval, decision context, scenarios, expected results, actions, policy, approvals, authentication, capabilities, executor, state transitions, API or MCP authority",
+    "model or runtime download, update, replacement, deletion, copying, or redistribution",
+    "remote model service, model tools, credentials, approval material, executor access, personal data, operational evidence, or real-infrastructure connector"
+  ],
+  "held_out_rule": "The eleven test cases are frozen before runtime implementation. Development cases may run after implementation; the generic implementation must be sealed before the first full 19-case reveal and before the single current local-model comparison.",
+  "candidate_results": null
+}

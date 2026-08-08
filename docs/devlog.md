@@ -1,5 +1,14 @@
 # Development log
 
+## 2026-08-08 - BASELINE-0018 started
+
+- Resumed from the verified public v0.0.17 release closure. Exact branches, annotated and peeled tag, non-draft latest release, selected assets, anonymous downloads, rendered pages, and a fresh no-alternates public-tag clone reconcile at `7bf9846`.
+- The fresh public-tag clone passes source/package `84+9+6+10+10+10`, 33 tests per runtime, exact archive rebuild, MCP, API, approval, executor, replay, state, audit, live endpoints, artifact parsing, security scan, and original-detail dashboard inspection. The external receipt is `C:\Projects\Verification\runbook-sentinel-v0.0.17-public-7bf9846-20260808T173100Z\public-release-baseline-0017.json` at SHA-256 `52b83dfb088e1ad17b13c062644016eba6f99861a0d1a8055dc2d0e9bd9598d4`.
+- Selected one measurable evaluation weakness: the retained local-model candidate has 49 `schema_invalid` failures and only 5 valid outputs across 54 attempts, but the parser and evaluation expose no stable content-rejection reason. Benign utility and `pass^3` remain 0.0, no proposal was accepted, and the candidate remains excluded.
+- A non-destructive pre-change probe confirms invalid JSON raises `JSONDecodeError`, while key mismatch and out-of-context evidence raise generic `ValueError`; none carries a machine code. No released or runtime evidence changed.
+- Refreshed the existing local-source gate against official Ollama 0.32.6 and current Ollama/Meta records. The exact publisher-signed executable, unchanged model manifest, and all six blobs pass identity, rights, provenance, integrity, fitness, and privacy/security checks. No external asset was acquired.
+- Froze `model-output-failure-taxonomy-v1` before adapter changes with 17 exact codes, 19 cases, eight development and eleven held-out test cases, two valid controls, digest-only raw-output retention, and unchanged fail-closed semantics. The independent validator passes with candidate results absent.
+
 ## 2026-08-08 - BASELINE-0017 started
 
 - Resumed from verified public v0.0.16 rather than reopening architecture. Remote main, annotated and peeled tag, non-draft release, selected archive and checksum, anonymous downloads, release page, commit-bound rendered README, raw main/tag, and a fresh no-alternates public-tag clone reconcile at release closure `465f4e2`.
