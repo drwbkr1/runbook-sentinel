@@ -1,0 +1,167 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0019",
+  "contract_status": "frozen_before_archive_build",
+  "source_checkpoint": {
+    "public_version": "0.0.18",
+    "public_commit": "5ac099f144e4a6ce368bb7d07c1bdd49b0d49dd0",
+    "measured_gap": "artifacts/verification/topology-split-gap-baseline-0019.json",
+    "frozen_boundary_result": "artifacts/evaluations/runs/baseline-0019-attempt-001.json",
+    "implementation_seal_commit": "f86aa5b42dc0f2e34ea2655313be0e20d282d67d"
+  },
+  "candidate": {
+    "version": "0.0.19",
+    "artifact": "dist/runbook-sentinel-0.0.19.pyz",
+    "checksum_artifact": "dist/runbook-sentinel-0.0.19.pyz.sha256",
+    "invocation": "python runbook-sentinel-0.0.19.pyz",
+    "format": "python-zipapp",
+    "python_requires": ">=3.12",
+    "runtime_dependencies": []
+  },
+  "archive_metadata": {
+    "compression": "stored",
+    "entry_order": "archive_path_ascending",
+    "timestamp": [1980, 1, 1, 0, 0, 0],
+    "create_system": 3,
+    "external_attr": 2175008768,
+    "archive_comment": "",
+    "entry_extra": "",
+    "generated_encoding": "utf-8",
+    "generated_newline": "lf"
+  },
+  "entries": [
+    {"archive_path": "__main__.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/__main__.py"},
+    {"archive_path": "runbook_sentinel/__init__.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/__init__.py"},
+    {"archive_path": "runbook_sentinel/__main__.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/__main__.py"},
+    {"archive_path": "runbook_sentinel/agent.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/agent.py"},
+    {"archive_path": "runbook_sentinel/api.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/api.py"},
+    {"archive_path": "runbook_sentinel/approval_lifetime_evaluation.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/approval_lifetime_evaluation.py"},
+    {"archive_path": "runbook_sentinel/catalog.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/catalog.py"},
+    {"archive_path": "runbook_sentinel/cli.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/cli.py"},
+    {"archive_path": "runbook_sentinel/data/approval-lifetime-contract.json", "source_kind": "project_file", "source_path": "eval/approval-lifetime-contract.json"},
+    {"archive_path": "runbook_sentinel/data/eval-manifest.json", "source_kind": "frozen_evaluation_manifest", "source_path": "eval/manifest.json"},
+    {"archive_path": "runbook_sentinel/data/idempotency-authorization-contract.json", "source_kind": "project_file", "source_path": "eval/idempotency-authorization-contract.json"},
+    {"archive_path": "runbook_sentinel/data/live-trace-anchor-contract.json", "source_kind": "project_file", "source_path": "eval/live-trace-anchor-contract.json"},
+    {"archive_path": "runbook_sentinel/data/model-contract.json", "source_kind": "project_file", "source_path": "eval/model-contract.json"},
+    {"archive_path": "runbook_sentinel/data/model-output-failure-contract.json", "source_kind": "project_file", "source_path": "eval/model-output-failure-contract.json"},
+    {"archive_path": "runbook_sentinel/data/operator-authentication-contract.json", "source_kind": "project_file", "source_path": "eval/operator-authentication-contract.json"},
+    {"archive_path": "runbook_sentinel/data/package-manifest.json", "source_kind": "generated_package_manifest"},
+    {"archive_path": "runbook_sentinel/data/scenarios.json", "source_kind": "project_file", "source_path": "src/runbook_sentinel/data/scenarios.json"},
+    {"archive_path": "runbook_sentinel/data/topology-split-coverage-contract.json", "source_kind": "project_file", "source_path": "eval/topology-split-coverage-contract.json"},
+    {"archive_path": "runbook_sentinel/data/trace-integrity-contract.json", "source_kind": "project_file", "source_path": "eval/trace-integrity-contract.json"},
+    {"archive_path": "runbook_sentinel/errors.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/errors.py"},
+    {"archive_path": "runbook_sentinel/evaluation.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/evaluation.py"},
+    {"archive_path": "runbook_sentinel/evidence.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/evidence.py"},
+    {"archive_path": "runbook_sentinel/idempotency_authorization_evaluation.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/idempotency_authorization_evaluation.py"},
+    {"archive_path": "runbook_sentinel/live_trace_anchor_evaluation.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/live_trace_anchor_evaluation.py"},
+    {"archive_path": "runbook_sentinel/mcp_server.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/mcp_server.py"},
+    {"archive_path": "runbook_sentinel/model_adapter.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/model_adapter.py"},
+    {"archive_path": "runbook_sentinel/operator_auth.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/operator_auth.py"},
+    {"archive_path": "runbook_sentinel/operator_authentication_evaluation.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/operator_authentication_evaluation.py"},
+    {"archive_path": "runbook_sentinel/policy.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/policy.py"},
+    {"archive_path": "runbook_sentinel/retrieval.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/retrieval.py"},
+    {"archive_path": "runbook_sentinel/service.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/service.py"},
+    {"archive_path": "runbook_sentinel/storage.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/storage.py"},
+    {"archive_path": "runbook_sentinel/telemetry.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/telemetry.py"},
+    {"archive_path": "runbook_sentinel/trace_integrity_evaluation.py", "source_kind": "project_file", "source_path": "src/runbook_sentinel/trace_integrity_evaluation.py"}
+  ],
+  "content_exclusions": {
+    "forbidden_path_fragments": ["__pycache__", ".pyc", ".pyo", ".git", "var/", "artifacts/", "tests/", "scripts/"],
+    "forbidden_secret_patterns": ["-----BEGIN PRIVATE KEY-----", "ghp_", "github_pat_", "sk-"],
+    "forbidden_runtime_state_extensions": [".db", ".sqlite", ".sqlite3", ".jsonl", ".log"]
+  },
+  "package_manifest": {
+    "archive_path": "runbook_sentinel/data/package-manifest.json",
+    "schema_version": "1.0",
+    "project": "runbook-sentinel",
+    "version": "0.0.19",
+    "checkpoint": "baseline-0019",
+    "python_requires": ">=3.12",
+    "entry_hashes_cover": "every archive entry except the package manifest itself",
+    "binds_frozen_evaluation_manifest": true,
+    "binds_package_contract": true
+  },
+  "development_surfaces": {
+    "known_gap_not_held_out": [
+      "aggregate topology coverage of one masks absent development-observability and held-out-test-database cells",
+      "candidate reports every domain/split count and exact missing pairs and requires both split rates to equal one"
+    ],
+    "unchanged_controls": [
+      "all 28 pre-change scenario and terminal-state identities plus the two frozen new cases",
+      "frozen 19-case model-output failure taxonomy and retained selected comparison",
+      "ten-case live-trace-anchor and ten-case trace-integrity evaluations",
+      "90 repeated diagnosis and terminal-state scenario attempts",
+      "ten operator-authentication, nine approval-lifetime, and six idempotency-authorization cases",
+      "two-build byte identity and exact archive metadata and allowlist",
+      "bounded MCP, real loopback API, approval, executor, state, audit, trace, endpoint anchor, and rendered dashboard",
+      "disconnected synthetic infrastructure and standard-library-only runtime"
+    ]
+  },
+  "held_out_surfaces": {
+    "sealed_until_generic_candidate_complete": true,
+    "surfaces": [
+      "clean-clone rebuild byte identity",
+      "downloaded public GitHub release asset checksum identity"
+    ],
+    "candidate_or_contract_change_after_reveal_allowed": false
+  },
+  "parity_contract": {
+    "source_and_package_must_both_pass": [
+      "frozen evaluation disposition and every declared gate",
+      "sixteen-of-sixteen topology split coverage and both new cases exact",
+      "model-output failure contract and exact selected comparison evidence",
+      "ten live-trace-anchor cases and exact sibling endpoints for CLI, API, and MCP live traces",
+      "ten trace-integrity cases and exact completed-evaluation companion-trace anchor",
+      "90 repeated diagnosis and terminal-state scenario attempts",
+      "operator authentication, cached-result authorization, and approval-lifetime boundaries",
+      "bounded MCP tool surface with no approval or execution authority",
+      "real HTTP approval, executor, dashboard, persisted state, audit, chained telemetry, and endpoint anchor",
+      "canonical authenticated external operator and disconnected-infrastructure labels"
+    ],
+    "excluded_from_exact_cross_runtime_comparison": [
+      "wall-clock timestamps",
+      "UUIDs",
+      "approval tokens",
+      "per-launch operator capabilities and derived launch identities",
+      "trace event and anchor hashes derived from runtime-varying values",
+      "latency measurements",
+      "temporary filesystem paths",
+      "ephemeral ports"
+    ],
+    "security_boundaries_may_change": false,
+    "scenario_expectations_may_change": false,
+    "graders_may_change_after_freeze": false
+  },
+  "release_gates": {
+    "contract_validator_passes": true,
+    "topology_split_contract_passes": true,
+    "all_prechange_scenario_identities_pass": true,
+    "model_output_failure_taxonomy_passes": true,
+    "model_comparison_verifier_passes": true,
+    "live_trace_anchor_boundary_passes": true,
+    "live_cli_api_and_mcp_endpoint_anchors_pass": true,
+    "trace_integrity_boundary_passes": true,
+    "completed_evaluation_trace_anchor_passes": true,
+    "operator_authentication_boundary_passes": true,
+    "idempotency_authorization_boundary_passes": true,
+    "approval_lifetime_boundary_passes": true,
+    "two_independent_builds_byte_identical": true,
+    "archive_sha256_stable": true,
+    "archive_allowlist_exact": true,
+    "no_cache_bytecode_secret_capability_model_or_runtime_state": true,
+    "embedded_manifest_matches_release_manifest": true,
+    "source_package_parity_passes": true,
+    "dashboard_checkpoint_and_boundaries_exact": true,
+    "clean_clone_rebuild_matches_release_asset": true,
+    "github_release_asset_download_matches_checksum": true
+  },
+  "no_go_boundaries": [
+    "no dependency or build backend",
+    "no package registry publication",
+    "no container claim",
+    "no external code or asset import",
+    "no model weight, runtime binary, raw generated output, signer, signing key, HMAC key, certificate, external collector, immutable-storage claim, non-repudiation claim, or model-safety claim",
+    "no capability or credentials in the model or agent and no approval or execution authority in MCP",
+    "no real operational infrastructure"
+  ]
+}

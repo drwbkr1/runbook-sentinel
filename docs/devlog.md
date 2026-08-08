@@ -12,6 +12,8 @@
 - Source attempt 001 report/trace SHA-256 values are `5bbfd45b3d2cddc3837f5bb0e30d7c124f4847a010f6a415c143d26a1baad0f5` / `10dd32144fcfc96d0cc7e272958a235b36064fa067cb467ad48c6acd38c73712`. Its 156-event anchor ends at `d8531756ac8c74ab95a05fd390e27c53ea5bb18e72d075994101ec5f477dabf1`.
 - Recorded the immutable candidate result in the frozen contract and updated its independent verifier to bind exact report, manifest, trace, case, coverage, trajectory, terminal-state, and anchor evidence. Package and real-surface verification are next.
 - One post-candidate standalone trace-verifier invocation omitted `PYTHONPATH` and stopped at import; the corrected project-environment invocation verified the unchanged 156-event anchor exactly.
+- Froze the v0.0.19 package contract before archive build at SHA-256 `e059cf9e70637cce8217135b7ffb08107def5900409734d9dfa2044604666336`. Its 34-entry allowlist adds only the topology contract to the v0.0.18 package surface, retains zero runtime dependencies, and preserves every no-go boundary.
+- Froze and verified the final pre-build 72-file evaluation manifest at SHA-256 `adf637300cfbbda77b8c2b239313535899098f5a131a5ded7fdf334974b8ecbc` before creating any v0.0.19 archive.
 
 ## 2026-08-08 - BASELINE-0018 started
 

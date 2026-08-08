@@ -145,7 +145,7 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "ready",
+      "status": "in_progress",
       "inputs": ["bounded candidate"],
       "outputs": ["verified candidate and release audit"],
       "gates": {
@@ -201,6 +201,10 @@
       ,
       "the split-aware implementation preserves all 28 pre-change scenario and terminal identities, covers all 16 domain/split pairs, and passes both new cases exactly",
       "immutable source attempt 001 passes 36 tests, 17 validators, 90 scenario attempts, every prior gate, and an exact anchored 156-event trace"
+      ,
+      "the v0.0.19 package contract is frozen before archive build with 34 exact entries, no runtime dependency, and unchanged no-go boundaries"
+      ,
+      "the final pre-build 72-file evaluation manifest passes at SHA-256 adf637300cfbbda77b8c2b239313535899098f5a131a5ded7fdf334974b8ecbc"
     ]
   },
   "handoff": {

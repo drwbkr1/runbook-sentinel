@@ -15,12 +15,13 @@
     "eval/package-contract-0016.json": "3bab1fefe71643318634334a3cd129e9f41b4b07b9ba3ff3365f1670311ff531",
     "eval/package-contract-0017.json": "ba10ace5495c34b57ce7c742312de1cb045a8ed524f707cc9e3c924412bb8d94",
     "eval/package-contract-0018.json": "18c48dfa2d22ea62aef6464b72df576e7233ee58f202faa16fd3248728dcd3cd",
+    "eval/package-contract-0019.json": "e059cf9e70637cce8217135b7ffb08107def5900409734d9dfa2044604666336",
     "eval/package-contract.json": "2bc1419bc3dfae64f98e6f2df89402980579d58c1ddeceb27dfcb8734cb25f76",
     "eval/topology-split-coverage-contract.json": "92ec2c2b5ad2924d4f52606113c3cb48453c692a70125516359b50ee8b999fb9",
     "eval/topology-split-coverage-prechange.json": "42e74b6da4a80ced1f9a5321b260693d997e7578a64c6535182632ec1a6af1f3",
     "eval/trace-integrity-contract.json": "63b1e44003ed16ab5f993d29a4a4b431afd679aa2d6482a41cc3cdec059c07b1",
     "pyproject.toml": "e279eae17c4025d3c29c88b48b824250bccbaee1ba312ff97981ce79dfbaf1ee",
-    "scripts/build_zipapp.py": "f994da411a4f773e4bcdb055045f0fbc83fdda22e384bcdc3ba2ccd7b185e026",
+    "scripts/build_zipapp.py": "dfe4f2d0a7cd96593b98afecca859f126fce275aceb4ce0ffd59ee8f380f2183",
     "scripts/evaluate_approval_lifetime.py": "672223af4a70a95cef25a916be3566497a02be2b56c004b6dfc99204e9f85c02",
     "scripts/evaluate_idempotency_authorization.py": "a6408da7cb32fd9d391afba90b0024e504c335772999bcf9a6d72b0ae9cb7650",
     "scripts/evaluate_live_trace_anchor.py": "c1e4ab078dfcbc1030948676a770ad399a04c1662ee60d70594fad6b85de78d0",
@@ -41,7 +42,7 @@
     "scripts/verify_model_comparison.py": "c17961a8796485315a34bded57fecf1d207a443522e10696d30bfb1fce5cdd6f",
     "scripts/verify_model_output_failure_contract.py": "9c4460a9f72200815ff3e1db1629926872278064c5d7a844f68272e9d8b03421",
     "scripts/verify_operator_authentication_contract.py": "05310cc860199edb79f0ffaf32331d5134f32e6cc068586f81ace6a391585ef2",
-    "scripts/verify_package_contract.py": "6193508d43c21c9b0c4a1dff003c7ec012c9b8dff3db3be3c843f697ea729589",
+    "scripts/verify_package_contract.py": "6d1fbf7ecc59f180757623f36c7ce355a796ee17ab74a683878d4d64023c809e",
     "scripts/verify_retrieval_stress.py": "a603e82e4ec28af658af4b48291dd65bce405f3f69304612255d9b534897eb0f",
     "scripts/verify_stale_evidence_stress.py": "c98a6c3cdd6955077c7ff233ca284cfe0b665d2577e75e36c79fa559384c0027",
     "scripts/verify_stale_payload_projection.py": "49d8092a102e438e1dd2153c4ef6b258b55e8acd48b76a165537dc2f44fc91e6",
@@ -73,6 +74,6 @@
     "src/runbook_sentinel/telemetry.py": "1e136b8642fc37f76bd803e720d5849123867fe8565426c8ce43ec5b21245815",
     "src/runbook_sentinel/trace_integrity_evaluation.py": "aab63e902297aa2c26734cbaef46b9106c07074696c5cf1d4cef2a1b70690d4a"
   },
-  "frozen_at_utc": "2026-08-08T20:18:15Z",
+  "frozen_at_utc": "2026-08-08T20:20:51Z",
   "schema_version": "1.0"
 }
