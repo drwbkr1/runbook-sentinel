@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import secrets
 import tempfile
 import threading
 from datetime import datetime
@@ -9,6 +10,7 @@ from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
 from .api import create_server
+from .operator_auth import authorization_value
 
 
 CONTRACT_ID = "approval-lifetime-v1"
@@ -83,11 +85,16 @@ CASES = (
 )
 
 
-def _post_json(url: str, payload: dict) -> tuple[int, dict]:
+def _post_json(
+    url: str, payload: dict, authorization: str | None = None
+) -> tuple[int, dict]:
+    headers = {"Content-Type": "application/json"}
+    if authorization is not None:
+        headers["Authorization"] = authorization
     request = Request(
         url,
         data=json.dumps(payload, separators=(",", ":")).encode("utf-8"),
-        headers={"Content-Type": "application/json"},
+        headers=headers,
         method="POST",
     )
     try:
@@ -117,12 +124,14 @@ def _run_case(case: dict) -> dict:
         base = Path(temp_dir)
         database_path = base / "state.db"
         trace_path = base / "traces.jsonl"
+        operator_capability = secrets.token_urlsafe(32)
         server = create_server(
             "127.0.0.1",
             0,
             str(database_path),
             str(trace_path),
             str(base / "unused-evaluation.json"),
+            operator_capability,
         )
         thread = threading.Thread(target=server.serve_forever, daemon=True)
         thread.start()
@@ -136,12 +145,13 @@ def _run_case(case: dict) -> dict:
             proposal_id = run["proposal"]["id"]
             incident_id = run["incident_id"]
             incident_before = server.service.get_incident(incident_id)
-            approval_request = {"actor": "approval-lifetime-evaluator"}
+            approval_request = {}
             if case["ttl_present"]:
                 approval_request["ttl_seconds"] = case["ttl_value"]
             approval_status, approval_response = _post_json(
                 f"{root}/api/proposals/{proposal_id}/approve",
                 approval_request,
+                authorization_value(operator_capability),
             )
 
             with server.service.storage.connect() as connection:
@@ -162,6 +172,7 @@ def _run_case(case: dict) -> dict:
             server.shutdown()
             server.server_close()
             thread.join(timeout=5)
+            del operator_capability
 
         accepted = case["accepted"]
         expected_status = 201 if accepted else 400

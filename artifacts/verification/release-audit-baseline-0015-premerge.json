@@ -1,0 +1,180 @@
+{
+  "schema_version": "1.0",
+  "release_id": "BASELINE-0015-PREMERGE",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2 and contracts/milestone-0015.json UNIT-005",
+    "authorized_actions": [
+      "commit and push the audit receipt",
+      "mark pull request 13 ready for review",
+      "merge pull request 13 only at the verified expected head",
+      "verify merged main before creating a tag or release",
+      "publish and verify v0.0.15 only after the merged-main audit passes"
+    ]
+  },
+  "risk_classes": [
+    "documentation",
+    "runtime",
+    "data",
+    "package",
+    "public",
+    "security",
+    "external"
+  ],
+  "candidate": {
+    "base_commit": "0dcd245dc286df297d2b431fa7079f65c6793c39",
+    "commit": "2119b3b42fe43794479ee463e3de798b8e50c886",
+    "version": "0.0.15",
+    "tag": "v0.0.15",
+    "artifacts": [
+      {
+        "path": "dist/runbook-sentinel-0.0.15.pyz",
+        "bytes": 326418,
+        "sha256": "0e4d12cd449c8e198ec9434fd12ba3bffc10b8baa609f18c6f71d0d4200da4df"
+      },
+      {
+        "path": "dist/runbook-sentinel-0.0.15.pyz.sha256",
+        "bytes": 94,
+        "sha256": "0163d8f90439b1d8bb0107582e0c556a8df408d4e593e0c3bacdd4a0cfc6088d"
+      }
+    ]
+  },
+  "live_truth": {
+    "verified_at_utc": "2026-08-08T00:13:25Z",
+    "branch": "codex/baseline-0015-approval-authority",
+    "remote_commit": "2119b3b42fe43794479ee463e3de798b8e50c886",
+    "pull_request": {
+      "number": 13,
+      "url": "https://github.com/drwbkr1/runbook-sentinel/pull/13",
+      "state": "OPEN",
+      "draft": true,
+      "base": "main",
+      "head": "2119b3b42fe43794479ee463e3de798b8e50c886",
+      "mergeable": "MERGEABLE",
+      "merge_state_status": "CLEAN",
+      "configured_checks": 0
+    },
+    "tag_target": "",
+    "deployment": null
+  },
+  "checks": [
+    {
+      "id": "CHECK-001",
+      "category": "scope",
+      "required": true,
+      "status": "pass",
+      "method": "Compare local, remote branch, and GitHub PR head, commits, and changed paths against origin/main",
+      "evidence": ["8 commits", "65 local paths", "65 PR paths", "path sets exact", "clean local worktree before audit receipt"],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-002",
+      "category": "runtime",
+      "required": true,
+      "status": "pass",
+      "method": "Run manifest verification, all unit tests, and frozen source/package evaluations",
+      "evidence": ["51 manifest files", "24 of 24 tests", "source and package 84+9+6+10 pass", "every declared gate passes"],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-003",
+      "category": "package",
+      "required": true,
+      "status": "pass",
+      "method": "Validate frozen package contract, repeat deterministic build, and compare a no-alternates clone rebuild",
+      "evidence": ["28 exact entries", "326418 bytes", "two local builds and clean-clone build have SHA-256 0e4d12cd449c8e198ec9434fd12ba3bffc10b8baa609f18c6f71d0d4200da4df", "zero runtime dependencies"],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-004",
+      "category": "security",
+      "required": true,
+      "status": "pass",
+      "method": "Run ten-case authentication evaluation, real source/package denial and utility flows, credential custody scan, persisted-state inspection, and model/MCP authority inventory",
+      "evidence": ["authentication denial 1.0", "authorized utility 1.0", "denied no-mutation 1.0", "server-derived identity 1.0", "capability exclusion 1.0", "prior-launch rejection 1.0", "393 non-definition tracked files have zero high-signal credential hits", "MCP has no approval or execution tool"],
+      "reason": "The first scan matched five package-contract forbidden-pattern definitions; excluding exactly those definitions produced zero hits. A first CLI scan used unsupported ripgrep lookahead without PCRE2; the corrected scan passed. Both failures remain in the devlog."
+    },
+    {
+      "id": "CHECK-005",
+      "category": "real surfaces",
+      "required": true,
+      "status": "pass",
+      "method": "Invoke source and packaged MCP and loopback API; inspect approval, executor, SQLite, audit, telemetry, logs, evaluation, and dashboard",
+      "evidence": ["source receipt pass", "package receipt pass", "clean-clone package receipt pass", "raw capability absent from checked surfaces"],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-006",
+      "category": "rendering and claims",
+      "required": true,
+      "status": "pass",
+      "method": "Render and visually inspect the package dashboard at 1440 by 1000 and reconcile current documentation",
+      "evidence": ["Baseline 0015", "operator authentication 1.0", "authenticated external operator", "real infrastructure disconnected", "research-informed and synthetic-only claims retained"],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-007",
+      "category": "portability",
+      "required": true,
+      "status": "pass",
+      "method": "Clone the public branch with --no-local and no Git alternates, then repeat source, package, MCP, API, state, telemetry, and rendering gates",
+      "evidence": ["C:/Projects/Verification/runbook-sentinel-baseline-0015-fcae274-20260807T235421Z", "started clean", "no alternates", "full gate pass"],
+      "reason": "The clone predates the final documentation-only receipt commit; the exact-head diff from fcae274 to 2119b3b changes only documentation and verification receipts, and the exact 2119b3b test and manifest gate passes."
+    },
+    {
+      "id": "CHECK-008",
+      "category": "external publication",
+      "required": true,
+      "status": "pass",
+      "method": "Read live GitHub PR and remote branch state",
+      "evidence": ["PR 13 OPEN draft", "head exact", "CLEAN", "MERGEABLE", "zero configured checks", "remote branch exact"],
+      "reason": "Repository-level verification is authoritative because no GitHub status checks are configured."
+    },
+    {
+      "id": "CHECK-009",
+      "category": "rollback and containment",
+      "required": true,
+      "status": "pass",
+      "method": "Confirm synthetic-only scope, no real connector, no model/MCP authority, immutable prior public release, and preserved failed attempts",
+      "evidence": ["real infrastructure disconnected", "v0.0.14 remains public fallback", "no production deployment", "superseded evaluations and archives retained"],
+      "reason": ""
+    }
+  ],
+  "truth_surfaces": [
+    {
+      "path_or_uri": "README.md, CHANGELOG.md, docs/status.md, docs/roadmap.md, docs/version-history.md",
+      "expected_state": "v0.0.15 is a verified release candidate; v0.0.14 remains latest verified public release",
+      "observed_state": "exact",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "health, evaluation, package manifest, and rendered dashboard",
+      "expected_state": "baseline-0015 / 0.0.15 with authenticated external operator and disconnected real infrastructure",
+      "observed_state": "exact",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel",
+      "expected_state": "main and public release remain v0.0.14 before merge",
+      "observed_state": "exact",
+      "status": "current"
+    }
+  ],
+  "limitations": [
+    "No GitHub status checks are configured; independent repository gates are authoritative.",
+    "Docker is off and no container gate or claim is declared.",
+    "No package registry or production deployment is in scope.",
+    "Tag, release assets, downloaded bytes, rendered public pages, and a public-tag clone remain post-merge gates."
+  ],
+  "decision": {
+    "reported_status": "verified",
+    "rationale": "Every applicable pre-merge check passes, current truth surfaces agree, and the active milestone authorizes UNIT-005. Publication facts not yet created remain explicit post-merge gates rather than inferred successes.",
+    "next_action": "Commit and push this audit, re-read PR 13 at the new expected head, mark it ready, merge only under the exact-head lock, and verify merged main before publication.",
+    "authorized_next_actions": [
+      "commit and push the audit receipt",
+      "mark pull request 13 ready for review",
+      "merge pull request 13 only at the verified expected head",
+      "verify merged main before creating a tag or release"
+    ]
+  }
+}

@@ -2,7 +2,7 @@
 
 Runbook Sentinel is a research-informed, retrieval-grounded SRE incident agent. It is designed to remain useful, repeatable, and policy-compliant when evidence is incomplete, adversarial, conflicting, or stale.
 
-Latest verified public release: `v0.0.14`. It requires a hash-matching consumed approval before a same-proposal idempotency cache can disclose a completed result, preserves the original authorized completed retry even after token expiry, keeps new-key replay denied, and exact-grades six authorization and replay cases separately from the 84 repeated scenarios and nine approval-lifetime cases. The selected dependency-free zipapp is 283,148 bytes at SHA-256 `9c9dbcba3b44fe0abb5ef83ac64d413112a64438d8776320f037493db55a3e6f`. Candidate `v0.0.11` remains rejected and unpublished with its stale rendered-label failure preserved. Public source or package availability does not imply production readiness or authorization to connect Runbook Sentinel to operational infrastructure.
+Latest verified public release: `v0.0.14`. The verified `v0.0.15` release candidate adds a project-specific per-launch operator capability before approval creation, rejects caller-declared operator identity, derives a launch-scoped identity server-side, and exact-grades ten authentication and authorization cases separately from the 84 repeated scenarios, nine approval-lifetime cases, and six cached-result authorization cases. Its selected dependency-free zipapp is 326,418 bytes at SHA-256 `0e4d12cd449c8e198ec9434fd12ba3bffc10b8baa609f18c6f71d0d4200da4df`. Candidate `v0.0.11` remains rejected and unpublished with its stale rendered-label failure preserved. Public source or package availability does not imply production readiness or authorization to connect Runbook Sentinel to operational infrastructure.
 
 The bounded agent can diagnose, request evidence, propose an action, or abstain. It cannot execute actions. A deterministic approval broker, policy gate, and synthetic-only executor enforce authority outside the model.
 
@@ -14,22 +14,22 @@ Run all commands from the repository root with Python 3.12 or newer.
 
 ```powershell
 $env:PYTHONPATH = 'src'
-python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0014-manual.json
+python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0015-manual.json
 python -m unittest discover -s tests -v
 python -m runbook_sentinel serve --host 127.0.0.1 --port 8765
 ```
 
-Then open `http://127.0.0.1:8765/dashboard`.
+The server requests the per-launch operator capability through a hidden prompt. Enter the same high-entropy capability at the hidden prompt used by the separate `approve --proposal <id>` command; neither command accepts the capability as an argument or environment variable. Then open `http://127.0.0.1:8765/dashboard`.
 
 Build and verify the standard-library-only zipapp without installing a build backend or dependency:
 
 ```powershell
 python scripts/build_zipapp.py
-python scripts/verify_package_contract.py --contract eval/package-contract-0014.json --archive dist/runbook-sentinel-0.0.14.pyz
-python dist/runbook-sentinel-0.0.14.pyz --help
+python scripts/verify_package_contract.py --contract eval/package-contract-0015.json --archive dist/runbook-sentinel-0.0.15.pyz
+python dist/runbook-sentinel-0.0.15.pyz --help
 ```
 
-The builder uses an exact 25-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. No package-registry or container claim is made.
+The builder uses an exact 28-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. No package-registry or container claim is made.
 
 The MCP server uses JSON-RPC over standard input/output:
 
@@ -54,6 +54,6 @@ Container packaging remains deferred. Docker is currently off, and three previou
 
 ## Security boundary
 
-This baseline operates only on a deterministic synthetic SRE environment. It contains no connectors, secrets, credentials, arbitrary command execution, or access to real infrastructure. MCP exposes diagnostic and proposal tools only; execution requires a separate human approval token that is never returned to the agent.
+This baseline operates only on a deterministic synthetic SRE environment. It contains no connectors, arbitrary command execution, or access to real infrastructure. MCP exposes diagnostic and proposal tools only. Approval creation requires a separate per-launch external-operator capability that is never returned to the agent, model, or MCP; the resulting approval token remains action-bound, hashed at rest, one-time, and separate from final execution authority.
 
 See `docs/status.md`, `docs/architecture.md`, `docs/threat-model.md`, and `docs/evaluation-contract.md` for current project truth.

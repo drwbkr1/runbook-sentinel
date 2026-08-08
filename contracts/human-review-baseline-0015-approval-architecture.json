@@ -1,0 +1,32 @@
+{
+  "contract_version": "human-review-contract-v1",
+  "template": false,
+  "review_id": "baseline-0015-approval-architecture",
+  "response_schema_version": "runbook-sentinel-human-response-v1",
+  "workflow_authority": {
+    "authority_ref": "User response in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2 on 2026-08-07 plus the active Runbook Sentinel director goal",
+    "review_required": true,
+    "lock_authorized": true,
+    "reconcile_authorized": true,
+    "authorized_next_actions": [
+      "freeze the selected approval-authority architecture and evaluation contract",
+      "implement the project-specific per-launch operator capability",
+      "run risk-matched source, package, API, MCP, state, telemetry, dashboard, and clean-clone verification",
+      "version, commit, push, publish, and verify the checkpoint only if every gate passes"
+    ]
+  },
+  "allowed_decisions": [
+    "approve-per-launch-operator-capability",
+    "claim-correction-only",
+    "remove-network-approval-surface"
+  ],
+  "required_attestation": true,
+  "max_notes_length": 500,
+  "hash_prefix_length": 16,
+  "items": [
+    {
+      "item_id": "baseline-0015-approval-architecture-choice",
+      "evidence_sha256": "352123f44e693dea8c087f950f7b31ba529e528b175946aefdabdbc8cc6ddfbb"
+    }
+  ]
+}

@@ -2,6 +2,15 @@
 
 All notable verified changes are recorded here. Unverified work remains in `docs/devlog.md` and the active milestone contract.
 
+## 0.0.15 - verified release candidate
+
+- Require one project-specific per-launch `Sentinel-Capability` before approval creation, authenticate before body parsing, reject caller-supplied `actor`, and derive a launch-scoped pseudonymous operator identity server-side.
+- Keep the raw capability out of arguments, environment, repository, package, database, audit, traces, logs, evaluation records, dashboard, model, agent, and MCP; preserve the agent's lack of final execution authority.
+- Add an independently validated ten-case operator-authentication contract covering missing, malformed, wrong, Bearer, duplicate, prior-launch, caller-actor, valid-default, and valid-maximum flows with exact no-mutation and postcondition grading.
+- Report authentication denial, authorized utility, denied no-mutation, server-derived identity, capability exclusion, and prior-launch rejection separately from retrieval, generation, trajectory, terminal state, approval lifetime, cached-result authorization, policy, utility, attack success, repeated reliability, latency, and cost.
+- Pass 24 tests, a 51-file frozen manifest, source/package 84+9+6+10 evaluations, MCP, real approval/executor/state/telemetry/log checks, visually inspected dashboards, and a no-alternates public-branch clone.
+- Build two byte-identical 326,418-byte, 28-entry standard-library zipapps at SHA-256 `0e4d12cd449c8e198ec9434fd12ba3bffc10b8baa609f18c6f71d0d4200da4df`; public release remains gated on reviewed merge and downloaded-asset verification.
+
 ## 0.0.14 - 2026-08-07
 
 - Require a supplied token hash matching a consumed approval before a same-proposal idempotency cache can disclose a completed execution result; wrong, missing, and other-proposal tokens fail closed without mutation.

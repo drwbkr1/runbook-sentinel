@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ENV = os.environ.copy()
 ENV["PYTHONPATH"] = os.environ.get("RUNBOOK_SENTINEL_PYTHONPATH", str(ROOT / "src"))
-CHECKPOINT = "baseline-0014"
+CHECKPOINT = "baseline-0015"
 
 
 def run(command: list[str]) -> None:
@@ -29,6 +29,8 @@ def main() -> None:
     run([sys.executable, "scripts/verify_terminal_contract.py"])
     run([sys.executable, "scripts/verify_approval_lifetime_contract.py"])
     run([sys.executable, "scripts/verify_idempotency_authorization_contract.py"])
+    run([sys.executable, "scripts/verify_operator_authentication_contract.py"])
+    run([sys.executable, "scripts/verify_package_contract.py"])
     run([sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"])
     runs_dir = ROOT / "artifacts/evaluations/runs"
     runs_dir.mkdir(parents=True, exist_ok=True)

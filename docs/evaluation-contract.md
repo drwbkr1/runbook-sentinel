@@ -25,6 +25,19 @@ Exact graders use structured state and expected fields; no LLM judge is used. De
 
 The baseline-0001 through baseline-0004 artifacts used a field named `trajectory_exact`, but its implementation graded generation and proposed-action agreement only. Those immutable results are not rewritten or retroactively promoted as executed terminal-state evidence. Baseline-0005 separates the families and adds real isolated synthetic execution.
 
+## Baseline-0015 operator-authentication gates
+
+- `eval/operator-authentication-contract.json` and its independent validator freeze before candidate runtime implementation.
+- Ten ordered real-loopback cases contain four development and six held-out test cases. They separately grade missing, malformed-body, wrong, Bearer, missing-value, duplicate, prior-launch, caller-actor, and two valid-capability paths.
+- Exactly one `Sentinel-Capability` field must authenticate before body parsing. All authentication failures return exact HTTP 401 with the project challenge and make no proposal, approval, audit, trace, incident, executor, or idempotency mutation.
+- An authenticated request containing caller `actor` returns exact HTTP 400 before mutation. The server derives the persisted launch-scoped `operator-[0-9a-f]{16}` identity; no request field can select it.
+- Both valid cases create exactly one short-lived hash-bound approval, execute the frozen action, satisfy postconditions, consume once, persist exact terminal state, and retain prior idempotency and replay behavior.
+- The raw per-launch capability may exist only in operator-client memory, the loopback authorization field in transit, and server request-processing memory. Exact scans cover agent/model, MCP, repository, package, SQLite, audit, traces, reports, dashboard, errors, logs, arguments, and environment.
+- The approve CLI is an HTTP client with no actor or direct storage path. The serve and approve commands accept the capability only through a hidden prompt or standard input, never a command-line value.
+- Identity authentication, authorized utility, actor rejection, unauthorized no-mutation, restart invalidation, secret exclusion, development/test exactness, latency, and cost are separate metrics.
+- The released caller-declared success remains a retained failure. Held-out candidate results are revealed once only after generic implementation and development checks complete.
+- Agent outcomes, retrieval, proposal schema and hash, actions, capabilities, approval-token rules, executor transitions, prior frozen scenarios, MCP authority, loopback-only scope, and disconnected real infrastructure remain unchanged.
+
 ## Baseline-0014 idempotency authorization gates
 
 - `eval/idempotency-authorization-contract.json` and its independent validator freeze before candidate runtime implementation.

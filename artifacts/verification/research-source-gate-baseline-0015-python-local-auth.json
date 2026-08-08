@@ -1,0 +1,118 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0015-python-local-auth-primitives-20260807",
+  "assessed_at": "2026-08-07T22:58:16Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_actions": [
+      "review official documentation for already-available Python standard-library primitives",
+      "record feasibility and constraints without implementing a credential"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Determine whether the existing Python 3.12 standard library provides suitable no-dependency primitives for generating a possible per-launch local operator capability and comparing its verifier without content-dependent short-circuiting. This assessment does not authorize generating, storing, requesting, transmitting, or using a credential.",
+    "planned_actions": [
+      "review official documentation for already-available Python standard-library primitives",
+      "record feasibility and constraints without implementing a credential"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "python-312-secrets-hmac-documentation",
+      "name": "Python 3.12 secrets, hmac, and licensing documentation",
+      "locator": "https://docs.python.org/3.12/library/secrets.html",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {"type": "live", "locator": "https://docs.python.org/3.12/library/secrets.html", "observed_at": "2026-08-07T22:58:16Z", "note": "Official Python 3.12.13 documentation identifies secrets.token_urlsafe as returning random URL-safe text from random bytes. Live UTF-8 response SHA-256 aa360c7bc227d848403d959645acaeeab6434c20493458057e2776a90efcf304."},
+            {"type": "live", "locator": "https://docs.python.org/3.12/library/hmac.html#hmac.compare_digest", "observed_at": "2026-08-07T22:58:16Z", "note": "Official Python 3.12.13 documentation identifies hmac.compare_digest as a comparison approach designed to avoid content-based short-circuiting. Live UTF-8 response SHA-256 ea2d7af659fc83f9f3df44c45ee9ed52845b41dd821bee590b445cf124cac320."}
+          ],
+          "note": "Exact runtime documentation version and primitive identities are established."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://docs.python.org/3.12/library/secrets.html", "observed_at": "2026-08-07T22:58:16Z", "note": "docs.python.org is the primary Python Software Foundation documentation surface for the runtime already used by the project."}],
+          "note": "Authority is limited to standard-library API behavior and documented security properties."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://docs.python.org/3.12/library/secrets.html", "observed_at": "2026-08-07T22:58:16Z", "note": "The official documentation returned HTTP 200 without authentication, account, secret, payment, or terms acceptance."}],
+          "note": "Public review requires no account or new service."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://docs.python.org/3.12/copyright.html", "observed_at": "2026-08-07T22:58:16Z", "note": "The official history and license page identifies the PSF License Agreement and other notices. Live UTF-8 response SHA-256 42c21b6d3def7b78df3a58e371f5efc805a4d29ea81b7180ad3a6c863b799de1."}],
+          "note": "No documentation sample is copied. The possible future implementation would call standard-library APIs already present in the runtime."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "Official Python 3.12 documentation", "note": "The source is reviewed directly from the primary publisher without an intermediary."}],
+          "note": "No external artifact enters project custody."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "HTTPS locators and live-response SHA-256 values in this gate", "note": "Exact versioned official locators and observed UTF-8 response digests bind the review session."}],
+          "note": "No acquired file requires a publisher checksum or signature."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "Python 3.12 secrets.token_urlsafe and hmac.compare_digest documentation", "note": "The APIs are suitable primitives for project-authored generation of random URL-safe text and comparison designed to reduce timing-analysis exposure, without adding a package or service."}],
+          "note": "Fitness is conditional: a separate approved architecture must define delivery, lifetime, custody, verifier storage, identity derivation, recovery, logging exclusion, package exclusion, and evaluation."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "BASELINE-0015 intended use", "note": "This review creates no credential, secret, file, environment variable, endpoint, log field, package entry, external dependency, service, model, or dataset."}],
+          "note": "The agent, model, MCP, logs, traces, repository, package, and persisted state remain credential-free."
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "review official documentation for already-available Python standard-library primitives",
+      "record feasibility and constraints without implementing a credential"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "retain source identity, metadata, hashes, narrow summary, and conditional fitness finding",
+      "include these primitives in an unselected architecture option"
+    ],
+    "requires_explicit_authorization": [
+      "add, generate, store, transmit, request, reveal, or package a credential or secret",
+      "change approval or execution endpoint access",
+      "implement or freeze an operator-authentication contract",
+      "import documentation samples, external code, packages, executables, services, data, or models"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "reconciliation_version": "human-review-reconciliation-v1",
+  "status": "reconciled_exact_human_response",
+  "review_id": "baseline-0015-approval-architecture",
+  "contract_sha256": "bc806eedd9b2b2cb468891c610ac074d3700162945b63bf0c5270269218e5fcc",
+  "response_sha256": "bc874b4d4333fa2bc29b4029c1c491e1d8b14f57481056661e9d01bce5cd07df",
+  "receipt_sha256": "fdbf32a32b940345ffd98da8ae2ddbfc425de940911ee324b69216f3380b71ff",
+  "human_decision_count": 1,
+  "decision_counts": {
+    "approve-per-launch-operator-capability": 1,
+    "claim-correction-only": 0,
+    "remove-network-approval-surface": 0
+  },
+  "notes_included": false,
+  "human_decisions_fabricated": false,
+  "downstream_authorization_created": false,
+  "authority_ref": "User response in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2 on 2026-08-07 plus the active Runbook Sentinel director goal",
+  "authorized_next_actions": [
+    "freeze the selected approval-authority architecture and evaluation contract",
+    "implement the project-specific per-launch operator capability",
+    "run risk-matched source, package, API, MCP, state, telemetry, dashboard, and clean-clone verification",
+    "version, commit, push, publish, and verify the checkpoint only if every gate passes"
+  ]
+}

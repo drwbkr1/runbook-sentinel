@@ -1,0 +1,23 @@
+{
+  "schema_version": "runbook-sentinel-human-review-context/v1",
+  "review_id": "baseline-0015-approval-architecture",
+  "recorded_at_utc": "2026-08-07T23:14:30Z",
+  "evidence": {
+    "artifact": "contracts/milestone-0015.json",
+    "sha256": "352123f44e693dea8c087f950f7b31ba529e528b175946aefdabdbc8cc6ddfbb",
+    "commit": "3b142d9fc30811d5c6a299a36a9579c4d095c261"
+  },
+  "selected_option_text": "no-cost project-specific per-launch operator capability with server-derived identity and authenticated-external-operator label",
+  "verbatim_user_response": "yes, implement the recommended option",
+  "custody_note": "This context transparently records an unambiguous direct Codex chat decision that arrived after the option and its constraints were presented. It does not claim a pre-generated form was handed to the user. The locked response transcribes the exact message into the closed response schema and does not create or contain the future operator credential.",
+  "locked_custody": {
+    "external_root": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0015-human-review-20260807T231430Z",
+    "response_sha256": "bc874b4d4333fa2bc29b4029c1c491e1d8b14f57481056661e9d01bce5cd07df",
+    "receipt_sha256": "fdbf32a32b940345ffd98da8ae2ddbfc425de940911ee324b69216f3380b71ff",
+    "reconciliation": "artifacts/verification/human-review-reconciliation-baseline-0015.json"
+  },
+  "retained_failures": [
+    "The first prepare attempt rejected a review contract containing non-schema provenance fields; no blank or response output was created.",
+    "The first lock attempt rejected candidate-response.json because the filename lacked the exact response-hash prefix; no lock directory or receipt was created. The unchanged bytes were renamed to the required identity before the successful lock."
+  ]
+}

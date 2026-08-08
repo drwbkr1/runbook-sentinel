@@ -1,0 +1,180 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0015-bearer-oauth-exclusion-20260807",
+  "assessed_at": "2026-08-07T22:58:16Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_actions": ["review current primary official Bearer and OAuth security specifications", "record exclusion"],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Determine whether the OAuth 2.0 Bearer authentication scheme or an OAuth architecture is fit for the current bare-HTTP loopback Runbook Sentinel operator surface.",
+    "planned_actions": ["review current primary official Bearer and OAuth security specifications", "record exclusion"]
+  },
+  "sources": [
+    {
+      "source_id": "rfc6750-bearer-token-usage",
+      "name": "RFC 6750: The OAuth 2.0 Authorization Framework: Bearer Token Usage",
+      "locator": "https://www.rfc-editor.org/rfc/rfc6750.html",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/rfc/rfc6750.html", "observed_at": "2026-08-07T22:58:16Z", "note": "The official RFC Editor document identifies RFC 6750 and the Bearer authentication scheme. Live UTF-8 response SHA-256 c458bb43ff32efb811466120efdec411010cdde537e59948342240a32dcd5a1c."}],
+          "note": "Exact document and scheme identity are established."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/rfc/rfc6750.html", "observed_at": "2026-08-07T22:58:16Z", "note": "The RFC Editor is the primary publication surface for the IETF Standards Track specification."}],
+          "note": "Authority is sufficient to establish the scheme requirements and exclusion condition."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/rfc/rfc6750.html", "observed_at": "2026-08-07T22:58:16Z", "note": "The official HTML returned HTTP 200 without authentication, account, secret, payment, or terms acceptance."}],
+          "note": "Public review requires no account or new service."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/rfc/rfc6750.html", "observed_at": "2026-08-07T22:58:16Z", "note": "The official document contains its IETF Trust copyright and legal-provisions notice."}],
+          "note": "Only attribution, facts, links, and narrow paraphrase are retained; no specification text, code, or asset is imported."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "Official RFC Editor RFC 6750 HTML", "note": "The source is reviewed directly from the primary publisher without an intermediary."}],
+          "note": "No external artifact enters project custody."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "HTTPS locator and live-response SHA-256 in this gate", "note": "The exact official locator and observed UTF-8 response digest bind the review session."}],
+          "note": "No acquired file requires a publisher checksum or signature."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "fail",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/rfc/rfc6750.html#section-1", "observed_at": "2026-08-07T22:58:16Z", "note": "RFC 6750 states that TLS is mandatory to implement and use with the specification, while the measured Runbook Sentinel approval API is bare loopback HTTP."}],
+          "note": "Calling a capability on the current HTTP surface Bearer or claiming RFC 6750 conformance would be unfit without a separate TLS architecture."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "BASELINE-0015 exclusion decision", "note": "No Bearer token, TLS credential, OAuth component, code, dependency, service, secret, model, dataset, or externally controlled asset is introduced."}],
+          "note": "The incompatible scheme is excluded before downstream implementation."
+        }
+      ]
+    },
+    {
+      "source_id": "rfc9700-oauth-security-bcp",
+      "name": "RFC 9700: Best Current Practice for OAuth 2.0 Security",
+      "locator": "https://www.rfc-editor.org/rfc/rfc9700.html",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/rfc/rfc9700.html", "observed_at": "2026-08-07T22:58:16Z", "note": "The official document identifies RFC 9700, BCP 240, published January 2025, and records that it updates RFC 6750. Live UTF-8 response SHA-256 f884cfc9d92b707bb0e802acb0e0987048ce54c2d25f285b76ece265a15b4228."}],
+          "note": "Current OAuth security BCP identity is established."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/rfc/rfc9700.html", "observed_at": "2026-08-07T22:58:16Z", "note": "The RFC Editor is the primary publication surface; the document records IETF consensus and IESG publication approval."}],
+          "note": "Authority is sufficient for current OAuth security status and scope."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/rfc/rfc9700.html", "observed_at": "2026-08-07T22:58:16Z", "note": "The official HTML returned HTTP 200 without authentication, account, secret, payment, or terms acceptance."}],
+          "note": "Public review requires no account or new service."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/rfc/rfc9700.html#copyright", "observed_at": "2026-08-07T22:58:16Z", "note": "The official document contains the IETF Trust copyright and legal-provisions notice."}],
+          "note": "Only attribution, facts, links, and narrow paraphrase are retained; no specification text, code, or asset is imported."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "Official RFC Editor RFC 9700 HTML", "note": "The source is reviewed directly from the primary publisher without an intermediary."}],
+          "note": "No external artifact enters project custody."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "HTTPS locator and live-response SHA-256 in this gate", "note": "The exact official locator and observed UTF-8 response digest bind the review session."}],
+          "note": "No acquired file requires a publisher checksum or signature."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "fail",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/rfc/rfc9700.html#name-introduction", "observed_at": "2026-08-07T22:58:16Z", "note": "RFC 9700 is explicitly scoped to OAuth 2.0 ecosystems, roles, endpoints, grants, and tokens. Runbook Sentinel has no OAuth authorization server, client registration, redirect flow, token endpoint, or federated identity requirement."}],
+          "note": "Adding OAuth would materially expand architecture and complexity beyond the smallest credible bounded local operator surface."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "BASELINE-0015 exclusion decision", "note": "No OAuth code, service, client, secret, redirect, token, dependency, model, dataset, or externally controlled asset is introduced."}],
+          "note": "OAuth remains excluded unless a later approved architecture creates an OAuth-specific intended use and source gate."
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "status": "blocked",
+    "blocking_reasons": [
+      "RFC 6750 requires TLS, while the current measured operator API is bare loopback HTTP.",
+      "OAuth 2.0 roles and flows would add unnecessary architecture to the smallest credible local operator boundary."
+    ],
+    "live_verification_pending": [],
+    "approved_actions": ["record exclusion"]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "retain source identity, official status, hashes, and exclusion rationale",
+      "state that the future project-specific capability must not be labeled Bearer or OAuth-conformant on the current HTTP surface"
+    ],
+    "requires_explicit_authorization": [
+      "select or implement TLS, Bearer, OAuth, an authorization server, a paid identity service, or any credential",
+      "cite RFC 6750 as permitting Bearer use on the current bare-HTTP loopback surface",
+      "import specification text, code, examples, libraries, services, or externally controlled assets",
+      "revive downstream use without a new approved architecture and source assessment"
+    ]
+  }
+}

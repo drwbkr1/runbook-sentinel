@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0015",
+  "verified_at_utc": "2026-08-08T00:02:30Z",
+  "status": "pass",
+  "clone": {
+    "path": "C:/Projects/Verification/runbook-sentinel-baseline-0015-fcae274-20260807T235421Z",
+    "origin": "https://github.com/drwbkr1/runbook-sentinel.git",
+    "branch": "codex/baseline-0015-approval-authority",
+    "head": "fcae2740f968db0ef7f35936feebb30cb156e5a5",
+    "no_local": true,
+    "started_clean": true,
+    "git_alternates_present": false,
+    "verification_generated_worktree_entries": 5
+  },
+  "checks": {
+    "manifest_51_files": true,
+    "contract_validators_pass": true,
+    "unit_tests_24_of_24": true,
+    "evaluation_84_plus_9_plus_6_plus_10_pass": true,
+    "evaluation_disposition_pass": true,
+    "package_contract_28_entries_pass": true,
+    "selected_archive_rebuild_byte_identical": true,
+    "package_mcp_surface_pass": true,
+    "package_api_executor_state_telemetry_and_dashboard_pass": true
+  },
+  "identities": {
+    "manifest_sha256": "72a180546c6ddbd4ee36fb61b2d49406d0c0666821b7a368b5c73cd4f858225c",
+    "clone_evaluation_sha256": "f92bc03f5667854a65a6fbcefe68837901cd3984e9e7f9403f44c5eac0898ef5",
+    "clone_native_receipt_sha256": "03caa8e55715738d635cdc4f6c222ec4208cc23aa743b276486a4b02d39f7556",
+    "clone_dashboard_sha256": "6cba6f986afcaef42359c3094eefc5093c28da98068ce58e8f1f4f80a7eaac18",
+    "clone_archive_sha256": "0e4d12cd449c8e198ec9434fd12ba3bffc10b8baa609f18c6f71d0d4200da4df",
+    "selected_archive_sha256": "0e4d12cd449c8e198ec9434fd12ba3bffc10b8baa609f18c6f71d0d4200da4df",
+    "archive_bytes": 326418
+  }
+}
