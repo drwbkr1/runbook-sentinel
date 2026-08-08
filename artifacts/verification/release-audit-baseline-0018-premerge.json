@@ -1,0 +1,259 @@
+{
+  "schema_version": "1.0",
+  "release_id": "BASELINE-0018-PREMERGE",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal, user-selected public GitHub visibility, and contracts/milestone-0018.json UNIT-005",
+    "authorized_actions": [
+      "commit_premerge_audit",
+      "push_premerge_audit",
+      "mark_pr_ready",
+      "merge_exact_head",
+      "verify_merged_main"
+    ]
+  },
+  "risk_classes": [
+    "documentation",
+    "runtime",
+    "data",
+    "model-evaluation",
+    "package",
+    "public",
+    "security",
+    "external"
+  ],
+  "candidate": {
+    "base_commit": "7bf9846f262e8e75f1ed2f45d4c9d4d7573f1d8f",
+    "commit": "591e020bfc3274d199f87f9cf4e67f4967909822",
+    "runtime_candidate_commit": "300575b686b29620d2609ca310ccef4799ab57ae",
+    "version": "0.0.18",
+    "tag": "v0.0.18",
+    "manifest_sha256": "c787fc879e89ead00cd6555fc4d7c21bac1d3fcbe55fd561784753b23234cffd",
+    "package_contract_sha256": "18c48dfa2d22ea62aef6464b72df576e7233ee58f202faa16fd3248728dcd3cd",
+    "artifacts": [
+      {
+        "path": "dist/runbook-sentinel-0.0.18.pyz",
+        "bytes": 410293,
+        "sha256": "e370c208bc6598cf6217f963bc6ea567f05df5757a371bda67fc5157e23a21d0"
+      },
+      {
+        "path": "dist/runbook-sentinel-0.0.18.pyz.sha256",
+        "bytes": 94,
+        "sha256": "b7f17bfe005a7b32b4d292ef3133a1d244740019a97f7c66c42bb513aa05a0fd"
+      }
+    ]
+  },
+  "live_truth": {
+    "verified_at_utc": "2026-08-08T19:04:04Z",
+    "branch": "codex/baseline-0018-model-failure-taxonomy",
+    "remote_commit": "591e020bfc3274d199f87f9cf4e67f4967909822",
+    "pull_request": {
+      "number": 16,
+      "url": "https://github.com/drwbkr1/runbook-sentinel/pull/16",
+      "state": "OPEN",
+      "draft": true,
+      "mergeable": "MERGEABLE",
+      "merge_state_status": "CLEAN",
+      "configured_checks": 0,
+      "commit_count": 6,
+      "changed_path_count": 68,
+      "local_and_remote_path_sets_equal": true
+    },
+    "remote_main_commit": "7bf9846f262e8e75f1ed2f45d4c9d4d7573f1d8f",
+    "latest_public_release": "v0.0.17",
+    "tag_target": "not_created",
+    "release": "not_created",
+    "deployment": null
+  },
+  "checks": [
+    {
+      "id": "CHECK-001",
+      "category": "scope",
+      "required": true,
+      "status": "pass",
+      "method": "Compared local main...HEAD, all six commits, the clean worktree, the exact 68-path PR inventory, and both remote refs.",
+      "evidence": [
+        "PR #16 exact head 591e020bfc3274d199f87f9cf4e67f4967909822",
+        "68 changed paths with local and GitHub path sets equal",
+        "remote branch equals local HEAD and remote main remains public v0.0.17 closure 7bf9846f262e8e75f1ed2f45d4c9d4d7573f1d8f"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-002",
+      "category": "contracts",
+      "required": true,
+      "status": "pass",
+      "method": "Validated the 67-file release manifest, frozen 17-code and 19-case failure taxonomy, independent model comparison, package contract, structured records, and UNIT-005 authority.",
+      "evidence": [
+        "eval/model-output-failure-contract.json",
+        "eval/manifest.json SHA-256 c787fc879e89ead00cd6555fc4d7c21bac1d3fcbe55fd561784753b23234cffd",
+        "eval/package-contract-0018.json SHA-256 18c48dfa2d22ea62aef6464b72df576e7233ee58f202faa16fd3248728dcd3cd",
+        "contracts/milestone-0018.json"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-003",
+      "category": "model-evaluation",
+      "required": true,
+      "status": "pass",
+      "method": "Compared the one post-seal local-model attempt with deterministic control on an identical frozen manifest and retained all favorable and unfavorable outcomes separately.",
+      "evidence": [
+        "all 75 schema-invalid model outputs have one closed machine code and zero raw output is retained",
+        "local model: 9 of 84 valid outputs, diagnosis accuracy 0.0, benign utility 0.0, pass^3 0.0, and median latency 10173.578 ms",
+        "deterministic control: every gate, benign utility, and pass^3 1.0 with 47.675 ms median latency",
+        "the deterministic control remains default and the model candidate remains excluded"
+      ],
+      "reason": "Zero accepted proposals, policy compliance 1.0, and attack success 0.0 are fail-closed enforcement evidence, not useful model-safety evidence."
+    },
+    {
+      "id": "CHECK-004",
+      "category": "runtime",
+      "required": true,
+      "status": "pass",
+      "method": "Ran 35 tests, 14 validators, and source/package 84+9+6+10+10+10 evaluation gates after the corrected version-bound freeze.",
+      "evidence": [
+        "artifacts/evaluations/runs/baseline-0018-attempt-002.json",
+        "artifacts/evaluations/runs/baseline-0018-package-attempt-002.json",
+        "artifacts/verification/clean-clone-baseline-0018.json"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-005",
+      "category": "package",
+      "required": true,
+      "status": "pass",
+      "method": "Validated the frozen 33-entry allowlist, built twice byte-identically, and reproduced exact selected bytes twice in a remote-only no-local-object clone.",
+      "evidence": [
+        "selected archive is 410293 bytes at SHA-256 e370c208bc6598cf6217f963bc6ea567f05df5757a371bda67fc5157e23a21d0",
+        "archive entry metadata, embedded manifests, per-entry hashes, entrypoint, adjacent checksum, cache/state/secret exclusion, and dependency absence pass",
+        "the earlier same-size archive at SHA-256 878c58e602e06b331566a56708fce66847b9bbf2b1b5fb914dd18ece6e1a5d3b remains retained and superseded"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-006",
+      "category": "real-surfaces",
+      "required": true,
+      "status": "pass",
+      "method": "Exercised source, package, and clean-clone MCP plus real loopback authentication, approval, executor, replay, postconditions, state, audit, live endpoints, evaluation anchors, logs, and dashboard.",
+      "evidence": [
+        "MCP exposes exactly three diagnostic/read tools and no approval or execution tool",
+        "source, package, and clean-clone native receipts pass",
+        "source, package, and clean-clone rendered dashboards show Baseline 0018, authenticated external operator, disconnected real infrastructure, and complete incident rows"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-007",
+      "category": "security",
+      "required": true,
+      "status": "pass",
+      "method": "Reviewed authorization boundaries, archive exclusions, credential/model scans, raw-output exclusion, trace integrity, source identity, and external-asset gates.",
+      "evidence": [
+        "zero credential-shaped matches outside frozen forbidden-pattern definitions and zero model artifacts in the release repository",
+        "the local model and Ollama runtime remain local evaluation-only assets and are not copied, packaged, or redistributed",
+        "no key, signer, dependency, collector, credential, paid service, secret, capability, real connector, or real-infrastructure authority was added"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-008",
+      "category": "evidence-integrity",
+      "required": true,
+      "status": "pass",
+      "method": "Confirmed every failed, stale, blocked, or superseded attempt remains preserved and clearly excluded from selection.",
+      "evidence": [
+        "the stale baseline-0017 live-verifier failure is retained as artifacts/verification/live-api-baseline-0018-attempt-001-failed.json",
+        "the first archive bytes, evaluation attempts, and first manifest identity remain retained as superseded",
+        "the excluded zero-utility local-model attempt remains immutable beside the selected deterministic control",
+        "the clean-clone definition-only secret-scan match and viewer framing artifact remain recorded"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-009",
+      "category": "external",
+      "required": true,
+      "status": "pass",
+      "method": "Read GitHub PR, remote branch, remote main, release, and tag state directly through the GitHub connector, gh, and git ls-remote.",
+      "evidence": [
+        "PR #16 is OPEN, draft, CLEAN, and MERGEABLE at exact head with zero configured checks",
+        "remote main remains public v0.0.17 release closure",
+        "v0.0.18 tag and release are absent before merge"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-010",
+      "category": "rollback",
+      "required": true,
+      "status": "pass",
+      "method": "Verified current public v0.0.17 release remains the recoverable prior checkpoint.",
+      "evidence": [
+        "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.17",
+        "v0.0.17 selected archive SHA-256 271242d6eabffd4205f8b386028073f6d041b6ec5cc9369a524e45cacc9fe1ef",
+        "no v0.0.18 tag or release exists"
+      ],
+      "reason": ""
+    }
+  ],
+  "truth_surfaces": [
+    {
+      "path_or_uri": "README.md",
+      "expected_state": "v0.0.17 public; v0.0.18 clean-clone-verified candidate; local model excluded",
+      "observed_state": "exact",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "docs/status.md",
+      "expected_state": "UNIT-005 review with v0.0.17 still public latest",
+      "observed_state": "exact",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "CHANGELOG.md and docs/version-history.md",
+      "expected_state": "0.0.18 unreleased clean-clone-verified candidate",
+      "observed_state": "exact",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/pull/16",
+      "expected_state": "draft review at exact candidate head",
+      "observed_state": "OPEN, CLEAN, MERGEABLE, exact head",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.18",
+      "expected_state": "absent before merged-main verification",
+      "observed_state": "absent",
+      "status": "current"
+    }
+  ],
+  "retained_failures": [
+    "The first real HTTP attempt failed only because its manifest-bound verifier still asserted the stale baseline-0017 label; the failure receipt is retained.",
+    "The first archive and package attempt remain retained and superseded after the verifier correction changed manifest-bound bytes.",
+    "The measured local model remains excluded after zero diagnosis accuracy, utility, and pass^3 despite complete failure classification.",
+    "The first clean-clone secret scan matched only frozen pattern definitions, and the first original-detail package-dashboard viewer frame showed only the lower table strip; both corrected checks and initial observations are retained."
+  ],
+  "limitations": [
+    "GitHub has no configured checks for PR #16, so repository and clean-clone gates are the authoritative validation.",
+    "The local model comparison does not establish useful stochastic-model safety or external superiority.",
+    "The unkeyed chain and endpoint do not authenticate their writer or resist complete chain-and-anchor recomputation.",
+    "Real operational infrastructure, production identity, immutable storage, external collectors, signing, and container packaging remain out of scope."
+  ],
+  "decision": {
+    "reported_status": "verified",
+    "rationale": "Every risk-matched contract, model-evaluation, runtime, package, real-surface, clean-clone, rendering, evidence-retention, security, and current remote-state check passes with no unresolved discrepancy; the local model remains excluded and authority boundaries remain unchanged.",
+    "next_action": "Commit and push this audit, mark PR #16 ready, merge only its exact reviewed head, then verify merged main before tagging or publishing.",
+    "authorized_next_actions": [
+      "commit_premerge_audit",
+      "push_premerge_audit",
+      "mark_pr_ready",
+      "merge_exact_head",
+      "verify_merged_main"
+    ]
+  }
+}
