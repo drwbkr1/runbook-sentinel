@@ -1,0 +1,214 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0016",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "external_source_review",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "user_instruction": "Continue selecting and shipping the next verified checkpoint without routine approval, subject to the active goal stop conditions.",
+    "repository_controls": [
+      "AGENTS.md",
+      "C:\\Projects\\STORAGE_POLICY.md",
+      "docs/status.md",
+      "contracts/milestone-0016.json"
+    ],
+    "active_contract": "contracts/milestone-0016.json",
+    "verified_at_utc": "2026-08-08T00:44:20Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Make persisted JSONL telemetry detect content mutation, insertion, deletion, duplication, and reordering, and bind each completed evaluation report to the exact companion trace, without adding a secret, dependency, signer, external collector, or production-authenticity claim.",
+    "allowed_paths": [
+      "C:\\Projects\\Active\\runbook-sentinel",
+      "C:\\Projects\\Verification"
+    ],
+    "forbidden_work": [
+      "add an HMAC key, signing key, certificate, credential, paid service, dependency, external collector, or real-infrastructure connector",
+      "claim origin authentication, hostile-writer resistance, immutable storage, non-repudiation, or full RFC 5848 conformance",
+      "change agent outcomes, retrieval, decision context, scenario truth, model access, MCP authority, operator authentication, approval semantics, capabilities, executor actions, or synthetic state transitions",
+      "rewrite or delete failed, stale, superseded, or historical trace evidence",
+      "change repository visibility, access, or ownership"
+    ],
+    "reversible_actions": [
+      "freeze and validate a project-authored trace-integrity contract before runtime implementation",
+      "add deterministic SHA-256 event sequencing, hash continuity, fail-closed append validation, and evaluation-report binding",
+      "run development, held-out, regression, package, real-surface, clean-clone, and release verification",
+      "version, commit, push, review, merge, publish, and verify only after every gate passes"
+    ],
+    "stop_conditions": [
+      "core thesis change or security-boundary weakening",
+      "a secret or external trust anchor becomes necessary",
+      "the candidate cannot distinguish the frozen corruption cases or cannot verify the real persisted trace",
+      "the candidate or shipment cannot be verified"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.15 release, downloaded archive SHA-256 0e4d12cd449c8e198ec9434fd12ba3bffc10b8baa609f18c6f71d0d4200da4df, annotated tag, remote main, and release closure reconcile.",
+        "Fresh public-package evaluation passes all 84 repeated scenarios, nine approval-lifetime cases, six idempotency-authorization cases, ten operator-authentication cases, and every prior gate.",
+        "The 150-event released trace has no sequence, previous-event hash, or event hash, and the pass report has no trace digest or telemetry-integrity metric.",
+        "An in-memory postconditions true-to-false mutation retains valid JSON, exact event names, current decision-context checks, and the pass disposition."
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Run public v0.0.15, inspect its evaluation and trace, and prove one telemetry-integrity weakness without mutating released evidence.",
+      "depends_on": [],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["public v0.0.15 release archive"],
+      "outputs": ["fresh orientation report", "trace-integrity gap receipt"],
+      "gates": {
+        "released_checkpoint_exact": true,
+        "fresh_run_complete": true,
+        "weakness_measurable": true,
+        "released_trace_unchanged": true
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Gate official sources and freeze exact integrity, corruption-detection, anchoring, recovery, and non-claim requirements before candidate implementation.",
+      "depends_on": ["UNIT-001"],
+      "action_class": "external_source_review",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["gap receipt", "official source gate", "trace-integrity contract"],
+      "outputs": ["validated source gate", "frozen contract"],
+      "gates": {
+        "source_gate_ready": true,
+        "contract_frozen_before_implementation": true,
+        "no_secret_or_external_asset": true
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement one bounded hash-continuity and completed-evaluation binding improvement without changing model or execution authority.",
+      "depends_on": ["UNIT-002"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["frozen trace-integrity-v1 contract"],
+      "outputs": ["bounded implementation", "focused tests"],
+      "gates": {
+        "all_frozen_development_cases_exact": true,
+        "fail_closed_append_validation": true,
+        "evaluation_trace_binding": true,
+        "prior_boundaries_unchanged": true
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Reveal the frozen held-out cases once and run every prior source, package, API, MCP, state, telemetry, dashboard, and clean-clone gate.",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["candidate implementation", "frozen manifest"],
+      "outputs": ["immutable evaluation", "real-surface evidence", "clean-clone receipt"],
+      "gates": {
+        "source_and_package_full_gate": true,
+        "trace_integrity_all_cases_exact": true,
+        "real_trace_binding_pass": true,
+        "mcp_api_executor_state_telemetry_dashboard_pass": true,
+        "clean_clone_pass": true
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Version, package, review, merge, publish, and verify the bounded checkpoint only if every gate passes.",
+      "depends_on": ["UNIT-004"],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "in_progress",
+      "inputs": ["verified candidate and release audit"],
+      "outputs": ["verified public checkpoint"],
+      "gates": {
+        "reviewed_head_exact": false,
+        "history_preserving_merge_exact": false,
+        "merged_main_pass": false,
+        "annotated_tag_exact": false,
+        "public_assets_exact": false,
+        "downloaded_bytes_exact": false,
+        "rendered_public_pages_exact": false,
+        "public_tag_clone_pass": false
+      },
+      "disposition": null,
+      "retained_failures": []
+    }
+  ],
+  "verification": {
+    "changed_risks": [
+      "a serialization mismatch can make valid telemetry unverifiable",
+      "append-resume can accept a corrupt existing prefix or fork sequence continuity",
+      "a self-contained unkeyed chain can be overstated as origin authentication or hostile-writer protection",
+      "new integrity fingerprints can leak secrets or create false source-package parity failures",
+      "evaluation can report pass without binding the exact companion trace"
+    ],
+    "required_checks": [
+      "exact schema and canonicalization are frozen before implementation",
+      "valid, mutation, sequence, previous-hash, deletion, duplication, reordering, malformed-JSON, and anchored-tail cases are exact in development and held-out splits",
+      "existing valid prefixes resume at the exact next sequence and prior digest; corrupt prefixes refuse append",
+      "the completed evaluation report records and independently verifies exact event count and final event digest",
+      "agent, model, MCP, approval, executor, state, secrets, scenarios, retrieval, latency, and cost remain separately graded",
+      "source/package, real-surface, clean-clone, GitHub, merged-main, and public-release gates reconcile"
+    ],
+    "completed_checks": [
+      "fresh public v0.0.15 package and its evaluation pass",
+      "prechange in-memory mutation remains undetected by every current trace check",
+      "official-source gate validates ready for citation and project-authored standard-library implementation",
+      "trace-integrity-v1 validates with ten frozen cases and no held-out candidate result reveal"
+      ,"development-only implementation checks pass before the first held-out reveal",
+      "the first held-out reveal passes all ten cases exactly and remains retained",
+      "57-file source and package evaluations pass 84+9+6+10+10 with independently verified 150-event anchors",
+      "two 358711-byte 30-entry archives are byte-identical at SHA-256 9c04e2815f4bb536904a803f8bf64079342eab4f694039ea8c61105453b8344f",
+      "source and package MCP, API, approval, executor, state, audit, telemetry, and rendered dashboard checks pass"
+      ,"a no-local-object clean clone of exact candidate commit 8c088c2 passes source, archive rebuild, package, MCP, API, state, audit, trace-anchor, parsing, scan, and visual gates"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "verified local v0.0.16 candidate at 8c088c2 with selected 9c04e281 archive bytes and passing no-local-object clean clone; public v0.0.15 remains latest release",
+    "next_action": "Commit the clean-clone receipt, push the exact reviewed branch, and perform release review before any merge or publication.",
+    "do_not_carry_forward": [
+      "Do not claim that an unkeyed hash chain authenticates the writer or resists an attacker who can recompute the chain and its anchor.",
+      "Do not add a signing key, HMAC key, credential, collector, dependency, or real-infrastructure integration.",
+      "Do not tune against held-out candidate results before the first frozen reveal."
+    ]
+  }
+}

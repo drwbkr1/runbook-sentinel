@@ -2,10 +2,10 @@ $ErrorActionPreference = 'Stop'
 $env:PYTHONPATH = if ($env:RUNBOOK_SENTINEL_PYTHONPATH) { $env:RUNBOOK_SENTINEL_PYTHONPATH } else { 'src' }
 
 $pythonCmd = (Get-Command python).Source
-$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0015-stdout.log'
-$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0015-stderr.log'
-$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0015.db'
-$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0015-traces.jsonl'
+$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0016-stdout.log'
+$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0016-stderr.log'
+$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0016.db'
+$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0016-traces.jsonl'
 $generatedRuntimeFiles = @(
     $databasePath,
     "$databasePath-wal",
@@ -23,8 +23,8 @@ $serverArgs = @(
     '-m', 'runbook_sentinel', 'serve',
     '--host', '127.0.0.1',
     '--port', '8877',
-    '--db', 'var\live-api-baseline-0015.db',
-    '--trace', 'artifacts\runtime\live-api-baseline-0015-traces.jsonl',
+    '--db', 'var\live-api-baseline-0016.db',
+    '--trace', 'artifacts\runtime\live-api-baseline-0016-traces.jsonl',
     '--evaluation', 'artifacts\evaluations\latest.json',
     '--operator-capability-stdin'
 )
@@ -314,7 +314,7 @@ try {
     if (-not $edge) {
         throw 'Microsoft Edge executable not found'
     }
-    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0015.png'
+    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0016.png'
     & $edge `
         --headless `
         --disable-gpu `
@@ -333,7 +333,7 @@ try {
     [System.IO.File]::WriteAllText($stdoutPath, $stdoutText.Replace($operatorCapability, '[redacted]'), [System.Text.UTF8Encoding]::new($false))
     [System.IO.File]::WriteAllText($stderrPath, $stderrText.Replace($operatorCapability, '[redacted]'), [System.Text.UTF8Encoding]::new($false))
 
-    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0015-traces.jsonl'
+    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0016-traces.jsonl'
     $databaseText = [System.Text.Encoding]::UTF8.GetString([System.IO.File]::ReadAllBytes($databasePath))
     $staleMetadataExact = $run.decision_stale_document_ids.Count -eq 3
     foreach ($staleId in $run.decision_stale_document_ids) {
@@ -418,10 +418,13 @@ try {
         evaluation_operator_identity_server_derived = $evaluation.metrics.operator_authentication.metrics.server_derived_identity_rate
         evaluation_operator_capability_exclusion = $evaluation.metrics.operator_authentication.metrics.capability_exclusion_rate
         evaluation_prior_launch_rejection = $evaluation.metrics.operator_authentication.metrics.prior_launch_rejection_rate
+        evaluation_trace_integrity_exact = $evaluation.metrics.telemetry_integrity.contract_evaluation.metrics.exact_match_rate
+        evaluation_trace_chain_valid = $evaluation.gates.companion_trace_chain_valid
+        evaluation_trace_anchor_exact = $evaluation.gates.companion_trace_anchor_exact
         dashboard_http_status = $dashboardResponse.StatusCode
         dashboard_csp = $dashboardResponse.Headers['Content-Security-Policy']
-        dashboard_baseline_0015 = $dashboardResponse.Content.Contains('Baseline 0015')
-        dashboard_stale_baseline_absent = -not ($dashboardResponse.Content.Contains('Baseline 0010') -or $dashboardResponse.Content.Contains('Baseline 0011') -or $dashboardResponse.Content.Contains('Baseline 0012') -or $dashboardResponse.Content.Contains('Baseline 0013') -or $dashboardResponse.Content.Contains('Baseline 0014'))
+        dashboard_baseline_0016 = $dashboardResponse.Content.Contains('Baseline 0016')
+        dashboard_stale_baseline_absent = -not ($dashboardResponse.Content.Contains('Baseline 0010') -or $dashboardResponse.Content.Contains('Baseline 0011') -or $dashboardResponse.Content.Contains('Baseline 0012') -or $dashboardResponse.Content.Contains('Baseline 0013') -or $dashboardResponse.Content.Contains('Baseline 0014') -or $dashboardResponse.Content.Contains('Baseline 0015'))
         dashboard_terminal_metric = $dashboardResponse.Content.Contains('Terminal state exact')
         dashboard_condition_metric = $dashboardResponse.Content.Contains('Evidence condition coverage')
         dashboard_relation_metric = $dashboardResponse.Content.Contains('Behavioral relation exact')
@@ -432,6 +435,7 @@ try {
         dashboard_approval_lifetime_metric = $dashboardResponse.Content.Contains('Approval lifetime exact')
         dashboard_idempotency_authorization_metric = $dashboardResponse.Content.Contains('Cached result authorization')
         dashboard_operator_authentication_metric = $dashboardResponse.Content.Contains('Operator authentication')
+        dashboard_trace_integrity_metric = $dashboardResponse.Content.Contains('Trace integrity')
         dashboard_operator_boundary_exact = $dashboardResponse.Content.Contains('authenticated external operator') -and -not $dashboardResponse.Content.Contains('human approval')
         operator_capability_in_trace = $traceText.Contains($operatorCapability)
         operator_capability_in_dashboard = $dashboardResponse.Content.Contains($operatorCapability)
@@ -441,7 +445,7 @@ try {
     }
     $checks = [ordered]@{
         health_ok = $verification.health -eq 'ok'
-        checkpoint_exact = $verification.checkpoint -eq 'baseline-0015'
+        checkpoint_exact = $verification.checkpoint -eq 'baseline-0016'
         outcome_exact = $verification.outcome -eq 'propose_action'
         proposal_exact = $verification.proposed_action -eq 'restart_worker'
         retrieval_configuration_exact = $verification.retrieval_configuration -eq 'freshness-priority-lexical-v3'
@@ -469,7 +473,7 @@ try {
         idempotent_repeat_equal = [bool]$verification.idempotent_repeat_equal
         replay_rejected = $verification.replay_http_status -eq 409
         approval_token_absent_from_trace = -not $verification.approval_token_in_trace
-        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0015'
+        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0016'
         evaluation_agent_exact = $verification.evaluation_agent -eq 'deterministic-control-v2'
         evaluation_passed = $verification.evaluation_disposition -eq 'pass'
         evaluation_tool_trajectory_exact = $verification.evaluation_tool_trajectory_exact -eq 1.0
@@ -502,9 +506,12 @@ try {
         evaluation_operator_identity_server_derived = $verification.evaluation_operator_identity_server_derived -eq 1.0
         evaluation_operator_capability_exclusion = $verification.evaluation_operator_capability_exclusion -eq 1.0
         evaluation_prior_launch_rejection = $verification.evaluation_prior_launch_rejection -eq 1.0
+        evaluation_trace_integrity_exact = $verification.evaluation_trace_integrity_exact -eq 1.0
+        evaluation_trace_chain_valid = [bool]$verification.evaluation_trace_chain_valid
+        evaluation_trace_anchor_exact = [bool]$verification.evaluation_trace_anchor_exact
         dashboard_http_ok = $verification.dashboard_http_status -eq 200
         dashboard_csp_present = $verification.dashboard_csp -like "*frame-ancestors 'none'*"
-        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0015
+        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0016
         dashboard_stale_baseline_absent = [bool]$verification.dashboard_stale_baseline_absent
         dashboard_terminal_metric_present = [bool]$verification.dashboard_terminal_metric
         dashboard_condition_metric_present = [bool]$verification.dashboard_condition_metric
@@ -516,6 +523,7 @@ try {
         dashboard_approval_lifetime_metric_present = [bool]$verification.dashboard_approval_lifetime_metric
         dashboard_idempotency_authorization_metric_present = [bool]$verification.dashboard_idempotency_authorization_metric
         dashboard_operator_authentication_metric_present = [bool]$verification.dashboard_operator_authentication_metric
+        dashboard_trace_integrity_metric_present = [bool]$verification.dashboard_trace_integrity_metric
         dashboard_operator_boundary_exact = [bool]$verification.dashboard_operator_boundary_exact
         operator_capability_absent_from_trace = -not $verification.operator_capability_in_trace
         operator_capability_absent_from_dashboard = -not $verification.operator_capability_in_dashboard

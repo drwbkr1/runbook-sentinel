@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ENV = os.environ.copy()
 ENV["PYTHONPATH"] = os.environ.get("RUNBOOK_SENTINEL_PYTHONPATH", str(ROOT / "src"))
-CHECKPOINT = "baseline-0015"
+CHECKPOINT = "baseline-0016"
 
 
 def run(command: list[str]) -> None:
@@ -30,6 +30,7 @@ def main() -> None:
     run([sys.executable, "scripts/verify_approval_lifetime_contract.py"])
     run([sys.executable, "scripts/verify_idempotency_authorization_contract.py"])
     run([sys.executable, "scripts/verify_operator_authentication_contract.py"])
+    run([sys.executable, "scripts/verify_trace_integrity_contract.py"])
     run([sys.executable, "scripts/verify_package_contract.py"])
     run([sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"])
     runs_dir = ROOT / "artifacts/evaluations/runs"
@@ -47,6 +48,14 @@ def main() -> None:
     report = json.loads(output.read_text(encoding="utf-8"))
     if report["gates"]["baseline_disposition"] != "pass":
         raise SystemExit(f"Evaluation retained at {output}; baseline did not pass")
+    run(
+        [
+            sys.executable,
+            "scripts/verify_evaluation_trace.py",
+            str(output.relative_to(ROOT)),
+            str(trace.relative_to(ROOT)),
+        ]
+    )
     shutil.copyfile(output, ROOT / "artifacts/evaluations/latest.json")
     print(f"PROMOTED {output} -> artifacts/evaluations/latest.json")
 

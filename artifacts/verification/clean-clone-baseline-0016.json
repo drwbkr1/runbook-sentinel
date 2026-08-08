@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0016",
+  "status": "pass",
+  "candidate": {
+    "commit": "8c088c2cbe68e7bdb30363cf094cb6e37025067c",
+    "branch": "codex/baseline-0016-trace-integrity",
+    "clone_path": "C:/Projects/Verification/runbook-sentinel-baseline-0016-8c088c2-20260808T011937Z",
+    "initial_worktree_clean": true,
+    "git_alternates_present": false,
+    "clone_mode": "git clone --no-local --single-branch"
+  },
+  "source_gate": {
+    "validators_passed": true,
+    "test_count": 28,
+    "tests_passed": true,
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0016-attempt-002.json",
+    "evaluation_bytes": 501581,
+    "evaluation_sha256": "7ca7b15403e0ff46f516a3db1edb78e3a56085665e643befd691528916023e1b",
+    "trace_path": "artifacts/evaluations/runs/baseline-0016-attempt-002.traces.jsonl",
+    "trace_sha256": "9273e449866af7e559d6bcd72efbede8b48fd9e77c6f467ed9ae4b6a6c884af6",
+    "trace_event_count": 150,
+    "trace_final_event_sha256": "2afb176f808116a7071efd071c2dab3a8eedb3e2b392eca2a5dc753a2a268fdf",
+    "trace_anchor_independently_verified": true,
+    "disposition": "pass"
+  },
+  "package_gate": {
+    "archive_path": "dist/runbook-sentinel-0.0.16.pyz",
+    "archive_bytes": 358711,
+    "archive_sha256": "9c04e2815f4bb536904a803f8bf64079342eab4f694039ea8c61105453b8344f",
+    "selected_archive_sha256_exact": true,
+    "entry_count": 30,
+    "runtime_dependencies": [],
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0016-clean-package-attempt-001.json",
+    "evaluation_bytes": 501562,
+    "evaluation_sha256": "3d5f6c137933cc4f8b13965ac3eb9c52e40e4673e050918df8d83cef96f10045",
+    "trace_path": "artifacts/evaluations/runs/baseline-0016-clean-package-attempt-001.traces.jsonl",
+    "trace_sha256": "b388209d854a8022e4d895f3ee14fb3f86a51d170e2ffe8e6b39dc414a232086",
+    "trace_event_count": 150,
+    "trace_final_event_sha256": "113c1faa4bb3740097fd95ca899e7143080114f16dda33df4d418bc09792d8cd",
+    "trace_anchor_independently_verified": true,
+    "disposition": "pass"
+  },
+  "real_surfaces": {
+    "mcp_version": "0.0.16",
+    "mcp_tool_count": 3,
+    "mcp_approval_or_execution_tool_exposed": false,
+    "mcp_trace_chain_valid": true,
+    "http_authentication_approval_execution_replay_postconditions_pass": true,
+    "sqlite_state_and_audit_pass": true,
+    "live_trace_chain_valid": true,
+    "evaluation_companion_trace_anchor_exact": true,
+    "forbidden_authentication_material_absent": true,
+    "native_receipt_sha256": "f3174f7349add912b884a0b94c3745899792934fd08a348c283a86d2e98cd894"
+  },
+  "rendered_dashboard": {
+    "path": "artifacts/verification/dashboard-baseline-0016.png",
+    "bytes": 70224,
+    "sha256": "fd99b986e63db29c7ba5075ba448004bfadfe48ae13981761929a8229cc07184",
+    "dimensions": [1440, 1000],
+    "visual_inspection": "pass at original detail: Baseline 0016, evaluation pass, trace integrity 1.0, authenticated external operator, and disconnected real infrastructure are legible and internally consistent"
+  },
+  "artifact_parsing": {
+    "json_files": 264,
+    "jsonl_files": 65,
+    "jsonl_records": 7492,
+    "status": "pass"
+  },
+  "security_scan": {
+    "credential_shaped_matches_outside_frozen forbidden-pattern definitions": 0,
+    "status": "pass"
+  },
+  "retained_failures": [
+    {
+      "stage": "source gate wrapper",
+      "result": "tooling_timeout",
+      "detail": "The first 120-second shell wrapper returned exit 124 after validators, tests, and baseline-0016-attempt-002 had completed, but before wrapper promotion output returned. The immutable report and trace were preserved and independently verified pass; no result was overwritten."
+    },
+    {
+      "stage": "dashboard image view",
+      "result": "viewer_preview_artifact",
+      "detail": "The first high-detail view displayed an all-dark preview for the valid 70224-byte PNG. Reopening the unchanged exact bytes at original detail displayed the complete correct dashboard."
+    }
+  ],
+  "non_claims": [
+    "The unkeyed trace chain does not authenticate the writer or resist full chain-and-anchor recomputation.",
+    "The checkpoint remains a synthetic-only research preview and is not authorized for real operational infrastructure."
+  ]
+}

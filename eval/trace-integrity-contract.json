@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "trace-integrity-v1",
+  "checkpoint": "baseline-0016",
+  "frozen_at_utc": "2026-08-08T00:44:20Z",
+  "frozen_before_candidate_implementation": true,
+  "purpose": "Detect uncoordinated mutation, insertion, deletion, duplication, reordering, malformed records, and anchored tail truncation in persisted JSONL telemetry, and bind each completed evaluation report to its exact companion trace.",
+  "event_contract": {
+    "schema": "trace-chain/v1",
+    "required_top_level_fields": [
+      "schema",
+      "sequence",
+      "previous_event_sha256",
+      "trace_id",
+      "timestamp",
+      "name",
+      "attributes",
+      "event_sha256"
+    ],
+    "exact_top_level_fields": true,
+    "sequence_origin": 1,
+    "sequence_step": 1,
+    "genesis_previous_event_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "hash_algorithm": "sha256",
+    "hash_input": "UTF-8 canonical JSON of every required field except event_sha256, with sorted keys, no insignificant whitespace, ensure_ascii=True, and allow_nan=False",
+    "hash_encoding": "64 lowercase hexadecimal characters",
+    "append_rule": "A writer must validate every existing nonempty record before append and resume from the exact next sequence and final event_sha256; any invalid existing prefix refuses append.",
+    "completed_evaluation_anchor": "The completed evaluation report records the exact companion trace event count and final event_sha256, and independent verification requires both to match.",
+    "empty_trace": "An empty trace is valid only when expected_event_count is zero and expected_final_event_sha256 is null."
+  },
+  "cases": [
+    {
+      "case_id": "dev-valid-anchored-chain",
+      "split": "development",
+      "transformation": "none",
+      "anchor": "exact",
+      "expected": {"valid": true, "anchored": true, "event_count": 3, "error_codes": []}
+    },
+    {
+      "case_id": "dev-content-mutation-detected",
+      "split": "development",
+      "transformation": "change second event attributes.postconditions from true to false without recomputing hashes",
+      "anchor": "exact",
+      "expected": {"valid": false, "anchored": true, "event_count": 3, "required_error_codes": ["event_hash_mismatch"]}
+    },
+    {
+      "case_id": "dev-sequence-gap-detected",
+      "split": "development",
+      "transformation": "change second event sequence from 2 to 7 without recomputing hashes",
+      "anchor": "exact",
+      "expected": {"valid": false, "anchored": true, "event_count": 3, "required_error_codes": ["sequence_mismatch", "event_hash_mismatch"]}
+    },
+    {
+      "case_id": "dev-tail-truncation-anchor-detected",
+      "split": "development",
+      "transformation": "remove the final event while retaining the original completed-evaluation anchor",
+      "anchor": "original_exact",
+      "expected": {"valid": false, "anchored": true, "event_count": 2, "required_error_codes": ["expected_event_count_mismatch", "expected_final_event_sha256_mismatch"]}
+    },
+    {
+      "case_id": "test-valid-unanchored-chain",
+      "split": "test",
+      "transformation": "none",
+      "anchor": "absent",
+      "expected": {"valid": true, "anchored": false, "event_count": 3, "error_codes": []}
+    },
+    {
+      "case_id": "test-reordered-events-detected",
+      "split": "test",
+      "transformation": "swap the second and third events",
+      "anchor": "exact",
+      "expected": {"valid": false, "anchored": true, "event_count": 3, "required_error_codes": ["sequence_mismatch", "previous_event_sha256_mismatch"]}
+    },
+    {
+      "case_id": "test-previous-hash-mutation-detected",
+      "split": "test",
+      "transformation": "replace the third event previous_event_sha256 without recomputing event_sha256",
+      "anchor": "exact",
+      "expected": {"valid": false, "anchored": true, "event_count": 3, "required_error_codes": ["previous_event_sha256_mismatch", "event_hash_mismatch"]}
+    },
+    {
+      "case_id": "test-interior-deletion-detected",
+      "split": "test",
+      "transformation": "remove the second event while retaining the original completed-evaluation anchor",
+      "anchor": "original_exact",
+      "expected": {"valid": false, "anchored": true, "event_count": 2, "required_error_codes": ["sequence_mismatch", "previous_event_sha256_mismatch", "expected_event_count_mismatch"]}
+    },
+    {
+      "case_id": "test-malformed-json-detected",
+      "split": "test",
+      "transformation": "replace the second line with malformed JSON",
+      "anchor": "exact",
+      "expected": {"valid": false, "anchored": true, "event_count": 3, "required_error_codes": ["invalid_json"]}
+    },
+    {
+      "case_id": "test-valid-prefix-resume-exact",
+      "split": "test",
+      "transformation": "initialize a writer from the valid three-event prefix and append one event",
+      "anchor": "new_exact",
+      "expected": {"valid": true, "anchored": true, "event_count": 4, "resume_sequence": 4, "resume_previous_event_sha256_exact": true, "error_codes": []}
+    }
+  ],
+  "coverage": {
+    "required_splits": ["development", "test"],
+    "case_count": 10,
+    "development_case_count": 4,
+    "test_case_count": 6,
+    "valid_case_count": 3,
+    "corruption_case_count": 7,
+    "required_corruption_classes": [
+      "content mutation",
+      "sequence gap",
+      "tail truncation with anchor",
+      "reordering",
+      "previous-hash mutation",
+      "interior deletion",
+      "malformed JSON"
+    ]
+  },
+  "prechange_evidence": {
+    "revealed_case_ids": ["dev-content-mutation-detected"],
+    "released_result": "fail",
+    "held_out_candidate_results_revealed": false,
+    "receipt": "artifacts/verification/trace-integrity-gap-baseline-0016.json"
+  },
+  "non_claims": [
+    "The unkeyed chain does not authenticate the writer and does not resist an attacker who can recompute the entire chain and its external anchor.",
+    "The implementation is not RFC 5848 signed syslog, a digital signature, immutable storage, non-repudiation, or a production log collector.",
+    "An unanchored valid prefix cannot by itself prove that no tail records were removed.",
+    "A hostile operating system, compromised process, compromised repository policy, and real infrastructure remain out of scope."
+  ],
+  "unchanged_boundaries": [
+    "agent outcomes, model contract, retrieval, decision context, and scenario catalog",
+    "proposal schema, action hash, capability allowlist, and executor actions",
+    "operator capability exclusion, approval-token hashing, expiry, action binding, and one-time consumption",
+    "idempotency, replay, precondition, postcondition, and state-transition enforcement",
+    "MCP exposes no approval or execution authority",
+    "loopback-only HTTP and disconnected real infrastructure",
+    "no new dependency, secret, key, paid service, external asset, or collector"
+  ]
+}

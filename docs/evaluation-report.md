@@ -1,5 +1,19 @@
 # Evaluation report
 
+## BASELINE-0016 verified local release candidate
+
+The public v0.0.15 package passes every prior gate, but its 150-event JSONL trace has no sequence, predecessor digest, event digest, or completed-evaluation anchor. A retained in-memory probe changes an execution event from `postconditions=true` to `false` without breaking JSON parsing, current trace inspection, or the released pass disposition.
+
+The project-authored `trace-integrity-v1` contract was frozen before implementation. The first candidate reveal passes all ten development and held-out cases: seven corruption classes are detected, anchored tail truncation fails, valid anchored and unanchored chains pass, and a valid prefix resumes at exact sequence four and exact prior digest. The immutable reveal is 7,046 bytes at SHA-256 `cf6bb931fd2869fa396604d0ffd4a4d0248a9e4c30cd6aed56e4c895bc7db80b`.
+
+Selected source and package attempts bind 57-file manifest SHA-256 `b1487c7fe1f017181f007da592a8091f3543e4cff42bcf17e87e7b33a1a5d354`. Both pass 84 repeated trials, nine approval-lifetime cases, six idempotency-authorization cases, ten operator-authentication cases, ten trace-integrity cases, and every declared gate. The independently verified source trace has 150 events and final digest `dbe3cee18785bc8686f21086df3df2977a888037b08a9c0d6fdbfab8a95612df`; the packaged trace has 150 events and final digest `76051073b636528fba402098108e47c03d5a1ba7503bc1026595d05e01b7e770`.
+
+Two independent 358,711-byte zipapps contain exactly 30 allowlisted entries and are byte-identical at SHA-256 `9c04e2815f4bb536904a803f8bf64079342eab4f694039ea8c61105453b8344f`. Source and package MCP expose only the same three diagnostic/read tools and emit valid chains. Their real loopback authentication, approval, executor, replay, persisted state, audit, live telemetry, evaluation anchor, logs, and dashboard checks pass. The source and package 1440 by 1000 dashboard PNGs are byte-identical; visual inspection confirms Baseline 0016, evaluation pass, trace integrity 1.0, `authenticated external operator`, and disconnected real infrastructure.
+
+A no-local-object clone of exact candidate commit `8c088c2cbe68e7bdb30363cf094cb6e37025067c` started clean with no alternates, reached a passing source evaluation with an independently verified 150-event anchor, rebuilt the exact selected archive, and passed packaged evaluation, MCP, real API/state/audit/live-chain checks, artifact parsing, credential-shaped scanning, and original-detail dashboard inspection. The first source-gate wrapper timed out after producing its complete immutable evaluation, and the first image view showed an all-dark preview; both tooling artifacts remain recorded while independent verification of unchanged bytes passes.
+
+Status: verified local release candidate with clean-clone gate complete. Review, merged-main, annotated-tag, public-asset, downloaded-byte, rendered-page, and public-tag-clone verification remain. The result is research-informed and synthetic-only. The unkeyed chain does not authenticate the writer, provide hostile-writer resistance, immutable storage, non-repudiation, or RFC 5848 conformance.
+
 ## BASELINE-0015 selected release
 
 The approved candidate protects approval creation with a project-specific per-launch `Sentinel-Capability`. Authentication occurs before body parsing; exactly one current-launch value is required; caller `actor` is forbidden; and persisted approval identity is derived server-side as a launch-scoped `operator-[0-9a-f]{16}` value. The agent, model, and MCP receive neither the capability nor approval authority, and the rendered boundary says `authenticated external operator` rather than claiming proof of human presence.
