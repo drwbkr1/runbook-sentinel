@@ -1,6 +1,6 @@
 # Evaluation report
 
-## BASELINE-0016 verified local release candidate
+## BASELINE-0016 selected release
 
 The public v0.0.15 package passes every prior gate, but its 150-event JSONL trace has no sequence, predecessor digest, event digest, or completed-evaluation anchor. A retained in-memory probe changes an execution event from `postconditions=true` to `false` without breaking JSON parsing, current trace inspection, or the released pass disposition.
 
@@ -14,7 +14,9 @@ A no-local-object clone of exact candidate commit `8c088c2cbe68e7bdb30363cf094cb
 
 PR `#14` reviewed exact head `be13f5bb0c56f19623ef7e7c00165460f18c5b3c` and merged it under expected-head lock as `848a7ae1c3dd8dfec6d40bbfe5196263e99cb90e`, preserving exact prior-main and reviewed-head parents. A fresh public-main clone has no object alternates and repeats 12 validators, 28 tests, source and package `84+9+6+10+10` evaluations, independent 150-event anchors, the exact selected archive rebuild, three-tool MCP, 86 API checks, 49 persisted-state/audit/telemetry checks, artifact parsing, model and credential exclusion, and original-detail dashboard inspection. The merged source trace ends at `0cc8130638c54c1a7d98d61faf793462802785ac25fbd8977b68451b9d5cc01c`; the package trace ends at `99cd7478192582214d41cb20f7c07f8f38d242b96ca6adec6b0cc5e4b44b0dc4`.
 
-Status: verified merged-main release candidate with a passing final pre-publication audit. Release closure, annotated tag, public assets, downloaded-byte identity, rendered public pages, and public-tag-clone verification remain. The result is research-informed and synthetic-only. The unkeyed chain does not authenticate the writer, provide hostile-writer resistance, immutable storage, non-repudiation, or RFC 5848 conformance.
+The annotated `v0.0.16` tag, peeled remote tag, remote `main`, non-draft GitHub release, selected 358,711-byte zipapp and checksum assets, downloaded public bytes, rendered README and release page, and a fresh no-alternates public-tag clone reconcile to the release closure.
+
+Status: verified and published public synthetic-only research preview. The result is research-informed and synthetic-only. The unkeyed chain does not authenticate the writer, provide hostile-writer resistance, immutable storage, non-repudiation, or RFC 5848 conformance.
 
 ## BASELINE-0015 selected release
 

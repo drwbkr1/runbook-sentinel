@@ -1,12 +1,13 @@
 # Changelog
 
-## 0.0.16 - unreleased
+## 0.0.16 - 2026-08-08
 
 - Added deterministic `trace-chain/v1` sequencing, prior-event SHA-256 continuity, and per-event canonical digests.
 - Existing trace prefixes are verified before append; corrupt prefixes fail closed and valid prefixes resume exactly.
 - Completed evaluations bind the exact companion trace event count and final digest, with an independent verifier.
 - Added ten frozen development/test integrity and recovery cases and a separate telemetry-integrity metric family.
 - Preserved the model, retrieval, MCP, approval, executor, action, and disconnected synthetic-infrastructure boundaries; no dependency, key, signer, collector, or authenticity claim was added.
+- Verified the exact reviewed head, history-preserving merge, fresh public-main gates, annotated tag, non-draft release, selected 358,711-byte zipapp and checksum assets at SHA-256 `9c04e2815f4bb536904a803f8bf64079342eab4f694039ea8c61105453b8344f`, downloaded-byte identity, rendered public pages, and fresh public-tag clone.
 
 All notable verified changes are recorded here. Unverified work remains in `docs/devlog.md` and the active milestone contract.
 

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0016",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -69,8 +69,10 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "v0.0.16 release closure, annotated tag, public assets, downloaded bytes, rendered pages, and fresh public-tag clone reconcile"
+      ]
     }
   ],
   "units": [
@@ -156,20 +158,20 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["verified candidate and release audit"],
       "outputs": ["verified public checkpoint"],
       "gates": {
         "reviewed_head_exact": true,
         "history_preserving_merge_exact": true,
         "merged_main_pass": true,
-        "annotated_tag_exact": false,
-        "public_assets_exact": false,
-        "downloaded_bytes_exact": false,
-        "rendered_public_pages_exact": false,
-        "public_tag_clone_pass": false
+        "annotated_tag_exact": true,
+        "public_assets_exact": true,
+        "downloaded_bytes_exact": true,
+        "rendered_public_pages_exact": true,
+        "public_tag_clone_pass": true
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": []
     }
   ],
@@ -202,12 +204,13 @@
       "a no-local-object clean clone of exact candidate commit 8c088c2 passes source, archive rebuild, package, MCP, API, state, audit, trace-anchor, parsing, scan, and visual gates",
       "PR 14 merges exact reviewed head be13f5b with history preserved as 848a7ae",
       "a no-local-object public-main clone of exact merge 848a7ae passes validators, 28 tests, source and package 84+9+6+10+10 evaluations, exact archive rebuild, MCP, API, state, audit, telemetry, parsing, scan, and visual gates",
-      "final pre-publication audit reports verified with no errors, warnings, failed required checks, missing surfaces, or stale surfaces"
+      "final pre-publication audit reports verified with no errors, warnings, failed required checks, missing surfaces, or stale surfaces",
+      "annotated v0.0.16 tag, non-draft release, selected archive and checksum, downloaded bytes, rendered pages, and public-tag clone reconcile"
     ]
   },
   "handoff": {
-    "current_checkpoint": "verified merged-main v0.0.16 candidate at 848a7ae with selected 9c04e281 archive bytes; public v0.0.15 remains latest release",
-    "next_action": "Seal the release closure, then publish and immediately verify only the exact audited annotated tag and selected assets.",
+    "current_checkpoint": "verified public v0.0.16 release closure with selected 9c04e281 package bytes",
+    "next_action": "Begin the next cycle by running public v0.0.16, inspecting traces and separate evaluation results, and selecting one highest-leverage measurable weakness before changing code.",
     "do_not_carry_forward": [
       "Do not claim that an unkeyed hash chain authenticates the writer or resists an attacker who can recompute the chain and its anchor.",
       "Do not add a signing key, HMAC key, credential, collector, dependency, or real-infrastructure integration.",
