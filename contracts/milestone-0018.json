@@ -166,8 +166,8 @@
       "inputs": ["verified bounded candidate and release audit"],
       "outputs": ["verified public checkpoint"],
       "gates": {
-        "source_and_package_full_gate": false,
-        "real_surfaces_pass": false,
+        "source_and_package_full_gate": true,
+        "real_surfaces_pass": true,
         "clean_clone_pass": false,
         "reviewed_head_exact": false,
         "history_preserving_merge_exact": false,
@@ -206,12 +206,15 @@
       "the 65-file baseline-0018 experiment manifest passes at SHA-256 8bbcead24e4679b759b255ab3bf7140f1227fa1b4222d74073766162f913f62e and is preserved beside both comparison attempts",
       "the same-manifest deterministic control passes every gate, utility 1.0, pass^3 1.0, and median latency 47.675 ms; the sole current model attempt is classified completely but has only 9 of 84 valid outputs, diagnosis accuracy 0.0, utility 0.0, pass^3 0.0, and median latency 10,173.578 ms",
       "the model candidate accepted and executed no action; policy compliance and attack success remain separately measured, and zero attack success is attributed only to fail-closed external enforcement, not useful model safety",
-      "the independent comparison verifier passes and retains the deterministic control as default while excluding the measured model candidate"
+      "the independent comparison verifier passes and retains the deterministic control as default while excluding the measured model candidate",
+      "the corrected 67-file release manifest passes at SHA-256 c787fc879e89ead00cd6555fc4d7c21bac1d3fcbe55fd561784753b23234cffd while the prior manifest and archive remain preserved as superseded evidence",
+      "source and package each pass all 14 validators, 35 tests, 84+9+6+10+10+10 evaluation gates, bounded MCP, real HTTP approval and execution, persistence, audit, telemetry, endpoint anchoring, and rendered-dashboard inspection",
+      "two independent 33-entry 410293-byte archives are identical at SHA-256 e370c208bc6598cf6217f963bc6ea567f05df5757a371bda67fc5157e23a21d0"
     ]
   },
   "handoff": {
     "current_checkpoint": "verified public v0.0.17 release closure at 7bf9846 with selected 271242d6 package bytes",
-    "next_action": "Version the bounded candidate, refreeze release identity, then run complete source, package, real-surface, clean-clone, review, merge, release, and public-verification gates.",
+    "next_action": "Seal and push the complete candidate records, then run the exact remote head through no-local-object clean-clone, review, merge, release, and public-verification gates.",
     "do_not_carry_forward": [
       "Do not alter parser acceptance or reinterpret a classified rejection as valid output.",
       "Do not store raw model output, supply tools, expose approval material, or change the deterministic default.",

@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.0.18 - candidate
+
+- Add a closed 17-code model-output content-rejection taxonomy while preserving parser acceptance, fail-closed abstention, prompts, schema, model options, authority, and raw-output digest-only retention.
+- Pass the frozen 19-case development/held-out contract exactly with classification and valid acceptance at 1.0 and zero unclassified failures.
+- Retain one current 84-call local-model comparison: 9 valid outputs, 75 classified rejections, diagnosis accuracy and benign utility 0.0, `pass^3` 0.0, no accepted proposal, no execution, and 10,173.578 ms median latency.
+- Verify an identical-manifest deterministic control with every gate, benign utility, and `pass^3` at 1.0 and 47.675 ms median latency; retain the deterministic default and exclude the model candidate.
+- Preserve the source-gated local model as evaluation-only with no download, redistribution, remote service, tools, credentials, approvals, executor access, or real infrastructure.
+- Pass the selected source and package `84+9+6+10+10+10` gates, 35 tests, bounded MCP, real HTTP approval/executor/replay/postcondition flow, SQLite state, chained telemetry with sibling endpoint anchor, and visual dashboard inspection.
+- Preserve a superseded 410,293-byte archive and the first live verifier failure after its stale baseline-0017 rendered-label assertion rejected an otherwise baseline-0018 surface; select two byte-identical corrected archives at SHA-256 `e370c208bc6598cf6217f963bc6ea567f05df5757a371bda67fc5157e23a21d0`.
+- Clean-clone, review, merge, release, and public-verification gates remain pending.
+
 ## 0.0.17 - 2026-08-08
 
 - Persist a canonical unkeyed `trace-anchor/v1` sibling after each live CLI, API, or MCP event, with trace flush/fsync before same-directory temporary anchor flush/fsync and replacement.

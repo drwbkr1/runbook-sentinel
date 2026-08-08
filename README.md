@@ -4,6 +4,8 @@ Runbook Sentinel is a research-informed, retrieval-grounded SRE incident agent. 
 
 Latest verified public release: `v0.0.17`. It adds an exact sibling endpoint anchor for live CLI, API, and MCP traces and fails closed on missing, orphaned, stale, malformed, truncated, extra-suffix, or wrong-file states before resume. Its selected dependency-free zipapp is 392,954 bytes at SHA-256 `271242d6eabffd4205f8b386028073f6d041b6ec5cc9369a524e45cacc9fe1ef`. The anchor is unkeyed and same-authority, so it is not writer authentication, hostile-writer resistance, immutable storage, non-repudiation, a digital signature, or directory-entry durability. Candidate `v0.0.11` remains rejected and unpublished with its stale rendered-label failure preserved. Public source or package availability does not imply production readiness or authorization to connect Runbook Sentinel to operational infrastructure.
 
+Candidate `v0.0.18` adds a closed 17-code model-output failure taxonomy without accepting more output or changing authority. The frozen 19-case reveal is exact. A same-manifest comparison classifies all 75 rejected local-model outputs, but the candidate model still has diagnosis accuracy, benign utility, and `pass^3` of 0.0 and is excluded; deterministic control remains the default. Source and package evaluation, MCP, HTTP approval/executor, persisted-state, telemetry, and rendered-dashboard gates pass; clean-clone, review, merge, release, and public-verification gates remain pending.
+
 The bounded agent can diagnose, request evidence, propose an action, or abstain. It cannot execute actions. A deterministic approval broker, policy gate, and synthetic-only executor enforce authority outside the model.
 
 The selected freshness-priority lexical retriever first preserves externally project-classified telemetry and status that pass a fail-closed one-hour freshness rule, then ranks stale project evidence and untrusted guidance. Full returned records remain available for audit. The decision context receives complete fresh telemetry/status records and projects stale records to exactly `id`, `kind`, and `observed_at`; stale `title` and `content` never cross that boundary. Missing, malformed, naive, or future timestamps never receive fresh treatment. Runbook prose never grants authority.
@@ -14,7 +16,7 @@ Run all commands from the repository root with Python 3.12 or newer.
 
 ```powershell
 $env:PYTHONPATH = 'src'
-python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0017-manual.json
+python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0018-manual.json
 python -m unittest discover -s tests -v
 python -m runbook_sentinel serve --host 127.0.0.1 --port 8765
 ```
@@ -25,11 +27,11 @@ Build and verify the standard-library-only zipapp without installing a build bac
 
 ```powershell
 python scripts/build_zipapp.py
-python scripts/verify_package_contract.py --contract eval/package-contract-0017.json --archive dist/runbook-sentinel-0.0.17.pyz
-python dist/runbook-sentinel-0.0.17.pyz --help
+python scripts/verify_package_contract.py --contract eval/package-contract-0018.json --archive dist/runbook-sentinel-0.0.18.pyz
+python dist/runbook-sentinel-0.0.18.pyz --help
 ```
 
-The builder uses an exact 32-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. No package-registry or container claim is made.
+The builder uses an exact 33-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. No package-registry or container claim is made.
 
 The MCP server uses JSON-RPC over standard input/output:
 
