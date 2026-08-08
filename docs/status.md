@@ -7,7 +7,7 @@
 - Latest verified checkpoint: public `v0.0.16`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
 - Candidate version: none yet; BASELINE-0017 contracts are frozen before implementation
 - Active milestone: `BASELINE-0017` - durable endpoint anchoring for live API, MCP, and direct CLI traces
-- Current unit: `UNIT-003` ready - gap, source gate, milestone, and four-development/six-held-out contract validate; implementation has not begun
+- Current unit: `UNIT-004` ready - the generic implementation passes all four development cases and the 32-test regression suite; held-out cases remain unrevealed until the implementation commit is sealed
 - Disposition: baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -31,7 +31,8 @@
 - Official Python 3.12.13 `os` and `tempfile` documentation passes all eight source criteria for narrow citation and project-authored standard-library use. No external code, sample, data, package, executable, model, service, key, credential, or trace is imported.
 - `live-trace-anchor-v1` freezes four development and six held-out cases before candidate implementation. The contract validator passes with no candidate results; the controlled milestone reports inherited authority and `UNIT-003` as the only authorized ready unit.
 - The design explicitly does not claim writer authentication, hostile-writer resistance, immutable storage, non-repudiation, digital signatures, directory-entry durability, or RFC conformance. A same-authority attacker can still recompute both an unkeyed chain and sibling anchor.
-- Next eligible action: commit the frozen setup, then implement only the development side of the generic anchor boundary before the first full reveal.
+- The generic implementation adds canonical anchor serialization and verification, durable trace-before-anchor write ordering, fail-closed resume, explicit sibling-path enforcement, and live CLI/API/MCP wiring. All four development cases, compilation, 32 tests, and a direct CLI anchored-file probe pass.
+- Next eligible action: seal the generic implementation commit, then run the first immutable full ten-case reveal without tuning against held-out results.
 
 ### BASELINE-0015 approval-authority gap
 

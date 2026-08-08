@@ -8,7 +8,9 @@ The fresh live API trace has five valid `trace-chain/v1` events and no persisted
 
 `live-trace-anchor-v1` freezes ten exact cases before implementation: four development and six held-out cases cover empty start, exact first write, tail truncation, anchor mutation, missing and orphaned files, extra suffix, valid restart/resume, malformed JSON, and wrong trace-name binding. No candidate result exists yet. The planned sibling anchor is unkeyed and does not authenticate a writer or provide hostile-writer resistance, immutable storage, non-repudiation, digital signatures, directory-entry durability, or RFC conformance.
 
-Status: frozen preimplementation contract; `UNIT-003` is ready. Public v0.0.16 remains the latest verified checkpoint.
+The generic implementation now passes all four frozen development cases, the complete 32-test regression suite, compilation, and a direct live CLI file/anchor verification. It adds only the project-authored persistence boundary and explicit CLI/API/MCP wiring. Held-out cases have not been run.
+
+Status: development-verified generic implementation awaiting a sealed commit and the first immutable full reveal. Public v0.0.16 remains the latest verified checkpoint.
 
 ## BASELINE-0016 selected release
 

@@ -52,12 +52,13 @@ class RunbookSentinel:
         self,
         db_path: str,
         trace_path: str | None = None,
+        trace_anchor_path: str | None = None,
         decision_context_configuration: str = DEFAULT_DECISION_CONTEXT,
         retrieval_configuration: str = DEFAULT_RETRIEVAL_CONFIGURATION,
         agent=None,
     ):
         self.storage = Storage(db_path)
-        self.traces = TraceWriter(trace_path)
+        self.traces = TraceWriter(trace_path, trace_anchor_path)
         self.retriever = LexicalRetriever(retrieval_configuration)
         self.agent = agent or DeterministicIncidentAgent()
         self.decision_context_configuration = decision_context_configuration

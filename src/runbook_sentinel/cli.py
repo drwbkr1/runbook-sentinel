@@ -20,6 +20,7 @@ from .retrieval import (
     RETRIEVAL_CONFIGURATIONS,
 )
 from .service import RunbookSentinel
+from .telemetry import live_trace_anchor_path
 
 
 def _print(value: dict | list) -> None:
@@ -180,7 +181,11 @@ def main(argv: list[str] | None = None) -> None:
         finally:
             del capability
     else:
-        service = RunbookSentinel(args.db, args.trace)
+        service = RunbookSentinel(
+            args.db,
+            args.trace,
+            str(live_trace_anchor_path(args.trace)),
+        )
         if args.command == "run":
             _print(service.run_scenario(args.scenario))
         elif args.command == "execute":

@@ -11,6 +11,7 @@ from urllib.parse import urlparse
 from .errors import ApprovalError, NotFoundError, OperatorAuthenticationError, PolicyRejected, ReplayRejected, SentinelError
 from .operator_auth import AUTHENTICATION_CHALLENGE, OperatorAuthenticator
 from .service import DEFAULT_APPROVAL_TTL_SECONDS, RunbookSentinel
+from .telemetry import live_trace_anchor_path
 
 
 CHECKPOINT = "baseline-0016"
@@ -310,6 +311,10 @@ def create_server(
 ) -> SentinelHTTPServer:
     if host not in {"127.0.0.1", "localhost", "::1"}:
         raise ValueError("Runbook Sentinel permits loopback HTTP binding only")
-    service = RunbookSentinel(db_path, trace_path)
+    service = RunbookSentinel(
+        db_path,
+        trace_path,
+        str(live_trace_anchor_path(trace_path)),
+    )
     authenticator = OperatorAuthenticator(operator_capability)
     return SentinelHTTPServer((host, port), service, evaluation_path, authenticator)

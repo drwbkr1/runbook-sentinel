@@ -10,6 +10,8 @@
 - Selected durable live endpoint anchoring as the next bounded measurable weakness. It changes no agent result, retrieval, action, model, approval, executor, authority, secret, or infrastructure boundary.
 - Official Python 3.12.13 `os` and `tempfile` documentation passes the eight-criterion source gate for narrow citation and project-authored flush, fsync, secure temporary creation, and same-directory replacement. No external code or asset was imported.
 - Froze `live-trace-anchor-v1` with four development and six held-out cases plus an independent contract validator before implementation. The active milestone validates with `UNIT-003` as the only authorized ready unit.
+- Implemented only the generic anchor boundary and explicit live CLI/API/MCP wiring after freeze. Each trace append flushes and fsyncs before a secure same-directory temporary anchor is flushed, fsynced, closed, and replaced; resume verifies the exact pair and fails closed.
+- All four frozen development cases pass, as do the complete 32-test regression suite, compilation, and a direct CLI real-file probe with an exact one-event endpoint. Held-out cases have not been run; the generic implementation is ready to seal before the first full reveal.
 
 ## 2026-08-08 - BASELINE-0016 started
 

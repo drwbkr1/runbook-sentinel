@@ -120,16 +120,16 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "ready",
+      "status": "complete",
       "inputs": ["frozen live-trace-anchor-v1 contract"],
       "outputs": ["bounded implementation", "focused tests"],
       "gates": {
-        "all_frozen_development_cases_exact": false,
-        "durable_anchor_write_order_exact": false,
-        "fail_closed_resume_validation": false,
-        "prior_boundaries_unchanged": false
+        "all_frozen_development_cases_exact": true,
+        "durable_anchor_write_order_exact": true,
+        "fail_closed_resume_validation": true,
+        "prior_boundaries_unchanged": true
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [],
       "next_dependency": "UNIT-004"
     },
@@ -139,7 +139,7 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "ready",
       "inputs": ["candidate implementation", "frozen manifest"],
       "outputs": ["immutable evaluation", "real-surface evidence", "clean-clone receipt"],
       "gates": {
@@ -197,12 +197,13 @@
       "fresh public source and package 84+9+6+10+10 evaluations and all prior real surfaces pass",
       "non-destructive live suffix probe remains valid unanchored and fails exactly against the full endpoint",
       "official Python 3.12.13 os and tempfile source gate validates ready for project-authored standard-library use",
-      "live-trace-anchor-v1 freezes four development and six held-out cases with no candidate results"
+      "live-trace-anchor-v1 freezes four development and six held-out cases with no candidate results",
+      "generic implementation passes all four development cases, the 32-test regression suite, compilation, and a direct live CLI endpoint check before held-out reveal"
     ]
   },
   "handoff": {
     "current_checkpoint": "verified public v0.0.16 release closure at 465f4e2 with selected 9c04e281 package bytes",
-    "next_action": "Commit the gap, source gate, milestone, and frozen contract before beginning UNIT-003 implementation.",
+    "next_action": "Seal the generic development-verified implementation, then run the first immutable full ten-case reveal from UNIT-004.",
     "do_not_carry_forward": [
       "Do not claim that a sibling unkeyed anchor authenticates the writer or resists an attacker who can recompute the trace and anchor.",
       "Do not add a signing key, HMAC key, credential, collector, dependency, service, or real-infrastructure integration.",
