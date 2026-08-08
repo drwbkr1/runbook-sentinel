@@ -162,7 +162,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["verified bounded candidate and release audit"],
       "outputs": ["verified public checkpoint"],
       "gates": {
@@ -171,9 +171,9 @@
         "clean_clone_pass": true,
         "reviewed_head_exact": true,
         "history_preserving_merge_exact": true,
-        "public_release_verified": false
+        "public_release_verified": true
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": []
     }
   ],
@@ -211,12 +211,13 @@
       "source and package each pass all 14 validators, 35 tests, 84+9+6+10+10+10 evaluation gates, bounded MCP, real HTTP approval and execution, persistence, audit, telemetry, endpoint anchoring, and rendered-dashboard inspection",
       "two independent 33-entry 410293-byte archives are identical at SHA-256 e370c208bc6598cf6217f963bc6ea567f05df5757a371bda67fc5157e23a21d0",
       "a public-branch no-local-object clone of exact candidate 300575b independently passes source, package, real-surface, parsing, scan, and rendered-dashboard gates and reproduces the selected archive twice",
-      "PR 16 merged exact audited head f13c0c2 under expected-head lock with history preserved as b3773d6, and a fresh public-main clone repeats the complete gate and selected archive identity"
+      "PR 16 merged exact audited head f13c0c2 under expected-head lock with history preserved as b3773d6, and a fresh public-main clone repeats the complete gate and selected archive identity",
+      "the final release audit, annotated v0.0.18 tag, non-draft release, selected archive and checksum assets, downloaded-byte identity, rendered public pages, and fresh public-tag clone reconcile to the release-closure commit"
     ]
   },
   "handoff": {
-    "current_checkpoint": "verified public v0.0.17 release closure at 7bf9846 with selected 271242d6 package bytes",
-    "next_action": "Commit and push merged-main evidence, run the final release audit, reconcile release closure, then tag, publish selected assets, and verify public truth only if the audit remains verified.",
+    "current_checkpoint": "verified public v0.0.18 release closure with selected e370c208 package bytes",
+    "next_action": "Begin the next cycle from public v0.0.18 by running the system and selecting one bounded measurable weakness.",
     "do_not_carry_forward": [
       "Do not alter parser acceptance or reinterpret a classified rejection as valid output.",
       "Do not store raw model output, supply tools, expose approval material, or change the deterministic default.",

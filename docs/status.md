@@ -3,18 +3,18 @@
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
 - Branch: `codex/baseline-0018-model-failure-taxonomy`
-- Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0017`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
-- Latest verified checkpoint: public `v0.0.17`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Candidate version: `0.0.18` / `baseline-0018`; release remains pending until every candidate and publication gate passes
-- Active milestone: `BASELINE-0018` - deterministic model-output failure taxonomy
-- Current unit: `UNIT-005` in progress - version and verify the source, package, real surfaces, clean clone, review, merge, release, and public checkpoint
-- Disposition: baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0018`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
+- Latest verified checkpoint: public `v0.0.18`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
+- Candidate version: none; `0.0.18` / `baseline-0018` is released
+- Active milestone: none; the next checkpoint remains intentionally unchosen until a fresh public-v0.0.18 run identifies one measurable weakness
+- Current unit: `UNIT-005` complete
+- Disposition: baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: merged and freshly verified baseline-0018 at `b3773d672c32115e8cf94f6735d5582b0be27901`; release closure is pending
+- GitHub `main`: verified baseline-0018 release closure
 - GitHub pull request: `#16`, merged with history preserved under expected-head lock `f13c0c26e3e3892b84675952d65da173513ea507`
-- GitHub release: public, non-draft `v0.0.17` with verified `.pyz` and `.sha256` assets
+- GitHub release: public, non-draft `v0.0.18` with verified `.pyz` and `.sha256` assets
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
 - Local model source gate: refreshed and ready for the already installed, publisher-signed Ollama 0.32.6 executable and unchanged `llama3.2:3b` manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six content-addressed blobs pass exact SHA-256 and size checks. No download, update, copy, redistribution, remote call, model tool, secret, or real-infrastructure access is authorized.
@@ -34,7 +34,7 @@
 - All 35 tests pass, including valid/invalid adapter metadata, non-content null-code behavior, aggregate and split counts, a deliberately unique raw-content marker excluded from report and trace, and every prior deterministic boundary.
 - Generic implementation seal `8ce268d` was pushed before any held-out case or current local-model call.
 - The first immutable full reveal passes all 19 cases exactly: development and held-out test exactness 1.0, invalid-output classification 1.0, valid-output acceptance 1.0, zero unclassified failures, and no raw content retained. The 8,680-byte report is SHA-256 `6db141ba9cdfe00e58fb6b35503060b641a02502df03c8b9f9750306c4d360d3`.
-- The sealed 65-file baseline-0018 experiment manifest passes at SHA-256 `8bbcead24e4679b759b255ab3bf7140f1227fa1b4222d74073766162f913f62e`; exact bytes are preserved beside the pending immutable model attempt.
+- The sealed 65-file baseline-0018 experiment manifest passes at SHA-256 `8bbcead24e4679b759b255ab3bf7140f1227fa1b4222d74073766162f913f62e`; exact bytes are preserved beside both immutable comparison attempts.
 - The exact same-manifest deterministic control passes every gate: outcome, diagnosis, proposal, tool trajectory, terminal state, policy, benign utility, and `pass^3` are 1.0; median/p95 latency is 47.675/67.013 ms with zero model calls.
 - The sole current local-model attempt completed 84 calls after 896.9 seconds. Only 9 outputs parse; 75 are `schema_invalid`, now classified as 67 `diagnosis_code_invalid`, 7 `proposal_arguments_invalid`, and 1 `evidence_id_out_of_context`, with zero unclassified failures. Diagnosis accuracy, proposal exactness, benign utility, and `pass^3` are 0.0; median/p95 latency is 10,173.578/15,834.262 ms.
 - The model candidate accepted no action proposal and executed no action. Policy compliance is 1.0 and proposal/terminal attack success are 0.0 because the parser and external boundaries fail closed; this is not evidence of useful stochastic-model safety.
@@ -51,7 +51,8 @@
 - Clean-clone receipt: `artifacts/verification/clean-clone-baseline-0018.json`.
 - PR `#16` had 68 changed paths exactly matching local scope, zero configured checks, and reached ready, `CLEAN`, and `MERGEABLE` at audited head `f13c0c26e3e3892b84675952d65da173513ea507`. The expected-head merge preserved both parents as `b3773d672c32115e8cf94f6735d5582b0be27901`, and remote `main` matches.
 - A fresh no-local-object public-main clone begins clean with no alternates and repeats all 14 validators, 35 tests, source/package `84+9+6+10+10+10`, exact 150-event anchors, two exact archive rebuilds, bounded MCP, real API/state/telemetry, 321 JSON and 8,919 JSONL-record parses, model/credential exclusion, and original-detail dashboard inspection. Receipt: `artifacts/verification/merged-main-baseline-0018.json`.
-- Next eligible action: commit and push merged-main evidence, run the final release audit, reconcile the release-closure records, and publish only if that audit remains verified.
+- Final release audit passes. The annotated v0.0.18 tag, peeled remote tag, remote `main`, non-draft release, selected 410,293-byte archive and checksum assets, downloaded bytes, rendered pages, and fresh public-tag clone reconcile to the release-closure commit.
+- Next eligible action: begin the next cycle from public v0.0.18 by running the system and selecting one bounded measurable weakness.
 
 ### BASELINE-0017 live-trace endpoint-anchor gap and frozen contract
 

@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.18 - candidate
+## 0.0.18 - 2026-08-08
 
 - Add a closed 17-code model-output content-rejection taxonomy while preserving parser acceptance, fail-closed abstention, prompts, schema, model options, authority, and raw-output digest-only retention.
 - Pass the frozen 19-case development/held-out contract exactly with classification and valid acceptance at 1.0 and zero unclassified failures.
@@ -11,7 +11,7 @@
 - Preserve a superseded 410,293-byte archive and the first live verifier failure after its stale baseline-0017 rendered-label assertion rejected an otherwise baseline-0018 surface; select two byte-identical corrected archives at SHA-256 `e370c208bc6598cf6217f963bc6ea567f05df5757a371bda67fc5157e23a21d0`.
 - Reproduce the exact selected archive twice from a remote-only clean clone and pass fresh source/package evaluation, tests, MCP, API, approval/executor, state, telemetry, artifact-parsing, security-scan, and rendered-dashboard checks there.
 - Merge the exact audited PR head with history preserved, then pass fresh public-main source/package, archive-rebuild, MCP, API, state, telemetry, parsing, scanning, and visual gates.
-- Final release audit, tag, release assets, and public-verification gates remain pending.
+- Verify the final release audit, annotated tag, non-draft public release, selected archive and checksum assets, downloaded-byte identity, rendered public pages, and fresh public-tag clone.
 
 ## 0.0.17 - 2026-08-08
 
