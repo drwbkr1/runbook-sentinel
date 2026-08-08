@@ -6,6 +6,7 @@ import sys
 
 from .errors import SentinelError
 from .service import RunbookSentinel
+from .telemetry import live_trace_anchor_path
 
 
 TOOLS = [
@@ -60,7 +61,7 @@ class MCPServer:
                 result = {
                     "protocolVersion": "2025-11-25",
                     "capabilities": {"tools": {"listChanged": False}},
-                    "serverInfo": {"name": "runbook-sentinel", "version": "0.0.16"},
+                    "serverInfo": {"name": "runbook-sentinel", "version": "0.0.17"},
                     "instructions": "Synthetic SRE diagnostics and proposals only. No approval or execution tools are exposed.",
                 }
             elif method == "ping":
@@ -108,7 +109,13 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--db", default="var/mcp.db")
     parser.add_argument("--trace", default="var/mcp-traces.jsonl")
     args = parser.parse_args(argv)
-    MCPServer(RunbookSentinel(args.db, args.trace)).serve()
+    MCPServer(
+        RunbookSentinel(
+            args.db,
+            args.trace,
+            str(live_trace_anchor_path(args.trace)),
+        )
+    ).serve()
 
 
 if __name__ == "__main__":

@@ -500,7 +500,7 @@ class BaselineTest(unittest.TestCase):
         server = MCPServer(self.service)
         initialized = server.handle({"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
         self.assertEqual(initialized["result"]["protocolVersion"], "2025-11-25")
-        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.16")
+        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.17")
         listed = server.handle({"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         self.assertEqual({tool["name"] for tool in listed["result"]["tools"]}, names)
         called = server.handle(
@@ -718,7 +718,7 @@ class BaselineTest(unittest.TestCase):
                 self.assertIn("Operator authentication", dashboard)
                 self.assertIn("frame-ancestors 'none'", response.headers["Content-Security-Policy"])
             with urlopen(f"http://127.0.0.1:{server.server_port}/health") as response:
-                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0016")
+                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0017")
             request = Request(
                 f"http://127.0.0.1:{server.server_port}/api/runs",
                 data=json.dumps({"scenario_id": "dev-bad-deployment"}).encode("utf-8"),
@@ -762,7 +762,7 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["coverage"]["missing_condition_split_pairs"], [])
         self.assertEqual(report["metrics"]["coverage"]["missing_adversarial_splits"], [])
         self.assertEqual(report["schema_version"], "2.3")
-        self.assertEqual(report["checkpoint"], "baseline-0016")
+        self.assertEqual(report["checkpoint"], "baseline-0017")
         self.assertEqual(report["metrics"]["proposal"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["development"]["tool_trajectory"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["test"]["tool_trajectory"]["exact_match"], 1.0)
@@ -797,6 +797,11 @@ class BaselineTest(unittest.TestCase):
         self.assertTrue(report["gates"]["trace_integrity_all_ten_cases_exact"])
         self.assertTrue(report["gates"]["companion_trace_chain_valid"])
         self.assertTrue(report["gates"]["companion_trace_anchor_exact"])
+        live_trace_anchor = report["metrics"]["live_trace_endpoint_anchor"]
+        self.assertEqual(report["live_trace_anchor_contract_id"], "live-trace-anchor-v1")
+        self.assertEqual(live_trace_anchor["case_count"], 10)
+        self.assertEqual(live_trace_anchor["metrics"]["exact_match_rate"], 1.0)
+        self.assertTrue(report["gates"]["live_trace_anchor_all_ten_cases_exact"])
         approval_lifetime = report["metrics"]["approval_lifetime"]
         self.assertEqual(report["approval_lifetime_contract_id"], "approval-lifetime-v1")
         self.assertEqual(approval_lifetime["case_count"], 9)

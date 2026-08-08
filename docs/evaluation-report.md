@@ -1,5 +1,21 @@
 # Evaluation report
 
+## BASELINE-0017 selected local candidate
+
+Public v0.0.16 is the verified starting point. A freshly downloaded archive and a fresh no-alternates public-tag clone pass the complete `84+9+6+10+10` source and package gates, 28 tests, exact selected-archive rebuild, bounded MCP, real loopback API/state/audit/telemetry checks, parsing, credential/model exclusion, and visual dashboard inspection.
+
+The fresh live API trace has five valid `trace-chain/v1` events and no persisted endpoint-anchor file. A non-destructive in-memory probe appends one canonical event using only the downloaded public package, then removes that suffix. Both six-event and five-event forms verify as valid unanchored chains; the five-event form fails exact count and final-digest checks when the full endpoint is supplied. The gap is retained in `artifacts/verification/live-trace-anchor-gap-baseline-0017.json` without changing released or runtime evidence.
+
+`live-trace-anchor-v1` froze ten exact cases before implementation: four development and six held-out cases cover empty start, exact first write, tail truncation, anchor mutation, missing and orphaned files, extra suffix, valid restart/resume, malformed JSON, and wrong trace-name binding. The first immutable reveal passes 10/10 exactly at SHA-256 `449e93aef8c9b27cfc2429576a5f86c0aa6ec2664439fcaca54cdef942c4eb96`. The sibling anchor is unkeyed and does not authenticate a writer or provide hostile-writer resistance, immutable storage, non-repudiation, digital signatures, directory-entry durability, or RFC conformance.
+
+The candidate passes 33 tests and source/package `84+9+6+10+10+10` gates under 62-file manifest SHA-256 `e0425726005421c45e76d290fcd9aa5e29025c49da136a1419975b72e24d0467`. Live CLI, API, and MCP traces persist exact sibling endpoints; missing, orphaned, malformed, stale, extra-suffix, truncation, and wrong-file states fail closed before append. Completed evaluations retain their report-held companion endpoint. Selected source attempt 003 and package attempt 003 have report SHA-256 values `58dfa46624b53105923be67654deca130b7917d8db359cfd3395186e02f90cfd` and `64e1485e37705e0c9a29d403ff65af3ec666ef3e189408a52263baed46107a90`.
+
+Two independent 392,954-byte, 32-entry zipapps are byte-identical at SHA-256 `271242d6eabffd4205f8b386028073f6d041b6ec5cc9369a524e45cacc9fe1ef`. Packaged and source MCP expose exactly three diagnostic/read tools and no approval or execution authority. Real loopback API approval, execution, replay, state, audit, live endpoint, logs, and dashboard checks pass. Visual inspection rejected and retained the first view whose table was below the evidence frame and the second whose row was clipped at the lower edge. The selected source and package dashboards visibly show the complete table, Baseline 0017, live trace endpoint 1.0, authenticated external operator, disconnected infrastructure, and a mitigated persisted incident.
+
+A remote-only clone of exact commit `8929ed5fe4370660235045929769f9fa16813939` began clean with no Git object alternates. It passed the full source gate and 33 tests, produced a fresh passing source evaluation with an independently verified 150-event trace, rebuilt the selected archive exactly, passed a fresh packaged evaluation and exact companion trace, and passed MCP, API, approval, executor, replay, persisted state, audit, live API/MCP endpoint anchors, artifact parsing, model/credential exclusion, native inspection, and original-detail visual review.
+
+Status: exact clean-clone reproduction passes; review, merge, release, public download, rendered-page, and public-tag verification remain. Public v0.0.16 remains the latest verified checkpoint.
+
 ## BASELINE-0016 selected release
 
 The public v0.0.15 package passes every prior gate, but its 150-event JSONL trace has no sequence, predecessor digest, event digest, or completed-evaluation anchor. A retained in-memory probe changes an execution event from `postconditions=true` to `false` without breaking JSON parsing, current trace inspection, or the released pass disposition.

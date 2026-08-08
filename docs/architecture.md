@@ -30,6 +30,8 @@ Baseline 0015 implements a project-specific per-launch operator capability for a
 
 Baseline 0016 makes each persisted JSONL event a `trace-chain/v1` record with a contiguous sequence, predecessor digest, and SHA-256 digest over exact canonical event content. A writer validates an existing prefix before append and resumes from its exact final digest. Completed evaluations record the exact companion trace count and final digest, which a separate verifier checks. This is content and continuity evidence only: the unkeyed chain does not authenticate the writer or resist recomputation by an attacker who can also replace the anchor.
 
+Baseline 0017 adds a persistence boundary for live runtime endpoints without changing evaluation authority. CLI run/execute, loopback API, and MCP supply an explicit sibling `.anchor.json` path. The writer flushes and fsyncs each appended trace event before securely creating, flushing, fsyncing, closing, and replacing the canonical endpoint in the same directory. Resume requires an exact trace-and-anchor pair; missing, orphaned, malformed, stale, truncated, extra-suffix, or wrong-file states fail before append. Completed evaluations keep their report anchor. The sibling endpoint remains unkeyed and same-authority; it is not writer authentication or immutable storage, and directory-entry durability is not claimed.
+
 ## Ports and trust boundaries
 
 - CLI and HTTP API are local operator surfaces.

@@ -8,6 +8,10 @@ No external runtime package, model, dataset, or third-party code is imported. Th
 
 Official Python 3.12.13 `zipapp`, `zipfile`, and PSF licensing documentation passed the eight-criterion source gate in `artifacts/verification/research-source-gate-baseline-0011.json`. Approval covers citation, narrow paraphrase, and a project-authored standard-library zipapp builder and verifier. No external code, package, sample archive, executable, data, model, or service was imported. The same reviewed primitives support the superseding v0.0.12 package contract.
 
+## Approved specification use for baseline-0017
+
+Official Python 3.12.13 `os` and `tempfile` documentation passed the eight-criterion gate in `artifacts/verification/research-source-gate-baseline-0017-live-anchor.json`. Approval covers narrow citation and project-authored trace flush/fsync, secure same-directory temporary creation, temporary-file flush/fsync/close, and `os.replace`. No external code, sample, package, executable, data, model, service, key, credential, or trace was imported. Cross-filesystem atomicity, directory-entry durability, writer authentication, and hostile-writer resistance are not claimed.
+
 ## Pending before use
 
 | Asset | Current local observation | Required gate |

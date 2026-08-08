@@ -1,0 +1,175 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0017-live-anchor-filesystem-primitives-20260808",
+  "assessed_at": "2026-08-08T02:13:49Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_actions": [
+      "review and cite official Python filesystem documentation",
+      "implement project-authored standard-library durable live-trace endpoint anchors",
+      "record narrow portability, crash-consistency, and security constraints"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Use official Python 3.12 documentation only to confirm cross-platform flush, fsync, secure same-directory temporary-file creation, and replacement primitives for a project-authored live-trace endpoint anchor. No external code, sample, data, package, executable, service, key, credential, or model will be imported.",
+    "planned_actions": [
+      "review and cite official Python filesystem documentation",
+      "implement project-authored standard-library durable live-trace endpoint anchors",
+      "record narrow portability, crash-consistency, and security constraints"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "python-31213-os-tempfile-documentation",
+      "name": "Python 3.12.13 os and tempfile documentation",
+      "locator": "https://docs.python.org/3.12/library/os.html",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://docs.python.org/3.12/library/os.html",
+              "observed_at": "2026-08-08T02:13:49Z",
+              "note": "The official page identifies Python 3.12.13 os documentation and the os.fsync and os.replace interfaces."
+            },
+            {
+              "type": "live",
+              "locator": "https://docs.python.org/3.12/library/tempfile.html",
+              "observed_at": "2026-08-08T02:13:49Z",
+              "note": "The official page identifies Python 3.12.13 tempfile documentation and the tempfile.mkstemp interface."
+            }
+          ],
+          "note": "Exact version-pinned runtime documentation and required primitives are identified."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://docs.python.org/3.12/",
+              "observed_at": "2026-08-08T02:13:49Z",
+              "note": "docs.python.org is the Python Software Foundation's primary documentation for the already selected Python 3.12 runtime."
+            }
+          ],
+          "note": "Authority is limited to documented standard-library behavior and availability."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://docs.python.org/3.12/library/os.html",
+              "observed_at": "2026-08-08T02:13:49Z",
+              "note": "The documentation was publicly readable without an account, secret, payment, package install, or terms acceptance."
+            }
+          ],
+          "note": "The installed standard library already supplies the reviewed primitives."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://docs.python.org/3.12/library/tempfile.html",
+              "observed_at": "2026-08-08T02:13:49Z",
+              "note": "The official page states Python Software Foundation License Version 2 for the documentation and Zero Clause BSD for examples. This project copies no example or implementation code."
+            }
+          ],
+          "note": "The project uses only factual API semantics and project-authored code."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "Version-pinned docs.python.org 3.12 os and tempfile pages",
+              "note": "The review used primary publisher pages directly with no intermediary, transformed copy, or acquired file."
+            }
+          ],
+          "note": "No external artifact enters repository custody."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "Python 3.12.13 documentation identity and HTTPS locators",
+              "note": "Exact version and primary locators bind the reviewed API semantics; no downloaded asset requires a publisher checksum."
+            }
+          ],
+          "note": "Runtime behavior will be verified on Windows and again in clean clones rather than inferred from documentation alone."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "Python 3.12.13 os.fsync, os.replace, and tempfile.mkstemp documentation",
+              "note": "os.fsync is available on Unix and Windows after buffered flush; os.replace supports cross-platform overwrite and is atomic when successful; mkstemp securely creates a non-inherited temporary file and accepts an explicit directory."
+            }
+          ],
+          "note": "The design will create the temporary anchor in the destination directory, flush and fsync bytes, close it, then replace the sibling endpoint. It will not claim directory-entry durability or cross-filesystem replacement."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "BASELINE-0017 bounded objective",
+              "note": "The planned anchor contains only schema, trace filename, event count, final event digest, and its own unkeyed digest. It adds no personal data, secret, signing material, service, model, package, real trace, or external destination."
+            }
+          ],
+          "note": "A sibling unkeyed anchor detects mismatched endpoints but cannot authenticate a writer who can recompute both files."
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "review and cite official Python filesystem documentation",
+      "implement project-authored standard-library durable live-trace endpoint anchors",
+      "record narrow portability, crash-consistency, and security constraints"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "retain source identity, locators, narrow paraphrases, and fitness constraints",
+      "implement and evaluate project-authored sibling live-trace anchors using the existing Python standard library"
+    ],
+    "requires_explicit_authorization": [
+      "import external code, documentation samples, data, packages, executables, services, or models",
+      "add a signing key, HMAC key, credential, external collector, paid service, or real-infrastructure trace source",
+      "claim writer authentication, hostile-writer resistance, immutable storage, non-repudiation, digital signatures, or directory-entry durability"
+    ]
+  }
+}
