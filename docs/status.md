@@ -2,12 +2,12 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0017-live-trace-anchor`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0016`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.16`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Candidate version: none; `0.0.16` / `baseline-0016` is the selected public checkpoint
-- Active milestone: none; the next checkpoint is intentionally unchosen until a fresh public v0.0.16 run exposes one measurable weakness
-- Current unit: none; `BASELINE-0016` is complete
+- Candidate version: none yet; BASELINE-0017 contracts are frozen before implementation
+- Active milestone: `BASELINE-0017` - durable endpoint anchoring for live API, MCP, and direct CLI traces
+- Current unit: `UNIT-003` ready - gap, source gate, milestone, and four-development/six-held-out contract validate; implementation has not begun
 - Disposition: baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -20,6 +20,18 @@
 - Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
 
 ## Verified evidence
+
+### BASELINE-0017 live-trace endpoint-anchor gap and frozen contract
+
+- Public v0.0.16 is the exact starting checkpoint: annotated and peeled tag, remote `main`, non-draft release, selected 358,711-byte archive and checksum, anonymous downloads, release page, commit-bound rendered README, raw main/tag, and a fresh no-alternates public-tag clone reconcile at `465f4e299578e822b38aae7a90835238c4c9c3b8`.
+- A fresh downloaded-package evaluation and fresh public-tag source/package evaluations pass `84+9+6+10+10`, exact 150-event report anchors, 28 tests, exact archive rebuild, MCP, API, state, audit, telemetry, parsing, scan, and visual gates.
+- Completed evaluation traces are externally anchored by their reports, but live API and MCP traces persist only the self-contained chain. The fresh public-tag live API trace is a valid five-event chain and has no durable endpoint-anchor file.
+- A non-destructive probe used the downloaded public package's canonical event builder in memory. A six-event full chain and its five-event suffix-truncated form both verify unanchored; supplying the full endpoint makes the truncated form fail exact event-count and final-digest checks. No released or runtime evidence byte changed.
+- The smallest bounded improvement is a sibling `trace-anchor/v1` endpoint for live traces: trace bytes flush and fsync first, a securely created same-directory temporary anchor flushes and fsyncs, then `os.replace` updates the endpoint. Missing, orphaned, stale, malformed, wrong-file, truncation, or extra-suffix states must fail before resume.
+- Official Python 3.12.13 `os` and `tempfile` documentation passes all eight source criteria for narrow citation and project-authored standard-library use. No external code, sample, data, package, executable, model, service, key, credential, or trace is imported.
+- `live-trace-anchor-v1` freezes four development and six held-out cases before candidate implementation. The contract validator passes with no candidate results; the controlled milestone reports inherited authority and `UNIT-003` as the only authorized ready unit.
+- The design explicitly does not claim writer authentication, hostile-writer resistance, immutable storage, non-repudiation, digital signatures, directory-entry durability, or RFC conformance. A same-authority attacker can still recompute both an unkeyed chain and sibling anchor.
+- Next eligible action: commit the frozen setup, then implement only the development side of the generic anchor boundary before the first full reveal.
 
 ### BASELINE-0015 approval-authority gap
 

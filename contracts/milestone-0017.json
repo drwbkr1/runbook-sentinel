@@ -1,0 +1,212 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0017",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "external_source_review",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "user_instruction": "Continue selecting and shipping the next verified checkpoint without routine approval, subject to the active goal stop conditions.",
+    "repository_controls": [
+      "AGENTS.md",
+      "C:\\Projects\\STORAGE_POLICY.md",
+      "docs/status.md",
+      "contracts/milestone-0017.json"
+    ],
+    "active_contract": "contracts/milestone-0017.json",
+    "verified_at_utc": "2026-08-08T02:13:49Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Persist and verify a deterministic sibling endpoint anchor for live API, MCP, and direct CLI traces so that valid suffix loss and other endpoint mismatches fail closed before resume, without adding a key, dependency, external collector, or authenticity claim.",
+    "allowed_paths": [
+      "C:\\Projects\\Active\\runbook-sentinel",
+      "C:\\Projects\\Verification"
+    ],
+    "forbidden_work": [
+      "add an HMAC key, signing key, certificate, credential, paid service, dependency, external collector, or real-infrastructure connector",
+      "claim writer authentication, hostile-writer resistance, immutable storage, non-repudiation, digital signatures, directory-entry durability, or RFC conformance",
+      "change agent outcomes, retrieval, decision context, scenario truth, model access, MCP authority, operator authentication, approval semantics, capabilities, executor actions, or synthetic state transitions",
+      "silently repair, delete, or rewrite a missing, orphaned, stale, malformed, or mismatched trace-anchor state",
+      "change repository visibility, access, or ownership"
+    ],
+    "reversible_actions": [
+      "freeze and validate a project-authored live-trace-anchor contract before runtime implementation",
+      "add deterministic sibling anchor serialization, exact verification, durable file flush, fsync, and same-directory atomic replacement",
+      "run development, held-out, regression, package, real-surface, clean-clone, and release verification",
+      "version, commit, push, review, merge, publish, and verify only after every gate passes"
+    ],
+    "stop_conditions": [
+      "core thesis change or security-boundary weakening",
+      "a secret or external trust anchor becomes necessary",
+      "the candidate cannot distinguish the frozen missing, orphaned, stale, malformed, truncation, suffix, or resume cases",
+      "the candidate or shipment cannot be verified"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.16 release closure 465f4e2, annotated and peeled tag, remote main, non-draft release, selected 9c04e281 archive, checksum, anonymous downloads, rendered pages, and fresh public-tag clone reconcile.",
+        "Fresh downloaded-package and public-tag source/package evaluations pass all 84 repeated scenarios plus 9 approval-lifetime, 6 idempotency-authorization, 10 operator-authentication, and 10 trace-integrity cases.",
+        "Fresh public-tag API and MCP traces have valid internal chains but no persisted endpoint anchor file.",
+        "A non-destructive public-package probe shows both a six-event full live chain and its five-event suffix-truncated form verify unanchored; the full endpoint anchor detects the deletion exactly."
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Run public v0.0.16, inspect its evaluations and real live traces, and prove one endpoint-integrity weakness without mutating released evidence.",
+      "depends_on": [],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["public v0.0.16 release archive and tag"],
+      "outputs": ["fresh release verification", "live-trace-anchor gap receipt"],
+      "gates": {
+        "released_checkpoint_exact": true,
+        "fresh_source_and_package_runs_complete": true,
+        "weakness_measurable": true,
+        "released_bytes_unchanged": true
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "The generic GitHub repository landing fetch served cached v0.0.15 text while commit-bound rendered README, raw main and tag, refs, release page, and tag clone were current.",
+        "The first public-tag dashboard preview displayed the known all-dark viewer artifact; reopening unchanged bytes at high detail displayed the full correct dashboard."
+      ],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Gate official filesystem sources and freeze exact endpoint anchoring, failure, recovery, portability, and non-claim requirements before candidate implementation.",
+      "depends_on": ["UNIT-001"],
+      "action_class": "external_source_review",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["gap receipt", "official source gate", "live-trace-anchor contract"],
+      "outputs": ["validated source gate", "frozen contract", "independent contract validator"],
+      "gates": {
+        "source_gate_ready": true,
+        "contract_frozen_before_implementation": true,
+        "no_secret_or_external_asset": true
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement one bounded durable live endpoint-anchor improvement without changing model or execution authority.",
+      "depends_on": ["UNIT-002"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "ready",
+      "inputs": ["frozen live-trace-anchor-v1 contract"],
+      "outputs": ["bounded implementation", "focused tests"],
+      "gates": {
+        "all_frozen_development_cases_exact": false,
+        "durable_anchor_write_order_exact": false,
+        "fail_closed_resume_validation": false,
+        "prior_boundaries_unchanged": false
+      },
+      "disposition": null,
+      "retained_failures": [],
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Reveal the frozen held-out cases once and run every prior source, package, API, MCP, state, telemetry, dashboard, and clean-clone gate.",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": ["candidate implementation", "frozen manifest"],
+      "outputs": ["immutable evaluation", "real-surface evidence", "clean-clone receipt"],
+      "gates": {
+        "source_and_package_full_gate": false,
+        "live_trace_anchor_all_cases_exact": false,
+        "real_live_endpoint_binding_pass": false,
+        "mcp_api_executor_state_telemetry_dashboard_pass": false,
+        "clean_clone_pass": false
+      },
+      "disposition": null,
+      "retained_failures": [],
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Version, package, review, merge, publish, and verify the bounded checkpoint only if every gate passes.",
+      "depends_on": ["UNIT-004"],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": ["verified candidate and release audit"],
+      "outputs": ["verified public checkpoint"],
+      "gates": {
+        "reviewed_head_exact": false,
+        "history_preserving_merge_exact": false,
+        "merged_main_pass": false,
+        "annotated_tag_exact": false,
+        "public_assets_exact": false,
+        "downloaded_bytes_exact": false,
+        "rendered_public_pages_exact": false,
+        "public_tag_clone_pass": false
+      },
+      "disposition": null,
+      "retained_failures": []
+    }
+  ],
+  "verification": {
+    "changed_risks": [
+      "a crash after trace fsync but before anchor replacement can create a safe but unavailable stale-anchor state",
+      "a serialization, file-name, or path mismatch can reject valid telemetry",
+      "a same-authority writer can recompute both the unkeyed chain and sibling anchor",
+      "new sidecar files can leak data, remain partially written, or create package and clean-clone drift",
+      "automatic live anchoring can accidentally change evaluation identity or model and executor behavior"
+    ],
+    "required_checks": [
+      "exact anchor schema, canonicalization, persistence order, and failure semantics are frozen before implementation",
+      "missing, orphaned, malformed, mutated, stale, extra-suffix, truncation, wrong-file, empty-start, and valid-resume cases are exact across development and held-out splits",
+      "trace bytes are flushed and fsynced before a same-directory temporary anchor is flushed, fsynced, closed, and replaced",
+      "live CLI, API, and MCP traces verify against durable endpoints before resume",
+      "agent, model, MCP authority, approval, executor, state, secrets, scenarios, retrieval, latency, and cost remain separately graded",
+      "source/package, real-surface, clean-clone, GitHub, merged-main, and public-release gates reconcile"
+    ],
+    "completed_checks": [
+      "public v0.0.16 tag, release, assets, downloads, rendered commit-bound pages, and fresh public-tag clone reconcile",
+      "fresh public source and package 84+9+6+10+10 evaluations and all prior real surfaces pass",
+      "non-destructive live suffix probe remains valid unanchored and fails exactly against the full endpoint",
+      "official Python 3.12.13 os and tempfile source gate validates ready for project-authored standard-library use",
+      "live-trace-anchor-v1 freezes four development and six held-out cases with no candidate results"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "verified public v0.0.16 release closure at 465f4e2 with selected 9c04e281 package bytes",
+    "next_action": "Commit the gap, source gate, milestone, and frozen contract before beginning UNIT-003 implementation.",
+    "do_not_carry_forward": [
+      "Do not claim that a sibling unkeyed anchor authenticates the writer or resists an attacker who can recompute the trace and anchor.",
+      "Do not add a signing key, HMAC key, credential, collector, dependency, service, or real-infrastructure integration.",
+      "Do not inspect or tune against held-out candidate results before the first frozen reveal."
+    ]
+  }
+}

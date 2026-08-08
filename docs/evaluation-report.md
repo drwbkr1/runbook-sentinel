@@ -1,5 +1,15 @@
 # Evaluation report
 
+## BASELINE-0017 orientation and frozen contract
+
+Public v0.0.16 is the verified starting point. A freshly downloaded archive and a fresh no-alternates public-tag clone pass the complete `84+9+6+10+10` source and package gates, 28 tests, exact selected-archive rebuild, bounded MCP, real loopback API/state/audit/telemetry checks, parsing, credential/model exclusion, and visual dashboard inspection.
+
+The fresh live API trace has five valid `trace-chain/v1` events and no persisted endpoint-anchor file. A non-destructive in-memory probe appends one canonical event using only the downloaded public package, then removes that suffix. Both six-event and five-event forms verify as valid unanchored chains; the five-event form fails exact count and final-digest checks when the full endpoint is supplied. The gap is retained in `artifacts/verification/live-trace-anchor-gap-baseline-0017.json` without changing released or runtime evidence.
+
+`live-trace-anchor-v1` freezes ten exact cases before implementation: four development and six held-out cases cover empty start, exact first write, tail truncation, anchor mutation, missing and orphaned files, extra suffix, valid restart/resume, malformed JSON, and wrong trace-name binding. No candidate result exists yet. The planned sibling anchor is unkeyed and does not authenticate a writer or provide hostile-writer resistance, immutable storage, non-repudiation, digital signatures, directory-entry durability, or RFC conformance.
+
+Status: frozen preimplementation contract; `UNIT-003` is ready. Public v0.0.16 remains the latest verified checkpoint.
+
 ## BASELINE-0016 selected release
 
 The public v0.0.15 package passes every prior gate, but its 150-event JSONL trace has no sequence, predecessor digest, event digest, or completed-evaluation anchor. A retained in-memory probe changes an execution event from `postconditions=true` to `false` without breaking JSON parsing, current trace inspection, or the released pass disposition.

@@ -1,5 +1,16 @@
 # Development log
 
+## 2026-08-08 - BASELINE-0017 started
+
+- Resumed from verified public v0.0.16 rather than reopening architecture. Remote main, annotated and peeled tag, non-draft release, selected archive and checksum, anonymous downloads, release page, commit-bound rendered README, raw main/tag, and a fresh no-alternates public-tag clone reconcile at release closure `465f4e2`.
+- The downloaded public archive and fresh tag-clone source/package gates pass `84+9+6+10+10`, 28 tests, exact 358,711-byte archive rebuild, bounded MCP, all 86 API checks, all 49 state/audit/telemetry checks, parsing, credential/model exclusion, and dashboard inspection.
+- Retained public-verification observations: the first tag-clone image view showed the known all-dark preview before unchanged bytes rendered correctly at high detail; the generic repository landing fetch served cached v0.0.15 text while the commit-bound rendered README, raw main and tag, release page, refs, and tag clone were current.
+- Inspected the fresh public-tag live API trace. Its five events form a valid chain, but there is no durable live endpoint-anchor file; only completed evaluations have a separately persisted report anchor.
+- A non-destructive in-memory probe built one canonical public-package event after the exact live prefix. The six-event full stream and five-event suffix-truncated stream both verify unanchored. The truncated stream fails exact count and final-digest checks only when the omitted full endpoint is supplied. No released, repository, or runtime evidence byte changed.
+- Selected durable live endpoint anchoring as the next bounded measurable weakness. It changes no agent result, retrieval, action, model, approval, executor, authority, secret, or infrastructure boundary.
+- Official Python 3.12.13 `os` and `tempfile` documentation passes the eight-criterion source gate for narrow citation and project-authored flush, fsync, secure temporary creation, and same-directory replacement. No external code or asset was imported.
+- Froze `live-trace-anchor-v1` with four development and six held-out cases plus an independent contract validator before implementation. The active milestone validates with `UNIT-003` as the only authorized ready unit.
+
 ## 2026-08-08 - BASELINE-0016 started
 
 - Resumed from the verified public v0.0.15 release closure and ran its downloaded 326,418-byte archive in `C:\Projects\Verification`. All prior `84+9+6+10` gates passed.

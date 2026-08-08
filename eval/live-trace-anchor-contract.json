@@ -1,0 +1,205 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "live-trace-anchor-v1",
+  "checkpoint": "baseline-0017",
+  "status": "frozen",
+  "frozen_before_implementation": true,
+  "objective": "Persist and verify one deterministic sibling endpoint anchor for each live runtime trace so that missing, orphaned, stale, malformed, or mismatched live endpoints fail closed before resume.",
+  "anchor_schema": {
+    "schema": "trace-anchor/v1",
+    "exact_fields": [
+      "anchor_sha256",
+      "event_count",
+      "final_event_sha256",
+      "schema",
+      "trace_file_name",
+      "trace_schema"
+    ],
+    "trace_schema": "trace-chain/v1",
+    "canonical_json": {
+      "sort_keys": true,
+      "separators": [",", ":"],
+      "ensure_ascii": true,
+      "allow_nan": false,
+      "terminal_newline": true
+    },
+    "anchor_sha256_input": "canonical JSON of every exact field except anchor_sha256",
+    "empty_trace_anchor": "absent until the first event is durably appended"
+  },
+  "persistence_contract": {
+    "scope": "live RunbookSentinel service traces used by CLI run/execute, loopback API, and MCP; completed evaluations retain their report anchor as the authoritative evaluation endpoint",
+    "write_order": [
+      "append exactly one canonical trace event",
+      "flush the buffered trace file",
+      "fsync the trace file descriptor",
+      "create a secure temporary anchor in the anchor destination directory",
+      "write canonical anchor bytes, flush, and fsync the temporary descriptor",
+      "close the temporary descriptor",
+      "replace the sibling anchor with os.replace"
+    ],
+    "resume_rule": "A nonempty trace and requested anchor must both exist and verify exactly before append. Missing, orphaned, malformed, stale, extra-suffix, wrong-file, or digest-mismatched states raise TraceIntegrityError before a new event is written.",
+    "failure_rule": "Any trace or anchor persistence failure is surfaced; a trace-ahead-of-anchor crash state remains retained and fails closed on restart rather than being silently repaired.",
+    "anchor_path_rule": "The live anchor is an explicit sibling path ending .anchor.json and is never inferred from retrieved content or model output."
+  },
+  "cases": [
+    {
+      "case_id": "dev-empty-start",
+      "split": "development",
+      "setup": "trace and anchor are both absent",
+      "operation": "initialize an anchored writer",
+      "expected": {
+        "accepted": true,
+        "event_count": 0,
+        "anchor_exists": false,
+        "new_event_written": false
+      }
+    },
+    {
+      "case_id": "dev-first-write-exact",
+      "split": "development",
+      "setup": "empty anchored writer",
+      "operation": "write one event",
+      "expected": {
+        "accepted": true,
+        "event_count": 1,
+        "anchor_exists": true,
+        "anchor_digest_exact": true,
+        "trace_endpoint_exact": true
+      }
+    },
+    {
+      "case_id": "dev-tail-truncation-detected",
+      "split": "development",
+      "setup": "three-event trace with exact anchor",
+      "operation": "remove the third event without changing the anchor, then initialize",
+      "expected": {
+        "accepted": false,
+        "required_error_codes": [
+          "expected_event_count_mismatch",
+          "expected_final_event_sha256_mismatch"
+        ],
+        "new_event_written": false
+      }
+    },
+    {
+      "case_id": "dev-anchor-digest-mutation-detected",
+      "split": "development",
+      "setup": "two-event trace with exact anchor",
+      "operation": "change anchor event_count without recomputing anchor_sha256, then initialize",
+      "expected": {
+        "accepted": false,
+        "required_error_codes": ["anchor_sha256_mismatch"],
+        "new_event_written": false
+      }
+    },
+    {
+      "case_id": "test-missing-anchor-detected",
+      "split": "test",
+      "setup": "nonempty valid trace with no anchor",
+      "operation": "initialize an anchored writer",
+      "expected": {
+        "accepted": false,
+        "required_error_codes": ["anchor_missing"],
+        "new_event_written": false
+      }
+    },
+    {
+      "case_id": "test-orphan-anchor-detected",
+      "split": "test",
+      "setup": "valid nonempty anchor with no trace",
+      "operation": "initialize an anchored writer",
+      "expected": {
+        "accepted": false,
+        "required_error_codes": ["trace_missing"],
+        "new_event_written": false
+      }
+    },
+    {
+      "case_id": "test-extra-suffix-detected",
+      "split": "test",
+      "setup": "two-event trace with exact anchor",
+      "operation": "append a canonical third event without updating the anchor, then initialize",
+      "expected": {
+        "accepted": false,
+        "required_error_codes": [
+          "expected_event_count_mismatch",
+          "expected_final_event_sha256_mismatch"
+        ],
+        "new_event_written": false
+      }
+    },
+    {
+      "case_id": "test-valid-restart-resume-exact",
+      "split": "test",
+      "setup": "two-event trace with exact anchor",
+      "operation": "initialize a new writer and append one event",
+      "expected": {
+        "accepted": true,
+        "event_count": 3,
+        "resume_sequence": 3,
+        "resume_previous_event_sha256_exact": true,
+        "anchor_digest_exact": true,
+        "trace_endpoint_exact": true
+      }
+    },
+    {
+      "case_id": "test-malformed-anchor-detected",
+      "split": "test",
+      "setup": "one-event valid trace and malformed anchor JSON",
+      "operation": "initialize an anchored writer",
+      "expected": {
+        "accepted": false,
+        "required_error_codes": ["anchor_invalid_json"],
+        "new_event_written": false
+      }
+    },
+    {
+      "case_id": "test-wrong-trace-name-detected",
+      "split": "test",
+      "setup": "one-event trace with otherwise valid anchor",
+      "operation": "change trace_file_name and recompute the unkeyed anchor digest, then initialize",
+      "expected": {
+        "accepted": false,
+        "required_error_codes": ["anchor_trace_file_name_mismatch"],
+        "new_event_written": false
+      }
+    }
+  ],
+  "metrics": {
+    "case_count": 10,
+    "development_case_count": 4,
+    "test_case_count": 6,
+    "required": [
+      "exact_match_rate",
+      "development_exact",
+      "test_exact",
+      "tail_truncation_detection_rate",
+      "invalid_state_no_append_rate",
+      "valid_resume_exact_rate"
+    ]
+  },
+  "gates": {
+    "all_ten_cases_exact": true,
+    "development_exact": true,
+    "test_exact": true,
+    "tail_truncation_detection_rate": 1.0,
+    "invalid_state_no_append_rate": 1.0,
+    "valid_resume_exact_rate": 1.0,
+    "all_prior_source_package_and_real_surface_gates": true
+  },
+  "allowed_runtime_changes": [
+    "project-authored trace-anchor/v1 serialization and verification in telemetry.py",
+    "optional explicit anchor_path on TraceWriter and RunbookSentinel",
+    "automatic sibling anchors for CLI run/execute, loopback API, and MCP live traces",
+    "runtime evidence inspection and dashboard metric for live endpoint anchoring",
+    "version, manifest, package, tests, evaluation, documentation, and evidence required by this checkpoint"
+  ],
+  "forbidden_changes": [
+    "agent outcomes, retrieval, decision context, scenarios, model access, approval semantics, operator authentication, capabilities, executor actions, or synthetic state transitions",
+    "HMAC key, signing key, credential, external collector, service, dependency, real-infrastructure connector, or externally controlled asset",
+    "writer-authentication, hostile-writer-resistance, immutable-storage, non-repudiation, digital-signature, directory-entry-durability, or RFC-conformance claim",
+    "silent repair, deletion, or rewriting of a stale, malformed, missing, orphaned, or mismatched trace-anchor state"
+  ],
+  "held_out_rule": "The six test cases are frozen before candidate implementation. Candidate code may be selected only after development cases pass and the generic implementation is sealed; the first full reveal is immutable.",
+  "candidate_results": null
+}

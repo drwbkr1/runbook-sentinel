@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0017",
+  "observed_at_utc": "2026-08-08T02:13:49Z",
+  "status": "gap_confirmed",
+  "public_checkpoint": {
+    "version": "0.0.16",
+    "release_commit": "465f4e299578e822b38aae7a90835238c4c9c3b8",
+    "archive_path": "C:/Projects/Verification/runbook-sentinel-v0.0.16-release-20260808T020111Z/runbook-sentinel-0.0.16.pyz",
+    "archive_sha256": "9c04e2815f4bb536904a803f8bf64079342eab4f694039ea8c61105453b8344f",
+    "fresh_public_evaluation_disposition": "pass",
+    "fresh_public_evaluation_attempts": 84,
+    "fresh_public_evaluation_trace_event_count": 150,
+    "fresh_public_evaluation_trace_anchored": true
+  },
+  "real_surface": {
+    "source": "fresh public-tag packaged loopback API runtime",
+    "trace_path": "C:/Projects/Verification/runbook-sentinel-v0.0.16-tag-465f4e2-20260808T020300Z/artifacts/runtime/live-api-baseline-0016-traces.jsonl",
+    "trace_sha256": "81f9f334d00ef7f5e173ed0447fa84940ef0a3bc6b20e34d51bde0f084b48e8c",
+    "event_count": 5,
+    "final_event_sha256": "e8ae68349b467b1dac133df83f17e1de679488faeb4b4fb1176636c3a954e8d1",
+    "chain_valid": true,
+    "durable_endpoint_anchor_present": false,
+    "release_bytes_mutated": false,
+    "runtime_trace_mutated": false
+  },
+  "non_destructive_probe": {
+    "method": "Use only the downloaded public zipapp's project-authored canonical event builder in memory to append one structurally valid suffix event to the exact live trace, then compare the full and suffix-truncated text with and without the full endpoint anchor.",
+    "full_unanchored": {
+      "valid": true,
+      "anchored": false,
+      "event_count": 6,
+      "final_event_sha256": "0fabae23541726893b6240d74ec19c2777960a11a46e4eacf54dee81d4368e47",
+      "errors": []
+    },
+    "tail_truncated_unanchored": {
+      "valid": true,
+      "anchored": false,
+      "event_count": 5,
+      "final_event_sha256": "e8ae68349b467b1dac133df83f17e1de679488faeb4b4fb1176636c3a954e8d1",
+      "errors": []
+    },
+    "tail_truncated_against_full_anchor": {
+      "valid": false,
+      "anchored": true,
+      "event_count": 5,
+      "error_codes": [
+        "expected_event_count_mismatch",
+        "expected_final_event_sha256_mismatch"
+      ]
+    },
+    "probe_mutated_released_bytes": false,
+    "probe_persisted_synthetic_suffix": false
+  },
+  "finding": "Completed evaluation traces have a report-held endpoint anchor, but live API and MCP trace files persist only the self-contained chain. A structurally valid suffix deletion remains a valid unanchored live chain after process state is gone.",
+  "bounded_objective": "Persist a deterministic sibling endpoint anchor for live runtime traces after each durable event append, verify the exact trace against it before resume, and fail closed on missing, orphaned, stale, malformed, or mismatched endpoints without adding a key, dependency, external collector, or real-infrastructure connection.",
+  "principal_risks": [
+    "a crash between trace durability and anchor replacement can leave a safe but unavailable stale-anchor state",
+    "a filesystem or serialization mismatch can reject valid evidence",
+    "a same-authority attacker can recompute both the unkeyed chain and sibling anchor",
+    "automatic anchor files can leak data or create package and clean-clone drift if not bounded"
+  ],
+  "non_claims": [
+    "A sibling unkeyed anchor is not writer authentication, a digital signature, non-repudiation, immutable storage, or hostile-writer resistance.",
+    "The change does not add an HMAC key, signing key, credential, service, external collector, dependency, or real telemetry source.",
+    "The public v0.0.16 release remains verified and unchanged."
+  ],
+  "disposition": "select_bounded_improvement"
+}
