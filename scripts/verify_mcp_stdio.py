@@ -4,9 +4,13 @@ import json
 import os
 import subprocess
 import sys
+import hashlib
 from pathlib import Path
 
-from runbook_sentinel.telemetry import verify_trace_file
+from runbook_sentinel.telemetry import (
+    live_trace_anchor_path,
+    verify_anchored_trace_files,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -22,9 +26,16 @@ def request(process: subprocess.Popen, payload: dict) -> dict:
 
 
 def main() -> None:
-    database = ROOT / "var/live-mcp-baseline-0016.db"
-    trace = ROOT / "artifacts/runtime/live-mcp-baseline-0016-traces.jsonl"
-    for generated in (database, Path(str(database) + "-wal"), Path(str(database) + "-shm"), trace):
+    database = ROOT / "var/live-mcp-baseline-0017.db"
+    trace = ROOT / "artifacts/runtime/live-mcp-baseline-0017-traces.jsonl"
+    anchor = live_trace_anchor_path(trace)
+    for generated in (
+        database,
+        Path(str(database) + "-wal"),
+        Path(str(database) + "-shm"),
+        trace,
+        anchor,
+    ):
         generated.unlink(missing_ok=True)
     env = os.environ.copy()
     env["PYTHONPATH"] = os.environ.get("RUNBOOK_SENTINEL_PYTHONPATH", str(ROOT / "src"))
@@ -35,9 +46,9 @@ def main() -> None:
             "runbook_sentinel",
             "mcp",
             "--db",
-            "var/live-mcp-baseline-0016.db",
+            "var/live-mcp-baseline-0017.db",
             "--trace",
-            "artifacts/runtime/live-mcp-baseline-0016-traces.jsonl",
+            "artifacts/runtime/live-mcp-baseline-0017-traces.jsonl",
         ],
         cwd=ROOT,
         env=env,
@@ -48,7 +59,7 @@ def main() -> None:
     )
     try:
         initialized = request(process, {"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
-        if initialized["result"]["serverInfo"]["version"] != "0.0.16":
+        if initialized["result"]["serverInfo"]["version"] != "0.0.17":
             raise AssertionError("MCP reported an unexpected release version")
         listed = request(process, {"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         names = [tool["name"] for tool in listed["result"]["tools"]]
@@ -136,14 +147,19 @@ def main() -> None:
             "incident_status": incident["result"]["structuredContent"]["incident"]["status"],
             "approval_or_execution_tool_exposed": False,
         }
-        trace_verification = verify_trace_file(trace)
+        trace_verification = verify_anchored_trace_files(trace, anchor)
         if not trace_verification["valid"]:
-            raise AssertionError("MCP telemetry failed trace-chain verification")
+            raise AssertionError("MCP telemetry failed anchored endpoint verification")
         summary["trace_chain_valid"] = True
+        summary["trace_endpoint_anchored"] = trace_verification["anchored"]
         summary["trace_event_count"] = trace_verification["event_count"]
         summary["trace_final_event_sha256"] = trace_verification[
             "final_event_sha256"
         ]
+        summary["trace_anchor_sha256"] = trace_verification["anchor_sha256"]
+        summary["trace_anchor_file_sha256"] = hashlib.sha256(
+            anchor.read_bytes()
+        ).hexdigest()
         print(json.dumps(summary, indent=2, sort_keys=True))
     finally:
         process.terminate()

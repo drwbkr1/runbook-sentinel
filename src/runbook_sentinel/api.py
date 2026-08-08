@@ -14,7 +14,7 @@ from .service import DEFAULT_APPROVAL_TTL_SECONDS, RunbookSentinel
 from .telemetry import live_trace_anchor_path
 
 
-CHECKPOINT = "baseline-0016"
+CHECKPOINT = "baseline-0017"
 
 
 class SentinelHTTPServer(ThreadingHTTPServer):
@@ -205,6 +205,9 @@ class SentinelHandler(BaseHTTPRequestHandler):
             .get("metrics", {})
             .get("exact_match_rate")
         )
+        live_trace_anchor_exact = metrics.get("live_trace_endpoint_anchor", {}).get(
+            "metrics", {}
+        ).get("exact_match_rate")
         trajectory_display = f"{trajectory_exact:.1f}" if isinstance(trajectory_exact, (int, float)) else "not run"
         terminal_display = f"{terminal_exact:.1f}" if isinstance(terminal_exact, (int, float)) else "not run"
         condition_display = (
@@ -257,6 +260,11 @@ class SentinelHandler(BaseHTTPRequestHandler):
             if isinstance(trace_integrity_exact, (int, float))
             else "not run"
         )
+        live_trace_anchor_display = (
+            f"{live_trace_anchor_exact:.1f}"
+            if isinstance(live_trace_anchor_exact, (int, float))
+            else "not run"
+        )
         rows = "".join(
             f"<tr><td>{html.escape(item['id'])}</td><td>{html.escape(item['scenario_id'])}</td><td>{html.escape(item['status'])}</td></tr>"
             for item in incidents
@@ -266,12 +274,12 @@ class SentinelHandler(BaseHTTPRequestHandler):
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Runbook Sentinel</title><style>
 :root {{ color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background:#08111f; color:#e8f0f7; }}
-body {{ margin:0; }} main {{ max-width:1080px; margin:auto; padding:40px 24px; }}
+body {{ margin:0; }} main {{ max-width:1260px; margin:auto; padding:28px 24px; }}
 .eyebrow {{ color:#75d7c6; letter-spacing:.12em; text-transform:uppercase; font-size:.78rem; }}
 h1 {{ font-size:clamp(2rem,6vw,4.5rem); margin:.25rem 0; }}
 .promise {{ color:#aebfd0; max-width:760px; font-size:1.15rem; line-height:1.6; }}
-.grid {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; margin:32px 0; }}
-.card {{ background:#101d2d; border:1px solid #21354b; border-radius:14px; padding:20px; }}
+.grid {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin:24px 0; }}
+.card {{ background:#101d2d; border:1px solid #21354b; border-radius:14px; padding:16px; }}
 .value {{ font-size:1.8rem; color:#75d7c6; }} table {{ width:100%; border-collapse:collapse; }}
 th,td {{ text-align:left; padding:12px; border-bottom:1px solid #21354b; }} .boundary {{ color:#ffcf70; }}
 </style></head><body><main>
@@ -294,6 +302,7 @@ th,td {{ text-align:left; padding:12px; border-bottom:1px solid #21354b; }} .bou
 <div class="card"><div>Cached result authorization</div><div class="value">{idempotency_authorization_display}</div></div>
 <div class="card"><div>Operator authentication</div><div class="value">{operator_authentication_display}</div></div>
 <div class="card"><div>Trace integrity</div><div class="value">{trace_integrity_display}</div></div>
+<div class="card"><div>Live trace endpoint</div><div class="value">{live_trace_anchor_display}</div></div>
 <div class="card"><div>Execution boundary</div><div class="value boundary">authenticated external operator</div></div>
 <div class="card"><div>Real infrastructure</div><div class="value boundary">disconnected</div></div>
 </section>

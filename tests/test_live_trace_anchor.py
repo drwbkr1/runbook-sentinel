@@ -6,6 +6,9 @@ import tempfile
 import unittest
 
 from runbook_sentinel.errors import TraceIntegrityError
+from runbook_sentinel.live_trace_anchor_evaluation import (
+    run_live_trace_anchor_evaluation,
+)
 from runbook_sentinel.telemetry import (
     TraceWriter,
     live_trace_anchor_path,
@@ -85,6 +88,13 @@ class LiveTraceAnchorDevelopmentTest(unittest.TestCase):
         )
         with self.assertRaises(TraceIntegrityError):
             self.writer()
+
+    def test_revealed_frozen_contract_is_exact(self) -> None:
+        report = run_live_trace_anchor_evaluation()
+        self.assertEqual(report["case_count"], 10)
+        self.assertTrue(report["gates"]["development_exact"])
+        self.assertTrue(report["gates"]["test_exact"])
+        self.assertTrue(report["gates"]["all_selected_cases_exact"])
 
 
 if __name__ == "__main__":

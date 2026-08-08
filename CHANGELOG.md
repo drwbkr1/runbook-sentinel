@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.17 - candidate
+
+- Persist a canonical unkeyed `trace-anchor/v1` sibling after each live CLI, API, or MCP event, with trace flush/fsync before same-directory temporary anchor flush/fsync and replacement.
+- Fail closed before resume when the live trace/anchor pair is missing, orphaned, malformed, stale, truncated, extended without its endpoint, or bound to the wrong file.
+- Add a separately reported ten-case endpoint-anchor evaluation; the first immutable reveal passes both development and held-out splits exactly.
+- Pass the selected local source/package `84+9+6+10+10+10` gates, 33 tests, real API/MCP/state/telemetry/dashboard checks, and two byte-identical 392,893-byte builds at SHA-256 `4c14dfd4efe87929c9f7de40b00d23b78d25570f0b6a754fa5e35d33d23e6880`.
+- Retain the superseded first package and dashboard attempt whose machine checks passed but whose 1440 by 1000 rendering pushed the incident table below the evidence frame. Clean-clone and release gates remain pending.
+
 ## 0.0.16 - 2026-08-08
 
 - Added deterministic `trace-chain/v1` sequencing, prior-event SHA-256 continuity, and per-event canonical digests.

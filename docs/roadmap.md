@@ -1,5 +1,9 @@
 # Roadmap
 
+## Active checkpoint baseline-0017 - durable live trace endpoints
+
+Public v0.0.16 live traces have internally valid chains but no persisted endpoint, so valid suffix loss remains undetectable when the expected endpoint is unavailable. Baseline-0017 adds a deterministic sibling `trace-anchor/v1` for live CLI, API, and MCP traces, verifies the exact pair before resume, and fails closed without adding a key, dependency, collector, credential, model change, executor authority, or real-infrastructure connector. The first frozen ten-case reveal and selected local source/package gates pass. The first dashboard package remains retained as superseded because visual inspection found its incident table outside the evidence frame; the corrected candidate passes source/package real surfaces and visual inspection. A no-local-object clean clone, release audit, GitHub review, merged-main verification, and public asset reconciliation remain.
+
 ## Completed checkpoint baseline-0015 - approval authority truth
 
 Public v0.0.14 exposed an unauthenticated caller-declared approval actor. Baseline-0015 requires one project-specific per-launch `Sentinel-Capability` before approval-body parsing, rejects caller identity, derives the persisted launch identity server-side, and labels the boundary `authenticated external operator`. The raw capability remains outside the agent, model, MCP, arguments, environment, repository, package, persistence, audit, traces, logs, evaluation records, and dashboard. All 24 tests, 51-file manifest checks, source/package 84+9+6+10 evaluations, bounded MCP, real approval/executor/state/telemetry surfaces, 28-entry byte-identical archive builds, rendered dashboards, no-alternates clones, reviewed merge, selected asset, downloaded-byte, and rendered-public gates pass. The next checkpoint remains intentionally unchosen until a fresh run of public v0.0.15 exposes one measurable weakness.

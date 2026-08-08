@@ -1,16 +1,18 @@
 # Evaluation report
 
-## BASELINE-0017 orientation and frozen contract
+## BASELINE-0017 selected local candidate
 
 Public v0.0.16 is the verified starting point. A freshly downloaded archive and a fresh no-alternates public-tag clone pass the complete `84+9+6+10+10` source and package gates, 28 tests, exact selected-archive rebuild, bounded MCP, real loopback API/state/audit/telemetry checks, parsing, credential/model exclusion, and visual dashboard inspection.
 
 The fresh live API trace has five valid `trace-chain/v1` events and no persisted endpoint-anchor file. A non-destructive in-memory probe appends one canonical event using only the downloaded public package, then removes that suffix. Both six-event and five-event forms verify as valid unanchored chains; the five-event form fails exact count and final-digest checks when the full endpoint is supplied. The gap is retained in `artifacts/verification/live-trace-anchor-gap-baseline-0017.json` without changing released or runtime evidence.
 
-`live-trace-anchor-v1` freezes ten exact cases before implementation: four development and six held-out cases cover empty start, exact first write, tail truncation, anchor mutation, missing and orphaned files, extra suffix, valid restart/resume, malformed JSON, and wrong trace-name binding. No candidate result exists yet. The planned sibling anchor is unkeyed and does not authenticate a writer or provide hostile-writer resistance, immutable storage, non-repudiation, digital signatures, directory-entry durability, or RFC conformance.
+`live-trace-anchor-v1` froze ten exact cases before implementation: four development and six held-out cases cover empty start, exact first write, tail truncation, anchor mutation, missing and orphaned files, extra suffix, valid restart/resume, malformed JSON, and wrong trace-name binding. The first immutable reveal passes 10/10 exactly at SHA-256 `449e93aef8c9b27cfc2429576a5f86c0aa6ec2664439fcaca54cdef942c4eb96`. The sibling anchor is unkeyed and does not authenticate a writer or provide hostile-writer resistance, immutable storage, non-repudiation, digital signatures, directory-entry durability, or RFC conformance.
 
-The generic implementation now passes all four frozen development cases, the complete 32-test regression suite, compilation, and a direct live CLI file/anchor verification. It adds only the project-authored persistence boundary and explicit CLI/API/MCP wiring. Held-out cases have not been run.
+The candidate passes 33 tests and source/package `84+9+6+10+10+10` gates under 62-file manifest SHA-256 `069c397348497ca109d549c897205061f4ff7f4144a5cc2d57b555f3f191863c`. Live CLI, API, and MCP traces persist exact sibling endpoints; missing, orphaned, malformed, stale, extra-suffix, truncation, and wrong-file states fail closed before append. Completed evaluations retain their report-held companion endpoint.
 
-Status: development-verified generic implementation awaiting a sealed commit and the first immutable full reveal. Public v0.0.16 remains the latest verified checkpoint.
+Two independent 392,893-byte, 32-entry zipapps are byte-identical at SHA-256 `4c14dfd4efe87929c9f7de40b00d23b78d25570f0b6a754fa5e35d33d23e6880`. Packaged and source MCP expose exactly three diagnostic/read tools and no approval or execution authority. Real loopback API approval, execution, replay, state, audit, live endpoint, logs, and dashboard checks pass. Visual inspection rejected and retained the first otherwise-passing dashboard because the incident table fell below the evidence frame; the corrected source and package dashboards visibly show Baseline 0017, live trace endpoint 1.0, authenticated external operator, disconnected infrastructure, and a mitigated persisted incident.
+
+Status: selected local candidate; no-local-object clean clone, review, merge, release, public download, rendered-page, and public-tag verification remain. Public v0.0.16 remains the latest verified checkpoint.
 
 ## BASELINE-0016 selected release
 

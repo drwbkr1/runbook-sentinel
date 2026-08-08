@@ -1,0 +1,344 @@
+{
+  "case_count": 10,
+  "cases": [
+    {
+      "actual": {
+        "accepted": true,
+        "anchor_digest_exact": false,
+        "anchor_exists": false,
+        "error_codes": [],
+        "event_count": 0,
+        "new_event_written": false,
+        "trace_endpoint_exact": true
+      },
+      "case_id": "dev-empty-start",
+      "checks": {
+        "accepted": true,
+        "anchor_exists": true,
+        "event_count": true,
+        "invalid_state_unchanged": true,
+        "new_event_written": true
+      },
+      "exact": true,
+      "expected": {
+        "accepted": true,
+        "anchor_exists": false,
+        "event_count": 0,
+        "new_event_written": false
+      },
+      "operation": "initialize an anchored writer",
+      "setup": "trace and anchor are both absent",
+      "split": "development"
+    },
+    {
+      "actual": {
+        "accepted": true,
+        "anchor_digest_exact": true,
+        "anchor_exists": true,
+        "error_codes": [],
+        "event_count": 1,
+        "new_event_written": true,
+        "trace_endpoint_exact": true
+      },
+      "case_id": "dev-first-write-exact",
+      "checks": {
+        "accepted": true,
+        "anchor_digest_exact": true,
+        "anchor_exists": true,
+        "event_count": true,
+        "invalid_state_unchanged": true,
+        "trace_endpoint_exact": true
+      },
+      "exact": true,
+      "expected": {
+        "accepted": true,
+        "anchor_digest_exact": true,
+        "anchor_exists": true,
+        "event_count": 1,
+        "trace_endpoint_exact": true
+      },
+      "operation": "write one event",
+      "setup": "empty anchored writer",
+      "split": "development"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "anchor_digest_exact": false,
+        "anchor_exists": true,
+        "error_codes": [
+          "expected_event_count_mismatch",
+          "expected_final_event_sha256_mismatch"
+        ],
+        "event_count": 2,
+        "new_event_written": false,
+        "trace_endpoint_exact": false
+      },
+      "case_id": "dev-tail-truncation-detected",
+      "checks": {
+        "accepted": true,
+        "invalid_state_unchanged": true,
+        "new_event_written": true,
+        "required_error_codes_present": true
+      },
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "new_event_written": false,
+        "required_error_codes": [
+          "expected_event_count_mismatch",
+          "expected_final_event_sha256_mismatch"
+        ]
+      },
+      "operation": "remove the third event without changing the anchor, then initialize",
+      "setup": "three-event trace with exact anchor",
+      "split": "development"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "anchor_digest_exact": false,
+        "anchor_exists": true,
+        "error_codes": [
+          "anchor_sha256_mismatch"
+        ],
+        "event_count": 0,
+        "new_event_written": false,
+        "trace_endpoint_exact": false
+      },
+      "case_id": "dev-anchor-digest-mutation-detected",
+      "checks": {
+        "accepted": true,
+        "invalid_state_unchanged": true,
+        "new_event_written": true,
+        "required_error_codes_present": true
+      },
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "new_event_written": false,
+        "required_error_codes": [
+          "anchor_sha256_mismatch"
+        ]
+      },
+      "operation": "change anchor event_count without recomputing anchor_sha256, then initialize",
+      "setup": "two-event trace with exact anchor",
+      "split": "development"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "anchor_digest_exact": false,
+        "anchor_exists": false,
+        "error_codes": [
+          "anchor_missing"
+        ],
+        "event_count": 1,
+        "new_event_written": false,
+        "trace_endpoint_exact": false
+      },
+      "case_id": "test-missing-anchor-detected",
+      "checks": {
+        "accepted": true,
+        "invalid_state_unchanged": true,
+        "new_event_written": true,
+        "required_error_codes_present": true
+      },
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "new_event_written": false,
+        "required_error_codes": [
+          "anchor_missing"
+        ]
+      },
+      "operation": "initialize an anchored writer",
+      "setup": "nonempty valid trace with no anchor",
+      "split": "test"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "anchor_digest_exact": false,
+        "anchor_exists": true,
+        "error_codes": [
+          "trace_missing"
+        ],
+        "event_count": 0,
+        "new_event_written": false,
+        "trace_endpoint_exact": false
+      },
+      "case_id": "test-orphan-anchor-detected",
+      "checks": {
+        "accepted": true,
+        "invalid_state_unchanged": true,
+        "new_event_written": true,
+        "required_error_codes_present": true
+      },
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "new_event_written": false,
+        "required_error_codes": [
+          "trace_missing"
+        ]
+      },
+      "operation": "initialize an anchored writer",
+      "setup": "valid nonempty anchor with no trace",
+      "split": "test"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "anchor_digest_exact": false,
+        "anchor_exists": true,
+        "error_codes": [
+          "expected_event_count_mismatch",
+          "expected_final_event_sha256_mismatch"
+        ],
+        "event_count": 3,
+        "new_event_written": false,
+        "trace_endpoint_exact": false
+      },
+      "case_id": "test-extra-suffix-detected",
+      "checks": {
+        "accepted": true,
+        "invalid_state_unchanged": true,
+        "new_event_written": true,
+        "required_error_codes_present": true
+      },
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "new_event_written": false,
+        "required_error_codes": [
+          "expected_event_count_mismatch",
+          "expected_final_event_sha256_mismatch"
+        ]
+      },
+      "operation": "append a canonical third event without updating the anchor, then initialize",
+      "setup": "two-event trace with exact anchor",
+      "split": "test"
+    },
+    {
+      "actual": {
+        "accepted": true,
+        "anchor_digest_exact": true,
+        "anchor_exists": true,
+        "error_codes": [],
+        "event_count": 3,
+        "new_event_written": true,
+        "resume_previous_event_sha256_exact": true,
+        "resume_sequence": 3,
+        "trace_endpoint_exact": true
+      },
+      "case_id": "test-valid-restart-resume-exact",
+      "checks": {
+        "accepted": true,
+        "anchor_digest_exact": true,
+        "event_count": true,
+        "invalid_state_unchanged": true,
+        "resume_previous_event_sha256_exact": true,
+        "resume_sequence": true,
+        "trace_endpoint_exact": true
+      },
+      "exact": true,
+      "expected": {
+        "accepted": true,
+        "anchor_digest_exact": true,
+        "event_count": 3,
+        "resume_previous_event_sha256_exact": true,
+        "resume_sequence": 3,
+        "trace_endpoint_exact": true
+      },
+      "operation": "initialize a new writer and append one event",
+      "setup": "two-event trace with exact anchor",
+      "split": "test"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "anchor_digest_exact": false,
+        "anchor_exists": true,
+        "error_codes": [
+          "anchor_invalid_json"
+        ],
+        "event_count": 0,
+        "new_event_written": false,
+        "trace_endpoint_exact": false
+      },
+      "case_id": "test-malformed-anchor-detected",
+      "checks": {
+        "accepted": true,
+        "invalid_state_unchanged": true,
+        "new_event_written": true,
+        "required_error_codes_present": true
+      },
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "new_event_written": false,
+        "required_error_codes": [
+          "anchor_invalid_json"
+        ]
+      },
+      "operation": "initialize an anchored writer",
+      "setup": "one-event valid trace and malformed anchor JSON",
+      "split": "test"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "anchor_digest_exact": false,
+        "anchor_exists": true,
+        "error_codes": [
+          "anchor_trace_file_name_mismatch"
+        ],
+        "event_count": 0,
+        "new_event_written": false,
+        "trace_endpoint_exact": false
+      },
+      "case_id": "test-wrong-trace-name-detected",
+      "checks": {
+        "accepted": true,
+        "invalid_state_unchanged": true,
+        "new_event_written": true,
+        "required_error_codes_present": true
+      },
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "new_event_written": false,
+        "required_error_codes": [
+          "anchor_trace_file_name_mismatch"
+        ]
+      },
+      "operation": "change trace_file_name and recompute the unkeyed anchor digest, then initialize",
+      "setup": "one-event trace with otherwise valid anchor",
+      "split": "test"
+    }
+  ],
+  "checkpoint": "baseline-0017",
+  "contract_id": "live-trace-anchor-v1",
+  "contract_valid": true,
+  "development_case_count": 4,
+  "gates": {
+    "all_selected_cases_exact": true,
+    "contract_valid": true,
+    "development_exact": true,
+    "invalid_state_no_append_rate": 1.0,
+    "tail_truncation_detection_rate": 1.0,
+    "test_exact": true,
+    "valid_resume_exact_rate": 1.0
+  },
+  "metrics": {
+    "development_exact_match_rate": 1.0,
+    "exact_match_rate": 1.0,
+    "invalid_state_no_append_rate": 1.0,
+    "tail_truncation_detection_rate": 1.0,
+    "test_exact_match_rate": 1.0,
+    "valid_resume_exact_rate": 1.0
+  },
+  "selected_split": "all",
+  "test_case_count": 6
+}

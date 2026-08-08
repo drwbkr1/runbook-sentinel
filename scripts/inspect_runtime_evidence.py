@@ -6,7 +6,10 @@ import sqlite3
 import struct
 from pathlib import Path
 
-from runbook_sentinel.telemetry import verify_trace_file
+from runbook_sentinel.telemetry import (
+    live_trace_anchor_path,
+    verify_anchored_trace_files,
+)
 
 from verify_evaluation_trace import verify_evaluation_trace
 
@@ -23,14 +26,24 @@ def sha256(path: Path) -> str:
 
 
 def main() -> None:
-    database = ROOT / "var/live-api-baseline-0016.db"
-    trace = ROOT / "artifacts/runtime/live-api-baseline-0016-traces.jsonl"
+    database = ROOT / "var/live-api-baseline-0017.db"
+    trace = ROOT / "artifacts/runtime/live-api-baseline-0017-traces.jsonl"
+    trace_anchor = live_trace_anchor_path(trace)
     evaluation = ROOT / "artifacts/evaluations/latest.json"
     manifest = ROOT / "eval/manifest.json"
-    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0016.png"
-    stdout_log = ROOT / "artifacts/runtime/live-api-baseline-0016-stdout.log"
-    stderr_log = ROOT / "artifacts/runtime/live-api-baseline-0016-stderr.log"
-    required = [database, trace, evaluation, manifest, screenshot, stdout_log, stderr_log]
+    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0017.png"
+    stdout_log = ROOT / "artifacts/runtime/live-api-baseline-0017-stdout.log"
+    stderr_log = ROOT / "artifacts/runtime/live-api-baseline-0017-stderr.log"
+    required = [
+        database,
+        trace,
+        trace_anchor,
+        evaluation,
+        manifest,
+        screenshot,
+        stdout_log,
+        stderr_log,
+    ]
     missing = [str(path) for path in required if not path.exists()]
     if missing:
         raise SystemExit(json.dumps({"status": "fail", "missing": missing}, indent=2))
@@ -80,7 +93,7 @@ def main() -> None:
         / "artifacts/evaluations/runs"
         / latest["metrics"]["telemetry_integrity"]["companion_trace"]["file_name"]
     )
-    live_trace_verification = verify_trace_file(trace)
+    live_trace_verification = verify_anchored_trace_files(trace, trace_anchor)
     evaluation_trace_verification = verify_evaluation_trace(
         evaluation, companion_trace
     )
@@ -112,6 +125,7 @@ def main() -> None:
         "trace_has_expected_events": {"sentinel.run", "sentinel.approval", "sentinel.execute"}.issubset({event["name"] for event in trace_events}),
         "trace_has_no_forbidden_terms": not forbidden_trace_terms,
         "live_trace_chain_valid": live_trace_verification["valid"],
+        "live_trace_endpoint_anchored": live_trace_verification["anchored"],
         "logs_have_no_authentication_material": not forbidden_log_terms,
         "decision_context_is_stale_metadata_v3": bool(run_trace_events)
         and all(
@@ -158,6 +172,7 @@ def main() -> None:
         "evaluation_operator_capability_exclusion": latest["metrics"]["operator_authentication"]["metrics"]["capability_exclusion_rate"] == 1.0,
         "evaluation_prior_launch_rejection": latest["metrics"]["operator_authentication"]["metrics"]["prior_launch_rejection_rate"] == 1.0,
         "evaluation_trace_integrity_exact": latest["metrics"]["telemetry_integrity"]["contract_evaluation"]["metrics"]["exact_match_rate"] == 1.0,
+        "evaluation_live_trace_anchor_exact": latest["metrics"]["live_trace_endpoint_anchor"]["metrics"]["exact_match_rate"] == 1.0,
         "evaluation_companion_trace_chain_valid": evaluation_trace_verification["valid"],
         "evaluation_companion_trace_anchor_exact": evaluation_trace_verification["anchored"],
         "evaluation_contains_no_raw_approval_token_field": '"approval_token":' not in evaluation.read_text(encoding="utf-8"),
@@ -172,6 +187,8 @@ def main() -> None:
         "database": {"sha256": sha256(database), "counts": counts, "audit_event_types": audit_types, "operator_identities": approval_actors},
         "telemetry": {
             "sha256": sha256(trace),
+            "anchor_file_sha256": sha256(trace_anchor),
+            "anchor_sha256": live_trace_verification["anchor_sha256"],
             "event_count": len(trace_events),
             "final_event_sha256": live_trace_verification["final_event_sha256"],
             "chain_valid": live_trace_verification["valid"],
@@ -221,7 +238,7 @@ def main() -> None:
         },
         "dashboard": {"sha256": sha256(screenshot), "width": width, "height": height},
     }
-    output = ROOT / "artifacts/verification/native-baseline-0016.json"
+    output = ROOT / "artifacts/verification/native-baseline-0017.json"
     output.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(receipt, indent=2, sort_keys=True))
     if receipt["status"] != "pass":

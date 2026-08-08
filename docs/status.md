@@ -5,9 +5,9 @@
 - Branch: `codex/baseline-0017-live-trace-anchor`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0016`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.16`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Candidate version: none yet; BASELINE-0017 contracts are frozen before implementation
+- Candidate version: `v0.0.17`; selected source/package evidence is manifest-bound and locally verified but not yet clean-clone or release verified
 - Active milestone: `BASELINE-0017` - durable endpoint anchoring for live API, MCP, and direct CLI traces
-- Current unit: `UNIT-004` ready - the generic implementation passes all four development cases and the 32-test regression suite; held-out cases remain unrevealed until the implementation commit is sealed
+- Current unit: `UNIT-004` in progress - all ten frozen cases, source/package gates, real CLI/API/MCP endpoint anchors, persisted state, telemetry, and visually inspected dashboards pass; clean-clone verification remains
 - Disposition: baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -31,8 +31,12 @@
 - Official Python 3.12.13 `os` and `tempfile` documentation passes all eight source criteria for narrow citation and project-authored standard-library use. No external code, sample, data, package, executable, model, service, key, credential, or trace is imported.
 - `live-trace-anchor-v1` freezes four development and six held-out cases before candidate implementation. The contract validator passes with no candidate results; the controlled milestone reports inherited authority and `UNIT-003` as the only authorized ready unit.
 - The design explicitly does not claim writer authentication, hostile-writer resistance, immutable storage, non-repudiation, digital signatures, directory-entry durability, or RFC conformance. A same-authority attacker can still recompute both an unkeyed chain and sibling anchor.
-- The generic implementation adds canonical anchor serialization and verification, durable trace-before-anchor write ordering, fail-closed resume, explicit sibling-path enforcement, and live CLI/API/MCP wiring. All four development cases, compilation, 32 tests, and a direct CLI anchored-file probe pass.
-- Next eligible action: seal the generic implementation commit, then run the first immutable full ten-case reveal without tuning against held-out results.
+- The generic implementation adds canonical anchor serialization and verification, durable trace-before-anchor write ordering, fail-closed resume, explicit sibling-path enforcement, and live CLI/API/MCP wiring. Its sealed implementation commit is `7b30740`; the sealed evaluator commit is `80c0a53`.
+- The first immutable full reveal passes all ten cases exactly. Both splits, invalid-state no-append, truncation detection, and valid restart/resume are 1.0; the retained 10,147-byte result SHA-256 is `449e93aef8c9b27cfc2429576a5f86c0aa6ec2664439fcaca54cdef942c4eb96`.
+- Selected source and package attempts pass 33 tests and `84+9+6+10+10+10` under 62-file manifest SHA-256 `069c397348497ca109d549c897205061f4ff7f4144a5cc2d57b555f3f191863c`. Completed-evaluation companion traces each contain 150 exact events.
+- Two independently built 392,893-byte, 32-entry zipapps are byte-identical at SHA-256 `4c14dfd4efe87929c9f7de40b00d23b78d25570f0b6a754fa5e35d33d23e6880`. Source and package MCP expose exactly three diagnostic/read tools; real API approval, execution, replay, state, audit, live anchor, and dashboard checks pass.
+- Visual inspection rejected the first otherwise-passing dashboard candidate because its incident table fell below the 1440 by 1000 frame. The archive and source/package visual/native receipts remain retained as superseded attempt 001. The corrected source and package dashboards visibly include the live-endpoint metric and persisted mitigated incident.
+- Next eligible action: seal the selected candidate, run a no-local-object clean clone, then perform release audit and GitHub review only if every gate remains exact.
 
 ### BASELINE-0015 approval-authority gap
 

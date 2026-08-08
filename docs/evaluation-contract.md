@@ -20,10 +20,20 @@ The scenario catalog, evaluator, agent, retriever, policy, executor, API, MCP, a
 - Latency: median and p95 wall-clock duration
 - Cost: model calls and estimated monetary cost
 - Coverage: explicit case counts for gateway, API, worker, database, cache, deployment, configuration, and observability
+- Live trace endpoint: exact sibling-anchor cases, invalid-state no-append, truncation detection, and valid restart/resume
 
 Exact graders use structured state and expected fields; no LLM judge is used. Development and test cases have separate metric blocks and exact gates. Optimization must not use the test split.
 
 The baseline-0001 through baseline-0004 artifacts used a field named `trajectory_exact`, but its implementation graded generation and proposed-action agreement only. Those immutable results are not rewritten or retroactively promoted as executed terminal-state evidence. Baseline-0005 separates the families and adds real isolated synthetic execution.
+
+## Baseline-0017 live-trace endpoint-anchor gates
+
+- `eval/live-trace-anchor-contract.json` and its independent validator freeze before implementation; the first full reveal is immutable.
+- Four development and six held-out cases exact-grade empty start, first write, truncation, anchor-digest mutation, missing anchor, orphan anchor, extra suffix, valid restart/resume, malformed anchor, and wrong-file binding.
+- Live CLI run/execute, loopback API, and MCP use an explicit sibling `.anchor.json`. The trace is flushed and fsynced before a securely created same-directory temporary anchor is flushed, fsynced, closed, and replaced.
+- A nonempty trace/anchor pair must verify exactly before append. Invalid states remain unchanged and fail closed; no silent repair or deletion is permitted.
+- Exact-match, both splits, truncation detection, invalid no-append, and valid resume are separate 1.0 gates. Real CLI/API/MCP endpoint files are verified independently from completed-evaluation report anchors.
+- The endpoint is unkeyed and same-authority. It does not claim writer authentication, hostile-writer resistance, immutable storage, non-repudiation, signatures, directory-entry durability, or RFC conformance.
 
 ## Baseline-0016 trace-integrity gates
 

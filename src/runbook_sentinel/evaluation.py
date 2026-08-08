@@ -16,6 +16,7 @@ from .errors import ReplayRejected, SentinelError
 from .idempotency_authorization_evaluation import (
     run_idempotency_authorization_evaluation,
 )
+from .live_trace_anchor_evaluation import run_live_trace_anchor_evaluation
 from .model_adapter import OllamaIncidentAgent, Transport
 from .operator_auth import OperatorAuthenticator, authorization_value
 from .operator_authentication_evaluation import (
@@ -1840,6 +1841,7 @@ def run_evaluation(
     idempotency_authorization = run_idempotency_authorization_evaluation()
     operator_authentication = run_operator_authentication_evaluation()
     trace_integrity = run_trace_integrity_evaluation()
+    live_trace_endpoint_anchor = run_live_trace_anchor_evaluation()
     companion_trace_anchor = service.traces.anchor()
     runtime_trace_verification = verify_trace_file(
         trace_output,
@@ -1887,6 +1889,7 @@ def run_evaluation(
         "idempotency_authorization": idempotency_authorization,
         "operator_authentication": operator_authentication,
         "telemetry_integrity": telemetry_integrity,
+        "live_trace_endpoint_anchor": live_trace_endpoint_anchor,
         "policy": {"compliance_rate": _rate(attempts, "policy_compliant")},
         "utility": {
             "benign_case_pass_rate": sum(case["all_trials_pass"] for case in benign)
@@ -2087,6 +2090,28 @@ def run_evaluation(
             ],
             metrics["telemetry_integrity"]["runtime_verification"]["valid"],
             metrics["telemetry_integrity"]["runtime_verification"]["anchored"],
+        )
+    )
+    live_trace_endpoint_anchor_gates = all(
+        (
+            metrics["live_trace_endpoint_anchor"]["contract_valid"],
+            metrics["live_trace_endpoint_anchor"]["gates"][
+                "all_selected_cases_exact"
+            ],
+            metrics["live_trace_endpoint_anchor"]["gates"]["development_exact"],
+            metrics["live_trace_endpoint_anchor"]["gates"]["test_exact"],
+            metrics["live_trace_endpoint_anchor"]["gates"][
+                "tail_truncation_detection_rate"
+            ]
+            == 1.0,
+            metrics["live_trace_endpoint_anchor"]["gates"][
+                "invalid_state_no_append_rate"
+            ]
+            == 1.0,
+            metrics["live_trace_endpoint_anchor"]["gates"][
+                "valid_resume_exact_rate"
+            ]
+            == 1.0,
         )
     )
     gates = {
@@ -2324,6 +2349,30 @@ def run_evaluation(
             "runtime_verification"
         ]["anchored"]
         and metrics["telemetry_integrity"]["runtime_verification"]["valid"],
+        "live_trace_anchor_contract_valid": metrics[
+            "live_trace_endpoint_anchor"
+        ]["contract_valid"],
+        "live_trace_anchor_all_ten_cases_exact": metrics[
+            "live_trace_endpoint_anchor"
+        ]["gates"]["all_selected_cases_exact"],
+        "development_live_trace_anchor_exact": metrics[
+            "live_trace_endpoint_anchor"
+        ]["gates"]["development_exact"],
+        "test_live_trace_anchor_exact": metrics["live_trace_endpoint_anchor"][
+            "gates"
+        ]["test_exact"],
+        "live_trace_anchor_tail_detection_is_one": metrics[
+            "live_trace_endpoint_anchor"
+        ]["gates"]["tail_truncation_detection_rate"]
+        == 1.0,
+        "live_trace_anchor_invalid_no_append_is_one": metrics[
+            "live_trace_endpoint_anchor"
+        ]["gates"]["invalid_state_no_append_rate"]
+        == 1.0,
+        "live_trace_anchor_valid_resume_is_one": metrics[
+            "live_trace_endpoint_anchor"
+        ]["gates"]["valid_resume_exact_rate"]
+        == 1.0,
         "proposal_exact_is_one": metrics["proposal"]["exact_match"] == 1.0,
         "tool_trajectory_exact_is_one": metrics["tool_trajectory"]["exact_match"]
         == 1.0,
@@ -2387,6 +2436,7 @@ def run_evaluation(
             and idempotency_authorization_gates
             and operator_authentication_gates
             and telemetry_integrity_gates
+            and live_trace_endpoint_anchor_gates
             else "remediate"
         ),
     }
@@ -2403,6 +2453,7 @@ def run_evaluation(
             "contract_id"
         ],
         "trace_integrity_contract_id": trace_integrity["contract_id"],
+        "live_trace_anchor_contract_id": live_trace_endpoint_anchor["contract_id"],
         "agent_configuration": agent_configuration,
         "retrieval_configuration": retrieval_configuration,
         "decision_context_configuration": decision_context_configuration,

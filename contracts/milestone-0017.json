@@ -25,7 +25,7 @@
       "contracts/milestone-0017.json"
     ],
     "active_contract": "contracts/milestone-0017.json",
-    "verified_at_utc": "2026-08-08T02:13:49Z",
+    "verified_at_utc": "2026-08-08T02:56:26Z",
     "expires_at_utc": null
   },
   "scope": {
@@ -139,18 +139,23 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "ready",
+      "status": "in_progress",
       "inputs": ["candidate implementation", "frozen manifest"],
       "outputs": ["immutable evaluation", "real-surface evidence", "clean-clone receipt"],
       "gates": {
-        "source_and_package_full_gate": false,
-        "live_trace_anchor_all_cases_exact": false,
-        "real_live_endpoint_binding_pass": false,
-        "mcp_api_executor_state_telemetry_dashboard_pass": false,
+        "source_and_package_full_gate": true,
+        "live_trace_anchor_all_cases_exact": true,
+        "real_live_endpoint_binding_pass": true,
+        "mcp_api_executor_state_telemetry_dashboard_pass": true,
         "clean_clone_pass": false
       },
       "disposition": null,
-      "retained_failures": [],
+      "retained_failures": [
+        "The first bare evaluator invocation omitted the documented PYTHONPATH and failed before any case executed.",
+        "A PowerShell UTC display probe used an unavailable Get-Date -AsUTC option; the manifest generator independently wrote and validated its UTC timestamp.",
+        "The first packaged API pass served the source evaluation pointer and was superseded by an exact rerun against the immutable package report.",
+        "The first otherwise-passing source/package dashboard placed the persisted-incidents table below the 1440 by 1000 evidence frame; its archive, screenshots, and native receipts remain retained as superseded attempt 001."
+      ],
       "next_dependency": "UNIT-005"
     },
     {
@@ -198,16 +203,19 @@
       "non-destructive live suffix probe remains valid unanchored and fails exactly against the full endpoint",
       "official Python 3.12.13 os and tempfile source gate validates ready for project-authored standard-library use",
       "live-trace-anchor-v1 freezes four development and six held-out cases with no candidate results",
-      "generic implementation passes all four development cases, the 32-test regression suite, compilation, and a direct live CLI endpoint check before held-out reveal"
+      "generic implementation passes all four development cases, the 32-test regression suite, compilation, and a direct live CLI endpoint check before held-out reveal",
+      "the first immutable full reveal passes all ten live-anchor cases with both splits, invalid no-append, truncation detection, and valid resume exact",
+      "selected source and package evaluations pass 84+9+6+10+10+10 under the exact 62-file manifest, with 33 tests and exact 150-event companion anchors",
+      "two selected 392,893-byte 32-entry archives are byte-identical; source and package CLI, MCP, API, executor, state, audit, live endpoints, and corrected rendered dashboards pass"
     ]
   },
   "handoff": {
     "current_checkpoint": "verified public v0.0.16 release closure at 465f4e2 with selected 9c04e281 package bytes",
-    "next_action": "Seal the generic development-verified implementation, then run the first immutable full ten-case reveal from UNIT-004.",
+    "next_action": "Seal the selected candidate and run the no-local-object clean-clone gate before release audit or GitHub promotion.",
     "do_not_carry_forward": [
       "Do not claim that a sibling unkeyed anchor authenticates the writer or resists an attacker who can recompute the trace and anchor.",
       "Do not add a signing key, HMAC key, credential, collector, dependency, service, or real-infrastructure integration.",
-      "Do not inspect or tune against held-out candidate results before the first frozen reveal."
+      "Do not rewrite, delete, or relabel the first frozen reveal or any superseded candidate evidence."
     ]
   }
 }
