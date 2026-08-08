@@ -3,18 +3,18 @@
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
 - Branch: `codex/baseline-0019-release-closure`
-- Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0018`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
-- Latest verified checkpoint: public `v0.0.18`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Candidate version: `0.0.19` / `baseline-0019`; locally versioned, not yet released
-- Active milestone: `BASELINE-0019` split-aware topology coverage
-- Current unit: `UNIT-005` in progress
-- Disposition: baseline-0019 source, package, real-surface, reproducibility, remote-only clean-clone, exact review/merge, and merged-public-main gates `pass`; tag and public release verification pending; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0019`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
+- Latest verified checkpoint: public `v0.0.19`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
+- Candidate version: none; `0.0.19` / `baseline-0019` is released
+- Active milestone: none; the next checkpoint remains intentionally unchosen until a fresh public-v0.0.19 run identifies one measurable weakness
+- Current unit: `UNIT-005` complete
+- Disposition: baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: verified baseline-0019 merge commit `40ae2230834ba03a665d72b0308b8c64ea544b36`; release closure not yet published
+- GitHub `main`: verified baseline-0019 release closure
 - GitHub pull request: `#17`, merged with history preserved under expected-head lock `8530515266165ffd0d68021659ba5261fc42d154`
-- GitHub release: public, non-draft `v0.0.18` with verified `.pyz` and `.sha256` assets
+- GitHub release: public, non-draft `v0.0.19` with verified `.pyz` and `.sha256` assets
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
 - Local model source gate: refreshed and ready for the already installed, publisher-signed Ollama 0.32.6 executable and unchanged `llama3.2:3b` manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six content-addressed blobs pass exact SHA-256 and size checks. No download, update, copy, redistribution, remote call, model tool, secret, or real-infrastructure access is authorized.
@@ -52,7 +52,8 @@
 - Merged-main source report/trace SHA-256 values are `53856838a1093e88f5fbb896aeea93865e3c7eae4519c41ac1f011dd61e2a88c` / `3b8f58e166ebcdc261ce92b97423b09f0ae15f1e5598e0e8fa10df83087e6274`; package values are `0f0b09b909a2a181096a8714305a21bade6691f7a6bda7e96db9723488abd371` / `1b5fbbe172cae3352d72e26b9e98de298fde3ff9972b6458dfc9df01699f1dfa`. The exact receipt is `artifacts/verification/merged-main-baseline-0019.json`.
 - Retained development observations: direct stale-payload and post-candidate trace-verifier invocations each omitted `PYTHONPATH` before corrected passes; the first complete unit attempt retained two harness failures after a one-second timeout left the manifest on baseline-0018 and the exact-outcome fixture omitted the two already-frozen IDs. The corrected 71-file manifest and 36-test rerun pass without product-behavior changes.
 - The first standalone public-v0.0.18 trace verifier likewise omitted `PYTHONPATH` and stopped at import before its corrected pass. Docker client 29.4.3 remains installed while its daemon is unavailable, so no container claim is made.
-- Next eligible action: commit and push merged-main evidence, run the final release-truth audit, then publish and verify only the exact release closure.
+- The final release audit computes `verified`; annotated `v0.0.19`, its peeled remote target, remote `main`, non-draft release, selected archive/checksum assets, downloaded bytes, rendered public pages, and a fresh public-tag clone reconcile to the release closure.
+- Next eligible action: begin the next cycle from public v0.0.19 by running the system and selecting one bounded measurable weakness.
 
 ### BASELINE-0018 model-failure observability gap and frozen contract
 

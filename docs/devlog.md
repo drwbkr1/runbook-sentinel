@@ -30,6 +30,9 @@
 - The public-main clone passes 17 validators, 36 tests, source/package 90-attempt evaluations and exact 156-event anchors, two selected-archive rebuilds, bounded source/package MCP, real authentication/approval/executor/replay/state/audit/telemetry, 350 JSON files and 9,862 records across 81 JSONL files, zero credential/model findings, and complete source/package dashboard inspection.
 - Merged-main source report/trace hashes are `53856838a1093e88f5fbb896aeea93865e3c7eae4519c41ac1f011dd61e2a88c` / `3b8f58e166ebcdc261ce92b97423b09f0ae15f1e5598e0e8fa10df83087e6274`; package hashes are `0f0b09b909a2a181096a8714305a21bade6691f7a6bda7e96db9723488abd371` / `1b5fbbe172cae3352d72e26b9e98de298fde3ff9972b6458dfc9df01699f1dfa`. Both archive rebuilds remain exact at the selected SHA-256.
 - The merged-main package dashboard's first normalized-high view showed only the known table-strip viewer frame; the unchanged original-detail view displayed the complete dashboard. The artifact remains recorded in `artifacts/verification/merged-main-baseline-0019.json`.
+- Final release audit computes `verified` and authorizes only the exact release closure, annotated v0.0.19 tag, selected zipapp/checksum assets, and immediate public verification under the standing goal.
+- Published and reconciled the release closure: remote `main`, annotated and peeled `v0.0.19`, non-draft GitHub release, selected 423,787-byte archive, checksum asset, downloaded public bytes, rendered repository/release/tag pages, and a fresh public-tag clone agree exactly.
+- BASELINE-0019 is complete. Thirty scenarios close the measured 16-cell split-topology gap but do not satisfy the separate at-least-48-case v0.1.0 target. The next checkpoint remains intentionally unchosen until a fresh run of public v0.0.19 identifies one measurable weakness.
 
 ## 2026-08-08 - BASELINE-0018 started
 

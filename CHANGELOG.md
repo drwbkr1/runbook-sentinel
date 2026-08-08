@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - 0.0.19 candidate
+## 0.0.19 - 2026-08-08
 
 - Cross eight SRE topology domains with development and held-out test, report exact domain/split counts and missing pairs, and require aggregate plus both split coverage rates to equal 1.0.
 - Add only the missing development-observability and held-out-test-database cases; preserve canonical identities for all 28 pre-change scenarios and terminal-state records.

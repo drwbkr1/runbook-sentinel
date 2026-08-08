@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0019",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -69,8 +69,11 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "Final release audit computes verified with no failed, stale, unknown, or unrun required check.",
+        "Annotated v0.0.19, peeled remote target, remote main, non-draft GitHub release, selected archive and checksum assets, downloaded public bytes, rendered pages, and fresh public-tag clone reconcile to the release-closure commit."
+      ]
     }
   ],
   "units": [
@@ -169,15 +172,15 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["verified candidate and release audit"],
       "outputs": ["verified public checkpoint"],
       "gates": {
         "reviewed_head_exact": true,
         "history_preserving_merge_exact": true,
-        "public_release_verified": false
+        "public_release_verified": true
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [
         "The first merged-main clone command selected the not-yet-created target as its process working directory and failed before execution. The corrected clone from C:/Projects/Verification began clean at the exact public merge.",
         "The first normalized-high merged-main package-dashboard frame showed only the lower incident-table strip. The unchanged original-detail view displayed the complete dashboard and passed visual inspection."
@@ -222,11 +225,13 @@
       "post-clone evidence-only regression passes all 17 validators, two complete 36-test executions, and fresh local source attempt 003 with exact 156-event anchor",
       "premerge release audit computes verified and PR 17 merges exact reviewed head 8530515266165ffd0d68021659ba5261fc42d154 with history preserved as 40ae2230834ba03a665d72b0308b8c64ea544b36",
       "fresh no-alternates public-main clone at 40ae2230834ba03a665d72b0308b8c64ea544b36 passes all 17 validators, 36 tests, source/package evaluations and anchors, exact archive rebuilds, bounded MCP, real surfaces, parsing, scans, and complete dashboard inspection"
+      ,
+      "final release audit, annotated v0.0.19 tag, peeled remote target, non-draft release, selected archive and checksum assets, downloaded public-byte identity, rendered pages, and fresh public-tag clone reconcile to the release-closure commit"
     ]
   },
   "handoff": {
-    "current_checkpoint": "exact baseline-0019 merged public main 40ae2230834ba03a665d72b0308b8c64ea544b36 passes source, package, real-surface, reproducibility, clean-clone, review, merge, and fresh public-main gates on top of verified public v0.0.18",
-    "next_action": "Commit and push merged-main evidence, run the final release-truth audit, then create and independently verify only the exact authorized tag, assets, rendered pages, downloads, and public-tag clone.",
+    "current_checkpoint": "verified public v0.0.19 release closure with selected f840d5a1 package bytes",
+    "next_action": "Begin the next cycle from public v0.0.19 by running the system and selecting one bounded measurable weakness.",
     "do_not_carry_forward": [
       "Do not change existing scenarios or runtime behavior to satisfy a coverage metric.",
       "Do not claim 30 scenarios satisfy the separate at-least-48-case v0.1.0 target.",
