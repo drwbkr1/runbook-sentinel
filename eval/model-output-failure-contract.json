@@ -234,5 +234,18 @@
     "remote model service, model tools, credentials, approval material, executor access, personal data, operational evidence, or real-infrastructure connector"
   ],
   "held_out_rule": "The eleven test cases are frozen before runtime implementation. Development cases may run after implementation; the generic implementation must be sealed before the first full 19-case reveal and before the single current local-model comparison.",
-  "candidate_results": null
+  "candidate_results": {
+    "attempt": "artifacts/evaluations/model-output-failures-baseline-0018-full-attempt-001.json",
+    "report_sha256": "6db141ba9cdfe00e58fb6b35503060b641a02502df03c8b9f9750306c4d360d3",
+    "report_bytes": 8680,
+    "contract_sha256_before_results": "f85afb84a693566aab1568bb5a26155d8574257c5a2d3346c6e9f433bba88945",
+    "case_count": 19,
+    "development_exact": 1.0,
+    "test_exact": 1.0,
+    "invalid_output_classification_rate": 1.0,
+    "valid_output_acceptance_rate": 1.0,
+    "unclassified_content_failure_count": 0,
+    "raw_content_retained": false,
+    "disposition": "pass"
+  }
 }

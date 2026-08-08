@@ -10,6 +10,8 @@
 - Froze `model-output-failure-taxonomy-v1` before adapter changes with 17 exact codes, 19 cases, eight development and eleven held-out test cases, two valid controls, digest-only raw-output retention, and unchanged fail-closed semantics. The independent validator passes with candidate results absent.
 - Implemented the closed taxonomy without changing parser acceptance or failure results. Non-content failures retain a null code; content rejection records one code; aggregate and split evaluation now expose exact counts, classification rate, and unclassified count under report schema 2.4.
 - Development-only attempt 001 passes all eight allowed cases exactly at SHA-256 `671e120fb59c0ef722d234b2905a71eda028507b6ae055c2301bbda91c2019b8`. All 35 tests pass, including aggregate/split metric checks and exclusion of a unique raw-content marker from both report and trace. The implementation is ready to seal before the first full reveal or local-model call.
+- Generic implementation seal `8ce268d` was pushed before any held-out execution or current local-model invocation. The first immutable full reveal then passed all 19 frozen cases exactly, with both splits at 1.0, classification and valid acceptance at 1.0, zero unclassified failures, and no raw content retained. The 8,680-byte report is SHA-256 `6db141ba9cdfe00e58fb6b35503060b641a02502df03c8b9f9750306c4d360d3`.
+- Froze and verified the 65-file baseline-0018 experiment manifest at SHA-256 `8bbcead24e4679b759b255ab3bf7140f1227fa1b4222d74073766162f913f62e`. The exact bytes are copied beside the pending model attempt before the sole current local-model evaluation.
 
 ## 2026-08-08 - BASELINE-0017 started
 

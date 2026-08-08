@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 from pathlib import Path
 
 
@@ -72,10 +73,60 @@ def main() -> None:
         allowed = case.get("allowed_document_ids")
         if not isinstance(allowed, list) or any(not isinstance(item, str) for item in allowed):
             errors.append(f"{case.get('case_id')}:allowed_document_ids_invalid")
-    if contract.get("candidate_results") is not None:
-        errors.append("candidate_results_must_be_absent_before_reveal")
+    candidate_results = contract.get("candidate_results")
+    candidate_results_status = "absent"
+    if candidate_results is not None:
+        candidate_results_status = "recorded"
+        expected_result_keys = {
+            "attempt",
+            "report_sha256",
+            "report_bytes",
+            "contract_sha256_before_results",
+            "case_count",
+            "development_exact",
+            "test_exact",
+            "invalid_output_classification_rate",
+            "valid_output_acceptance_rate",
+            "unclassified_content_failure_count",
+            "raw_content_retained",
+            "disposition",
+        }
+        if not isinstance(candidate_results, dict) or set(candidate_results) != expected_result_keys:
+            errors.append("candidate_results_shape_invalid")
+        else:
+            result_path = ROOT / candidate_results["attempt"]
+            if not result_path.is_file():
+                errors.append("candidate_result_missing")
+            else:
+                result_bytes = result_path.read_bytes()
+                result = json.loads(result_bytes)
+                if hashlib.sha256(result_bytes).hexdigest() != candidate_results["report_sha256"]:
+                    errors.append("candidate_result_sha256_mismatch")
+                if len(result_bytes) != candidate_results["report_bytes"]:
+                    errors.append("candidate_result_size_mismatch")
+                expected_values = {
+                    "case_count": result.get("case_count"),
+                    "development_exact": result.get("metrics", {}).get("development_exact"),
+                    "test_exact": result.get("metrics", {}).get("test_exact"),
+                    "invalid_output_classification_rate": result.get("metrics", {}).get(
+                        "invalid_output_classification_rate"
+                    ),
+                    "valid_output_acceptance_rate": result.get("metrics", {}).get(
+                        "valid_output_acceptance_rate"
+                    ),
+                    "unclassified_content_failure_count": result.get("metrics", {}).get(
+                        "unclassified_content_failure_count"
+                    ),
+                    "raw_content_retained": result.get("raw_content_retained"),
+                    "disposition": result.get("disposition"),
+                    "contract_sha256_before_results": result.get("contract_sha256"),
+                }
+                for field, expected_value in expected_values.items():
+                    if candidate_results[field] != expected_value:
+                        errors.append(f"candidate_results_{field}_mismatch")
     result = {
-        "candidate_results_absent": contract.get("candidate_results") is None,
+        "candidate_results_absent": candidate_results is None,
+        "candidate_results_status": candidate_results_status,
         "case_count": len(cases),
         "checkpoint": contract.get("checkpoint"),
         "contract": str(CONTRACT_PATH.relative_to(ROOT)),

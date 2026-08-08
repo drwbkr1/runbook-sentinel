@@ -32,7 +32,10 @@
 - The generic implementation adds one closed error code to parser exceptions and model metadata plus aggregate/split counts and classification completeness. It changes no parser acceptance, prompt, schema, generation option, result, proposal, or execution boundary.
 - Development attempt 001 passes all eight permitted cases exactly with classification rate 1.0, zero unclassified content failures, valid-output acceptance 1.0, and no raw content retained. The 4,088-byte record is SHA-256 `671e120fb59c0ef722d234b2905a71eda028507b6ae055c2301bbda91c2019b8`.
 - All 35 tests pass, including valid/invalid adapter metadata, non-content null-code behavior, aggregate and split counts, a deliberately unique raw-content marker excluded from report and trace, and every prior deterministic boundary.
-- Next eligible action: seal this generic implementation, then run the first full 19-case reveal and one current source-gated local-model comparison without adapting the implementation or frozen model contract.
+- Generic implementation seal `8ce268d` was pushed before any held-out case or current local-model call.
+- The first immutable full reveal passes all 19 cases exactly: development and held-out test exactness 1.0, invalid-output classification 1.0, valid-output acceptance 1.0, zero unclassified failures, and no raw content retained. The 8,680-byte report is SHA-256 `6db141ba9cdfe00e58fb6b35503060b641a02502df03c8b9f9750306c4d360d3`.
+- The sealed 65-file baseline-0018 experiment manifest passes at SHA-256 `8bbcead24e4679b759b255ab3bf7140f1227fa1b4222d74073766162f913f62e`; exact bytes are preserved beside the pending immutable model attempt.
+- Next eligible action: run one current source-gated local-model comparison without adapting the implementation, taxonomy, or frozen model contract.
 
 ### BASELINE-0017 live-trace endpoint-anchor gap and frozen contract
 

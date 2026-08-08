@@ -1,0 +1,297 @@
+{
+  "case_count": 19,
+  "cases": [
+    {
+      "actual": {
+        "accepted": true,
+        "error_code": null
+      },
+      "case_id": "dev-valid-nonproposal",
+      "content_sha256": "02d814ab01bac911917f17521bef55b4a129e3d8810529dfdd208da478779675",
+      "exact": true,
+      "expected": {
+        "accepted": true,
+        "error_code": null
+      },
+      "split": "development"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "error_code": "json_invalid"
+      },
+      "case_id": "dev-invalid-json",
+      "content_sha256": "021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96",
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "error_code": "json_invalid"
+      },
+      "split": "development"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "error_code": "top_level_not_object"
+      },
+      "case_id": "dev-top-level-not-object",
+      "content_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "error_code": "top_level_not_object"
+      },
+      "split": "development"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "error_code": "top_level_keys_mismatch"
+      },
+      "case_id": "dev-top-level-keys-mismatch",
+      "content_sha256": "1d1bcd5babbaba71a51b006d3dc5fefd065b0cce5677d598cd99e90aa7bf40ed",
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "error_code": "top_level_keys_mismatch"
+      },
+      "split": "development"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "error_code": "outcome_invalid"
+      },
+      "case_id": "dev-outcome-invalid",
+      "content_sha256": "6e5c634d0ca144a4cffb4a1624253106933942b8666cce3b3862c206c695772d",
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "error_code": "outcome_invalid"
+      },
+      "split": "development"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "error_code": "diagnosis_code_invalid"
+      },
+      "case_id": "dev-diagnosis-code-invalid",
+      "content_sha256": "0ef26999bfb407ba3d35077c3819bba49b593c3b3194e207b5aae4114d41c500",
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "error_code": "diagnosis_code_invalid"
+      },
+      "split": "development"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "error_code": "evidence_ids_invalid"
+      },
+      "case_id": "dev-evidence-ids-invalid",
+      "content_sha256": "9adb0bb1f88c586b40722ba9cf7e1b6819531b052d1c333928dcce9c4ecb7532",
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "error_code": "evidence_ids_invalid"
+      },
+      "split": "development"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "error_code": "evidence_ids_duplicate"
+      },
+      "case_id": "dev-evidence-ids-duplicate",
+      "content_sha256": "34558c86c8c2530e1503fed32d1f31883c1c25983246f5f7d5715d1facd42276",
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "error_code": "evidence_ids_duplicate"
+      },
+      "split": "development"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "error_code": "evidence_id_out_of_context"
+      },
+      "case_id": "test-evidence-id-out-of-context",
+      "content_sha256": "d21418fb41e8b0c2f60fc9e0b4178edd0cc1f3a98e927337245c0ae564b5b934",
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "error_code": "evidence_id_out_of_context"
+      },
+      "split": "test"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "error_code": "missing_evidence_invalid"
+      },
+      "case_id": "test-missing-evidence-invalid",
+      "content_sha256": "c062cf281533f93cbe448cd1899b430d0ed16f2e8ad367ff7104490e265c734c",
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "error_code": "missing_evidence_invalid"
+      },
+      "split": "test"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "error_code": "missing_evidence_duplicate"
+      },
+      "case_id": "test-missing-evidence-duplicate",
+      "content_sha256": "8e747d17f71ee2ae9c7ab41c4973917121820a56150bdffd05c19910f94ec100",
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "error_code": "missing_evidence_duplicate"
+      },
+      "split": "test"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "error_code": "missing_evidence_identifier_invalid"
+      },
+      "case_id": "test-missing-evidence-identifier-invalid",
+      "content_sha256": "7edc07b799067d29b2d3eeec79bf5414852943e6c88d99ec03e7bf37241f2176",
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "error_code": "missing_evidence_identifier_invalid"
+      },
+      "split": "test"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "error_code": "reason_invalid"
+      },
+      "case_id": "test-reason-invalid",
+      "content_sha256": "b46d044321c8c4096249915be6b02c351c7ef3468af4bd34ab07f6e26557211f",
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "error_code": "reason_invalid"
+      },
+      "split": "test"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "error_code": "proposal_shape_invalid"
+      },
+      "case_id": "test-proposal-shape-invalid",
+      "content_sha256": "6afdf69b17d3cdcb9d7869770e93f32923c6f935ff0cf5e7b956fea37a63a1d0",
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "error_code": "proposal_shape_invalid"
+      },
+      "split": "test"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "error_code": "proposal_action_invalid"
+      },
+      "case_id": "test-proposal-action-invalid",
+      "content_sha256": "cc5d17e343f5fd218624c0d6a741f11d969dc79e3fccf2e766105608b15c2ae1",
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "error_code": "proposal_action_invalid"
+      },
+      "split": "test"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "error_code": "proposal_capability_mismatch"
+      },
+      "case_id": "test-proposal-capability-mismatch",
+      "content_sha256": "6f6351cb22ad0aafcb7e6e1f7d9f628ecd580183106c7214ab861fb849d81f4f",
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "error_code": "proposal_capability_mismatch"
+      },
+      "split": "test"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "error_code": "proposal_arguments_invalid"
+      },
+      "case_id": "test-proposal-arguments-invalid",
+      "content_sha256": "793037848cef6680ad24b03298051125fa013f89cea92237111e2dc33702e1ab",
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "error_code": "proposal_arguments_invalid"
+      },
+      "split": "test"
+    },
+    {
+      "actual": {
+        "accepted": false,
+        "error_code": "proposal_nonnull_for_outcome"
+      },
+      "case_id": "test-proposal-nonnull-for-outcome",
+      "content_sha256": "2001f2c25492b7f8c03ab101527e33450ff6b400cc0b3e46964922b7a1475d2a",
+      "exact": true,
+      "expected": {
+        "accepted": false,
+        "error_code": "proposal_nonnull_for_outcome"
+      },
+      "split": "test"
+    },
+    {
+      "actual": {
+        "accepted": true,
+        "error_code": null
+      },
+      "case_id": "test-valid-proposal",
+      "content_sha256": "f499a2585903c97bf045d974f30d812ed0e9f2b61c6187baf939f837a9e0f743",
+      "exact": true,
+      "expected": {
+        "accepted": true,
+        "error_code": null
+      },
+      "split": "test"
+    }
+  ],
+  "checkpoint": "baseline-0018",
+  "contract_id": "model-output-failure-taxonomy-v1",
+  "contract_sha256": "f85afb84a693566aab1568bb5a26155d8574257c5a2d3346c6e9f433bba88945",
+  "disposition": "pass",
+  "evaluated_at_utc": "2026-08-08T18:02:19.706884Z",
+  "metrics": {
+    "development_exact": 1.0,
+    "exact_match_rate": 1.0,
+    "invalid_output_classification_rate": 1.0,
+    "test_exact": 1.0,
+    "unclassified_content_failure_count": 0,
+    "valid_output_acceptance_rate": 1.0
+  },
+  "raw_content_retained": false,
+  "requested_split": "all",
+  "schema_version": "1.0",
+  "split_metrics": {
+    "development": {
+      "case_count": 8,
+      "exact_match_rate": 1.0
+    },
+    "test": {
+      "case_count": 11,
+      "exact_match_rate": 1.0
+    }
+  }
+}

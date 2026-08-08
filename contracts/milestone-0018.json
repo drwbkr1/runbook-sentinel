@@ -147,8 +147,8 @@
       "inputs": ["sealed implementation", "frozen manifest", "ready local source gate"],
       "outputs": ["immutable taxonomy reveal", "immutable current model comparison"],
       "gates": {
-        "all_taxonomy_cases_exact": false,
-        "schema_invalid_classification_rate_one": false,
+        "all_taxonomy_cases_exact": true,
+        "schema_invalid_classification_rate_one": true,
         "local_model_invoked_once_after_seal": false,
         "model_default_selected_from_evidence": false
       },
@@ -201,7 +201,9 @@
       "the retained 49 of 54 schema-invalid model failures have no machine-readable content rejection code",
       "official Ollama 0.32.6, Ollama API and structured-output documentation, Meta Llama 3.2 model card, license, AUP, exact local signatures, manifest, and six blobs pass the source gate",
       "model-output-failure-taxonomy-v1 freezes 17 exact codes and 19 development/test cases before adapter implementation; the independent validator passes with candidate results absent",
-      "the bounded generic implementation passes all eight development cases, 35 regression tests, compilation, raw-marker exclusion, and aggregate/split classification checks; development evidence is 4,088 bytes at SHA-256 671e120fb59c0ef722d234b2905a71eda028507b6ae055c2301bbda91c2019b8"
+      "the bounded generic implementation passes all eight development cases, 35 regression tests, compilation, raw-marker exclusion, and aggregate/split classification checks; development evidence is 4,088 bytes at SHA-256 671e120fb59c0ef722d234b2905a71eda028507b6ae055c2301bbda91c2019b8",
+      "the first immutable full reveal passes all 19 frozen cases exactly with development and test exactness 1.0, classification rate 1.0, valid acceptance 1.0, zero unclassified failures, and no raw content retained; the 8,680-byte report is SHA-256 6db141ba9cdfe00e58fb6b35503060b641a02502df03c8b9f9750306c4d360d3",
+      "the 65-file baseline-0018 experiment manifest passes at SHA-256 8bbcead24e4679b759b255ab3bf7140f1227fa1b4222d74073766162f913f62e and is preserved beside the pending model attempt"
     ]
   },
   "handoff": {
