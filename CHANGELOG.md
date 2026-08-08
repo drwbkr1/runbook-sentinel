@@ -6,8 +6,9 @@
 - Add only the missing development-observability and held-out-test-database cases; preserve canonical identities for all 28 pre-change scenarios and terminal-state records.
 - Pass the first immutable reveal and final-manifest source/package 90-attempt evaluations with every prior gate and exact 156-event anchors.
 - Pass 36 tests, 17 validators, three-tool MCP, real loopback authentication/approval/executor/replay/postcondition flow, persisted state, audit, redaction, telemetry, endpoint anchors, and source/package dashboard inspection.
-- Retain the first packaged dashboard capture as a failed visual attempt because it contained only the lower incident-table strip despite machine checks passing; the unchanged rerun is complete.
+- Retain the image viewer's first table-strip frame and reconcile it against complete unchanged PNG bytes through pixel inspection and a full normalized-detail render.
 - Build two byte-identical dependency-free 34-entry, 423,787-byte zipapps at SHA-256 `f840d5a1ff4da1b1a1e61f0719c65925075af3a776cb52d29b890749848a70ab`.
+- Merge exact audited PR `#17` with history preserved, then pass fresh public-main source/package evaluation, exact archive rebuilds, MCP, authenticated API/executor/state/telemetry, parsing, scanning, and rendered-dashboard checks.
 
 ## 0.0.18 - 2026-08-08
 

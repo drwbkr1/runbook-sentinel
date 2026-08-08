@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0019",
+  "verified_at_utc": "2026-08-08T20:57:40Z",
+  "status": "pass",
+  "merge": {
+    "pull_request": 17,
+    "reviewed_head": "8530515266165ffd0d68021659ba5261fc42d154",
+    "prior_main": "5ac099f144e4a6ce368bb7d07c1bdd49b0d49dd0",
+    "merge_commit": "40ae2230834ba03a665d72b0308b8c64ea544b36",
+    "parents": [
+      "5ac099f144e4a6ce368bb7d07c1bdd49b0d49dd0",
+      "8530515266165ffd0d68021659ba5261fc42d154"
+    ],
+    "expected_head_lock_used": true,
+    "history_preserved": true
+  },
+  "clone": {
+    "path": "C:/Projects/Verification/runbook-sentinel-baseline-0019-main-40ae223-20260808T205300Z",
+    "commit": "40ae2230834ba03a665d72b0308b8c64ea544b36",
+    "initial_worktree_clean": true,
+    "git_alternates_present": false,
+    "clone_mode": "git clone --no-local --single-branch --branch main from the public GitHub repository"
+  },
+  "source_gate": {
+    "manifest_sha256": "adf637300cfbbda77b8c2b239313535899098f5a131a5ded7fdf334974b8ecbc",
+    "validators_passed": 17,
+    "test_count": 36,
+    "tests_passed": true,
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0019-attempt-004.json",
+    "evaluation_bytes": 547973,
+    "evaluation_sha256": "53856838a1093e88f5fbb896aeea93865e3c7eae4519c41ac1f011dd61e2a88c",
+    "trace_path": "artifacts/evaluations/runs/baseline-0019-attempt-004.traces.jsonl",
+    "trace_sha256": "3b8f58e166ebcdc261ce92b97423b09f0ae15f1e5598e0e8fa10df83087e6274",
+    "trace_event_count": 156,
+    "trace_final_event_sha256": "5053c7c14a74a56545dd5341374c2c5ee5a349fe27e26fdf33ccda2950308204",
+    "trace_anchor_independently_verified": true,
+    "scenario_attempt_count": 90,
+    "topology_split_coverage": 1.0,
+    "disposition": "pass"
+  },
+  "package_gate": {
+    "package_contract_sha256": "e059cf9e70637cce8217135b7ffb08107def5900409734d9dfa2044604666336",
+    "archive_paths": [
+      "dist/runbook-sentinel-0.0.19-main-build-001.pyz",
+      "dist/runbook-sentinel-0.0.19-main-build-002.pyz"
+    ],
+    "archive_bytes": 423787,
+    "archive_sha256": "f840d5a1ff4da1b1a1e61f0719c65925075af3a776cb52d29b890749848a70ab",
+    "selected_archive_sha256_exact": true,
+    "independent_builds_byte_identical": true,
+    "entry_count": 34,
+    "runtime_dependencies": [],
+    "validators_passed": 17,
+    "test_count": 36,
+    "tests_passed": true,
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0019-package-attempt-002.json",
+    "evaluation_bytes": 547987,
+    "evaluation_sha256": "0f0b09b909a2a181096a8714305a21bade6691f7a6bda7e96db9723488abd371",
+    "trace_path": "artifacts/evaluations/runs/baseline-0019-package-attempt-002.traces.jsonl",
+    "trace_sha256": "1b5fbbe172cae3352d72e26b9e98de298fde3ff9972b6458dfc9df01699f1dfa",
+    "trace_event_count": 156,
+    "trace_final_event_sha256": "5a9f309b69a53cfea260138b62a1ab4bdb2a353c9ae749fa1787f453b2fd344a",
+    "trace_anchor_independently_verified": true,
+    "scenario_attempt_count": 90,
+    "topology_split_coverage": 1.0,
+    "disposition": "pass"
+  },
+  "real_surfaces": {
+    "source_and_package_mcp_version": "0.0.19",
+    "source_and_package_mcp_protocol": "2025-11-25",
+    "source_and_package_mcp_tool_count": 3,
+    "mcp_approval_or_execution_tool_exposed": false,
+    "source_mcp_trace_final_event_sha256": "b6ed46f8cf0fe4ff88098bfeeab662903700652b93faa062223910821539d33c",
+    "source_mcp_anchor_sha256": "14fce5c39e4561c35827aa09deccc1de0b0f2755ae2e501313ad3586b9bb23fe",
+    "package_mcp_trace_final_event_sha256": "a1bcbaee0eeb23c5a8e5de2f8a55892b2eb92d688d50a5e5b63ada953e2ee0f2",
+    "package_mcp_anchor_sha256": "f910846879ab159002e5ae1aedd1cf3547439a5a7656a6b3c2b9b1d89ef01fc0",
+    "source_and_package_http_authentication_approval_execution_replay_postconditions_pass": true,
+    "source_and_package_sqlite_state_and_audit_pass": true,
+    "source_and_package_api_trace_chain_valid": true,
+    "source_and_package_api_trace_endpoint_anchored": true,
+    "source_api_trace_final_event_sha256": "295a09c47e5e48b156df33534745266174e98c67c73c75d36969c11a32e96f95",
+    "source_api_anchor_sha256": "41df33ce98064f71e7519577140822871d898dd8ce114da8a2e4a71ac3cb3276",
+    "package_api_trace_final_event_sha256": "4897120f9c35b8ae1680ce5a52b9e9bc9b94e0ee22166a480da9090a8a2101e8",
+    "package_api_anchor_sha256": "de287753e1b2025f730d29add43acccca5fa1a8cb28d16b76e8b378df9f81a88",
+    "source_and_package_evaluation_companion_trace_anchor_exact": true,
+    "forbidden_authentication_material_absent": true,
+    "source_native_receipt_sha256": "f361fd146fba0277a28e94952790d77b59b8784cfc6dbd5c602ca8d9a3d5d413",
+    "package_native_receipt_sha256": "381bca0eec300036a87810396fb55160c415de35e47059a8ac919de927da3684"
+  },
+  "rendered_dashboards": {
+    "dimensions": [1440, 1000],
+    "source_path": "artifacts/verification/dashboard-baseline-0019-main-source.png",
+    "source_bytes": 76327,
+    "source_sha256": "c8da167fbd1131e5153454c3d25e845a5d391ad4b4b3cf969c30f464c19eff6b",
+    "package_path": "artifacts/verification/dashboard-baseline-0019-main-package.png",
+    "package_bytes": 76657,
+    "package_sha256": "031047387a20fc7016fbcd1a95ddaa746af03efd5ae3012d26be814103fedb8f",
+    "visual_inspection": "pass: Baseline 0019, evaluation pass, topology split coverage 1.0, all required exact metrics, authenticated external operator, disconnected real infrastructure, and both complete persisted-incident rows are legible and internally consistent"
+  },
+  "artifact_parsing": {
+    "tracked_files": 549,
+    "json_files": 350,
+    "jsonl_files": 81,
+    "jsonl_records": 9862,
+    "status": "pass"
+  },
+  "security_scan": {
+    "model_artifact_count": 0,
+    "credential_shaped_matches_outside_frozen_forbidden_pattern_definitions": 0,
+    "status": "pass"
+  },
+  "retained_observations": [
+    {
+      "stage": "clone invocation",
+      "result": "command_error",
+      "detail": "The first clone command selected the not-yet-created target as its process working directory and failed before execution. The corrected command ran from C:/Projects/Verification and created the exact clean clone."
+    },
+    {
+      "stage": "dashboard image viewer",
+      "result": "non_fatal_viewer_artifact",
+      "detail": "The first normalized-high package frame displayed only the lower incident-table strip. Reopening the same unchanged 1440 by 1000 bytes at original detail displayed the complete dashboard and passed visual inspection."
+    }
+  ],
+  "non_claims": [
+    "The unkeyed trace chain and sibling endpoint do not authenticate the writer or resist full chain-and-anchor recomputation.",
+    "Thirty scenarios do not satisfy the separate at-least-48-case v0.1.0 target.",
+    "The checkpoint remains a synthetic-only research-informed preview and is not authorized for real operational infrastructure."
+  ]
+}

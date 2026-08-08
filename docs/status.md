@@ -2,18 +2,18 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `codex/baseline-0019-split-topology-coverage`
+- Branch: `codex/baseline-0019-release-closure`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0018`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.18`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
 - Candidate version: `0.0.19` / `baseline-0019`; locally versioned, not yet released
 - Active milestone: `BASELINE-0019` split-aware topology coverage
-- Current unit: `UNIT-005` ready
-- Disposition: baseline-0019 source, package, real-surface, reproducibility, and remote-only clean-clone candidate gates `pass`; review, merge, and public release pending; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Current unit: `UNIT-005` in progress
+- Disposition: baseline-0019 source, package, real-surface, reproducibility, remote-only clean-clone, exact review/merge, and merged-public-main gates `pass`; tag and public release verification pending; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: verified baseline-0018 release closure
-- GitHub pull request: `#16`, merged with history preserved under expected-head lock `f13c0c26e3e3892b84675952d65da173513ea507`
+- GitHub `main`: verified baseline-0019 merge commit `40ae2230834ba03a665d72b0308b8c64ea544b36`; release closure not yet published
+- GitHub pull request: `#17`, merged with history preserved under expected-head lock `8530515266165ffd0d68021659ba5261fc42d154`
 - GitHub release: public, non-draft `v0.0.18` with verified `.pyz` and `.sha256` assets
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
@@ -47,9 +47,12 @@
 - Clean-clone source report/trace SHA-256 values are `3f6373791df30fd17502a55323fac003f907eccc71f8553558c0e4dcd70a4e9c` / `54ca493973ddf065197ce3781367c68257564bc4cab6b89951ddb24e2bc417ad`; package values are `62a558d064a01fcb6280f44e36a0b9bbbba3b5d39db0cfb87a61554bd25aebe1` / `26ea9afd53c66eb3888da021a8aef209868e5cfb8d77fc5f5dfa07aae6498544`. Both independent clone rebuilds reproduce the selected 423,787-byte archive exactly at SHA-256 `f840d5a1ff4da1b1a1e61f0719c65925075af3a776cb52d29b890749848a70ab`.
 - The clean clone parses 347 JSON files and 9,706 records across 80 JSONL files without error. Its corrected high-signal scan has zero matches outside ten frozen package-contract definition records, zero model artifacts are present, and the exact receipt is `artifacts/verification/clean-clone-baseline-0019.json`.
 - The first combined post-clone regression wrapper reached its 124-second command ceiling while output remained buffered; it produced no complete result and changed no contract or implementation. The unchanged-tree rerun completed in 168.6 seconds: 17 validators pass, both 36-test executions pass, and fresh local source attempt 003 passes all 90 scenario attempts with report/trace SHA-256 `454d11ed1c0760d991e434b4d8c0fbf2a8720613ba6444504a178196270ad8a5` / `e1d7961e412781059115a350d9fde215e0450b824ec0f47565635fbf96c10eed` and final event `9a5550734ef7eba6ac4ea31004412d1a0dcb53ce36d56dbc35074982e3d5e551`.
+- Premerge audit `artifacts/verification/release-audit-baseline-0019-premerge.json` computes `verified`. PR `#17` contained 65 exact paths and seven commits, reached ready/CLEAN/MERGEABLE with no configured checks, and merged under expected-head lock as `40ae2230834ba03a665d72b0308b8c64ea544b36` with prior main and reviewed head as its exact parents.
+- A fresh public-main clone at `C:\Projects\Verification\runbook-sentinel-baseline-0019-main-40ae223-20260808T205300Z` began clean with no object alternates. It passes 17 validators, 36 tests, source and package 90-attempt evaluations with exact 156-event anchors, two exact selected-archive rebuilds, bounded MCP, authenticated API/approval/executor/state/telemetry, 350 JSON and 9,862 records across 81 JSONL files, zero credential/model findings, and complete source/package dashboard inspection.
+- Merged-main source report/trace SHA-256 values are `53856838a1093e88f5fbb896aeea93865e3c7eae4519c41ac1f011dd61e2a88c` / `3b8f58e166ebcdc261ce92b97423b09f0ae15f1e5598e0e8fa10df83087e6274`; package values are `0f0b09b909a2a181096a8714305a21bade6691f7a6bda7e96db9723488abd371` / `1b5fbbe172cae3352d72e26b9e98de298fde3ff9972b6458dfc9df01699f1dfa`. The exact receipt is `artifacts/verification/merged-main-baseline-0019.json`.
 - Retained development observations: direct stale-payload and post-candidate trace-verifier invocations each omitted `PYTHONPATH` before corrected passes; the first complete unit attempt retained two harness failures after a one-second timeout left the manifest on baseline-0018 and the exact-outcome fixture omitted the two already-frozen IDs. The corrected 71-file manifest and 36-test rerun pass without product-behavior changes.
 - The first standalone public-v0.0.18 trace verifier likewise omitted `PYTHONPATH` and stopped at import before its corrected pass. Docker client 29.4.3 remains installed while its daemon is unavailable, so no container claim is made.
-- Next eligible action: commit and push the exact locally verified candidate, then reproduce it from a remote-only clean clone before review or publication.
+- Next eligible action: commit and push merged-main evidence, run the final release-truth audit, then publish and verify only the exact release closure.
 
 ### BASELINE-0018 model-failure observability gap and frozen contract
 

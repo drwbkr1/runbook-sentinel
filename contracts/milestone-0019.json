@@ -169,16 +169,19 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "ready",
+      "status": "in_progress",
       "inputs": ["verified candidate and release audit"],
       "outputs": ["verified public checkpoint"],
       "gates": {
-        "reviewed_head_exact": false,
-        "history_preserving_merge_exact": false,
+        "reviewed_head_exact": true,
+        "history_preserving_merge_exact": true,
         "public_release_verified": false
       },
       "disposition": null,
-      "retained_failures": []
+      "retained_failures": [
+        "The first merged-main clone command selected the not-yet-created target as its process working directory and failed before execution. The corrected clone from C:/Projects/Verification began clean at the exact public merge.",
+        "The first normalized-high merged-main package-dashboard frame showed only the lower incident-table strip. The unchanged original-detail view displayed the complete dashboard and passed visual inspection."
+      ]
     }
   ],
   "verification": {
@@ -216,12 +219,14 @@
       "source and package MCP, real API, state, audit, redaction, telemetry, endpoint-anchor, native, and selected dashboard gates pass; the first viewer-framing artifact remains retained and reconciled against complete PNG bytes",
       "remote-only clean clone of exact candidate 4dd8ea92157bbd28cd02e2bf8301e9098da3dd67 begins clean without object alternates, passes 17 validators and 36 tests, reproduces source/package 90-attempt evaluations and exact 156-event anchors, and passes bounded MCP, real surfaces, artifact parsing, security scans, and complete rendered dashboards",
       "two independent clean-clone builds reproduce the selected 34-entry 423787-byte archive exactly at SHA-256 f840d5a1ff4da1b1a1e61f0719c65925075af3a776cb52d29b890749848a70ab",
-      "post-clone evidence-only regression passes all 17 validators, two complete 36-test executions, and fresh local source attempt 003 with exact 156-event anchor"
+      "post-clone evidence-only regression passes all 17 validators, two complete 36-test executions, and fresh local source attempt 003 with exact 156-event anchor",
+      "premerge release audit computes verified and PR 17 merges exact reviewed head 8530515266165ffd0d68021659ba5261fc42d154 with history preserved as 40ae2230834ba03a665d72b0308b8c64ea544b36",
+      "fresh no-alternates public-main clone at 40ae2230834ba03a665d72b0308b8c64ea544b36 passes all 17 validators, 36 tests, source/package evaluations and anchors, exact archive rebuilds, bounded MCP, real surfaces, parsing, scans, and complete dashboard inspection"
     ]
   },
   "handoff": {
-    "current_checkpoint": "exact baseline-0019 candidate 4dd8ea92157bbd28cd02e2bf8301e9098da3dd67 passes source, package, real-surface, reproducibility, and remote-only clean-clone gates on top of verified public v0.0.18",
-    "next_action": "Commit and push the clean-clone receipt, run the release-truth premerge audit, then review, merge, release, and independently verify only the exact passing checkpoint.",
+    "current_checkpoint": "exact baseline-0019 merged public main 40ae2230834ba03a665d72b0308b8c64ea544b36 passes source, package, real-surface, reproducibility, clean-clone, review, merge, and fresh public-main gates on top of verified public v0.0.18",
+    "next_action": "Commit and push merged-main evidence, run the final release-truth audit, then create and independently verify only the exact authorized tag, assets, rendered pages, downloads, and public-tag clone.",
     "do_not_carry_forward": [
       "Do not change existing scenarios or runtime behavior to satisfy a coverage metric.",
       "Do not claim 30 scenarios satisfy the separate at-least-48-case v0.1.0 target.",
