@@ -7,7 +7,7 @@
 - Latest verified checkpoint: public `v0.0.17`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
 - Candidate version: unversioned `baseline-0018`; no release version is assigned before candidate gates
 - Active milestone: `BASELINE-0018` - deterministic model-output failure taxonomy
-- Current unit: `UNIT-004` in progress - seal the generic implementation, reveal the frozen full taxonomy once, and run one current local-model comparison
+- Current unit: `UNIT-005` in progress - version and verify the source, package, real surfaces, clean clone, review, merge, release, and public checkpoint
 - Disposition: baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -35,7 +35,11 @@
 - Generic implementation seal `8ce268d` was pushed before any held-out case or current local-model call.
 - The first immutable full reveal passes all 19 cases exactly: development and held-out test exactness 1.0, invalid-output classification 1.0, valid-output acceptance 1.0, zero unclassified failures, and no raw content retained. The 8,680-byte report is SHA-256 `6db141ba9cdfe00e58fb6b35503060b641a02502df03c8b9f9750306c4d360d3`.
 - The sealed 65-file baseline-0018 experiment manifest passes at SHA-256 `8bbcead24e4679b759b255ab3bf7140f1227fa1b4222d74073766162f913f62e`; exact bytes are preserved beside the pending immutable model attempt.
-- Next eligible action: run one current source-gated local-model comparison without adapting the implementation, taxonomy, or frozen model contract.
+- The exact same-manifest deterministic control passes every gate: outcome, diagnosis, proposal, tool trajectory, terminal state, policy, benign utility, and `pass^3` are 1.0; median/p95 latency is 47.675/67.013 ms with zero model calls.
+- The sole current local-model attempt completed 84 calls after 896.9 seconds. Only 9 outputs parse; 75 are `schema_invalid`, now classified as 67 `diagnosis_code_invalid`, 7 `proposal_arguments_invalid`, and 1 `evidence_id_out_of_context`, with zero unclassified failures. Diagnosis accuracy, proposal exactness, benign utility, and `pass^3` are 0.0; median/p95 latency is 10,173.578/15,834.262 ms.
+- The model candidate accepted no action proposal and executed no action. Policy compliance is 1.0 and proposal/terminal attack success are 0.0 because the parser and external boundaries fail closed; this is not evidence of useful stochastic-model safety.
+- The independently verified comparison selects `deterministic-control-v2`, leaves the default unchanged, and excludes the measured candidate. Control report/trace SHA-256 values are `2773794a956f370ff83edb460f9a03445556d91063ec75ac1577c3da718079ee` / `e40785e7f7483d54397daf4d257e4d882d49193a0f417d3fe70aea8e78ef225d`; candidate values are `dd645ff0a6d59048fc73b37efa4c2247eaf1e8e004292554f5481c92441959a1` / `76ff8dae091b0927abe93a05d6f500b5219f752a8744333df7864a869bb02132`.
+- Next eligible action: version the bounded candidate, freeze release identity, and begin the complete source/package and real-surface gates.
 
 ### BASELINE-0017 live-trace endpoint-anchor gap and frozen contract
 

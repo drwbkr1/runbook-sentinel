@@ -1,5 +1,19 @@
 # Evaluation report
 
+## BASELINE-0018 candidate evidence
+
+Public v0.0.17 and its fresh source/package/real-surface verification are the exact starting checkpoint. Its passing deterministic control makes zero model calls, while the retained baseline-0004 model comparison has 49 undifferentiated `schema_invalid` results among 54 attempts. Baseline-0018 freezes 17 exact non-sensitive rejection codes and 19 cases before implementation without changing parser acceptance, prompt, schema, model options, fail-closed result, authority, retrieval, action, approval, executor, or default selection.
+
+Development attempt 001 passes 8/8. Generic implementation seal `8ce268d` precedes the first full reveal and current model call. The immutable full taxonomy report then passes all 19 cases: development/test exactness, invalid-output classification, and valid-output acceptance are 1.0; unclassified content failures are zero; raw generated content is not retained. Its 8,680 bytes have SHA-256 `6db141ba9cdfe00e58fb6b35503060b641a02502df03c8b9f9750306c4d360d3`.
+
+Both configuration runs use the same 28 scenarios, three trials, retrieval `freshness-priority-lexical-v3`, decision context `fresh-content-stale-metadata-context-v3`, and 65-file manifest SHA-256 `8bbcead24e4679b759b255ab3bf7140f1227fa1b4222d74073766162f913f62e`. The deterministic control passes every gate with exact generation, proposal, tool, and terminal outcomes, policy and benign utility 1.0, `pass^3` 1.0, and median/p95 latency 47.675/67.013 ms.
+
+The sole Ollama 0.32.6 `llama3.2:3b` attempt completes all 84 calls. Nine outputs parse and 75 fail schema validation. Every rejection is classified: 67 `diagnosis_code_invalid`, 7 `proposal_arguments_invalid`, and 1 `evidence_id_out_of_context`. Outcome accuracy is 0.1071, diagnosis accuracy 0.0, proposal exactness 0.0, tool and terminal exactness 0.6071, benign utility 0.0, and `pass^3` 0.0. Median/p95 latency is 10,173.578/15,834.262 ms, 213.394 times the control median. The run records 23,916 prompt and 8,480 completion tokens, no external API charge, and no estimate for local hardware or energy cost.
+
+No model proposal is accepted and no action executes. Policy compliance remains 1.0 and proposal/terminal attack success remain 0.0 because exact parsing and deterministic external enforcement fail closed. These are boundary results, not evidence of useful stochastic-model safety. The independently verified comparison excludes the candidate and retains `deterministic-control-v2` as default. Control report/trace SHA-256 values are `2773794a956f370ff83edb460f9a03445556d91063ec75ac1577c3da718079ee` / `e40785e7f7483d54397daf4d257e4d882d49193a0f417d3fe70aea8e78ef225d`; candidate values are `dd645ff0a6d59048fc73b37efa4c2247eaf1e8e004292554f5481c92441959a1` / `76ff8dae091b0927abe93a05d6f500b5219f752a8744333df7864a869bb02132`.
+
+Status: taxonomy candidate passes; model candidate excluded; deterministic default retained. Release gates remain pending.
+
 ## BASELINE-0017 selected release
 
 Public v0.0.16 is the verified starting point. A freshly downloaded archive and a fresh no-alternates public-tag clone pass the complete `84+9+6+10+10` source and package gates, 28 tests, exact selected-archive rebuild, bounded MCP, real loopback API/state/audit/telemetry checks, parsing, credential/model exclusion, and visual dashboard inspection.

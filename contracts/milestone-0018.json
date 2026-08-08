@@ -143,16 +143,16 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_model_evaluation",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["sealed implementation", "frozen manifest", "ready local source gate"],
       "outputs": ["immutable taxonomy reveal", "immutable current model comparison"],
       "gates": {
         "all_taxonomy_cases_exact": true,
         "schema_invalid_classification_rate_one": true,
-        "local_model_invoked_once_after_seal": false,
-        "model_default_selected_from_evidence": false
+        "local_model_invoked_once_after_seal": true,
+        "model_default_selected_from_evidence": true
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [],
       "next_dependency": "UNIT-005"
     },
@@ -162,7 +162,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": ["verified bounded candidate and release audit"],
       "outputs": ["verified public checkpoint"],
       "gates": {
@@ -203,12 +203,15 @@
       "model-output-failure-taxonomy-v1 freezes 17 exact codes and 19 development/test cases before adapter implementation; the independent validator passes with candidate results absent",
       "the bounded generic implementation passes all eight development cases, 35 regression tests, compilation, raw-marker exclusion, and aggregate/split classification checks; development evidence is 4,088 bytes at SHA-256 671e120fb59c0ef722d234b2905a71eda028507b6ae055c2301bbda91c2019b8",
       "the first immutable full reveal passes all 19 frozen cases exactly with development and test exactness 1.0, classification rate 1.0, valid acceptance 1.0, zero unclassified failures, and no raw content retained; the 8,680-byte report is SHA-256 6db141ba9cdfe00e58fb6b35503060b641a02502df03c8b9f9750306c4d360d3",
-      "the 65-file baseline-0018 experiment manifest passes at SHA-256 8bbcead24e4679b759b255ab3bf7140f1227fa1b4222d74073766162f913f62e and is preserved beside the pending model attempt"
+      "the 65-file baseline-0018 experiment manifest passes at SHA-256 8bbcead24e4679b759b255ab3bf7140f1227fa1b4222d74073766162f913f62e and is preserved beside both comparison attempts",
+      "the same-manifest deterministic control passes every gate, utility 1.0, pass^3 1.0, and median latency 47.675 ms; the sole current model attempt is classified completely but has only 9 of 84 valid outputs, diagnosis accuracy 0.0, utility 0.0, pass^3 0.0, and median latency 10,173.578 ms",
+      "the model candidate accepted and executed no action; policy compliance and attack success remain separately measured, and zero attack success is attributed only to fail-closed external enforcement, not useful model safety",
+      "the independent comparison verifier passes and retains the deterministic control as default while excluding the measured model candidate"
     ]
   },
   "handoff": {
     "current_checkpoint": "verified public v0.0.17 release closure at 7bf9846 with selected 271242d6 package bytes",
-    "next_action": "Seal the generic implementation, then run the first full 19-case reveal and the one authorized current local-model comparison without adapting the implementation or frozen model contract.",
+    "next_action": "Version the bounded candidate, refreeze release identity, then run complete source, package, real-surface, clean-clone, review, merge, release, and public-verification gates.",
     "do_not_carry_forward": [
       "Do not alter parser acceptance or reinterpret a classified rejection as valid output.",
       "Do not store raw model output, supply tools, expose approval material, or change the deterministic default.",

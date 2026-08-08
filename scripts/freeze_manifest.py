@@ -59,6 +59,7 @@ FILES = [
     "scripts/verify_trace_integrity_contract.py",
     "scripts/verify_live_trace_anchor_contract.py",
     "scripts/verify_model_output_failure_contract.py",
+    "scripts/verify_model_comparison.py",
     "scripts/verify_evaluation_trace.py",
     "scripts/verify_evidence_conditions.py",
     "scripts/verify_behavioral_relations.py",
