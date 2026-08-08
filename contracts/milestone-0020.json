@@ -139,6 +139,8 @@
       "action-split-coverage-v1 is frozen before implementation with candidate results absent, all 30 prior scenario and terminal identities composed exactly, and its independent validator passing"
       ,
       "the generic implementation is sealed without a held-out run: static validators report 31 exact cases, 6-of-6 action/split pairs, all 30 prior identities unchanged, and one focused fail-closed unit test passing"
+      ,
+      "the 76-file pre-reveal evaluation manifest is frozen and verified at SHA-256 d8980eb7c26b0f8dd3f8361d1f0a9a9157405d320670cb363113c37b74ad28d5"
     ]
   },
   "handoff": {

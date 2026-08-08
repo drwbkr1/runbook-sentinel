@@ -30,6 +30,7 @@
 - The prior approved ACL behavioral-testing source is reused only for the narrow aggregate-metrics rationale; no external paper, code, data, model, package, service, or credential is imported.
 - The generic implementation adds `action-split-coverage-v1` to the catalog/evaluator, counts only expected executable actions whose terminal contract agrees, reports exact counts and missing pairs, adds four hard gates and a dashboard metric, and introduces the one frozen case. Static validators report 31 exact cases, 6-of-6 action/split coverage, all 30 pre-change identities unchanged, and one focused fail-closed unit test passing.
 - The first broader static run is retained because the terminal validator still expected 11 actionable cases. Updating only that frozen count to 12 produced a pass; no held-out agent result was inspected and candidate results remain absent.
+- The 76-file pre-reveal evaluation manifest is frozen and verifies at SHA-256 `d8980eb7c26b0f8dd3f8361d1f0a9a9157405d320670cb363113c37b74ad28d5`; its frozen time is `2026-08-08T21:38:01Z` and precedes the first full candidate evaluation.
 
 ### BASELINE-0019 split-topology coverage gap and frozen contract
 

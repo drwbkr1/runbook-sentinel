@@ -739,3 +739,4 @@
 - Froze `action-split-coverage-v1` before implementation with candidate results absent and exact composed identities for all 30 prior scenarios and terminal-state records. The independent validator passes.
 - Implemented the generic action-by-split grader, four fail-closed gates, the dashboard metric, one focused unit test, and only the exact frozen held-out case. Static validation reaches 6 of 6 action/split pairs while all 30 prior scenario and terminal hashes remain exact.
 - Retained the first broader static run, which stopped because the terminal validator still required 11 actionable cases. The contract-prescribed case makes 12; updating only that declared count passed the unchanged static suite. No held-out agent result has been revealed yet.
+- Froze and verified the 76-file pre-reveal manifest at SHA-256 `d8980eb7c26b0f8dd3f8361d1f0a9a9157405d320670cb363113c37b74ad28d5` before the first full candidate run.
