@@ -1,8 +1,8 @@
 # Roadmap
 
-## Active checkpoint baseline-0015 - approval authority truth
+## Completed checkpoint baseline-0015 - approval authority truth
 
-Public v0.0.14 exposed an unauthenticated caller-declared approval actor. The explicitly approved baseline-0015 candidate now requires one project-specific per-launch `Sentinel-Capability` before approval-body parsing, rejects caller identity, derives the persisted launch identity server-side, and labels the boundary `authenticated external operator`. The raw capability remains outside the agent, model, MCP, arguments, environment, repository, package, persistence, audit, traces, logs, evaluation records, and dashboard. All 24 tests, 51-file manifest checks, source/package 84+9+6+10 evaluations, bounded MCP, real approval/executor/state/telemetry surfaces, 28-entry byte-identical archive builds, rendered dashboards, and no-alternates clean-clone gates pass. Baseline 0015 now proceeds at UNIT-005 for review and public release verification; public v0.0.14 remains authoritative until those gates pass.
+Public v0.0.14 exposed an unauthenticated caller-declared approval actor. Baseline-0015 requires one project-specific per-launch `Sentinel-Capability` before approval-body parsing, rejects caller identity, derives the persisted launch identity server-side, and labels the boundary `authenticated external operator`. The raw capability remains outside the agent, model, MCP, arguments, environment, repository, package, persistence, audit, traces, logs, evaluation records, and dashboard. All 24 tests, 51-file manifest checks, source/package 84+9+6+10 evaluations, bounded MCP, real approval/executor/state/telemetry surfaces, 28-entry byte-identical archive builds, rendered dashboards, no-alternates clones, reviewed merge, selected asset, downloaded-byte, and rendered-public gates pass. The next checkpoint remains intentionally unchosen until a fresh run of public v0.0.15 exposes one measurable weakness.
 
 ## Completed checkpoint baseline-0014 - idempotency cache authorization
 

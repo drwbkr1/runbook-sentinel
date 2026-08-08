@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0015",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -50,7 +50,7 @@
     }
   ],
   "exit_conditions": [
-    {"id": "EXIT-001", "status": "pending", "evidence": []}
+    {"id": "EXIT-001", "status": "pass", "evidence": ["v0.0.15 release closure, annotated tag, public assets, downloaded bytes, rendered pages, and fresh public-tag clone reconcile"]}
   ],
   "units": [
     {
@@ -112,8 +112,10 @@
       "depends_on": ["UNIT-004"],
       "action_class": "github_push",
       "human_gate": false,
-      "status": "ready",
-      "outputs": ["verified public checkpoint"]
+      "status": "complete",
+      "outputs": ["verified public checkpoint"],
+      "gates": {"reviewed_head_exact": true, "history_preserving_merge_exact": true, "merged_main_pass": true, "annotated_tag_exact": true, "public_assets_exact": true, "downloaded_bytes_exact": true, "rendered_public_pages_exact": true, "public_tag_clone_pass": true},
+      "disposition": "pass"
     }
   ],
   "verification": {
@@ -165,11 +167,11 @@
       "artifacts/verification/merged-main-baseline-0015.json",
       "artifacts/verification/release-audit-baseline-0015.json"
     ],
-    "disposition": "ready"
+    "disposition": "pass"
   },
   "handoff": {
-    "latest_verified_checkpoint": "public v0.0.14 release closure with selected 9c9dbcba package bytes",
-    "active_weakness": "closed in the verified baseline-0015 candidate; public v0.0.14 remains authoritative until release reconciliation",
-    "resume_rule": "Resume at UNIT-005 from the verified merged-main audit. Publish and immediately verify only the exact v0.0.15 closure commit, selected archive, and checksum without reopening implementation."
+    "latest_verified_checkpoint": "public v0.0.15 release closure with selected 0e4d12cd package bytes",
+    "active_weakness": "none selected; the next cycle must run the public checkpoint before choosing work",
+    "resume_rule": "Resume from public v0.0.15 by running the system, inspecting traces and separate evaluation results, and selecting one highest-leverage measurable weakness before changing code."
   }
 }

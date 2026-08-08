@@ -1,6 +1,6 @@
 # Evaluation report
 
-## BASELINE-0015 selected release candidate
+## BASELINE-0015 selected release
 
 The approved candidate protects approval creation with a project-specific per-launch `Sentinel-Capability`. Authentication occurs before body parsing; exactly one current-launch value is required; caller `actor` is forbidden; and persisted approval identity is derived server-side as a launch-scoped `operator-[0-9a-f]{16}` value. The agent, model, and MCP receive neither the capability nor approval authority, and the rendered boundary says `authenticated external operator` rather than claiming proof of human presence.
 
@@ -10,7 +10,7 @@ Selected source attempt 002 and package attempt 002 bind 51-file manifest SHA-25
 
 Two independent 326,418-byte zipapps contain exactly 28 allowlisted entries and are byte-identical at SHA-256 `0e4d12cd449c8e198ec9434fd12ba3bffc10b8baa609f18c6f71d0d4200da4df`. Source and package gates and declared non-latency metrics match. Source and package MCP expose only three diagnostic/read tools. Their real loopback API, approval, executor, persisted state, audit, telemetry, logs, and 1440 by 1000 dashboard receipts pass; visual inspection confirms Baseline 0015, operator authentication 1.0, `authenticated external operator`, and disconnected real infrastructure.
 
-A public-branch clone of exact commit `fcae2740f968db0ef7f35936feebb30cb156e5a5` started clean, has no Git alternates, passes all 24 tests and the full 84+9+6+10 gate, reproduces the selected archive exactly, and passes package MCP and real surfaces. Superseded manifest, package, import-path, parity, and PowerShell receipt attempts remain retained. Status: `ready` for reviewed merge and public-release verification; public v0.0.14 remains the latest verified public checkpoint until those gates pass.
+A public-branch clone of exact runtime candidate `fcae2740f968db0ef7f35936feebb30cb156e5a5` started clean, has no Git alternates, passes all 24 tests and the full 84+9+6+10 gate, reproduces the selected archive exactly, and passes package MCP and real surfaces. PR `#13` merged the exact reviewed head with history preserved, and a fresh public-main clone repeated the complete gate. The annotated tag, selected assets, downloaded bytes, rendered public pages, and fresh public-tag clone reconcile to the release closure. Superseded manifest, package, import-path, parity, and PowerShell receipt attempts remain retained. Status: public baseline-0015 v0.0.15 is the latest verified checkpoint.
 
 ## BASELINE-0015 approval-authority pre-change result
 

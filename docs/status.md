@@ -3,18 +3,18 @@
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
 - Branch: `main`
-- Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0014`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
-- Latest verified checkpoint: public `v0.0.14`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Candidate version: `0.0.15` / `baseline-0015`; source, package, real-surface, rendered-dashboard, and no-alternates clean-clone gates pass
-- Active milestone: `BASELINE-0015`; establish truthful and enforceable approval authority without giving the agent or MCP approval capability
-- Current unit: `UNIT-005` ready for release publication and public verification after merged-main verification passed
-- Disposition: baseline-0015 `ready`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0015`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
+- Latest verified checkpoint: public `v0.0.15`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
+- Candidate version: none; `0.0.15` / `baseline-0015` is the selected public checkpoint
+- Active milestone: none; the next checkpoint is intentionally unchosen until a fresh public v0.0.15 run exposes one measurable weakness
+- Current unit: none; `BASELINE-0015` is complete
+- Disposition: baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: verified baseline-0015 merge `824ad5468d420c29d8d0416b15c011fcb531d8e4`; release closure remains pending
+- GitHub `main`: verified baseline-0015 release closure
 - GitHub pull request: `#13`, merged with history preserved under expected-head lock `613ff9348e74c015ca13990b567a1ba86e654ae0`
-- GitHub release: public, non-draft `v0.0.14` with verified `.pyz` and `.sha256` assets
+- GitHub release: public, non-draft `v0.0.15` with verified `.pyz` and `.sha256` assets
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
 - Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
@@ -30,8 +30,9 @@
 - Two 326,418-byte, 28-entry dependency-free zipapps are byte-identical at SHA-256 `0e4d12cd449c8e198ec9434fd12ba3bffc10b8baa609f18c6f71d0d4200da4df`. Source and package MCP, real API/approval/executor/state/telemetry/log checks, and visually inspected 1440 by 1000 dashboards pass.
 - A public-branch clone of exact commit `fcae2740f968db0ef7f35936feebb30cb156e5a5` started clean with no Git alternates, repeated the full gate, rebuilt the exact selected archive, and passed the package MCP and real surfaces. `artifacts/verification/clean-clone-baseline-0015.json` retains the receipt.
 - Retained unfavorable and superseded evidence includes the initial manifest-bound evaluation failure, a direct package import-path failure, an over-strict parity comparison, a Windows PowerShell response-body extraction failure, and the first immutable archive/evaluation attempts. No failed result was rewritten.
-- Candidate status is `ready` for GitHub review and release gates. Public v0.0.14 remains the latest verified public checkpoint until merged-main, tag, release-asset, downloaded-byte, rendered-public, and public-tag-clone verification pass.
-- PR `#13` merged under the exact expected-head lock as `824ad5468d420c29d8d0416b15c011fcb531d8e4`, with parents exact prior release closure and reviewed head. A fresh no-alternates public-main clone passes 24 tests, source/package 84+9+6+10, the exact selected archive rebuild, package MCP/API/state/telemetry/logs, evidence parsing, secret/model exclusion, and visual inspection. Tag and public-release gates remain pending.
+- PR `#13` merged under the exact expected-head lock as `824ad5468d420c29d8d0416b15c011fcb531d8e4`, with parents exact prior release closure and reviewed head. A fresh no-alternates public-main clone passes 24 tests, source/package 84+9+6+10, the exact selected archive rebuild, package MCP/API/state/telemetry/logs, evidence parsing, secret/model exclusion, and visual inspection.
+- The annotated `v0.0.15` tag, peeled remote tag, remote `main`, non-draft GitHub release, 326,418-byte zipapp, adjacent checksum, downloaded public bytes, rendered README and release page, and fresh public-tag clone reconcile to the release-closure commit.
+- Next eligible action: begin the next cycle from verified public v0.0.15 by running the system and inspecting traces and separate evaluation results before selecting one bounded improvement.
 
 - Fresh public v0.0.14 reconciliation passes: remote main, annotated tag, downloaded assets, a no-alternates public-tag clone, nine validators, 22 tests, exact archive rebuild, source/package 84+9+6 evaluations, both real MCP/API/state/telemetry surfaces, and rendered dashboard inspection agree.
 - The current 150-event evaluation trace uses only the fixed caller-supplied actor `frozen-evaluation-harness`. The evaluation has no approver identity-authentication, approver authorization, or separation-of-duties metric.

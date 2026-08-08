@@ -36,6 +36,7 @@
 - A fresh no-alternates public-main clone began clean and passes 24 tests, all contracts, source and package 84+9+6+10 evaluations, exact archive rebuild, package MCP/API/state/telemetry/logs, parsing of 245 JSON and 59 JSONL files containing 6,885 records, model and high-signal-secret exclusion, and dashboard inspection.
 - The first exact-resolution image view displayed an all-dark preview for the same PNG hash previously inspected successfully. Reopening the unchanged file at high detail showed the full correct Baseline 0015 dashboard; this viewer artifact remains retained in the merged-main receipt.
 - The final pre-publication audit validates `verified` and releases only the merged-main audit commit, release-closure commit, annotated `v0.0.15` tag, selected `.pyz` and checksum publication, and immediate public verification.
+- Prepared the release closure for annotated `v0.0.15`, the selected 326,418-byte zipapp at SHA-256 `0e4d12cd449c8e198ec9434fd12ba3bffc10b8baa609f18c6f71d0d4200da4df`, its adjacent checksum, a non-draft public GitHub release, downloaded-byte verification, rendered public pages, and a fresh public-tag clone. The next cycle must resume from this verified checkpoint and select work only after a fresh run exposes a measurable weakness.
 
 ## 2026-08-07 - BASELINE-0014 started
 
