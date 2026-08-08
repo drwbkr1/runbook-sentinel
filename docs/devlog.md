@@ -14,6 +14,9 @@
 - Source and packaged MCP expose only three diagnostic/read tools and emit valid chains. Both real API paths pass authentication, approval, execution, replay, persisted state, audit, live-chain, evaluation-anchor, log, and dashboard checks.
 - The source and package dashboard PNGs are byte-identical at SHA-256 `fd99b986e63db29c7ba5075ba448004bfadfe48ae13981761929a8229cc07184`. Visual inspection confirms Baseline 0016, evaluation pass, trace integrity 1.0, authenticated external operator, and disconnected real infrastructure.
 - The next gate is a no-local-object clean clone. No public release claim is made yet, and the unkeyed chain is explicitly not writer authentication, hostile-writer resistance, a signature, immutable storage, non-repudiation, or RFC 5848 conformance.
+- A no-local-object clone of exact candidate commit `8c088c2cbe68e7bdb30363cf094cb6e37025067c` started clean with no Git alternates. Its first 120-second source-gate wrapper timed out after the complete immutable source evaluation was written; the report, every gate, and its 150-event anchor independently verify pass and were not overwritten.
+- The clone reproduced the exact selected 358,711-byte archive, passed a fresh packaged `84+9+6+10+10` evaluation and exact anchor, exposed only the three bounded MCP tools, and passed real authentication, approval, executor, replay, state, audit, live-chain, evaluation-anchor, artifact-parsing, and credential-scan gates.
+- The first clone dashboard view rendered as an all-dark preview for the same valid SHA-256. Reopening the unchanged 70,224-byte PNG at original detail displayed the complete correct Baseline 0016 dashboard. Release review is now the next dependency.
 
 ## 2026-08-07 - BASELINE-0015 started
 

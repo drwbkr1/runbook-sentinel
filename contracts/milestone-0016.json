@@ -136,7 +136,7 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["candidate implementation", "frozen manifest"],
       "outputs": ["immutable evaluation", "real-surface evidence", "clean-clone receipt"],
       "gates": {
@@ -144,9 +144,9 @@
         "trace_integrity_all_cases_exact": true,
         "real_trace_binding_pass": true,
         "mcp_api_executor_state_telemetry_dashboard_pass": true,
-        "clean_clone_pass": false
+        "clean_clone_pass": true
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [],
       "next_dependency": "UNIT-005"
     },
@@ -156,7 +156,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": ["verified candidate and release audit"],
       "outputs": ["verified public checkpoint"],
       "gates": {
@@ -199,11 +199,12 @@
       "57-file source and package evaluations pass 84+9+6+10+10 with independently verified 150-event anchors",
       "two 358711-byte 30-entry archives are byte-identical at SHA-256 9c04e2815f4bb536904a803f8bf64079342eab4f694039ea8c61105453b8344f",
       "source and package MCP, API, approval, executor, state, audit, telemetry, and rendered dashboard checks pass"
+      ,"a no-local-object clean clone of exact candidate commit 8c088c2 passes source, archive rebuild, package, MCP, API, state, audit, trace-anchor, parsing, scan, and visual gates"
     ]
   },
   "handoff": {
-    "current_checkpoint": "public v0.0.15 release closure with selected 0e4d12cd package bytes",
-    "next_action": "Commit the verified release candidate, then run the no-local-object clean-clone gate before release review.",
+    "current_checkpoint": "verified local v0.0.16 candidate at 8c088c2 with selected 9c04e281 archive bytes and passing no-local-object clean clone; public v0.0.15 remains latest release",
+    "next_action": "Commit the clean-clone receipt, push the exact reviewed branch, and perform release review before any merge or publication.",
     "do_not_carry_forward": [
       "Do not claim that an unkeyed hash chain authenticates the writer or resists an attacker who can recompute the chain and its anchor.",
       "Do not add a signing key, HMAC key, credential, collector, dependency, or real-infrastructure integration.",

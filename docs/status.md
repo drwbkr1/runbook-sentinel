@@ -7,7 +7,7 @@
 - Latest verified checkpoint: public `v0.0.15`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
 - Candidate version: `0.0.16` / `baseline-0016`; local release-candidate verification is passing, public release pending
 - Active milestone: `BASELINE-0016` - completed-evaluation trace integrity
-- Current unit: `UNIT-004` - source, package, MCP, API, executor, state, telemetry, and rendered-dashboard gates pass; no-local-object clean-clone verification remains
+- Current unit: `UNIT-005` - exact candidate and no-local-object clean-clone gates pass; release review, merge, and public verification remain
 - Disposition: baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -45,7 +45,9 @@
 - The 57-file manifest is SHA-256 `b1487c7fe1f017181f007da592a8091f3543e4cff42bcf17e87e7b33a1a5d354`. Source and package attempts pass all 84 repeated scenarios plus 9 approval-lifetime, 6 idempotency-authorization, 10 operator-authentication, and 10 trace-integrity cases.
 - Independent report-to-trace verification binds each selected evaluation to its exact 150-event companion trace. Source and packaged real API, approval, executor, state, audit, live-chain, MCP, and rendered dashboard checks pass.
 - Two 358,711-byte, 30-entry dependency-free zipapps are byte-identical at SHA-256 `9c04e2815f4bb536904a803f8bf64079342eab4f694039ea8c61105453b8344f`. Visual inspection confirms Baseline 0016, trace integrity 1.0, authenticated external operator, and disconnected real infrastructure.
-- Next eligible action: commit the verified candidate and run the no-local-object clean-clone gate before release review.
+- A no-local-object clone of exact candidate commit `8c088c2cbe68e7bdb30363cf094cb6e37025067c` started clean with no Git alternates. It passed the source gate, reproduced exact selected archive SHA-256 `9c04e2815f4bb536904a803f8bf64079342eab4f694039ea8c61105453b8344f`, and passed packaged evaluation, MCP, API, state, audit, chain, anchor, parsing, scan, and original-detail visual inspection.
+- The first clone wrapper timed out after its immutable source evaluation completed; independent verification proved the report and 150-event anchor pass. The unchanged result remains retained. A first all-dark image preview was likewise retained before exact-resolution inspection displayed the correct dashboard.
+- Next eligible action: commit the clean-clone receipt, push the exact branch, and perform release review before merge or publication.
 
 - Fresh public v0.0.14 reconciliation passes: remote main, annotated tag, downloaded assets, a no-alternates public-tag clone, nine validators, 22 tests, exact archive rebuild, source/package 84+9+6 evaluations, both real MCP/API/state/telemetry surfaces, and rendered dashboard inspection agree.
 - The current 150-event evaluation trace uses only the fixed caller-supplied actor `frozen-evaluation-harness`. The evaluation has no approver identity-authentication, approver authorization, or separation-of-duties metric.
