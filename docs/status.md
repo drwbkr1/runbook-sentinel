@@ -29,6 +29,7 @@
 - The bounded checkpoint adds only `topology-split-coverage-v1`, explicit domain-by-split counts and missing-pair metrics, one project-authored development observability case, and one project-authored held-out database case. The target is 30 cases and 16-of-16 coverage, not the separate at-least-48-case v0.1.0 target.
 - The primary ACL CheckList publication passes all eight source criteria for attribution and narrow paraphrase only. No paper, code, dataset, model, package, sample, executable, service, or credential is imported.
 - The two-case contract is frozen before implementation with candidate results absent. Its independent validator passes. Every existing scenario, agent/model behavior, retriever, decision context, action and capability inventory, policy, approval, authentication, executor, API/MCP authority, dependency, credential, and synthetic-only boundary is frozen unchanged.
+- Before implementation, the freeze was strengthened with canonical SHA-256 identities for all 28 existing scenarios and terminal-state records. The first contract commit remains preserved as superseded evidence rather than rewritten.
 - The first standalone trace verifier omitted `PYTHONPATH` and stopped at import; the corrected invocation verifies the exact trace. Docker client 29.4.3 remains installed while its daemon is unavailable, so no container claim is made.
 - Next eligible action: implement the frozen split-aware metrics and two exact cases, then seal and reveal the held-out result.
 

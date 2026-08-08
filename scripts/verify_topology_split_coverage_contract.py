@@ -6,6 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTRACT_PATH = ROOT / "eval/topology-split-coverage-contract.json"
+PRECHANGE_PATH = ROOT / "eval/topology-split-coverage-prechange.json"
 EXPECTED_DOMAINS = {
     "api",
     "cache",
@@ -29,6 +30,7 @@ EXPECTED_PRECHANGE_MISSING = {
 
 def main() -> None:
     contract = json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
+    prechange = json.loads(PRECHANGE_PATH.read_text(encoding="utf-8"))
     errors: list[str] = []
     if contract.get("contract_id") != "topology-split-coverage-v1":
         errors.append("contract_id_mismatch")
@@ -89,12 +91,35 @@ def main() -> None:
             errors.append(f"{case.get('id')}:terminal_contract_mismatch")
 
     catalog = contract.get("catalog_contract", {})
+    if catalog.get("prechange_identity_path") != str(PRECHANGE_PATH.relative_to(ROOT)).replace("\\", "/"):
+        errors.append("prechange_identity_path_mismatch")
     if catalog.get("prechange_scenario_count") != 28 or catalog.get("target_scenario_count") != 30:
         errors.append("scenario_count_contract_mismatch")
     if catalog.get("existing_scenarios_immutable") is not True:
         errors.append("existing_scenarios_not_immutable")
     if set(catalog.get("required_case_ids", [])) != EXPECTED_CASE_IDS:
         errors.append("catalog_case_id_inventory_mismatch")
+    if prechange.get("schema_version") != "1.0" or prechange.get("checkpoint") != "baseline-0019":
+        errors.append("prechange_identity_header_mismatch")
+    if prechange.get("starting_commit") != "5ac099f144e4a6ce368bb7d07c1bdd49b0d49dd0":
+        errors.append("prechange_starting_commit_mismatch")
+    if prechange.get("prechange_catalog_sha256") != contract.get("prechange_catalog_sha256"):
+        errors.append("prechange_catalog_identity_mismatch")
+    if prechange.get("scenario_count") != 28:
+        errors.append("prechange_scenario_count_mismatch")
+    scenario_ids = set(prechange.get("scenario_sha256", {}))
+    terminal_ids = set(prechange.get("terminal_state_sha256", {}))
+    if len(scenario_ids) != 28 or scenario_ids != terminal_ids or scenario_ids & EXPECTED_CASE_IDS:
+        errors.append("prechange_per_case_identity_inventory_mismatch")
+    for group in (prechange.get("scenario_sha256", {}), prechange.get("terminal_state_sha256", {})):
+        if any(
+            not isinstance(value, str)
+            or len(value) != 64
+            or any(character not in "0123456789abcdef" for character in value)
+            for value in group.values()
+        ):
+            errors.append("prechange_per_case_sha256_invalid")
+            break
 
     gates = contract.get("gates", {})
     for gate in (
@@ -128,6 +153,7 @@ def main() -> None:
         "development_case_count": sum(case.get("split") == "development" for case in cases),
         "errors": sorted(errors),
         "prechange_topology_split_coverage": coverage.get("prechange_topology_split_coverage"),
+        "prechange_scenario_identity_count": len(prechange.get("scenario_sha256", {})),
         "status": "pass" if not errors else "fail",
         "target_topology_split_coverage": coverage.get("target_topology_split_coverage"),
         "test_case_count": sum(case.get("split") == "test" for case in cases),

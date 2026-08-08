@@ -192,7 +192,8 @@
       "fresh external source evaluation passes and its exact 150-event trace verifies",
       "the measured 14-of-16 split coverage gap is preserved with exact source identities",
       "the primary ACL behavioral-testing source passes all eight source criteria for citation and narrow paraphrase only; no external asset is imported",
-      "topology-split-coverage-v1 is frozen before implementation with two exact cases, candidate results absent, and its independent validator passing"
+      "topology-split-coverage-v1 is frozen before implementation with two exact cases, candidate results absent, and its independent validator passing",
+      "the preimplementation freeze was strengthened before product changes with canonical SHA-256 identities for all 28 existing scenarios and terminal-state records; the first freeze commit remains preserved as superseded evidence"
     ]
   },
   "handoff": {

@@ -33,6 +33,7 @@
     "target_missing_pairs": []
   },
   "catalog_contract": {
+    "prechange_identity_path": "eval/topology-split-coverage-prechange.json",
     "prechange_scenario_count": 28,
     "target_scenario_count": 30,
     "target_schema_version": "1.10",
