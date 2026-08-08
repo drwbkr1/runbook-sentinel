@@ -2,12 +2,12 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0016-trace-integrity`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0015`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.15`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Candidate version: not yet assigned; `0.0.15` / `baseline-0015` remains the selected public checkpoint
+- Candidate version: `0.0.16` / `baseline-0016`; local release-candidate verification is passing, public release pending
 - Active milestone: `BASELINE-0016` - completed-evaluation trace integrity
-- Current unit: `UNIT-003` - implementing the committed trace-integrity contract; held-out candidate results remain unrevealed
+- Current unit: `UNIT-004` - source, package, MCP, API, executor, state, telemetry, and rendered-dashboard gates pass; no-local-object clean-clone verification remains
 - Disposition: baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -32,7 +32,7 @@
 - Retained unfavorable and superseded evidence includes the initial manifest-bound evaluation failure, a direct package import-path failure, an over-strict parity comparison, a Windows PowerShell response-body extraction failure, and the first immutable archive/evaluation attempts. No failed result was rewritten.
 - PR `#13` merged under the exact expected-head lock as `824ad5468d420c29d8d0416b15c011fcb531d8e4`, with parents exact prior release closure and reviewed head. A fresh no-alternates public-main clone passes 24 tests, source/package 84+9+6+10, the exact selected archive rebuild, package MCP/API/state/telemetry/logs, evidence parsing, secret/model exclusion, and visual inspection.
 - The annotated `v0.0.15` tag, peeled remote tag, remote `main`, non-draft GitHub release, 326,418-byte zipapp, adjacent checksum, downloaded public bytes, rendered README and release page, and fresh public-tag clone reconcile to the release-closure commit.
-- Next eligible action: begin the next cycle from verified public v0.0.15 by running the system and inspecting traces and separate evaluation results before selecting one bounded improvement.
+- This checkpoint has been superseded as the active work target by the bounded baseline-0016 candidate; v0.0.15 remains the latest verified public release until publication completes.
 
 ### BASELINE-0016 trace-integrity gap and frozen contract
 
@@ -41,7 +41,11 @@
 - `trace-integrity-v1` freezes ten ordered development and held-out cases before candidate implementation. It covers valid anchored and unanchored chains, content mutation, sequence gaps, anchored tail truncation, reordering, previous-hash mutation, interior deletion, malformed JSON, and exact append resume.
 - The bounded candidate may add only deterministic SHA-256 sequence continuity, fail-closed existing-prefix validation, and exact completed-evaluation event-count/final-digest binding. It adds no key, secret, dependency, signer, collector, or real-infrastructure connection and makes no origin-authentication, hostile-writer, immutable-storage, digital-signature, or RFC 5848 conformance claim.
 - The official-source gate validates `ready` for narrow citation and a project-authored standard-library implementation. The milestone and ten-case contract validators pass with no held-out candidate result reveal.
-- Next eligible action: commit the validated pre-implementation freeze, then begin `UNIT-003` against the exact frozen contract.
+- Development-only checks passed before the sealed implementation commit. The first held-out reveal then passed all ten frozen cases exactly, including all seven corruption classes and valid-prefix resume.
+- The 57-file manifest is SHA-256 `b1487c7fe1f017181f007da592a8091f3543e4cff42bcf17e87e7b33a1a5d354`. Source and package attempts pass all 84 repeated scenarios plus 9 approval-lifetime, 6 idempotency-authorization, 10 operator-authentication, and 10 trace-integrity cases.
+- Independent report-to-trace verification binds each selected evaluation to its exact 150-event companion trace. Source and packaged real API, approval, executor, state, audit, live-chain, MCP, and rendered dashboard checks pass.
+- Two 358,711-byte, 30-entry dependency-free zipapps are byte-identical at SHA-256 `9c04e2815f4bb536904a803f8bf64079342eab4f694039ea8c61105453b8344f`. Visual inspection confirms Baseline 0016, trace integrity 1.0, authenticated external operator, and disconnected real infrastructure.
+- Next eligible action: commit the verified candidate and run the no-local-object clean-clone gate before release review.
 
 - Fresh public v0.0.14 reconciliation passes: remote main, annotated tag, downloaded assets, a no-alternates public-tag clone, nine validators, 22 tests, exact archive rebuild, source/package 84+9+6 evaluations, both real MCP/API/state/telemetry surfaces, and rendered dashboard inspection agree.
 - The current 150-event evaluation trace uses only the fixed caller-supplied actor `frozen-evaluation-harness`. The evaluation has no approver identity-authentication, approver authorization, or separation-of-duties metric.

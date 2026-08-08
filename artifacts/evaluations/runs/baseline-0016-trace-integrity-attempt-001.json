@@ -1,0 +1,262 @@
+{
+  "cases": [
+    {
+      "actual": {
+        "anchored": true,
+        "error_codes": [],
+        "event_count": 3,
+        "valid": true
+      },
+      "anchor": "exact",
+      "case_id": "dev-valid-anchored-chain",
+      "exact": true,
+      "expected": {
+        "anchored": true,
+        "error_codes": [],
+        "event_count": 3,
+        "valid": true
+      },
+      "split": "development",
+      "transformation": "none"
+    },
+    {
+      "actual": {
+        "anchored": true,
+        "error_codes": [
+          "event_hash_mismatch"
+        ],
+        "event_count": 3,
+        "valid": false
+      },
+      "anchor": "exact",
+      "case_id": "dev-content-mutation-detected",
+      "exact": true,
+      "expected": {
+        "anchored": true,
+        "event_count": 3,
+        "required_error_codes": [
+          "event_hash_mismatch"
+        ],
+        "valid": false
+      },
+      "split": "development",
+      "transformation": "change second event attributes.postconditions from true to false without recomputing hashes"
+    },
+    {
+      "actual": {
+        "anchored": true,
+        "error_codes": [
+          "event_hash_mismatch",
+          "sequence_mismatch"
+        ],
+        "event_count": 3,
+        "valid": false
+      },
+      "anchor": "exact",
+      "case_id": "dev-sequence-gap-detected",
+      "exact": true,
+      "expected": {
+        "anchored": true,
+        "event_count": 3,
+        "required_error_codes": [
+          "sequence_mismatch",
+          "event_hash_mismatch"
+        ],
+        "valid": false
+      },
+      "split": "development",
+      "transformation": "change second event sequence from 2 to 7 without recomputing hashes"
+    },
+    {
+      "actual": {
+        "anchored": true,
+        "error_codes": [
+          "expected_event_count_mismatch",
+          "expected_final_event_sha256_mismatch"
+        ],
+        "event_count": 2,
+        "valid": false
+      },
+      "anchor": "original_exact",
+      "case_id": "dev-tail-truncation-anchor-detected",
+      "exact": true,
+      "expected": {
+        "anchored": true,
+        "event_count": 2,
+        "required_error_codes": [
+          "expected_event_count_mismatch",
+          "expected_final_event_sha256_mismatch"
+        ],
+        "valid": false
+      },
+      "split": "development",
+      "transformation": "remove the final event while retaining the original completed-evaluation anchor"
+    },
+    {
+      "actual": {
+        "anchored": false,
+        "error_codes": [],
+        "event_count": 3,
+        "valid": true
+      },
+      "anchor": "absent",
+      "case_id": "test-valid-unanchored-chain",
+      "exact": true,
+      "expected": {
+        "anchored": false,
+        "error_codes": [],
+        "event_count": 3,
+        "valid": true
+      },
+      "split": "test",
+      "transformation": "none"
+    },
+    {
+      "actual": {
+        "anchored": true,
+        "error_codes": [
+          "expected_final_event_sha256_mismatch",
+          "previous_event_sha256_mismatch",
+          "sequence_mismatch"
+        ],
+        "event_count": 3,
+        "valid": false
+      },
+      "anchor": "exact",
+      "case_id": "test-reordered-events-detected",
+      "exact": true,
+      "expected": {
+        "anchored": true,
+        "event_count": 3,
+        "required_error_codes": [
+          "sequence_mismatch",
+          "previous_event_sha256_mismatch"
+        ],
+        "valid": false
+      },
+      "split": "test",
+      "transformation": "swap the second and third events"
+    },
+    {
+      "actual": {
+        "anchored": true,
+        "error_codes": [
+          "event_hash_mismatch",
+          "previous_event_sha256_mismatch"
+        ],
+        "event_count": 3,
+        "valid": false
+      },
+      "anchor": "exact",
+      "case_id": "test-previous-hash-mutation-detected",
+      "exact": true,
+      "expected": {
+        "anchored": true,
+        "event_count": 3,
+        "required_error_codes": [
+          "previous_event_sha256_mismatch",
+          "event_hash_mismatch"
+        ],
+        "valid": false
+      },
+      "split": "test",
+      "transformation": "replace the third event previous_event_sha256 without recomputing event_sha256"
+    },
+    {
+      "actual": {
+        "anchored": true,
+        "error_codes": [
+          "expected_event_count_mismatch",
+          "previous_event_sha256_mismatch",
+          "sequence_mismatch"
+        ],
+        "event_count": 2,
+        "valid": false
+      },
+      "anchor": "original_exact",
+      "case_id": "test-interior-deletion-detected",
+      "exact": true,
+      "expected": {
+        "anchored": true,
+        "event_count": 2,
+        "required_error_codes": [
+          "sequence_mismatch",
+          "previous_event_sha256_mismatch",
+          "expected_event_count_mismatch"
+        ],
+        "valid": false
+      },
+      "split": "test",
+      "transformation": "remove the second event while retaining the original completed-evaluation anchor"
+    },
+    {
+      "actual": {
+        "anchored": true,
+        "error_codes": [
+          "invalid_json",
+          "previous_event_sha256_mismatch"
+        ],
+        "event_count": 3,
+        "valid": false
+      },
+      "anchor": "exact",
+      "case_id": "test-malformed-json-detected",
+      "exact": true,
+      "expected": {
+        "anchored": true,
+        "event_count": 3,
+        "required_error_codes": [
+          "invalid_json"
+        ],
+        "valid": false
+      },
+      "split": "test",
+      "transformation": "replace the second line with malformed JSON"
+    },
+    {
+      "actual": {
+        "anchored": true,
+        "error_codes": [],
+        "event_count": 4,
+        "resume_previous_event_sha256_exact": true,
+        "resume_sequence": 4,
+        "valid": true
+      },
+      "anchor": "new_exact",
+      "case_id": "test-valid-prefix-resume-exact",
+      "exact": true,
+      "expected": {
+        "anchored": true,
+        "error_codes": [],
+        "event_count": 4,
+        "resume_previous_event_sha256_exact": true,
+        "resume_sequence": 4,
+        "valid": true
+      },
+      "split": "test",
+      "transformation": "initialize a writer from the valid three-event prefix and append one event"
+    }
+  ],
+  "contract_id": "trace-integrity-v1",
+  "contract_valid": true,
+  "gates": {
+    "all_selected_cases_exact": true,
+    "anchored_tail_truncation_detected": true,
+    "contract_valid": true,
+    "development_exact": true,
+    "test_exact": true,
+    "valid_prefix_resume_exact": true
+  },
+  "metrics": {
+    "case_count": 10,
+    "corruption_case_count": 7,
+    "corruption_detection_rate": 1.0,
+    "exact_match_count": 10,
+    "exact_match_rate": 1.0,
+    "split_exact_match": {
+      "development": true,
+      "test": true
+    }
+  },
+  "selected_split": "all"
+}

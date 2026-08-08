@@ -117,16 +117,16 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["frozen trace-integrity-v1 contract"],
       "outputs": ["bounded implementation", "focused tests"],
       "gates": {
-        "all_frozen_development_cases_exact": false,
-        "fail_closed_append_validation": false,
-        "evaluation_trace_binding": false,
-        "prior_boundaries_unchanged": false
+        "all_frozen_development_cases_exact": true,
+        "fail_closed_append_validation": true,
+        "evaluation_trace_binding": true,
+        "prior_boundaries_unchanged": true
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [],
       "next_dependency": "UNIT-004"
     },
@@ -136,14 +136,14 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": ["candidate implementation", "frozen manifest"],
       "outputs": ["immutable evaluation", "real-surface evidence", "clean-clone receipt"],
       "gates": {
-        "source_and_package_full_gate": false,
-        "trace_integrity_all_cases_exact": false,
-        "real_trace_binding_pass": false,
-        "mcp_api_executor_state_telemetry_dashboard_pass": false,
+        "source_and_package_full_gate": true,
+        "trace_integrity_all_cases_exact": true,
+        "real_trace_binding_pass": true,
+        "mcp_api_executor_state_telemetry_dashboard_pass": true,
         "clean_clone_pass": false
       },
       "disposition": null,
@@ -194,11 +194,16 @@
       "prechange in-memory mutation remains undetected by every current trace check",
       "official-source gate validates ready for citation and project-authored standard-library implementation",
       "trace-integrity-v1 validates with ten frozen cases and no held-out candidate result reveal"
+      ,"development-only implementation checks pass before the first held-out reveal",
+      "the first held-out reveal passes all ten cases exactly and remains retained",
+      "57-file source and package evaluations pass 84+9+6+10+10 with independently verified 150-event anchors",
+      "two 358711-byte 30-entry archives are byte-identical at SHA-256 9c04e2815f4bb536904a803f8bf64079342eab4f694039ea8c61105453b8344f",
+      "source and package MCP, API, approval, executor, state, audit, telemetry, and rendered dashboard checks pass"
     ]
   },
   "handoff": {
     "current_checkpoint": "public v0.0.15 release closure with selected 0e4d12cd package bytes",
-    "next_action": "Implement UNIT-003 against the committed trace-integrity-v1 contract and run development-only checks before the held-out reveal.",
+    "next_action": "Commit the verified release candidate, then run the no-local-object clean-clone gate before release review.",
     "do_not_carry_forward": [
       "Do not claim that an unkeyed hash chain authenticates the writer or resists an attacker who can recompute the chain and its anchor.",
       "Do not add a signing key, HMAC key, credential, collector, dependency, or real-infrastructure integration.",

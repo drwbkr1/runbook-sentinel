@@ -28,6 +28,8 @@ The dashboard checkpoint label derives from the same `CHECKPOINT` constant retur
 
 Baseline 0015 implements a project-specific per-launch operator capability for approval creation. One `Sentinel-Capability` authorization field is required before body parsing, caller-declared `actor` is rejected, a launch-scoped pseudonymous identity is derived server-side, and only an in-memory verifier is retained. The public approve CLI is an HTTP client with hidden-prompt or standard-input custody and no direct approval-store path. Raw capability values are forbidden from arguments, environment variables, repository and package files, SQLite, audit, traces, evaluation reports, dashboard HTML, structured logs, the model, and MCP. The boundary is labeled authenticated external operator, not human presence, Bearer, OAuth, or production identity.
 
+Baseline 0016 makes each persisted JSONL event a `trace-chain/v1` record with a contiguous sequence, predecessor digest, and SHA-256 digest over exact canonical event content. A writer validates an existing prefix before append and resumes from its exact final digest. Completed evaluations record the exact companion trace count and final digest, which a separate verifier checks. This is content and continuity evidence only: the unkeyed chain does not authenticate the writer or resist recomputation by an attacker who can also replace the anchor.
+
 ## Ports and trust boundaries
 
 - CLI and HTTP API are local operator surfaces.

@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0016",
+  "status": "pass",
+  "functional_candidate_commit": "c4dd4e0",
+  "manifest": {
+    "path": "eval/manifest.json",
+    "file_count": 57,
+    "sha256": "b1487c7fe1f017181f007da592a8091f3543e4cff42bcf17e87e7b33a1a5d354"
+  },
+  "package_contract": {
+    "path": "eval/package-contract-0016.json",
+    "entry_count": 30,
+    "sha256": "3bab1fefe71643318634334a3cd129e9f41b4b07b9ba3ff3365f1670311ff531",
+    "validated_before_archive_build": true
+  },
+  "selected_archive": {
+    "path": "dist/runbook-sentinel-0.0.16.pyz",
+    "bytes": 358711,
+    "sha256": "9c04e2815f4bb536904a803f8bf64079342eab4f694039ea8c61105453b8344f",
+    "independent_build_sha256": "9c04e2815f4bb536904a803f8bf64079342eab4f694039ea8c61105453b8344f",
+    "byte_identical": true,
+    "runtime_dependencies": []
+  },
+  "trace_integrity_reveal": {
+    "path": "artifacts/evaluations/runs/baseline-0016-trace-integrity-attempt-001.json",
+    "bytes": 7046,
+    "sha256": "cf6bb931fd2869fa396604d0ffd4a4d0248a9e4c30cd6aed56e4c895bc7db80b",
+    "case_count": 10,
+    "corruption_case_count": 7,
+    "development_exact": true,
+    "test_exact": true
+  },
+  "evaluations": {
+    "source": {
+      "path": "artifacts/evaluations/runs/baseline-0016-attempt-001.json",
+      "sha256": "8bff55590a8ca6706e627ed842e9f72e27a3ba18343d6e79f777892536429fe3",
+      "trace_path": "artifacts/evaluations/runs/baseline-0016-attempt-001.traces.jsonl",
+      "trace_sha256": "69dc0dd9a3cc13b2f9fe84d05351b4b4100667e9ec9040943f91d33bf84a6b51",
+      "trace_event_count": 150,
+      "trace_final_event_sha256": "dbe3cee18785bc8686f21086df3df2977a888037b08a9c0d6fdbfab8a95612df",
+      "disposition": "pass"
+    },
+    "package": {
+      "path": "artifacts/evaluations/runs/baseline-0016-package-attempt-001.json",
+      "sha256": "c509c7b294bc493f5714cf439ea74d8664471497dbc52b8f6e4a1e0df78d4e6d",
+      "trace_path": "artifacts/evaluations/runs/baseline-0016-package-attempt-001.traces.jsonl",
+      "trace_sha256": "da7b4edf6257cc7a246476bc8868a18521c9be49838eeb56b831fe9bf633577f",
+      "trace_event_count": 150,
+      "trace_final_event_sha256": "76051073b636528fba402098108e47c03d5a1ba7503bc1026595d05e01b7e770",
+      "disposition": "pass"
+    },
+    "scenario_attempts": 84,
+    "approval_lifetime_cases": 9,
+    "idempotency_authorization_cases": 6,
+    "operator_authentication_cases": 10,
+    "trace_integrity_cases": 10,
+    "declared_gates_exact": true
+  },
+  "real_surfaces": {
+    "source_receipt": {
+      "path": "artifacts/verification/native-baseline-0016-source.json",
+      "sha256": "943e707c2f3d25705f10d85663d6da4cc87409f3720a712d86cff94e3b5d82ed"
+    },
+    "package_receipt": {
+      "path": "artifacts/verification/native-baseline-0016-package.json",
+      "sha256": "0ca7c52ad9b8af3067d37b142025de4cfed2403eb5be9d0eda8d61e0b22dfc8e"
+    },
+    "mcp_tool_names": [
+      "list_synthetic_scenarios",
+      "diagnose_synthetic_incident",
+      "get_synthetic_incident"
+    ],
+    "mcp_approval_or_execution_tool_exposed": false,
+    "source_and_package_live_trace_chain_valid": true,
+    "source_and_package_evaluation_anchor_exact": true,
+    "approval_executor_state_audit_postconditions_pass": true,
+    "raw_operator_capability_or_approval_token_exposed": false
+  },
+  "rendered_dashboard": {
+    "source_path": "artifacts/verification/dashboard-baseline-0016-source.png",
+    "package_path": "artifacts/verification/dashboard-baseline-0016-package.png",
+    "bytes_each": 70224,
+    "sha256_each": "fd99b986e63db29c7ba5075ba448004bfadfe48ae13981761929a8229cc07184",
+    "dimensions": [1440, 1000],
+    "visual_inspection": "pass: Baseline 0016, evaluation pass, trace integrity 1.0, authenticated external operator, and disconnected real infrastructure are legible and internally consistent"
+  },
+  "non_claims": [
+    "The unkeyed chain does not authenticate the writer or resist recomputation of the chain and external anchor.",
+    "The candidate is not a digital signature, immutable storage, non-repudiation, an external collector, or RFC 5848 conformance.",
+    "The candidate remains a synthetic-only research preview disconnected from real operational infrastructure."
+  ]
+}

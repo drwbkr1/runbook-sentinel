@@ -25,6 +25,17 @@ Exact graders use structured state and expected fields; no LLM judge is used. De
 
 The baseline-0001 through baseline-0004 artifacts used a field named `trajectory_exact`, but its implementation graded generation and proposed-action agreement only. Those immutable results are not rewritten or retroactively promoted as executed terminal-state evidence. Baseline-0005 separates the families and adds real isolated synthetic execution.
 
+## Baseline-0016 trace-integrity gates
+
+- `eval/trace-integrity-contract.json` and its independent validator freeze before candidate implementation.
+- Ten ordered cases contain four development and six held-out test cases. They cover valid anchored and unanchored chains, content mutation, sequence gap, anchored tail truncation, reordering, predecessor mutation, interior deletion, malformed JSON, and exact valid-prefix resume.
+- `trace-chain/v1` requires exact top-level fields, contiguous one-based sequence, a 64-zero genesis predecessor, and SHA-256 over UTF-8 canonical JSON with sorted keys, compact separators, ASCII escaping, and non-finite values rejected.
+- A writer verifies every existing nonempty event before append. Any invalid prefix refuses append; a valid prefix resumes at the exact next sequence and prior final digest.
+- A completed evaluation records the companion trace file name, event count, and final event digest. Independent verification requires the full chain and both anchor values to match.
+- Contract exactness, development exactness, test exactness, corruption detection, anchored truncation, exact resume, live chain validity, and external-anchor match are separate gates.
+- The unkeyed chain does not authenticate the writer or resist an actor able to recompute the chain and replace its anchor. It is not a signature, immutable storage, non-repudiation, an external collector, or RFC 5848 conformance.
+- Agent outcomes, retrieval, model contract, MCP authority, operator authentication, approval, capabilities, executor actions, state transitions, latency, cost, and disconnected synthetic infrastructure remain separately graded and unchanged.
+
 ## Baseline-0015 operator-authentication gates
 
 - `eval/operator-authentication-contract.json` and its independent validator freeze before candidate runtime implementation.
