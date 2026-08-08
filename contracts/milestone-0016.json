@@ -201,12 +201,13 @@
       "source and package MCP, API, approval, executor, state, audit, telemetry, and rendered dashboard checks pass",
       "a no-local-object clean clone of exact candidate commit 8c088c2 passes source, archive rebuild, package, MCP, API, state, audit, trace-anchor, parsing, scan, and visual gates",
       "PR 14 merges exact reviewed head be13f5b with history preserved as 848a7ae",
-      "a no-local-object public-main clone of exact merge 848a7ae passes validators, 28 tests, source and package 84+9+6+10+10 evaluations, exact archive rebuild, MCP, API, state, audit, telemetry, parsing, scan, and visual gates"
+      "a no-local-object public-main clone of exact merge 848a7ae passes validators, 28 tests, source and package 84+9+6+10+10 evaluations, exact archive rebuild, MCP, API, state, audit, telemetry, parsing, scan, and visual gates",
+      "final pre-publication audit reports verified with no errors, warnings, failed required checks, missing surfaces, or stale surfaces"
     ]
   },
   "handoff": {
     "current_checkpoint": "verified merged-main v0.0.16 candidate at 848a7ae with selected 9c04e281 archive bytes; public v0.0.15 remains latest release",
-    "next_action": "Run the final pre-publication audit, seal the release closure, and publish only the exact audited annotated tag and selected assets.",
+    "next_action": "Seal the release closure, then publish and immediately verify only the exact audited annotated tag and selected assets.",
     "do_not_carry_forward": [
       "Do not claim that an unkeyed hash chain authenticates the writer or resists an attacker who can recompute the chain and its anchor.",
       "Do not add a signing key, HMAC key, credential, collector, dependency, or real-infrastructure integration.",

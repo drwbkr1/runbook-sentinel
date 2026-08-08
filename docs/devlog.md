@@ -23,6 +23,7 @@
 - Retained merged-main tooling observations include a truncated shell result while the evaluator continued correctly, one missing package import path before an unchanged anchor passed, PowerShell treating normal unittest stderr as an error before explicit 28/28 capture, and a ripgrep pattern beginning with hyphens before the corrected scan found only frozen definitions and then zero values.
 - Release-truth inspection caught one documentation-only mismatch: README still said 28 package entries even though the frozen v0.0.16 contract and selected archive contain 30. The release-closure branch corrects that claim before final audit; no runtime, evaluation, package, or selected asset byte changed.
 - `artifacts/verification/merged-main-baseline-0016.json` binds the public merge, fresh clone, exact package identity, evaluations, traces, real surfaces, and retained tooling observations. Final pre-publication audit is the next gate; v0.0.16 remains untagged and unreleased.
+- Final pre-publication audit `artifacts/verification/release-audit-baseline-0016.json` computes `verified` with no errors, warnings, failed required checks, missing surfaces, or stale surfaces. It authorizes only the exact release-closure commit, annotated v0.0.16 tag, selected archive and checksum, and immediate public verification.
 
 ## 2026-08-07 - BASELINE-0015 started
 

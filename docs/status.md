@@ -7,7 +7,7 @@
 - Latest verified checkpoint: public `v0.0.15`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
 - Candidate version: `0.0.16` / `baseline-0016`; local, clean-clone, reviewed-merge, and fresh public-main verification pass, public release pending
 - Active milestone: `BASELINE-0016` - completed-evaluation trace integrity
-- Current unit: `UNIT-005` - exact review, history-preserving merge, and fresh public-main gates pass; final release audit, annotated tag, public assets, and public verification remain
+- Current unit: `UNIT-005` - final pre-publication audit reports `verified`; release closure, annotated tag, public assets, and public verification remain
 - Disposition: baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -50,7 +50,8 @@
 - PR `#14` reviewed exact head `be13f5bb0c56f19623ef7e7c00165460f18c5b3c` and merged it under expected-head lock as `848a7ae1c3dd8dfec6d40bbfe5196263e99cb90e`, with exact parents `da66c5b8306c37a04b6d37d66b283f5ff2fd21d4` and `be13f5bb0c56f19623ef7e7c00165460f18c5b3c`.
 - A fresh public-main clone has no object alternates and began clean. Twelve validators, 28 tests, fresh anchored source and package `84+9+6+10+10` evaluations, exact selected-archive rebuild, three-tool MCP, all 86 API checks, all 49 persisted-state/audit/telemetry checks, 266 JSON parses, 65 JSONL parses with 7,492 records, model/credential exclusion, and original-detail dashboard inspection pass.
 - The fresh public-main scan found one stale README claim that the current builder used 28 entries; the frozen package contract and exact archive contain 30. The release-closure branch corrects that documentation-only discrepancy before the final audit.
-- Next eligible action: run the final pre-publication audit, seal the release closure, and publish only the exact audited tag and assets.
+- Final pre-publication audit `artifacts/verification/release-audit-baseline-0016.json` independently computes `verified` with no errors, warnings, failed required checks, missing surfaces, or stale surfaces.
+- Next eligible action: seal the release closure, then publish and immediately verify only the exact audited tag and selected assets.
 
 - Fresh public v0.0.14 reconciliation passes: remote main, annotated tag, downloaded assets, a no-alternates public-tag clone, nine validators, 22 tests, exact archive rebuild, source/package 84+9+6 evaluations, both real MCP/API/state/telemetry surfaces, and rendered dashboard inspection agree.
 - The current 150-event evaluation trace uses only the fixed caller-supplied actor `frozen-evaluation-harness`. The evaluation has no approver identity-authentication, approver authorization, or separation-of-duties metric.

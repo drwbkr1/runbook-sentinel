@@ -14,7 +14,7 @@ A no-local-object clone of exact candidate commit `8c088c2cbe68e7bdb30363cf094cb
 
 PR `#14` reviewed exact head `be13f5bb0c56f19623ef7e7c00165460f18c5b3c` and merged it under expected-head lock as `848a7ae1c3dd8dfec6d40bbfe5196263e99cb90e`, preserving exact prior-main and reviewed-head parents. A fresh public-main clone has no object alternates and repeats 12 validators, 28 tests, source and package `84+9+6+10+10` evaluations, independent 150-event anchors, the exact selected archive rebuild, three-tool MCP, 86 API checks, 49 persisted-state/audit/telemetry checks, artifact parsing, model and credential exclusion, and original-detail dashboard inspection. The merged source trace ends at `0cc8130638c54c1a7d98d61faf793462802785ac25fbd8977b68451b9d5cc01c`; the package trace ends at `99cd7478192582214d41cb20f7c07f8f38d242b96ca6adec6b0cc5e4b44b0dc4`.
 
-Status: verified merged-main release candidate. Final audit, release closure, annotated tag, public assets, downloaded-byte identity, rendered public pages, and public-tag-clone verification remain. The result is research-informed and synthetic-only. The unkeyed chain does not authenticate the writer, provide hostile-writer resistance, immutable storage, non-repudiation, or RFC 5848 conformance.
+Status: verified merged-main release candidate with a passing final pre-publication audit. Release closure, annotated tag, public assets, downloaded-byte identity, rendered public pages, and public-tag-clone verification remain. The result is research-informed and synthetic-only. The unkeyed chain does not authenticate the writer, provide hostile-writer resistance, immutable storage, non-repudiation, or RFC 5848 conformance.
 
 ## BASELINE-0015 selected release
 
