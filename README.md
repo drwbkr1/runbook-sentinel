@@ -29,7 +29,7 @@ python scripts/verify_package_contract.py --contract eval/package-contract-0016.
 python dist/runbook-sentinel-0.0.16.pyz --help
 ```
 
-The builder uses an exact 28-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. No package-registry or container claim is made.
+The builder uses an exact 30-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. No package-registry or container claim is made.
 
 The MCP server uses JSON-RPC over standard input/output:
 

@@ -2,18 +2,18 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `codex/baseline-0016-trace-integrity`
+- Branch: `codex/baseline-0016-release-closure`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0015`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.15`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Candidate version: `0.0.16` / `baseline-0016`; local release-candidate verification is passing, public release pending
+- Candidate version: `0.0.16` / `baseline-0016`; local, clean-clone, reviewed-merge, and fresh public-main verification pass, public release pending
 - Active milestone: `BASELINE-0016` - completed-evaluation trace integrity
-- Current unit: `UNIT-005` - exact candidate and no-local-object clean-clone gates pass; release review, merge, and public verification remain
+- Current unit: `UNIT-005` - exact review, history-preserving merge, and fresh public-main gates pass; final release audit, annotated tag, public assets, and public verification remain
 - Disposition: baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: verified baseline-0015 release closure
-- GitHub pull request: `#13`, merged with history preserved under expected-head lock `613ff9348e74c015ca13990b567a1ba86e654ae0`
+- GitHub `main`: exact BASELINE-0016 reviewed head merged as `848a7ae1c3dd8dfec6d40bbfe5196263e99cb90e`; fresh no-local-object public-main verification passes
+- GitHub pull request: `#14`, merged with history preserved under expected-head lock `be13f5bb0c56f19623ef7e7c00165460f18c5b3c`
 - GitHub release: public, non-draft `v0.0.15` with verified `.pyz` and `.sha256` assets
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
@@ -47,7 +47,10 @@
 - Two 358,711-byte, 30-entry dependency-free zipapps are byte-identical at SHA-256 `9c04e2815f4bb536904a803f8bf64079342eab4f694039ea8c61105453b8344f`. Visual inspection confirms Baseline 0016, trace integrity 1.0, authenticated external operator, and disconnected real infrastructure.
 - A no-local-object clone of exact candidate commit `8c088c2cbe68e7bdb30363cf094cb6e37025067c` started clean with no Git alternates. It passed the source gate, reproduced exact selected archive SHA-256 `9c04e2815f4bb536904a803f8bf64079342eab4f694039ea8c61105453b8344f`, and passed packaged evaluation, MCP, API, state, audit, chain, anchor, parsing, scan, and original-detail visual inspection.
 - The first clone wrapper timed out after its immutable source evaluation completed; independent verification proved the report and 150-event anchor pass. The unchanged result remains retained. A first all-dark image preview was likewise retained before exact-resolution inspection displayed the correct dashboard.
-- Next eligible action: commit the clean-clone receipt, push the exact branch, and perform release review before merge or publication.
+- PR `#14` reviewed exact head `be13f5bb0c56f19623ef7e7c00165460f18c5b3c` and merged it under expected-head lock as `848a7ae1c3dd8dfec6d40bbfe5196263e99cb90e`, with exact parents `da66c5b8306c37a04b6d37d66b283f5ff2fd21d4` and `be13f5bb0c56f19623ef7e7c00165460f18c5b3c`.
+- A fresh public-main clone has no object alternates and began clean. Twelve validators, 28 tests, fresh anchored source and package `84+9+6+10+10` evaluations, exact selected-archive rebuild, three-tool MCP, all 86 API checks, all 49 persisted-state/audit/telemetry checks, 266 JSON parses, 65 JSONL parses with 7,492 records, model/credential exclusion, and original-detail dashboard inspection pass.
+- The fresh public-main scan found one stale README claim that the current builder used 28 entries; the frozen package contract and exact archive contain 30. The release-closure branch corrects that documentation-only discrepancy before the final audit.
+- Next eligible action: run the final pre-publication audit, seal the release closure, and publish only the exact audited tag and assets.
 
 - Fresh public v0.0.14 reconciliation passes: remote main, annotated tag, downloaded assets, a no-alternates public-tag clone, nine validators, 22 tests, exact archive rebuild, source/package 84+9+6 evaluations, both real MCP/API/state/telemetry surfaces, and rendered dashboard inspection agree.
 - The current 150-event evaluation trace uses only the fixed caller-supplied actor `frozen-evaluation-harness`. The evaluation has no approver identity-authentication, approver authorization, or separation-of-duties metric.
