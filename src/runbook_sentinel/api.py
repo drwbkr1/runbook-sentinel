@@ -14,7 +14,7 @@ from .service import DEFAULT_APPROVAL_TTL_SECONDS, RunbookSentinel
 from .telemetry import live_trace_anchor_path
 
 
-CHECKPOINT = "baseline-0018"
+CHECKPOINT = "baseline-0019"
 
 
 class SentinelHTTPServer(ThreadingHTTPServer):
@@ -175,6 +175,9 @@ class SentinelHandler(BaseHTTPRequestHandler):
         condition_coverage = metrics.get("coverage", {}).get(
             "evidence_condition_split_coverage"
         )
+        topology_split_coverage = metrics.get("coverage", {}).get(
+            "topology_split_coverage"
+        )
         relation_exact = metrics.get("behavioral_relations", {}).get("exact_match_rate")
         stress_recall = metrics.get("retrieval_stress", {}).get(
             "expected_project_evidence_recall_at_4"
@@ -213,6 +216,11 @@ class SentinelHandler(BaseHTTPRequestHandler):
         condition_display = (
             f"{condition_coverage:.1f}"
             if isinstance(condition_coverage, (int, float))
+            else "not run"
+        )
+        topology_split_display = (
+            f"{topology_split_coverage:.1f}"
+            if isinstance(topology_split_coverage, (int, float))
             else "not run"
         )
         relation_display = (
@@ -293,6 +301,7 @@ h2 {{ margin:.4rem 0; }} th,td {{ text-align:left; padding:8px 12px; border-bott
 <div class="card"><div>Tool trajectory exact</div><div class="value">{trajectory_display}</div></div>
 <div class="card"><div>Terminal state exact</div><div class="value">{terminal_display}</div></div>
 <div class="card"><div>Evidence condition coverage</div><div class="value">{condition_display}</div></div>
+<div class="card"><div>Topology split coverage</div><div class="value">{topology_split_display}</div></div>
 <div class="card"><div>Behavioral relation exact</div><div class="value">{relation_display}</div></div>
 <div class="card"><div>Guidance stress recall</div><div class="value">{stress_display}</div></div>
 <div class="card"><div>Fresh evidence recall</div><div class="value">{fresh_evidence_display}</div></div>

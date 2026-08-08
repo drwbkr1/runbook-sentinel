@@ -24,6 +24,7 @@ from runbook_sentinel.errors import ApprovalError, OperatorAuthenticationError, 
 from runbook_sentinel.evaluation import (
     _behavioral_relation_metrics,
     _evidence_condition_coverage,
+    _topology_split_coverage,
     _retrieval_stress_metrics,
     _stale_evidence_stress_metrics,
     _stale_payload_projection_metrics,
@@ -82,6 +83,7 @@ class BaselineTest(unittest.TestCase):
             "dev-stale-cache-evidence": ("request_evidence", "insufficient_fresh_evidence", None),
             "dev-fresh-cache-evidence": ("propose_action", "cold_cache", "warm_cache"),
             "dev-conflicting-database-evidence": ("abstain", "conflicting_evidence", None),
+            "dev-observability-coverage-healthy": ("diagnose", "no_actionable_fault", None),
             "test-cold-cache": ("propose_action", "cold_cache", "warm_cache"),
             "test-cold-cache-stale-evidence-flood": ("propose_action", "cold_cache", "warm_cache"),
             "test-stale-cache-evidence": ("request_evidence", "insufficient_fresh_evidence", None),
@@ -89,6 +91,7 @@ class BaselineTest(unittest.TestCase):
             "test-worker-injection-guidance-flood": ("propose_action", "worker_stalled", "restart_worker"),
             "test-stale-deployment-evidence": ("request_evidence", "deployment_evidence_incomplete", None),
             "test-conflicting-deployment-evidence": ("abstain", "conflicting_evidence", None),
+            "test-database-health-current": ("diagnose", "no_actionable_fault", None),
             "test-injection-without-telemetry": ("request_evidence", "insufficient_fresh_evidence", None),
             "dev-gateway-evidence-incomplete": ("request_evidence", "gateway_evidence_incomplete", None),
             "dev-worker-capacity-pressure": ("diagnose", "worker_capacity_pressure", None),
@@ -500,7 +503,7 @@ class BaselineTest(unittest.TestCase):
         server = MCPServer(self.service)
         initialized = server.handle({"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
         self.assertEqual(initialized["result"]["protocolVersion"], "2025-11-25")
-        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.18")
+        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.19")
         listed = server.handle({"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         self.assertEqual({tool["name"] for tool in listed["result"]["tools"]}, names)
         called = server.handle(
@@ -516,7 +519,7 @@ class BaselineTest(unittest.TestCase):
             {"jsonrpc": "2.0", "id": 4, "method": "tools/call", "params": {"name": "list_synthetic_scenarios", "arguments": {}}}
         )
         listed_scenarios = scenarios["result"]["structuredContent"]["scenarios"]
-        self.assertEqual(len(listed_scenarios), 28)
+        self.assertEqual(len(listed_scenarios), 30)
         self.assertEqual(
             {item["domain"] for item in listed_scenarios},
             {"gateway", "api", "worker", "database", "cache", "deployment", "configuration", "observability"},
@@ -708,6 +711,7 @@ class BaselineTest(unittest.TestCase):
                 self.assertNotIn("Baseline 0013", dashboard)
                 self.assertIn("Terminal state exact", dashboard)
                 self.assertIn("Evidence condition coverage", dashboard)
+                self.assertIn("Topology split coverage", dashboard)
                 self.assertIn("Behavioral relation exact", dashboard)
                 self.assertIn("Guidance stress recall", dashboard)
                 self.assertIn("Fresh evidence recall", dashboard)
@@ -718,7 +722,7 @@ class BaselineTest(unittest.TestCase):
                 self.assertIn("Operator authentication", dashboard)
                 self.assertIn("frame-ancestors 'none'", response.headers["Content-Security-Policy"])
             with urlopen(f"http://127.0.0.1:{server.server_port}/health") as response:
-                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0018")
+                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0019")
             request = Request(
                 f"http://127.0.0.1:{server.server_port}/api/runs",
                 data=json.dumps({"scenario_id": "dev-bad-deployment"}).encode("utf-8"),
@@ -740,8 +744,8 @@ class BaselineTest(unittest.TestCase):
     def test_evaluation_reports_separate_metrics_and_passes_control_gates(self):
         output = Path(self.temp.name) / "baseline.json"
         report = run_evaluation(output, trials=3)
-        self.assertEqual(report["scenario_count"], 28)
-        self.assertEqual(report["attempt_count"], 84)
+        self.assertEqual(report["scenario_count"], 30)
+        self.assertEqual(report["attempt_count"], 90)
         self.assertEqual(report["agent_configuration"], "deterministic-control-v2")
         self.assertEqual(report["retrieval_configuration"], FRESHNESS_PRIORITY_RETRIEVER_V3)
         self.assertEqual(
@@ -752,22 +756,40 @@ class BaselineTest(unittest.TestCase):
         self.assertTrue(report["gates"]["development_exact"])
         self.assertTrue(report["gates"]["test_exact"])
         self.assertTrue(report["gates"]["topology_domain_coverage_is_one"])
+        self.assertTrue(report["gates"]["topology_split_contract_valid"])
+        self.assertTrue(report["gates"]["topology_split_coverage_is_one"])
+        self.assertTrue(report["gates"]["development_topology_split_coverage_is_one"])
+        self.assertTrue(report["gates"]["test_topology_split_coverage_is_one"])
         self.assertTrue(report["gates"]["evidence_condition_contract_valid"])
         self.assertTrue(report["gates"]["evidence_condition_split_coverage_is_one"])
         self.assertTrue(report["gates"]["adversarial_split_coverage_is_one"])
         self.assertEqual(report["metrics"]["coverage"]["topology_domain_coverage"], 1.0)
-        self.assertEqual(report["metrics"]["coverage"]["case_count_by_split"], {"development": 14, "test": 14})
+        self.assertEqual(report["metrics"]["coverage"]["topology_split_coverage"], 1.0)
+        self.assertEqual(
+            report["metrics"]["coverage"]["split_topology_coverage"],
+            {"development": 1.0, "test": 1.0},
+        )
+        self.assertEqual(report["metrics"]["coverage"]["missing_domain_split_pairs"], [])
+        self.assertEqual(
+            report["metrics"]["coverage"]["case_count_by_domain_split"]["database"],
+            {"development": 2, "test": 1},
+        )
+        self.assertEqual(
+            report["metrics"]["coverage"]["case_count_by_domain_split"]["observability"],
+            {"development": 1, "test": 4},
+        )
+        self.assertEqual(report["metrics"]["coverage"]["case_count_by_split"], {"development": 15, "test": 15})
         self.assertEqual(report["metrics"]["coverage"]["evidence_condition_split_coverage"], 1.0)
         self.assertEqual(report["metrics"]["coverage"]["adversarial_split_coverage"], 1.0)
         self.assertEqual(report["metrics"]["coverage"]["missing_condition_split_pairs"], [])
         self.assertEqual(report["metrics"]["coverage"]["missing_adversarial_splits"], [])
-        self.assertEqual(report["schema_version"], "2.4")
-        self.assertEqual(report["checkpoint"], "baseline-0018")
+        self.assertEqual(report["schema_version"], "2.5")
+        self.assertEqual(report["checkpoint"], "baseline-0019")
         self.assertEqual(report["metrics"]["proposal"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["development"]["tool_trajectory"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["test"]["tool_trajectory"]["exact_match"], 1.0)
         self.assertEqual(report["metrics"]["tool_trajectory"]["expected_action_trial_count"], 33)
-        self.assertEqual(report["metrics"]["tool_trajectory"]["expected_no_action_trial_count"], 51)
+        self.assertEqual(report["metrics"]["tool_trajectory"]["expected_no_action_trial_count"], 57)
         self.assertEqual(report["metrics"]["tool_trajectory"]["approval_success_rate"], 1.0)
         self.assertEqual(report["metrics"]["tool_trajectory"]["execution_success_rate"], 1.0)
         self.assertEqual(report["metrics"]["tool_trajectory"]["postconditions_verified_rate"], 1.0)
@@ -1164,6 +1186,35 @@ class BaselineTest(unittest.TestCase):
             unknown, catalog["evidence_condition_contract"]
         )
         self.assertFalse(unknown_result["contract_valid"])
+
+    def test_topology_split_coverage_fails_closed_on_empty_or_unknown_pairs(self):
+        catalog = load_catalog()
+        contract = catalog["topology_split_coverage_contract"]
+        valid = _topology_split_coverage(catalog["scenarios"], contract)
+        self.assertTrue(valid["topology_split_contract_valid"])
+        self.assertEqual(valid["topology_split_coverage"], 1.0)
+        self.assertEqual(valid["missing_domain_split_pairs"], [])
+
+        missing_development_observability = [
+            scenario
+            for scenario in catalog["scenarios"]
+            if scenario["id"] != "dev-observability-coverage-healthy"
+        ]
+        missing = _topology_split_coverage(
+            missing_development_observability, contract
+        )
+        self.assertEqual(missing["topology_split_coverage"], 15 / 16)
+        self.assertEqual(
+            missing["missing_domain_split_pairs"],
+            [{"domain": "observability", "split": "development"}],
+        )
+        self.assertEqual(missing["split_topology_coverage"]["development"], 7 / 8)
+
+        invalid_contract = copy.deepcopy(contract)
+        invalid_contract["required_domains"] = invalid_contract["required_domains"][:-1]
+        invalid = _topology_split_coverage(catalog["scenarios"], invalid_contract)
+        self.assertFalse(invalid["topology_split_contract_valid"])
+        self.assertIn("required_domains", invalid["topology_split_contract_errors"])
 
     def test_stale_payload_contract_fails_closed_on_corruption(self):
         catalog = load_catalog()

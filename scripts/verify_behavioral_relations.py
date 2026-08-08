@@ -241,8 +241,8 @@ def verify_directional_safety(
 def main() -> None:
     catalog = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
     errors: list[str] = []
-    if catalog.get("schema_version") != "1.9":
-        errors.append("catalog schema must be 1.9")
+    if catalog.get("schema_version") != "1.10":
+        errors.append("catalog schema must be 1.10")
     contract = catalog.get("behavioral_relation_contract")
     if not isinstance(contract, dict) or set(contract) != EXPECTED_CONTRACT_KEYS:
         errors.append("behavioral relation contract keys do not match the frozen schema")

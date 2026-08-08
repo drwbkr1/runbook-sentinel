@@ -2,13 +2,13 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `codex/baseline-0018-model-failure-taxonomy`
+- Branch: `codex/baseline-0019-split-topology-coverage`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0018`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.18`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Candidate version: none; `0.0.18` / `baseline-0018` is released
-- Active milestone: none; the next checkpoint remains intentionally unchosen until a fresh public-v0.0.18 run identifies one measurable weakness
-- Current unit: `UNIT-005` complete
-- Disposition: baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Candidate version: `0.0.19` / `baseline-0019`; locally versioned, not yet released
+- Active milestone: `BASELINE-0019` split-aware topology coverage
+- Current unit: `UNIT-005` ready
+- Disposition: baseline-0019 source, package, real-surface, reproducibility, and remote-only clean-clone candidate gates `pass`; review, merge, and public release pending; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -20,6 +20,36 @@
 - Local model source gate: refreshed and ready for the already installed, publisher-signed Ollama 0.32.6 executable and unchanged `llama3.2:3b` manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six content-addressed blobs pass exact SHA-256 and size checks. No download, update, copy, redistribution, remote call, model tool, secret, or real-infrastructure access is authorized.
 
 ## Verified evidence
+
+### BASELINE-0019 split-topology coverage gap and frozen contract
+
+- Public v0.0.18 remains the exact starting checkpoint at `5ac099f144e4a6ce368bb7d07c1bdd49b0d49dd0`; the authoritative worktree began clean and remote `main`, the release-closure branch, and peeled tag agree.
+- A fresh external source evaluation passes every prior gate. Its 519,795-byte report is SHA-256 `75f3410fc5fc1495f98a445aae135e74b55af1d1567ede9a1438f6b448bae565`; the companion 150-event trace is valid and anchored, with SHA-256 `f7dd5ded8651b6372dc50457881bd34b409240bcabc2f54c8d1f5d1d5e821dbb` and final event `4e74a90ed62243a779c0e7c420056de2d8b13d8a4af89743f61ab5843ea84fbd`.
+- Aggregate topology-domain coverage is 1.0 across 28 cases, yet split-aware coverage is only 14 of 16 domain/split pairs, or 0.875. Development contains zero observability cases; held-out test contains zero database cases.
+- The bounded checkpoint adds only `topology-split-coverage-v1`, explicit domain-by-split counts and missing-pair metrics, one project-authored development observability case, and one project-authored held-out database case. The target is 30 cases and 16-of-16 coverage, not the separate at-least-48-case v0.1.0 target.
+- The primary ACL CheckList publication passes all eight source criteria for attribution and narrow paraphrase only. No paper, code, dataset, model, package, sample, executable, service, or credential is imported.
+- The two-case contract was frozen before implementation with candidate results absent. Its independent validator passes before and after the immutable result is recorded. Every existing scenario, agent/model behavior, retriever, decision context, action and capability inventory, policy, approval, authentication, executor, API/MCP authority, dependency, credential, and synthetic-only boundary is frozen unchanged.
+- Before implementation, the freeze was strengthened with canonical SHA-256 identities for all 28 existing scenarios and terminal-state records. The first contract commit remains preserved as superseded evidence rather than rewritten.
+- The candidate adds explicit 16-cell domain/split counts, exact missing-pair output, separate development and test topology coverage, four new hard gates, the two frozen cases, and a rendered dashboard metric. The catalog reaches exactly 30 cases; all 28 pre-change scenario and terminal-state hashes remain exact.
+- Full source attempt 001 passes 36 tests, 17 validators, all 30 scenarios across three trials, and every prior metric family. Both new cases pass all three trials with exact `diagnose` / `no_actionable_fault`, no action, exact no-execution trajectory, and exact unchanged terminal state.
+- Topology split coverage is 16 of 16, with development and held-out test each at 1.0 and no missing pair. The report contains 90 scenario attempts; its valid anchored companion trace contains 156 events.
+- Immutable source attempt 001 report/trace SHA-256 values are `5bbfd45b3d2cddc3837f5bb0e30d7c124f4847a010f6a415c143d26a1baad0f5` / `10dd32144fcfc96d0cc7e272958a235b36064fa067cb467ad48c6acd38c73712`; the trace ends at `d8531756ac8c74ab95a05fd390e27c53ea5bb18e72d075994101ec5f477dabf1`.
+- The v0.0.19 package contract is frozen before archive build with 34 exact entries and zero runtime dependencies. Its SHA-256 is `e059cf9e70637cce8217135b7ffb08107def5900409734d9dfa2044604666336`.
+- The final pre-build 72-file evaluation manifest passes at SHA-256 `adf637300cfbbda77b8c2b239313535899098f5a131a5ded7fdf334974b8ecbc`.
+- Final-manifest source attempt 002 and package attempt 001 each pass 30 cases across three trials and every prior gate. Source report/trace SHA-256 values are `feb778b3a1be6fdf2bb9a0187d78edbf30d85ff749758a9667bed9263518801f` / `bcd06b282981003cc509b9eb015b48ed172d039371164de8444ca4ebf9cb39de`; package values are `b0e328cbacf0922177437a3cd3ef368ae892c693819ab0c6699acf264b9d5e8e` / `0b7e35d5a66f231df685afa5bd9df1db6af50edf9793807ab36e57c44046adb0`.
+- Two independent 34-entry, 423,787-byte archives are byte-identical at SHA-256 `f840d5a1ff4da1b1a1e61f0719c65925075af3a776cb52d29b890749848a70ab`; both pass allowlist, metadata, source parity, secret/model/runtime-state exclusion, package-contract binding, and embedded-manifest binding.
+- Source and package MCP each report protocol `2025-11-25`, version `0.0.19`, exactly three diagnostic/read tools, no approval or execution tool, exact retrieval/decision context, and valid anchored two-event traces.
+- Source and package real loopback surfaces pass authentication-before-body-parse, caller-identity rejection, bounded approval, executor, exact postconditions, token-bound cache authorization, idempotency, replay rejection, SQLite state, audit, capability/token exclusion, logs, chained telemetry, endpoint anchors, CSP, and all rendered metric checks including topology split coverage.
+- Independent native receipts pass for both runtimes. Original-detail inspection selects complete 1440 by 1000 source/package dashboards at SHA-256 `0039ca11bb7b0cdbe0be5801bb38b29082936bb673a0a8ce9b517eaf2b694b70` / `4924748f1571780024d997a2dfb061c926f4f31723fb6cd9beb550a3c931a124`.
+- The first packaged dashboard's original-detail viewer frame showed only the lower incident-table strip. The 76,490-byte PNG remains retained at SHA-256 `e85cf8fb871c694b6702ab31fd8c47bf38055e30c87cf693057626a9d198c95f`; pixel inspection establishes that the bytes contain the complete dashboard, and normalized high detail renders it fully. This is a retained viewer artifact, not a dashboard-byte failure.
+- All 346 JSON artifacts and 9,575 records across 121 JSONL files parse. The high-signal credential scan has zero matches after excluding the nine package-contract files that define forbidden patterns; zero model artifact files are present. Docker still has no reachable desktop-linux daemon, so no container claim is made.
+- Candidate commit `4dd8ea92157bbd28cd02e2bf8301e9098da3dd67` was cloned from the public branch with `--no-local --single-branch` into `C:\Projects\Verification\runbook-sentinel-baseline-0019-clean-4dd8ea9-20260808T203003Z`. It began clean, has no Git object alternates, and independently passes 17 validators, 36 tests, fresh source and package 90-attempt evaluations, exact 156-event anchors, bounded MCP, real API/authentication/approval/executor/state/telemetry, parsing, security scans, and complete source/package dashboard inspection.
+- Clean-clone source report/trace SHA-256 values are `3f6373791df30fd17502a55323fac003f907eccc71f8553558c0e4dcd70a4e9c` / `54ca493973ddf065197ce3781367c68257564bc4cab6b89951ddb24e2bc417ad`; package values are `62a558d064a01fcb6280f44e36a0b9bbbba3b5d39db0cfb87a61554bd25aebe1` / `26ea9afd53c66eb3888da021a8aef209868e5cfb8d77fc5f5dfa07aae6498544`. Both independent clone rebuilds reproduce the selected 423,787-byte archive exactly at SHA-256 `f840d5a1ff4da1b1a1e61f0719c65925075af3a776cb52d29b890749848a70ab`.
+- The clean clone parses 347 JSON files and 9,706 records across 80 JSONL files without error. Its corrected high-signal scan has zero matches outside ten frozen package-contract definition records, zero model artifacts are present, and the exact receipt is `artifacts/verification/clean-clone-baseline-0019.json`.
+- The first combined post-clone regression wrapper reached its 124-second command ceiling while output remained buffered; it produced no complete result and changed no contract or implementation. The unchanged-tree rerun completed in 168.6 seconds: 17 validators pass, both 36-test executions pass, and fresh local source attempt 003 passes all 90 scenario attempts with report/trace SHA-256 `454d11ed1c0760d991e434b4d8c0fbf2a8720613ba6444504a178196270ad8a5` / `e1d7961e412781059115a350d9fde215e0450b824ec0f47565635fbf96c10eed` and final event `9a5550734ef7eba6ac4ea31004412d1a0dcb53ce36d56dbc35074982e3d5e551`.
+- Retained development observations: direct stale-payload and post-candidate trace-verifier invocations each omitted `PYTHONPATH` before corrected passes; the first complete unit attempt retained two harness failures after a one-second timeout left the manifest on baseline-0018 and the exact-outcome fixture omitted the two already-frozen IDs. The corrected 71-file manifest and 36-test rerun pass without product-behavior changes.
+- The first standalone public-v0.0.18 trace verifier likewise omitted `PYTHONPATH` and stopped at import before its corrected pass. Docker client 29.4.3 remains installed while its daemon is unavailable, so no container claim is made.
+- Next eligible action: commit and push the exact locally verified candidate, then reproduce it from a remote-only clean clone before review or publication.
 
 ### BASELINE-0018 model-failure observability gap and frozen contract
 

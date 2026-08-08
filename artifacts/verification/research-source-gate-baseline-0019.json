@@ -1,0 +1,169 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0019-split-topology-behavioral-coverage-20260808",
+  "assessed_at": "2026-08-08T19:44:09Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_actions": [
+      "review and cite the primary behavioral-testing publication",
+      "implement a project-authored split-aware topology coverage contract",
+      "add and evaluate two project-authored synthetic scenarios"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Use the primary CheckList publication only for the narrow proposition that one aggregate metric can hide capability-specific failures and that behavioral evaluation should use an explicit capability-by-test matrix. Runbook Sentinel will create its own split-by-topology contract and two synthetic cases. No paper, code, dataset, model, package, sample, executable, service, or credential will be imported.",
+    "planned_actions": [
+      "review and cite the primary behavioral-testing publication",
+      "implement a project-authored split-aware topology coverage contract",
+      "add and evaluate two project-authored synthetic scenarios"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "acl-2020-checklist-behavioral-testing",
+      "name": "Beyond Accuracy: Behavioral Testing of NLP Models with CheckList",
+      "locator": "https://aclanthology.org/2020.acl-main.442/",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://aclanthology.org/2020.acl-main.442/",
+              "observed_at": "2026-08-08T19:44:09Z",
+              "note": "The ACL Anthology record identifies the exact title, four authors, Anthology ID 2020.acl-main.442, ACL 2020 proceedings, pages 4902 through 4912, and DOI 10.18653/v1/2020.acl-main.442."
+            }
+          ],
+          "note": "Exact publication identity is established from the primary publisher record."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://aclanthology.org/2020.acl-main.442/",
+              "observed_at": "2026-08-08T19:44:09Z",
+              "note": "The Association for Computational Linguistics publisher record names the proceedings and marks the paper as Best Overall Paper."
+            }
+          ],
+          "note": "Authority is limited to the publication's behavioral-testing method and reported findings."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://aclanthology.org/2020.acl-main.442/",
+              "observed_at": "2026-08-08T19:44:09Z",
+              "note": "The publisher metadata and abstract were publicly readable without an account, payment, secret, terms acceptance, or rate-limited API."
+            }
+          ],
+          "note": "No file acquisition or authenticated access is required for the intended citation and narrow paraphrase."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://aclanthology.org/2020.acl-main.442/",
+              "observed_at": "2026-08-08T19:44:09Z",
+              "note": "The ACL Anthology page states that materials published in or after 2016 are licensed under Creative Commons Attribution 4.0."
+            }
+          ],
+          "note": "The repository retains only attribution, locator, identity, and a narrow paraphrase; it copies no paper text, code, figure, dataset, or sample."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "ACL Anthology publisher record and DOI 10.18653/v1/2020.acl-main.442",
+              "note": "The assessment uses the primary publisher page directly with no intermediary or transformed local copy."
+            }
+          ],
+          "note": "No external artifact enters repository custody."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "Anthology ID 2020.acl-main.442 and DOI 10.18653/v1/2020.acl-main.442",
+              "note": "Stable publisher and DOI identities bind the reviewed metadata; no downloaded file requires a checksum."
+            }
+          ],
+          "note": "Project behavior will be proven by frozen synthetic cases and deterministic graders, not by the citation."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "ACL Anthology abstract for 2020.acl-main.442",
+              "note": "The paper explicitly warns that aggregate held-out accuracy can overestimate behavior and describes a capability-by-test matrix for more comprehensive behavioral evaluation."
+            }
+          ],
+          "note": "This supports only the decision to grade topology capability in each split; it does not prescribe the project's domains, cases, thresholds, or security claims."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "BASELINE-0019 bounded objective",
+              "note": "Only public bibliographic facts and a narrow method paraphrase are retained. All new evidence is project-authored synthetic SRE data with no personal data, secret, executable, dependency, model, or external destination."
+            }
+          ],
+          "note": "The citation grants no runtime authority and does not enter the retrieval corpus."
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "review and cite the primary behavioral-testing publication",
+      "implement a project-authored split-aware topology coverage contract",
+      "add and evaluate two project-authored synthetic scenarios"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "retain source identity, locator, attribution, and narrow behavioral-testing paraphrase",
+      "implement and evaluate project-authored split-aware topology coverage using existing standard-library code and synthetic data"
+    ],
+    "requires_explicit_authorization": [
+      "download or import the paper, code, dataset, model, package, sample, executable, or service",
+      "redistribute third-party content or use it as retrieval evidence",
+      "add a dependency, credential, paid service, externally controlled asset, or real-infrastructure connector"
+    ]
+  }
+}

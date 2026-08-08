@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased - 0.0.19 candidate
+
+- Cross eight SRE topology domains with development and held-out test, report exact domain/split counts and missing pairs, and require aggregate plus both split coverage rates to equal 1.0.
+- Add only the missing development-observability and held-out-test-database cases; preserve canonical identities for all 28 pre-change scenarios and terminal-state records.
+- Pass the first immutable reveal and final-manifest source/package 90-attempt evaluations with every prior gate and exact 156-event anchors.
+- Pass 36 tests, 17 validators, three-tool MCP, real loopback authentication/approval/executor/replay/postcondition flow, persisted state, audit, redaction, telemetry, endpoint anchors, and source/package dashboard inspection.
+- Retain the first packaged dashboard capture as a failed visual attempt because it contained only the lower incident-table strip despite machine checks passing; the unchanged rerun is complete.
+- Build two byte-identical dependency-free 34-entry, 423,787-byte zipapps at SHA-256 `f840d5a1ff4da1b1a1e61f0719c65925075af3a776cb52d29b890749848a70ab`.
+
 ## 0.0.18 - 2026-08-08
 
 - Add a closed 17-code model-output content-rejection taxonomy while preserving parser acceptance, fail-closed abstention, prompts, schema, model options, authority, and raw-output digest-only retention.
