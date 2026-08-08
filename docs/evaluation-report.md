@@ -1,5 +1,13 @@
 # Evaluation report
 
+## BASELINE-0019 candidate evidence
+
+Public v0.0.18 is the exact starting checkpoint. Its fresh source evaluation passes every prior gate, but aggregate topology-domain coverage of 1.0 across 28 cases masks two empty cells in the eight-domain by two-split matrix: development observability and held-out-test database. The frozen project-authored contract adds only those two complete-evidence, no-action cases plus explicit domain/split counts, exact missing pairs, separate split coverage, and hard gates. It changes no existing scenario, agent/model behavior, retrieval, decision context, action, authority, policy, approval, executor, dependency, credential, or synthetic-only boundary.
+
+The first immutable full source reveal passes. All 30 cases pass three trials, both new cases have exact `diagnose` / `no_actionable_fault` outcomes and no-execution terminal states, all 28 pre-change case and terminal hashes remain exact, and topology split coverage reaches 16/16 with development and test each at 1.0. All prior retrieval, generation, proposal, tool-trajectory, terminal-state, policy, benign-utility, attack-success, repeated-reliability, latency, cost, authentication, approval, idempotency, trace-integrity, and endpoint-anchor gates remain separately reported and passing.
+
+Source attempt 001 has 90 scenario attempts and a valid anchored 156-event companion trace. Report/trace SHA-256 values are `5bbfd45b3d2cddc3837f5bb0e30d7c124f4847a010f6a415c143d26a1baad0f5` / `10dd32144fcfc96d0cc7e272958a235b36064fa067cb467ad48c6acd38c73712`; the final event is `d8531756ac8c74ab95a05fd390e27c53ea5bb18e72d075994101ec5f477dabf1`. Package, real-surface, clean-clone, review, merge, and public-release gates remain pending, so this is candidate evidence rather than a release claim.
+
 ## BASELINE-0018 candidate evidence
 
 Public v0.0.17 and its fresh source/package/real-surface verification are the exact starting checkpoint. Its passing deterministic control makes zero model calls, while the retained baseline-0004 model comparison has 49 undifferentiated `schema_invalid` results among 54 attempts. Baseline-0018 freezes 17 exact non-sensitive rejection codes and 19 cases before implementation without changing parser acceptance, prompt, schema, model options, fail-closed result, authority, retrieval, action, approval, executor, or default selection.

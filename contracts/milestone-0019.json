@@ -122,17 +122,21 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "ready",
+      "status": "complete",
       "inputs": ["frozen topology-split-coverage-v1 contract"],
       "outputs": ["split-aware evaluation metrics and gates", "two exact catalog cases", "focused tests"],
       "gates": {
-        "all_sixteen_domain_split_pairs_covered": false,
-        "both_new_cases_exact": false,
-        "all_prior_scenarios_exact": false,
-        "prior_boundaries_unchanged": false
+        "all_sixteen_domain_split_pairs_covered": true,
+        "both_new_cases_exact": true,
+        "all_prior_scenarios_exact": true,
+        "prior_boundaries_unchanged": true
       },
-      "disposition": null,
-      "retained_failures": [],
+      "disposition": "pass",
+      "retained_failures": [
+        "One direct stale-payload verifier invocation omitted PYTHONPATH and stopped before evaluation; the corrected project-environment invocation passed.",
+        "The first full unit attempt retained two harness failures: a one-second shell timeout left the manifest on baseline-0018, and the exact-outcome fixture omitted the two already-frozen case IDs. The corrected manifest and fixture passed all 36 tests without product-behavior changes.",
+        "One post-candidate standalone trace-verifier invocation omitted PYTHONPATH and stopped at import; the corrected invocation verified the exact 156-event anchored trace."
+      ],
       "next_dependency": "UNIT-004"
     },
     {
@@ -141,7 +145,7 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "ready",
       "inputs": ["bounded candidate"],
       "outputs": ["verified candidate and release audit"],
       "gates": {
@@ -194,11 +198,14 @@
       "the primary ACL behavioral-testing source passes all eight source criteria for citation and narrow paraphrase only; no external asset is imported",
       "topology-split-coverage-v1 is frozen before implementation with two exact cases, candidate results absent, and its independent validator passing",
       "the preimplementation freeze was strengthened before product changes with canonical SHA-256 identities for all 28 existing scenarios and terminal-state records; the first freeze commit remains preserved as superseded evidence"
+      ,
+      "the split-aware implementation preserves all 28 pre-change scenario and terminal identities, covers all 16 domain/split pairs, and passes both new cases exactly",
+      "immutable source attempt 001 passes 36 tests, 17 validators, 90 scenario attempts, every prior gate, and an exact anchored 156-event trace"
     ]
   },
   "handoff": {
-    "current_checkpoint": "verified public v0.0.18 release closure",
-    "next_action": "Implement the frozen split-aware metrics and the two exact project-authored cases without changing runtime behavior or authority.",
+    "current_checkpoint": "passing baseline-0019 source attempt 001 on top of verified public v0.0.18",
+    "next_action": "Freeze the v0.0.19 package contract, run final-manifest source and package gates, and verify real MCP, API, state, telemetry, dashboard, reproducibility, and clean-clone surfaces.",
     "do_not_carry_forward": [
       "Do not change existing scenarios or runtime behavior to satisfy a coverage metric.",
       "Do not claim 30 scenarios satisfy the separate at-least-48-case v0.1.0 target.",

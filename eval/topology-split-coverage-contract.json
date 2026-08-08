@@ -130,5 +130,30 @@
     "add a dependency, credential, external asset, model call, or real-infrastructure connector",
     "treat aggregate topology coverage as proof of split-aware coverage"
   ],
-  "candidate_results": null
+  "candidate_results": {
+    "status": "recorded",
+    "recorded_at_utc": "2026-08-08T20:14:41Z",
+    "report_path": "artifacts/evaluations/runs/baseline-0019-attempt-001.json",
+    "report_sha256": "5bbfd45b3d2cddc3837f5bb0e30d7c124f4847a010f6a415c143d26a1baad0f5",
+    "manifest_path": "artifacts/evaluations/runs/baseline-0019-attempt-001.manifest.json",
+    "manifest_sha256": "ebe224607213b4f62128576f472cd4faf1b5b05bf06ce501425f0b1ce0a35094",
+    "trace_path": "artifacts/evaluations/runs/baseline-0019-attempt-001.traces.jsonl",
+    "trace_sha256": "10dd32144fcfc96d0cc7e272958a235b36064fa067cb467ad48c6acd38c73712",
+    "trace_event_count": 156,
+    "trace_final_event_sha256": "d8531756ac8c74ab95a05fd390e27c53ea5bb18e72d075994101ec5f477dabf1",
+    "scenario_count": 30,
+    "attempt_count": 90,
+    "baseline_disposition": "pass",
+    "topology_split_coverage": 1.0,
+    "development_topology_split_coverage": 1.0,
+    "test_topology_split_coverage": 1.0,
+    "missing_domain_split_pairs": [],
+    "case_exact": {
+      "dev-observability-coverage-healthy": 1.0,
+      "test-database-health-current": 1.0
+    },
+    "all_prior_scenarios_exact": 1.0,
+    "terminal_state_exact": 1.0,
+    "tool_trajectory_exact": 1.0
+  }
 }

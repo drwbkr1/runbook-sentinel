@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 
@@ -28,6 +29,10 @@ EXPECTED_PRECHANGE_MISSING = {
 }
 
 
+def sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
 def main() -> None:
     contract = json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
     prechange = json.loads(PRECHANGE_PATH.read_text(encoding="utf-8"))
@@ -38,8 +43,104 @@ def main() -> None:
         errors.append("checkpoint_mismatch")
     if contract.get("status") != "frozen" or contract.get("frozen_before_implementation") is not True:
         errors.append("contract_not_frozen_before_implementation")
-    if contract.get("candidate_results") is not None:
-        errors.append("candidate_results_revealed")
+    candidate_results = contract.get("candidate_results")
+    if candidate_results is not None:
+        if not isinstance(candidate_results, dict):
+            errors.append("candidate_results_invalid")
+        else:
+            if candidate_results.get("status") != "recorded":
+                errors.append("candidate_results_status_mismatch")
+            expected_paths = {
+                "report_path": "artifacts/evaluations/runs/baseline-0019-attempt-001.json",
+                "manifest_path": "artifacts/evaluations/runs/baseline-0019-attempt-001.manifest.json",
+                "trace_path": "artifacts/evaluations/runs/baseline-0019-attempt-001.traces.jsonl",
+            }
+            candidate_paths: dict[str, Path] = {}
+            for key, expected_path in expected_paths.items():
+                if candidate_results.get(key) != expected_path:
+                    errors.append(f"candidate_{key}_mismatch")
+                    continue
+                path = ROOT / expected_path
+                candidate_paths[key] = path
+                if not path.is_file():
+                    errors.append(f"candidate_{key}_missing")
+                    continue
+                digest_key = key.replace("_path", "_sha256")
+                if candidate_results.get(digest_key) != sha256(path):
+                    errors.append(f"candidate_{digest_key}_mismatch")
+
+            report_path = candidate_paths.get("report_path")
+            if report_path is not None and report_path.is_file():
+                report = json.loads(report_path.read_text(encoding="utf-8"))
+                if report.get("checkpoint") != "baseline-0019":
+                    errors.append("candidate_checkpoint_mismatch")
+                if report.get("schema_version") != "2.5":
+                    errors.append("candidate_schema_mismatch")
+                if report.get("scenario_count") != 30 or report.get("attempt_count") != 90:
+                    errors.append("candidate_run_count_mismatch")
+                if report.get("gates", {}).get("baseline_disposition") != "pass":
+                    errors.append("candidate_disposition_mismatch")
+                if report.get("manifest_sha256") != candidate_results.get("manifest_sha256"):
+                    errors.append("candidate_report_manifest_mismatch")
+                report_coverage = report.get("metrics", {}).get("coverage", {})
+                if report_coverage.get("topology_split_coverage") != 1.0:
+                    errors.append("candidate_topology_split_coverage_mismatch")
+                if report_coverage.get("split_topology_coverage") != {
+                    "development": 1.0,
+                    "test": 1.0,
+                }:
+                    errors.append("candidate_split_topology_coverage_mismatch")
+                if report_coverage.get("missing_domain_split_pairs") != []:
+                    errors.append("candidate_missing_pair_mismatch")
+                selected_cases = {
+                    case.get("scenario_id"): case
+                    for case in report.get("cases", [])
+                    if case.get("scenario_id") in EXPECTED_CASE_IDS
+                }
+                if set(selected_cases) != EXPECTED_CASE_IDS:
+                    errors.append("candidate_case_inventory_mismatch")
+                for case_id, case in selected_cases.items():
+                    attempts = case.get("attempts", [])
+                    if case.get("all_trials_pass") is not True or len(attempts) != 3:
+                        errors.append(f"candidate_case_not_exact:{case_id}")
+                        continue
+                    if any(
+                        attempt.get("actual", {}).get("outcome") != "diagnose"
+                        or attempt.get("actual", {}).get("diagnosis_code")
+                        != "no_actionable_fault"
+                        or attempt.get("actual", {}).get("action") is not None
+                        or attempt.get("terminal_state_exact") is not True
+                        or attempt.get("trajectory_exact") is not True
+                        for attempt in attempts
+                    ):
+                        errors.append(f"candidate_case_not_exact:{case_id}")
+                if candidate_results.get("scenario_count") != report.get("scenario_count"):
+                    errors.append("candidate_record_scenario_count_mismatch")
+                if candidate_results.get("attempt_count") != report.get("attempt_count"):
+                    errors.append("candidate_record_attempt_count_mismatch")
+                if candidate_results.get("baseline_disposition") != report.get("gates", {}).get("baseline_disposition"):
+                    errors.append("candidate_record_disposition_mismatch")
+                for key in (
+                    "topology_split_coverage",
+                    "development_topology_split_coverage",
+                    "test_topology_split_coverage",
+                    "all_prior_scenarios_exact",
+                    "terminal_state_exact",
+                    "tool_trajectory_exact",
+                ):
+                    if candidate_results.get(key) != 1.0:
+                        errors.append(f"candidate_record_rate_mismatch:{key}")
+                if candidate_results.get("missing_domain_split_pairs") != []:
+                    errors.append("candidate_record_missing_pairs_mismatch")
+                if candidate_results.get("case_exact") != {
+                    case_id: 1.0 for case_id in sorted(EXPECTED_CASE_IDS)
+                }:
+                    errors.append("candidate_record_case_exact_mismatch")
+                telemetry = report.get("metrics", {}).get("telemetry_integrity", {}).get("companion_trace", {})
+                if candidate_results.get("trace_event_count") != telemetry.get("event_count"):
+                    errors.append("candidate_trace_event_count_mismatch")
+                if candidate_results.get("trace_final_event_sha256") != telemetry.get("final_event_sha256"):
+                    errors.append("candidate_trace_final_event_mismatch")
 
     coverage = contract.get("coverage_contract", {})
     domains = coverage.get("required_domains", [])
@@ -145,7 +246,12 @@ def main() -> None:
             errors.append(f"missing_forbidden_boundary:{phrase}")
 
     result = {
-        "candidate_results_absent": contract.get("candidate_results") is None,
+        "candidate_results_absent": candidate_results is None,
+        "candidate_results_status": (
+            candidate_results.get("status")
+            if isinstance(candidate_results, dict)
+            else None
+        ),
         "case_count": len(cases),
         "checkpoint": contract.get("checkpoint"),
         "contract": str(CONTRACT_PATH.relative_to(ROOT)),

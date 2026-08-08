@@ -1,5 +1,18 @@
 # Development log
 
+## 2026-08-08 - BASELINE-0019 started
+
+- Resumed from verified public v0.0.18 release closure at `5ac099f`, ran a fresh source evaluation outside the repository, and retained its passing 150-event trace.
+- Measured one bounded evaluation weakness: aggregate eight-domain coverage was 1.0 while development had no observability case and held-out test had no database case, leaving split-aware coverage at 14/16 or 0.875.
+- Source-gated the primary ACL CheckList publisher record for the narrow proposition that aggregate results can hide capability failures. No external code, paper bytes, data, model, package, service, credential, or other asset was imported.
+- Froze `topology-split-coverage-v1` and a separate pre-change identity record before product changes. The strengthened freeze canonically binds all 28 existing scenario and terminal-state records; the earlier freeze commit remains preserved as superseded evidence.
+- Implemented domain-by-split counts, exact missing-pair reporting, separate development/test topology coverage and four hard gates; added only the frozen development-observability and test-database cases and a rendered dashboard metric. Runtime behavior and authority are unchanged.
+- Retained one direct validator invocation that omitted `PYTHONPATH`, then passed under the project environment. Retained the first full unit attempt with two harness failures: a one-second timeout killed manifest freezing and the exact-outcome fixture lacked the two frozen case IDs. The corrected 71-file manifest and complete 36-test suite pass.
+- The first immutable full reveal passes all 30 scenarios across three trials. Both new cases and every pre-change case are exact; topology split coverage is 16/16 with both splits at 1.0; all prior gates remain passing.
+- Source attempt 001 report/trace SHA-256 values are `5bbfd45b3d2cddc3837f5bb0e30d7c124f4847a010f6a415c143d26a1baad0f5` / `10dd32144fcfc96d0cc7e272958a235b36064fa067cb467ad48c6acd38c73712`. Its 156-event anchor ends at `d8531756ac8c74ab95a05fd390e27c53ea5bb18e72d075994101ec5f477dabf1`.
+- Recorded the immutable candidate result in the frozen contract and updated its independent verifier to bind exact report, manifest, trace, case, coverage, trajectory, terminal-state, and anchor evidence. Package and real-surface verification are next.
+- One post-candidate standalone trace-verifier invocation omitted `PYTHONPATH` and stopped at import; the corrected project-environment invocation verified the unchanged 156-event anchor exactly.
+
 ## 2026-08-08 - BASELINE-0018 started
 
 - Resumed from the verified public v0.0.17 release closure. Exact branches, annotated and peeled tag, non-draft latest release, selected assets, anonymous downloads, rendered pages, and a fresh no-alternates public-tag clone reconcile at `7bf9846`.

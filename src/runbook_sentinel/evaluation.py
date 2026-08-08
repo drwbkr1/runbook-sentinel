@@ -312,6 +312,73 @@ def _evidence_condition_coverage(scenarios: list[dict], contract: dict) -> dict:
     }
 
 
+def _topology_split_coverage(scenarios: list[dict], contract: dict) -> dict:
+    errors: list[str] = []
+    if not isinstance(contract, dict):
+        contract = {}
+        errors.append("contract_missing")
+    if contract.get("schema_version") != "1.0":
+        errors.append("schema_version")
+    if contract.get("contract_id") != "topology-split-coverage-v1":
+        errors.append("contract_id")
+    required_domains = contract.get("required_domains", [])
+    required_splits = contract.get("required_splits", [])
+    minimum = contract.get("minimum_cases_per_domain_split")
+    if set(required_domains) != set(REQUIRED_DOMAINS) or len(required_domains) != len(REQUIRED_DOMAINS):
+        errors.append("required_domains")
+    if required_splits != ["development", "test"]:
+        errors.append("required_splits")
+    if minimum != 1:
+        errors.append("minimum_cases_per_domain_split")
+
+    counts = {
+        domain: {split: 0 for split in required_splits}
+        for domain in required_domains
+    }
+    for scenario in scenarios:
+        domain = scenario.get("domain")
+        split = scenario.get("split")
+        if domain not in counts:
+            errors.append(f"{scenario.get('id', '<missing-id>')}:domain")
+            continue
+        if split not in counts[domain]:
+            errors.append(f"{scenario.get('id', '<missing-id>')}:split")
+            continue
+        counts[domain][split] += 1
+
+    missing_pairs = [
+        {"domain": domain, "split": split}
+        for domain in required_domains
+        for split in required_splits
+        if counts[domain][split] < (minimum if isinstance(minimum, int) else 1)
+    ]
+    pair_count = len(required_domains) * len(required_splits)
+    covered_pair_count = pair_count - len(missing_pairs)
+    split_coverage = {
+        split: (
+            sum(counts[domain][split] >= minimum for domain in required_domains)
+            / len(required_domains)
+            if required_domains and isinstance(minimum, int)
+            else 0.0
+        )
+        for split in required_splits
+    }
+    return {
+        "topology_split_contract_id": contract.get("contract_id"),
+        "topology_split_contract_valid": not errors,
+        "topology_split_contract_errors": sorted(set(errors)),
+        "required_domain_split_pair_count": pair_count,
+        "covered_domain_split_pair_count": covered_pair_count,
+        "minimum_cases_per_domain_split": minimum,
+        "case_count_by_domain_split": counts,
+        "missing_domain_split_pairs": missing_pairs,
+        "topology_split_coverage": (
+            covered_pair_count / pair_count if pair_count else 0.0
+        ),
+        "split_topology_coverage": split_coverage,
+    }
+
+
 def _behavioral_relation_metrics(
     scenarios: list[dict],
     terminal_contract: dict,
@@ -1621,6 +1688,7 @@ def run_evaluation(
     scenarios = catalog["scenarios"]
     terminal_contract = catalog["terminal_state_contract"]
     evidence_condition_contract = catalog["evidence_condition_contract"]
+    topology_split_contract = catalog["topology_split_coverage_contract"]
     behavioral_relation_contract = catalog["behavioral_relation_contract"]
     retrieval_stress_contract = catalog["retrieval_stress_contract"]
     stale_evidence_stress_contract = catalog["stale_evidence_stress_contract"]
@@ -1853,6 +1921,9 @@ def run_evaluation(
     condition_coverage = _evidence_condition_coverage(
         scenarios, evidence_condition_contract
     )
+    topology_split_coverage = _topology_split_coverage(
+        scenarios, topology_split_contract
+    )
     behavioral_relations = _behavioral_relation_metrics(
         scenarios,
         terminal_contract,
@@ -1980,6 +2051,7 @@ def run_evaluation(
             "case_count_by_split": {
                 split: split_metrics[split]["case_count"] for split in split_metrics
             },
+            **topology_split_coverage,
             **condition_coverage,
         },
     }
@@ -2153,6 +2225,21 @@ def run_evaluation(
         "topology_domain_coverage_is_one": metrics["coverage"][
             "topology_domain_coverage"
         ]
+        == 1.0,
+        "topology_split_contract_valid": metrics["coverage"][
+            "topology_split_contract_valid"
+        ],
+        "topology_split_coverage_is_one": metrics["coverage"][
+            "topology_split_coverage"
+        ]
+        == 1.0,
+        "development_topology_split_coverage_is_one": metrics["coverage"][
+            "split_topology_coverage"
+        ].get("development")
+        == 1.0,
+        "test_topology_split_coverage_is_one": metrics["coverage"][
+            "split_topology_coverage"
+        ].get("test")
         == 1.0,
         "evidence_condition_contract_valid": metrics["coverage"]["contract_valid"],
         "evidence_condition_split_coverage_is_one": metrics["coverage"][
@@ -2447,6 +2534,11 @@ def run_evaluation(
             == 1.0
             and split_metrics["test"]["reliability"]["all_trials_pass_rate"] == 1.0
             and metrics["coverage"]["topology_domain_coverage"] == 1.0
+            and metrics["coverage"]["topology_split_contract_valid"]
+            and metrics["coverage"]["topology_split_coverage"] == 1.0
+            and metrics["coverage"]["split_topology_coverage"].get("development")
+            == 1.0
+            and metrics["coverage"]["split_topology_coverage"].get("test") == 1.0
             and metrics["coverage"]["contract_valid"]
             and metrics["coverage"]["evidence_condition_split_coverage"] == 1.0
             and metrics["coverage"]["adversarial_split_coverage"] == 1.0
@@ -2466,10 +2558,11 @@ def run_evaluation(
         ),
     }
     report = {
-        "schema_version": "2.4",
+        "schema_version": "2.5",
         "checkpoint": manifest_checkpoint,
         "manifest_sha256": manifest_sha256,
         "terminal_state_contract_id": terminal_contract["contract_id"],
+        "topology_split_coverage_contract_id": topology_split_contract["contract_id"],
         "approval_lifetime_contract_id": approval_lifetime["contract_id"],
         "idempotency_authorization_contract_id": idempotency_authorization[
             "contract_id"

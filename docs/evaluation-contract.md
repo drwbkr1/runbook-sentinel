@@ -8,6 +8,7 @@
 - Exactly two project-authored complete-evidence, non-adversarial, no-execution cases are frozen before implementation. All 28 existing scenarios and expected results remain byte-for-byte immutable.
 - Candidate gates require 30 exact cases, 16-of-16 pair coverage, development split coverage 1.0, test split coverage 1.0, both new cases exact, every prior case exact, and all prior metric and real-surface gates unchanged.
 - This checkpoint improves coverage truth only. It does not satisfy the separate at-least-48-case v0.1.0 target or justify broader robustness, model, production, or real-infrastructure claims.
+- The immutable first source reveal passes 30 cases across three trials, both new cases exactly, all 28 pre-change identities exactly, and all 16 domain/split pairs. This result does not waive package or real-surface parity gates.
 
 ## BASELINE-0018 model-output failure taxonomy
 

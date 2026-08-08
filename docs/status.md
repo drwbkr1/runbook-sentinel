@@ -5,10 +5,10 @@
 - Branch: `codex/baseline-0019-split-topology-coverage`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0018`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.18`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Candidate version: proposed `0.0.19` / `baseline-0019`; not yet versioned or released
+- Candidate version: `0.0.19` / `baseline-0019`; locally versioned, not yet released
 - Active milestone: `BASELINE-0019` split-aware topology coverage
-- Current unit: `UNIT-003` ready
-- Disposition: baseline-0019 `remediate`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Current unit: `UNIT-004` ready
+- Disposition: baseline-0019 source candidate `pass`, release verification pending; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -28,10 +28,15 @@
 - Aggregate topology-domain coverage is 1.0 across 28 cases, yet split-aware coverage is only 14 of 16 domain/split pairs, or 0.875. Development contains zero observability cases; held-out test contains zero database cases.
 - The bounded checkpoint adds only `topology-split-coverage-v1`, explicit domain-by-split counts and missing-pair metrics, one project-authored development observability case, and one project-authored held-out database case. The target is 30 cases and 16-of-16 coverage, not the separate at-least-48-case v0.1.0 target.
 - The primary ACL CheckList publication passes all eight source criteria for attribution and narrow paraphrase only. No paper, code, dataset, model, package, sample, executable, service, or credential is imported.
-- The two-case contract is frozen before implementation with candidate results absent. Its independent validator passes. Every existing scenario, agent/model behavior, retriever, decision context, action and capability inventory, policy, approval, authentication, executor, API/MCP authority, dependency, credential, and synthetic-only boundary is frozen unchanged.
+- The two-case contract was frozen before implementation with candidate results absent. Its independent validator passes before and after the immutable result is recorded. Every existing scenario, agent/model behavior, retriever, decision context, action and capability inventory, policy, approval, authentication, executor, API/MCP authority, dependency, credential, and synthetic-only boundary is frozen unchanged.
 - Before implementation, the freeze was strengthened with canonical SHA-256 identities for all 28 existing scenarios and terminal-state records. The first contract commit remains preserved as superseded evidence rather than rewritten.
-- The first standalone trace verifier omitted `PYTHONPATH` and stopped at import; the corrected invocation verifies the exact trace. Docker client 29.4.3 remains installed while its daemon is unavailable, so no container claim is made.
-- Next eligible action: implement the frozen split-aware metrics and two exact cases, then seal and reveal the held-out result.
+- The candidate adds explicit 16-cell domain/split counts, exact missing-pair output, separate development and test topology coverage, four new hard gates, the two frozen cases, and a rendered dashboard metric. The catalog reaches exactly 30 cases; all 28 pre-change scenario and terminal-state hashes remain exact.
+- Full source attempt 001 passes 36 tests, 17 validators, all 30 scenarios across three trials, and every prior metric family. Both new cases pass all three trials with exact `diagnose` / `no_actionable_fault`, no action, exact no-execution trajectory, and exact unchanged terminal state.
+- Topology split coverage is 16 of 16, with development and held-out test each at 1.0 and no missing pair. The report contains 90 scenario attempts; its valid anchored companion trace contains 156 events.
+- Immutable source attempt 001 report/trace SHA-256 values are `5bbfd45b3d2cddc3837f5bb0e30d7c124f4847a010f6a415c143d26a1baad0f5` / `10dd32144fcfc96d0cc7e272958a235b36064fa067cb467ad48c6acd38c73712`; the trace ends at `d8531756ac8c74ab95a05fd390e27c53ea5bb18e72d075994101ec5f477dabf1`.
+- Retained development observations: direct stale-payload and post-candidate trace-verifier invocations each omitted `PYTHONPATH` before corrected passes; the first complete unit attempt retained two harness failures after a one-second timeout left the manifest on baseline-0018 and the exact-outcome fixture omitted the two already-frozen IDs. The corrected 71-file manifest and 36-test rerun pass without product-behavior changes.
+- The first standalone public-v0.0.18 trace verifier likewise omitted `PYTHONPATH` and stopped at import before its corrected pass. Docker client 29.4.3 remains installed while its daemon is unavailable, so no container claim is made.
+- Next eligible action: freeze the v0.0.19 package contract, rerun source/package gates under the final manifest, then verify MCP, real API approval/executor flow, persisted state, telemetry, and the rendered dashboard.
 
 ### BASELINE-0018 model-failure observability gap and frozen contract
 
