@@ -154,7 +154,9 @@
         "The first bare evaluator invocation omitted the documented PYTHONPATH and failed before any case executed.",
         "A PowerShell UTC display probe used an unavailable Get-Date -AsUTC option; the manifest generator independently wrote and validated its UTC timestamp.",
         "The first packaged API pass served the source evaluation pointer and was superseded by an exact rerun against the immutable package report.",
-        "The first otherwise-passing source/package dashboard placed the persisted-incidents table below the 1440 by 1000 evidence frame; its archive, screenshots, and native receipts remain retained as superseded attempt 001."
+        "The first otherwise-passing source/package dashboard placed the persisted-incidents table below the 1440 by 1000 evidence frame; its archive, screenshots, and native receipts remain retained as superseded attempt 001.",
+        "The second otherwise-passing dashboard showed a persisted-incident row clipped at the lower edge during exact original-detail inspection; candidate 773c539 and its archive, screenshots, native receipts, and clean-clone outputs remain retained as superseded attempt 002.",
+        "A --help probe against the non-argument baseline runner stopped at the expected manifest mismatch before the revised manifest freeze; the non-argument MCP verifier also ran once. Neither output was selected."
       ],
       "next_dependency": "UNIT-005"
     },
@@ -206,7 +208,7 @@
       "generic implementation passes all four development cases, the 32-test regression suite, compilation, and a direct live CLI endpoint check before held-out reveal",
       "the first immutable full reveal passes all ten live-anchor cases with both splits, invalid no-append, truncation detection, and valid resume exact",
       "selected source and package evaluations pass 84+9+6+10+10+10 under the exact 62-file manifest, with 33 tests and exact 150-event companion anchors",
-      "two selected 392,893-byte 32-entry archives are byte-identical; source and package CLI, MCP, API, executor, state, audit, live endpoints, and corrected rendered dashboards pass"
+      "two selected 392,954-byte 32-entry archives are byte-identical; source and package CLI, MCP, API, executor, state, audit, live endpoints, and corrected rendered dashboards pass"
     ]
   },
   "handoff": {

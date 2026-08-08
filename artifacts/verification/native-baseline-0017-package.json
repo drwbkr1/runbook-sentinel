@@ -55,7 +55,7 @@
   },
   "dashboard": {
     "height": 1000,
-    "sha256": "09ef0c0f1969ee95a0912b081bff01e9049c62a28c9b3b97659c9d4363a3c4f7",
+    "sha256": "8b63d07ef9dfe4928d9d83d864ab4d27ef8094ca0532987f154756dfec0bf671",
     "width": 1440
   },
   "database": {
@@ -75,10 +75,10 @@
       "runs": 2
     },
     "operator_identities": [
-      "operator-b27c722fb4ef7e65",
-      "operator-b27c722fb4ef7e65"
+      "operator-5ec3a9cf03070a29",
+      "operator-5ec3a9cf03070a29"
     ],
-    "sha256": "0463400bad3aa6aaab2c223bbb52f6599561b6ff6aaa398237fadda997b06b51"
+    "sha256": "03182526309a2e9017adc5dd7ff5b992b7fb10ca86bf505ae4d2dcb98cf75bf7"
   },
   "evaluation": {
     "adversarial_split_coverage": 1.0,
@@ -88,7 +88,7 @@
     "behavioral_relation_exact": 1.0,
     "companion_trace_anchor_exact": true,
     "companion_trace_event_count": 150,
-    "companion_trace_final_event_sha256": "c7aa0bb56d01c375255e016ec35e941e8cfb780d9b15bcdb7c3c2ef90740b84d",
+    "companion_trace_final_event_sha256": "38b58bb5ac7984952479c1c9d029d549b4160f1478ead860f68f6d946a05ec32",
     "evidence_condition_split_coverage": 1.0,
     "fresh_decision_retention": 1.0,
     "fresh_evidence_recall": 1.0,
@@ -96,7 +96,7 @@
     "idempotency_authorization_exact": 1.0,
     "idempotency_retry_no_mutation": 1.0,
     "invalid_lifetime_no_mutation": 1.0,
-    "manifest_sha256": "069c397348497ca109d549c897205061f4ff7f4144a5cc2d57b555f3f191863c",
+    "manifest_sha256": "e0425726005421c45e76d290fcd9aa5e29025c49da136a1419975b72e24d0467",
     "operator_authentication_denial": 1.0,
     "operator_authentication_exact": 1.0,
     "operator_authentication_no_mutation": 1.0,
@@ -105,7 +105,7 @@
     "operator_identity_server_derived": 1.0,
     "prior_launch_rejection": 1.0,
     "retrieval_configuration": "freshness-priority-lexical-v3",
-    "sha256": "49fecb1642d73c161029bfb238a715e900b55caaaaf568ca8470d41a0365027b",
+    "sha256": "64e1485e37705e0c9a29d403ff65af3ec666ef3e189408a52263baed46107a90",
     "stale_identity_retention": 1.0,
     "stale_metadata_projection": 1.0,
     "stale_payload_exposure": 0.0,
@@ -125,12 +125,12 @@
   "schema_version": "1.0",
   "status": "pass",
   "telemetry": {
-    "anchor_file_sha256": "4f2f7f0bf00b23583841dd4b9c0402126bf2ef0b761172799ed954db393b24e1",
-    "anchor_sha256": "9cb1a46c1e9b67c26bc6341791dfd92e091b4f905aed95160de9bf4f30e2c11b",
+    "anchor_file_sha256": "e8df86b440600ffb858b97f505fc3bc61ebbe2ea4c064920864d8c83087a624a",
+    "anchor_sha256": "b1704ed859c2daeba610a45d8a63ceb947d927c18d28efc5f4aac2c560849fb7",
     "chain_valid": true,
     "event_count": 5,
-    "final_event_sha256": "a3ca64c7b97a3456affe9ab0a1fa2fe9c236e38511d942daedfc7d2e89129d9a",
+    "final_event_sha256": "630e26fec5b0d9bd11c38630b6fe300a543a526923a17056881401d7d6aa3772",
     "forbidden_terms": [],
-    "sha256": "84e2cc544d397c28236f62fdf26e2f37e2bb4015fa741c9dee79b9c8c0773113"
+    "sha256": "bfccc5d963ec5287508c89bbeaa41ce06ff4b4e346010e89ec37d8f78c38d614"
   }
 }
