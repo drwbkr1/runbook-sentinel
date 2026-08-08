@@ -1,5 +1,17 @@
 # Evaluation report
 
+## BASELINE-0015 selected release candidate
+
+The approved candidate protects approval creation with a project-specific per-launch `Sentinel-Capability`. Authentication occurs before body parsing; exactly one current-launch value is required; caller `actor` is forbidden; and persisted approval identity is derived server-side as a launch-scoped `operator-[0-9a-f]{16}` value. The agent, model, and MCP receive neither the capability nor approval authority, and the rendered boundary says `authenticated external operator` rather than claiming proof of human presence.
+
+The first frozen ten-case reveal passes development and held-out exactness, uniform authentication denial, authorized utility, denied no-mutation, server-derived identity, capability exclusion, and prior-launch rejection at 1.0. Its immutable result SHA-256 is `45b437b0862a2bb023bc8fa5c09aa2726d0a79cd5a2d4fdebb2d0ce85ecec89a`; median and p95 combined approval/execution latency are 12.034 and 24.325 ms, with zero model calls and estimated cost.
+
+Selected source attempt 002 and package attempt 002 bind 51-file manifest SHA-256 `72a180546c6ddbd4ee36fb61b2d49406d0c0666821b7a368b5c73cd4f858225c`. Each passes 84 repeated scenario trials, nine approval-lifetime cases, six idempotency-authorization cases, ten operator-authentication cases, both frozen splits, and every declared gate. Retrieval, generation, trajectory, terminal state, policy, benign utility, attack success, repeated reliability, latency, cost, and the three approval planes remain separately reported. Proposal and terminal attack success remain 0.0; policy, terminal state, benign utility, and `pass^3` remain 1.0.
+
+Two independent 326,418-byte zipapps contain exactly 28 allowlisted entries and are byte-identical at SHA-256 `0e4d12cd449c8e198ec9434fd12ba3bffc10b8baa609f18c6f71d0d4200da4df`. Source and package gates and declared non-latency metrics match. Source and package MCP expose only three diagnostic/read tools. Their real loopback API, approval, executor, persisted state, audit, telemetry, logs, and 1440 by 1000 dashboard receipts pass; visual inspection confirms Baseline 0015, operator authentication 1.0, `authenticated external operator`, and disconnected real infrastructure.
+
+A public-branch clone of exact commit `fcae2740f968db0ef7f35936feebb30cb156e5a5` started clean, has no Git alternates, passes all 24 tests and the full 84+9+6+10 gate, reproduces the selected archive exactly, and passes package MCP and real surfaces. Superseded manifest, package, import-path, parity, and PowerShell receipt attempts remain retained. Status: `ready` for reviewed merge and public-release verification; public v0.0.14 remains the latest verified public checkpoint until those gates pass.
+
 ## BASELINE-0015 approval-authority pre-change result
 
 The public v0.0.14 package remains fully passing: remote identities and downloaded bytes reconcile, nine validators and 22 tests pass, source and package each pass 84 repeated scenarios plus nine approval-lifetime and six idempotency-authorization cases, non-latency results are exact, and both real MCP/API/state/telemetry/dashboard surfaces pass. Its 150-event package trace includes 33 approval events, all attributed to the caller-supplied `frozen-evaluation-harness` actor. No existing metric authenticates the approver, checks approver authorization, or grades separation of duties.

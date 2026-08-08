@@ -88,8 +88,11 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "ready",
-      "outputs": ["bounded implementation", "focused tests"]
+      "status": "complete",
+      "outputs": ["bounded implementation", "focused tests"],
+      "gates": {"per_launch_authentication_implemented": true, "caller_actor_rejected": true, "agent_and_mcp_authority_unchanged": true, "development_checks_pass": true},
+      "disposition": "pass",
+      "next_dependency": "UNIT-004"
     },
     {
       "id": "UNIT-004",
@@ -97,8 +100,11 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
-      "outputs": ["immutable evaluation", "real-surface evidence", "clean-clone receipt"]
+      "status": "complete",
+      "outputs": ["immutable evaluation", "real-surface evidence", "clean-clone receipt"],
+      "gates": {"source_84_plus_9_plus_6_plus_10_pass": true, "package_parity_pass": true, "mcp_api_executor_state_telemetry_dashboard_pass": true, "capability_exclusion_pass": true, "clean_clone_pass": true},
+      "disposition": "pass",
+      "next_dependency": "UNIT-005"
     },
     {
       "id": "UNIT-005",
@@ -106,7 +112,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "github_push",
       "human_gate": false,
-      "status": "planned",
+      "status": "ready",
       "outputs": ["verified public checkpoint"]
     }
   ],
@@ -133,7 +139,12 @@
       "RFC 9110 and Python standard-library feasibility source gates validate ready without importing assets or adding a secret",
       "RFC 6750 and RFC 9700 source gate validates blocked and excludes Bearer/OAuth from the current bare-HTTP bounded architecture",
       "the user's exact approval of the recommended option is locked and reconciled with one selected decision and zero alternatives",
-      "operator-authentication-v1 freezes ten development and held-out cases before candidate implementation"
+      "operator-authentication-v1 freezes ten development and held-out cases before candidate implementation",
+      "the first frozen ten-case reveal passes every development and held-out authentication, utility, no-mutation, identity, exclusion, and prior-launch gate",
+      "24 tests and selected source and package 84+9+6+10 evaluations pass under the 51-file baseline-0015 manifest",
+      "two 326418-byte 28-entry archives are byte-identical and pass the frozen package contract",
+      "source and package MCP, API, approval, executor, state, audit, telemetry, logs, and rendered dashboards pass",
+      "a no-alternates public-branch clone starts clean, repeats the full gate, and reproduces the selected archive exactly"
     ],
     "artifacts": [
       "artifacts/verification/approval-authority-gap-baseline-0015.json",
@@ -145,13 +156,17 @@
       "artifacts/verification/human-review-reconciliation-baseline-0015.json",
       "eval/operator-authentication-contract.json",
       "scripts/verify_operator_authentication_contract.py",
-      "docs/adr/0011-authenticate-external-operator-with-per-launch-capability.md"
+      "docs/adr/0011-authenticate-external-operator-with-per-launch-capability.md",
+      "artifacts/evaluations/runs/baseline-0015-attempt-002.json",
+      "artifacts/evaluations/runs/baseline-0015-package-attempt-002.json",
+      "artifacts/verification/package-verification-baseline-0015.json",
+      "artifacts/verification/clean-clone-baseline-0015.json"
     ],
-    "disposition": "remediate"
+    "disposition": "ready"
   },
   "handoff": {
     "latest_verified_checkpoint": "public v0.0.14 release closure with selected 9c9dbcba package bytes",
-    "active_weakness": "approval creation trusts an unauthenticated caller-declared actor while public truth says human approval",
-    "resume_rule": "Resume at UNIT-003 from the frozen operator-authentication-v1 contract. Implement only the selected in-memory per-launch capability boundary, run development checks before the one-time held-out reveal, and preserve every failure."
+    "active_weakness": "closed in the verified baseline-0015 candidate; public v0.0.14 remains authoritative until release reconciliation",
+    "resume_rule": "Resume at UNIT-005 from the verified source, package, real-surface, and no-alternates clone receipts. Review, merge, publish, and verify the exact candidate without reopening implementation."
   }
 }

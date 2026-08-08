@@ -1,6 +1,6 @@
 # ADR 0011: Authenticate the external operator with a per-launch capability
 
-- Status: accepted
+- Status: accepted and verified in the baseline-0015 release candidate
 - Date: 2026-08-07
 - Checkpoint: baseline-0015
 

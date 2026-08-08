@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0015",
+  "verified_at_utc": "2026-08-08T00:02:30Z",
+  "status": "pass",
+  "candidate_commit": "fcae2740f968db0ef7f35936feebb30cb156e5a5",
+  "manifest": {
+    "path": "eval/manifest.json",
+    "file_count": 51,
+    "sha256": "72a180546c6ddbd4ee36fb61b2d49406d0c0666821b7a368b5c73cd4f858225c"
+  },
+  "package_contract": {
+    "path": "eval/package-contract-0015.json",
+    "entry_count": 28,
+    "sha256": "d58fbf20b94a4948a2c5291b72ba0397fd35e38088383f66f070e58a983c74d5",
+    "validator_status": "pass"
+  },
+  "selected_archive": {
+    "path": "dist/runbook-sentinel-0.0.15.pyz",
+    "bytes": 326418,
+    "sha256": "0e4d12cd449c8e198ec9434fd12ba3bffc10b8baa609f18c6f71d0d4200da4df",
+    "checksum_path": "dist/runbook-sentinel-0.0.15.pyz.sha256",
+    "checksum_file_sha256": "0163d8f90439b1d8bb0107582e0c556a8df408d4e593e0c3bacdd4a0cfc6088d",
+    "second_build_byte_identical": true,
+    "runtime_dependencies": []
+  },
+  "retained_attempts": [
+    {
+      "attempt": "archive-attempt-001",
+      "sha256": "6edf04a29e871008f948b52bc9e403979ab21a6b53a5f2a4afbd5e8acf805fba",
+      "disposition": "superseded after the Windows PowerShell receipt extraction repair changed the frozen manifest; bytes retained locally under attempt-001 names"
+    },
+    {
+      "attempt": "source-evaluation-attempt-001",
+      "disposition": "superseded",
+      "reason": "bound the pre-repair manifest"
+    },
+    {
+      "attempt": "package-evaluation-attempt-001",
+      "disposition": "superseded",
+      "reason": "bound the pre-repair manifest"
+    }
+  ],
+  "selected_evaluations": {
+    "source": {
+      "path": "artifacts/evaluations/runs/baseline-0015-attempt-002.json",
+      "sha256": "8d9e3fa12b4c538aaf552975aeaaba10f8173afcd1b3f0cec503ce3a14ce0685",
+      "disposition": "pass"
+    },
+    "package": {
+      "path": "artifacts/evaluations/runs/baseline-0015-package-attempt-002.json",
+      "sha256": "b293cabcce2055be30381456c2ab9c12bbf414772b4070b6ce953f3c08595e9e",
+      "disposition": "pass"
+    },
+    "coverage": {
+      "repeated_scenario_attempts": 84,
+      "approval_lifetime_cases": 9,
+      "idempotency_authorization_cases": 6,
+      "operator_authentication_cases": 10,
+      "source_package_gates_exact": true,
+      "declared_non_latency_metrics_exact": true
+    }
+  },
+  "real_surfaces": {
+    "source_receipt_sha256": "4a8361d0de59b3e7142aaf3d0f8c3b53b2c36c666798f3dc6474b60c90717603",
+    "package_receipt_sha256": "fbacf163496613210a7ee0c25b581a03704373f21ae00c7e71681d8c80582946",
+    "source_dashboard_sha256": "6cba6f986afcaef42359c3094eefc5093c28da98068ce58e8f1f4f80a7eaac18",
+    "package_dashboard_sha256": "6cba6f986afcaef42359c3094eefc5093c28da98068ce58e8f1f4f80a7eaac18",
+    "dashboard_dimensions": [1440, 1000],
+    "dashboard_visual_review": "pass",
+    "mcp_source_and_package": "pass",
+    "api_source_and_package": "pass",
+    "persisted_state_source_and_package": "pass",
+    "telemetry_and_logs_source_and_package": "pass",
+    "operator_capability_exclusion": "pass",
+    "operator_identity_server_derived": "pass",
+    "rendered_boundary_label": "authenticated external operator"
+  },
+  "container_surface": {
+    "status": "not_claimed",
+    "reason": "Docker daemon was not required for this dependency-free zipapp checkpoint; no container gate is declared"
+  }
+}

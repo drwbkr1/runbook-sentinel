@@ -5,10 +5,10 @@
 - Branch: `codex/baseline-0015-approval-authority`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0014`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.14`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Candidate version: none; the baseline-0015 architecture and ten-case contract are frozen before implementation, but no v0.0.15 candidate exists yet
+- Candidate version: `0.0.15` / `baseline-0015`; source, package, real-surface, rendered-dashboard, and no-alternates clean-clone gates pass
 - Active milestone: `BASELINE-0015`; establish truthful and enforceable approval authority without giving the agent or MCP approval capability
-- Current unit: `UNIT-003` ready to implement the approved and frozen per-launch operator capability
-- Disposition: baseline-0015 `remediate`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Current unit: `UNIT-005` ready for review, merge, release, and public verification
+- Disposition: baseline-0015 `ready`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -23,13 +23,22 @@
 
 ### BASELINE-0015 approval-authority gap
 
+- The approved project-specific `Sentinel-Capability` boundary is implemented. Approval authentication precedes JSON parsing; missing, wrong, malformed, Bearer, duplicate, and prior-launch material returns uniform HTTP 401; a caller-provided `actor` returns HTTP 400; valid requests derive a launch-scoped `operator-[0-9a-f]{16}` identity server-side.
+- The agent, model, and MCP still receive no approval material or execution authority. The raw per-launch capability is absent from process arguments, environment, repository, package, database, audit, traces, logs, evaluation records, and dashboard. The rendered label is `authenticated external operator`, not proof of human presence.
+- `operator-authentication-v1` passes all ten development and held-out cases. Authentication denial, authorized utility, denied no-mutation, server-derived identity, capability exclusion, prior-launch rejection, and both splits are 1.0 with zero model calls or external cost.
+- Frozen source attempt 002 and package attempt 002 pass all 84 repeated scenarios plus 9 approval-lifetime, 6 idempotency-authorization, and 10 operator-authentication cases under 51-file manifest SHA-256 `72a180546c6ddbd4ee36fb61b2d49406d0c0666821b7a368b5c73cd4f858225c`.
+- Two 326,418-byte, 28-entry dependency-free zipapps are byte-identical at SHA-256 `0e4d12cd449c8e198ec9434fd12ba3bffc10b8baa609f18c6f71d0d4200da4df`. Source and package MCP, real API/approval/executor/state/telemetry/log checks, and visually inspected 1440 by 1000 dashboards pass.
+- A public-branch clone of exact commit `fcae2740f968db0ef7f35936feebb30cb156e5a5` started clean with no Git alternates, repeated the full gate, rebuilt the exact selected archive, and passed the package MCP and real surfaces. `artifacts/verification/clean-clone-baseline-0015.json` retains the receipt.
+- Retained unfavorable and superseded evidence includes the initial manifest-bound evaluation failure, a direct package import-path failure, an over-strict parity comparison, a Windows PowerShell response-body extraction failure, and the first immutable archive/evaluation attempts. No failed result was rewritten.
+- Candidate status is `ready` for GitHub review and release gates. Public v0.0.14 remains the latest verified public checkpoint until merged-main, tag, release-asset, downloaded-byte, rendered-public, and public-tag-clone verification pass.
+
 - Fresh public v0.0.14 reconciliation passes: remote main, annotated tag, downloaded assets, a no-alternates public-tag clone, nine validators, 22 tests, exact archive rebuild, source/package 84+9+6 evaluations, both real MCP/API/state/telemetry surfaces, and rendered dashboard inspection agree.
 - The current 150-event evaluation trace uses only the fixed caller-supplied actor `frozen-evaluation-harness`. The evaluation has no approver identity-authentication, approver authorization, or separation-of-duties metric.
 - A real loopback probe against the downloaded public zipapp submitted `actor: sentinel-agent-self-declared` in the unauthenticated approval JSON body. Approval returned HTTP 201 with a token, execution returned HTTP 200, `restart_worker` changed the synthetic incident from unhealthy/restart count 0 to healthy/restart count 1, and postconditions passed.
 - SQLite, audit, and trace evidence preserves that self-declared actor and the consumed approval across all three probes. The first two product flows executed but their diagnostic reporters failed on incorrect response-shape assumptions; those failures remain retained with the complete third result in `artifacts/verification/approval-authority-gap-baseline-0015.json`.
 - This does not expose real infrastructure, put a credential in the model, or add an MCP approval tool. It does show that the public dashboard's `human approval` label is not backed by authenticated identity: any local HTTP caller can self-declare the approver and mint an execution-authorizing token.
-- The smallest enforcement options require a new local operator credential or OS-authenticated access boundary, which cross the standing secret/access gate. Label correction alone is reversible and honest but does not enforce identity. No implementation or frozen candidate expectation will be created until the user chooses the architecture.
-- Current official-source review rejects direct Bearer/OAuth use on this surface: RFC 6750 requires TLS, while Runbook Sentinel uses bare loopback HTTP, and OAuth would add roles and flows without a matching product need. RFC 9110 is fit only for generic HTTP authentication semantics. Python 3.12 standard-library primitives make a project-specific per-launch capability feasible without a new dependency, but no capability or credential has been created; the recommended label would be `authenticated external operator`, not proof of human presence.
+- The smallest enforcement options required a new local operator credential or OS-authenticated access boundary, which crossed the standing secret/access gate. The user selected the per-launch capability; label correction alone was not used as the security control.
+- Current official-source review rejects direct Bearer/OAuth use on this surface: RFC 6750 requires TLS, while Runbook Sentinel uses bare loopback HTTP, and OAuth would add roles and flows without a matching product need. RFC 9110 is fit only for generic HTTP authentication semantics. Python 3.12 standard-library primitives implement the selected per-launch capability without a new dependency.
 - The user approved the recommended option verbatim: `yes, implement the recommended option`. The closed human-review workflow locked and reconciled one `approve-per-launch-operator-capability` decision, no alternative decision, and no fabricated response. `operator-authentication-v1` now freezes ten ordered development and held-out cases before runtime implementation.
 
 ### BASELINE-0014 cached-result authorization gap and frozen contract
