@@ -761,7 +761,7 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["coverage"]["adversarial_split_coverage"], 1.0)
         self.assertEqual(report["metrics"]["coverage"]["missing_condition_split_pairs"], [])
         self.assertEqual(report["metrics"]["coverage"]["missing_adversarial_splits"], [])
-        self.assertEqual(report["schema_version"], "2.2")
+        self.assertEqual(report["schema_version"], "2.3")
         self.assertEqual(report["checkpoint"], "baseline-0015")
         self.assertEqual(report["metrics"]["proposal"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["development"]["tool_trajectory"]["exact_match"], 1.0)
@@ -779,6 +779,24 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["terminal_state"]["no_action_no_mutation_rate"], 1.0)
         self.assertEqual(report["metrics"]["terminal_state"]["action_type_coverage"], 1.0)
         self.assertEqual(report["metrics"]["terminal_state"]["executed_expected_action_trial_count"], 33)
+        telemetry_integrity = report["metrics"]["telemetry_integrity"]
+        self.assertEqual(report["trace_integrity_contract_id"], "trace-integrity-v1")
+        self.assertTrue(telemetry_integrity["contract_valid"])
+        self.assertEqual(
+            telemetry_integrity["contract_evaluation"]["metrics"]["case_count"],
+            10,
+        )
+        self.assertEqual(
+            telemetry_integrity["contract_evaluation"]["metrics"][
+                "exact_match_rate"
+            ],
+            1.0,
+        )
+        self.assertTrue(telemetry_integrity["runtime_verification"]["valid"])
+        self.assertTrue(telemetry_integrity["runtime_verification"]["anchored"])
+        self.assertTrue(report["gates"]["trace_integrity_all_ten_cases_exact"])
+        self.assertTrue(report["gates"]["companion_trace_chain_valid"])
+        self.assertTrue(report["gates"]["companion_trace_anchor_exact"])
         approval_lifetime = report["metrics"]["approval_lifetime"]
         self.assertEqual(report["approval_lifetime_contract_id"], "approval-lifetime-v1")
         self.assertEqual(approval_lifetime["case_count"], 9)

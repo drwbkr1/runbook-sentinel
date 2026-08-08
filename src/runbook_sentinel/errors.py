@@ -20,3 +20,7 @@ class ReplayRejected(ApprovalError):
 
 class PolicyRejected(SentinelError):
     pass
+
+
+class TraceIntegrityError(SentinelError):
+    """Persisted telemetry is not a valid appendable trace chain."""

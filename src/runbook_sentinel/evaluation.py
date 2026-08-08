@@ -28,6 +28,8 @@ from .retrieval import (
     RETRIEVAL_CONFIGURATIONS,
 )
 from .service import RunbookSentinel
+from .telemetry import verify_trace_file
+from .trace_integrity_evaluation import run_trace_integrity_evaluation
 
 
 REQUIRED_DOMAINS = (
@@ -1837,6 +1839,27 @@ def run_evaluation(
     approval_lifetime = run_approval_lifetime_evaluation()
     idempotency_authorization = run_idempotency_authorization_evaluation()
     operator_authentication = run_operator_authentication_evaluation()
+    trace_integrity = run_trace_integrity_evaluation()
+    companion_trace_anchor = service.traces.anchor()
+    runtime_trace_verification = verify_trace_file(
+        trace_output,
+        expected_event_count=companion_trace_anchor["event_count"],
+        expected_final_event_sha256=companion_trace_anchor["final_event_sha256"],
+    )
+    telemetry_integrity = {
+        "contract_id": trace_integrity["contract_id"],
+        "contract_valid": trace_integrity["contract_valid"],
+        "contract_evaluation": trace_integrity,
+        "companion_trace": {
+            "schema": companion_trace_anchor["schema"],
+            "file_name": trace_output.name,
+            "event_count": companion_trace_anchor["event_count"],
+            "final_event_sha256": companion_trace_anchor[
+                "final_event_sha256"
+            ],
+        },
+        "runtime_verification": runtime_trace_verification,
+    }
     split_metrics = {
         split: _split_summary([case for case in case_records if case["split"] == split])
         for split in ("development", "test")
@@ -1863,6 +1886,7 @@ def run_evaluation(
         "approval_lifetime": approval_lifetime,
         "idempotency_authorization": idempotency_authorization,
         "operator_authentication": operator_authentication,
+        "telemetry_integrity": telemetry_integrity,
         "policy": {"compliance_rate": _rate(attempts, "policy_compliant")},
         "utility": {
             "benign_case_pass_rate": sum(case["all_trials_pass"] for case in benign)
@@ -2042,6 +2066,28 @@ def run_evaluation(
             "operator_authentication_disposition"
         ]
         == "pass"
+    )
+    telemetry_integrity_gates = all(
+        (
+            metrics["telemetry_integrity"]["contract_valid"],
+            metrics["telemetry_integrity"]["contract_evaluation"]["gates"][
+                "all_selected_cases_exact"
+            ],
+            metrics["telemetry_integrity"]["contract_evaluation"]["gates"][
+                "development_exact"
+            ],
+            metrics["telemetry_integrity"]["contract_evaluation"]["gates"][
+                "test_exact"
+            ],
+            metrics["telemetry_integrity"]["contract_evaluation"]["gates"][
+                "anchored_tail_truncation_detected"
+            ],
+            metrics["telemetry_integrity"]["contract_evaluation"]["gates"][
+                "valid_prefix_resume_exact"
+            ],
+            metrics["telemetry_integrity"]["runtime_verification"]["valid"],
+            metrics["telemetry_integrity"]["runtime_verification"]["anchored"],
+        )
     )
     gates = {
         "all_exact_cases_pass": all_cases_pass,
@@ -2253,6 +2299,31 @@ def run_evaluation(
         "test_operator_authentication_exact": metrics["operator_authentication"][
             "gates"
         ]["test_exact"],
+        "trace_integrity_contract_valid": metrics["telemetry_integrity"][
+            "contract_valid"
+        ],
+        "trace_integrity_all_ten_cases_exact": metrics["telemetry_integrity"][
+            "contract_evaluation"
+        ]["gates"]["all_selected_cases_exact"],
+        "development_trace_integrity_exact": metrics["telemetry_integrity"][
+            "contract_evaluation"
+        ]["gates"]["development_exact"],
+        "test_trace_integrity_exact": metrics["telemetry_integrity"][
+            "contract_evaluation"
+        ]["gates"]["test_exact"],
+        "anchored_trace_truncation_detected": metrics["telemetry_integrity"][
+            "contract_evaluation"
+        ]["gates"]["anchored_tail_truncation_detected"],
+        "trace_prefix_resume_exact": metrics["telemetry_integrity"][
+            "contract_evaluation"
+        ]["gates"]["valid_prefix_resume_exact"],
+        "companion_trace_chain_valid": metrics["telemetry_integrity"][
+            "runtime_verification"
+        ]["valid"],
+        "companion_trace_anchor_exact": metrics["telemetry_integrity"][
+            "runtime_verification"
+        ]["anchored"]
+        and metrics["telemetry_integrity"]["runtime_verification"]["valid"],
         "proposal_exact_is_one": metrics["proposal"]["exact_match"] == 1.0,
         "tool_trajectory_exact_is_one": metrics["tool_trajectory"]["exact_match"]
         == 1.0,
@@ -2315,11 +2386,12 @@ def run_evaluation(
             and approval_lifetime_gates
             and idempotency_authorization_gates
             and operator_authentication_gates
+            and telemetry_integrity_gates
             else "remediate"
         ),
     }
     report = {
-        "schema_version": "2.2",
+        "schema_version": "2.3",
         "checkpoint": manifest_checkpoint,
         "manifest_sha256": manifest_sha256,
         "terminal_state_contract_id": terminal_contract["contract_id"],
@@ -2330,6 +2402,7 @@ def run_evaluation(
         "operator_authentication_contract_id": operator_authentication[
             "contract_id"
         ],
+        "trace_integrity_contract_id": trace_integrity["contract_id"],
         "agent_configuration": agent_configuration,
         "retrieval_configuration": retrieval_configuration,
         "decision_context_configuration": decision_context_configuration,

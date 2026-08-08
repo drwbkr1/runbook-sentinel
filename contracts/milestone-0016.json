@@ -117,7 +117,7 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": ["frozen trace-integrity-v1 contract"],
       "outputs": ["bounded implementation", "focused tests"],
       "gates": {
@@ -198,7 +198,7 @@
   },
   "handoff": {
     "current_checkpoint": "public v0.0.15 release closure with selected 0e4d12cd package bytes",
-    "next_action": "Commit the validated pre-implementation freeze, then begin UNIT-003 against trace-integrity-v1.",
+    "next_action": "Implement UNIT-003 against the committed trace-integrity-v1 contract and run development-only checks before the held-out reveal.",
     "do_not_carry_forward": [
       "Do not claim that an unkeyed hash chain authenticates the writer or resists an attacker who can recompute the chain and its anchor.",
       "Do not add a signing key, HMAC key, credential, collector, dependency, or real-infrastructure integration.",

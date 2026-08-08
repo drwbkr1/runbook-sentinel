@@ -7,7 +7,7 @@
 - Latest verified checkpoint: public `v0.0.15`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
 - Candidate version: not yet assigned; `0.0.15` / `baseline-0015` remains the selected public checkpoint
 - Active milestone: `BASELINE-0016` - completed-evaluation trace integrity
-- Current unit: `UNIT-003` - ready to implement the frozen trace-integrity contract after the pre-implementation commit
+- Current unit: `UNIT-003` - implementing the committed trace-integrity contract; held-out candidate results remain unrevealed
 - Disposition: baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
