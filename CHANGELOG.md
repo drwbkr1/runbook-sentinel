@@ -6,7 +6,7 @@
 - Fail closed before resume when the live trace/anchor pair is missing, orphaned, malformed, stale, truncated, extended without its endpoint, or bound to the wrong file.
 - Add a separately reported ten-case endpoint-anchor evaluation; the first immutable reveal passes both development and held-out splits exactly.
 - Pass the selected local source/package `84+9+6+10+10+10` gates, 33 tests, real API/MCP/state/telemetry/dashboard checks, and two byte-identical 392,954-byte builds at SHA-256 `271242d6eabffd4205f8b386028073f6d041b6ec5cc9369a524e45cacc9fe1ef`.
-- Retain two superseded package and dashboard attempts: the first placed the incident table below the 1440 by 1000 frame, and the second left the incident row clipped at the lower edge despite passing machine checks. The selected density correction displays the complete table; clean-clone and release gates remain pending.
+- Retain two superseded package and dashboard attempts: the first placed the incident table below the 1440 by 1000 frame, and the second left the incident row clipped at the lower edge despite passing machine checks. The selected density correction displays the complete table; clean-clone, exact-head review, history-preserving merge, and fresh merged-main gates pass, while final release gates remain pending.
 
 ## 0.0.16 - 2026-08-08
 

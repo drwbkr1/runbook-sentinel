@@ -14,7 +14,9 @@ Two independent 392,954-byte, 32-entry zipapps are byte-identical at SHA-256 `27
 
 A remote-only clone of exact commit `8929ed5fe4370660235045929769f9fa16813939` began clean with no Git object alternates. It passed the full source gate and 33 tests, produced a fresh passing source evaluation with an independently verified 150-event trace, rebuilt the selected archive exactly, passed a fresh packaged evaluation and exact companion trace, and passed MCP, API, approval, executor, replay, persisted state, audit, live API/MCP endpoint anchors, artifact parsing, model/credential exclusion, native inspection, and original-detail visual review.
 
-Status: exact clean-clone reproduction passes; review, merge, release, public download, rendered-page, and public-tag verification remain. Public v0.0.16 remains the latest verified checkpoint.
+PR `#15` reviewed exact head `5c7d2cb2536e366066dcc57c7afc1a3a5fed1fba` and merged it under expected-head lock as `1cf1ddb5c2c2f8107ea5959cfdc6f32a8003508f`, preserving exact prior-main and reviewed-head parents. A fresh remote-only public-main clone passes the full source gate, 33 tests, exact archive rebuild, a fresh packaged evaluation, both 150-event companion anchors, bounded MCP, real API/state/audit/live endpoints, artifact parsing, model and credential exclusion, and original-detail dashboard inspection.
+
+Status: merged-main verification passes; final release audit, public download, rendered-page, and public-tag verification remain. Public v0.0.16 remains the latest verified checkpoint.
 
 ## BASELINE-0016 selected release
 

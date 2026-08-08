@@ -166,13 +166,13 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": ["verified candidate and release audit"],
       "outputs": ["verified public checkpoint"],
       "gates": {
-        "reviewed_head_exact": false,
-        "history_preserving_merge_exact": false,
-        "merged_main_pass": false,
+        "reviewed_head_exact": true,
+        "history_preserving_merge_exact": true,
+        "merged_main_pass": true,
         "annotated_tag_exact": false,
         "public_assets_exact": false,
         "downloaded_bytes_exact": false,
@@ -214,7 +214,7 @@
   },
   "handoff": {
     "current_checkpoint": "verified public v0.0.16 release closure at 465f4e2 with selected 9c04e281 package bytes",
-    "next_action": "Bind the clean-clone receipt, push the exact reviewed head, open a draft pull request, and run premerge release-truth audit before promotion.",
+    "next_action": "Commit and push the merged-main receipt, run final release-truth audit, and publish only the exact audited tag and selected assets if every release gate remains verifiable.",
     "do_not_carry_forward": [
       "Do not claim that a sibling unkeyed anchor authenticates the writer or resists an attacker who can recompute the trace and anchor.",
       "Do not add a signing key, HMAC key, credential, collector, dependency, service, or real-infrastructure integration.",

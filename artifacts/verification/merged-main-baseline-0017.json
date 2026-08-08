@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0017",
+  "verified_at_utc": "2026-08-08T03:35:01Z",
+  "status": "pass",
+  "merge": {
+    "pull_request": 15,
+    "reviewed_head": "5c7d2cb2536e366066dcc57c7afc1a3a5fed1fba",
+    "prior_main": "465f4e299578e822b38aae7a90835238c4c9c3b8",
+    "merge_commit": "1cf1ddb5c2c2f8107ea5959cfdc6f32a8003508f",
+    "parents": [
+      "465f4e299578e822b38aae7a90835238c4c9c3b8",
+      "5c7d2cb2536e366066dcc57c7afc1a3a5fed1fba"
+    ],
+    "expected_head_lock_used": true,
+    "history_preserved": true
+  },
+  "clone": {
+    "path": "C:/Projects/Verification/runbook-sentinel-baseline-0017-main-1cf1ddb-20260808T033000Z",
+    "commit": "1cf1ddb5c2c2f8107ea5959cfdc6f32a8003508f",
+    "initial_worktree_clean": true,
+    "git_alternates_present": false,
+    "clone_mode": "git clone --no-local --single-branch --branch main"
+  },
+  "source_gate": {
+    "manifest_sha256": "e0425726005421c45e76d290fcd9aa5e29025c49da136a1419975b72e24d0467",
+    "validators_passed": true,
+    "test_count": 33,
+    "tests_passed": true,
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0017-attempt-004.json",
+    "evaluation_bytes": 513580,
+    "evaluation_sha256": "bcbc29009d45b9b7bd570d025710305cc469f107281d3539f42be5145623d380",
+    "trace_path": "artifacts/evaluations/runs/baseline-0017-attempt-004.traces.jsonl",
+    "trace_sha256": "77f10b740ebc65710accc162726924fe51f3f7610a21a19f5305e3f7ed1f1200",
+    "trace_event_count": 150,
+    "trace_final_event_sha256": "442c31a92f0bfee234b15a8a2fa03beb2b63085c6baf566778c152db1bb1284d",
+    "trace_anchor_independently_verified": true,
+    "disposition": "pass"
+  },
+  "package_gate": {
+    "archive_path": "dist/runbook-sentinel-0.0.17.pyz",
+    "archive_bytes": 392954,
+    "archive_sha256": "271242d6eabffd4205f8b386028073f6d041b6ec5cc9369a524e45cacc9fe1ef",
+    "selected_archive_sha256_exact": true,
+    "entry_count": 32,
+    "runtime_dependencies": [],
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0017-merged-package-attempt-001.json",
+    "evaluation_bytes": 513591,
+    "evaluation_sha256": "1ec626735e9fe2a77beac2d9dc39a1a1c79432d87c3c9f21ec4ba3b967a47a86",
+    "trace_path": "artifacts/evaluations/runs/baseline-0017-merged-package-attempt-001.traces.jsonl",
+    "trace_sha256": "299dd499a4aff6dc9b41c276c7dcbef86a7124f9ab169abe65ce856b7ad5e3f8",
+    "trace_event_count": 150,
+    "trace_final_event_sha256": "eac704aed599885a0343e54e00c3438dfef2dee08a443b57fbf46902583f1bda",
+    "trace_anchor_independently_verified": true,
+    "disposition": "pass"
+  },
+  "real_surfaces": {
+    "mcp_version": "0.0.17",
+    "mcp_tool_count": 3,
+    "mcp_approval_or_execution_tool_exposed": false,
+    "mcp_trace_chain_valid": true,
+    "mcp_trace_endpoint_anchored": true,
+    "mcp_trace_event_count": 2,
+    "mcp_trace_final_event_sha256": "883f3037784153348c94a023bd93e2fe7879580bac11101c7e3d3b7cefb75f94",
+    "mcp_anchor_sha256": "bc1acbd608a101f476772abaa9d542b8d1a8e6acdfeacab8e283128df5d6979a",
+    "http_authentication_approval_execution_replay_postconditions_pass": true,
+    "sqlite_state_and_audit_pass": true,
+    "api_trace_chain_valid": true,
+    "api_trace_endpoint_anchored": true,
+    "api_trace_event_count": 5,
+    "api_trace_final_event_sha256": "7c5795be6d74ebd129e0773873341b2cf82f1c7bb4ba11a8818aec630b170f87",
+    "api_anchor_sha256": "6241dd95b4493adb1d63ef951c7d59d95b0a3c9479b7ba2bea3ad9dd1f0e1241",
+    "evaluation_companion_trace_anchor_exact": true,
+    "forbidden_authentication_material_absent": true,
+    "native_receipt_sha256": "f58007ff93c8f52e944af43e28f97ab4f382570de0680a1ead15cd06ebd55674"
+  },
+  "rendered_dashboard": {
+    "path": "artifacts/verification/dashboard-baseline-0017.png",
+    "bytes": 75629,
+    "sha256": "f91b20f12c2aedcfcc6a84d5906b793b5229467d5d5cf0ef6ec21ecbaa715058",
+    "dimensions": [1440, 1000],
+    "visual_inspection": "pass at original detail: Baseline 0017, evaluation pass, live trace endpoint 1.0, authenticated external operator, disconnected real infrastructure, and both complete persisted-incident rows are legible and internally consistent"
+  },
+  "artifact_parsing": {
+    "json_files": 298,
+    "jsonl_files": 71,
+    "jsonl_records": 8392,
+    "status": "pass"
+  },
+  "security_scan": {
+    "model_artifact_count": 0,
+    "credential_shaped_matches_outside_frozen_forbidden_pattern_definitions": 0,
+    "status": "pass"
+  },
+  "retained_failures": [
+    {
+      "stage": "dashboard renderer",
+      "result": "non_fatal_tooling_warning",
+      "detail": "Headless Edge emitted its fallback task-provider warning after writing the valid 75629-byte PNG. The receipt, dimensions, hash, and original-detail image independently pass."
+    }
+  ],
+  "non_claims": [
+    "The unkeyed trace chain and sibling endpoint do not authenticate the writer or resist full chain-and-anchor recomputation.",
+    "The checkpoint remains a synthetic-only research preview and is not authorized for real operational infrastructure."
+  ]
+}
