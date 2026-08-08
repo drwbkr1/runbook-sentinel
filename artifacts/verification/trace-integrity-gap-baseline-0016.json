@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0016",
+  "observed_at_utc": "2026-08-08T00:44:20Z",
+  "status": "remediate",
+  "source": {
+    "release": "v0.0.15",
+    "archive_sha256": "0e4d12cd449c8e198ec9434fd12ba3bffc10b8baa609f18c6f71d0d4200da4df",
+    "orientation_directory": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0016-orientation-20260808T003752Z",
+    "evaluation_sha256": "a008525c3caaee5ccd0ff5a56803193a24dd9fd71d1cfa0fbbf1f5841c1316ab",
+    "trace_sha256": "bc7b1559d14c33329fbee1481c8379a6a698308c404336a5c861773ffe879c0b",
+    "event_count": 150,
+    "released_trace_unchanged": true
+  },
+  "fresh_run": {
+    "baseline_disposition": "pass",
+    "scenario_attempts": 84,
+    "approval_lifetime_cases": 9,
+    "idempotency_authorization_cases": 6,
+    "operator_authentication_cases": 10,
+    "policy_compliance": 1.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "pass_cubed": 1.0
+  },
+  "prechange_probe": {
+    "mode": "in-memory only",
+    "target_line": 3,
+    "target_event": "sentinel.execute",
+    "mutation": "attributes.postconditions true to false without changing the released file",
+    "mutated_in_memory_sha256": "491f751c058a383b58cfa9829f7a38c5589920499fd49a879c39c04ca0625472",
+    "before": true,
+    "after": false,
+    "current_checks": {
+      "json_parse": true,
+      "expected_event_names": true,
+      "no_forbidden_terms": true,
+      "decision_context": true
+    },
+    "current_checks_pass": true,
+    "evaluation_disposition_remains_pass": true
+  },
+  "missing_controls": {
+    "event_sequence": true,
+    "previous_event_sha256": true,
+    "event_sha256": true,
+    "evaluation_trace_sha256_binding": true,
+    "telemetry_integrity_metric": true,
+    "existing_prefix_validation_before_append": true
+  },
+  "impact": {
+    "observed": "Persisted execution evidence can be changed after emission while all current telemetry checks and the completed evaluation disposition remain green.",
+    "bounded_risk": "The weakness affects evidence reliability and post-hoc audit truth in the synthetic release. It does not alter executor enforcement or connect to real infrastructure.",
+    "selected_improvement": "Add deterministic sequence and SHA-256 continuity to each JSONL event, fail closed before appending to a corrupt prefix, and bind completed evaluations to exact event count and final event digest.",
+    "non_claim": "An unkeyed chain cannot authenticate the writer or resist a hostile actor that can recompute the complete chain and its anchor."
+  },
+  "disposition": "remediate"
+}

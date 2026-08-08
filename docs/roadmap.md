@@ -69,3 +69,7 @@ Treat the BASELINE-0011 dashboard mismatch as a known regression, not held-out e
 ## Research preview v0.1.0
 
 Expand to at least 48 frozen cases across the approved SRE topology, meet precommitted security and utility gates, verify all real surfaces, and release only with a reconciled evaluation report and explicit repository visibility decision.
+
+## Active checkpoint baseline-0016 - completed-evaluation trace integrity
+
+The fresh public v0.0.15 run passes all existing behavior and authority gates, but its persisted JSONL evidence has no sequence or hash continuity and its pass report does not bind the companion trace. A released-event mutation from verified to failed postconditions remains valid JSON and passes every current telemetry check. Freeze ten integrity and recovery cases, then add a project-authored standard-library SHA-256 chain, fail-closed append validation, and completed-evaluation event-count/final-digest binding. Preserve every product boundary and explicitly avoid any signer, key, external collector, immutable-storage claim, RFC conformance claim, or hostile-writer claim.

@@ -1,0 +1,191 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0016-trace-integrity-specifications-20260808",
+  "assessed_at": "2026-08-08T00:44:20Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_actions": [
+      "review and cite official specifications",
+      "implement project-authored standard-library trace sequencing and hash continuity",
+      "record narrow research-informed design constraints"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Use official specifications only to establish logging-integrity requirements and confirm deterministic JSON and SHA-256 primitives for a project-authored synthetic trace chain. No external code, sample, data, package, executable, service, key, or credential will be imported.",
+    "planned_actions": [
+      "review and cite official specifications",
+      "implement project-authored standard-library trace sequencing and hash continuity",
+      "record narrow research-informed design constraints"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "ietf-rfc5848-signed-syslog",
+      "name": "RFC 5848 Signed Syslog Messages",
+      "locator": "https://www.rfc-editor.org/info/rfc5848/",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/info/rfc5848/", "observed_at": "2026-08-08T00:44:20Z", "note": "The RFC Editor identifies RFC 5848, Signed Syslog Messages, by Kelsey, Callas, and Clemm, published May 2010 as an IETF Standards Track document."}],
+          "note": "Exact document identity and status are established."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/info/rfc5848/", "observed_at": "2026-08-08T00:44:20Z", "note": "The primary RFC Editor record states that the document is an IETF product representing community consensus and IESG approval."}],
+          "note": "Authority is limited to integrity, sequencing, replay, and missing-message design principles for syslog."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/info/rfc5848/", "observed_at": "2026-08-08T00:44:20Z", "note": "The authoritative HTML was publicly readable without an account, secret, payment, download, or terms acceptance."}],
+          "note": "Citation and metadata review are no-cost and public."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://www.rfc-editor.org/info/rfc5848/", "observed_at": "2026-08-08T00:44:20Z", "note": "The RFC copyright notice identifies the IETF Trust legal provisions. This project uses only citation and narrow paraphrase, copies no code component, and creates no derivative RFC."}],
+          "note": "The planned use stays within citation and factual design reference."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "RFC Editor primary record for RFC 5848", "note": "The review used the primary publisher record directly with no intermediary or transformed copy."}],
+          "note": "No external artifact enters repository custody."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "RFC 5848 immutable identifier and RFC Editor HTTPS locator", "note": "The exact RFC number, title, authors, publication date, and authoritative locator bind the reviewed specification. No local file is acquired."}],
+          "note": "Document identity is stable and independently addressable."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "RFC 5848 abstract and Sections 7 through 8", "note": "The RFC explicitly addresses message integrity, replay resistance, sequencing, and missing-message detection. It supports requirements, not a claim of protocol implementation."}],
+          "note": "Fit is narrow: the project will not implement signed syslog, public-key signatures, transport, certificate blocks, or RFC conformance."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "BASELINE-0016 source-use boundary", "note": "The review exposes no personal data, secret, key, system log, real infrastructure, executable, package, or service."}],
+          "note": "The project records the key limitation that an unkeyed project chain is not origin authentication."
+        }
+      ]
+    },
+    {
+      "source_id": "python-31213-hashlib-json-documentation",
+      "name": "Python 3.12.13 hashlib and json documentation",
+      "locator": "https://docs.python.org/3.12/library/hashlib.html",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {"type": "live", "locator": "https://docs.python.org/3.12/library/hashlib.html", "observed_at": "2026-08-08T00:44:20Z", "note": "Official Python 3.12.13 documentation identifies hashlib.sha256 as an always-present constructor."},
+            {"type": "live", "locator": "https://docs.python.org/3.12/library/json.html", "observed_at": "2026-08-08T00:44:20Z", "note": "Official Python 3.12.13 documentation defines JSON serialization including sort_keys and separators behavior."}
+          ],
+          "note": "Exact runtime documentation and required standard-library primitives are identified."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://docs.python.org/3.12/", "observed_at": "2026-08-08T00:44:20Z", "note": "docs.python.org is the primary Python Software Foundation documentation for the runtime already used by the project."}],
+          "note": "Authority is limited to documented standard-library behavior."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://docs.python.org/3.12/library/hashlib.html", "observed_at": "2026-08-08T00:44:20Z", "note": "The official documentation was publicly readable without an account, secret, payment, package install, or terms acceptance."}],
+          "note": "The already-installed Python runtime supplies the primitives."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://docs.python.org/3.12/copyright.html", "observed_at": "2026-08-08T00:44:20Z", "note": "The official documentation identifies the Python Software Foundation License Version 2. No documentation code or sample is copied."}],
+          "note": "The implementation calls standard-library APIs and remains project-authored."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "Official Python 3.12.13 documentation", "note": "The review used version-pinned primary publisher pages directly."}],
+          "note": "No external artifact enters repository custody."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "Version-pinned docs.python.org 3.12 locators", "note": "Exact Python version and HTTPS locators bind the reviewed APIs; the implementation will be validated by deterministic known-event hashes and clean-clone rebuilds."}],
+          "note": "No acquired file requires a publisher checksum."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "Python 3.12.13 hashlib.sha256 and json.dumps documentation", "note": "The APIs support portable SHA-256 digests and deterministic sorted compact JSON without a dependency."}],
+          "note": "The project freezes exact encoding, fields, whitespace, NaN rejection, sequence, and genesis behavior rather than relying on unspecified defaults."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "BASELINE-0016 intended use", "note": "The change creates no secret, HMAC key, signing key, credential, package, service, model, dataset, or real telemetry source."}],
+          "note": "SHA-256 continuity detects uncoordinated change but is explicitly not writer authentication."
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "review and cite official specifications",
+      "implement project-authored standard-library trace sequencing and hash continuity",
+      "record narrow research-informed design constraints"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "retain source identity, locators, narrow paraphrases, and fitness constraints",
+      "implement and evaluate project-authored deterministic JSON and SHA-256 continuity using the existing Python runtime"
+    ],
+    "requires_explicit_authorization": [
+      "import external code, documentation samples, data, packages, executables, services, or models",
+      "add a signing key, HMAC key, credential, external collector, or real-infrastructure log source",
+      "claim RFC 5848 conformance, digital signatures, origin authentication, immutable storage, or hostile-writer resistance"
+    ]
+  }
+}

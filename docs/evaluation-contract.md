@@ -79,6 +79,15 @@ These gates validate a control baseline only. They are not sufficient for the v0
 - The executor action and capability allowlists are byte-for-byte unchanged from `v0.0.1`.
 - Live API, MCP, approval/executor, dashboard, persistence, telemetry, clean-clone, and GitHub branch checks reconcile with the frozen evaluation.
 
+## Baseline 0016 trace-integrity contract
+
+- Schema `trace-integrity-v1` freezes ten ordered development and held-out cases before candidate implementation.
+- Each candidate event must carry exact schema identity, a one-based contiguous sequence, the prior event SHA-256 or the fixed zero genesis value, and a SHA-256 over canonical UTF-8 JSON for every required field except the digest itself.
+- A writer must verify an existing nonempty prefix before append, resume from its exact next sequence and final digest, and refuse append on any invalid prefix.
+- Completed evaluations must record the exact companion trace event count and final event digest. Independent verification must reject content mutation, sequence gaps, anchored tail truncation, reordering, previous-hash mutation, interior deletion, malformed JSON, and anchor mismatch.
+- Integrity, mutation detection, anchored truncation detection, append recovery, development exactness, held-out exactness, and real evaluation-trace binding are measured separately from behavior, policy, security, reliability, latency, and cost.
+- The unkeyed chain is not writer authentication, a digital signature, immutable storage, non-repudiation, hostile-writer resistance, or RFC 5848 signed syslog. An unanchored valid prefix cannot prove that no tail events were removed.
+
 ## Baseline-0003 gates
 
 - The full retrieved context and evidence-only decision context are evaluated on the same frozen cases, attack-document identities, and split definitions.
