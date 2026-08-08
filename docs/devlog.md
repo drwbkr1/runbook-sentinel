@@ -26,6 +26,7 @@
 - Premerge release audit `BASELINE-0017-PREMERGE` computes `verified` with no errors, warnings, failed checks, missing surfaces, stale surfaces, or unknown surfaces. PR `#15` became ready only after the exact audit head was pushed.
 - GitHub reported audited head `5c7d2cb2536e366066dcc57c7afc1a3a5fed1fba` `CLEAN` and `MERGEABLE` with no configured checks. Expected-head-locked merge commit `1cf1ddb5c2c2f8107ea5959cfdc6f32a8003508f` preserves exact prior-main and reviewed-head parents.
 - A fresh remote-only public-main clone began clean with no alternates. It passes all validators, 33 tests, fresh source and package `84+9+6+10+10+10` evaluations, exact 150-event anchors, the exact 392,954-byte archive rebuild, three-tool MCP, real API/state/audit/live endpoints, artifact parsing, model/credential exclusion, and original-detail dashboard inspection. The known Edge fallback-provider warning followed a valid PNG write and remains in the merged-main receipt.
+- The first final-audit draft omitted the schema-required `candidate.commit` while separately recording the identical merged-main evidence commit, so the audit evaluator correctly computed `blocked` before any publication action. The exact 15,967-byte invalid draft remains retained at SHA-256 `8d3a179256c11f4de42b6444cb6db4482dc473c01b927996ca0af7c25b83ef97`; the selected audit adds only the missing identity field and must independently compute `verified`.
 
 ## 2026-08-08 - BASELINE-0016 started
 
