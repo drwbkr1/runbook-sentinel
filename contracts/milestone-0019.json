@@ -149,13 +149,15 @@
       "inputs": ["bounded candidate"],
       "outputs": ["verified candidate and release audit"],
       "gates": {
-        "source_and_package_full_gate": false,
-        "real_surfaces_pass": false,
-        "reproducible_package_pass": false,
+        "source_and_package_full_gate": true,
+        "real_surfaces_pass": true,
+        "reproducible_package_pass": true,
         "clean_clone_pass": false
       },
       "disposition": null,
-      "retained_failures": [],
+      "retained_failures": [
+        "The first packaged dashboard PNG passed machine checks but original-detail review found only the lower incident-table strip. The exact PNG and machine-pass native receipt remain retained; unchanged package bytes produced the selected complete rerun."
+      ],
       "next_dependency": "UNIT-005"
     },
     {
@@ -205,11 +207,15 @@
       "the v0.0.19 package contract is frozen before archive build with 34 exact entries, no runtime dependency, and unchanged no-go boundaries"
       ,
       "the final pre-build 72-file evaluation manifest passes at SHA-256 adf637300cfbbda77b8c2b239313535899098f5a131a5ded7fdf334974b8ecbc"
+      ,
+      "final-manifest source and package evaluations pass all 90 scenario attempts and exact 156-event anchors",
+      "two independent 34-entry 423787-byte archives are byte-identical at SHA-256 f840d5a1ff4da1b1a1e61f0719c65925075af3a776cb52d29b890749848a70ab",
+      "source and package MCP, real API, state, audit, redaction, telemetry, endpoint-anchor, native, and selected dashboard gates pass; the first cropped package capture remains retained"
     ]
   },
   "handoff": {
     "current_checkpoint": "passing baseline-0019 source attempt 001 on top of verified public v0.0.18",
-    "next_action": "Freeze the v0.0.19 package contract, run final-manifest source and package gates, and verify real MCP, API, state, telemetry, dashboard, reproducibility, and clean-clone surfaces.",
+    "next_action": "Commit and push the exact locally verified candidate, then reproduce its source, package, MCP, API, state, telemetry, parsing, scan, and dashboard evidence from a remote-only clean clone.",
     "do_not_carry_forward": [
       "Do not change existing scenarios or runtime behavior to satisfy a coverage metric.",
       "Do not claim 30 scenarios satisfy the separate at-least-48-case v0.1.0 target.",

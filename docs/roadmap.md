@@ -4,7 +4,7 @@
 
 A fresh public-v0.0.18 run passes every prior gate and its exact 150-event trace, but aggregate topology-domain coverage of 1.0 masks two empty domain/split cells: development has no observability case and held-out test has no database case. Baseline-0019 freezes one exact project-authored case for each missing pair and adds domain-by-split counts, missing-pair output, and development/test split-coverage gates. The target grows the catalog only from 28 to 30 and must preserve all existing bytes and runtime authority boundaries; it does not satisfy or weaken the separate at-least-48-case v0.1.0 target. The primary behavioral-testing citation is source-gated for narrow paraphrase only, with no external asset imported.
 
-The first immutable source candidate passes all 30 cases across three trials, covers all 16 domain/split pairs, preserves every pre-change case and terminal identity, and retains every prior gate. Package, real-surface, reproducibility, clean-clone, review, and release verification remain before checkpoint completion.
+The first immutable source candidate passes all 30 cases across three trials, covers all 16 domain/split pairs, preserves every pre-change case and terminal identity, and retains every prior gate. Final-manifest source/package, reproducible archive, MCP, API, state, telemetry, and selected dashboard checks pass; a cropped package screenshot remains retained as a failed visual attempt. Clean-clone, review, merge, and release verification remain before checkpoint completion.
 
 ## Completed checkpoint baseline-0018 - model-output failure observability
 
