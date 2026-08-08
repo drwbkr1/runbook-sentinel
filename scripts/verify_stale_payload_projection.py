@@ -60,8 +60,8 @@ def _action(result: dict) -> str | None:
 def validate(catalog: dict | None = None) -> list[str]:
     catalog = catalog or json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
     errors: list[str] = []
-    if catalog.get("schema_version") != "1.10":
-        errors.append("catalog schema must be 1.10")
+    if catalog.get("schema_version") != "1.11":
+        errors.append("catalog schema must be 1.11")
     contract = catalog.get("stale_payload_projection_contract")
     if not isinstance(contract, dict):
         return errors + ["stale-payload projection contract is missing"]

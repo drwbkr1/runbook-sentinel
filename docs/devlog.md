@@ -737,3 +737,5 @@
 - Measured a new aggregate-versus-split gap: all three action types are covered globally, but held-out test has no `rollback_deployment` case, leaving action/split coverage at 5 of 6.
 - Selected the bounded remediation: one frozen project-authored held-out rollback case plus generic per-split action metrics and fail-closed gates; no runtime capability or authority change.
 - Froze `action-split-coverage-v1` before implementation with candidate results absent and exact composed identities for all 30 prior scenarios and terminal-state records. The independent validator passes.
+- Implemented the generic action-by-split grader, four fail-closed gates, the dashboard metric, one focused unit test, and only the exact frozen held-out case. Static validation reaches 6 of 6 action/split pairs while all 30 prior scenario and terminal hashes remain exact.
+- Retained the first broader static run, which stopped because the terminal validator still required 11 actionable cases. The contract-prescribed case makes 12; updating only that declared count passed the unchanged static suite. No held-out agent result has been revealed yet.

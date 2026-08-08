@@ -7,7 +7,7 @@
 - Latest verified checkpoint: public `v0.0.19`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
 - Candidate version: `0.0.20` / `baseline-0020`; unreleased
 - Active milestone: `BASELINE-0020` - split-aware action coverage
-- Current unit: `UNIT-002` complete; next `UNIT-003` bounded implementation
+- Current unit: `UNIT-003` - generic implementation sealed; candidate reveal not yet run
 - Disposition: baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -28,6 +28,8 @@
 - The bounded checkpoint adds one project-authored, non-adversarial held-out bad-deployment case and generic action-by-split counts, missing-pair output, and development/test gates. It adds no action or authority and grows the catalog only from 30 to 31, so it does not satisfy the separate at-least-48-case v0.1.0 target.
 - `action-split-coverage-v1` is frozen before implementation at SHA-256 `c24503298b507aefb20911febc99bfb94e02ebcc39dfc3142790ae71e6045445`, with candidate results absent. Its independent validator passes and composes exact SHA-256 identities for all 30 prior scenarios and terminal-state records.
 - The prior approved ACL behavioral-testing source is reused only for the narrow aggregate-metrics rationale; no external paper, code, data, model, package, service, or credential is imported.
+- The generic implementation adds `action-split-coverage-v1` to the catalog/evaluator, counts only expected executable actions whose terminal contract agrees, reports exact counts and missing pairs, adds four hard gates and a dashboard metric, and introduces the one frozen case. Static validators report 31 exact cases, 6-of-6 action/split coverage, all 30 pre-change identities unchanged, and one focused fail-closed unit test passing.
+- The first broader static run is retained because the terminal validator still expected 11 actionable cases. Updating only that frozen count to 12 produced a pass; no held-out agent result was inspected and candidate results remain absent.
 
 ### BASELINE-0019 split-topology coverage gap and frozen contract
 

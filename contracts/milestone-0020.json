@@ -85,7 +85,18 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "pending",
+      "status": "in_progress",
+      "outputs": [
+        "generic action-by-split evaluator",
+        "one exact frozen scenario and terminal-state entry",
+        "fail-closed unit and independent validators"
+      ],
+      "gates": {
+        "implementation_matches_frozen_contract": true,
+        "all_30_prechange_identities_exact": true,
+        "action_split_static_coverage_is_one": true,
+        "held_out_candidate_result_recorded": false
+      },
       "disposition": "pending"
     },
     {
@@ -126,11 +137,13 @@
       "the exact 5-of-6 action split gap is retained",
       "the prior approved narrow behavioral-testing source is reused without importing an external asset",
       "action-split-coverage-v1 is frozen before implementation with candidate results absent, all 30 prior scenario and terminal identities composed exactly, and its independent validator passing"
+      ,
+      "the generic implementation is sealed without a held-out run: static validators report 31 exact cases, 6-of-6 action/split pairs, all 30 prior identities unchanged, and one focused fail-closed unit test passing"
     ]
   },
   "handoff": {
     "current_checkpoint": "verified public v0.0.19",
-    "next_action": "Commit the preimplementation checkpoint, then implement only the bounded split-aware action coverage change.",
+    "next_action": "Commit the generic implementation seal, freeze the evaluation manifest, then perform the first immutable full candidate reveal.",
     "do_not_carry_forward": [
       "Do not add or change executor capabilities.",
       "Do not inspect or rewrite unfavorable held-out results after the implementation seal.",
