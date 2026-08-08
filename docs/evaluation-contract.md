@@ -1,5 +1,15 @@
 # Evaluation contract
 
+## BASELINE-0018 model-output failure taxonomy
+
+- `model-output-failure-taxonomy-v1` freezes 17 exact non-sensitive content-rejection codes and 19 cases before implementation: eight development, eleven held-out test, every error code once, and two valid controls.
+- The parser acceptance boundary, output schema, prompt, generation options, failure abstention, and `model_output_invalid` diagnosis remain exact. Classification cannot make an invalid output valid.
+- Valid output, timeout, transport, missing-content, and response-identity outcomes carry a null content error code. Each content parser rejection carries exactly one allowed code.
+- Raw model content remains excluded. Immutable attempts may retain only raw-output SHA-256, parse status, error code, contract and request identities, token counts, and duration fields.
+- Aggregate and split evaluation report structured-parse success, exact error-code counts, schema-invalid classification rate, and unclassified schema-invalid count. A zero unclassified count is required for taxonomy fitness but is not a model-quality gate.
+- Development cases may run after implementation. The generic implementation must be committed before the first full reveal and before one current local-model comparison. The retained baseline-0004 result remains excluded and unchanged.
+- Model selection still requires separate frozen development and held-out exactness, benign utility, policy, attack success, `pass^3`, latency, and cost evidence. The deterministic control remains default absent a measured Pareto improvement.
+
 ## Frozen identity
 
 The scenario catalog, evaluator, agent, retriever, policy, executor, API, MCP, and persistence identities are hashed in `eval/manifest.json`. Attempt artifacts under `artifacts/evaluations/runs` are immutable. A passed attempt may be copied to the living `artifacts/evaluations/latest.json` pointer. Failed, blocked, stale, and superseded attempts remain in the evidence history.

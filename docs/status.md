@@ -2,12 +2,12 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0018-model-failure-taxonomy`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0017`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.17`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Candidate version: none; `0.0.17` / `baseline-0017` is the selected public checkpoint
-- Active milestone: none; the next checkpoint is intentionally unchosen until a fresh public v0.0.17 run exposes one measurable weakness
-- Current unit: none; `BASELINE-0017` is complete
+- Candidate version: `0.0.18` / `baseline-0018`; release remains pending until every candidate and publication gate passes
+- Active milestone: `BASELINE-0018` - deterministic model-output failure taxonomy
+- Current unit: `UNIT-005` in progress - version and verify the source, package, real surfaces, clean clone, review, merge, release, and public checkpoint
 - Disposition: baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -17,9 +17,39 @@
 - GitHub release: public, non-draft `v0.0.17` with verified `.pyz` and `.sha256` assets
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
-- Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
+- Local model source gate: refreshed and ready for the already installed, publisher-signed Ollama 0.32.6 executable and unchanged `llama3.2:3b` manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six content-addressed blobs pass exact SHA-256 and size checks. No download, update, copy, redistribution, remote call, model tool, secret, or real-infrastructure access is authorized.
 
 ## Verified evidence
+
+### BASELINE-0018 model-failure observability gap and frozen contract
+
+- Fresh public v0.0.17 source and package runs pass all deterministic `84+9+6+10+10+10` gates and 33 tests, but generation structured-parse success is null because the selected control makes zero model calls.
+- The retained baseline-0004 local-model candidate produced only 5 valid structured outputs and 49 `schema_invalid` outputs in 54 attempts; benign utility and `pass^3` are 0.0, and no action proposal was accepted. That unfavorable result remains excluded.
+- All 49 content failures retain response digests and the broad parse status, but no stable machine-readable rejection reason. A non-destructive current parser probe confirms invalid JSON, key mismatch, and out-of-context evidence expose only generic exception types and messages.
+- The bounded improvement adds classification only: 17 closed failure codes, one optional metadata field, aggregate and split counts, and classification-completeness metrics. It cannot change parser acceptance, fail-closed abstention, prompts, schemas, actions, approval, executor, or default selection.
+- `model-output-failure-taxonomy-v1` freezes 19 exact cases before implementation: eight development, eleven held-out test, every code once, and two valid controls. Its independent validator passes with no candidate results.
+- Official Ollama 0.32.6 release/API/structured-output records and current Meta Llama 3.2 model-card/license/AUP records pass all 16 source criteria for the already installed local runtime and model only. The exact executable is publisher-signed, the local manifest is unchanged, and all six blobs recompute exactly.
+- The generic implementation adds one closed error code to parser exceptions and model metadata plus aggregate/split counts and classification completeness. It changes no parser acceptance, prompt, schema, generation option, result, proposal, or execution boundary.
+- Development attempt 001 passes all eight permitted cases exactly with classification rate 1.0, zero unclassified content failures, valid-output acceptance 1.0, and no raw content retained. The 4,088-byte record is SHA-256 `671e120fb59c0ef722d234b2905a71eda028507b6ae055c2301bbda91c2019b8`.
+- All 35 tests pass, including valid/invalid adapter metadata, non-content null-code behavior, aggregate and split counts, a deliberately unique raw-content marker excluded from report and trace, and every prior deterministic boundary.
+- Generic implementation seal `8ce268d` was pushed before any held-out case or current local-model call.
+- The first immutable full reveal passes all 19 cases exactly: development and held-out test exactness 1.0, invalid-output classification 1.0, valid-output acceptance 1.0, zero unclassified failures, and no raw content retained. The 8,680-byte report is SHA-256 `6db141ba9cdfe00e58fb6b35503060b641a02502df03c8b9f9750306c4d360d3`.
+- The sealed 65-file baseline-0018 experiment manifest passes at SHA-256 `8bbcead24e4679b759b255ab3bf7140f1227fa1b4222d74073766162f913f62e`; exact bytes are preserved beside the pending immutable model attempt.
+- The exact same-manifest deterministic control passes every gate: outcome, diagnosis, proposal, tool trajectory, terminal state, policy, benign utility, and `pass^3` are 1.0; median/p95 latency is 47.675/67.013 ms with zero model calls.
+- The sole current local-model attempt completed 84 calls after 896.9 seconds. Only 9 outputs parse; 75 are `schema_invalid`, now classified as 67 `diagnosis_code_invalid`, 7 `proposal_arguments_invalid`, and 1 `evidence_id_out_of_context`, with zero unclassified failures. Diagnosis accuracy, proposal exactness, benign utility, and `pass^3` are 0.0; median/p95 latency is 10,173.578/15,834.262 ms.
+- The model candidate accepted no action proposal and executed no action. Policy compliance is 1.0 and proposal/terminal attack success are 0.0 because the parser and external boundaries fail closed; this is not evidence of useful stochastic-model safety.
+- The independently verified comparison selects `deterministic-control-v2`, leaves the default unchanged, and excludes the measured candidate. Control report/trace SHA-256 values are `2773794a956f370ff83edb460f9a03445556d91063ec75ac1577c3da718079ee` / `e40785e7f7483d54397daf4d257e4d882d49193a0f417d3fe70aea8e78ef225d`; candidate values are `dd645ff0a6d59048fc73b37efa4c2247eaf1e8e004292554f5481c92441959a1` / `76ff8dae091b0927abe93a05d6f500b5219f752a8744333df7864a869bb02132`.
+- Candidate identity is `0.0.18` / `baseline-0018`. Its frozen-before-build 33-entry package contract passes at SHA-256 `18c48dfa2d22ea62aef6464b72df576e7233ee58f202faa16fd3248728dcd3cd`.
+- The corrected version-bound 67-file release manifest passes at SHA-256 `c787fc879e89ead00cd6555fc4d7c21bac1d3fcbe55fd561784753b23234cffd`. Its earlier `f925c014d4eb24fba15189cec920760d06b81181bbba140b41627cc46e05f944` identity remains superseded rather than rewritten.
+- Complete source attempt 002 and package attempt 002 each pass all 14 validators, 35 tests, and the `84+9+6+10+10+10` evaluation suite. Selected report/trace SHA-256 values are `a1cd9c2e7fa86c3b4234fc1a03dd4a6d6da8a1792a4912bf556eb98846a7c6f0` / `34f44df1e4394f25ff35723624344be4d02c9a46539da25e08e1105dc07b0ede` for source and `52788050cee73dd3149dd8485611035f02d0a29f49a3ec52b6cba3169be9ad34` / `beb8e25a9c375899b1138924bc1754d66dd60d2f50cfd8477b8bb96c52dfad52` for package.
+- Two independent 33-entry, 410,293-byte archives are byte-identical at SHA-256 `e370c208bc6598cf6217f963bc6ea567f05df5757a371bda67fc5157e23a21d0`. The earlier same-size archive at SHA-256 `878c58e602e06b331566a56708fce66847b9bbf2b1b5fb914dd18ece6e1a5d3b` remains recoverably retained and superseded.
+- Source and selected-package MCP checks report protocol `2025-11-25`, version `0.0.18`, exactly three diagnostic/read tools, no approval or execution tool, exact decision context, and valid two-event live endpoint anchors.
+- Source and package real HTTP surfaces pass every named API, approval, executor, postcondition, idempotency, replay, state, audit, redaction, telemetry, endpoint-anchor, CSP, and dashboard check. The first source live attempt is retained as failed because its verifier still expected the stale baseline-0017 rendered label; the corrected version-bound rerun passes without changing product behavior.
+- Independent native inspection passes the source and package SQLite, audit, identity, capability-exclusion, logs, selected evaluation, manifest, trace, and dashboard contracts. Original-detail inspection confirms both 1440 by 1000 dashboards show baseline 0018, evaluation pass, complete incident rows, authenticated external-operator execution boundary, and disconnected real infrastructure. Source/package dashboard SHA-256 values are `04d0c71e5e730d06016432c19215a3b09415176d22d37ade4c92aa301f553cbf` / `622c507e6a073cb3f2ec7aac5c8a4644d18fd5d9b6b17e2b8d9931021a8f8630`.
+- A remote-only clean clone of exact candidate `300575b686b29620d2609ca310ccef4799ab57ae` began clean with no Git object alternates. It independently passes all 14 validators, 35 tests, fresh source and package `84+9+6+10+10+10` evaluations with exact 150-event anchors, bounded MCP, real HTTP approval/executor/state/telemetry surfaces, parsing of 319 JSON files and 8,919 records across 73 JSONL files, and model/credential exclusion.
+- The clean clone rebuilt the 33-entry 410,293-byte selected archive twice at exact SHA-256 `e370c208bc6598cf6217f963bc6ea567f05df5757a371bda67fc5157e23a21d0`. Normalized high-detail inspection of its source/package 1440 by 1000 dashboards passes; the original-detail viewer's first package frame showed only the lower table strip, and that non-byte-changing viewer artifact remains recorded.
+- Clean-clone receipt: `artifacts/verification/clean-clone-baseline-0018.json`.
+- Next eligible action: commit and push the clean-clone receipt, verify the exact remote review scope and mergeability, then run the pre-merge release audit.
 
 ### BASELINE-0017 live-trace endpoint-anchor gap and frozen contract
 

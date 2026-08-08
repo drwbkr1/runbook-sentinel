@@ -32,6 +32,8 @@ Baseline 0016 makes each persisted JSONL event a `trace-chain/v1` record with a 
 
 Baseline 0017 adds a persistence boundary for live runtime endpoints without changing evaluation authority. CLI run/execute, loopback API, and MCP supply an explicit sibling `.anchor.json` path. The writer flushes and fsyncs each appended trace event before securely creating, flushing, fsyncing, closing, and replacing the canonical endpoint in the same directory. Resume requires an exact trace-and-anchor pair; missing, orphaned, malformed, stale, truncated, extra-suffix, or wrong-file states fail before append. Completed evaluations keep their report anchor. The sibling endpoint remains unkeyed and same-authority; it is not writer authentication or immutable storage, and directory-entry durability is not claimed.
 
+Baseline 0018 adds observability at the optional-model parser boundary without widening it. Each content rejection carries one value from a closed 17-code taxonomy; valid output and timeout, transport, missing-content, or response-identity failures carry no content code. Reports retain the code and raw-output SHA-256, never unparsed generated content, and expose aggregate and split counts plus classification completeness. A code cannot make rejected output valid or change the generic abstention, policy, approval, executor, or deterministic-default decision.
+
 ## Ports and trust boundaries
 
 - CLI and HTTP API are local operator surfaces.

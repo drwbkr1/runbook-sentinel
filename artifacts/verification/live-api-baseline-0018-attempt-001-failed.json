@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0018",
+  "attempt": 1,
+  "evaluated_at_utc": "2026-08-08T18:35:08Z",
+  "status": "fail",
+  "failure_class": "stale_release_verifier_expectation",
+  "failed_checks": [
+    "dashboard_baseline_exact"
+  ],
+  "observed": {
+    "health_checkpoint": "baseline-0018",
+    "dashboard_rendered_baseline": "Baseline 0018",
+    "verifier_expected_literal": "Baseline 0017",
+    "all_other_named_checks_passed": true,
+    "product_or_runtime_failure_observed": false
+  },
+  "retained_artifacts": {
+    "dashboard": {
+      "path": "artifacts/verification/dashboard-baseline-0018.png",
+      "bytes": 76018,
+      "sha256": "bc45438ca114eb2e3535953fa5cd4e4538e4b2897de5a0af8235d975cb115fc7"
+    },
+    "native_receipt": {
+      "path": "artifacts/verification/native-baseline-0018.json",
+      "bytes": 5665,
+      "sha256": "572c12c04a4a40c67722620495ad8f19ae64fe69d111935699b7738966be62ce"
+    },
+    "database": {
+      "path": "var/live-api-baseline-0018.db",
+      "bytes": 65536,
+      "sha256": "634a7bdcf694cf0dd8198e49394c162229fede25e5a803f64f4e4749533e80d1"
+    },
+    "trace": {
+      "path": "artifacts/runtime/live-api-baseline-0018-traces.jsonl",
+      "bytes": 3227,
+      "sha256": "1871ce0509468aed554fa876132b52ee2621282546627b3e6fb3e8bdb4fdeef4"
+    },
+    "trace_anchor": {
+      "path": "artifacts/runtime/live-api-baseline-0018-traces.jsonl.anchor.json",
+      "bytes": 304,
+      "sha256": "77285d2888c5b2615d17299df8f6636808e8dc3765270f4211894df3caecf9bc"
+    },
+    "stdout": {
+      "path": "artifacts/runtime/live-api-baseline-0018-stdout.log",
+      "bytes": 63,
+      "sha256": "b7e9b5a5734849f8b50a43f9c9e1a19e9cb0355e6979ba607f1bcfcad737c8c2"
+    },
+    "stderr": {
+      "path": "artifacts/runtime/live-api-baseline-0018-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "remediation": "Change only the release verifier's expected dashboard literal and stale-baseline inventory from baseline 0017 to baseline 0018, refreeze the manifest, rebuild, and rerun all affected source and package gates."
+}

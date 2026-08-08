@@ -32,7 +32,7 @@ The model, retrieved content, user artifacts, MCP payloads, external packages, m
 | XSS or dashboard injection | Escaped dynamic values and restrictive browser security headers |
 | Supply-chain compromise | Standard-library baseline; external-source gate and ledger before import; zipapp exact allowlist, fixed metadata, copied source bytes, embedded evaluation identity, per-entry hashes, independent verification, clean-clone rebuild identity, and public-download checksum gate |
 | Release identity drift across health, package, evaluation, and dashboard | One canonical runtime checkpoint drives health and rendered identity; package and evaluation manifests bind checkpoint and bytes; source, package, clean-clone, and public-release surfaces are compared before publication |
-| Model output is malformed, over-broad, or capability-confused | Exact schema and identifier parser; server-side action/capability binding; invalid output becomes abstention with no fallback |
+| Model output is malformed, over-broad, or capability-confused | Exact schema and identifier parser; server-side action/capability binding; invalid output becomes abstention with no fallback. Baseline-0018 may add only one closed non-sensitive rejection code so failure classes can be measured without accepting more output or retaining raw text. |
 | Loopback model request is redirected or proxied off-machine | Literal `127.0.0.1:11434` endpoint validation; redirects and environment proxies disabled; streaming and tools disabled |
 | Model failure is hidden by a stronger deterministic fallback | Configurations are evaluated separately; candidate failure is retained and never replaced with the control result |
 | Raw generated text contaminates telemetry | Trace stores contract, prompt, request, and output digests plus parse status and counts; validated semantics live only in the immutable evaluation record |
@@ -46,3 +46,5 @@ The model, retrieved content, user artifacts, MCP payloads, external packages, m
 ## Explicit non-claims
 
 The measured candidate validates deterministic synthetic boundaries but does not prove useful stochastic-model safety, real-source timestamp authenticity, universal prompt-injection resistance, strict numeric Pareto or latency dominance, or production reliability. Metadata can itself be malicious in a real system; source identity, kind, and timestamp therefore require external authentication and normalization. The baseline does not prove safety for a hostile operating system, compromised policy process, real production connector, or arbitrary third-party MCP server. Those require new threat analysis and gates.
+
+Failure taxonomy is observability, not model improvement. A fully classified rejection remains a rejection; favorable failure counts cannot substitute for accuracy, utility, exact trajectory, repeated reliability, latency, cost, or separate attack-success evidence.

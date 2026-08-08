@@ -1,0 +1,225 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0018",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "external_source_review",
+      "repository_change",
+      "local_model_evaluation",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "user_instruction": "Continue selecting and shipping the next verified checkpoint without routine approval, subject to the active goal stop conditions.",
+    "repository_controls": [
+      "AGENTS.md",
+      "C:\\Projects\\STORAGE_POLICY.md",
+      "docs/status.md",
+      "contracts/milestone-0018.json"
+    ],
+    "active_contract": "contracts/milestone-0018.json",
+    "verified_at_utc": "2026-08-08T17:44:17Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Add a deterministic, non-sensitive model-output failure taxonomy so rejected generated content can be diagnosed experimentally without weakening the parser, retaining raw output, or changing the deterministic default or any action boundary.",
+    "allowed_paths": [
+      "C:\\Projects\\Active\\runbook-sentinel",
+      "C:\\Projects\\Verification"
+    ],
+    "forbidden_work": [
+      "change parser acceptance, agent outcomes, model prompt, output schema, generation options, retrieval, decision context, scenarios, expected results, actions, policy, approvals, authentication, capabilities, executor, state, API, or MCP authority",
+      "make a local model the default or claim useful stochastic-model safety without separate Pareto evidence",
+      "store or publish raw generated text, model weights, model blobs, runtime binaries, credentials, approval material, personal data, or operational evidence",
+      "download, update, replace, delete, copy, or redistribute a model or runtime",
+      "call a remote model, supply model tools, or interact with real infrastructure",
+      "change repository visibility, access, or ownership"
+    ],
+    "reversible_actions": [
+      "freeze and validate a project-authored parser-failure taxonomy before runtime implementation",
+      "add exact error codes to parser exceptions, model metadata, and evaluation aggregates while retaining fail-closed abstention",
+      "refresh the evaluation-only local runtime identity under a ready source gate",
+      "run development checks, seal the generic implementation, then reveal the frozen full taxonomy and run one current local synthetic comparison",
+      "version, package, test, review, release, and verify only after every gate passes"
+    ],
+    "stop_conditions": [
+      "core thesis change or security-boundary weakening",
+      "parser acceptance or failure outcome would need to change",
+      "a new model, runtime update, remote service, secret, tool, credential, or real-infrastructure access becomes necessary",
+      "rights, integrity, source identity, failure classification, raw-output exclusion, or shipment cannot be verified"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.17 release, assets, anonymous downloads, rendered pages, and a fresh public-tag source/package/real-surface clone reconcile at 7bf9846.",
+        "Fresh public source and package evaluations pass 84+9+6+10+10+10 with generation structured_parse_success_rate null and zero model calls.",
+        "The retained baseline-0004 model candidate has 49 schema_invalid outputs and only 5 valid outputs across 54 attempts, but no machine-readable content failure code.",
+        "A non-destructive parser probe confirms JSONDecodeError and ValueError exceptions expose no stable code and the adapter collapses content rejections to schema_invalid."
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Run public v0.0.17, inspect separate evaluations and traces, and measure one model-failure observability gap without mutating released evidence.",
+      "depends_on": [],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["public v0.0.17 release and retained model comparison"],
+      "outputs": ["fresh public-release verification", "model-failure observability gap receipt"],
+      "gates": {
+        "released_checkpoint_exact": true,
+        "fresh_source_and_package_runs_complete": true,
+        "weakness_measurable": true,
+        "released_bytes_unchanged": true
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "The first public-tag MCP verifier command omitted PYTHONPATH for the verifier and stopped before any request; corrected source and package invocations pass.",
+        "A naive credential scan matched only frozen forbidden-token regex definitions; the exact definition files were excluded and all remaining tracked files have zero matches."
+      ],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Refresh exact local runtime/model source identity and freeze taxonomy, metadata, evaluation, and non-claim requirements before adapter implementation.",
+      "depends_on": ["UNIT-001"],
+      "action_class": "external_source_review",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["gap receipt", "official source gate", "model-output-failure contract"],
+      "outputs": ["validated ready source gate", "frozen taxonomy contract", "independent contract validator"],
+      "gates": {
+        "source_gate_ready": true,
+        "contract_frozen_before_implementation": true,
+        "no_download_secret_tool_or_external_asset": true,
+        "contract_validator_pass": true
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement one bounded deterministic failure-taxonomy improvement without changing parser acceptance or model and execution authority.",
+      "depends_on": ["UNIT-002"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["frozen model-output-failure-taxonomy-v1 contract"],
+      "outputs": ["bounded implementation", "focused development tests"],
+      "gates": {
+        "all_frozen_development_cases_exact": true,
+        "prior_acceptance_and_failure_outcomes_unchanged": true,
+        "raw_generated_text_excluded": true,
+        "prior_boundaries_unchanged": true
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Seal the generic implementation, reveal the frozen full taxonomy once, run one current local model comparison, and retain favorable or unfavorable outcomes.",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_model_evaluation",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["sealed implementation", "frozen manifest", "ready local source gate"],
+      "outputs": ["immutable taxonomy reveal", "immutable current model comparison"],
+      "gates": {
+        "all_taxonomy_cases_exact": true,
+        "schema_invalid_classification_rate_one": true,
+        "local_model_invoked_once_after_seal": true,
+        "model_default_selected_from_evidence": true
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Run every prior source, package, API, MCP, state, telemetry, dashboard, clean-clone, review, release, and public-verification gate.",
+      "depends_on": ["UNIT-004"],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "in_progress",
+      "inputs": ["verified bounded candidate and release audit"],
+      "outputs": ["verified public checkpoint"],
+      "gates": {
+        "source_and_package_full_gate": true,
+        "real_surfaces_pass": true,
+        "clean_clone_pass": true,
+        "reviewed_head_exact": false,
+        "history_preserving_merge_exact": false,
+        "public_release_verified": false
+      },
+      "disposition": null,
+      "retained_failures": []
+    }
+  ],
+  "verification": {
+    "changed_risks": [
+      "a code mapping can misclassify a rejection while leaving the fail-closed outcome unchanged",
+      "a raw error message or model content can leak through new telemetry",
+      "metrics can count transport failures as content-validation failures or hide unclassified schema-invalid outputs",
+      "the runtime patch identity can drift from the actual local service",
+      "a fresh model comparison can be mistaken for selection evidence or expose a tool, secret, or executor boundary"
+    ],
+    "required_checks": [
+      "every frozen parser rejection maps to exactly one closed error code and both valid cases remain accepted",
+      "all prior parser acceptance and fail-closed result semantics remain exact",
+      "model metadata and evaluation aggregates retain only the code and raw-output SHA-256, never raw generated text",
+      "transport, timeout, content-missing, and response-identity failures keep a null content error code",
+      "source and package evaluations report aggregate and split code counts plus classification completeness",
+      "the local runtime/model source gate remains ready and exact before the one post-seal comparison",
+      "the deterministic control remains default unless separate frozen Pareto evidence supports a change",
+      "source/package, real-surface, clean-clone, GitHub, merged-main, and public-release gates reconcile"
+    ],
+    "completed_checks": [
+      "public v0.0.17 tag, release, assets, anonymous downloads, rendered pages, and fresh public-tag clone reconcile",
+      "fresh public source and package 84+9+6+10+10+10 evaluations and all prior real surfaces pass",
+      "the retained 49 of 54 schema-invalid model failures have no machine-readable content rejection code",
+      "official Ollama 0.32.6, Ollama API and structured-output documentation, Meta Llama 3.2 model card, license, AUP, exact local signatures, manifest, and six blobs pass the source gate",
+      "model-output-failure-taxonomy-v1 freezes 17 exact codes and 19 development/test cases before adapter implementation; the independent validator passes with candidate results absent",
+      "the bounded generic implementation passes all eight development cases, 35 regression tests, compilation, raw-marker exclusion, and aggregate/split classification checks; development evidence is 4,088 bytes at SHA-256 671e120fb59c0ef722d234b2905a71eda028507b6ae055c2301bbda91c2019b8",
+      "the first immutable full reveal passes all 19 frozen cases exactly with development and test exactness 1.0, classification rate 1.0, valid acceptance 1.0, zero unclassified failures, and no raw content retained; the 8,680-byte report is SHA-256 6db141ba9cdfe00e58fb6b35503060b641a02502df03c8b9f9750306c4d360d3",
+      "the 65-file baseline-0018 experiment manifest passes at SHA-256 8bbcead24e4679b759b255ab3bf7140f1227fa1b4222d74073766162f913f62e and is preserved beside both comparison attempts",
+      "the same-manifest deterministic control passes every gate, utility 1.0, pass^3 1.0, and median latency 47.675 ms; the sole current model attempt is classified completely but has only 9 of 84 valid outputs, diagnosis accuracy 0.0, utility 0.0, pass^3 0.0, and median latency 10,173.578 ms",
+      "the model candidate accepted and executed no action; policy compliance and attack success remain separately measured, and zero attack success is attributed only to fail-closed external enforcement, not useful model safety",
+      "the independent comparison verifier passes and retains the deterministic control as default while excluding the measured model candidate",
+      "the corrected 67-file release manifest passes at SHA-256 c787fc879e89ead00cd6555fc4d7c21bac1d3fcbe55fd561784753b23234cffd while the prior manifest and archive remain preserved as superseded evidence",
+      "source and package each pass all 14 validators, 35 tests, 84+9+6+10+10+10 evaluation gates, bounded MCP, real HTTP approval and execution, persistence, audit, telemetry, endpoint anchoring, and rendered-dashboard inspection",
+      "two independent 33-entry 410293-byte archives are identical at SHA-256 e370c208bc6598cf6217f963bc6ea567f05df5757a371bda67fc5157e23a21d0",
+      "a public-branch no-local-object clone of exact candidate 300575b independently passes source, package, real-surface, parsing, scan, and rendered-dashboard gates and reproduces the selected archive twice"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "verified public v0.0.17 release closure at 7bf9846 with selected 271242d6 package bytes",
+    "next_action": "Commit and push the clean-clone receipt, verify the exact remote review scope and mergeability, then run pre-merge audit, merge, release, and public-verification gates.",
+    "do_not_carry_forward": [
+      "Do not alter parser acceptance or reinterpret a classified rejection as valid output.",
+      "Do not store raw model output, supply tools, expose approval material, or change the deterministic default.",
+      "Do not download, update, copy, redistribute, or publish the local runtime or model artifact."
+    ]
+  }
+}

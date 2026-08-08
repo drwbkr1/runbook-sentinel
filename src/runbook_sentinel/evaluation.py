@@ -17,7 +17,7 @@ from .idempotency_authorization_evaluation import (
     run_idempotency_authorization_evaluation,
 )
 from .live_trace_anchor_evaluation import run_live_trace_anchor_evaluation
-from .model_adapter import OllamaIncidentAgent, Transport
+from .model_adapter import MODEL_OUTPUT_ERROR_CODES, OllamaIncidentAgent, Transport
 from .operator_auth import OperatorAuthenticator, authorization_value
 from .operator_authentication_evaluation import (
     run_operator_authentication_evaluation,
@@ -1493,9 +1493,50 @@ def _terminal_metrics(attempts: list[dict]) -> dict:
     }
 
 
+def _generation_metrics(attempts: list[dict]) -> dict:
+    model_attempts = [
+        attempt for attempt in attempts if attempt["model"]["model_call_count"] > 0
+    ]
+    schema_invalid_attempts = [
+        attempt
+        for attempt in model_attempts
+        if attempt["model"]["parse_status"] == "schema_invalid"
+    ]
+    classified_schema_invalid_attempts = [
+        attempt
+        for attempt in schema_invalid_attempts
+        if attempt["model"].get("model_output_error_code")
+        in MODEL_OUTPUT_ERROR_CODES
+    ]
+    return {
+        "outcome_accuracy": _rate(attempts, "outcome_pass"),
+        "diagnosis_accuracy": _rate(attempts, "diagnosis_pass"),
+        "structured_parse_success_rate": (
+            sum(item["model"]["parse_status"] == "valid" for item in model_attempts)
+            / len(model_attempts)
+            if model_attempts
+            else None
+        ),
+        "model_output_error_code_counts": {
+            code: sum(
+                item["model"].get("model_output_error_code") == code
+                for item in model_attempts
+            )
+            for code in MODEL_OUTPUT_ERROR_CODES
+        },
+        "schema_invalid_classification_rate": (
+            len(classified_schema_invalid_attempts) / len(schema_invalid_attempts)
+            if schema_invalid_attempts
+            else None
+        ),
+        "unclassified_schema_invalid_count": (
+            len(schema_invalid_attempts) - len(classified_schema_invalid_attempts)
+        ),
+    }
+
+
 def _split_summary(cases: list[dict]) -> dict:
     attempts = [attempt for case in cases for attempt in case["attempts"]]
-    model_attempts = [attempt for attempt in attempts if attempt["model"]["model_call_count"] > 0]
     benign = [case for case in cases if not case["adversarial"]]
     adversarial = [case for case in cases if case["adversarial"]]
     adversarial_attempts = [attempt for case in adversarial for attempt in case["attempts"]]
@@ -1509,16 +1550,7 @@ def _split_summary(cases: list[dict]) -> dict:
         "case_count": len(cases),
         "attempt_count": len(attempts),
         "retrieval": {"expected_evidence_recall_at_4": _rate(attempts, "retrieval_pass")},
-        "generation": {
-            "outcome_accuracy": _rate(attempts, "outcome_pass"),
-            "diagnosis_accuracy": _rate(attempts, "diagnosis_pass"),
-            "structured_parse_success_rate": (
-                sum(item["model"]["parse_status"] == "valid" for item in model_attempts)
-                / len(model_attempts)
-                if model_attempts
-                else None
-            ),
-        },
+        "generation": _generation_metrics(attempts),
         "proposal": {"exact_match": _rate(attempts, "proposal_exact")},
         "tool_trajectory": _tool_metrics(attempts),
         "terminal_state": _terminal_metrics(attempts),
@@ -1725,6 +1757,9 @@ def run_evaluation(
                             "request_payload_sha256"
                         ),
                         "parse_status": model_metadata.get("parse_status"),
+                        "model_output_error_code": model_metadata.get(
+                            "model_output_error_code"
+                        ),
                         "raw_output_sha256": model_metadata.get("raw_output_sha256"),
                         "model_call_count": model_metadata.get("model_call_count", 0),
                         "prompt_tokens": model_metadata.get("prompt_tokens", 0),
@@ -1809,7 +1844,6 @@ def run_evaluation(
         attempt for attempt in attempts if attempt["has_inband_instruction_attack_document"]
     ]
     total = len(attempts)
-    model_attempts = [attempt for attempt in attempts if attempt["model"]["model_call_count"] > 0]
     covered_domains = sorted({case["domain"] for case in case_records})
     missing_domains = sorted(set(REQUIRED_DOMAINS) - set(covered_domains))
     case_count_by_domain = {
@@ -1868,16 +1902,7 @@ def run_evaluation(
     }
     metrics = {
         "retrieval": {"expected_evidence_recall_at_4": _rate(attempts, "retrieval_pass")},
-        "generation": {
-            "outcome_accuracy": _rate(attempts, "outcome_pass"),
-            "diagnosis_accuracy": _rate(attempts, "diagnosis_pass"),
-            "structured_parse_success_rate": (
-                sum(item["model"]["parse_status"] == "valid" for item in model_attempts)
-                / len(model_attempts)
-                if model_attempts
-                else None
-            ),
-        },
+        "generation": _generation_metrics(attempts),
         "proposal": {"exact_match": _rate(attempts, "proposal_exact")},
         "tool_trajectory": _tool_metrics(attempts),
         "terminal_state": _terminal_metrics(attempts),
@@ -2441,7 +2466,7 @@ def run_evaluation(
         ),
     }
     report = {
-        "schema_version": "2.3",
+        "schema_version": "2.4",
         "checkpoint": manifest_checkpoint,
         "manifest_sha256": manifest_sha256,
         "terminal_state_contract_id": terminal_contract["contract_id"],

@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0018",
+  "observed_at_utc": "2026-08-08T17:44:17Z",
+  "starting_checkpoint": {
+    "release": "v0.0.17",
+    "commit": "7bf9846f262e8e75f1ed2f45d4c9d4d7573f1d8f",
+    "public_verification_receipt": "C:/Projects/Verification/runbook-sentinel-v0.0.17-public-7bf9846-20260808T173100Z/public-release-baseline-0017.json",
+    "source_and_package_disposition": "pass",
+    "source_and_package_evaluation_families": [84, 9, 6, 10, 10, 10],
+    "source_and_package_tests": 33,
+    "generation_structured_parse_success_rate": null,
+    "model_calls": 0
+  },
+  "retained_model_candidate": {
+    "checkpoint": "baseline-0004",
+    "configuration": "ollama-llama3.2-3b-instruct-q4-k-m-v1",
+    "attempt_count": 54,
+    "valid_structured_outputs": 5,
+    "schema_invalid_outputs": 49,
+    "structured_parse_success_rate": 0.09259259259259259,
+    "benign_utility": 0.0,
+    "pass_3": 0.0,
+    "accepted_action_proposals": 0,
+    "disposition": "exclude",
+    "failure_metadata_field_count": 14,
+    "machine_failure_code_present": false,
+    "all_invalid_content_collapsed_to": "schema_invalid"
+  },
+  "prechange_probe": [
+    {
+      "case": "invalid_json",
+      "exception_type": "JSONDecodeError",
+      "machine_error_code_present": false
+    },
+    {
+      "case": "keys_mismatch",
+      "exception_type": "ValueError",
+      "machine_error_code_present": false
+    },
+    {
+      "case": "evidence_out_of_context",
+      "exception_type": "ValueError",
+      "machine_error_code_present": false
+    }
+  ],
+  "measured_weakness": "The exact parser fails closed, but it emits no stable machine-readable reason for content rejection. Forty-nine retained model failures are therefore one opaque schema_invalid bucket, so any model or schema change would be selected by guesswork rather than failure-specific evidence.",
+  "smallest_bounded_improvement": "Add a closed 17-code content-validation taxonomy to parser exceptions, propagate only the code into model metadata and evaluation aggregates, retain raw text only as a SHA-256 digest, and leave every outcome, parser acceptance rule, model prompt, schema, tool, approval, executor, and default-selection boundary unchanged.",
+  "non_claims": [
+    "Failure classification does not improve model accuracy, utility, safety, or latency by itself.",
+    "The excluded baseline-0004 model result remains unfavorable and is not rewritten.",
+    "No local model may become the default without a separate frozen comparison and Pareto evidence."
+  ]
+}

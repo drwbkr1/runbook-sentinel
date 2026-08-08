@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 FILES = [
     "pyproject.toml",
     "eval/model-contract.json",
+    "eval/model-output-failure-contract.json",
     "eval/package-contract.json",
     "eval/package-contract-0012.json",
     "eval/package-contract-0013.json",
@@ -18,6 +19,7 @@ FILES = [
     "eval/package-contract-0015.json",
     "eval/package-contract-0016.json",
     "eval/package-contract-0017.json",
+    "eval/package-contract-0018.json",
     "eval/approval-lifetime-contract.json",
     "eval/idempotency-authorization-contract.json",
     "eval/operator-authentication-contract.json",
@@ -57,6 +59,8 @@ FILES = [
     "scripts/verify_operator_authentication_contract.py",
     "scripts/verify_trace_integrity_contract.py",
     "scripts/verify_live_trace_anchor_contract.py",
+    "scripts/verify_model_output_failure_contract.py",
+    "scripts/verify_model_comparison.py",
     "scripts/verify_evaluation_trace.py",
     "scripts/verify_evidence_conditions.py",
     "scripts/verify_behavioral_relations.py",
@@ -69,6 +73,7 @@ FILES = [
     "scripts/evaluate_operator_authentication.py",
     "scripts/evaluate_trace_integrity.py",
     "scripts/evaluate_live_trace_anchor.py",
+    "scripts/evaluate_model_output_failures.py",
     "scripts/build_zipapp.py",
     "scripts/verify_package_contract.py",
 ]
