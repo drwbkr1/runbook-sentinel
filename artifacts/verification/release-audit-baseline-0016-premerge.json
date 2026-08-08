@@ -1,0 +1,248 @@
+{
+  "schema_version": "1.0",
+  "release_id": "BASELINE-0016-PREMERGE",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2 and contracts/milestone-0016.json UNIT-005",
+    "authorized_actions": [
+      "commit_premerge_audit",
+      "push_premerge_audit",
+      "mark_pr_ready",
+      "merge_exact_head",
+      "verify_merged_main"
+    ]
+  },
+  "risk_classes": [
+    "documentation",
+    "runtime",
+    "data",
+    "package",
+    "public",
+    "security",
+    "external"
+  ],
+  "candidate": {
+    "base_commit": "da66c5b8306c37a04b6d37d66b283f5ff2fd21d4",
+    "commit": "c7ab91bcac12bc69e766e575b6d8260846080f74",
+    "runtime_commit": "8c088c2cbe68e7bdb30363cf094cb6e37025067c",
+    "version": "0.0.16",
+    "tag": "v0.0.16",
+    "artifacts": [
+      {
+        "path": "dist/runbook-sentinel-0.0.16.pyz",
+        "bytes": 358711,
+        "sha256": "9c04e2815f4bb536904a803f8bf64079342eab4f694039ea8c61105453b8344f"
+      },
+      {
+        "path": "dist/runbook-sentinel-0.0.16.pyz.sha256",
+        "bytes": 94,
+        "sha256": "1f881ff2d4badf24af537721f3224b2d96f2620c89bcbffd942d2c31433015ec"
+      }
+    ]
+  },
+  "live_truth": {
+    "verified_at_utc": "2026-08-08T01:31:14Z",
+    "branch": "codex/baseline-0016-trace-integrity",
+    "remote_commit": "c7ab91bcac12bc69e766e575b6d8260846080f74",
+    "pull_request": {
+      "number": 14,
+      "url": "https://github.com/drwbkr1/runbook-sentinel/pull/14",
+      "state": "OPEN",
+      "draft": true,
+      "mergeable": "MERGEABLE",
+      "merge_state_status": "CLEAN",
+      "configured_checks": 0,
+      "commit_count": 4,
+      "changed_path_count": 55
+    },
+    "tag_target": "not_created",
+    "deployment": null
+  },
+  "checks": [
+    {
+      "id": "CHECK-001",
+      "category": "scope",
+      "required": true,
+      "status": "pass",
+      "method": "Compared local main...HEAD, PR file list, four commits, clean worktree, and remote head.",
+      "evidence": [
+        "PR #14 head c7ab91bcac12bc69e766e575b6d8260846080f74",
+        "55 exact changed paths",
+        "remote branch equals local HEAD",
+        "artifacts/verification/trace-integrity-gap-baseline-0016.json"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-002",
+      "category": "contracts",
+      "required": true,
+      "status": "pass",
+      "method": "Ran all frozen contract validators, verified the 57-file manifest, and validated structured JSON records.",
+      "evidence": [
+        "eval/trace-integrity-contract.json",
+        "eval/manifest.json SHA-256 b1487c7fe1f017181f007da592a8091f3543e4cff42bcf17e87e7b33a1a5d354",
+        "contracts/milestone-0016.json"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-003",
+      "category": "runtime",
+      "required": true,
+      "status": "pass",
+      "method": "Ran 28 tests and version-bound source and packaged evaluations.",
+      "evidence": [
+        "artifacts/evaluations/runs/baseline-0016-attempt-001.json",
+        "artifacts/evaluations/runs/baseline-0016-package-attempt-001.json",
+        "84 repeated trials plus 9 approval-lifetime, 6 idempotency-authorization, 10 operator-authentication, and 10 trace-integrity cases pass"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-004",
+      "category": "data",
+      "required": true,
+      "status": "pass",
+      "method": "Independently verified both selected evaluation reports against their exact 150-event companion traces.",
+      "evidence": [
+        "source final event SHA-256 dbe3cee18785bc8686f21086df3df2977a888037b08a9c0d6fdbfab8a95612df",
+        "package final event SHA-256 76051073b636528fba402098108e47c03d5a1ba7503bc1026595d05e01b7e770",
+        "artifacts/evaluations/runs/baseline-0016-trace-integrity-attempt-001.json"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-005",
+      "category": "package",
+      "required": true,
+      "status": "pass",
+      "method": "Validated frozen 30-entry allowlist, built twice byte-identically, and reproduced exact bytes in a no-local-object clone.",
+      "evidence": [
+        "artifacts/verification/package-verification-baseline-0016.json",
+        "artifacts/verification/clean-clone-baseline-0016.json",
+        "selected archive SHA-256 9c04e2815f4bb536904a803f8bf64079342eab4f694039ea8c61105453b8344f"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-006",
+      "category": "real-surfaces",
+      "required": true,
+      "status": "pass",
+      "method": "Exercised source, package, and clean-clone MCP and real loopback authentication, approval, executor, replay, state, audit, live-chain, and evaluation-anchor surfaces.",
+      "evidence": [
+        "artifacts/verification/native-baseline-0016-source.json",
+        "artifacts/verification/native-baseline-0016-package.json",
+        "artifacts/verification/clean-clone-baseline-0016.json"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-007",
+      "category": "rendering",
+      "required": true,
+      "status": "pass",
+      "method": "Inspected source, package, and clean-clone 1440 by 1000 dashboard PNGs at original detail.",
+      "evidence": [
+        "dashboard SHA-256 fd99b986e63db29c7ba5075ba448004bfadfe48ae13981761929a8229cc07184",
+        "Baseline 0016, evaluation pass, trace integrity 1.0, authenticated external operator, disconnected real infrastructure"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-008",
+      "category": "security",
+      "required": true,
+      "status": "pass",
+      "method": "Reviewed capability boundaries, ran archive exclusions and credential-shaped scans, and checked trace/report/log secret exclusions.",
+      "evidence": [
+        "zero credential-shaped matches outside frozen forbidden-pattern definitions",
+        "MCP exposes no approval or execution tool",
+        "no key, signer, dependency, collector, credential, or real-infrastructure connector added"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-009",
+      "category": "external",
+      "required": true,
+      "status": "pass",
+      "method": "Read GitHub PR, remote branches, release, and tag state directly with gh and git ls-remote.",
+      "evidence": [
+        "PR #14 is OPEN, draft, CLEAN, and MERGEABLE at exact head",
+        "remote main remains da66c5b8306c37a04b6d37d66b283f5ff2fd21d4",
+        "v0.0.16 tag and release are absent before merge",
+        "public v0.0.15 release and assets remain available"
+      ],
+      "reason": ""
+    },
+    {
+      "id": "CHECK-010",
+      "category": "rollback",
+      "required": true,
+      "status": "pass",
+      "method": "Verified current public v0.0.15 tag, release, zipapp, and checksum remain intact as the recoverable prior checkpoint.",
+      "evidence": [
+        "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.15",
+        "v0.0.15 archive SHA-256 0e4d12cd449c8e198ec9434fd12ba3bffc10b8baa609f18c6f71d0d4200da4df"
+      ],
+      "reason": ""
+    }
+  ],
+  "truth_surfaces": [
+    {
+      "path_or_uri": "README.md",
+      "expected_state": "v0.0.15 public; v0.0.16 verified local candidate; narrow trace-integrity nonclaims",
+      "observed_state": "exact",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "docs/status.md",
+      "expected_state": "UNIT-005 review with v0.0.15 still public latest",
+      "observed_state": "exact",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "CHANGELOG.md and docs/version-history.md",
+      "expected_state": "0.0.16 unreleased verified candidate",
+      "observed_state": "exact",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "artifacts/verification/dashboard-baseline-0016-package.png",
+      "expected_state": "Baseline 0016 and trace integrity 1.0 with unchanged authority boundaries",
+      "observed_state": "exact at original detail",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/pull/14",
+      "expected_state": "draft review at exact candidate head",
+      "observed_state": "OPEN, CLEAN, MERGEABLE, exact head",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.16",
+      "expected_state": "absent before merged-main verification",
+      "observed_state": "absent",
+      "status": "current"
+    }
+  ],
+  "limitations": [
+    "GitHub has no configured checks for PR #14, so repository and clean-clone gates are the authoritative validation.",
+    "The unkeyed chain does not authenticate the writer or resist complete chain-and-anchor recomputation.",
+    "Real operational infrastructure, production identity, immutable storage, and external collectors remain out of scope."
+  ],
+  "decision": {
+    "reported_status": "verified",
+    "rationale": "Every risk-matched local, package, clean-clone, rendered, security, and current remote-state check passes; active truth surfaces accurately describe a not-yet-released candidate.",
+    "next_action": "Commit and push this audit, mark PR #14 ready, merge only its exact reviewed head, then verify merged main before tagging or publishing.",
+    "authorized_next_actions": [
+      "commit_premerge_audit",
+      "push_premerge_audit",
+      "mark_pr_ready",
+      "merge_exact_head",
+      "verify_merged_main"
+    ]
+  }
+}
