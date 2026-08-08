@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0018",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -72,8 +72,12 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "PR 16 merged the exact reviewed head with history preserved.",
+        "The annotated v0.0.18 tag, remote main, non-draft release, selected assets, anonymous downloads, rendered pages, and fresh public-tag source/package gates reconcile at 5ac099f144e4a6ce368bb7d07c1bdd49b0d49dd0.",
+        "External public-release receipt C:/Projects/Verification/runbook-sentinel-v0.0.18-public-5ac099f-20260808T192418Z/public-release-baseline-0018.json records status pass."
+      ]
     }
   ],
   "units": [

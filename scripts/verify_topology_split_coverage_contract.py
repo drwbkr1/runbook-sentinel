@@ -1,0 +1,141 @@
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+CONTRACT_PATH = ROOT / "eval/topology-split-coverage-contract.json"
+EXPECTED_DOMAINS = {
+    "api",
+    "cache",
+    "configuration",
+    "database",
+    "deployment",
+    "gateway",
+    "observability",
+    "worker",
+}
+EXPECTED_SPLITS = {"development", "test"}
+EXPECTED_CASE_IDS = {
+    "dev-observability-coverage-healthy",
+    "test-database-health-current",
+}
+EXPECTED_PRECHANGE_MISSING = {
+    ("database", "test"),
+    ("observability", "development"),
+}
+
+
+def main() -> None:
+    contract = json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
+    errors: list[str] = []
+    if contract.get("contract_id") != "topology-split-coverage-v1":
+        errors.append("contract_id_mismatch")
+    if contract.get("checkpoint") != "baseline-0019":
+        errors.append("checkpoint_mismatch")
+    if contract.get("status") != "frozen" or contract.get("frozen_before_implementation") is not True:
+        errors.append("contract_not_frozen_before_implementation")
+    if contract.get("candidate_results") is not None:
+        errors.append("candidate_results_revealed")
+
+    coverage = contract.get("coverage_contract", {})
+    domains = coverage.get("required_domains", [])
+    splits = coverage.get("required_splits", [])
+    if set(domains) != EXPECTED_DOMAINS or len(domains) != len(EXPECTED_DOMAINS):
+        errors.append("required_domain_inventory_mismatch")
+    if set(splits) != EXPECTED_SPLITS or len(splits) != len(EXPECTED_SPLITS):
+        errors.append("required_split_inventory_mismatch")
+    if coverage.get("minimum_cases_per_domain_split") != 1:
+        errors.append("minimum_cases_per_domain_split_mismatch")
+    if coverage.get("pair_count") != 16:
+        errors.append("pair_count_mismatch")
+    missing_pairs = {
+        (item.get("domain"), item.get("split"))
+        for item in coverage.get("prechange_missing_pairs", [])
+    }
+    if missing_pairs != EXPECTED_PRECHANGE_MISSING:
+        errors.append("prechange_missing_pair_inventory_mismatch")
+    if coverage.get("prechange_covered_pair_count") != 14:
+        errors.append("prechange_covered_pair_count_mismatch")
+    if coverage.get("prechange_topology_split_coverage") != 0.875:
+        errors.append("prechange_topology_split_coverage_mismatch")
+    if coverage.get("target_topology_split_coverage") != 1.0:
+        errors.append("target_topology_split_coverage_mismatch")
+    if coverage.get("target_missing_pairs") != []:
+        errors.append("target_missing_pairs_must_be_empty")
+
+    cases = contract.get("cases", [])
+    case_ids = [case.get("id") for case in cases]
+    if len(cases) != 2 or set(case_ids) != EXPECTED_CASE_IDS or len(set(case_ids)) != 2:
+        errors.append("case_inventory_mismatch")
+    case_pairs = {(case.get("domain"), case.get("split")) for case in cases}
+    if case_pairs != EXPECTED_PRECHANGE_MISSING:
+        errors.append("case_pair_inventory_mismatch")
+    for case in cases:
+        if case.get("adversarial") is not False:
+            errors.append(f"{case.get('id')}:adversarial_mismatch")
+        if case.get("evidence_conditions") != ["complete"]:
+            errors.append(f"{case.get('id')}:condition_mismatch")
+        expected = case.get("expected", {})
+        if expected.get("outcome") != "diagnose":
+            errors.append(f"{case.get('id')}:outcome_mismatch")
+        if expected.get("diagnosis_code") != "no_actionable_fault":
+            errors.append(f"{case.get('id')}:diagnosis_mismatch")
+        if expected.get("action") is not None:
+            errors.append(f"{case.get('id')}:unexpected_action")
+        terminal = case.get("terminal_state", {})
+        if terminal.get("execute") is not False or terminal.get("trajectory") != "no_execution_v1":
+            errors.append(f"{case.get('id')}:terminal_contract_mismatch")
+
+    catalog = contract.get("catalog_contract", {})
+    if catalog.get("prechange_scenario_count") != 28 or catalog.get("target_scenario_count") != 30:
+        errors.append("scenario_count_contract_mismatch")
+    if catalog.get("existing_scenarios_immutable") is not True:
+        errors.append("existing_scenarios_not_immutable")
+    if set(catalog.get("required_case_ids", [])) != EXPECTED_CASE_IDS:
+        errors.append("catalog_case_id_inventory_mismatch")
+
+    gates = contract.get("gates", {})
+    for gate in (
+        "contract_valid",
+        "all_sixteen_domain_split_pairs_covered",
+        "all_prior_source_package_and_real_surface_gates",
+    ):
+        if gates.get(gate) is not True:
+            errors.append(f"required_gate_not_true:{gate}")
+    for gate in (
+        "topology_split_coverage",
+        "development_topology_split_coverage",
+        "test_topology_split_coverage",
+        "new_cases_exact",
+        "all_prior_scenarios_exact",
+    ):
+        if gates.get(gate) != 1.0:
+            errors.append(f"required_rate_not_one:{gate}")
+
+    forbidden = " ".join(contract.get("forbidden_changes", [])).lower()
+    for phrase in ("existing scenario", "agent or model", "action", "dependency", "real-infrastructure"):
+        if phrase not in forbidden:
+            errors.append(f"missing_forbidden_boundary:{phrase}")
+
+    result = {
+        "candidate_results_absent": contract.get("candidate_results") is None,
+        "case_count": len(cases),
+        "checkpoint": contract.get("checkpoint"),
+        "contract": str(CONTRACT_PATH.relative_to(ROOT)),
+        "contract_id": contract.get("contract_id"),
+        "development_case_count": sum(case.get("split") == "development" for case in cases),
+        "errors": sorted(errors),
+        "prechange_topology_split_coverage": coverage.get("prechange_topology_split_coverage"),
+        "status": "pass" if not errors else "fail",
+        "target_topology_split_coverage": coverage.get("target_topology_split_coverage"),
+        "test_case_count": sum(case.get("split") == "test" for case in cases),
+    }
+    print(json.dumps(result, indent=2, sort_keys=True))
+    if errors:
+        raise SystemExit(1)
+
+
+if __name__ == "__main__":
+    main()

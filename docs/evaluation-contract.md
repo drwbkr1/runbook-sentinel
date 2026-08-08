@@ -1,5 +1,14 @@
 # Evaluation contract
 
+## BASELINE-0019 split-aware topology coverage
+
+- `topology-split-coverage-v1` freezes eight required SRE domains crossed with development and held-out test, for exactly sixteen required domain/split pairs.
+- Aggregate topology-domain coverage remains reported, but it cannot satisfy the new gate. Each domain must have at least one development case and at least one held-out test case; domain-by-split counts and exact missing pairs are first-class evidence.
+- Public v0.0.18 begins at 14 of 16 pairs, or 0.875, despite aggregate coverage 1.0. The only missing pairs are development observability and held-out-test database.
+- Exactly two project-authored complete-evidence, non-adversarial, no-execution cases are frozen before implementation. All 28 existing scenarios and expected results remain byte-for-byte immutable.
+- Candidate gates require 30 exact cases, 16-of-16 pair coverage, development split coverage 1.0, test split coverage 1.0, both new cases exact, every prior case exact, and all prior metric and real-surface gates unchanged.
+- This checkpoint improves coverage truth only. It does not satisfy the separate at-least-48-case v0.1.0 target or justify broader robustness, model, production, or real-infrastructure claims.
+
 ## BASELINE-0018 model-output failure taxonomy
 
 - `model-output-failure-taxonomy-v1` freezes 17 exact non-sensitive content-rejection codes and 19 cases before implementation: eight development, eleven held-out test, every error code once, and two valid controls.
@@ -29,7 +38,7 @@ The scenario catalog, evaluator, agent, retriever, policy, executor, API, MCP, a
 - Reliability: `pass^k`, with all trials required per case
 - Latency: median and p95 wall-clock duration
 - Cost: model calls and estimated monetary cost
-- Coverage: explicit case counts for gateway, API, worker, database, cache, deployment, configuration, and observability
+- Coverage: explicit case counts for gateway, API, worker, database, cache, deployment, configuration, and observability, plus domain-by-split counts, missing domain/split pairs, and separate development/test topology coverage
 - Live trace endpoint: exact sibling-anchor cases, invalid-state no-append, truncation detection, and valid restart/resume
 
 Exact graders use structured state and expected fields; no LLM judge is used. Development and test cases have separate metric blocks and exact gates. Optimization must not use the test split.

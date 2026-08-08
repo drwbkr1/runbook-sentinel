@@ -2,13 +2,13 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `codex/baseline-0018-model-failure-taxonomy`
+- Branch: `codex/baseline-0019-split-topology-coverage`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0018`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.18`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Candidate version: none; `0.0.18` / `baseline-0018` is released
-- Active milestone: none; the next checkpoint remains intentionally unchosen until a fresh public-v0.0.18 run identifies one measurable weakness
-- Current unit: `UNIT-005` complete
-- Disposition: baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Candidate version: proposed `0.0.19` / `baseline-0019`; not yet versioned or released
+- Active milestone: `BASELINE-0019` split-aware topology coverage
+- Current unit: `UNIT-003` ready
+- Disposition: baseline-0019 `remediate`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -20,6 +20,17 @@
 - Local model source gate: refreshed and ready for the already installed, publisher-signed Ollama 0.32.6 executable and unchanged `llama3.2:3b` manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six content-addressed blobs pass exact SHA-256 and size checks. No download, update, copy, redistribution, remote call, model tool, secret, or real-infrastructure access is authorized.
 
 ## Verified evidence
+
+### BASELINE-0019 split-topology coverage gap and frozen contract
+
+- Public v0.0.18 remains the exact starting checkpoint at `5ac099f144e4a6ce368bb7d07c1bdd49b0d49dd0`; the authoritative worktree began clean and remote `main`, the release-closure branch, and peeled tag agree.
+- A fresh external source evaluation passes every prior gate. Its 519,795-byte report is SHA-256 `75f3410fc5fc1495f98a445aae135e74b55af1d1567ede9a1438f6b448bae565`; the companion 150-event trace is valid and anchored, with SHA-256 `f7dd5ded8651b6372dc50457881bd34b409240bcabc2f54c8d1f5d1d5e821dbb` and final event `4e74a90ed62243a779c0e7c420056de2d8b13d8a4af89743f61ab5843ea84fbd`.
+- Aggregate topology-domain coverage is 1.0 across 28 cases, yet split-aware coverage is only 14 of 16 domain/split pairs, or 0.875. Development contains zero observability cases; held-out test contains zero database cases.
+- The bounded checkpoint adds only `topology-split-coverage-v1`, explicit domain-by-split counts and missing-pair metrics, one project-authored development observability case, and one project-authored held-out database case. The target is 30 cases and 16-of-16 coverage, not the separate at-least-48-case v0.1.0 target.
+- The primary ACL CheckList publication passes all eight source criteria for attribution and narrow paraphrase only. No paper, code, dataset, model, package, sample, executable, service, or credential is imported.
+- The two-case contract is frozen before implementation with candidate results absent. Its independent validator passes. Every existing scenario, agent/model behavior, retriever, decision context, action and capability inventory, policy, approval, authentication, executor, API/MCP authority, dependency, credential, and synthetic-only boundary is frozen unchanged.
+- The first standalone trace verifier omitted `PYTHONPATH` and stopped at import; the corrected invocation verifies the exact trace. Docker client 29.4.3 remains installed while its daemon is unavailable, so no container claim is made.
+- Next eligible action: implement the frozen split-aware metrics and two exact cases, then seal and reveal the held-out result.
 
 ### BASELINE-0018 model-failure observability gap and frozen contract
 
