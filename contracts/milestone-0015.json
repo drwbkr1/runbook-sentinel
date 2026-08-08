@@ -144,7 +144,8 @@
       "24 tests and selected source and package 84+9+6+10 evaluations pass under the 51-file baseline-0015 manifest",
       "two 326418-byte 28-entry archives are byte-identical and pass the frozen package contract",
       "source and package MCP, API, approval, executor, state, audit, telemetry, logs, and rendered dashboards pass",
-      "a no-alternates public-branch clone starts clean, repeats the full gate, and reproduces the selected archive exactly"
+      "a no-alternates public-branch clone starts clean, repeats the full gate, and reproduces the selected archive exactly",
+      "PR 13 merges the exact reviewed head with history preserved and the fresh no-alternates public-main clone passes the full merged-main gate"
     ],
     "artifacts": [
       "artifacts/verification/approval-authority-gap-baseline-0015.json",
@@ -160,13 +161,15 @@
       "artifacts/evaluations/runs/baseline-0015-attempt-002.json",
       "artifacts/evaluations/runs/baseline-0015-package-attempt-002.json",
       "artifacts/verification/package-verification-baseline-0015.json",
-      "artifacts/verification/clean-clone-baseline-0015.json"
+      "artifacts/verification/clean-clone-baseline-0015.json",
+      "artifacts/verification/merged-main-baseline-0015.json",
+      "artifacts/verification/release-audit-baseline-0015.json"
     ],
     "disposition": "ready"
   },
   "handoff": {
     "latest_verified_checkpoint": "public v0.0.14 release closure with selected 9c9dbcba package bytes",
     "active_weakness": "closed in the verified baseline-0015 candidate; public v0.0.14 remains authoritative until release reconciliation",
-    "resume_rule": "Resume at UNIT-005 from the verified source, package, real-surface, and no-alternates clone receipts. Review, merge, publish, and verify the exact candidate without reopening implementation."
+    "resume_rule": "Resume at UNIT-005 from the verified merged-main audit. Publish and immediately verify only the exact v0.0.15 closure commit, selected archive, and checksum without reopening implementation."
   }
 }
