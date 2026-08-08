@@ -1,6 +1,6 @@
 # Evaluation report
 
-## BASELINE-0017 selected local candidate
+## BASELINE-0017 selected release
 
 Public v0.0.16 is the verified starting point. A freshly downloaded archive and a fresh no-alternates public-tag clone pass the complete `84+9+6+10+10` source and package gates, 28 tests, exact selected-archive rebuild, bounded MCP, real loopback API/state/audit/telemetry checks, parsing, credential/model exclusion, and visual dashboard inspection.
 
@@ -14,9 +14,11 @@ Two independent 392,954-byte, 32-entry zipapps are byte-identical at SHA-256 `27
 
 A remote-only clone of exact commit `8929ed5fe4370660235045929769f9fa16813939` began clean with no Git object alternates. It passed the full source gate and 33 tests, produced a fresh passing source evaluation with an independently verified 150-event trace, rebuilt the selected archive exactly, passed a fresh packaged evaluation and exact companion trace, and passed MCP, API, approval, executor, replay, persisted state, audit, live API/MCP endpoint anchors, artifact parsing, model/credential exclusion, native inspection, and original-detail visual review.
 
-PR `#15` reviewed exact head `5c7d2cb2536e366066dcc57c7afc1a3a5fed1fba` and merged it under expected-head lock as `1cf1ddb5c2c2f8107ea5959cfdc6f32a8003508f`, preserving exact prior-main and reviewed-head parents. A fresh remote-only public-main clone passes the full source gate, 33 tests, exact archive rebuild, a fresh packaged evaluation, both 150-event companion anchors, bounded MCP, real API/state/audit/live endpoints, artifact parsing, model and credential exclusion, and original-detail dashboard inspection.
+PR `#15` reviewed exact head `5c7d2cb2536e366066dcc57c7afc1a3a5fed1fba` and merged it under expected-head lock as `1cf1ddb5c2c2f8107ea5959cfdc6f32a8003508f`, preserving exact prior-main and reviewed-head parents. A fresh public-main clone has no object alternates and repeats every source, package, exact-archive, MCP, API, approval, executor, replay, state, audit, live-endpoint, parsing, model/credential-exclusion, native, and visual gate. The first final-audit draft omitted the schema-required candidate commit and remains preserved as blocked; the corrected audit adds only that identity field and computes verified.
 
-Status: merged-main verification passes; final release audit, public download, rendered-page, and public-tag verification remain. Public v0.0.16 remains the latest verified checkpoint.
+The annotated `v0.0.17` tag, peeled remote tag, remote `main`, non-draft GitHub release, selected 392,954-byte zipapp and checksum assets, downloaded public bytes, rendered README and release page, and a fresh no-alternates public-tag clone reconcile to the release closure.
+
+Status: verified and published public synthetic-only research preview. The result is research-informed. The sibling endpoint is unkeyed and same-authority; it does not authenticate the writer, resist a hostile writer, provide immutable storage or non-repudiation, constitute a digital signature, or establish directory-entry durability.
 
 ## BASELINE-0016 selected release
 

@@ -2,19 +2,19 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `codex/baseline-0017-release-closure`
-- Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0016`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
-- Latest verified checkpoint: public `v0.0.16`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Candidate version: `v0.0.17`; selected source/package evidence, exact no-local-object clean clone, reviewed head, history-preserving merge, and fresh merged-main verification pass; final release audit and public verification remain
-- Active milestone: `BASELINE-0017` - durable endpoint anchoring for live API, MCP, and direct CLI traces
-- Current unit: `UNIT-005` in progress - review, exact-head merge, and fresh merged-main verification pass; final release audit is next
-- Disposition: baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Branch: `main`
+- Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0017`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
+- Latest verified checkpoint: public `v0.0.17`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
+- Candidate version: none; `0.0.17` / `baseline-0017` is the selected public checkpoint
+- Active milestone: none; the next checkpoint is intentionally unchosen until a fresh public v0.0.17 run exposes one measurable weakness
+- Current unit: none; `BASELINE-0017` is complete
+- Disposition: baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: merged baseline-0017 candidate `1cf1ddb5c2c2f8107ea5959cfdc6f32a8003508f`; fresh public-main verification passes
+- GitHub `main`: verified baseline-0017 release closure
 - GitHub pull request: `#15`, merged with history preserved under expected-head lock `5c7d2cb2536e366066dcc57c7afc1a3a5fed1fba`
-- GitHub release: public, non-draft `v0.0.16` with verified `.pyz` and `.sha256` assets
+- GitHub release: public, non-draft `v0.0.17` with verified `.pyz` and `.sha256` assets
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
 - Local model source gate: ready for existing Ollama 0.32.5 plus `llama3.2:3b` at manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; adapter boundary tests pass and the first synthetic smoke call failed closed
@@ -39,7 +39,9 @@
 - A remote-only clone of exact commit `8929ed5fe4370660235045929769f9fa16813939` began clean with no object alternates. It passed the full source gate, 33 tests, a fresh exact evaluation and 150-event anchor, rebuilt the selected 392,954-byte archive exactly, passed a fresh packaged gate, exposed only three MCP diagnostic/read tools, and passed real API, approval, executor, replay, state, audit, live endpoint, parsing, model/credential scan, and original-detail dashboard inspection. Receipt: `artifacts/verification/clean-clone-baseline-0017.json`.
 - Draft PR `#15` became ready only after premerge audit `BASELINE-0017-PREMERGE` computed `verified`. GitHub reported the exact audited head clean and mergeable with no configured checks. The expected-head-locked merge preserved exact prior-main and reviewed-head parents as `1cf1ddb5c2c2f8107ea5959cfdc6f32a8003508f`.
 - A fresh remote-only public-main clone began clean with no object alternates. It passes all validators, 33 tests, fresh source and package `84+9+6+10+10+10` evaluations with exact 150-event anchors, exact selected-archive rebuild, bounded MCP, real API/approval/executor/replay/state/audit/live endpoints, 298 JSON and 71 JSONL parses with 8,392 records, model/credential exclusion, and original-detail dashboard inspection. Receipt: `artifacts/verification/merged-main-baseline-0017.json`.
-- Next eligible action: commit and push the merged-main receipt, run the final release-truth audit, then create and verify only the exact annotated tag and selected assets if the audit reports `verified`.
+- The selected final release audit computes `verified` with no errors, warnings, failed required checks, missing surfaces, stale surfaces, unknown surfaces, or unrun surfaces. Its first blocked schema-invalid draft remains retained rather than rewritten.
+- The annotated `v0.0.17` tag, peeled remote tag, remote `main`, non-draft GitHub release, 392,954-byte zipapp, adjacent checksum, downloaded public bytes, rendered README and release page, and fresh public-tag clone reconcile to the release-closure commit.
+- Next eligible action: begin the next cycle from verified public v0.0.17 by running the system and inspecting traces and separate evaluation results before selecting one bounded improvement.
 
 ### BASELINE-0015 approval-authority gap
 

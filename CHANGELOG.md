@@ -1,12 +1,13 @@
 # Changelog
 
-## 0.0.17 - candidate
+## 0.0.17 - 2026-08-08
 
 - Persist a canonical unkeyed `trace-anchor/v1` sibling after each live CLI, API, or MCP event, with trace flush/fsync before same-directory temporary anchor flush/fsync and replacement.
 - Fail closed before resume when the live trace/anchor pair is missing, orphaned, malformed, stale, truncated, extended without its endpoint, or bound to the wrong file.
 - Add a separately reported ten-case endpoint-anchor evaluation; the first immutable reveal passes both development and held-out splits exactly.
 - Pass the selected local source/package `84+9+6+10+10+10` gates, 33 tests, real API/MCP/state/telemetry/dashboard checks, and two byte-identical 392,954-byte builds at SHA-256 `271242d6eabffd4205f8b386028073f6d041b6ec5cc9369a524e45cacc9fe1ef`.
-- Retain two superseded package and dashboard attempts: the first placed the incident table below the 1440 by 1000 frame, and the second left the incident row clipped at the lower edge despite passing machine checks. The selected density correction displays the complete table; clean-clone, exact-head review, history-preserving merge, and fresh merged-main gates pass, while final release gates remain pending.
+- Retain two superseded package and dashboard attempts: the first placed the incident table below the 1440 by 1000 frame, and the second left the incident row clipped at the lower edge despite passing machine checks. The selected density correction displays the complete table.
+- Verify the exact reviewed head, history-preserving merge, fresh public-main gates, final release audit, annotated tag, non-draft release, selected 392,954-byte zipapp and checksum assets at SHA-256 `271242d6eabffd4205f8b386028073f6d041b6ec5cc9369a524e45cacc9fe1ef`, downloaded-byte identity, rendered public pages, and fresh public-tag clone.
 
 ## 0.0.16 - 2026-08-08
 

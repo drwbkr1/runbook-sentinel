@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0017",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -69,8 +69,10 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "v0.0.17 release closure, annotated tag, public assets, downloaded bytes, rendered pages, and fresh public-tag clone reconcile"
+      ]
     }
   ],
   "units": [
@@ -166,20 +168,20 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["verified candidate and release audit"],
       "outputs": ["verified public checkpoint"],
       "gates": {
         "reviewed_head_exact": true,
         "history_preserving_merge_exact": true,
         "merged_main_pass": true,
-        "annotated_tag_exact": false,
-        "public_assets_exact": false,
-        "downloaded_bytes_exact": false,
-        "rendered_public_pages_exact": false,
-        "public_tag_clone_pass": false
+        "annotated_tag_exact": true,
+        "public_assets_exact": true,
+        "downloaded_bytes_exact": true,
+        "rendered_public_pages_exact": true,
+        "public_tag_clone_pass": true
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": []
     }
   ],
@@ -209,12 +211,16 @@
       "the first immutable full reveal passes all ten live-anchor cases with both splits, invalid no-append, truncation detection, and valid resume exact",
       "selected source and package evaluations pass 84+9+6+10+10+10 under the exact 62-file manifest, with 33 tests and exact 150-event companion anchors",
       "two selected 392,954-byte 32-entry archives are byte-identical; source and package CLI, MCP, API, executor, state, audit, live endpoints, and corrected rendered dashboards pass",
-      "a remote-only no-alternates clone of exact candidate 8929ed5 passes the full source and package gates, exact archive rebuild, bounded MCP, real API/state/audit/live endpoints, artifact parsing, model and credential exclusion, and original-detail dashboard inspection"
+      "a remote-only no-alternates clone of exact candidate 8929ed5 passes the full source and package gates, exact archive rebuild, bounded MCP, real API/state/audit/live endpoints, artifact parsing, model and credential exclusion, and original-detail dashboard inspection",
+      "PR 15 merges exact reviewed head 5c7d2cb with history preserved as 1cf1ddb",
+      "a fresh no-alternates public-main clone passes validators, 33 tests, source and package 84+9+6+10+10+10 evaluations, exact archive rebuild, MCP, API, state, audit, live endpoints, parsing, scan, and visual gates",
+      "the schema-invalid first final-audit draft remains retained as blocked and the selected final audit reports verified with no errors, warnings, failed required checks, missing surfaces, stale surfaces, unknown surfaces, or unrun surfaces",
+      "annotated v0.0.17 tag, non-draft release, selected archive and checksum, downloaded bytes, rendered pages, and public-tag clone reconcile"
     ]
   },
   "handoff": {
-    "current_checkpoint": "verified public v0.0.16 release closure at 465f4e2 with selected 9c04e281 package bytes",
-    "next_action": "Commit and push the merged-main receipt, run final release-truth audit, and publish only the exact audited tag and selected assets if every release gate remains verifiable.",
+    "current_checkpoint": "verified public v0.0.17 release closure with selected 271242d6 package bytes",
+    "next_action": "Begin the next cycle by running public v0.0.17, inspecting traces and separate evaluation results, and selecting one highest-leverage measurable weakness before changing code.",
     "do_not_carry_forward": [
       "Do not claim that a sibling unkeyed anchor authenticates the writer or resists an attacker who can recompute the trace and anchor.",
       "Do not add a signing key, HMAC key, credential, collector, dependency, service, or real-infrastructure integration.",
