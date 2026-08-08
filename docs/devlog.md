@@ -12,6 +12,7 @@
 - Froze `live-trace-anchor-v1` with four development and six held-out cases plus an independent contract validator before implementation. The active milestone validates with `UNIT-003` as the only authorized ready unit.
 - Implemented only the generic anchor boundary and explicit live CLI/API/MCP wiring after freeze. Each trace append flushes and fsyncs before a secure same-directory temporary anchor is flushed, fsynced, closed, and replaced; resume verifies the exact pair and fails closed.
 - All four frozen development cases pass, as do the complete 32-test regression suite, compilation, and a direct CLI real-file probe with an exact one-event endpoint. Held-out cases have not been run; the generic implementation is ready to seal before the first full reveal.
+- Added the contract-driven evaluator and reran the development split at 4/4 exact without reading the six held-out outcomes. Its first bare invocation omitted the documented `PYTHONPATH=src` and failed before case execution; the corrected project-environment invocation and complete 32-test regression suite pass.
 
 ## 2026-08-08 - BASELINE-0016 started
 
