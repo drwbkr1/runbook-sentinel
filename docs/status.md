@@ -2,12 +2,12 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `codex/baseline-0019-release-closure`
+- Branch: `codex/baseline-0020-split-action-coverage`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0019`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.19`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Candidate version: none; `0.0.19` / `baseline-0019` is released
-- Active milestone: none; the next checkpoint remains intentionally unchosen until a fresh public-v0.0.19 run identifies one measurable weakness
-- Current unit: `UNIT-005` complete
+- Candidate version: `0.0.20` / `baseline-0020`; unreleased
+- Active milestone: `BASELINE-0020` - split-aware action coverage
+- Current unit: `UNIT-002` complete; next `UNIT-003` bounded implementation
 - Disposition: baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -20,6 +20,14 @@
 - Local model source gate: refreshed and ready for the already installed, publisher-signed Ollama 0.32.6 executable and unchanged `llama3.2:3b` manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six content-addressed blobs pass exact SHA-256 and size checks. No download, update, copy, redistribution, remote call, model tool, secret, or real-infrastructure access is authorized.
 
 ## Verified evidence
+
+### BASELINE-0020 split-action coverage gap and frozen contract
+
+- A fresh no-alternates public-tag clone verifies `v0.0.19` at exact commit `9cb80f7806baab987329fd6fda5f9e34df9c6d04`, passes 17 validators and 36 tests, reproduces the selected archive twice, and passes source/package evaluations, bounded MCP, real API/approval/executor/state/telemetry, dashboard, parsing, and public-asset checks.
+- Aggregate action-type coverage is 1.0 across all three executor capabilities, but action-by-split coverage is only 5 of 6 pairs. Development covers `restart_worker`, `rollback_deployment`, and `warm_cache`; held-out test has no `rollback_deployment` case and covers only two of three actions.
+- The bounded checkpoint adds one project-authored, non-adversarial held-out bad-deployment case and generic action-by-split counts, missing-pair output, and development/test gates. It adds no action or authority and grows the catalog only from 30 to 31, so it does not satisfy the separate at-least-48-case v0.1.0 target.
+- `action-split-coverage-v1` is frozen before implementation at SHA-256 `c24503298b507aefb20911febc99bfb94e02ebcc39dfc3142790ae71e6045445`, with candidate results absent. Its independent validator passes and composes exact SHA-256 identities for all 30 prior scenarios and terminal-state records.
+- The prior approved ACL behavioral-testing source is reused only for the narrow aggregate-metrics rationale; no external paper, code, data, model, package, service, or credential is imported.
 
 ### BASELINE-0019 split-topology coverage gap and frozen contract
 

@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0020",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "active_contract": "contracts/milestone-0020.json",
+    "verified_at_utc": "2026-08-08T21:18:28Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Make action-type coverage split-aware so aggregate coverage cannot hide an untested executor capability in held-out evaluation; add only one frozen held-out rollback case.",
+    "allowed_paths": [
+      "C:/Projects/Active/runbook-sentinel",
+      "C:/Projects/Verification"
+    ],
+    "forbidden_work": [
+      "change any existing scenario or expected result",
+      "change agent, model, retrieval, decision context, action inventory, policy, approval, authentication, executor, API, or MCP authority",
+      "add a dependency, paid service, secret, external asset, remote model call, or real-infrastructure connector",
+      "change repository visibility, access, or ownership",
+      "claim the 31-case checkpoint satisfies the separate at-least-48-case v0.1.0 target"
+    ],
+    "stop_conditions": [
+      "core thesis change or security-boundary weakening",
+      "an existing expected result or runtime authority boundary would need to change",
+      "a dependency, secret, paid service, external asset, real infrastructure, or access change becomes necessary",
+      "held-out exactness, split action coverage, prior behavior, or shipment cannot be verified"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.19 release, refs, assets, rendered pages, downloaded bytes, and independent public-tag source/package verification reconcile at 9cb80f7.",
+        "Aggregate action coverage is 3 of 3, but split-aware coverage is 5 of 6 pairs: held-out test contains zero rollback_deployment case.",
+        "The bounded remediation adds one project-authored synthetic case and no capability or authority."
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Run public v0.0.19 and measure split-aware action coverage.",
+      "depends_on": [],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": ["public-tag verification receipt", "action split-gap receipt"],
+      "disposition": "remediate"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze exact action split coverage, pre-change identities, one held-out case, metrics, gates, and forbidden changes before implementation.",
+      "depends_on": ["UNIT-001"],
+      "action_class": "evidence_preservation",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": ["frozen action-split-coverage-v1 contract", "independent contract validator"],
+      "disposition": "pass"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement generic split-aware action metrics and the one exact frozen case without changing runtime behavior or authority.",
+      "depends_on": ["UNIT-002"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "pending",
+      "disposition": "pending"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Run every prior source, package, API, MCP, state, telemetry, dashboard, reproducibility, and clean-clone gate.",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "pending",
+      "disposition": "pending"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Audit, review, merge, release, and independently verify only if every gate passes.",
+      "depends_on": ["UNIT-004"],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "pending",
+      "disposition": "pending"
+    }
+  ],
+  "verification": {
+    "changed_risks": [
+      "an aggregate action score can mask a missing held-out executor capability",
+      "new scenario bytes can alter an existing frozen case or terminal state",
+      "action-by-split counts can overcount no-action or attacker-goal labels",
+      "scenario expansion can drift release identity, package bytes, dashboard labels, or trace counts"
+    ],
+    "required_checks": [
+      "the frozen contract passes before implementation and candidate results are absent",
+      "only expected executable actions count toward action split coverage",
+      "all three actions appear in both development and held-out test",
+      "the new case and all 30 prior cases pass exact outcomes and terminal-state contracts",
+      "source/package, real surfaces, clean clone, review, merge, and public release reconcile"
+    ],
+    "completed_checks": [
+      "public v0.0.19 is independently verified from a no-alternates public-tag clone",
+      "the exact 5-of-6 action split gap is retained",
+      "the prior approved narrow behavioral-testing source is reused without importing an external asset",
+      "action-split-coverage-v1 is frozen before implementation with candidate results absent, all 30 prior scenario and terminal identities composed exactly, and its independent validator passing"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "verified public v0.0.19",
+    "next_action": "Commit the preimplementation checkpoint, then implement only the bounded split-aware action coverage change.",
+    "do_not_carry_forward": [
+      "Do not add or change executor capabilities.",
+      "Do not inspect or rewrite unfavorable held-out results after the implementation seal.",
+      "Do not claim 31 scenarios satisfy the v0.1.0 target."
+    ]
+  }
+}
