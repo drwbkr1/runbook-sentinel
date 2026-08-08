@@ -5,9 +5,9 @@
 - Branch: `codex/baseline-0017-live-trace-anchor`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0016`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.16`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Candidate version: `v0.0.17`; selected source/package evidence is manifest-bound and locally verified but not yet clean-clone or release verified
+- Candidate version: `v0.0.17`; selected source/package evidence and exact no-local-object clean-clone reproduction pass; review, merge, and release verification remain
 - Active milestone: `BASELINE-0017` - durable endpoint anchoring for live API, MCP, and direct CLI traces
-- Current unit: `UNIT-004` in progress - all ten frozen cases, source/package gates, real CLI/API/MCP endpoint anchors, persisted state, telemetry, and visually inspected dashboards pass; clean-clone verification remains
+- Current unit: `UNIT-005` planned and eligible - all frozen, source/package, real-surface, visual, artifact, scan, and exact clean-clone gates pass; GitHub review is next
 - Disposition: baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -36,7 +36,8 @@
 - Selected source attempt 003 and package attempt 003 pass 33 tests and `84+9+6+10+10+10` under 62-file manifest SHA-256 `e0425726005421c45e76d290fcd9aa5e29025c49da136a1419975b72e24d0467`. Their independently verified companion traces each contain 150 exact events and end at `cef4ef8ecc78c783fe1ea6d0cd547176beb0ce391fef0954f186d25bc1e012f3` and `38b58bb5ac7984952479c1c9d029d549b4160f1478ead860f68f6d946a05ec32`.
 - Two independently built 392,954-byte, 32-entry zipapps are byte-identical at SHA-256 `271242d6eabffd4205f8b386028073f6d041b6ec5cc9369a524e45cacc9fe1ef`. Source and package MCP expose exactly three diagnostic/read tools; real API approval, execution, replay, state, audit, live anchor, and dashboard checks pass.
 - Visual inspection rejected and retained two otherwise-passing presentations: attempt 001 placed the incident table below the evidence frame, and attempt 002 showed only a clipped incident row at its lower edge. The selected source and package views are complete 1440 by 1000 frames; SHA-256 values are `860b5121b1c69371ec008ab99dbf1e30bdb90f85b75588497ab4e53f5979b41f` and `8b63d07ef9dfe4928d9d83d864ab4d27ef8094ca0532987f154756dfec0bf671`.
-- Next eligible action: seal the selected candidate, run a no-local-object clean clone, then perform release audit and GitHub review only if every gate remains exact.
+- A remote-only clone of exact commit `8929ed5fe4370660235045929769f9fa16813939` began clean with no object alternates. It passed the full source gate, 33 tests, a fresh exact evaluation and 150-event anchor, rebuilt the selected 392,954-byte archive exactly, passed a fresh packaged gate, exposed only three MCP diagnostic/read tools, and passed real API, approval, executor, replay, state, audit, live endpoint, parsing, model/credential scan, and original-detail dashboard inspection. Receipt: `artifacts/verification/clean-clone-baseline-0017.json`.
+- Next eligible action: bind the clean-clone receipt, push the exact reviewed head, open a draft PR, and perform premerge release-truth audit before promotion.
 
 ### BASELINE-0015 approval-authority gap
 

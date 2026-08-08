@@ -12,7 +12,9 @@ The candidate passes 33 tests and source/package `84+9+6+10+10+10` gates under 6
 
 Two independent 392,954-byte, 32-entry zipapps are byte-identical at SHA-256 `271242d6eabffd4205f8b386028073f6d041b6ec5cc9369a524e45cacc9fe1ef`. Packaged and source MCP expose exactly three diagnostic/read tools and no approval or execution authority. Real loopback API approval, execution, replay, state, audit, live endpoint, logs, and dashboard checks pass. Visual inspection rejected and retained the first view whose table was below the evidence frame and the second whose row was clipped at the lower edge. The selected source and package dashboards visibly show the complete table, Baseline 0017, live trace endpoint 1.0, authenticated external operator, disconnected infrastructure, and a mitigated persisted incident.
 
-Status: selected local candidate; no-local-object clean clone, review, merge, release, public download, rendered-page, and public-tag verification remain. Public v0.0.16 remains the latest verified checkpoint.
+A remote-only clone of exact commit `8929ed5fe4370660235045929769f9fa16813939` began clean with no Git object alternates. It passed the full source gate and 33 tests, produced a fresh passing source evaluation with an independently verified 150-event trace, rebuilt the selected archive exactly, passed a fresh packaged evaluation and exact companion trace, and passed MCP, API, approval, executor, replay, persisted state, audit, live API/MCP endpoint anchors, artifact parsing, model/credential exclusion, native inspection, and original-detail visual review.
+
+Status: exact clean-clone reproduction passes; review, merge, release, public download, rendered-page, and public-tag verification remain. Public v0.0.16 remains the latest verified checkpoint.
 
 ## BASELINE-0016 selected release
 
