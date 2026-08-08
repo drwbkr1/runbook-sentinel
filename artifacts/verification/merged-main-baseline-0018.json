@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0018",
+  "verified_at_utc": "2026-08-08T19:14:30Z",
+  "status": "pass",
+  "merge": {
+    "pull_request": 16,
+    "reviewed_head": "f13c0c26e3e3892b84675952d65da173513ea507",
+    "prior_main": "7bf9846f262e8e75f1ed2f45d4c9d4d7573f1d8f",
+    "merge_commit": "b3773d672c32115e8cf94f6735d5582b0be27901",
+    "parents": [
+      "7bf9846f262e8e75f1ed2f45d4c9d4d7573f1d8f",
+      "f13c0c26e3e3892b84675952d65da173513ea507"
+    ],
+    "expected_head_lock_used": true,
+    "history_preserved": true
+  },
+  "clone": {
+    "path": "C:/Projects/Verification/runbook-sentinel-baseline-0018-main-b3773d6-20260808T190706Z",
+    "commit": "b3773d672c32115e8cf94f6735d5582b0be27901",
+    "initial_worktree_clean": true,
+    "git_alternates_present": false,
+    "clone_mode": "git clone --no-local --single-branch --branch main"
+  },
+  "source_gate": {
+    "manifest_sha256": "c787fc879e89ead00cd6555fc4d7c21bac1d3fcbe55fd561784753b23234cffd",
+    "validators_passed": 14,
+    "test_count": 35,
+    "tests_passed": true,
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0018-attempt-003.json",
+    "evaluation_bytes": 519788,
+    "evaluation_sha256": "171070a27f75121d5e0e10b6c86afe9479eb8a6f82b9c698bea1f19ef3ba23c0",
+    "trace_path": "artifacts/evaluations/runs/baseline-0018-attempt-003.traces.jsonl",
+    "trace_sha256": "abd30ecbd431d9d66d1a22180e3984db193d7894c262f6d789a155224282746c",
+    "trace_event_count": 150,
+    "trace_final_event_sha256": "bf2c5ed031c6af3184cee21dde2bfb50ca725a8d6bf557307f74dae43f5c15bf",
+    "trace_anchor_independently_verified": true,
+    "disposition": "pass"
+  },
+  "package_gate": {
+    "archive_paths": [
+      "dist/runbook-sentinel-0.0.18-main-build-001.pyz",
+      "dist/runbook-sentinel-0.0.18-main-build-002.pyz"
+    ],
+    "archive_bytes": 410293,
+    "archive_sha256": "e370c208bc6598cf6217f963bc6ea567f05df5757a371bda67fc5157e23a21d0",
+    "selected_archive_sha256_exact": true,
+    "independent_builds_byte_identical": true,
+    "entry_count": 33,
+    "runtime_dependencies": [],
+    "validators_passed": 14,
+    "test_count": 35,
+    "tests_passed": true,
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0018-attempt-004.json",
+    "evaluation_bytes": 519793,
+    "evaluation_sha256": "a4ec6db33f259286237c699123cf2a113f4ab80eb498b9b15a7965f11b6568c7",
+    "trace_path": "artifacts/evaluations/runs/baseline-0018-attempt-004.traces.jsonl",
+    "trace_sha256": "be2c97ca6b18aa193f6677309493ccea23ae6f4de4b489fbb85a284219083c30",
+    "trace_event_count": 150,
+    "trace_final_event_sha256": "4ce268f0d3a628d8c53d13241dc4456f9245c1fd3404117ba9189359d7167662",
+    "trace_anchor_independently_verified": true,
+    "disposition": "pass"
+  },
+  "real_surfaces": {
+    "source_and_package_mcp_version": "0.0.18",
+    "source_and_package_mcp_tool_count": 3,
+    "mcp_approval_or_execution_tool_exposed": false,
+    "source_mcp_trace_final_event_sha256": "15362a63f1af75b86e436893f8d72b00500a55e234d2c1f7db4fa940b976222b",
+    "source_mcp_anchor_sha256": "56c0ac79bccce9c6ded6e2cbcf7462a48fa11564241b2228d889a0c3376719fb",
+    "package_mcp_trace_final_event_sha256": "76212c283ede420010b82a1cb1dd209f04efef12667a21b25df33470c3c5b81c",
+    "package_mcp_anchor_sha256": "f8e7cc424c6cf16602d54a1f210cc5473e9f860e9579ad58926345f44b8313af",
+    "source_and_package_http_authentication_approval_execution_replay_postconditions_pass": true,
+    "source_and_package_sqlite_state_and_audit_pass": true,
+    "source_and_package_api_trace_chain_valid": true,
+    "source_and_package_api_trace_endpoint_anchored": true,
+    "source_api_trace_final_event_sha256": "f1722958bd7bf75ea134724a1d67c0c6569e3e4a0b44f3b3faae0ae1c35757c3",
+    "source_api_anchor_sha256": "45c348b224cae2e436dfeda7fcec7a8ea880ed615829802002785c374ac39ae7",
+    "package_api_trace_final_event_sha256": "3d498354f47d8d3125b7a543160a0d22bf225b85282fca1408e521ef70c9ffd2",
+    "package_api_anchor_sha256": "1f7497074899f03605dafeadd9a49828e0da01a179befe5a36cbbcc64211715a",
+    "source_and_package_evaluation_companion_trace_anchor_exact": true,
+    "forbidden_authentication_material_absent": true,
+    "source_native_receipt_sha256": "70dfb5cb517ae0422a9289283f74e1aaea27c7072db8a5781961ba68e729be0a",
+    "package_native_receipt_sha256": "20ca5c00a5d6cb8312a16dc733422bf1823f62307bb94a2f811c5e634dd3f62c"
+  },
+  "rendered_dashboards": {
+    "dimensions": [1440, 1000],
+    "source_path": "artifacts/verification/dashboard-baseline-0018-main-source.png",
+    "source_bytes": 76092,
+    "source_sha256": "e72a35613d331fa527dc16f173423d825bcc8d809a2d8309b2fe550f9bb322f1",
+    "package_path": "artifacts/verification/dashboard-baseline-0018-main-package.png",
+    "package_bytes": 75785,
+    "package_sha256": "04b21235889267e5ab0f39f9d158bb97e111bc595406665e5fb7f9af964aa88a",
+    "visual_inspection": "pass at original detail: Baseline 0018, evaluation pass, all required exact metrics, authenticated external operator, disconnected real infrastructure, and both complete persisted-incident rows are legible and internally consistent"
+  },
+  "artifact_parsing": {
+    "tracked_files": 517,
+    "json_files": 321,
+    "jsonl_files": 73,
+    "jsonl_records": 8919,
+    "status": "pass"
+  },
+  "security_scan": {
+    "model_artifact_count": 0,
+    "credential_shaped_matches_outside_frozen_forbidden_pattern_definitions": 0,
+    "status": "pass"
+  },
+  "retained_observations": [
+    {
+      "stage": "dashboard image viewer",
+      "result": "non_fatal_viewer_artifact",
+      "detail": "The first normalized-high package frame displayed only the lower incident-table strip. Reopening the same unchanged 1440 by 1000 bytes at original detail displayed the complete dashboard and passed visual inspection."
+    }
+  ],
+  "non_claims": [
+    "The unkeyed trace chain and sibling endpoint do not authenticate the writer or resist full chain-and-anchor recomputation.",
+    "The measured local model remains excluded and no useful model-safety or external-superiority claim is made.",
+    "The checkpoint remains a synthetic-only research-informed preview and is not authorized for real operational infrastructure."
+  ]
+}

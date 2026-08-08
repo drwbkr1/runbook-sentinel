@@ -10,7 +10,8 @@
 - Pass the selected source and package `84+9+6+10+10+10` gates, 35 tests, bounded MCP, real HTTP approval/executor/replay/postcondition flow, SQLite state, chained telemetry with sibling endpoint anchor, and visual dashboard inspection.
 - Preserve a superseded 410,293-byte archive and the first live verifier failure after its stale baseline-0017 rendered-label assertion rejected an otherwise baseline-0018 surface; select two byte-identical corrected archives at SHA-256 `e370c208bc6598cf6217f963bc6ea567f05df5757a371bda67fc5157e23a21d0`.
 - Reproduce the exact selected archive twice from a remote-only clean clone and pass fresh source/package evaluation, tests, MCP, API, approval/executor, state, telemetry, artifact-parsing, security-scan, and rendered-dashboard checks there.
-- Review, merge, release, and public-verification gates remain pending.
+- Merge the exact audited PR head with history preserved, then pass fresh public-main source/package, archive-rebuild, MCP, API, state, telemetry, parsing, scanning, and visual gates.
+- Final release audit, tag, release assets, and public-verification gates remain pending.
 
 ## 0.0.17 - 2026-08-08
 

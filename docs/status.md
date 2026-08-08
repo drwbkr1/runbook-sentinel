@@ -12,8 +12,8 @@
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: verified baseline-0017 release closure
-- GitHub pull request: `#15`, merged with history preserved under expected-head lock `5c7d2cb2536e366066dcc57c7afc1a3a5fed1fba`
+- GitHub `main`: merged and freshly verified baseline-0018 at `b3773d672c32115e8cf94f6735d5582b0be27901`; release closure is pending
+- GitHub pull request: `#16`, merged with history preserved under expected-head lock `f13c0c26e3e3892b84675952d65da173513ea507`
 - GitHub release: public, non-draft `v0.0.17` with verified `.pyz` and `.sha256` assets
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
@@ -49,7 +49,9 @@
 - A remote-only clean clone of exact candidate `300575b686b29620d2609ca310ccef4799ab57ae` began clean with no Git object alternates. It independently passes all 14 validators, 35 tests, fresh source and package `84+9+6+10+10+10` evaluations with exact 150-event anchors, bounded MCP, real HTTP approval/executor/state/telemetry surfaces, parsing of 319 JSON files and 8,919 records across 73 JSONL files, and model/credential exclusion.
 - The clean clone rebuilt the 33-entry 410,293-byte selected archive twice at exact SHA-256 `e370c208bc6598cf6217f963bc6ea567f05df5757a371bda67fc5157e23a21d0`. Normalized high-detail inspection of its source/package 1440 by 1000 dashboards passes; the original-detail viewer's first package frame showed only the lower table strip, and that non-byte-changing viewer artifact remains recorded.
 - Clean-clone receipt: `artifacts/verification/clean-clone-baseline-0018.json`.
-- Next eligible action: commit and push the clean-clone receipt, verify the exact remote review scope and mergeability, then run the pre-merge release audit.
+- PR `#16` had 68 changed paths exactly matching local scope, zero configured checks, and reached ready, `CLEAN`, and `MERGEABLE` at audited head `f13c0c26e3e3892b84675952d65da173513ea507`. The expected-head merge preserved both parents as `b3773d672c32115e8cf94f6735d5582b0be27901`, and remote `main` matches.
+- A fresh no-local-object public-main clone begins clean with no alternates and repeats all 14 validators, 35 tests, source/package `84+9+6+10+10+10`, exact 150-event anchors, two exact archive rebuilds, bounded MCP, real API/state/telemetry, 321 JSON and 8,919 JSONL-record parses, model/credential exclusion, and original-detail dashboard inspection. Receipt: `artifacts/verification/merged-main-baseline-0018.json`.
+- Next eligible action: commit and push merged-main evidence, run the final release audit, reconcile the release-closure records, and publish only if that audit remains verified.
 
 ### BASELINE-0017 live-trace endpoint-anchor gap and frozen contract
 
