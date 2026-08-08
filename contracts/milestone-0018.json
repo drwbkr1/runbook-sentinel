@@ -124,16 +124,16 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["frozen model-output-failure-taxonomy-v1 contract"],
       "outputs": ["bounded implementation", "focused development tests"],
       "gates": {
-        "all_frozen_development_cases_exact": false,
-        "prior_acceptance_and_failure_outcomes_unchanged": false,
-        "raw_generated_text_excluded": false,
-        "prior_boundaries_unchanged": false
+        "all_frozen_development_cases_exact": true,
+        "prior_acceptance_and_failure_outcomes_unchanged": true,
+        "raw_generated_text_excluded": true,
+        "prior_boundaries_unchanged": true
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [],
       "next_dependency": "UNIT-004"
     },
@@ -143,7 +143,7 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_model_evaluation",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": ["sealed implementation", "frozen manifest", "ready local source gate"],
       "outputs": ["immutable taxonomy reveal", "immutable current model comparison"],
       "gates": {
@@ -200,12 +200,13 @@
       "fresh public source and package 84+9+6+10+10+10 evaluations and all prior real surfaces pass",
       "the retained 49 of 54 schema-invalid model failures have no machine-readable content rejection code",
       "official Ollama 0.32.6, Ollama API and structured-output documentation, Meta Llama 3.2 model card, license, AUP, exact local signatures, manifest, and six blobs pass the source gate",
-      "model-output-failure-taxonomy-v1 freezes 17 exact codes and 19 development/test cases before adapter implementation; the independent validator passes with candidate results absent"
+      "model-output-failure-taxonomy-v1 freezes 17 exact codes and 19 development/test cases before adapter implementation; the independent validator passes with candidate results absent",
+      "the bounded generic implementation passes all eight development cases, 35 regression tests, compilation, raw-marker exclusion, and aggregate/split classification checks; development evidence is 4,088 bytes at SHA-256 671e120fb59c0ef722d234b2905a71eda028507b6ae055c2301bbda91c2019b8"
     ]
   },
   "handoff": {
     "current_checkpoint": "verified public v0.0.17 release closure at 7bf9846 with selected 271242d6 package bytes",
-    "next_action": "Implement only the generic deterministic error-code boundary, run the eight development cases, and seal the implementation before the first held-out reveal.",
+    "next_action": "Seal the generic implementation, then run the first full 19-case reveal and the one authorized current local-model comparison without adapting the implementation or frozen model contract.",
     "do_not_carry_forward": [
       "Do not alter parser acceptance or reinterpret a classified rejection as valid output.",
       "Do not store raw model output, supply tools, expose approval material, or change the deterministic default.",

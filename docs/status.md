@@ -7,7 +7,7 @@
 - Latest verified checkpoint: public `v0.0.17`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
 - Candidate version: unversioned `baseline-0018`; no release version is assigned before candidate gates
 - Active milestone: `BASELINE-0018` - deterministic model-output failure taxonomy
-- Current unit: `UNIT-003` in progress - implement only the frozen generic parser error-code boundary
+- Current unit: `UNIT-004` in progress - seal the generic implementation, reveal the frozen full taxonomy once, and run one current local-model comparison
 - Disposition: baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -29,7 +29,10 @@
 - The bounded improvement adds classification only: 17 closed failure codes, one optional metadata field, aggregate and split counts, and classification-completeness metrics. It cannot change parser acceptance, fail-closed abstention, prompts, schemas, actions, approval, executor, or default selection.
 - `model-output-failure-taxonomy-v1` freezes 19 exact cases before implementation: eight development, eleven held-out test, every code once, and two valid controls. Its independent validator passes with no candidate results.
 - Official Ollama 0.32.6 release/API/structured-output records and current Meta Llama 3.2 model-card/license/AUP records pass all 16 source criteria for the already installed local runtime and model only. The exact executable is publisher-signed, the local manifest is unchanged, and all six blobs recompute exactly.
-- Next eligible action: implement the generic taxonomy, run only development cases, and seal the implementation before the first full reveal or local-model call.
+- The generic implementation adds one closed error code to parser exceptions and model metadata plus aggregate/split counts and classification completeness. It changes no parser acceptance, prompt, schema, generation option, result, proposal, or execution boundary.
+- Development attempt 001 passes all eight permitted cases exactly with classification rate 1.0, zero unclassified content failures, valid-output acceptance 1.0, and no raw content retained. The 4,088-byte record is SHA-256 `671e120fb59c0ef722d234b2905a71eda028507b6ae055c2301bbda91c2019b8`.
+- All 35 tests pass, including valid/invalid adapter metadata, non-content null-code behavior, aggregate and split counts, a deliberately unique raw-content marker excluded from report and trace, and every prior deterministic boundary.
+- Next eligible action: seal this generic implementation, then run the first full 19-case reveal and one current source-gated local-model comparison without adapting the implementation or frozen model contract.
 
 ### BASELINE-0017 live-trace endpoint-anchor gap and frozen contract
 

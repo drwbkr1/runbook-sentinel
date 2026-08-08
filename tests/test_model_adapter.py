@@ -11,7 +11,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from runbook_sentinel.model_adapter import OllamaIncidentAgent, parse_model_content
+from runbook_sentinel.model_adapter import (
+    MODEL_OUTPUT_ERROR_CODES,
+    ModelOutputValidationError,
+    OllamaIncidentAgent,
+    parse_model_content,
+)
 from runbook_sentinel.evaluation import MODEL_AGENT_CONFIGURATION, run_evaluation
 from runbook_sentinel.service import RunbookSentinel
 
@@ -72,6 +77,7 @@ class ModelAdapterTest(unittest.TestCase):
         self.assertNotIn("tools", calls[0][1])
         self.assertEqual(calls[0][2], 30.0)
         self.assertEqual(result["model_metadata"]["parse_status"], "valid")
+        self.assertIsNone(result["model_metadata"]["model_output_error_code"])
         self.assertEqual(len(result["model_metadata"]["system_prompt_sha256"]), 64)
         self.assertEqual(len(result["model_metadata"]["request_payload_sha256"]), 64)
         raw = json.dumps(content, sort_keys=True)
@@ -86,6 +92,10 @@ class ModelAdapterTest(unittest.TestCase):
         self.assertEqual((result["outcome"], result["diagnosis_code"]), ("abstain", "model_output_invalid"))
         self.assertIsNone(result["proposal"])
         self.assertEqual(result["model_metadata"]["parse_status"], "schema_invalid")
+        self.assertEqual(
+            result["model_metadata"]["model_output_error_code"],
+            "top_level_keys_mismatch",
+        )
 
         missing_identity = OllamaIncidentAgent(
             CONTRACT_PATH,
@@ -93,6 +103,7 @@ class ModelAdapterTest(unittest.TestCase):
         ).analyze("prompt", [], "2026-08-06T16:00:00Z")
         self.assertEqual(missing_identity["diagnosis_code"], "model_output_invalid")
         self.assertEqual(missing_identity["model_metadata"]["parse_status"], "response_identity_invalid")
+        self.assertIsNone(missing_identity["model_metadata"]["model_output_error_code"])
 
         mismatched = {
             "outcome": "propose_action",
@@ -109,6 +120,28 @@ class ModelAdapterTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             parse_model_content(json.dumps(mismatched), {"evidence-1"})
 
+    def test_frozen_development_failure_taxonomy_is_exact(self):
+        contract = json.loads(
+            (ROOT / "eval/model-output-failure-contract.json").read_text(encoding="utf-8")
+        )
+        development_cases = [
+            case for case in contract["cases"] if case["split"] == "development"
+        ]
+        self.assertEqual(len(development_cases), 8)
+        for case in development_cases:
+            with self.subTest(case_id=case["case_id"]):
+                content = (
+                    case["content_literal"]
+                    if case["content_encoding"] == "literal"
+                    else json.dumps(case["payload"], sort_keys=True, separators=(",", ":"))
+                )
+                if case["expected"]["accepted"]:
+                    parse_model_content(content, set(case["allowed_document_ids"]))
+                else:
+                    with self.assertRaises(ModelOutputValidationError) as raised:
+                        parse_model_content(content, set(case["allowed_document_ids"]))
+                    self.assertEqual(raised.exception.code, case["expected"]["error_code"])
+
     def test_timeout_fails_closed_without_deterministic_fallback(self):
         def timeout_transport(*_):
             raise TimeoutError("synthetic timeout")
@@ -117,6 +150,7 @@ class ModelAdapterTest(unittest.TestCase):
         result = agent.analyze("prompt", [], "2026-08-06T16:00:00Z")
         self.assertEqual((result["outcome"], result["diagnosis_code"]), ("abstain", "model_timeout"))
         self.assertEqual(result["model_metadata"]["parse_status"], "timeout")
+        self.assertIsNone(result["model_metadata"]["model_output_error_code"])
         self.assertEqual(result["model_metadata"]["model_call_count"], 1)
 
     def test_non_loopback_contract_is_rejected_before_transport(self):
@@ -191,11 +225,66 @@ class ModelAdapterTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["cost"]["prompt_tokens"], 28 * 101)
         self.assertEqual(report["metrics"]["cost"]["completion_tokens"], 28 * 33)
         self.assertEqual(report["metrics"]["generation"]["structured_parse_success_rate"], 1.0)
+        self.assertIsNone(
+            report["metrics"]["generation"]["schema_invalid_classification_rate"]
+        )
+        self.assertEqual(
+            report["metrics"]["generation"]["unclassified_schema_invalid_count"], 0
+        )
+        self.assertEqual(
+            report["metrics"]["generation"]["model_output_error_code_counts"],
+            {code: 0 for code in MODEL_OUTPUT_ERROR_CODES},
+        )
         self.assertEqual(report["gates"]["baseline_disposition"], "remediate")
         self.assertIsNone(report["gates"]["all_exact_control_cases_pass"])
         self.assertEqual(report["cases"][0]["attempts"][0]["validated_output"]["reason"], content["reason"])
         self.assertTrue(all("tools" not in payload for payload in calls))
+        self.assertTrue(
+            all(
+                attempt["model"]["model_output_error_code"] is None
+                for case in report["cases"]
+                for attempt in case["attempts"]
+            )
+        )
         self.assertNotIn(content["reason"], output.with_name("fake-candidate.traces.jsonl").read_text(encoding="utf-8"))
+
+    def test_candidate_evaluation_classifies_schema_failures_without_raw_content(self):
+        raw_marker = "must-not-retain-model-content"
+
+        def transport(endpoint, payload, timeout):
+            del endpoint, payload, timeout
+            return model_response({"sentinel_raw_marker": raw_marker})
+
+        output = self.base / "fake-invalid-candidate.json"
+        report = run_evaluation(
+            output,
+            trials=1,
+            agent_configuration=MODEL_AGENT_CONFIGURATION,
+            model_transport=transport,
+        )
+        generation = report["metrics"]["generation"]
+        self.assertEqual(generation["structured_parse_success_rate"], 0.0)
+        self.assertEqual(generation["schema_invalid_classification_rate"], 1.0)
+        self.assertEqual(generation["unclassified_schema_invalid_count"], 0)
+        self.assertEqual(
+            generation["model_output_error_code_counts"]["top_level_keys_mismatch"],
+            28,
+        )
+        self.assertTrue(
+            all(
+                attempt["model"]["model_output_error_code"]
+                == "top_level_keys_mismatch"
+                for case in report["cases"]
+                for attempt in case["attempts"]
+            )
+        )
+        self.assertNotIn(raw_marker, output.read_text(encoding="utf-8"))
+        self.assertNotIn(
+            raw_marker,
+            output.with_name("fake-invalid-candidate.traces.jsonl").read_text(
+                encoding="utf-8"
+            ),
+        )
 
 
 if __name__ == "__main__":

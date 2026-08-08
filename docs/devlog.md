@@ -8,6 +8,8 @@
 - A non-destructive pre-change probe confirms invalid JSON raises `JSONDecodeError`, while key mismatch and out-of-context evidence raise generic `ValueError`; none carries a machine code. No released or runtime evidence changed.
 - Refreshed the existing local-source gate against official Ollama 0.32.6 and current Ollama/Meta records. The exact publisher-signed executable, unchanged model manifest, and all six blobs pass identity, rights, provenance, integrity, fitness, and privacy/security checks. No external asset was acquired.
 - Froze `model-output-failure-taxonomy-v1` before adapter changes with 17 exact codes, 19 cases, eight development and eleven held-out test cases, two valid controls, digest-only raw-output retention, and unchanged fail-closed semantics. The independent validator passes with candidate results absent.
+- Implemented the closed taxonomy without changing parser acceptance or failure results. Non-content failures retain a null code; content rejection records one code; aggregate and split evaluation now expose exact counts, classification rate, and unclassified count under report schema 2.4.
+- Development-only attempt 001 passes all eight allowed cases exactly at SHA-256 `671e120fb59c0ef722d234b2905a71eda028507b6ae055c2301bbda91c2019b8`. All 35 tests pass, including aggregate/split metric checks and exclusion of a unique raw-content marker from both report and trace. The implementation is ready to seal before the first full reveal or local-model call.
 
 ## 2026-08-08 - BASELINE-0017 started
 

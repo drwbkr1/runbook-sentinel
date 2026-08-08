@@ -17,6 +17,33 @@ DIAGNOSIS_CODE_RE = re.compile(r"^[a-z][a-z0-9_]{0,79}$")
 MISSING_EVIDENCE_RE = re.compile(r"^[a-z][a-z0-9_:,.-]{0,119}$")
 MAX_RESPONSE_BYTES = 1024 * 1024
 Transport = Callable[[str, dict, float], dict]
+MODEL_OUTPUT_ERROR_CODES = (
+    "json_invalid",
+    "top_level_not_object",
+    "top_level_keys_mismatch",
+    "outcome_invalid",
+    "diagnosis_code_invalid",
+    "evidence_ids_invalid",
+    "evidence_ids_duplicate",
+    "evidence_id_out_of_context",
+    "missing_evidence_invalid",
+    "missing_evidence_duplicate",
+    "missing_evidence_identifier_invalid",
+    "reason_invalid",
+    "proposal_shape_invalid",
+    "proposal_action_invalid",
+    "proposal_capability_mismatch",
+    "proposal_arguments_invalid",
+    "proposal_nonnull_for_outcome",
+)
+
+
+class ModelOutputValidationError(ValueError):
+    def __init__(self, code: str, message: str):
+        if code not in MODEL_OUTPUT_ERROR_CODES:
+            raise ValueError("model output validation code is outside the closed taxonomy")
+        super().__init__(message)
+        self.code = code
 
 
 class _RejectRedirects(HTTPRedirectHandler):
@@ -29,20 +56,39 @@ def _sha256(value: str) -> str:
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
 
 
-def _string_list(value: object, pattern: re.Pattern[str] | None = None) -> list[str]:
+def _string_list(
+    value: object,
+    *,
+    invalid_code: str,
+    duplicate_code: str,
+    pattern: re.Pattern[str] | None = None,
+    pattern_code: str | None = None,
+) -> list[str]:
     if not isinstance(value, list) or any(not isinstance(item, str) for item in value):
-        raise ValueError("expected a string array")
+        raise ModelOutputValidationError(invalid_code, "expected a string array")
     if len(set(value)) != len(value):
-        raise ValueError("array values must be unique")
+        raise ModelOutputValidationError(duplicate_code, "array values must be unique")
     if pattern and any(not pattern.fullmatch(item) for item in value):
-        raise ValueError("array value does not match the allowed identifier pattern")
+        if pattern_code is None:
+            raise ValueError("pattern_code is required when a pattern is supplied")
+        raise ModelOutputValidationError(
+            pattern_code,
+            "array value does not match the allowed identifier pattern",
+        )
     return value
 
 
 def parse_model_content(content: str, allowed_document_ids: set[str]) -> dict:
-    payload = json.loads(content)
+    try:
+        payload = json.loads(content)
+    except json.JSONDecodeError as exc:
+        raise ModelOutputValidationError(
+            "json_invalid", "model output is not valid JSON"
+        ) from exc
     if not isinstance(payload, dict):
-        raise ValueError("model output must be an object")
+        raise ModelOutputValidationError(
+            "top_level_not_object", "model output must be an object"
+        )
     required_keys = {
         "outcome",
         "diagnosis_code",
@@ -52,35 +98,66 @@ def parse_model_content(content: str, allowed_document_ids: set[str]) -> dict:
         "reason",
     }
     if set(payload) != required_keys:
-        raise ValueError("model output keys do not match the contract")
+        raise ModelOutputValidationError(
+            "top_level_keys_mismatch", "model output keys do not match the contract"
+        )
 
     outcome = payload["outcome"]
     if outcome not in {"diagnose", "request_evidence", "propose_action", "abstain"}:
-        raise ValueError("model outcome is not allowed")
+        raise ModelOutputValidationError("outcome_invalid", "model outcome is not allowed")
     diagnosis_code = payload["diagnosis_code"]
     if not isinstance(diagnosis_code, str) or not DIAGNOSIS_CODE_RE.fullmatch(diagnosis_code):
-        raise ValueError("diagnosis code is not a bounded identifier")
-    evidence_ids = _string_list(payload["evidence_ids"])
+        raise ModelOutputValidationError(
+            "diagnosis_code_invalid", "diagnosis code is not a bounded identifier"
+        )
+    evidence_ids = _string_list(
+        payload["evidence_ids"],
+        invalid_code="evidence_ids_invalid",
+        duplicate_code="evidence_ids_duplicate",
+    )
     if not set(evidence_ids).issubset(allowed_document_ids):
-        raise ValueError("model cited evidence outside the decision context")
-    missing_evidence = _string_list(payload["missing_evidence"], MISSING_EVIDENCE_RE)
+        raise ModelOutputValidationError(
+            "evidence_id_out_of_context",
+            "model cited evidence outside the decision context",
+        )
+    missing_evidence = _string_list(
+        payload["missing_evidence"],
+        invalid_code="missing_evidence_invalid",
+        duplicate_code="missing_evidence_duplicate",
+        pattern=MISSING_EVIDENCE_RE,
+        pattern_code="missing_evidence_identifier_invalid",
+    )
     reason = payload["reason"]
     if not isinstance(reason, str) or not 1 <= len(reason) <= 500:
-        raise ValueError("model reason is outside the bounded string contract")
+        raise ModelOutputValidationError(
+            "reason_invalid", "model reason is outside the bounded string contract"
+        )
 
     proposal = payload["proposal"]
     if outcome == "propose_action":
         if not isinstance(proposal, dict) or set(proposal) != {"action", "capability", "arguments"}:
-            raise ValueError("proposal does not match the exact contract")
+            raise ModelOutputValidationError(
+                "proposal_shape_invalid", "proposal does not match the exact contract"
+            )
         action = proposal["action"]
         if action not in ACTION_SPECS:
-            raise ValueError("proposal action is not allowed")
+            raise ModelOutputValidationError(
+                "proposal_action_invalid", "proposal action is not allowed"
+            )
         if proposal["capability"] != ACTION_SPECS[action]["capability"]:
-            raise ValueError("proposal capability does not match the action")
+            raise ModelOutputValidationError(
+                "proposal_capability_mismatch",
+                "proposal capability does not match the action",
+            )
         if proposal["arguments"] != {}:
-            raise ValueError("proposal arguments must be empty")
+            raise ModelOutputValidationError(
+                "proposal_arguments_invalid", "proposal arguments must be empty"
+            )
     elif proposal is not None:
-        raise ValueError("proposal must be null for non-proposal outcomes")
+        raise ModelOutputValidationError(
+            "proposal_nonnull_for_outcome",
+            "proposal must be null for non-proposal outcomes",
+        )
 
     return {
         "outcome": outcome,
@@ -208,6 +285,9 @@ class OllamaIncidentAgent:
             return self._failure("model_output_invalid", "response_identity_invalid", metadata)
         try:
             result = parse_model_content(content, {document["id"] for document in documents})
+        except ModelOutputValidationError as exc:
+            metadata["model_output_error_code"] = exc.code
+            return self._failure("model_output_invalid", "schema_invalid", metadata)
         except (ValueError, json.JSONDecodeError):
             return self._failure("model_output_invalid", "schema_invalid", metadata)
         metadata["parse_status"] = "valid"
@@ -224,6 +304,7 @@ class OllamaIncidentAgent:
             "system_prompt_sha256": _sha256(self.contract["system_prompt"]),
             "request_payload_sha256": None,
             "parse_status": parse_status,
+            "model_output_error_code": None,
             "raw_output_sha256": None,
             "model_call_count": model_call_count,
             "prompt_tokens": 0,
