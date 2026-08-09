@@ -107,16 +107,16 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "in_progress",
-      "outputs": ["candidate verification receipt", "selected reproducible archive"],
+      "status": "complete",
+      "outputs": ["candidate verification receipt", "clean-clone verification receipt", "selected reproducible archive"],
       "gates": {
         "source_and_package_full_gate": true,
         "real_surfaces_pass": true,
         "reproducible_package_pass": true,
         "rendered_dashboard_pass": true,
-        "clean_clone_pass": false
+        "clean_clone_pass": true
       },
-      "disposition": "pending"
+      "disposition": "pass"
     },
     {
       "id": "UNIT-005",
@@ -155,12 +155,15 @@
       "immutable source attempt 001 passes all 31 cases across three trials, 6-of-6 action/split pairs, every prior gate, and an exact anchored 165-event trace"
       ,
       "the 35-entry v0.0.20 package contract is frozen before archive build at SHA-256 5959bd97d38a485fdc69dc337857ba2e4d99b34b23545c3049db9cacfe122df2 with zero runtime dependencies",
-      "the final 77-file pre-build manifest passes at SHA-256 639abdb7c7f084244a2193752006b0c6a01c9137b10c0caeef662d8661142c62"
+      "the final 77-file pre-build manifest passes at SHA-256 639abdb7c7f084244a2193752006b0c6a01c9137b10c0caeef662d8661142c62",
+      "local source and package verification each pass all 31 scenarios across three trials, every frozen gate, the bounded MCP surface, real loopback API, approval and executor separation, persisted state, telemetry, and rendered dashboard inspection",
+      "a no-alternates clone of public branch commit a4a87c98e3869132b5fafbf8172d987e5b60aa2e passes 19 validators, 37 tests, source/package 93-attempt evaluations, exact reproducible package bytes, MCP and API surfaces, artifact parsing, security scan, and normalized high-detail dashboard inspection",
+      "after candidate truth-surface reconciliation, the authoritative tree passes all 19 independent verifiers and all 37 tests; its fresh 93-attempt source evaluation passes every gate with an exact anchored 165-event trace"
     ]
   },
   "handoff": {
     "current_checkpoint": "verified public v0.0.19",
-    "next_action": "Freeze the v0.0.20 package contract and final manifest, then run source/package and real-surface verification.",
+    "next_action": "Run the pre-merge release-truth audit, reconcile candidate records, and open the bounded review branch only if the audit passes.",
     "do_not_carry_forward": [
       "Do not add or change executor capabilities.",
       "Do not inspect or rewrite unfavorable held-out results after the implementation seal.",

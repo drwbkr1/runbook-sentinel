@@ -1,0 +1,129 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0020",
+  "verified_at_utc": "2026-08-09T00:26:07Z",
+  "status": "pass",
+  "candidate": {
+    "commit": "a4a87c98e3869132b5fafbf8172d987e5b60aa2e",
+    "branch": "codex/baseline-0020-split-action-coverage",
+    "clone_path": "C:/Projects/Verification/runbook-sentinel-baseline-0020-clean-a4a87c9-20260809T001500Z",
+    "initial_worktree_clean": true,
+    "git_alternates_present": false,
+    "clone_mode": "git clone --no-local --single-branch from the public GitHub branch"
+  },
+  "source_gate": {
+    "manifest_sha256": "639abdb7c7f084244a2193752006b0c6a01c9137b10c0caeef662d8661142c62",
+    "validators_passed": 19,
+    "test_count": 37,
+    "tests_passed": true,
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0020-attempt-003.json",
+    "evaluation_bytes": 565248,
+    "evaluation_sha256": "691406912486e8acc6e6115a43cc18c0e6b34ac21aac9de7074e7574613d90e4",
+    "trace_path": "artifacts/evaluations/runs/baseline-0020-attempt-003.traces.jsonl",
+    "trace_bytes": 117223,
+    "trace_sha256": "7f72d6d70ce54814de231265378265a8df42c3a4ce911844879aa15c0ae2867d",
+    "trace_event_count": 165,
+    "trace_final_event_sha256": "10db3f96a31740bb66b10f119cfe10b810fb57a38881bfc59f695bf0442282a7",
+    "trace_anchor_independently_verified": true,
+    "scenario_count": 31,
+    "scenario_attempt_count": 93,
+    "action_split_coverage": 1.0,
+    "disposition": "pass"
+  },
+  "package_gate": {
+    "package_contract_sha256": "5959bd97d38a485fdc69dc337857ba2e4d99b34b23545c3049db9cacfe122df2",
+    "archive_paths": [
+      "dist/runbook-sentinel-0.0.20.pyz",
+      "dist/runbook-sentinel-0.0.20-build-002.pyz"
+    ],
+    "archive_bytes": 436861,
+    "archive_sha256": "294e45519a5becfd8c39c5d8ff7fa277b7319864bcd9da7c125ac44a12966ded",
+    "selected_archive_sha256_exact": true,
+    "independent_builds_byte_identical": true,
+    "entry_count": 35,
+    "runtime_dependencies": [],
+    "validators_passed": 19,
+    "test_count": 37,
+    "tests_passed": true,
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0020-package-attempt-002.json",
+    "evaluation_bytes": 565266,
+    "evaluation_sha256": "f4b65f1e715166b06f88f67ac2ba67d8b66e360b9ee95ce984edd4575e020e8b",
+    "trace_path": "artifacts/evaluations/runs/baseline-0020-package-attempt-002.traces.jsonl",
+    "trace_bytes": 117223,
+    "trace_sha256": "41e340601e01b416077c284d42b69eaf824ced9dc3bbd9aa55aae4f8289bb8df",
+    "trace_event_count": 165,
+    "trace_final_event_sha256": "72eab2824f02ba2ab4fd451fe01063e9dd3dee0a3cbc1b3881ccd3f0c9abe944",
+    "trace_anchor_independently_verified": true,
+    "scenario_count": 31,
+    "scenario_attempt_count": 93,
+    "action_split_coverage": 1.0,
+    "disposition": "pass"
+  },
+  "real_surfaces": {
+    "source_and_package_mcp_version": "0.0.20",
+    "source_and_package_mcp_protocol": "2025-11-25",
+    "source_and_package_mcp_tool_count": 3,
+    "mcp_approval_or_execution_tool_exposed": false,
+    "source_and_package_mcp_trace_chain_valid": true,
+    "source_and_package_mcp_trace_endpoint_anchored": true,
+    "source_mcp_trace_sha256": "9eddde18684cc3cdc68582d6f1af45ddfb4e037f10eaf4bc9e3886e944b1a0de",
+    "package_mcp_trace_sha256": "10c74000ab8ae73b43091b809866b9dd5012a3f7d7cafebc9b499a6e729c5288",
+    "source_and_package_http_authentication_approval_execution_replay_postconditions_pass": true,
+    "source_and_package_sqlite_state_and_audit_pass": true,
+    "source_and_package_api_trace_chain_valid": true,
+    "source_and_package_api_trace_endpoint_anchored": true,
+    "source_and_package_evaluation_companion_trace_anchor_exact": true,
+    "authorization_before_body_parse": true,
+    "operator_identity_server_derived": true,
+    "cached_result_authorization": true,
+    "forbidden_authentication_material_absent": true,
+    "package_native_receipt_sha256": "de8273438d4893baaf8484896b05c05f8cda22a1f48eadc0784c89881f508b38"
+  },
+  "rendered_dashboards": {
+    "dimensions": [1440, 1000],
+    "source_sha256": "febb7f62c9c680b7656c90a6443de694fd408a4dc8597e50ac14fbdaad15079f",
+    "package_path": "artifacts/verification/dashboard-baseline-0020.png",
+    "package_bytes": 79297,
+    "package_sha256": "ad974c10bebb7123ed9b092f7121ae849c80b3d91291e96f2d367886bdb3c69e",
+    "visual_inspection": "pass at normalized high detail: Baseline 0020, evaluation pass, action split coverage 1.0, all required exact metrics, authenticated external operator, disconnected real infrastructure, and both complete persisted-incident rows are legible and internally consistent"
+  },
+  "artifact_parsing": {
+    "tracked_files": 569,
+    "tracked_json_files": 357,
+    "tracked_jsonl_files": 80,
+    "tracked_jsonl_records": 10038,
+    "post_verification_files": 644,
+    "post_verification_json_files": 362,
+    "post_verification_jsonl_files": 84,
+    "post_verification_jsonl_records": 10375,
+    "status": "pass"
+  },
+  "security_scan": {
+    "model_artifact_count": 0,
+    "package_contract_definition_files_excluded": 10,
+    "credential_shaped_matches_outside_frozen_forbidden_pattern_definitions": 0,
+    "status": "pass"
+  },
+  "post_verification_changes_in_clone": {
+    "expected": true,
+    "scope": "fresh source and package evaluation attempts, latest pointer, two reproducibility archives, synthetic runtime state, native receipt, and rendered dashboard only",
+    "source_contract_manifest_policy_or_authority_changed": false
+  },
+  "retained_observations": [
+    {
+      "stage": "dashboard renderer",
+      "result": "non_fatal_tooling_warning",
+      "detail": "The Chromium screenshot helper emitted its fallback task-provider diagnostic after writing complete valid PNG bytes; exit status, dimensions, hash, content assertions, persisted-state checks, and normalized high-detail inspection pass."
+    },
+    {
+      "stage": "dashboard image lookup",
+      "result": "stale_path_error",
+      "detail": "The first resumed visual-inspection call used a remembered package-specific filename that did not exist because the clean run writes dashboard-baseline-0020.png. Resolving the actual artifact and reopening the unchanged bytes at normalized high detail passed."
+    }
+  ],
+  "non_claims": [
+    "The unkeyed trace chain and sibling endpoint do not authenticate the writer or resist full chain-and-anchor recomputation.",
+    "Thirty-one scenarios do not satisfy the separate at-least-48-case v0.1.0 target.",
+    "The checkpoint remains a synthetic-only research-informed preview and is not authorized for real operational infrastructure."
+  ]
+}

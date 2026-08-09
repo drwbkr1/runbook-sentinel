@@ -7,7 +7,7 @@
 - Latest verified checkpoint: public `v0.0.19`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
 - Candidate version: `0.0.20` / `baseline-0020`; unreleased
 - Active milestone: `BASELINE-0020` - split-aware action coverage
-- Current unit: `UNIT-003` complete; next `UNIT-004` package and full release verification
+- Current unit: `UNIT-004` complete; next `UNIT-005` pre-merge audit and exact review
 - Disposition: baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -40,6 +40,10 @@
 - Final-manifest source attempt 002 and package attempt 001 both pass all 93 scenario attempts and exact 165-event anchors. Source report/trace hashes are `b941cd4fb62a177ddf081bbe2973ff5b554e0275886569f29943c723db2b1385` / `8ed31fbe24ce8ba7051192377ffaa35c49539a90384ac80d32021c3fba31c8b4`; package hashes are `05facfb18a29f91b28b805c0330ca5da9b386e89eb59f0394ff7c9908ebf2795` / `81539909c9ec1a372b429da79a664ff7adc7029565db127af5221b5c78fabeab`.
 - Source and package MCP report version `0.0.20`, protocol `2025-11-25`, exactly three diagnostic/read tools, no approval or execution tool, and valid anchored traces. Source and package real HTTP surfaces pass authentication, approval, executor, idempotency, replay, postconditions, SQLite, audit, redaction, telemetry, CSP, dashboard, and the new action-split metric.
 - Original-detail inspection accepts the complete 1440 by 1000 packaged dashboard at SHA-256 `66f153bac21c2ce5f5b287115c162e9122a66253be59222dd0195332aa25c80c`. It visibly reports Baseline 0020, action split coverage 1.0, authenticated external operator, and disconnected real infrastructure.
+- A remote-only `--no-local --single-branch` clone of exact candidate `a4a87c98e3869132b5fafbf8172d987e5b60aa2e` began clean with no object alternates. It passes 19 validators, 37 tests, source/package 93-attempt evaluations with exact 165-event anchors, two exact 436,861-byte archive builds, bounded MCP, authenticated API/approval/executor/state/telemetry, structured-artifact parsing, zero credential/model findings, and normalized high-detail dashboard inspection.
+- Clean-clone source report/trace SHA-256 values are `691406912486e8acc6e6115a43cc18c0e6b34ac21aac9de7074e7574613d90e4` / `7f72d6d70ce54814de231265378265a8df42c3a4ce911844879aa15c0ae2867d`; package values are `f4b65f1e715166b06f88f67ac2ba67d8b66e360b9ee95ce984edd4575e020e8b` / `41e340601e01b416077c284d42b69eaf824ced9dc3bbd9aa55aae4f8289bb8df`. The exact receipt is `artifacts/verification/clean-clone-baseline-0020.json`.
+- After reconciling candidate-facing documentation and the clean-clone receipt, the authoritative tree passes all 19 independent verifiers and all 37 tests. Fresh source attempt 003 passes all 93 attempts and every gate; report/trace SHA-256 values are `06817fabc90471d84ac36a38e96208d7554d07355398a5213072c0ae57a19221` / `475775862fcc73bd2a603d8c5dbf42bc7b3233ad7b4253be47af5b6c8297d5cb`, and its 165-event anchor ends at `f9845bb66a6bfbb49889c0fabfb5a362c735a5d5eaeba7a777311e3354d2741e`.
+- The candidate is clean-clone verified but unreleased. Public `v0.0.19` remains authoritative until exact review, merged-main verification, final audit, tag, asset, rendered-page, downloaded-byte, and public-tag gates pass.
 
 ### BASELINE-0019 split-topology coverage gap and frozen contract
 
