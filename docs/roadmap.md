@@ -1,5 +1,11 @@
 # Roadmap
 
+## Active checkpoint baseline-0020 - split-aware action coverage
+
+A fresh public-v0.0.19 run passes every existing gate, but its aggregate 3-of-3 action coverage hides that held-out test never exercises `rollback_deployment`. Baseline-0020 freezes one project-authored held-out bad-deployment case and adds fail-closed action-by-split counts, missing pairs, and development/test coverage gates. All 30 existing scenario and terminal identities, the three-action inventory, the bounded agent, retrieval, policy, approvals, executor, API/MCP authority, dependencies, credentials, and synthetic-only boundary remain immutable. The target is 31 cases and 6-of-6 action/split pairs; it does not satisfy the separate at-least-48-case v0.1.0 target.
+
+The immutable reveal, final-manifest source/package runs, 19 validators, 37 tests, exact 35-entry archive builds, bounded MCP, real loopback API/approval/executor/state/telemetry, and rendered dashboards pass. A remote-only no-alternates clone of exact candidate `a4a87c98e3869132b5fafbf8172d987e5b60aa2e` independently repeats the complete stack and exact archive. Review, merged-main, final audit, tag, assets, and public verification remain pending.
+
 ## Completed checkpoint baseline-0019 - split-aware topology coverage
 
 A fresh public-v0.0.18 run passes every prior gate and its exact 150-event trace, but aggregate topology-domain coverage of 1.0 masks two empty domain/split cells: development has no observability case and held-out test has no database case. Baseline-0019 freezes one exact project-authored case for each missing pair and adds domain-by-split counts, missing-pair output, and development/test split-coverage gates. The target grows the catalog only from 28 to 30 and must preserve all existing bytes and runtime authority boundaries; it does not satisfy or weaken the separate at-least-48-case v0.1.0 target. The primary behavioral-testing citation is source-gated for narrow paraphrase only, with no external asset imported.

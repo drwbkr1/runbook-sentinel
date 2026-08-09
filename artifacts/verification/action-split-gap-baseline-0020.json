@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0020",
+  "measured_from": {
+    "release": "v0.0.19",
+    "commit": "9cb80f7806baab987329fd6fda5f9e34df9c6d04",
+    "public_tag_clone": "C:/Projects/Verification/runbook-sentinel-v0.0.19-public-9cb80f7-20260808T211500Z",
+    "source_report_sha256": "06b01465e05956cc3b4730e9c9ed5b615c2ae5eabda5fad4de6327e45abad71e",
+    "source_trace_sha256": "54d892822ec3f259b9167e4eea162cdc5220b4f9d756d685f0d9057b2708110d",
+    "source_trace_event_count": 156,
+    "source_trace_final_event_sha256": "5dda07501aeee88e7829789b1128c3c99ffc6a994eb1e9e0b83914638cc19c06",
+    "source_disposition": "pass"
+  },
+  "required_actions": [
+    "restart_worker",
+    "rollback_deployment",
+    "warm_cache"
+  ],
+  "required_splits": [
+    "development",
+    "test"
+  ],
+  "case_count_by_action_split": {
+    "restart_worker": {"development": 5, "test": 2},
+    "rollback_deployment": {"development": 1, "test": 0},
+    "warm_cache": {"development": 1, "test": 2}
+  },
+  "aggregate_action_type_coverage": 1.0,
+  "split_action_type_coverage": {
+    "development": 1.0,
+    "test": 0.6666666666666666
+  },
+  "covered_action_split_pairs": 5,
+  "required_action_split_pairs": 6,
+  "missing_action_split_pairs": [
+    {"action": "rollback_deployment", "split": "test"}
+  ],
+  "measured_weakness": "Aggregate 3-of-3 action coverage masks the absence of any held-out rollback_deployment case.",
+  "recommended_bounded_improvement": "Freeze one non-adversarial held-out bad-deployment case and report fail-closed per-split action counts, missing pairs, and coverage without adding or changing any capability.",
+  "separate_v0_1_0_target": {
+    "minimum_scenario_count": 48,
+    "current_scenario_count": 30,
+    "satisfied_by_this_checkpoint": false
+  }
+}

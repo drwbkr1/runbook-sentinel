@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.1",
+  "checkpoint": "baseline-0020",
+  "starting_commit": "9cb80f7806baab987329fd6fda5f9e34df9c6d04",
+  "prechange_catalog_sha256": "a97fcc118d59c487954e52946bf7bcb936478473756089271c52c9527238d3be",
+  "scenario_count": 30,
+  "identity_parent_path": "eval/topology-split-coverage-prechange.json",
+  "parent_scenario_count": 28,
+  "scenario_sha256": {
+    "dev-observability-coverage-healthy": "4431fb9fb16e70fa5c8645ff1c7c487e71547307038fa982dce20222add357a3",
+    "test-database-health-current": "b64d14181223972c4acab9b265c170afcaa3501104e9aebaa4eeee19192e2a78"
+  },
+  "terminal_state_sha256": {
+    "dev-observability-coverage-healthy": "5afe07389bc8f2b87c08947bd31771f38b8fff00e45315300a2c6f444323b5dd",
+    "test-database-health-current": "263103e1d522d2dafb96224afe33d8a3636c869a3844209d8f0cff790fad6aa5"
+  }
+}

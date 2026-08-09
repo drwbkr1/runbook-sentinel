@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0020",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "active_contract": "contracts/milestone-0020.json",
+    "verified_at_utc": "2026-08-08T21:18:28Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Make action-type coverage split-aware so aggregate coverage cannot hide an untested executor capability in held-out evaluation; add only one frozen held-out rollback case.",
+    "allowed_paths": [
+      "C:/Projects/Active/runbook-sentinel",
+      "C:/Projects/Verification"
+    ],
+    "forbidden_work": [
+      "change any existing scenario or expected result",
+      "change agent, model, retrieval, decision context, action inventory, policy, approval, authentication, executor, API, or MCP authority",
+      "add a dependency, paid service, secret, external asset, remote model call, or real-infrastructure connector",
+      "change repository visibility, access, or ownership",
+      "claim the 31-case checkpoint satisfies the separate at-least-48-case v0.1.0 target"
+    ],
+    "stop_conditions": [
+      "core thesis change or security-boundary weakening",
+      "an existing expected result or runtime authority boundary would need to change",
+      "a dependency, secret, paid service, external asset, real infrastructure, or access change becomes necessary",
+      "held-out exactness, split action coverage, prior behavior, or shipment cannot be verified"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.19 release, refs, assets, rendered pages, downloaded bytes, and independent public-tag source/package verification reconcile at 9cb80f7.",
+        "Aggregate action coverage is 3 of 3, but split-aware coverage is 5 of 6 pairs: held-out test contains zero rollback_deployment case.",
+        "The bounded remediation adds one project-authored synthetic case and no capability or authority."
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Run public v0.0.19 and measure split-aware action coverage.",
+      "depends_on": [],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": ["public-tag verification receipt", "action split-gap receipt"],
+      "disposition": "remediate"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze exact action split coverage, pre-change identities, one held-out case, metrics, gates, and forbidden changes before implementation.",
+      "depends_on": ["UNIT-001"],
+      "action_class": "evidence_preservation",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": ["frozen action-split-coverage-v1 contract", "independent contract validator"],
+      "disposition": "pass"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement generic split-aware action metrics and the one exact frozen case without changing runtime behavior or authority.",
+      "depends_on": ["UNIT-002"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": [
+        "generic action-by-split evaluator",
+        "one exact frozen scenario and terminal-state entry",
+        "fail-closed unit and independent validators"
+      ],
+      "gates": {
+        "implementation_matches_frozen_contract": true,
+        "all_30_prechange_identities_exact": true,
+        "action_split_static_coverage_is_one": true,
+        "held_out_candidate_result_recorded": true,
+        "all_93_attempts_exact": true,
+        "trace_anchor_exact": true
+      },
+      "disposition": "pass"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Run every prior source, package, API, MCP, state, telemetry, dashboard, reproducibility, and clean-clone gate.",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": ["candidate verification receipt", "clean-clone verification receipt", "selected reproducible archive"],
+      "gates": {
+        "source_and_package_full_gate": true,
+        "real_surfaces_pass": true,
+        "reproducible_package_pass": true,
+        "rendered_dashboard_pass": true,
+        "clean_clone_pass": true
+      },
+      "disposition": "pass"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Audit, review, merge, release, and independently verify only if every gate passes.",
+      "depends_on": ["UNIT-004"],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "pending",
+      "disposition": "pending"
+    }
+  ],
+  "verification": {
+    "changed_risks": [
+      "an aggregate action score can mask a missing held-out executor capability",
+      "new scenario bytes can alter an existing frozen case or terminal state",
+      "action-by-split counts can overcount no-action or attacker-goal labels",
+      "scenario expansion can drift release identity, package bytes, dashboard labels, or trace counts"
+    ],
+    "required_checks": [
+      "the frozen contract passes before implementation and candidate results are absent",
+      "only expected executable actions count toward action split coverage",
+      "all three actions appear in both development and held-out test",
+      "the new case and all 30 prior cases pass exact outcomes and terminal-state contracts",
+      "source/package, real surfaces, clean clone, review, merge, and public release reconcile"
+    ],
+    "completed_checks": [
+      "public v0.0.19 is independently verified from a no-alternates public-tag clone",
+      "the exact 5-of-6 action split gap is retained",
+      "the prior approved narrow behavioral-testing source is reused without importing an external asset",
+      "action-split-coverage-v1 is frozen before implementation with candidate results absent, all 30 prior scenario and terminal identities composed exactly, and its independent validator passing"
+      ,
+      "the generic implementation is sealed without a held-out run: static validators report 31 exact cases, 6-of-6 action/split pairs, all 30 prior identities unchanged, and one focused fail-closed unit test passing"
+      ,
+      "the 76-file pre-reveal evaluation manifest is frozen and verified at SHA-256 d8980eb7c26b0f8dd3f8361d1f0a9a9157405d320670cb363113c37b74ad28d5"
+      ,
+      "immutable source attempt 001 passes all 31 cases across three trials, 6-of-6 action/split pairs, every prior gate, and an exact anchored 165-event trace"
+      ,
+      "the 35-entry v0.0.20 package contract is frozen before archive build at SHA-256 5959bd97d38a485fdc69dc337857ba2e4d99b34b23545c3049db9cacfe122df2 with zero runtime dependencies",
+      "the final 77-file pre-build manifest passes at SHA-256 639abdb7c7f084244a2193752006b0c6a01c9137b10c0caeef662d8661142c62",
+      "local source and package verification each pass all 31 scenarios across three trials, every frozen gate, the bounded MCP surface, real loopback API, approval and executor separation, persisted state, telemetry, and rendered dashboard inspection",
+      "a no-alternates clone of public branch commit a4a87c98e3869132b5fafbf8172d987e5b60aa2e passes 19 validators, 37 tests, source/package 93-attempt evaluations, exact reproducible package bytes, MCP and API surfaces, artifact parsing, security scan, and normalized high-detail dashboard inspection",
+      "after candidate truth-surface reconciliation, the authoritative tree passes all 19 independent verifiers and all 37 tests; its fresh 93-attempt source evaluation passes every gate with an exact anchored 165-event trace"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "verified public v0.0.19",
+    "next_action": "Run the pre-merge release-truth audit, reconcile candidate records, and open the bounded review branch only if the audit passes.",
+    "do_not_carry_forward": [
+      "Do not add or change executor capabilities.",
+      "Do not inspect or rewrite unfavorable held-out results after the implementation seal.",
+      "Do not claim 31 scenarios satisfy the v0.1.0 target."
+    ]
+  }
+}

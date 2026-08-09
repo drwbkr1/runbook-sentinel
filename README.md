@@ -4,6 +4,8 @@ Runbook Sentinel is a research-informed, retrieval-grounded SRE incident agent. 
 
 Latest verified public release: `v0.0.19`. It makes topology coverage split-aware: all eight SRE domains now appear in both development and held-out test, with exact 16-of-16 coverage across 30 cases and three trials. All 28 pre-change scenario and terminal identities remain exact. The selected dependency-free 34-entry zipapp is 423,787 bytes at SHA-256 `f840d5a1ff4da1b1a1e61f0719c65925075af3a776cb52d29b890749848a70ab`; candidate and merged-public-main clones reproduce the exact archive and full runtime gates. Candidate `v0.0.11` remains rejected and unpublished with its stale rendered-label failure preserved. Public source or package availability does not imply production readiness or authorization to connect Runbook Sentinel to operational infrastructure.
 
+Unreleased candidate `v0.0.20` makes action coverage split-aware. Its 31-case frozen suite covers each of the three existing synthetic executor actions in both development and held-out test, for 6-of-6 action/split pairs, while every pre-change scenario and terminal identity remains exact. Source, package, real-surface, rendered-dashboard, reproducibility, and remote-only clean-clone gates pass. This does not meet the separate at-least-48-case `v0.1.0` target and is not a public-release claim.
+
 The bounded agent can diagnose, request evidence, propose an action, or abstain. It cannot execute actions. A deterministic approval broker, policy gate, and synthetic-only executor enforce authority outside the model.
 
 The selected freshness-priority lexical retriever first preserves externally project-classified telemetry and status that pass a fail-closed one-hour freshness rule, then ranks stale project evidence and untrusted guidance. Full returned records remain available for audit. The decision context receives complete fresh telemetry/status records and projects stale records to exactly `id`, `kind`, and `observed_at`; stale `title` and `content` never cross that boundary. Missing, malformed, naive, or future timestamps never receive fresh treatment. Runbook prose never grants authority.
@@ -14,7 +16,7 @@ Run all commands from the repository root with Python 3.12 or newer.
 
 ```powershell
 $env:PYTHONPATH = 'src'
-python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0019-manual.json
+python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0020-manual.json
 python -m unittest discover -s tests -v
 python -m runbook_sentinel serve --host 127.0.0.1 --port 8765
 ```
@@ -25,11 +27,11 @@ Build and verify the standard-library-only zipapp without installing a build bac
 
 ```powershell
 python scripts/build_zipapp.py
-python scripts/verify_package_contract.py --contract eval/package-contract-0019.json --archive dist/runbook-sentinel-0.0.19.pyz
-python dist/runbook-sentinel-0.0.19.pyz --help
+python scripts/verify_package_contract.py --contract eval/package-contract-0020.json --archive dist/runbook-sentinel-0.0.20.pyz
+python dist/runbook-sentinel-0.0.20.pyz --help
 ```
 
-The builder uses an exact 34-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. No package-registry or container claim is made.
+The builder uses an exact 35-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. No package-registry or container claim is made.
 
 The MCP server uses JSON-RPC over standard input/output:
 
