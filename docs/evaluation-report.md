@@ -14,7 +14,9 @@ The post-documentation authoritative-tree gate also passes all 19 verifiers and 
 
 Premerge audit passed, and PR `#18` merged exact reviewed head `55c68bb6c148922847b3a0b2fb139fbd9d1cbdc5` under expected-head lock with history preserved as `df742fc21dfc9cb706896af10d31267ed408197f`. A fresh no-alternates public-main clone repeats all 19 verifiers, 37 tests, source/package 93-attempt evaluations and exact 165-event anchors, two exact archive builds, three-tool MCP, real authenticated API/state/telemetry, parsing, scanning, and complete dashboard inspection. Merged-main source report/trace hashes are `ebbe977c0597fa4355f2f056649cb6e0a3b080d4e283bb84df6b1a5269883cc6` / `1e79a23ec4bb5c1879e43306bc888d3a4c69752e167d2bf1832f256e88c3bf47`; package hashes are `ae89ea7d18adb4301e642f87585bcd1cfeda422831fd8cf5f6f81fa09cd91096` / `efc3a83bcb7e70ac2986eec3a10ceacce71917a678c34596c3b1f1608f4cb2f9`.
 
-Status: merged-main-verified synthetic-only research-informed candidate. Final audit, tag, assets, downloaded-byte identity, rendered public pages, and public-tag verification remain pending. Thirty-one scenarios do not satisfy the separate at-least-48-case `v0.1.0` target.
+The final release audit computes `verified`; annotated `v0.0.20`, its peeled remote target, remote `main`, non-draft release, selected archive/checksum assets, downloaded public bytes, rendered public pages, and a fresh public-tag clone reconcile to the release closure.
+
+Status: verified and published public synthetic-only research-informed preview. Thirty-one scenarios do not satisfy the separate at-least-48-case `v0.1.0` target.
 
 ## BASELINE-0019 verified public evidence
 

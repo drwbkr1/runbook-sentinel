@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.20 - Unreleased
+## 0.0.20 - 2026-08-09
 
 - Cross the three existing executable actions with development and held-out test, report exact action/split counts and missing pairs, and require aggregate plus both split coverage rates to equal 1.0.
 - Add only one project-authored non-adversarial held-out rollback case; preserve canonical identities for all 30 pre-change scenarios and terminal-state records and add no capability or authority.
@@ -8,6 +8,7 @@
 - Pass 37 tests, 19 validators, three-tool MCP, real loopback authentication/approval/executor/replay/postcondition flow, persisted state, audit, redaction, telemetry, endpoint anchors, and normalized high-detail dashboard inspection.
 - Build two byte-identical dependency-free 35-entry, 436,861-byte zipapps at SHA-256 `294e45519a5becfd8c39c5d8ff7fa277b7319864bcd9da7c125ac44a12966ded` and reproduce those exact bytes in a no-alternates public-branch clone.
 - Merge exact audited PR `#18` with history preserved, then pass fresh public-main source/package evaluations, exact archive rebuilds, MCP, authenticated API/executor/state/telemetry, parsing, scanning, and rendered-dashboard checks.
+- Verify the final release audit, annotated tag, non-draft public release, selected archive and checksum assets, downloaded-byte identity, rendered public pages, and fresh public-tag clone.
 - Retain the count-fixture failures, timed-out buffered wrapper, renderer diagnostic, and stale resumed screenshot path beside their corrected passing results. Thirty-one cases do not satisfy the separate at-least-48-case `v0.1.0` target.
 
 ## 0.0.19 - 2026-08-08

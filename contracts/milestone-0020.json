@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0020",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -54,8 +54,11 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "All six action/split cells are covered and all 30 pre-change scenario and terminal identities remain exact.",
+        "Candidate, clean-clone, exact review/merge, merged-main, final audit, annotated tag, public assets, downloaded bytes, rendered pages, and public-tag verification pass."
+      ]
     }
   ],
   "units": [
@@ -124,17 +127,17 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "in_progress",
-      "outputs": ["pre-merge release audit", "exact reviewed merge", "merged-main verification receipt"],
+      "status": "complete",
+      "outputs": ["pre-merge release audit", "exact reviewed merge", "merged-main verification receipt", "final release audit", "public release and independent verification receipt"],
       "gates": {
         "premerge_audit_verified": true,
         "exact_reviewed_head_merged": true,
         "history_preserved": true,
         "merged_main_full_gate": true,
-        "final_release_audit_verified": false,
-        "public_release_verified": false
+        "final_release_audit_verified": true,
+        "public_release_verified": true
       },
-      "disposition": "pending"
+      "disposition": "pass"
     }
   ],
   "verification": {
@@ -170,11 +173,14 @@
       "after candidate truth-surface reconciliation, the authoritative tree passes all 19 independent verifiers and all 37 tests; its fresh 93-attempt source evaluation passes every gate with an exact anchored 165-event trace",
       "premerge release audit BASELINE-0020-PREMERGE validates and computes verified; PR 18 contains eight exact commits and 57 paths after the audit-only commit, then merges under expected-head lock with history preserved",
       "a no-alternates public-main clone at df742fc21dfc9cb706896af10d31267ed408197f passes source/package 93-attempt evaluations, exact 165-event anchors, two exact archive rebuilds, bounded MCP, real authenticated API/approval/executor/state/telemetry, parsing, scanning, and complete source/package dashboard inspection"
+      ,
+      "final release audit RUNBOOK-SENTINEL-v0.0.20 validates and computes verified without warnings or unresolved surfaces",
+      "annotated v0.0.20, peeled remote tag, remote main, non-draft public release, selected archive and checksum assets, downloaded public bytes, rendered pages, and fresh no-alternates public-tag source/package verification reconcile to the release closure"
     ]
   },
   "handoff": {
-    "current_checkpoint": "verified public v0.0.19",
-    "next_action": "Run the final release-truth audit against exact merged main, then publish and independently verify only if it computes verified.",
+    "current_checkpoint": "verified public v0.0.20",
+    "next_action": "Begin the next cycle from public v0.0.20 by running the system and selecting one bounded measurable weakness.",
     "do_not_carry_forward": [
       "Do not add or change executor capabilities.",
       "Do not inspect or rewrite unfavorable held-out results after the implementation seal.",

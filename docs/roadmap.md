@@ -1,10 +1,14 @@
 # Roadmap
 
-## Active checkpoint baseline-0020 - split-aware action coverage
+## Next checkpoint - intentionally unselected
+
+Resume from verified public v0.0.20. Run the released source and package, inspect traces and evaluation output, and choose one bounded measurable weakness before freezing any new contract.
+
+## Completed checkpoint baseline-0020 - split-aware action coverage
 
 A fresh public-v0.0.19 run passes every existing gate, but its aggregate 3-of-3 action coverage hides that held-out test never exercises `rollback_deployment`. Baseline-0020 freezes one project-authored held-out bad-deployment case and adds fail-closed action-by-split counts, missing pairs, and development/test coverage gates. All 30 existing scenario and terminal identities, the three-action inventory, the bounded agent, retrieval, policy, approvals, executor, API/MCP authority, dependencies, credentials, and synthetic-only boundary remain immutable. The target is 31 cases and 6-of-6 action/split pairs; it does not satisfy the separate at-least-48-case v0.1.0 target.
 
-The immutable reveal, final-manifest source/package runs, 19 validators, 37 tests, exact 35-entry archive builds, bounded MCP, real loopback API/approval/executor/state/telemetry, and rendered dashboards pass. A remote-only no-alternates clone of exact candidate `a4a87c98e3869132b5fafbf8172d987e5b60aa2e` independently repeats the complete stack and exact archive. Premerge audit passes; exact PR `#18` merges with history preserved under expected-head lock, and a fresh public-main clone at `df742fc21dfc9cb706896af10d31267ed408197f` independently repeats the full stack and exact archive. Final audit, tag, assets, and public verification remain pending.
+The immutable reveal, final-manifest source/package runs, 19 validators, 37 tests, exact 35-entry archive builds, bounded MCP, real loopback API/approval/executor/state/telemetry, and rendered dashboards pass. A remote-only no-alternates clone of exact candidate `a4a87c98e3869132b5fafbf8172d987e5b60aa2e` independently repeats the complete stack and exact archive. Premerge audit passes; exact PR `#18` merges with history preserved under expected-head lock, and a fresh public-main clone at `df742fc21dfc9cb706896af10d31267ed408197f` independently repeats the full stack and exact archive. Final audit, annotated tag, public assets, downloaded bytes, rendered pages, and fresh public-tag verification reconcile. The next checkpoint remains intentionally unchosen until a fresh public-v0.0.20 run identifies one measurable weakness.
 
 ## Completed checkpoint baseline-0019 - split-aware topology coverage
 
