@@ -36,6 +36,10 @@
 - Source attempt 001 report/trace SHA-256 values are `5776de4fcf1ef5d6c19412ac68a18e3b2aa8b83f0609548fb0b588e76db2f210` / `c1d96cec5914156bd1f83201cdae02fd12dd052134525e88a8a1c5673fb689f0`; its 165-event trace ends at `c049cb516fe17ec100f1cec8b95ddbe38719ce35a9d3e28d0293d447c62e46b4`.
 - The v0.0.20 package contract is frozen before archive build with 35 exact entries and zero runtime dependencies at SHA-256 `5959bd97d38a485fdc69dc337857ba2e4d99b34b23545c3049db9cacfe122df2`.
 - The final 77-file pre-build manifest passes at SHA-256 `639abdb7c7f084244a2193752006b0c6a01c9137b10c0caeef662d8661142c62`; its frozen time is `2026-08-09T00:08:38Z`.
+- Two independent 35-entry, 436,861-byte archives are byte-identical at SHA-256 `294e45519a5becfd8c39c5d8ff7fa277b7319864bcd9da7c125ac44a12966ded` and pass the frozen package contract. The adjacent checksum is 94 bytes at SHA-256 `21f4040ae79695ee64e756a8aca07f43b9f24bb19d6386323d67cb8a3a562bb9`.
+- Final-manifest source attempt 002 and package attempt 001 both pass all 93 scenario attempts and exact 165-event anchors. Source report/trace hashes are `b941cd4fb62a177ddf081bbe2973ff5b554e0275886569f29943c723db2b1385` / `8ed31fbe24ce8ba7051192377ffaa35c49539a90384ac80d32021c3fba31c8b4`; package hashes are `05facfb18a29f91b28b805c0330ca5da9b386e89eb59f0394ff7c9908ebf2795` / `81539909c9ec1a372b429da79a664ff7adc7029565db127af5221b5c78fabeab`.
+- Source and package MCP report version `0.0.20`, protocol `2025-11-25`, exactly three diagnostic/read tools, no approval or execution tool, and valid anchored traces. Source and package real HTTP surfaces pass authentication, approval, executor, idempotency, replay, postconditions, SQLite, audit, redaction, telemetry, CSP, dashboard, and the new action-split metric.
+- Original-detail inspection accepts the complete 1440 by 1000 packaged dashboard at SHA-256 `66f153bac21c2ce5f5b287115c162e9122a66253be59222dd0195332aa25c80c`. It visibly reports Baseline 0020, action split coverage 1.0, authenticated external operator, and disconnected real infrastructure.
 
 ### BASELINE-0019 split-topology coverage gap and frozen contract
 

@@ -107,7 +107,15 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "pending",
+      "status": "in_progress",
+      "outputs": ["candidate verification receipt", "selected reproducible archive"],
+      "gates": {
+        "source_and_package_full_gate": true,
+        "real_surfaces_pass": true,
+        "reproducible_package_pass": true,
+        "rendered_dashboard_pass": true,
+        "clean_clone_pass": false
+      },
       "disposition": "pending"
     },
     {
