@@ -34,6 +34,8 @@
 - The first full wrapper stopped at its command ceiling with buffered output and no candidate files. The next isolated 37-test run exposed one remaining MCP count fixture; after updating only that 30-to-31 assertion, all 37 tests pass in 101.828 seconds.
 - Immutable source attempt 001 passes all 31 cases across three trials, all six action/split pairs, and every prior gate. The new held-out rollback case is exact in all three trials, with approval, execution, idempotency, replay rejection, postconditions, audit, trace, and terminal state all matching the frozen contract.
 - Source attempt 001 report/trace SHA-256 values are `5776de4fcf1ef5d6c19412ac68a18e3b2aa8b83f0609548fb0b588e76db2f210` / `c1d96cec5914156bd1f83201cdae02fd12dd052134525e88a8a1c5673fb689f0`; its 165-event trace ends at `c049cb516fe17ec100f1cec8b95ddbe38719ce35a9d3e28d0293d447c62e46b4`.
+- The v0.0.20 package contract is frozen before archive build with 35 exact entries and zero runtime dependencies at SHA-256 `5959bd97d38a485fdc69dc337857ba2e4d99b34b23545c3049db9cacfe122df2`.
+- The final 77-file pre-build manifest passes at SHA-256 `639abdb7c7f084244a2193752006b0c6a01c9137b10c0caeef662d8661142c62`; its frozen time is `2026-08-09T00:08:38Z`.
 
 ### BASELINE-0019 split-topology coverage gap and frozen contract
 
