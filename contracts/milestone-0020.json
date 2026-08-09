@@ -85,7 +85,7 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "outputs": [
         "generic action-by-split evaluator",
         "one exact frozen scenario and terminal-state entry",
@@ -95,9 +95,11 @@
         "implementation_matches_frozen_contract": true,
         "all_30_prechange_identities_exact": true,
         "action_split_static_coverage_is_one": true,
-        "held_out_candidate_result_recorded": false
+        "held_out_candidate_result_recorded": true,
+        "all_93_attempts_exact": true,
+        "trace_anchor_exact": true
       },
-      "disposition": "pending"
+      "disposition": "pass"
     },
     {
       "id": "UNIT-004",
@@ -141,11 +143,13 @@
       "the generic implementation is sealed without a held-out run: static validators report 31 exact cases, 6-of-6 action/split pairs, all 30 prior identities unchanged, and one focused fail-closed unit test passing"
       ,
       "the 76-file pre-reveal evaluation manifest is frozen and verified at SHA-256 d8980eb7c26b0f8dd3f8361d1f0a9a9157405d320670cb363113c37b74ad28d5"
+      ,
+      "immutable source attempt 001 passes all 31 cases across three trials, 6-of-6 action/split pairs, every prior gate, and an exact anchored 165-event trace"
     ]
   },
   "handoff": {
     "current_checkpoint": "verified public v0.0.19",
-    "next_action": "Commit the generic implementation seal, freeze the evaluation manifest, then perform the first immutable full candidate reveal.",
+    "next_action": "Freeze the v0.0.20 package contract and final manifest, then run source/package and real-surface verification.",
     "do_not_carry_forward": [
       "Do not add or change executor capabilities.",
       "Do not inspect or rewrite unfavorable held-out results after the implementation seal.",

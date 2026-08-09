@@ -7,7 +7,7 @@
 - Latest verified checkpoint: public `v0.0.19`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
 - Candidate version: `0.0.20` / `baseline-0020`; unreleased
 - Active milestone: `BASELINE-0020` - split-aware action coverage
-- Current unit: `UNIT-003` - generic implementation sealed; candidate reveal not yet run
+- Current unit: `UNIT-003` complete; next `UNIT-004` package and full release verification
 - Disposition: baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -31,6 +31,9 @@
 - The generic implementation adds `action-split-coverage-v1` to the catalog/evaluator, counts only expected executable actions whose terminal contract agrees, reports exact counts and missing pairs, adds four hard gates and a dashboard metric, and introduces the one frozen case. Static validators report 31 exact cases, 6-of-6 action/split coverage, all 30 pre-change identities unchanged, and one focused fail-closed unit test passing.
 - The first broader static run is retained because the terminal validator still expected 11 actionable cases. Updating only that frozen count to 12 produced a pass; no held-out agent result was inspected and candidate results remain absent.
 - The 76-file pre-reveal evaluation manifest is frozen and verifies at SHA-256 `d8980eb7c26b0f8dd3f8361d1f0a9a9157405d320670cb363113c37b74ad28d5`; its frozen time is `2026-08-08T21:38:01Z` and precedes the first full candidate evaluation.
+- The first full wrapper stopped at its command ceiling with buffered output and no candidate files. The next isolated 37-test run exposed one remaining MCP count fixture; after updating only that 30-to-31 assertion, all 37 tests pass in 101.828 seconds.
+- Immutable source attempt 001 passes all 31 cases across three trials, all six action/split pairs, and every prior gate. The new held-out rollback case is exact in all three trials, with approval, execution, idempotency, replay rejection, postconditions, audit, trace, and terminal state all matching the frozen contract.
+- Source attempt 001 report/trace SHA-256 values are `5776de4fcf1ef5d6c19412ac68a18e3b2aa8b83f0609548fb0b588e76db2f210` / `c1d96cec5914156bd1f83201cdae02fd12dd052134525e88a8a1c5673fb689f0`; its 165-event trace ends at `c049cb516fe17ec100f1cec8b95ddbe38719ce35a9d3e28d0293d447c62e46b4`.
 
 ### BASELINE-0019 split-topology coverage gap and frozen contract
 

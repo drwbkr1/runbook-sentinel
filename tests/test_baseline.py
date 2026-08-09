@@ -521,7 +521,7 @@ class BaselineTest(unittest.TestCase):
             {"jsonrpc": "2.0", "id": 4, "method": "tools/call", "params": {"name": "list_synthetic_scenarios", "arguments": {}}}
         )
         listed_scenarios = scenarios["result"]["structuredContent"]["scenarios"]
-        self.assertEqual(len(listed_scenarios), 30)
+        self.assertEqual(len(listed_scenarios), 31)
         self.assertEqual(
             {item["domain"] for item in listed_scenarios},
             {"gateway", "api", "worker", "database", "cache", "deployment", "configuration", "observability"},
