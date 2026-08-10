@@ -197,16 +197,19 @@
         "remote-only clean-clone evidence"
       ],
       "gates": {
-        "all_41_scenarios_exact_across_three_trials": "pending",
-        "all_40_prechange_scenario_and_terminal_identities_exact": "pending",
-        "new_inband_transform_exact": "pending",
-        "adversarial_action_split_coverage_6_of_6": "pending",
-        "all_prior_source_package_and_real_surface_gates": "pending",
-        "deterministic_archive_reproduction": "pending",
+        "all_41_scenarios_exact_across_three_trials": "pass",
+        "all_40_prechange_scenario_and_terminal_identities_exact": "pass",
+        "new_inband_transform_exact": "pass",
+        "adversarial_action_split_coverage_6_of_6": "pass",
+        "all_prior_source_package_and_real_surface_gates": "pass",
+        "deterministic_archive_reproduction": "pass",
         "remote_only_clean_clone": "pending"
       },
       "disposition": null,
-      "retained_failures": [],
+      "retained_failures": [
+        "The first complete 40-test run retained one stale generic action-split negative-control fixture; only that fixture changed and the immutable candidate remained unchanged.",
+        "A package-verifier wrapper first used unsupported positional arguments, and a following trace-verifier wrapper omitted PYTHONPATH=src. Both corrected bounded invocations pass without candidate changes."
+      ],
       "exit_condition_delta": {
         "expected": [
           "EXIT-001"
@@ -281,8 +284,8 @@
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.21 at eaed929dbb2f0d2f8b54c2fe51aaea0902823f77; BASELINE-0022 UNIT-002 is freezing the pre-change contract.",
-    "next_action": "Validate and commit the frozen contract before implementing the one held-out in-band transform.",
+    "current_checkpoint": "Public v0.0.21 remains the latest release at eaed929dbb2f0d2f8b54c2fe51aaea0902823f77; the local BASELINE-0022 candidate passes every source, package, real-surface, reproducibility, regression, parsing, and scan gate.",
+    "next_action": "Commit and push the exact candidate receipt, then verify that public branch commit from a remote-only no-alternates clean clone.",
     "do_not_carry_forward": [
       "any claim that synthetic six-cell coverage is universal prompt-injection resistance",
       "any authority, secret, dependency, external asset, paid service, or real-infrastructure connector",

@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0022",
+  "candidate_version": "0.0.22",
+  "status": "pass",
+  "disposition": "candidate_ready_for_clean_clone",
+  "observed_at_utc": "2026-08-10T20:31:23.8317815Z",
+  "starting_public_checkpoint": {
+    "version": "0.0.21",
+    "commit": "eaed929dbb2f0d2f8b54c2fe51aaea0902823f77"
+  },
+  "implementation_seal_commit": "c5c92412084993aa3b519587599e7a44f46a36dc",
+  "pre_reveal_manifest_seal_commit": "eb38193b26010eac99950e3185c5808305346e5f",
+  "candidate_evidence_commit": "574af0c16d395c826bd03c6ce22449c11a8ffcd6",
+  "manifest": {
+    "path": "eval/manifest.json",
+    "file_count": 87,
+    "bytes": 10164,
+    "sha256": "a66dc1ca930f09adc8b33936ebee16fe831ad210043dfaf2e5909090f8ae2cb1"
+  },
+  "package_contract": {
+    "path": "eval/package-contract-0022.json",
+    "entry_count": 37,
+    "runtime_dependency_count": 0,
+    "sha256": "3cc415cd7757c6afc1e36c84ba65471817220cb7aa5f4390955886e0502a7ffd"
+  },
+  "selected_archive": {
+    "path": "dist/runbook-sentinel-0.0.22.pyz",
+    "checksum_path": "dist/runbook-sentinel-0.0.22.pyz.sha256",
+    "bytes": 484945,
+    "sha256": "aae2fe8bacb04c022d3234cd4ab305fe976ddd7fef7130dc83528bcd8d62dd42",
+    "checksum_sha256": "3246bc0f091a3082caf75f6ba8e3f4d1d6bac3177aadedac88b238dbc4119640",
+    "independent_rebuild_sha256": "aae2fe8bacb04c022d3234cd4ab305fe976ddd7fef7130dc83528bcd8d62dd42",
+    "independent_rebuild_bytes": 484945,
+    "independent_rebuild_output_disposition": "temporary bytes may be removed after exact identity is recorded; clean-clone verification must rebuild independently"
+  },
+  "held_out_candidate": {
+    "report_path": "artifacts/evaluations/runs/baseline-0022-attempt-002.json",
+    "report_sha256": "1de2a45664405a75b7565890436afe58a862370555e8f233a37522d5443fc5d7",
+    "trace_path": "artifacts/evaluations/runs/baseline-0022-attempt-002.traces.jsonl",
+    "trace_sha256": "9c168ae5170e1ce8bfe614fc4935013a1dca827e20ea3eeb4d9c928ab6b99f08",
+    "trace_event_count": 213,
+    "trace_final_event_sha256": "1f3785979b5d0fabc2deb31ccb9c2e2cafc236b82280d9de8ef1f1ceca7df632",
+    "first_held_out_reveal": true
+  },
+  "source_evaluation": {
+    "report_path": "artifacts/evaluations/runs/baseline-0022-source-final-attempt-001.json",
+    "report_sha256": "5d2adb5d7e6ca280ef9b8e2258a2a85c901e747310d5838344074e023af78a41",
+    "trace_path": "artifacts/evaluations/runs/baseline-0022-source-final-attempt-001.traces.jsonl",
+    "trace_sha256": "9aa2186597563476e8f87b90171bb70f648d2c07c9d1667d4ec9b80fbe672fc3",
+    "trace_event_count": 213,
+    "trace_final_event_sha256": "edce500fa03164ab1bfc572a1d71f632df7d1356ba706c83361b4e0cb517328b"
+  },
+  "package_evaluation": {
+    "report_path": "artifacts/evaluations/runs/baseline-0022-package-attempt-001.json",
+    "report_sha256": "75fa9c799980f6b3fa28619b61b3e5b5e3084c70f7eb53550361f6bd007bb9fc",
+    "trace_path": "artifacts/evaluations/runs/baseline-0022-package-attempt-001.traces.jsonl",
+    "trace_sha256": "9bd3bba0927ac430d01090f6e18bebc1a7b3597765d4a7e86b9e6e91526a864d",
+    "trace_event_count": 213,
+    "trace_final_event_sha256": "95aa3095766daf1b7c7189811fa1901cabc3f29aab1f616af8dfee18c1539528"
+  },
+  "evaluation_summary": {
+    "scenario_count": 41,
+    "trials_per_scenario": 3,
+    "attempt_count": 123,
+    "action_split_coverage": 1.0,
+    "adversarial_action_split_coverage": 1.0,
+    "covered_adversarial_action_split_pairs": 6,
+    "required_adversarial_action_split_pairs": 6,
+    "adversarial_topology_split_coverage": 1.0,
+    "all_40_prior_scenarios_exact": 1.0,
+    "all_40_prior_terminal_states_exact": 1.0,
+    "new_inband_attack_document_exposure": 1.0,
+    "new_inband_proposal_attack_success": 0.0,
+    "new_inband_terminal_attack_success": 0.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "tool_trajectory_exact": 1.0,
+    "terminal_state_exact": 1.0,
+    "repeated_trial_reliability": 1.0,
+    "benign_utility": 1.0,
+    "model_calls": 0,
+    "estimated_external_api_cost_usd": 0.0
+  },
+  "real_surfaces": {
+    "source_mcp": "pass",
+    "package_mcp": "pass",
+    "mcp_protocol_version": "2025-11-25",
+    "mcp_tool_count": 3,
+    "mcp_approval_or_execution_tool_exposed": false,
+    "source_http_api_approval_executor_state_telemetry": "pass",
+    "package_http_api_approval_executor_state_telemetry": "pass",
+    "source_native_receipt": "artifacts/verification/native-source-baseline-0022.json",
+    "source_native_receipt_sha256": "b05749c2290416f8f84fb029ba251c545e1437ee6e3f1fc03b3753019d3f6f0e",
+    "package_native_receipt": "artifacts/verification/native-package-baseline-0022.json",
+    "package_native_receipt_sha256": "c5640a8b42dda82b81d0024d9170528ad9904cdcbdfbf51c0f9a4f996d9ff030",
+    "source_dashboard": "artifacts/verification/dashboard-source-baseline-0022.png",
+    "source_dashboard_sha256": "75860f579b5d4a1c5721f5a059783f0e0938ec09763eac8d6a74a807473549a9",
+    "package_dashboard": "artifacts/verification/dashboard-package-baseline-0022.png",
+    "package_dashboard_sha256": "e3b4f6ca4f2cf69cb4cde0e7971445cdcda7df2ed70316bee09e72a6607e6103",
+    "dashboard_width": 1440,
+    "dashboard_height": 1000,
+    "dashboard_visual_review": "pass"
+  },
+  "regression_and_artifact_checks": {
+    "static_and_package_validators": 23,
+    "unit_tests_passed": 40,
+    "unit_tests_total": 40,
+    "final_regression_seconds": 83.804,
+    "json_files_parsed_before_receipt": 410,
+    "jsonl_files_parsed": 142,
+    "jsonl_records_parsed": 12440,
+    "broad_secret_pattern_matches": 12,
+    "broad_matches_classification": "package-contract scanner definitions only",
+    "high_signal_secret_matches_after_scanner_definition_exclusion": 0,
+    "model_artifact_files": 0
+  },
+  "retained_failures": [
+    "The first generic milestone validation used invalid unit-status and progress vocabularies; the normalized contract validates without warnings.",
+    "The first full 40-test run retained one stale action-split negative-control fixture; only that fixture changed, and the immutable candidate remained unchanged.",
+    "A package-verifier wrapper first used positional arguments even though the current interface requires --contract and --archive; the corrected invocations verify both archives exactly.",
+    "A following trace-verifier wrapper omitted PYTHONPATH=src and stopped at import; corrected source and package invocations verify both exact 213-event anchors.",
+    "The source dashboard capture emitted a Chromium diagnostic after producing the successful receipt and complete image; the unchanged PNG passes original-detail visual inspection."
+  ],
+  "limitations": [
+    "Six-of-six adversarial action-by-split coverage is frozen synthetic evidence, not universal prompt-injection resistance.",
+    "The broader adversarial topology metric remains scenario-label coverage; the legacy development API hostile runbook is not selected by retrieval.",
+    "Forty-one scenarios do not satisfy the separate at-least-48-case v0.1.0 target.",
+    "The system remains synthetic-only and disconnected from real operational infrastructure.",
+    "Docker is not claimed for this checkpoint."
+  ],
+  "next_gate": "remote-only clean-clone verification of the exact candidate commit"
+}

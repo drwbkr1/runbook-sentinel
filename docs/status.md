@@ -5,9 +5,9 @@
 - Branch: `codex/baseline-0022-adversarial-action-split`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0021`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.21`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release closure
-- Candidate version: none; `0.0.21` / `baseline-0021` is verified and public
+- Candidate version: local `0.0.22` / `baseline-0022` passes source, package, real-surface, reproducibility, regression, parsing, and scan gates; remote-only clean-clone verification is next
 - Active milestone: `BASELINE-0022` adversarial executable-action split coverage
-- Current unit: `UNIT-004` freezing the pre-reveal manifest after public implementation seal `c5c9241`; held-out behavior remains unrevealed
+- Current unit: `UNIT-004`; the sealed held-out candidate and every local source/package surface pass, with exact candidate commit and remote-only clean-clone verification next
 - Disposition: baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -40,8 +40,16 @@
 - The corrected focused test passes, then all 40 tests pass in 165.794 seconds without changing the immutable candidate.
 - The dependency-free v0.0.22 package contract freezes 37 exact archive entries, fixed ZIP metadata, source-byte parity, the final evaluation manifest, and all source/package real-surface gates. Its current and versioned copies are exact at SHA-256 `3cc415cd7757c6afc1e36c84ba65471817220cb7aa5f4390955886e0502a7ffd`.
 - The renewed 87-file final manifest passes at 10,164 bytes and SHA-256 `a66dc1ca930f09adc8b33936ebee16fe831ad210043dfaf2e5909090f8ae2cb1`, frozen at `2026-08-10T20:18:09Z` after the candidate record, verifier-only test correction, and package contract.
+- Final-manifest source/package evaluations each pass all 41 scenarios across three trials and every prior gate. Source report/trace SHA-256 values are `5d2adb5d7e6ca280ef9b8e2258a2a85c901e747310d5838344074e023af78a41` / `9aa2186597563476e8f87b90171bb70f648d2c07c9d1667d4ec9b80fbe672fc3`; package values are `75fa9c799980f6b3fa28619b61b3e5b5e3084c70f7eb53550361f6bd007bb9fc` / `9bd3bba0927ac430d01090f6e18bebc1a7b3597765d4a7e86b9e6e91526a864d`. The exact 213-event anchors end at `edce500fa03164ab1bfc572a1d71f632df7d1356ba706c83361b4e0cb517328b` / `95aa3095766daf1b7c7189811fa1901cabc3f29aab1f616af8dfee18c1539528`.
+- The selected dependency-free 37-entry zipapp and independent rebuild are byte-identical at 484,945 bytes and SHA-256 `aae2fe8bacb04c022d3234cd4ab305fe976ddd7fef7130dc83528bcd8d62dd42`; the adjacent selected checksum file is SHA-256 `3246bc0f091a3082caf75f6ba8e3f4d1d6bac3177aadedac88b238dbc4119640`.
+- All 40 tests and 23 independent static/package validators pass. Both exact package-contract archive checks and both exact 213-event trace checks pass.
+- Source and package MCP expose exactly the three diagnostic/read tools under protocol `2025-11-25` and no approval or execution surface. Real loopback authentication, approval, executor, postcondition, idempotency, replay, SQLite, audit, redaction, telemetry-anchor, CSP, and dashboard checks pass for both runtimes.
+- Native source/package receipt SHA-256 values are `b05749c2290416f8f84fb029ba251c545e1437ee6e3f1fc03b3753019d3f6f0e` / `c5640a8b42dda82b81d0024d9170528ad9904cdcbdfbf51c0f9a4f996d9ff030`. Complete 1440 by 1000 rendered dashboard SHA-256 values are `75860f579b5d4a1c5721f5a059783f0e0938ec09763eac8d6a74a807473549a9` / `e3b4f6ca4f2cf69cb4cde0e7971445cdcda7df2ed70316bee09e72a6607e6103`; original-detail visual inspection passes.
+- Parsed 410 JSON files and 12,440 records across 142 JSONL files before writing the candidate receipt. All 12 broad credential-shaped hits are package-contract scanner definitions; the high-signal scan excluding those definitions has zero findings, and no model artifact is present.
+- The 7,248-byte local candidate receipt is SHA-256 `c8aeb0a116570a76d0b0aeb644e9d7485f2802df7e87124fc3cf0714818de08b` and has disposition `candidate_ready_for_clean_clone`.
+- Retained command evidence includes the stale action-split negative-control failure, a positional package-verifier invocation rejected by its named-flag interface, and a trace-verifier invocation missing `PYTHONPATH=src`. Corrected bounded invocations pass without changing the candidate.
 - This metric is synthetic cross-split evidence, not universal prompt-injection resistance. Forty-one cases remain below the separate at-least-48-case v0.1.0 target.
-- Next eligible action: freeze the final manifest, build the archive twice, and verify source/package evaluations and real surfaces.
+- Next eligible action: commit and push the exact local candidate receipt, then verify that commit from a remote-only no-alternates clean clone.
 
 ### BASELINE-0021 adversarial topology split gap and frozen contract
 
