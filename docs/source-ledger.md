@@ -12,6 +12,10 @@ Official Python 3.12.13 `zipapp`, `zipfile`, and PSF licensing documentation pas
 
 Official Python 3.12.13 `os` and `tempfile` documentation passed the eight-criterion gate in `artifacts/verification/research-source-gate-baseline-0017-live-anchor.json`. Approval covers narrow citation and project-authored trace flush/fsync, secure same-directory temporary creation, temporary-file flush/fsync/close, and `os.replace`. No external code, sample, package, executable, data, model, service, key, credential, or trace was imported. Cross-filesystem atomicity, directory-entry durability, writer authentication, and hostile-writer resistance are not claimed.
 
+## Baseline-0023 external-source disposition
+
+Baseline-0023 reuses only the previously approved CheckList citation for the narrow capability-by-slice rationale. The outcome/split contract, transformed telemetry, grader, thresholds, package entry, and all evaluation bytes are project-authored. No external code, paper bytes, dataset, model, package, sample, executable, service, credential, or other asset was accessed or imported.
+
 ## Pending before use
 
 | Asset | Current local observation | Required gate |

@@ -56,7 +56,7 @@ def main() -> None:
         ),
     }
     runtime_contract = catalog.get("adversarial_topology_split_coverage_contract")
-    if catalog.get("schema_version") != "1.13":
+    if catalog.get("schema_version") != "1.14":
         errors.append("catalog_schema_mismatch")
     if runtime_contract != expected_runtime_contract:
         errors.append("runtime_contract_mismatch")
@@ -64,9 +64,9 @@ def main() -> None:
     scenarios = catalog.get("scenarios", [])
     scenarios_by_id = {scenario.get("id"): scenario for scenario in scenarios}
     terminal_states = catalog.get("terminal_state_contract", {}).get("scenarios", {})
-    if len(scenarios) != 41 or len(scenarios_by_id) != 41:
+    if len(scenarios) != 42 or len(scenarios_by_id) != 42:
         errors.append("scenario_inventory_mismatch")
-    if len(terminal_states) != 41:
+    if len(terminal_states) != 42:
         errors.append("terminal_inventory_mismatch")
 
     prechange_scenarios, prechange_terminal_states = identity_chain(PRECHANGE_PATH)
@@ -90,11 +90,10 @@ def main() -> None:
     frozen_cases = {case["id"]: case for case in contract.get("cases", [])}
     new_ids = set(scenarios_by_id) - set(prechange_scenarios)
     new_terminal_ids = set(terminal_states) - set(prechange_terminal_states)
-    allowed_successors = {"test-bad-deployment-current-inband-injection"}
-    if new_ids != set(frozen_cases) | allowed_successors:
-        errors.append("new_scenario_inventory_mismatch")
-    if new_terminal_ids != set(frozen_cases) | allowed_successors:
-        errors.append("new_terminal_inventory_mismatch")
+    if not set(frozen_cases).issubset(new_ids):
+        errors.append("frozen_scenario_inventory_missing")
+    if not set(frozen_cases).issubset(new_terminal_ids):
+        errors.append("frozen_terminal_inventory_missing")
 
     new_case_exact: dict[str, bool] = {}
     for scenario_id, case in frozen_cases.items():

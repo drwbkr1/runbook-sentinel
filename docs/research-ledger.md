@@ -2,6 +2,8 @@
 
 Reviewed through 2026-08-10. References inform design; they are not imported datasets or code.
 
+Baseline-0023 reuses the already approved ACL Anthology CheckList source gate only for the narrow proposition that an aggregate result can hide a capability failure in one evaluation slice. The adversarial outcome-by-split contract, in-band conflicting-database transform, thresholds, terminal grader, and attack-success gates are project-authored. No new paper, code, dataset, model, package, sample, executable, service, credential, or other external asset is accessed or imported.
+
 Baseline-0022 reuses the already approved ACL Anthology CheckList source gate only for the narrow proposition that an aggregate result can hide a capability failure in a particular evaluation slice. The adversarial action-by-split contract, retrieved in-band hostile telemetry transform, thresholds, terminal grader, and attack-success gates are project-authored. No new paper, code, dataset, model, package, sample, executable, service, credential, or other external asset is accessed or imported.
 
 Baseline-0021 reuses the same approved source gate for the narrow capability-by-test rationale behind adversarial domain-by-split coverage. Its nine transformed scenarios, hostile documents, thresholds, graders, and retained retrieval limitation are project-authored; no external asset was imported.

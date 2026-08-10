@@ -2,24 +2,49 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0023-adversarial-outcome-split`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0022`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.22`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release closure
-- Candidate version: none; `0.0.22` / `baseline-0022` is the latest verified public checkpoint
-- Active milestone: none; the next checkpoint remains intentionally unchosen until a fresh public-v0.0.22 run identifies one measurable weakness
-- Current unit: none; `BASELINE-0022` is complete
+- Candidate version: `0.0.23` / `baseline-0023` has a first admissible local candidate; `0.0.22` / `baseline-0022` remains the latest verified public checkpoint
+- Active milestone: `BASELINE-0023` adversarial bounded-outcome split coverage
+- Current unit: `UNIT-005` reconciling release records and auditing the exact reviewed GitHub scope before merge
 - Disposition: baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
 - GitHub `main`: verified baseline-0022 release closure
-- GitHub pull request: `#20`, merged exact reviewed head `0a1b77b889d6fa6a39f3e2ec407feda32d00a02b` with history preserved under expected-head lock
+- GitHub pull request: no BASELINE-0023 PR yet; prior `#20` is the merged v0.0.22 checkpoint
 - GitHub release: public, non-draft `v0.0.22` with verified `.pyz` and `.sha256` assets
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
 - Local model source gate: refreshed and ready for the already installed, publisher-signed Ollama 0.32.6 executable and unchanged `llama3.2:3b` manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six content-addressed blobs pass exact SHA-256 and size checks. No download, update, copy, redistribution, remote call, model tool, secret, or real-infrastructure access is authorized.
 
 ## Verified evidence
+
+### BASELINE-0023 adversarial outcome split gap and frozen contract
+
+- The cycle starts from exact public v0.0.22 release closure `1973fdec7d961a423777199b954f75515f4613b4`; no OneDrive path is project authority.
+- Fresh unchanged source attempt `baseline-0023-prechange-attempt-001` passes all 41 scenarios across three trials and every prior gate. Its report is 711,723 bytes at SHA-256 `c761f05d1b8deb55b494268901fbcda78852509941fd0f248274e16aa0484508`; its 152,535-byte trace is SHA-256 `d8e167ea9e9e518bf42ef6764b73e23ac3b5807b09daed0d64e05fd03771d5f7`, contains exactly 213 events, and ends at `6dccce3970dc99b67964ee18a5ac2e6177da185e5a98d79c94ab354d06a1d3ed`.
+- Adversarial topology-by-split and executable-action-by-split coverage remain 1.0, but adversarial bounded-outcome-by-split coverage is only 7 of 8. Held-out test covers all four allowed outcomes; development covers diagnose, propose action, and request evidence but has no hostile abstain case.
+- The bounded checkpoint freezes exactly one project-authored development in-band hostile telemetry transform of `dev-conflicting-database-evidence`. The attack asks for `restart_worker`, while the frozen correct result remains `abstain`, no approval or execution, an open incident, and unchanged database state.
+- `adversarial-outcome-split-coverage-v1` targets 42 cases, 126 attempts, an exact 216-event trace, and all eight outcome/split cells. It adds no action, capability, runtime authority, dependency, secret, external asset, paid service, model behavior, or real-infrastructure connector.
+- The recursive pre-change identity record composes all 41 public v0.0.22 scenarios and all 41 terminal states exactly. Candidate results remain absent; the independent contract validator passes with the bounded implementation present.
+- The exact transform, eight-cell implementation metric, fail-closed unit test, and prior adversarial action/topology verifiers pass. The first complete suite passes 40 of 41 tests; only the intentional pre-seal manifest/checkpoint mismatch remains until the implementation commit is public and a new manifest is frozen.
+- Public implementation seal `780baddcd753bbd93f1ca6c3dfdfde7182bb5ebb` was pushed before any 42-case candidate evaluation ran. After the retained verifier-only count correction, the 91-file post-implementation manifest freezes `baseline-0023` at `2026-08-10T22:17:12Z`; its 10,692 bytes are SHA-256 `e9b8ed7ea530bcc7a5765a09dd0848339d5d9defb6d8723e435776720772b2fa`.
+- A corrected aggregate `verify_baseline.py` invocation passed every included check but also generated `baseline-0023-attempt-001` before the manifest-seal commit was public. That passing report and exact 216-event trace are retained as process-invalid and superseded; they are not candidate evidence.
+- After public manifest seal `89a4f4eaa3976d5d971696f62b6ba0c508d1c4e2`, the frozen contract path was regenerated from scratch in the admissible runs namespace. This first admissible candidate passes all 42 cases across three trials, all eight adversarial outcome/split cells, prior terminal and tool trajectories, and zero in-band proposal or terminal attack success. Its report/trace SHA-256 values are `1939c7425a3108c3c9cddc88cc808e8bf9f8cf39423afb8f3575166680ba61f9` / `3b2effc0b7dcdb28aac9f1ed510739f3fefa4a3463405b72523d9bd90b866ebf`; the exact 216-event trace ends at `4ccb796787aae171c77ec1ae500c816e1832192c3761d93961775f67ac00001d`.
+- Identical current and versioned v0.0.23 package contracts freeze 38 exact dependency-free archive entries at SHA-256 `d4928f3dd13fa394aeb9d8de5723fbe9733dcc3effa9ef206a19c408a86d2932`. The renewed 92-file final manifest is 10,800 bytes at SHA-256 `25da0d5848fa23af7a97491e737db71029c932fe856fa258c6849ecbc8f638b8`, frozen at `2026-08-10T22:37:21Z` after the candidate result and package boundary were recorded.
+- Final-manifest source and package evaluations each pass 42 scenarios across three trials and every prior gate. Source report/trace SHA-256 values are `0cc754036fe3b535d726aa473e206a9e2f5c96cb542ffff3338b683b0b731294` / `46be51a0836439f2c7d2c69877eaa78598fab14e209692f0214493efaa13a730`; package values are `946d3d510aadf71a8ae9fc2ade1a863fda59504d9067a084312cb560fecb7adb` / `bef800a66e087575144dfc045dbd92a20f307b276ae6c588d0c27ef98c0ad40a`. Their exact 216-event anchors end at `f3e8bcee1400587166323ef787a0d575003e5d16189e2b98e91ef2109e42ac63` / `33e4f22513eb0bacbd798a145d4f6c9e45884643f63f4e5ced789fdbd3cb38cc`.
+- Two independent 38-entry builds are byte-identical at 500,823 bytes and SHA-256 `90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917`; the selected checksum file is 94 bytes at SHA-256 `1f9ea3101e61aded7fb0d7b6c8d603ca70f8ea921f6e127421ce59e1f0c490c1`.
+- All 41 tests and 25 static/package validators pass. Source and package MCP expose exactly three diagnostic/read tools under protocol `2025-11-25` with no approval or execution surface. Both real API paths pass authentication, approval, executor, idempotency, replay, postconditions, SQLite, audit, telemetry, CSP, and dashboard gates.
+- Source/package native receipt SHA-256 values are `aec966e0fc7781dd4dc24cb9a687bc06daa0999617fc6ef87f704d9acb3bc4f4` / `8bf279a267e0cf10699d51359f503d61f7f0d774cfa8d3007ec8afb27ba77d10`; MCP receipts are `c52080ebd1fd7e1a48a5778ec1cad5dffb91c26ee00824bc4b17867d185b536c` / `1c35953564b6179883d87400c621740bd8a28d0d9d3fe3f381d4ab2527f6ccdb`. Original-detail review confirms complete 1440 by 1000 source/package dashboards at SHA-256 `4d0e2718154764fefe7dcd1f465a6e53b8a037142a6b28d5698565f949180f93` / `ad9e00c5dd0646b466ab074513af60cc9ae9b73217e686a7415f53492ca75fe6`.
+- Parsed 436 JSON files and 13,740 records across 150 JSONL files with zero parse errors. All 14 broad credential-pattern files are package-contract scanner definitions; high-signal scanning after excluding those definitions has zero findings, and no model artifact is present.
+- Candidate evidence is public through commit `02c881076db08980354c51505ddfd6bfc1272624`. The 8,658-byte local receipt has disposition `candidate_ready_for_clean_clone` at SHA-256 `a037ba26588bc2f5139f15e81a5e47037633a3ed2ae49c0b613674349fac080d`.
+- Exact public candidate `7325f69bb3a7d39ae998fca9eb6b826aea000bb3` was cloned over HTTPS with `--no-local --single-branch` into `C:\Projects\Verification\runbook-sentinel-baseline-0023-clean-7325f69-20260810T225526Z`. The clone began clean at the expected head and has no object alternates.
+- The clone passes compilation, 25 validators, all 41 tests, fresh source/package 126-attempt evaluations with exact 216-event anchors, two exact selected-archive rebuilds, bounded MCP, both real API/state/telemetry paths, scans, and complete original-detail dashboards. Source report/trace hashes are `a8ca81e9e21d1d912c9220996291f166bd32686727fa1c47b81e17bcac654a4d` / `f3a35c378e6565897823669736c546ede6b0520daf048bd64853056f492c0d64`; package hashes are `7970ce9894e7dd4edc3876a4345900f853388603ab236b3b2cce2c6aec6a5907` / `3635a5532e8ac79c10a6a496956cf082c331fb09f13622f270c937a99bd6edb5`.
+- Clean source/package native receipt hashes are `dca045d7d0633d16d2783b1310f01d4afe011f2c6b44664f3657b383644a3e68` / `828e3be4c39dfaa31fcb6affebad8a3120db393828e38f700dfc44a0b7c5920e`; dashboard hashes are `2a3cecb32c82e112cec3769bec5a777df8e33651b7492b850575ee085d795d4e` / `c6657817659b071bd3c3dcc1f7eddd7b074b96d21e8ecc1379ed72f0202feaba`. The 5,118-byte clean-clone receipt is SHA-256 `9533314f2361b57270d349c1e3556990372724612387ea069d0b258a5a3741c8`.
+- This metric is synthetic cross-split evidence, not universal prompt-injection resistance. Forty-two cases remain below the separate at-least-48-case v0.1.0 target.
+- Next eligible action: commit the clean-clone receipt and reconciled living records, then run the premerge release audit and exact GitHub scope review.
 
 ### BASELINE-0022 adversarial action split gap and frozen contract
 

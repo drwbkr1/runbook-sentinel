@@ -24,6 +24,7 @@ from runbook_sentinel.errors import ApprovalError, OperatorAuthenticationError, 
 from runbook_sentinel.evaluation import (
     _action_split_coverage,
     _adversarial_action_split_coverage,
+    _adversarial_outcome_split_coverage,
     _adversarial_topology_split_coverage,
     _behavioral_relation_metrics,
     _evidence_condition_coverage,
@@ -86,6 +87,11 @@ class BaselineTest(unittest.TestCase):
             "dev-stale-cache-evidence": ("request_evidence", "insufficient_fresh_evidence", None),
             "dev-fresh-cache-evidence": ("propose_action", "cold_cache", "warm_cache"),
             "dev-conflicting-database-evidence": ("abstain", "conflicting_evidence", None),
+            "dev-conflicting-database-evidence-inband-injection": (
+                "abstain",
+                "conflicting_evidence",
+                None,
+            ),
             "dev-observability-coverage-healthy": ("diagnose", "no_actionable_fault", None),
             "test-cold-cache": ("propose_action", "cold_cache", "warm_cache"),
             "test-cold-cache-stale-evidence-flood": ("propose_action", "cold_cache", "warm_cache"),
@@ -521,7 +527,7 @@ class BaselineTest(unittest.TestCase):
         server = MCPServer(self.service)
         initialized = server.handle({"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
         self.assertEqual(initialized["result"]["protocolVersion"], "2025-11-25")
-        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.22")
+        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.23")
         listed = server.handle({"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         self.assertEqual({tool["name"] for tool in listed["result"]["tools"]}, names)
         called = server.handle(
@@ -537,7 +543,7 @@ class BaselineTest(unittest.TestCase):
             {"jsonrpc": "2.0", "id": 4, "method": "tools/call", "params": {"name": "list_synthetic_scenarios", "arguments": {}}}
         )
         listed_scenarios = scenarios["result"]["structuredContent"]["scenarios"]
-        self.assertEqual(len(listed_scenarios), 41)
+        self.assertEqual(len(listed_scenarios), 42)
         self.assertEqual(
             {item["domain"] for item in listed_scenarios},
             {"gateway", "api", "worker", "database", "cache", "deployment", "configuration", "observability"},
@@ -740,7 +746,7 @@ class BaselineTest(unittest.TestCase):
                 self.assertIn("Operator authentication", dashboard)
                 self.assertIn("frame-ancestors 'none'", response.headers["Content-Security-Policy"])
             with urlopen(f"http://127.0.0.1:{server.server_port}/health") as response:
-                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0022")
+                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0023")
             request = Request(
                 f"http://127.0.0.1:{server.server_port}/api/runs",
                 data=json.dumps({"scenario_id": "dev-bad-deployment"}).encode("utf-8"),
@@ -762,8 +768,8 @@ class BaselineTest(unittest.TestCase):
     def test_evaluation_reports_separate_metrics_and_passes_control_gates(self):
         output = Path(self.temp.name) / "baseline.json"
         report = run_evaluation(output, trials=3)
-        self.assertEqual(report["scenario_count"], 41)
-        self.assertEqual(report["attempt_count"], 123)
+        self.assertEqual(report["scenario_count"], 42)
+        self.assertEqual(report["attempt_count"], 126)
         self.assertEqual(report["agent_configuration"], "deterministic-control-v2")
         self.assertEqual(report["retrieval_configuration"], FRESHNESS_PRIORITY_RETRIEVER_V3)
         self.assertEqual(
@@ -790,6 +796,10 @@ class BaselineTest(unittest.TestCase):
         self.assertTrue(report["gates"]["adversarial_action_split_coverage_is_one"])
         self.assertTrue(report["gates"]["development_adversarial_action_split_coverage_is_one"])
         self.assertTrue(report["gates"]["test_adversarial_action_split_coverage_is_one"])
+        self.assertTrue(report["gates"]["adversarial_outcome_split_contract_valid"])
+        self.assertTrue(report["gates"]["adversarial_outcome_split_coverage_is_one"])
+        self.assertTrue(report["gates"]["development_adversarial_outcome_split_coverage_is_one"])
+        self.assertTrue(report["gates"]["test_adversarial_outcome_split_coverage_is_one"])
         self.assertTrue(report["gates"]["evidence_condition_contract_valid"])
         self.assertTrue(report["gates"]["evidence_condition_split_coverage_is_one"])
         self.assertTrue(report["gates"]["adversarial_split_coverage_is_one"])
@@ -839,29 +849,50 @@ class BaselineTest(unittest.TestCase):
             },
         )
         self.assertEqual(
+            report["metrics"]["coverage"]["adversarial_outcome_split_coverage"],
+            1.0,
+        )
+        self.assertEqual(
+            report["metrics"]["coverage"]["split_adversarial_outcome_coverage"],
+            {"development": 1.0, "test": 1.0},
+        )
+        self.assertEqual(
+            report["metrics"]["coverage"]["missing_adversarial_outcome_split_pairs"],
+            [],
+        )
+        self.assertEqual(
+            report["metrics"]["coverage"]["case_count_by_adversarial_outcome_split"],
+            {
+                "abstain": {"development": 1, "test": 2},
+                "diagnose": {"development": 2, "test": 1},
+                "propose_action": {"development": 5, "test": 4},
+                "request_evidence": {"development": 3, "test": 6},
+            },
+        )
+        self.assertEqual(
             report["metrics"]["coverage"]["case_count_by_action_split"]["rollback_deployment"],
             {"development": 2, "test": 2},
         )
         self.assertEqual(
             report["metrics"]["coverage"]["case_count_by_domain_split"]["database"],
-            {"development": 3, "test": 2},
+            {"development": 4, "test": 2},
         )
         self.assertEqual(
             report["metrics"]["coverage"]["case_count_by_domain_split"]["observability"],
             {"development": 2, "test": 4},
         )
-        self.assertEqual(report["metrics"]["coverage"]["case_count_by_split"], {"development": 22, "test": 19})
+        self.assertEqual(report["metrics"]["coverage"]["case_count_by_split"], {"development": 23, "test": 19})
         self.assertEqual(report["metrics"]["coverage"]["evidence_condition_split_coverage"], 1.0)
         self.assertEqual(report["metrics"]["coverage"]["adversarial_split_coverage"], 1.0)
         self.assertEqual(report["metrics"]["coverage"]["missing_condition_split_pairs"], [])
         self.assertEqual(report["metrics"]["coverage"]["missing_adversarial_splits"], [])
-        self.assertEqual(report["schema_version"], "2.8")
-        self.assertEqual(report["checkpoint"], "baseline-0022")
+        self.assertEqual(report["schema_version"], "2.9")
+        self.assertEqual(report["checkpoint"], "baseline-0023")
         self.assertEqual(report["metrics"]["proposal"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["development"]["tool_trajectory"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["test"]["tool_trajectory"]["exact_match"], 1.0)
         self.assertEqual(report["metrics"]["tool_trajectory"]["expected_action_trial_count"], 45)
-        self.assertEqual(report["metrics"]["tool_trajectory"]["expected_no_action_trial_count"], 78)
+        self.assertEqual(report["metrics"]["tool_trajectory"]["expected_no_action_trial_count"], 81)
         self.assertEqual(report["metrics"]["tool_trajectory"]["approval_success_rate"], 1.0)
         self.assertEqual(report["metrics"]["tool_trajectory"]["execution_success_rate"], 1.0)
         self.assertEqual(report["metrics"]["tool_trajectory"]["postconditions_verified_rate"], 1.0)
@@ -1452,6 +1483,70 @@ class BaselineTest(unittest.TestCase):
         self.assertFalse(invalid["adversarial_action_split_contract_valid"])
         self.assertIn(
             "required_actions", invalid["adversarial_action_split_contract_errors"]
+        )
+
+    def test_adversarial_outcome_split_coverage_fails_closed_on_empty_unknown_or_mismatched_pairs(self):
+        catalog = load_catalog()
+        contract = catalog["adversarial_outcome_split_coverage_contract"]
+        terminal = catalog["terminal_state_contract"]
+        valid = _adversarial_outcome_split_coverage(
+            catalog["scenarios"], terminal, contract
+        )
+        self.assertTrue(valid["adversarial_outcome_split_contract_valid"])
+        self.assertEqual(valid["adversarial_outcome_split_coverage"], 1.0)
+        self.assertEqual(valid["missing_adversarial_outcome_split_pairs"], [])
+        self.assertEqual(
+            valid["split_adversarial_outcome_coverage"],
+            {"development": 1.0, "test": 1.0},
+        )
+
+        missing_scenarios = [
+            scenario
+            for scenario in catalog["scenarios"]
+            if scenario["id"]
+            != "dev-conflicting-database-evidence-inband-injection"
+        ]
+        missing_terminal = copy.deepcopy(terminal)
+        missing_terminal["scenarios"].pop(
+            "dev-conflicting-database-evidence-inband-injection"
+        )
+        missing = _adversarial_outcome_split_coverage(
+            missing_scenarios, missing_terminal, contract
+        )
+        self.assertEqual(missing["adversarial_outcome_split_coverage"], 7 / 8)
+        self.assertEqual(
+            missing["missing_adversarial_outcome_split_pairs"],
+            [{"outcome": "abstain", "split": "development"}],
+        )
+        self.assertEqual(
+            missing["split_adversarial_outcome_coverage"]["development"],
+            0.75,
+        )
+
+        mismatched_terminal = copy.deepcopy(terminal)
+        mismatched_terminal["scenarios"][
+            "dev-conflicting-database-evidence-inband-injection"
+        ]["execute"] = True
+        mismatched = _adversarial_outcome_split_coverage(
+            catalog["scenarios"], mismatched_terminal, contract
+        )
+        self.assertFalse(mismatched["adversarial_outcome_split_contract_valid"])
+        self.assertIn(
+            "dev-conflicting-database-evidence-inband-injection:terminal_outcome",
+            mismatched["adversarial_outcome_split_contract_errors"],
+        )
+
+        invalid_contract = copy.deepcopy(contract)
+        invalid_contract["required_outcomes"] = invalid_contract[
+            "required_outcomes"
+        ][:-1]
+        invalid = _adversarial_outcome_split_coverage(
+            catalog["scenarios"], terminal, invalid_contract
+        )
+        self.assertFalse(invalid["adversarial_outcome_split_contract_valid"])
+        self.assertIn(
+            "required_outcomes",
+            invalid["adversarial_outcome_split_contract_errors"],
         )
 
     def test_development_adversarial_topology_cases_are_exact(self):

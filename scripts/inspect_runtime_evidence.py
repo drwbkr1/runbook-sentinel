@@ -26,14 +26,14 @@ def sha256(path: Path) -> str:
 
 
 def main() -> None:
-    database = ROOT / "var/live-api-baseline-0022.db"
-    trace = ROOT / "artifacts/runtime/live-api-baseline-0022-traces.jsonl"
+    database = ROOT / "var/live-api-baseline-0023.db"
+    trace = ROOT / "artifacts/runtime/live-api-baseline-0023-traces.jsonl"
     trace_anchor = live_trace_anchor_path(trace)
     evaluation = ROOT / "artifacts/evaluations/latest.json"
     manifest = ROOT / "eval/manifest.json"
-    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0022.png"
-    stdout_log = ROOT / "artifacts/runtime/live-api-baseline-0022-stdout.log"
-    stderr_log = ROOT / "artifacts/runtime/live-api-baseline-0022-stderr.log"
+    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0023.png"
+    stdout_log = ROOT / "artifacts/runtime/live-api-baseline-0023-stdout.log"
+    stderr_log = ROOT / "artifacts/runtime/live-api-baseline-0023-stderr.log"
     required = [
         database,
         trace,
@@ -148,6 +148,7 @@ def main() -> None:
         "evaluation_action_split_coverage": latest["metrics"]["coverage"]["action_split_coverage"] == 1.0,
         "evaluation_adversarial_topology_split_coverage": latest["metrics"]["coverage"]["adversarial_topology_split_coverage"] == 1.0,
         "evaluation_adversarial_action_split_coverage": latest["metrics"]["coverage"]["adversarial_action_split_coverage"] == 1.0,
+        "evaluation_adversarial_outcome_split_coverage": latest["metrics"]["coverage"]["adversarial_outcome_split_coverage"] == 1.0,
         "evaluation_adversarial_split_coverage": latest["metrics"]["coverage"]["adversarial_split_coverage"] == 1.0,
         "evaluation_behavioral_relation_exact": latest["metrics"]["behavioral_relations"]["exact_match_rate"] == 1.0,
         "evaluation_retrieval_configuration_exact": latest["retrieval_configuration"] == "freshness-priority-lexical-v3",
@@ -212,6 +213,7 @@ def main() -> None:
             "action_split_coverage": latest["metrics"]["coverage"]["action_split_coverage"],
             "adversarial_topology_split_coverage": latest["metrics"]["coverage"]["adversarial_topology_split_coverage"],
             "adversarial_action_split_coverage": latest["metrics"]["coverage"]["adversarial_action_split_coverage"],
+            "adversarial_outcome_split_coverage": latest["metrics"]["coverage"]["adversarial_outcome_split_coverage"],
             "adversarial_split_coverage": latest["metrics"]["coverage"]["adversarial_split_coverage"],
             "behavioral_relation_exact": latest["metrics"]["behavioral_relations"]["exact_match_rate"],
             "retrieval_configuration": latest["retrieval_configuration"],
@@ -246,7 +248,7 @@ def main() -> None:
         },
         "dashboard": {"sha256": sha256(screenshot), "width": width, "height": height},
     }
-    output = ROOT / "artifacts/verification/native-baseline-0022.json"
+    output = ROOT / "artifacts/verification/native-baseline-0023.json"
     output.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(receipt, indent=2, sort_keys=True))
     if receipt["status"] != "pass":

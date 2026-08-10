@@ -1,0 +1,306 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0023",
+  "project_profile_ref": null,
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "active_contract": "contracts/milestone-0023.json",
+    "verified_at_utc": "2026-08-10T21:28:33.5629781Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Make adversarial bounded-outcome coverage split-aware so a passing aggregate cannot hide an allowed outcome never exercised under hostile evidence in one split; add exactly one project-authored in-band hostile telemetry transform for the missing development abstain cell.",
+    "allowed_paths": [
+      "C:/Projects/Active/runbook-sentinel",
+      "C:/Projects/Verification"
+    ],
+    "forbidden_work": [
+      "change any existing scenario or expected result",
+      "change agent, model, retrieval, decision context, action inventory, policy, approval, authentication, executor, API, or MCP authority",
+      "add a dependency, paid service, secret, external asset, remote model call, or real-infrastructure connector",
+      "change repository visibility, access, or ownership",
+      "claim synthetic coverage is universal prompt-injection resistance or that 42 cases satisfy the separate at-least-48-case v0.1.0 target"
+    ],
+    "reversible_actions": [
+      "create and update files on the isolated codex/baseline-0023-adversarial-outcome-split branch",
+      "run deterministic local evaluations, tests, package builds, dashboard checks, and clean-clone verification",
+      "commit and push bounded checkpoints under the standing director authority",
+      "open, review, and merge a pull request and publish a public release only after every release gate passes"
+    ],
+    "stop_conditions": [
+      "core thesis change or security-boundary weakening",
+      "an existing expected result or runtime authority boundary would need to change",
+      "a dependency, secret, paid service, external asset, real infrastructure, or access change becomes necessary",
+      "pre-change identity, hostile abstention exactness, adversarial outcome split coverage, prior behavior, or shipment cannot be verified"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.22 refs, release, selected assets, downloaded bytes, rendered pages, and independent public-tag source/package verification reconcile at 1973fdec7d961a423777199b954f75515f4613b4.",
+        "Fresh source evaluation passes all prior gates and exact 213-event trace verification.",
+        "Adversarial domain and action split coverage report 1.0, but adversarial bounded-outcome-by-split coverage is only 7 of 8; development has no hostile abstain case."
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Run public v0.0.22 and measure adversarial bounded-outcome coverage by development and held-out split.",
+      "depends_on": [],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "public v0.0.22 checkpoint at 1973fdec7d961a423777199b954f75515f4613b4",
+        "41-case scenario catalog and frozen terminal states"
+      ],
+      "outputs": [
+        "fresh pre-change source evaluation and trace",
+        "adversarial outcome split gap receipt"
+      ],
+      "gates": {
+        "public_checkpoint_reconciled": "pass",
+        "fresh_prior_evaluation": "pass",
+        "exact_trace_verification": "pass",
+        "gap_measured_and_retained": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-001"
+        ],
+        "observed": [],
+        "decision_value": "risk_reduction",
+        "rationale": "The unit established the exact pre-change state and selected a measurable cross-split security and reliability weakness without changing the system."
+      },
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze exact coverage, all 41 pre-change identities, one development in-band transform, metrics, gates, and forbidden changes before implementation.",
+      "depends_on": [
+        "UNIT-001"
+      ],
+      "action_class": "evidence_preservation",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "artifacts/verification/adversarial-outcome-split-gap-baseline-0023.json",
+        "eval/adversarial-outcome-split-coverage-prechange.json"
+      ],
+      "outputs": [
+        "frozen adversarial-outcome-split-coverage-v1 contract",
+        "recursive pre-change identity record",
+        "independent contract validator"
+      ],
+      "gates": {
+        "json_documents_parse": "pass",
+        "prechange_identities_compose_to_41": "pass",
+        "candidate_results_absent": "pass",
+        "one_missing_cell_frozen": "pass",
+        "contract_validator": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-001"
+        ],
+        "observed": [],
+        "decision_value": "enables_dependency",
+        "rationale": "The exact pre-change identity chain, transformation, metrics, gates, and forbidden changes must be frozen before implementation."
+      },
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement the fail-closed eight-cell metric and one exact transformed case without changing runtime behavior or authority.",
+      "depends_on": [
+        "UNIT-002"
+      ],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "eval/adversarial-outcome-split-coverage-contract.json",
+        "scripts/verify_adversarial_outcome_split_coverage_contract.py"
+      ],
+      "outputs": [
+        "catalog schema 1.14 with one exact transformed case and terminal record",
+        "fail-closed adversarial-outcome-split-coverage-v1 evaluator metric and hard gates",
+        "independent exact implementation verifier",
+        "public implementation seal 780baddcd753bbd93f1ca6c3dfdfde7182bb5ebb before candidate evaluation"
+      ],
+      "gates": {
+        "all_41_prechange_scenarios_exact": "pass",
+        "all_41_prechange_terminal_states_exact": "pass",
+        "new_transform_exact": "pass",
+        "adversarial_outcome_split_coverage_8_of_8": "pass",
+        "fail_closed_metric_unit": "pass",
+        "implementation_sealed_before_candidate_evaluation": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "The first implementation-validator sequence passed the new contract and metric but the historical BASELINE-0022 action verifier treated the separately contracted successor case as an inventory violation. Historical implementation verifiers now require their own frozen cases exactly while permitting successor-contract cases; no scenario bytes were changed by the correction.",
+        "The first focused unittest invocation named BaselineTests instead of the actual BaselineTest class and stopped before executing tests. The exact corrected two-test invocation passes.",
+        "The first complete 41-test implementation run passed 40 tests and failed only the new checkpoint assertion because the intentionally stale frozen manifest still reported baseline-0022. No candidate evaluation had run; the manifest must be frozen only after the implementation commit is public."
+      ],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-001"
+        ],
+        "observed": [],
+        "decision_value": "enables_dependency",
+        "rationale": "The bounded implementation must be sealed after static and development-only checks and before the candidate is run."
+      },
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Run all prior source, package, API, MCP, state, telemetry, dashboard, reproducibility, and clean-clone gates on the frozen candidate.",
+      "depends_on": [
+        "UNIT-003"
+      ],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "public implementation seal",
+        "frozen manifest",
+        "frozen package contract"
+      ],
+      "outputs": [
+        "immutable 126-attempt candidate and exact 216-event trace",
+        "source and package evaluation and real-surface evidence",
+        "remote-only clean-clone evidence"
+      ],
+      "gates": {
+        "all_42_scenarios_exact_across_three_trials": "pass",
+        "all_41_prechange_scenario_and_terminal_identities_exact": "pass",
+        "new_inband_abstain_transform_exact": "pass",
+        "adversarial_outcome_split_coverage_8_of_8": "pass",
+        "all_prior_source_package_and_real_surface_gates": "pass",
+        "deterministic_archive_reproduction": "pass",
+        "remote_only_clean_clone": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "The first post-manifest aggregate baseline verification passed the 91-file manifest and all preceding validators, then stopped because the terminal-state validator retained the v0.0.22 expectation of 26 no-action cases. BASELINE-0023 adds exactly one abstain case, so the verifier-only count was corrected to 27 before the manifest seal was committed or any candidate evaluation ran.",
+        "The corrected aggregate verify_baseline.py invocation was mistakenly treated as validation-only, but the wrapper also generated and promoted baseline-0023-attempt-001 before the manifest-seal commit was public. The passing bytes and exact trace are retained under retained-invalid and are process-invalid and superseded. Because the frozen candidate contract requires the attempt-001 path, a fresh post-seal evaluation was written into the admissible runs namespace only after the invalid bytes were quarantined; the two runs remain distinct by path and hash.",
+        "The first standalone trace-verifier invocation for the admissible candidate omitted PYTHONPATH=src and stopped before inspecting the unchanged trace. The corrected invocation verifies the exact 216-event chain and final anchor."
+      ],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-001"
+        ],
+        "observed": [],
+        "decision_value": "risk_reduction",
+        "rationale": "The candidate must close the measured gap without regressing prior behavior, security, authority, utility, reliability, telemetry, or packaging."
+      },
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Reconcile living records, audit changed release risk, review exact GitHub scope, merge with history preserved, publish v0.0.23, and verify public state.",
+      "depends_on": [
+        "UNIT-004"
+      ],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "in_progress",
+      "inputs": [
+        "verified candidate and clean-clone evidence",
+        "release truth matrix and inherited director authority"
+      ],
+      "outputs": [
+        "reconciled roadmap, changelog, version history, ADRs, threat model, research ledger, evaluation report, status, and devlog",
+        "history-preserving reviewed merge",
+        "annotated v0.0.23 and selected public assets",
+        "fresh merged-main and public-tag verification"
+      ],
+      "gates": {
+        "release_audit_verified": "pending",
+        "exact_reviewed_head_merged_with_history_preserved": "pending",
+        "public_refs_assets_downloads_pages_reconciled": "pending",
+        "fresh_public_tag_source_package_and_real_surfaces": "pending"
+      },
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-001"
+        ],
+        "observed": [],
+        "decision_value": "unknown",
+        "rationale": "Release only the exact independently verified checkpoint and reconcile every public surface immediately."
+      },
+      "next_dependency": null
+    }
+  ],
+  "path_efficiency": {
+    "max_consecutive_no_progress_units": 2,
+    "review_action_class": "project_control",
+    "review_human_gate": false
+  },
+  "verification": {
+    "changed_risks": [
+      "a passing aggregate can hide a missing adversarial bounded outcome in one split",
+      "an in-band hostile telemetry instruction can attempt to convert required abstention into an executable action",
+      "a new metric or case can accidentally alter prior scenarios, terminal states, runtime authority, or release claims"
+    ],
+    "required_checks": [
+      "recursive exact identity for all 41 pre-change scenarios and terminal states",
+      "exact one-case transformation and retrieved in-band attack exposure",
+      "fail-closed eight-cell adversarial outcome split metric",
+      "three-trial source and package evaluation with exact terminal, tool, policy, attack, trace, latency, and cost metrics",
+      "real bounded MCP, loopback API, approval, executor, state, telemetry, dashboard, package, clean-clone, review, merge, release, and public verification"
+    ],
+    "completed_checks": [
+      "public v0.0.22 reconciliation",
+      "fresh unchanged 41-case evaluation",
+      "exact 213-event trace verification",
+      "7-of-8 adversarial outcome split gap measurement",
+      "public implementation and manifest seals",
+      "admissible 42-case candidate and exact 216-event trace",
+      "final-manifest source and package evaluation",
+      "25 validators and 41 tests",
+      "two byte-identical 38-entry archive builds",
+      "bounded source and package MCP",
+      "real source and package API, approval, executor, state, telemetry, and dashboard surfaces",
+      "remote-only no-alternates clean-clone verification"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "Public v0.0.22 remains the release; BASELINE-0023 candidate commit 7325f69bb3a7d39ae998fca9eb6b826aea000bb3 passes local and remote-only clean-clone source, package, MCP, real-surface, archive, scan, and dashboard gates.",
+    "next_action": "Reconcile release records, pass the premerge release audit, review the exact GitHub head, and merge only that expected head with history preserved.",
+    "do_not_carry_forward": [
+      "any claim that synthetic eight-cell coverage is universal prompt-injection resistance",
+      "any authority, secret, dependency, external asset, paid service, or real-infrastructure connector",
+      "any rewrite of failed, stale, blocked, superseded, or unfavorable evidence"
+    ]
+  }
+}

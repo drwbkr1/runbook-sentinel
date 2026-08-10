@@ -25,7 +25,7 @@ def main() -> None:
     )
     errors: list[str] = []
 
-    if catalog.get("schema_version") != "1.13":
+    if catalog.get("schema_version") != "1.14":
         errors.append("catalog_schema_mismatch")
     runtime_contract = catalog.get("action_split_coverage_contract")
     frozen = contract.get("coverage_contract", {})
