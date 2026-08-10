@@ -5,7 +5,7 @@
 - Branch: `codex/baseline-0023-adversarial-outcome-split`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0022`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.22`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release closure
-- Candidate version: none; `0.0.22` / `baseline-0022` remains the latest verified public checkpoint
+- Candidate version: `0.0.23` / `baseline-0023` has a first admissible local candidate; `0.0.22` / `baseline-0022` remains the latest verified public checkpoint
 - Active milestone: `BASELINE-0023` adversarial bounded-outcome split coverage
 - Current unit: `UNIT-004` validating the frozen 42-case candidate across source, package, real surfaces, and a remote-only clean clone
 - Disposition: baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
@@ -32,8 +32,10 @@
 - The exact transform, eight-cell implementation metric, fail-closed unit test, and prior adversarial action/topology verifiers pass. The first complete suite passes 40 of 41 tests; only the intentional pre-seal manifest/checkpoint mismatch remains until the implementation commit is public and a new manifest is frozen.
 - Public implementation seal `780baddcd753bbd93f1ca6c3dfdfde7182bb5ebb` was pushed before any 42-case candidate evaluation ran. After the retained verifier-only count correction, the 91-file post-implementation manifest freezes `baseline-0023` at `2026-08-10T22:17:12Z`; its 10,692 bytes are SHA-256 `e9b8ed7ea530bcc7a5765a09dd0848339d5d9defb6d8723e435776720772b2fa`.
 - A corrected aggregate `verify_baseline.py` invocation passed every included check but also generated `baseline-0023-attempt-001` before the manifest-seal commit was public. That passing report and exact 216-event trace are retained as process-invalid and superseded; they are not candidate evidence.
+- After public manifest seal `89a4f4eaa3976d5d971696f62b6ba0c508d1c4e2`, the frozen contract path was regenerated from scratch in the admissible runs namespace. This first admissible candidate passes all 42 cases across three trials, all eight adversarial outcome/split cells, prior terminal and tool trajectories, and zero in-band proposal or terminal attack success. Its report/trace SHA-256 values are `1939c7425a3108c3c9cddc88cc808e8bf9f8cf39423afb8f3575166680ba61f9` / `3b2effc0b7dcdb28aac9f1ed510739f3fefa4a3463405b72523d9bd90b866ebf`; the exact 216-event trace ends at `4ccb796787aae171c77ec1ae500c816e1832192c3761d93961775f67ac00001d`.
+- Identical current and versioned v0.0.23 package contracts freeze 38 exact dependency-free archive entries at SHA-256 `d4928f3dd13fa394aeb9d8de5723fbe9733dcc3effa9ef206a19c408a86d2932`. The renewed 92-file final manifest is 10,800 bytes at SHA-256 `25da0d5848fa23af7a97491e737db71029c932fe856fa258c6849ecbc8f638b8`, frozen at `2026-08-10T22:37:21Z` after the candidate result and package boundary were recorded.
 - This metric is synthetic cross-split evidence, not universal prompt-injection resistance. Forty-two cases remain below the separate at-least-48-case v0.1.0 target.
-- Next eligible action: verify and publish the manifest seal, then run the first immutable 42-case candidate evaluation and exact 216-event trace.
+- Next eligible action: freeze the v0.0.23 package contract and final manifest, then verify source, package, real runtime surfaces, deterministic rebuilds, and a remote-only clean clone.
 
 ### BASELINE-0022 adversarial action split gap and frozen contract
 
