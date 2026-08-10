@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0022",
+  "verified_at_utc": "2026-08-10T21:02:49Z",
+  "status": "pass",
+  "merge": {
+    "commit": "a336d2be7f0a288c459d9c5f0b6de9c5cfd06458",
+    "parents": [
+      "eaed929dbb2f0d2f8b54c2fe51aaea0902823f77",
+      "0a1b77b889d6fa6a39f3e2ec407feda32d00a02b"
+    ],
+    "pull_request": 20,
+    "merge_method": "history-preserving merge under expected-head lock",
+    "clone_path": "C:/Projects/Verification/runbook-sentinel-baseline-0022-main-a336d2b-20260810T205621Z",
+    "initial_worktree_clean": true,
+    "git_alternates_present": false,
+    "clone_mode": "git clone --no-local --single-branch --branch main from the public GitHub repository",
+    "tracked_file_count": 633
+  },
+  "source_gate": {
+    "manifest_sha256": "a66dc1ca930f09adc8b33936ebee16fe831ad210043dfaf2e5909090f8ae2cb1",
+    "validators_passed": 23,
+    "test_count": 40,
+    "tests_passed": true,
+    "test_duration_seconds": 94.433,
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0022-attempt-001.json",
+    "evaluation_bytes": 711823,
+    "evaluation_sha256": "62423396e9a2fc435a82362dc9398fbf6cfb3e147408770905cd4ab5926693c6",
+    "trace_path": "artifacts/evaluations/runs/baseline-0022-attempt-001.traces.jsonl",
+    "trace_bytes": 152599,
+    "trace_sha256": "390678af8abeee7e1d5b20399e64f57990e2ad553ed9da083cd58763de444a9a",
+    "trace_event_count": 213,
+    "trace_final_event_sha256": "b8a65950d31a2a9c538d4e47a947f30604600e515d9d8f4f97d4be089317ce8e",
+    "trace_anchor_independently_verified": true,
+    "scenario_count": 41,
+    "scenario_attempt_count": 123,
+    "adversarial_action_split_coverage": 1.0,
+    "inband_attack_document_exposure": 1.0,
+    "inband_proposal_attack_success": 0.0,
+    "inband_terminal_attack_success": 0.0,
+    "disposition": "pass"
+  },
+  "package_gate": {
+    "package_contract_sha256": "3cc415cd7757c6afc1e36c84ba65471817220cb7aa5f4390955886e0502a7ffd",
+    "archive_paths": [
+      "dist/runbook-sentinel-0.0.22.pyz",
+      "dist/repro/runbook-sentinel-0.0.22.pyz"
+    ],
+    "archive_bytes": 484945,
+    "archive_sha256": "aae2fe8bacb04c022d3234cd4ab305fe976ddd7fef7130dc83528bcd8d62dd42",
+    "selected_archive_sha256_exact": true,
+    "independent_builds_byte_identical": true,
+    "entry_count": 37,
+    "runtime_dependencies": [],
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0022-main-package-attempt-001.json",
+    "evaluation_bytes": 711777,
+    "evaluation_sha256": "e6639c1b21984808b3240842451c049e7fe4b40bd164d5b6accc4b02314021fd",
+    "trace_path": "artifacts/evaluations/runs/baseline-0022-main-package-attempt-001.traces.jsonl",
+    "trace_bytes": 152573,
+    "trace_sha256": "4444634ee328be0c126e2344208bbe4ab07df99cf1e98e5d54f26ab4bf6d421f",
+    "trace_event_count": 213,
+    "trace_final_event_sha256": "9335c780567308a255dc3b1f6b6f1f318cb22dace399bbc93bb25f58a9834e81",
+    "trace_anchor_independently_verified": true,
+    "scenario_count": 41,
+    "scenario_attempt_count": 123,
+    "adversarial_action_split_coverage": 1.0,
+    "inband_attack_document_exposure": 1.0,
+    "inband_proposal_attack_success": 0.0,
+    "inband_terminal_attack_success": 0.0,
+    "disposition": "pass"
+  },
+  "real_surfaces": {
+    "source_and_package_mcp_version": "0.0.22",
+    "source_and_package_mcp_protocol": "2025-11-25",
+    "source_and_package_mcp_tool_count": 3,
+    "mcp_approval_or_execution_tool_exposed": false,
+    "source_and_package_mcp_trace_chain_valid": true,
+    "source_and_package_mcp_trace_endpoint_anchored": true,
+    "source_mcp_trace_sha256": "1796de59b44df2e3480c29d017fbee42b3024d1f7489872584b19905f5f151ea",
+    "package_mcp_trace_sha256": "df9912aabf0c70f39c35da78148034f7e03f39f30ee34c60137e7f75b2841523",
+    "source_and_package_http_authentication_approval_execution_replay_postconditions_pass": true,
+    "source_and_package_sqlite_state_and_audit_pass": true,
+    "source_and_package_api_trace_chain_valid": true,
+    "source_and_package_api_trace_endpoint_anchored": true,
+    "source_and_package_evaluation_companion_trace_anchor_exact": true,
+    "authorization_before_body_parse": true,
+    "operator_identity_server_derived": true,
+    "cached_result_authorization": true,
+    "forbidden_authentication_material_absent": true,
+    "source_native_receipt_bytes": 6050,
+    "source_native_receipt_sha256": "3fdc31f9f69f2eaf43631c2dc9533e0b04f7a69944e5aa4c50c0651c34e8c418",
+    "package_native_receipt_bytes": 6050,
+    "package_native_receipt_sha256": "2efe8cfa5044f6dc9d1dcfb6808b7457cd11d85649c5fe862ac33d328155923f"
+  },
+  "rendered_dashboards": {
+    "dimensions": [
+      1440,
+      1000
+    ],
+    "source_sha256": "8620814ab062f25cf035c5cdd01e0f05a3b853558d332ba8f429d7074253e480",
+    "source_bytes": 81260,
+    "package_sha256": "9628083e43feff40dbf8046b5ef7e310884c116b5fb7007f562726936614d4a5",
+    "package_bytes": 81265,
+    "visual_inspection": "pass: both unchanged original-detail 1440 by 1000 images are complete and show Baseline 0022, every exact metric including adversarial action split 1.0, authenticated external operator, disconnected real infrastructure, and both persisted incidents"
+  },
+  "artifact_parsing": {
+    "post_verification_json_files": 408,
+    "post_verification_jsonl_files": 97,
+    "post_verification_jsonl_records": 12668,
+    "status": "pass"
+  },
+  "security_scan": {
+    "broad_reference_match_files": 47,
+    "broad_match_classification": "frozen pattern definitions, verification history, documentation, and scanner source only",
+    "credential_shaped_matches_after_high_signal_and_definition_exclusions": 0,
+    "model_artifact_count": 0,
+    "status": "pass"
+  },
+  "post_verification_changes_in_clone": {
+    "expected": true,
+    "tracked_paths": [
+      "artifacts/evaluations/latest.json",
+      "artifacts/verification/dashboard-baseline-0022.png",
+      "artifacts/verification/native-baseline-0022.json"
+    ],
+    "untracked_scope": "fresh source/package evaluation attempts, exact rebuilds, source/package runtime copies, traces, and dashboards",
+    "source_contract_manifest_policy_or_authority_changed": false
+  },
+  "retained_observations": [
+    {
+      "stage": "verifier help probe",
+      "result": "no-argument verifier executed",
+      "detail": "verify_mcp_stdio.py and verify_live_api.ps1 have no help interface, so a help-oriented probe executed their source checks. Both passed; later explicit package-bound invocations also passed, and the unexpected invocation is retained rather than recast as the planned command."
+    },
+    {
+      "stage": "package evaluation guard",
+      "result": "two pre-execution wrapper stops",
+      "detail": "The first guard omitted parentheses around two Test-Path calls. The corrected guard then found the tracked candidate package attempt and refused to overwrite it. A new merged-main-specific path was selected and passed without changing preserved candidate evidence."
+    },
+    {
+      "stage": "structured artifact parser",
+      "result": "host parser unavailable",
+      "detail": "Windows PowerShell lacks System.Text.Json.JsonDocument, so the first parser stopped on the first JSON file. The native ConvertFrom-Json rerun parsed every JSON and JSONL record successfully."
+    },
+    {
+      "stage": "clone diff guards",
+      "result": "two corrected allowlist wrappers",
+      "detail": "One command formed safe.directory incorrectly, and the next omitted the regenerated native receipt from the expected tracked-pointer allowlist. The corrected exact check confirms only latest evaluation, dashboard, and native-receipt pointers changed; no protected source, contract, policy, or authority path changed."
+    },
+    {
+      "stage": "dashboard renderer",
+      "result": "non_fatal_tooling_warning",
+      "detail": "Chromium emitted its known fallback task-provider diagnostic after writing the complete valid package PNG; exit status, dimensions, hashes, content assertions, state checks, and original-detail inspection pass."
+    }
+  ],
+  "limitations": [
+    "Six-of-six adversarial action-by-split coverage is synthetic evidence and not universal prompt-injection resistance.",
+    "The broader adversarial topology result remains scenario-label coverage; the legacy development API hostile runbook is not selected by retrieval.",
+    "Forty-one scenarios do not satisfy the separate at-least-48-case v0.1.0 target.",
+    "The checkpoint remains a synthetic-only research-informed preview and is not authorized for real operational infrastructure.",
+    "Docker is not claimed for this checkpoint."
+  ],
+  "next_gate": "final release audit, exact release-closure commit, annotated v0.0.22 tag, selected assets, and immediate public verification"
+}

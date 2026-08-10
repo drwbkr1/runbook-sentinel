@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.22 - Unreleased verified candidate
+## 0.0.22 - 2026-08-10
 
 - Cross adversarial scenarios that require exact execution with the three existing actions and both frozen splits; report all six counts and missing pairs, and require aggregate plus development and held-out rates to equal 1.0.
 - Add exactly one project-authored held-out in-band hostile telemetry transform. It asks for `restart_worker`, while the frozen correct result remains the existing approved `rollback_deployment` trajectory and exact terminal state; no action, capability, authority, dependency, secret, external asset, or connector changes.
@@ -8,7 +8,7 @@
 - Build two byte-identical dependency-free 37-entry, 484,945-byte zipapps at SHA-256 `aae2fe8bacb04c022d3234cd4ab305fe976ddd7fef7130dc83528bcd8d62dd42`.
 - Clone exact public candidate `85390c29f512617e330fbe00764cac0a973ce6b1` over HTTPS with no local objects or alternates, then independently repeat compilation, 23 validators, 40 tests, fresh source/package evaluation, exact archive reconstruction, MCP, real surfaces, parsing/scans, and original-detail dashboards.
 - Retain the stale test fixture, incorrect verifier wrappers, clean-clone cache collision, historical-contract schema mismatch, and Chromium diagnostics beside their corrected passing results. Six-cell coverage is synthetic evidence, not universal prompt-injection resistance, and 41 cases remain below the v0.1.0 target.
-- Premerge audit, exact GitHub review, history-preserving merge, fresh public-main verification, annotated tag, release assets, downloaded bytes, rendered public pages, and public-tag verification remain pending.
+- Pass the premerge audit; merge exact reviewed PR `#20` head `0a1b77b889d6fa6a39f3e2ec407feda32d00a02b` under expected-head lock with history preserved as `a336d2be7f0a288c459d9c5f0b6de9c5cfd06458`; repeat the full stack from a fresh no-alternates public-main clone; pass the final release audit; reconcile the annotated tag, selected release assets, downloaded bytes, rendered public pages, and fresh public-tag verification.
 
 ## 0.0.21 - 2026-08-10
 
