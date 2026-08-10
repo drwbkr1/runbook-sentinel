@@ -203,8 +203,8 @@
         "all_41_prechange_scenario_and_terminal_identities_exact": "pass",
         "new_inband_abstain_transform_exact": "pass",
         "adversarial_outcome_split_coverage_8_of_8": "pass",
-        "all_prior_source_package_and_real_surface_gates": "pending",
-        "deterministic_archive_reproduction": "pending",
+        "all_prior_source_package_and_real_surface_gates": "pass",
+        "deterministic_archive_reproduction": "pass",
         "remote_only_clean_clone": "pending"
       },
       "disposition": null,
