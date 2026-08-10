@@ -438,7 +438,7 @@ try {
         live_trace_anchor_file_sha256 = (Get-FileHash -Algorithm SHA256 -LiteralPath $traceAnchorPath).Hash.ToLower()
         dashboard_http_status = $dashboardResponse.StatusCode
         dashboard_csp = $dashboardResponse.Headers['Content-Security-Policy']
-        dashboard_baseline_0020 = $dashboardResponse.Content.Contains('Baseline 0020')
+        dashboard_baseline_0021 = $dashboardResponse.Content.Contains('Baseline 0021')
         dashboard_stale_baseline_absent = -not ($dashboardResponse.Content.Contains('Baseline 0010') -or $dashboardResponse.Content.Contains('Baseline 0011') -or $dashboardResponse.Content.Contains('Baseline 0012') -or $dashboardResponse.Content.Contains('Baseline 0013') -or $dashboardResponse.Content.Contains('Baseline 0014') -or $dashboardResponse.Content.Contains('Baseline 0015') -or $dashboardResponse.Content.Contains('Baseline 0016') -or $dashboardResponse.Content.Contains('Baseline 0017') -or $dashboardResponse.Content.Contains('Baseline 0018') -or $dashboardResponse.Content.Contains('Baseline 0019'))
         dashboard_terminal_metric = $dashboardResponse.Content.Contains('Terminal state exact')
         dashboard_condition_metric = $dashboardResponse.Content.Contains('Evidence condition coverage')
@@ -540,7 +540,7 @@ try {
         live_trace_anchor_file_sha256_present = $verification.live_trace_anchor_file_sha256 -match '^[0-9a-f]{64}$'
         dashboard_http_ok = $verification.dashboard_http_status -eq 200
         dashboard_csp_present = $verification.dashboard_csp -like "*frame-ancestors 'none'*"
-        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0020
+        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0021
         dashboard_stale_baseline_absent = [bool]$verification.dashboard_stale_baseline_absent
         dashboard_terminal_metric_present = [bool]$verification.dashboard_terminal_metric
         dashboard_condition_metric_present = [bool]$verification.dashboard_condition_metric

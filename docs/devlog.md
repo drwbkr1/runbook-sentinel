@@ -18,6 +18,7 @@
 - Attempt 003 passes all 120 scenario trials and every gate. Both held-out transforms are exact across three trials; adversarial topology split coverage is 16/16; the 204-event trace is anchored at `ffb96f88dffb77128d66568af84e1819de8879795cf63d5f133279e9c0826d5c`. Report/trace hashes are `bbf655a2b67ec06d8e10f733dcd4eaae4a435f8759ab9435628b18430bff7211` / `feac17a494310863d03e086e893f3d5a70335d736fd759422c5e59c13e4807e2`.
 - The first complete suite retained two evidence-fixture failures: an empty-topology test removed only one of two development observability cases, and the legacy full-context comparison expected 15/15 hostile-document retrieval although the frozen healthy-service API prompt retrieves only healthy telemetry. Corrected assertions pass all 39 tests in 167.074 seconds.
 - Preserved the 14/15 observation as a release limitation. The checkpoint measures adversarial scenario-label topology; it does not claim every appended hostile document was retrieved.
+- The first final-manifest source HTTP run passed every runtime and product check but failed its rendered checkpoint assertion because `verify_live_api.ps1` still searched for `Baseline 0020`. The screenshot correctly contained Baseline 0021. The failure and first archive pair remain retained; only the stale verifier identity is corrected before renewing the final manifest and package.
 
 ## 2026-08-08 - BASELINE-0019 started
 
