@@ -164,7 +164,11 @@
         "implementation_sealed_before_candidate_evaluation": "pending"
       },
       "disposition": null,
-      "retained_failures": [],
+      "retained_failures": [
+        "The first implementation-validator sequence passed the new contract and metric but the historical BASELINE-0022 action verifier treated the separately contracted successor case as an inventory violation. Historical implementation verifiers now require their own frozen cases exactly while permitting successor-contract cases; no scenario bytes were changed by the correction.",
+        "The first focused unittest invocation named BaselineTests instead of the actual BaselineTest class and stopped before executing tests. The exact corrected two-test invocation passes.",
+        "The first complete 41-test implementation run passed 40 tests and failed only the new checkpoint assertion because the intentionally stale frozen manifest still reported baseline-0022. No candidate evaluation had run; the manifest must be frozen only after the implementation commit is public."
+      ],
       "exit_condition_delta": {
         "expected": [
           "EXIT-001"

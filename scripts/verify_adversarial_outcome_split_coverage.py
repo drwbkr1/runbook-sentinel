@@ -8,8 +8,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG_PATH = ROOT / "src/runbook_sentinel/data/scenarios.json"
-CONTRACT_PATH = ROOT / "eval/adversarial-topology-split-coverage-contract.json"
-PRECHANGE_PATH = ROOT / "eval/adversarial-topology-split-coverage-prechange.json"
+CONTRACT_PATH = ROOT / "eval/adversarial-outcome-split-coverage-contract.json"
+PRECHANGE_PATH = ROOT / "eval/adversarial-outcome-split-coverage-prechange.json"
 
 
 def object_sha256(value: object) -> str:
@@ -31,12 +31,13 @@ def identity_chain(path: Path) -> tuple[dict[str, str], dict[str, str]]:
 
 def expected_transform(control: dict, case: dict) -> dict:
     transformed = deepcopy(control)
+    attack = deepcopy(case["attack_document"])
     transformed["id"] = case["id"]
     transformed["adversarial"] = True
     transformed["evidence_conditions"].append("instruction_bearing")
-    transformed["attack_document_ids"] = [case["attack_document"]["id"]]
-    transformed["documents"].append(deepcopy(case["attack_document"]))
-    transformed["expected"]["attacker_goal_action"] = case["attacker_goal_action"]
+    transformed["inband_attack_document_ids"] = [attack["id"]]
+    transformed["documents"] = [deepcopy(control["documents"][0]), attack]
+    transformed["expected"] = deepcopy(case["expected"])
     return transformed
 
 
@@ -49,13 +50,13 @@ def main() -> None:
     expected_runtime_contract = {
         "schema_version": "1.0",
         "contract_id": contract.get("contract_id"),
-        "required_domains": frozen.get("required_domains"),
+        "required_outcomes": frozen.get("required_outcomes"),
         "required_splits": frozen.get("required_splits"),
-        "minimum_cases_per_adversarial_domain_split": frozen.get(
-            "minimum_cases_per_adversarial_domain_split"
+        "minimum_cases_per_adversarial_outcome_split": frozen.get(
+            "minimum_cases_per_adversarial_outcome_split"
         ),
     }
-    runtime_contract = catalog.get("adversarial_topology_split_coverage_contract")
+    runtime_contract = catalog.get("adversarial_outcome_split_coverage_contract")
     if catalog.get("schema_version") != "1.14":
         errors.append("catalog_schema_mismatch")
     if runtime_contract != expected_runtime_contract:
@@ -90,73 +91,120 @@ def main() -> None:
     frozen_cases = {case["id"]: case for case in contract.get("cases", [])}
     new_ids = set(scenarios_by_id) - set(prechange_scenarios)
     new_terminal_ids = set(terminal_states) - set(prechange_terminal_states)
-    if not set(frozen_cases).issubset(new_ids):
-        errors.append("frozen_scenario_inventory_missing")
-    if not set(frozen_cases).issubset(new_terminal_ids):
-        errors.append("frozen_terminal_inventory_missing")
+    if new_ids != set(frozen_cases):
+        errors.append("new_scenario_inventory_mismatch")
+    if new_terminal_ids != set(frozen_cases):
+        errors.append("new_terminal_inventory_mismatch")
 
     new_case_exact: dict[str, bool] = {}
+    inband_document_exact: dict[str, bool] = {}
     for scenario_id, case in frozen_cases.items():
         control_id = case.get("control_id")
         control = scenarios_by_id.get(control_id)
         expected = expected_transform(control, case) if isinstance(control, dict) else None
         scenario_exact = scenarios_by_id.get(scenario_id) == expected
-        terminal_exact = terminal_states.get(scenario_id) == terminal_states.get(control_id)
+        terminal_exact = terminal_states.get(scenario_id) == case.get(
+            "expected_terminal_state"
+        )
+        inband_exact = bool(
+            scenario_exact
+            and scenarios_by_id[scenario_id].get("inband_attack_document_ids")
+            == [case["attack_document"]["id"]]
+            and scenarios_by_id[scenario_id]["expected"]["retrieval_ids"]
+            == ["telemetry-db-conflict-a", case["attack_document"]["id"]]
+        )
         new_case_exact[scenario_id] = scenario_exact and terminal_exact
+        inband_document_exact[scenario_id] = inband_exact
         if not scenario_exact:
             errors.append(f"{scenario_id}:scenario_mismatch")
         if not terminal_exact:
             errors.append(f"{scenario_id}:terminal_state_mismatch")
+        if not inband_exact:
+            errors.append(f"{scenario_id}:inband_document_mismatch")
 
-    domains = runtime_contract.get("required_domains", []) if isinstance(runtime_contract, dict) else []
-    splits = runtime_contract.get("required_splits", []) if isinstance(runtime_contract, dict) else []
-    minimum = runtime_contract.get("minimum_cases_per_adversarial_domain_split") if isinstance(runtime_contract, dict) else None
-    counts = {domain: {split: 0 for split in splits} for domain in domains}
+    outcomes = (
+        runtime_contract.get("required_outcomes", [])
+        if isinstance(runtime_contract, dict)
+        else []
+    )
+    splits = (
+        runtime_contract.get("required_splits", [])
+        if isinstance(runtime_contract, dict)
+        else []
+    )
+    minimum = (
+        runtime_contract.get("minimum_cases_per_adversarial_outcome_split")
+        if isinstance(runtime_contract, dict)
+        else None
+    )
+    counts = {outcome: {split: 0 for split in splits} for outcome in outcomes}
     for scenario in scenarios:
         if scenario.get("adversarial") is not True:
             continue
-        domain = scenario.get("domain")
+        outcome = scenario.get("expected", {}).get("outcome")
         split = scenario.get("split")
-        if domain not in counts or split not in counts[domain]:
-            errors.append(f"{scenario.get('id')}:domain_or_split")
+        scenario_id = scenario.get("id")
+        terminal = terminal_states.get(scenario_id, {})
+        if outcome not in counts or split not in counts[outcome]:
+            errors.append(f"{scenario_id}:outcome_or_split")
             continue
-        counts[domain][split] += 1
+        action = scenario.get("expected", {}).get("action")
+        if outcome == "propose_action":
+            terminal_exact = (
+                action is not None
+                and terminal.get("execute") is True
+                and terminal.get("action") == action
+            )
+        else:
+            terminal_exact = (
+                action is None
+                and terminal.get("execute") is False
+                and terminal.get("action") is None
+            )
+        if not terminal_exact:
+            errors.append(f"{scenario_id}:terminal_outcome")
+            continue
+        counts[outcome][split] += 1
     threshold = minimum if isinstance(minimum, int) and not isinstance(minimum, bool) else 1
     missing_pairs = [
-        {"domain": domain, "split": split}
-        for domain in domains
+        {"outcome": outcome, "split": split}
+        for outcome in outcomes
         for split in splits
-        if counts[domain][split] < threshold
+        if counts[outcome][split] < threshold
     ]
-    pair_count = len(domains) * len(splits)
+    pair_count = len(outcomes) * len(splits)
     coverage = (pair_count - len(missing_pairs)) / pair_count if pair_count else 0.0
     split_coverage = {
         split: (
-            sum(counts[domain][split] >= threshold for domain in domains) / len(domains)
-            if domains
+            sum(counts[outcome][split] >= threshold for outcome in outcomes)
+            / len(outcomes)
+            if outcomes
             else 0.0
         )
         for split in splits
     }
+    if counts != frozen.get("target_case_count_by_adversarial_outcome_split"):
+        errors.append("target_counts_mismatch")
     if coverage != 1.0 or missing_pairs:
-        errors.append("adversarial_topology_split_coverage_incomplete")
+        errors.append("adversarial_outcome_split_coverage_incomplete")
     if split_coverage != {"development": 1.0, "test": 1.0}:
-        errors.append("per_split_adversarial_topology_coverage_incomplete")
+        errors.append("per_split_adversarial_outcome_coverage_incomplete")
 
     result = {
-        "adversarial_topology_split_coverage": coverage,
+        "adversarial_outcome_split_coverage": coverage,
         "all_prechange_scenarios_exact": not changed_scenarios,
         "all_prechange_terminal_states_exact": not changed_terminal_states,
-        "case_count_by_adversarial_domain_split": counts,
+        "case_count_by_adversarial_outcome_split": counts,
         "catalog_schema": catalog.get("schema_version"),
         "changed_prechange_scenarios": changed_scenarios,
         "changed_prechange_terminal_states": changed_terminal_states,
         "contract_id": contract.get("contract_id"),
         "errors": sorted(set(errors)),
-        "missing_adversarial_domain_split_pairs": missing_pairs,
+        "inband_document_exact": inband_document_exact,
+        "missing_adversarial_outcome_split_pairs": missing_pairs,
         "new_case_exact": new_case_exact,
         "scenario_count": len(scenarios),
-        "split_adversarial_topology_coverage": split_coverage,
+        "split_adversarial_outcome_coverage": split_coverage,
         "status": "pass" if not errors else "fail",
     }
     print(json.dumps(result, indent=2, sort_keys=True))

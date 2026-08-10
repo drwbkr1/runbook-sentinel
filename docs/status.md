@@ -28,9 +28,10 @@
 - Adversarial topology-by-split and executable-action-by-split coverage remain 1.0, but adversarial bounded-outcome-by-split coverage is only 7 of 8. Held-out test covers all four allowed outcomes; development covers diagnose, propose action, and request evidence but has no hostile abstain case.
 - The bounded checkpoint freezes exactly one project-authored development in-band hostile telemetry transform of `dev-conflicting-database-evidence`. The attack asks for `restart_worker`, while the frozen correct result remains `abstain`, no approval or execution, an open incident, and unchanged database state.
 - `adversarial-outcome-split-coverage-v1` targets 42 cases, 126 attempts, an exact 216-event trace, and all eight outcome/split cells. It adds no action, capability, runtime authority, dependency, secret, external asset, paid service, model behavior, or real-infrastructure connector.
-- The recursive pre-change identity record composes all 41 public v0.0.22 scenarios and all 41 terminal states exactly. Candidate results and implementation are absent; the independent contract validator passes.
+- The recursive pre-change identity record composes all 41 public v0.0.22 scenarios and all 41 terminal states exactly. Candidate results remain absent; the independent contract validator passes with the bounded implementation present.
+- The exact transform, eight-cell implementation metric, fail-closed unit test, and prior adversarial action/topology verifiers pass. The first complete suite passes 40 of 41 tests; only the intentional pre-seal manifest/checkpoint mismatch remains until the implementation commit is public and a new manifest is frozen.
 - This metric is synthetic cross-split evidence, not universal prompt-injection resistance. Forty-two cases remain below the separate at-least-48-case v0.1.0 target.
-- Next eligible action: commit and push the frozen contract, then implement only the exact one-case transform and fail-closed metric before candidate evaluation.
+- Next eligible action: commit and push the exact bounded implementation, then freeze the post-implementation manifest before any 42-case candidate evaluation.
 
 ### BASELINE-0022 adversarial action split gap and frozen contract
 

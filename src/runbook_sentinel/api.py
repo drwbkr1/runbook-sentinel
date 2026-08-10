@@ -14,7 +14,7 @@ from .service import DEFAULT_APPROVAL_TTL_SECONDS, RunbookSentinel
 from .telemetry import live_trace_anchor_path
 
 
-CHECKPOINT = "baseline-0022"
+CHECKPOINT = "baseline-0023"
 
 
 class SentinelHTTPServer(ThreadingHTTPServer):
@@ -187,6 +187,9 @@ class SentinelHandler(BaseHTTPRequestHandler):
         adversarial_action_split_coverage = metrics.get("coverage", {}).get(
             "adversarial_action_split_coverage"
         )
+        adversarial_outcome_split_coverage = metrics.get("coverage", {}).get(
+            "adversarial_outcome_split_coverage"
+        )
         relation_exact = metrics.get("behavioral_relations", {}).get("exact_match_rate")
         stress_recall = metrics.get("retrieval_stress", {}).get(
             "expected_project_evidence_recall_at_4"
@@ -245,6 +248,11 @@ class SentinelHandler(BaseHTTPRequestHandler):
         adversarial_action_split_display = (
             f"{adversarial_action_split_coverage:.1f}"
             if isinstance(adversarial_action_split_coverage, (int, float))
+            else "not run"
+        )
+        adversarial_outcome_split_display = (
+            f"{adversarial_outcome_split_coverage:.1f}"
+            if isinstance(adversarial_outcome_split_coverage, (int, float))
             else "not run"
         )
         relation_display = (
@@ -329,6 +337,7 @@ h2 {{ margin:.4rem 0; }} th,td {{ text-align:left; padding:8px 12px; border-bott
 <div class="card"><div>Action split coverage</div><div class="value">{action_split_display}</div></div>
 <div class="card"><div>Adversarial topology split</div><div class="value">{adversarial_topology_split_display}</div></div>
 <div class="card"><div>Adversarial action split</div><div class="value">{adversarial_action_split_display}</div></div>
+<div class="card"><div>Adversarial outcome split</div><div class="value">{adversarial_outcome_split_display}</div></div>
 <div class="card"><div>Behavioral relation exact</div><div class="value">{relation_display}</div></div>
 <div class="card"><div>Guidance stress recall</div><div class="value">{stress_display}</div></div>
 <div class="card"><div>Fresh evidence recall</div><div class="value">{fresh_evidence_display}</div></div>
