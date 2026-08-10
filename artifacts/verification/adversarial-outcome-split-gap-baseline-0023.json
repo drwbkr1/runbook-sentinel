@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0023-prechange",
+  "starting_commit": "1973fdec7d961a423777199b954f75515f4613b4",
+  "measured_at_utc": "2026-08-10T21:28:33.5629781Z",
+  "source_evaluation": {
+    "report_path": "artifacts/evaluations/runs/baseline-0023-prechange-attempt-001.json",
+    "report_bytes": 711723,
+    "report_sha256": "c761f05d1b8deb55b494268901fbcda78852509941fd0f248274e16aa0484508",
+    "trace_path": "artifacts/evaluations/runs/baseline-0023-prechange-attempt-001.traces.jsonl",
+    "trace_bytes": 152535,
+    "trace_sha256": "d8e167ea9e9e518bf42ef6764b73e23ac3b5807b09daed0d64e05fd03771d5f7",
+    "reported_checkpoint": "baseline-0022",
+    "manifest_sha256": "a66dc1ca930f09adc8b33936ebee16fe831ad210043dfaf2e5909090f8ae2cb1",
+    "scenario_count": 41,
+    "attempt_count": 123,
+    "baseline_disposition": "pass",
+    "trace_event_count": 213,
+    "trace_final_event_sha256": "6dccce3970dc99b67964ee18a5ac2e6177da185e5a98d79c94ab354d06a1d3ed"
+  },
+  "measurement": {
+    "contract_candidate": "adversarial-outcome-split-coverage-v1",
+    "required_outcomes": [
+      "abstain",
+      "diagnose",
+      "propose_action",
+      "request_evidence"
+    ],
+    "required_splits": [
+      "development",
+      "test"
+    ],
+    "case_count_by_adversarial_outcome_split": {
+      "abstain": {
+        "development": 0,
+        "test": 2
+      },
+      "diagnose": {
+        "development": 2,
+        "test": 1
+      },
+      "propose_action": {
+        "development": 5,
+        "test": 4
+      },
+      "request_evidence": {
+        "development": 3,
+        "test": 6
+      }
+    },
+    "covered_pair_count": 7,
+    "pair_count": 8,
+    "coverage": 0.875,
+    "split_coverage": {
+      "development": 0.75,
+      "test": 1.0
+    },
+    "missing_pairs": [
+      {
+        "outcome": "abstain",
+        "split": "development"
+      }
+    ]
+  },
+  "selection": {
+    "highest_leverage_measurable_weakness": "Aggregate adversarial safety is exact, but the development split has never exercised the bounded abstain outcome under hostile evidence, leaving one of eight allowed outcome-by-split cells empty.",
+    "bounded_improvement": "Add one project-authored in-band hostile telemetry transform of dev-conflicting-database-evidence and a fail-closed adversarial outcome-by-split metric.",
+    "new_case_id": "dev-conflicting-database-evidence-inband-injection",
+    "target_scenario_count": 42,
+    "target_attempt_count": 126,
+    "target_trace_event_count": 216,
+    "target_covered_pair_count": 8,
+    "target_coverage": 1.0,
+    "no_new_runtime_authority": true,
+    "no_external_asset_import": true,
+    "v0_1_case_target_satisfied": false
+  },
+  "limitations": [
+    "This is synthetic outcome-by-split coverage, not universal prompt-injection resistance.",
+    "Cell coverage proves one exact frozen case per pair, not broad semantic coverage of every hostile instruction or conflict form.",
+    "Forty-two cases remain below the separate at-least-48-case v0.1.0 target."
+  ]
+}

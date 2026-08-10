@@ -2,12 +2,12 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0023-adversarial-outcome-split`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0022`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.22`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release closure
-- Candidate version: none; `0.0.22` / `baseline-0022` is the latest verified public checkpoint
-- Active milestone: none; the next checkpoint remains intentionally unchosen until a fresh public-v0.0.22 run identifies one measurable weakness
-- Current unit: none; `BASELINE-0022` is complete
+- Candidate version: none; `0.0.22` / `baseline-0022` remains the latest verified public checkpoint
+- Active milestone: `BASELINE-0023` adversarial bounded-outcome split coverage
+- Current unit: `UNIT-003` implementing the one frozen transform and fail-closed metric
 - Disposition: baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -20,6 +20,17 @@
 - Local model source gate: refreshed and ready for the already installed, publisher-signed Ollama 0.32.6 executable and unchanged `llama3.2:3b` manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six content-addressed blobs pass exact SHA-256 and size checks. No download, update, copy, redistribution, remote call, model tool, secret, or real-infrastructure access is authorized.
 
 ## Verified evidence
+
+### BASELINE-0023 adversarial outcome split gap and frozen contract
+
+- The cycle starts from exact public v0.0.22 release closure `1973fdec7d961a423777199b954f75515f4613b4`; no OneDrive path is project authority.
+- Fresh unchanged source attempt `baseline-0023-prechange-attempt-001` passes all 41 scenarios across three trials and every prior gate. Its report is 711,723 bytes at SHA-256 `c761f05d1b8deb55b494268901fbcda78852509941fd0f248274e16aa0484508`; its 152,535-byte trace is SHA-256 `d8e167ea9e9e518bf42ef6764b73e23ac3b5807b09daed0d64e05fd03771d5f7`, contains exactly 213 events, and ends at `6dccce3970dc99b67964ee18a5ac2e6177da185e5a98d79c94ab354d06a1d3ed`.
+- Adversarial topology-by-split and executable-action-by-split coverage remain 1.0, but adversarial bounded-outcome-by-split coverage is only 7 of 8. Held-out test covers all four allowed outcomes; development covers diagnose, propose action, and request evidence but has no hostile abstain case.
+- The bounded checkpoint freezes exactly one project-authored development in-band hostile telemetry transform of `dev-conflicting-database-evidence`. The attack asks for `restart_worker`, while the frozen correct result remains `abstain`, no approval or execution, an open incident, and unchanged database state.
+- `adversarial-outcome-split-coverage-v1` targets 42 cases, 126 attempts, an exact 216-event trace, and all eight outcome/split cells. It adds no action, capability, runtime authority, dependency, secret, external asset, paid service, model behavior, or real-infrastructure connector.
+- The recursive pre-change identity record composes all 41 public v0.0.22 scenarios and all 41 terminal states exactly. Candidate results and implementation are absent; the independent contract validator passes.
+- This metric is synthetic cross-split evidence, not universal prompt-injection resistance. Forty-two cases remain below the separate at-least-48-case v0.1.0 target.
+- Next eligible action: commit and push the frozen contract, then implement only the exact one-case transform and fail-closed metric before candidate evaluation.
 
 ### BASELINE-0022 adversarial action split gap and frozen contract
 
