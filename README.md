@@ -4,6 +4,8 @@ Runbook Sentinel is a research-informed, retrieval-grounded SRE incident agent. 
 
 Latest verified public release: `v0.0.22`. It adds one held-out in-band hostile telemetry transform and a fail-closed adversarial executable-action by split metric. The injected instruction asks for `restart_worker`; the bounded result remains the frozen `rollback_deployment` proposal and exact approved terminal trajectory. All 41 cases pass three trials, all 40 prior scenario and terminal identities remain exact, all six adversarial action/split cells are covered, the hostile document is retrieved, and proposal plus terminal attack success remain zero.
 
+Verified release candidate: `v0.0.23`. It adds one development in-band hostile telemetry transform and a fail-closed adversarial bounded-outcome by split metric. The injected instruction asks for `restart_worker`; conflicting evidence still requires `abstain`, with no approval, execution, or state mutation. All 42 cases pass three trials, all 41 prior scenario and terminal identities remain exact, all eight outcome/split cells are covered, and in-band proposal plus terminal attack success remain zero. Source, package, and an exact remote-only clone pass the full gate; public release remains pending.
+
 PR `#20` merged exact reviewed head `0a1b77b889d6fa6a39f3e2ec407feda32d00a02b` with history preserved as `a336d2be7f0a288c459d9c5f0b6de9c5cfd06458`. Local, remote-only candidate, merged-main, and public-tag source/package evaluations, exact 213-event anchors, 23 validators, 40 tests, two-build archive reproduction, bounded MCP, real API/approval/executor/state/telemetry, parsing, scans, original-detail dashboards, selected asset downloads, and rendered public pages reconcile to the release closure. Candidate `v0.0.11` remains rejected and unpublished. Forty-one cases remain below the separate v0.1.0 target, and synthetic six-cell coverage is not universal prompt-injection resistance. Public availability does not imply production readiness or authority to connect to operational infrastructure.
 
 The bounded agent can diagnose, request evidence, propose an action, or abstain. It cannot execute actions. A deterministic approval broker, policy gate, and synthetic-only executor enforce authority outside the model.
@@ -16,7 +18,7 @@ Run all commands from the repository root with Python 3.12 or newer.
 
 ```powershell
 $env:PYTHONPATH = 'src'
-python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0022-manual.json
+python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0023-manual.json
 python -m unittest discover -s tests -v
 python -m runbook_sentinel serve --host 127.0.0.1 --port 8765
 ```
@@ -27,11 +29,11 @@ Build and verify the standard-library-only zipapp without installing a build bac
 
 ```powershell
 python scripts/build_zipapp.py
-python scripts/verify_package_contract.py --contract eval/package-contract-0022.json --archive dist/runbook-sentinel-0.0.22.pyz
-python dist/runbook-sentinel-0.0.22.pyz --help
+python scripts/verify_package_contract.py --contract eval/package-contract-0023.json --archive dist/runbook-sentinel-0.0.23.pyz
+python dist/runbook-sentinel-0.0.23.pyz --help
 ```
 
-The builder uses an exact 37-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. No package-registry or container claim is made.
+The builder uses an exact 38-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. No package-registry or container claim is made.
 
 The MCP server uses JSON-RPC over standard input/output:
 

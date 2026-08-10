@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0023",
+  "status": "pass",
+  "disposition": "clean_clone_verified",
+  "observed_at_utc": "2026-08-10T23:04:54.7016783Z",
+  "clone": {
+    "path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0023-clean-7325f69-20260810T225526Z",
+    "remote": "https://github.com/drwbkr1/runbook-sentinel.git",
+    "branch": "codex/baseline-0023-adversarial-outcome-split",
+    "commit": "7325f69bb3a7d39ae998fca9eb6b826aea000bb3",
+    "clone_flags": ["--no-local", "--single-branch"],
+    "started_clean": true,
+    "object_alternates_present": false
+  },
+  "source_gate": {
+    "compileall": "pass",
+    "static_and_package_validators": 25,
+    "unit_tests_passed": 41,
+    "unit_tests_total": 41,
+    "aggregate_evaluation": {
+      "report_path": "artifacts/evaluations/runs/baseline-0023-attempt-003.json",
+      "report_bytes": 727722,
+      "report_sha256": "a8ca81e9e21d1d912c9220996291f166bd32686727fa1c47b81e17bcac654a4d",
+      "trace_path": "artifacts/evaluations/runs/baseline-0023-attempt-003.traces.jsonl",
+      "trace_bytes": 155252,
+      "trace_sha256": "f3a35c378e6565897823669736c546ede6b0520daf048bd64853056f492c0d64",
+      "scenario_count": 42,
+      "attempt_count": 126,
+      "trace_event_count": 216,
+      "trace_final_event_sha256": "2c58b86934e1054624765d785e2a4283b66378bd3288327675ec5a9098fd0244",
+      "disposition": "pass"
+    }
+  },
+  "package_gate": {
+    "contract_sha256": "d4928f3dd13fa394aeb9d8de5723fbe9733dcc3effa9ef206a19c408a86d2932",
+    "entry_count": 38,
+    "runtime_dependencies": [],
+    "selected_archive": {
+      "path": "dist/runbook-sentinel-0.0.23.pyz",
+      "bytes": 500823,
+      "sha256": "90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917",
+      "checksum_bytes": 94,
+      "checksum_sha256": "1f9ea3101e61aded7fb0d7b6c8d603ca70f8ea921f6e127421ce59e1f0c490c1"
+    },
+    "independent_rebuild": {
+      "path": "dist/repro/runbook-sentinel-0.0.23.pyz",
+      "bytes": 500823,
+      "sha256": "90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917",
+      "byte_identical": true
+    },
+    "evaluation": {
+      "report_path": "artifacts/evaluations/runs/baseline-0023-clean-package-attempt-001.json",
+      "report_bytes": 727772,
+      "report_sha256": "7970ce9894e7dd4edc3876a4345900f853388603ab236b3b2cce2c6aec6a5907",
+      "trace_path": "artifacts/evaluations/runs/baseline-0023-clean-package-attempt-001.traces.jsonl",
+      "trace_bytes": 155278,
+      "trace_sha256": "3635a5532e8ac79c10a6a496956cf082c331fb09f13622f270c937a99bd6edb5",
+      "scenario_count": 42,
+      "attempt_count": 126,
+      "trace_event_count": 216,
+      "trace_final_event_sha256": "aa2e76c5e713edfcea74bd638458a3b05baaf31eac2e081b9fc424e97ba8269e",
+      "disposition": "pass"
+    }
+  },
+  "mcp": {
+    "source": {
+      "status": "pass",
+      "protocol_version": "2025-11-25",
+      "server_version": "0.0.23",
+      "tool_count": 3,
+      "approval_or_execution_tool_exposed": false,
+      "trace_chain_valid": true,
+      "trace_final_event_sha256": "033355f777392467dd3dad8893e38037e5dabdb712b919aafb9265a356128208"
+    },
+    "package": {
+      "status": "pass",
+      "protocol_version": "2025-11-25",
+      "server_version": "0.0.23",
+      "tool_count": 3,
+      "approval_or_execution_tool_exposed": false,
+      "trace_chain_valid": true,
+      "trace_final_event_sha256": "8a3a5c8eb6fccfd2ccda8d7b9fc698642bf26710b6032adf3f42be9c754cab45"
+    }
+  },
+  "real_surfaces": {
+    "source_api_approval_executor_state_telemetry": "pass",
+    "package_api_approval_executor_state_telemetry": "pass",
+    "source_native_receipt_sha256": "dca045d7d0633d16d2783b1310f01d4afe011f2c6b44664f3657b383644a3e68",
+    "package_native_receipt_sha256": "828e3be4c39dfaa31fcb6affebad8a3120db393828e38f700dfc44a0b7c5920e",
+    "source_dashboard_sha256": "2a3cecb32c82e112cec3769bec5a777df8e33651b7492b850575ee085d795d4e",
+    "package_dashboard_sha256": "c6657817659b071bd3c3dcc1f7eddd7b074b96d21e8ecc1379ed72f0202feaba",
+    "dashboard_width": 1440,
+    "dashboard_height": 1000,
+    "source_dashboard_visual_review": "pass_original_detail",
+    "package_dashboard_visual_review": "pass_original_detail"
+  },
+  "artifact_checks": {
+    "json_files_parsed": 428,
+    "json_parse_errors": 0,
+    "jsonl_files_parsed": 101,
+    "jsonl_records_parsed": 13963,
+    "jsonl_parse_errors": 0,
+    "broad_secret_pattern_files": 14,
+    "broad_matches_classification": "package-contract and package-verifier scanner definitions only",
+    "high_signal_secret_matches_after_scanner_definition_exclusion": 0,
+    "model_artifact_files": 0
+  },
+  "limitations": [
+    "Eight-of-eight adversarial bounded-outcome-by-split coverage is synthetic evidence, not universal prompt-injection resistance.",
+    "Forty-two scenarios remain below the separate at-least-48-case v0.1.0 target.",
+    "The verified runtime is synthetic-only and disconnected from real operational infrastructure.",
+    "Docker remains deferred and is not claimed."
+  ],
+  "next_gate": "premerge release audit and exact reviewed-head GitHub merge"
+}

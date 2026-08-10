@@ -187,7 +187,7 @@
       ],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": [
         "public implementation seal",
         "frozen manifest",
@@ -205,9 +205,9 @@
         "adversarial_outcome_split_coverage_8_of_8": "pass",
         "all_prior_source_package_and_real_surface_gates": "pass",
         "deterministic_archive_reproduction": "pass",
-        "remote_only_clean_clone": "pending"
+        "remote_only_clean_clone": "pass"
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [
         "The first post-manifest aggregate baseline verification passed the 91-file manifest and all preceding validators, then stopped because the terminal-state validator retained the v0.0.22 expectation of 26 no-action cases. BASELINE-0023 adds exactly one abstain case, so the verifier-only count was corrected to 27 before the manifest seal was committed or any candidate evaluation ran.",
         "The corrected aggregate verify_baseline.py invocation was mistakenly treated as validation-only, but the wrapper also generated and promoted baseline-0023-attempt-001 before the manifest-seal commit was public. The passing bytes and exact trace are retained under retained-invalid and are process-invalid and superseded. Because the frozen candidate contract requires the attempt-001 path, a fresh post-seal evaluation was written into the admissible runs namespace only after the invalid bytes were quarantined; the two runs remain distinct by path and hash.",
@@ -231,7 +231,7 @@
       ],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": [
         "verified candidate and clean-clone evidence",
         "release truth matrix and inherited director authority"
@@ -283,12 +283,20 @@
       "public v0.0.22 reconciliation",
       "fresh unchanged 41-case evaluation",
       "exact 213-event trace verification",
-      "7-of-8 adversarial outcome split gap measurement"
+      "7-of-8 adversarial outcome split gap measurement",
+      "public implementation and manifest seals",
+      "admissible 42-case candidate and exact 216-event trace",
+      "final-manifest source and package evaluation",
+      "25 validators and 41 tests",
+      "two byte-identical 38-entry archive builds",
+      "bounded source and package MCP",
+      "real source and package API, approval, executor, state, telemetry, and dashboard surfaces",
+      "remote-only no-alternates clean-clone verification"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.22 at 1973fdec7d961a423777199b954f75515f4613b4; BASELINE-0023 UNIT-002 contract freeze passes and UNIT-003 is implementing the bounded change.",
-    "next_action": "Commit the frozen contract, then implement only the one development in-band abstention transform and fail-closed metric before candidate evaluation.",
+    "current_checkpoint": "Public v0.0.22 remains the release; BASELINE-0023 candidate commit 7325f69bb3a7d39ae998fca9eb6b826aea000bb3 passes local and remote-only clean-clone source, package, MCP, real-surface, archive, scan, and dashboard gates.",
+    "next_action": "Reconcile release records, pass the premerge release audit, review the exact GitHub head, and merge only that expected head with history preserved.",
     "do_not_carry_forward": [
       "any claim that synthetic eight-cell coverage is universal prompt-injection resistance",
       "any authority, secret, dependency, external asset, paid service, or real-infrastructure connector",

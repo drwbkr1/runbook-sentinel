@@ -7,13 +7,13 @@
 - Latest verified checkpoint: public `v0.0.22`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release closure
 - Candidate version: `0.0.23` / `baseline-0023` has a first admissible local candidate; `0.0.22` / `baseline-0022` remains the latest verified public checkpoint
 - Active milestone: `BASELINE-0023` adversarial bounded-outcome split coverage
-- Current unit: `UNIT-004` validating the frozen 42-case candidate across source, package, real surfaces, and a remote-only clean clone
+- Current unit: `UNIT-005` reconciling release records and auditing the exact reviewed GitHub scope before merge
 - Disposition: baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
 - GitHub `main`: verified baseline-0022 release closure
-- GitHub pull request: `#20`, merged exact reviewed head `0a1b77b889d6fa6a39f3e2ec407feda32d00a02b` with history preserved under expected-head lock
+- GitHub pull request: no BASELINE-0023 PR yet; prior `#20` is the merged v0.0.22 checkpoint
 - GitHub release: public, non-draft `v0.0.22` with verified `.pyz` and `.sha256` assets
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
@@ -40,8 +40,11 @@
 - Source/package native receipt SHA-256 values are `aec966e0fc7781dd4dc24cb9a687bc06daa0999617fc6ef87f704d9acb3bc4f4` / `8bf279a267e0cf10699d51359f503d61f7f0d774cfa8d3007ec8afb27ba77d10`; MCP receipts are `c52080ebd1fd7e1a48a5778ec1cad5dffb91c26ee00824bc4b17867d185b536c` / `1c35953564b6179883d87400c621740bd8a28d0d9d3fe3f381d4ab2527f6ccdb`. Original-detail review confirms complete 1440 by 1000 source/package dashboards at SHA-256 `4d0e2718154764fefe7dcd1f465a6e53b8a037142a6b28d5698565f949180f93` / `ad9e00c5dd0646b466ab074513af60cc9ae9b73217e686a7415f53492ca75fe6`.
 - Parsed 436 JSON files and 13,740 records across 150 JSONL files with zero parse errors. All 14 broad credential-pattern files are package-contract scanner definitions; high-signal scanning after excluding those definitions has zero findings, and no model artifact is present.
 - Candidate evidence is public through commit `02c881076db08980354c51505ddfd6bfc1272624`. The 8,658-byte local receipt has disposition `candidate_ready_for_clean_clone` at SHA-256 `a037ba26588bc2f5139f15e81a5e47037633a3ed2ae49c0b613674349fac080d`.
+- Exact public candidate `7325f69bb3a7d39ae998fca9eb6b826aea000bb3` was cloned over HTTPS with `--no-local --single-branch` into `C:\Projects\Verification\runbook-sentinel-baseline-0023-clean-7325f69-20260810T225526Z`. The clone began clean at the expected head and has no object alternates.
+- The clone passes compilation, 25 validators, all 41 tests, fresh source/package 126-attempt evaluations with exact 216-event anchors, two exact selected-archive rebuilds, bounded MCP, both real API/state/telemetry paths, scans, and complete original-detail dashboards. Source report/trace hashes are `a8ca81e9e21d1d912c9220996291f166bd32686727fa1c47b81e17bcac654a4d` / `f3a35c378e6565897823669736c546ede6b0520daf048bd64853056f492c0d64`; package hashes are `7970ce9894e7dd4edc3876a4345900f853388603ab236b3b2cce2c6aec6a5907` / `3635a5532e8ac79c10a6a496956cf082c331fb09f13622f270c937a99bd6edb5`.
+- Clean source/package native receipt hashes are `dca045d7d0633d16d2783b1310f01d4afe011f2c6b44664f3657b383644a3e68` / `828e3be4c39dfaa31fcb6affebad8a3120db393828e38f700dfc44a0b7c5920e`; dashboard hashes are `2a3cecb32c82e112cec3769bec5a777df8e33651b7492b850575ee085d795d4e` / `c6657817659b071bd3c3dcc1f7eddd7b074b96d21e8ecc1379ed72f0202feaba`. The 5,118-byte clean-clone receipt is SHA-256 `9533314f2361b57270d349c1e3556990372724612387ea069d0b258a5a3741c8`.
 - This metric is synthetic cross-split evidence, not universal prompt-injection resistance. Forty-two cases remain below the separate at-least-48-case v0.1.0 target.
-- Next eligible action: commit and push the immutable candidate receipt, then perform remote-only clean-clone verification of that exact public commit.
+- Next eligible action: commit the clean-clone receipt and reconciled living records, then run the premerge release audit and exact GitHub scope review.
 
 ### BASELINE-0022 adversarial action split gap and frozen contract
 
