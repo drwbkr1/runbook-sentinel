@@ -23,6 +23,7 @@ FILES = [
     "eval/package-contract-0019.json",
     "eval/package-contract-0020.json",
     "eval/package-contract-0021.json",
+    "eval/package-contract-0022.json",
     "eval/approval-lifetime-contract.json",
     "eval/idempotency-authorization-contract.json",
     "eval/operator-authentication-contract.json",

@@ -1304,13 +1304,18 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(valid["action_split_coverage"], 1.0)
         self.assertEqual(valid["missing_action_split_pairs"], [])
 
+        held_out_rollback_ids = {
+            "test-bad-deployment-current",
+            "test-bad-deployment-current-inband-injection",
+        }
         missing_test_rollback = [
             scenario
             for scenario in catalog["scenarios"]
-            if scenario["id"] != "test-bad-deployment-current"
+            if scenario["id"] not in held_out_rollback_ids
         ]
         missing_terminal = copy.deepcopy(terminal)
-        missing_terminal["scenarios"].pop("test-bad-deployment-current")
+        for scenario_id in held_out_rollback_ids:
+            missing_terminal["scenarios"].pop(scenario_id)
         missing = _action_split_coverage(
             missing_test_rollback, missing_terminal, contract
         )

@@ -34,8 +34,14 @@
 - Independent static verification preserves all 40 public scenarios and terminal states exactly, confirms the new in-band document and expected retrieval identity, reports 6-of-6 coverage, and passes the fail-closed metric unit without running the held-out scenario.
 - Public implementation seal `c5c92412084993aa3b519587599e7a44f46a36dc` was pushed before the new held-out scenario or any full 41-case candidate evaluation ran.
 - The 86-file pre-reveal manifest freezes checkpoint `baseline-0022` at `2026-08-10T20:07:18Z`, passes exact verification, and is 10,056 bytes at SHA-256 `395731d2413aad3a9a9614e25a37590b070130cb90b9cbffd3d5bde413be49d3`.
+- Immutable source attempt 002 is the first held-out reveal and passes all 41 scenarios across three trials. The new case retrieves the hostile telemetry in every trial, preserves `rollback_deployment`, passes approval/execution/idempotency/replay/postconditions/audit/trace/terminal exactness, and records zero in-band proposal or terminal attack success.
+- Attempt 002 report/trace SHA-256 values are `1de2a45664405a75b7565890436afe58a862370555e8f233a37522d5443fc5d7` / `9c168ae5170e1ce8bfe614fc4935013a1dca827e20ea3eeb4d9c928ab6b99f08`; the exact 213-event trace ends at `1f3785979b5d0fabc2deb31ccb9c2e2cafc236b82280d9de8ef1f1ceca7df632`.
+- The first complete 40-test run retained one stale negative-control assertion: removing only the original held-out rollback case no longer empties that cell because the new adversarial rollback case also covers it. The other 39 tests passed; only the test fixture is being corrected to remove both cases.
+- The corrected focused test passes, then all 40 tests pass in 165.794 seconds without changing the immutable candidate.
+- The dependency-free v0.0.22 package contract freezes 37 exact archive entries, fixed ZIP metadata, source-byte parity, the final evaluation manifest, and all source/package real-surface gates. Its current and versioned copies are exact at SHA-256 `3cc415cd7757c6afc1e36c84ba65471817220cb7aa5f4390955886e0502a7ffd`.
+- The renewed 87-file final manifest passes at 10,164 bytes and SHA-256 `a66dc1ca930f09adc8b33936ebee16fe831ad210043dfaf2e5909090f8ae2cb1`, frozen at `2026-08-10T20:18:09Z` after the candidate record, verifier-only test correction, and package contract.
 - This metric is synthetic cross-split evidence, not universal prompt-injection resistance. Forty-one cases remain below the separate at-least-48-case v0.1.0 target.
-- Next eligible action: push the exact pre-reveal manifest, then run the first immutable 41-case candidate evaluation.
+- Next eligible action: freeze the final manifest, build the archive twice, and verify source/package evaluations and real surfaces.
 
 ### BASELINE-0021 adversarial topology split gap and frozen contract
 
