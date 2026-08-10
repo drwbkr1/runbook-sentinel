@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0021",
+  "candidate_version": "0.0.21",
+  "status": "pass",
+  "disposition": "candidate_ready_for_clean_clone",
+  "starting_public_checkpoint": {
+    "version": "0.0.20",
+    "commit": "f149ac2408f30b504b78844780b8533bed2ebfdc"
+  },
+  "implementation_seal_commit": "73ed1a14aa65580d57a176175f863e46921f3e05",
+  "manifest": {
+    "path": "eval/manifest.json",
+    "file_count": 82,
+    "sha256": "f7fee20f2f748c25749255429fd362e3dd94dea7176b0285ce8509465da93bb8"
+  },
+  "package_contract": {
+    "path": "eval/package-contract-0021.json",
+    "entry_count": 36,
+    "runtime_dependency_count": 0,
+    "sha256": "a6ef8963903275f25d10fa978ce3479c7612df3d82347217d6b01675e55776cb"
+  },
+  "selected_archive": {
+    "path": "dist/runbook-sentinel-0.0.21.pyz",
+    "checksum_path": "dist/runbook-sentinel-0.0.21.pyz.sha256",
+    "bytes": 468870,
+    "sha256": "99f2e8b3276e1220073603f3101f02b5f733e5d91b521e2a8f5bac646d64a3de",
+    "checksum_sha256": "605845394835d877167738311c733a13d9dfb9a7ddf3eead8c2d3e944d991e15",
+    "independent_rebuild_sha256": "99f2e8b3276e1220073603f3101f02b5f733e5d91b521e2a8f5bac646d64a3de"
+  },
+  "source_evaluation": {
+    "report_path": "artifacts/evaluations/runs/baseline-0021-attempt-005.json",
+    "report_sha256": "729f24aa1c038cc2d40c88927a3fabc1197fb815d3f3e6e542cb23af2396b7f8",
+    "trace_path": "artifacts/evaluations/runs/baseline-0021-attempt-005.traces.jsonl",
+    "trace_sha256": "28bf85127c81be0d517260e14ae4f817c3eff7ab9aebc0bfa1834fc6b6599355",
+    "trace_event_count": 204,
+    "trace_final_event_sha256": "05a8f83be95dec5a9aa219317abbe14f41b138dc7b0ddefc6d4bbf94dde858e3"
+  },
+  "package_evaluation": {
+    "report_path": "artifacts/evaluations/runs/baseline-0021-package-attempt-002.json",
+    "report_sha256": "dde39cbc5f99e85e56e7e5a464dd7ff53692d41fdf5d13b57dd808027b315dc7",
+    "trace_path": "artifacts/evaluations/runs/baseline-0021-package-attempt-002.traces.jsonl",
+    "trace_sha256": "b22f81e4c9912d83d47e651115ff1276ba28c2a17d935c69886892e096471d33",
+    "trace_event_count": 204,
+    "trace_final_event_sha256": "464bbe9dc829707f8656f6e3e151334c6b237382bdbd617b8f07d85e9ffaca7f"
+  },
+  "evaluation_summary": {
+    "scenario_count": 40,
+    "trials_per_scenario": 3,
+    "attempt_count": 120,
+    "adversarial_topology_split_coverage": 1.0,
+    "covered_adversarial_domain_split_pairs": 16,
+    "required_adversarial_domain_split_pairs": 16,
+    "all_nine_new_cases_exact": 1.0,
+    "all_31_prior_scenarios_exact": 1.0,
+    "all_31_prior_terminal_states_exact": 1.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "tool_trajectory_exact": 1.0,
+    "terminal_state_exact": 1.0,
+    "benign_utility": 1.0
+  },
+  "real_surfaces": {
+    "source_mcp": "pass",
+    "package_mcp": "pass",
+    "mcp_protocol_version": "2025-11-25",
+    "mcp_tool_count": 3,
+    "mcp_approval_or_execution_tool_exposed": false,
+    "source_http_api_approval_executor_state_telemetry": "pass",
+    "package_http_api_approval_executor_state_telemetry": "pass",
+    "source_native_receipt": "artifacts/verification/native-source-baseline-0021.json",
+    "source_native_receipt_sha256": "a71f27d845bb10dae372684918e2c1f8bae2f7514ddbbaa43dbfd038e13b93a5",
+    "package_native_receipt": "artifacts/verification/native-package-baseline-0021.json",
+    "package_native_receipt_sha256": "91e11a4390d0d04a916ac7ec3c675f9dcb63ac109416bdb61a3cf93ab05af057",
+    "source_dashboard": "artifacts/verification/dashboard-source-baseline-0021.png",
+    "source_dashboard_sha256": "8cb243b13bb4caa679e2be0a861012c559ac0a75101484fca7dd76cbdda47edc",
+    "package_dashboard": "artifacts/verification/dashboard-package-baseline-0021.png",
+    "package_dashboard_sha256": "f2d10a9a21ca6b3645519b0f8288271761ea919f96b789b2aea9bf6cc8f6e30f",
+    "dashboard_width": 1440,
+    "dashboard_height": 1000,
+    "dashboard_visual_review": "pass"
+  },
+  "regression_and_artifact_checks": {
+    "static_and_package_validators": 21,
+    "unit_tests_passed": 39,
+    "unit_tests_total": 39,
+    "json_files_parsed": 390,
+    "jsonl_files_parsed": 136,
+    "jsonl_records_parsed": 11590,
+    "broad_secret_pattern_matches": 11,
+    "broad_matches_classification": "package-contract scanner definitions only",
+    "high_signal_secret_matches": 0,
+    "model_artifact_files": 0
+  },
+  "retained_failures": [
+    "The first generic milestone validation used the repository's older status vocabulary and omitted current-schema terminal gates.",
+    "The first broader static implementation run retained old terminal counts; a focused unittest selector named the test class incorrectly; and one bare stale-payload verifier omitted PYTHONPATH=src.",
+    "Full-reveal attempts 001 and 002 used undersized command windows and produced no artifacts; attempt 003 is the first completed immutable result.",
+    "The first complete 39-test run retained two stale evidence assertions; corrected assertions pass without changing candidate behavior.",
+    "The first final-manifest source HTTP run used a stale Baseline 0020 rendered-label assertion. Every runtime check passed and the dashboard rendered Baseline 0021; the verifier-only correction forced a renewed manifest and archive pair.",
+    "A post-candidate trace check first used unsupported named flags; the corrected positional source and package invocations both verified their exact 204-event anchors.",
+    "The selected package dashboard's first original-detail viewer frame showed only the incident-table strip; the same unchanged PNG rendered completely at high detail."
+  ],
+  "limitations": [
+    "Adversarial topology split coverage is scenario-label coverage. The frozen dev-api hostile runbook is not selected by retrieval, so the legacy full-context comparison exposes hostile documents in 14 of 15 external-instruction scenarios.",
+    "Forty scenarios do not satisfy the separate at-least-48-case v0.1.0 target.",
+    "The system remains synthetic-only and disconnected from real operational infrastructure.",
+    "Docker is not claimed for this checkpoint."
+  ],
+  "next_gate": "remote-only clean-clone verification of the exact candidate commit"
+}

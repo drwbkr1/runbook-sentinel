@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0021",
+  "verified_at_utc": "2026-08-10T19:04:27Z",
+  "status": "pass",
+  "candidate": {
+    "commit": "d978cc95ff0c2a0b4e779638a97bd767ee063ca3",
+    "branch": "codex/baseline-0021-prechange-audit",
+    "clone_path": "C:/Projects/Verification/runbook-sentinel-baseline-0021-clean-d978cc9-20260810T185305Z",
+    "initial_worktree_clean": true,
+    "git_alternates_present": false,
+    "clone_mode": "git clone --no-local --single-branch from the public GitHub branch"
+  },
+  "source_gate": {
+    "manifest_sha256": "f7fee20f2f748c25749255429fd362e3dd94dea7176b0285ce8509465da93bb8",
+    "validators_passed": 21,
+    "test_count": 39,
+    "tests_passed": true,
+    "test_duration_seconds": 170.181,
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0021-attempt-001.json",
+    "evaluation_bytes": 694323,
+    "evaluation_sha256": "86962f5ac37616212b08259db9a907cf48aa314b063fca1ece09bb1551d544bc",
+    "trace_path": "artifacts/evaluations/runs/baseline-0021-attempt-001.traces.jsonl",
+    "trace_bytes": 146999,
+    "trace_sha256": "10398843f921e5ced20633ef756bee2889d923338b65993bb537663cd78ca63e",
+    "trace_event_count": 204,
+    "trace_final_event_sha256": "857baa77126a7d8fc8d0082b9aa66a0ed3f7b98d853e1156972549c12d437484",
+    "trace_anchor_independently_verified": true,
+    "scenario_count": 40,
+    "scenario_attempt_count": 120,
+    "adversarial_topology_split_coverage": 1.0,
+    "disposition": "pass"
+  },
+  "package_gate": {
+    "package_contract_sha256": "a6ef8963903275f25d10fa978ce3479c7612df3d82347217d6b01675e55776cb",
+    "archive_paths": [
+      "dist/runbook-sentinel-0.0.21.pyz",
+      "dist/repro/runbook-sentinel-0.0.21.pyz"
+    ],
+    "archive_bytes": 468870,
+    "archive_sha256": "99f2e8b3276e1220073603f3101f02b5f733e5d91b521e2a8f5bac646d64a3de",
+    "selected_archive_sha256_exact": true,
+    "independent_builds_byte_identical": true,
+    "entry_count": 36,
+    "runtime_dependencies": [],
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0021-package-attempt-003.json",
+    "evaluation_bytes": 694297,
+    "evaluation_sha256": "df17d6bf397c29c35db3cec6fd1880b8b3e23ac0546adae58c6485566235a256",
+    "trace_path": "artifacts/evaluations/runs/baseline-0021-package-attempt-003.traces.jsonl",
+    "trace_bytes": 146972,
+    "trace_sha256": "a00d37e51091a67132635312b49e87e74617d1aad44ff064ee57f48b0b50bdeb",
+    "trace_event_count": 204,
+    "trace_final_event_sha256": "62c6a79b62869f9edfc9d8eed37d1b8b70e7572fa726ee5cde46700422e7f87e",
+    "trace_anchor_independently_verified": true,
+    "scenario_count": 40,
+    "scenario_attempt_count": 120,
+    "adversarial_topology_split_coverage": 1.0,
+    "disposition": "pass"
+  },
+  "real_surfaces": {
+    "source_and_package_mcp_version": "0.0.21",
+    "source_and_package_mcp_protocol": "2025-11-25",
+    "source_and_package_mcp_tool_count": 3,
+    "mcp_approval_or_execution_tool_exposed": false,
+    "source_and_package_mcp_trace_chain_valid": true,
+    "source_and_package_mcp_trace_endpoint_anchored": true,
+    "source_mcp_trace_sha256": "0eff0ad18e31e6b1c258daa2ea59972d0849e91648f7161ff92131779b9d764a",
+    "source_mcp_anchor_file_sha256": "1de3396a12e725d0e413c9aceed75dff42c74de62ddb11091b23b025cec19677",
+    "package_mcp_trace_sha256": "bcd3984d85af967a8be258fcb069a25c0dde059b215bcfb5e07ab234950b89ff",
+    "package_mcp_anchor_file_sha256": "70df69e717f7c31ce233d27dec0b0d90d01253bef65687f376750fc7d70bc7f4",
+    "source_and_package_http_authentication_approval_execution_replay_postconditions_pass": true,
+    "source_and_package_sqlite_state_and_audit_pass": true,
+    "source_and_package_api_trace_chain_valid": true,
+    "source_and_package_api_trace_endpoint_anchored": true,
+    "source_and_package_evaluation_companion_trace_anchor_exact": true,
+    "authorization_before_body_parse": true,
+    "operator_identity_server_derived": true,
+    "cached_result_authorization": true,
+    "forbidden_authentication_material_absent": true
+  },
+  "rendered_dashboards": {
+    "dimensions": [
+      1440,
+      1000
+    ],
+    "source_sha256": "ba38f07e9fe1df7e765a6fc467953def30293556ec19ae73c87ad67f3a7f23c4",
+    "source_bytes": 79434,
+    "package_path": "artifacts/verification/dashboard-baseline-0021.png",
+    "package_sha256": "b05964cd67f336ae87061f387ad065b8581cc7eb5eebd991695d64615bb7ca68",
+    "package_bytes": 79591,
+    "visual_inspection": "pass: source original detail and package normalized high detail show Baseline 0021, evaluation pass, adversarial topology split coverage 1.0, all required exact metrics, authenticated external operator, disconnected real infrastructure, and both complete persisted-incident rows"
+  },
+  "artifact_parsing": {
+    "tracked_files": 603,
+    "tracked_json_files": 379,
+    "tracked_jsonl_files": 87,
+    "tracked_jsonl_records": 11388,
+    "post_verification_files": 650,
+    "post_verification_json_files": 384,
+    "post_verification_jsonl_files": 91,
+    "post_verification_jsonl_records": 11803,
+    "status": "pass"
+  },
+  "security_scan": {
+    "model_artifact_count": 0,
+    "package_contract_definition_files_excluded": 11,
+    "broad_credential_pattern_match_files": 11,
+    "credential_shaped_matches_outside_frozen_forbidden_pattern_definitions": 0,
+    "status": "pass"
+  },
+  "post_verification_changes_in_clone": {
+    "expected": true,
+    "scope": "fresh source and package evaluation attempts, latest pointer, two reproducibility archives, synthetic runtime state, MCP traces, and rendered dashboard only",
+    "source_contract_manifest_policy_or_authority_changed": false
+  },
+  "retained_observations": [
+    {
+      "stage": "baseline wrapper interface probe",
+      "result": "timed_out_without_authoritative_result",
+      "detail": "The first clean-clone invocation passed --help to a wrapper with no help-only path and entered verification under a 20-second shell window. It produced no accepted result; the unchanged clone reran the complete wrapper with a six-minute window and passed."
+    },
+    {
+      "stage": "dashboard renderer",
+      "result": "non_fatal_tooling_warning",
+      "detail": "The Chromium screenshot helper emitted its fallback task-provider diagnostic after writing complete valid PNG bytes; exit status, dimensions, hashes, content assertions, persisted-state checks, and visual inspection pass."
+    },
+    {
+      "stage": "package dashboard image viewer",
+      "result": "viewer_frame_artifact",
+      "detail": "The package PNG's first original-detail viewer frame showed only the incident-table strip. The same unchanged bytes rendered the complete dashboard at normalized high detail."
+    }
+  ],
+  "limitations": [
+    "Adversarial topology split coverage is scenario-label coverage; one frozen hostile dev-API runbook is not selected by retrieval, and the legacy full-context comparison exposes hostile documents in 14 of 15 external-instruction scenarios.",
+    "Forty scenarios do not satisfy the separate at-least-48-case v0.1.0 target.",
+    "The checkpoint remains a synthetic-only research-informed preview and is not authorized for real operational infrastructure.",
+    "Docker is not claimed for this checkpoint."
+  ],
+  "next_gate": "premerge release audit and exact public review"
+}

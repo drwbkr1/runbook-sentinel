@@ -2,7 +2,7 @@
 
 Runbook Sentinel is a research-informed, retrieval-grounded SRE incident agent. It is designed to remain useful, repeatable, and policy-compliant when evidence is incomplete, adversarial, conflicting, or stale.
 
-Latest verified public release: `v0.0.20`. It makes action coverage split-aware: each of the three existing synthetic executor actions now appears in both development and held-out test, with exact 6-of-6 action/split coverage across 31 cases and three trials. All 30 pre-change scenario and terminal identities remain exact. The selected dependency-free 35-entry zipapp is 436,861 bytes at SHA-256 `294e45519a5becfd8c39c5d8ff7fa277b7319864bcd9da7c125ac44a12966ded`; candidate and merged-public-main clones reproduce the exact archive and full runtime gates. Candidate `v0.0.11` remains rejected and unpublished with its stale rendered-label failure preserved. Thirty-one cases do not meet the separate at-least-48-case `v0.1.0` target. Public source or package availability does not imply production readiness or authorization to connect Runbook Sentinel to operational infrastructure.
+Latest verified public release: `v0.0.20`. Candidate `v0.0.21` makes adversarial coverage topology- and split-aware: all eight synthetic SRE domains now contain at least one adversarial scenario in both development and held-out test, with exact 16-of-16 scenario-label coverage across 40 cases and three trials. All 31 pre-change scenario and terminal identities remain exact. The selected dependency-free 36-entry zipapp is 468,870 bytes at SHA-256 `99f2e8b3276e1220073603f3101f02b5f733e5d91b521e2a8f5bac646d64a3de`; local and remote-only clean-clone source, package, MCP, real-surface, state, telemetry, parsing, scan, reproducibility, and rendered-dashboard gates pass. Review, merge, and public-release verification remain pending. One frozen hostile runbook is not selected by retrieval, so this metric is not a claim that every hostile document reaches the agent. Candidate `v0.0.11` remains rejected and unpublished. Forty cases do not meet the separate at-least-48-case `v0.1.0` target. Public source or package availability does not imply production readiness or authorization to connect Runbook Sentinel to operational infrastructure.
 
 The bounded agent can diagnose, request evidence, propose an action, or abstain. It cannot execute actions. A deterministic approval broker, policy gate, and synthetic-only executor enforce authority outside the model.
 
@@ -14,7 +14,7 @@ Run all commands from the repository root with Python 3.12 or newer.
 
 ```powershell
 $env:PYTHONPATH = 'src'
-python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0020-manual.json
+python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0021-manual.json
 python -m unittest discover -s tests -v
 python -m runbook_sentinel serve --host 127.0.0.1 --port 8765
 ```
@@ -25,11 +25,11 @@ Build and verify the standard-library-only zipapp without installing a build bac
 
 ```powershell
 python scripts/build_zipapp.py
-python scripts/verify_package_contract.py --contract eval/package-contract-0020.json --archive dist/runbook-sentinel-0.0.20.pyz
-python dist/runbook-sentinel-0.0.20.pyz --help
+python scripts/verify_package_contract.py --contract eval/package-contract-0021.json --archive dist/runbook-sentinel-0.0.21.pyz
+python dist/runbook-sentinel-0.0.21.pyz --help
 ```
 
-The builder uses an exact 35-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. No package-registry or container claim is made.
+The builder uses an exact 36-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. No package-registry or container claim is made.
 
 The MCP server uses JSON-RPC over standard input/output:
 
