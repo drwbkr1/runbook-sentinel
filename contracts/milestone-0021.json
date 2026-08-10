@@ -138,20 +138,38 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "ready",
+      "status": "complete",
       "inputs": [
         "eval/adversarial-topology-split-coverage-contract.json",
         "scripts/verify_adversarial_topology_split_coverage_contract.py"
       ],
-      "outputs": [],
-      "gates": {},
-      "disposition": null,
-      "retained_failures": [],
+      "outputs": [
+        "catalog schema 1.12 with nine exact transformed cases and terminal records",
+        "fail-closed adversarial-topology-split-coverage-v1 evaluator metric and hard gates",
+        "independent exact implementation verifier",
+        "candidate version 0.0.21 runtime identity and real-surface metric wiring",
+        "public implementation seal 73ed1a14aa65580d57a176175f863e46921f3e05"
+      ],
+      "gates": {
+        "all_31_prechange_scenarios_exact": "pass",
+        "all_31_prechange_terminal_states_exact": "pass",
+        "all_nine_transforms_exact": "pass",
+        "adversarial_topology_split_coverage_16_of_16": "pass",
+        "fail_closed_metric_unit": "pass",
+        "seven_development_cases_behaviorally_exact": "pass",
+        "implementation_sealed_before_held_out_reveal": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "The first broader static attempt retained the previous 12-actionable/19-no-action terminal count fixture; the frozen 40-case inventory requires 14 actionable and 26 no-action cases.",
+        "The first focused unittest selector used BaselineTests instead of the actual BaselineTest class and failed before test execution.",
+        "The first bare stale-payload verifier invocation omitted PYTHONPATH=src and failed before validation; the corrected repository-environment invocation passed."
+      ],
       "exit_condition_delta": {
         "expected": ["EXIT-001"],
         "observed": [],
-        "decision_value": "unknown",
-        "rationale": "Implementation has not started."
+        "decision_value": "enables_dependency",
+        "rationale": "The exact bounded implementation is publicly sealed after development-only checks and before either held-out transform or the full candidate evaluation is run."
       },
       "next_dependency": "UNIT-004"
     },
@@ -161,7 +179,7 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "ready",
       "inputs": [],
       "outputs": [],
       "gates": {},
@@ -224,7 +242,7 @@
   },
   "handoff": {
     "current_checkpoint": "verified public v0.0.20 with a validated frozen BASELINE-0021 pre-change contract",
-    "next_action": "Implement UNIT-003 exactly as frozen, then seal the implementation before revealing full candidate results.",
+    "next_action": "Freeze and verify the pre-reveal manifest, then run UNIT-004's first immutable full candidate evaluation and complete regression gates.",
     "do_not_carry_forward": [
       "Do not change an existing scenario or terminal state.",
       "Do not inspect or rewrite unfavorable held-out results after the implementation seal.",

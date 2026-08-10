@@ -5,9 +5,9 @@
 - Branch: `codex/baseline-0021-prechange-audit`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0020`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.20`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Candidate version: proposed `0.0.21` / `baseline-0021`; implementation has not started and release identity remains unfrozen
+- Candidate version: `0.0.21` / `baseline-0021`; implementation is sealed before held-out reveal and release identity remains unfrozen
 - Active milestone: `BASELINE-0021` adversarial topology split coverage
-- Current unit: `UNIT-002` complete; the pre-change identity and nine-case evaluation contract are frozen and validated; `UNIT-003` is the sole authorized ready unit
+- Current unit: `UNIT-003` complete at public implementation seal `73ed1a1`; `UNIT-004` is the sole authorized ready unit
 - Disposition: baseline-0021 `remediate` the measured 7-of-16 adversarial topology/split gap; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -30,7 +30,11 @@
 - `adversarial-topology-split-coverage-v1` is frozen with candidate results absent. Its independent validator passes, composes all 31 prior scenario and terminal identities exactly, confirms the 7-of-16 pre-change gap, and binds the nine transformations before implementation.
 - The first generic milestone validation attempt is retained: the draft used the repository's older status vocabulary and omitted current-schema terminal gate records. The normalized milestone validates without warnings and authorizes only `UNIT-003`.
 - The prior approved ACL source is reused only as existing research context. No external paper, code, data, model, package, service, credential, or other asset is imported.
-- Next eligible action: implement the frozen fail-closed metric and nine transformations, then seal the generic implementation before revealing the full candidate result.
+- Catalog schema 1.12 contains all nine exact transforms and their copied terminal records. The generic evaluator counts only adversarial cases in the exact 16 domain/split cells, reports missing pairs and per-split coverage, and adds four hard gates plus a rendered dashboard metric.
+- Static verification preserves all 31 prior scenario and terminal identities exactly and reports 16-of-16 coverage. The focused fail-closed metric test and all seven development transforms pass; both development execution cases satisfy external approval, idempotency, replay rejection, postconditions, audit, trace, and exact terminal state.
+- Retained pre-seal harness observations: the first terminal validator used the old 12/19 count fixture; the first focused test selector named the class incorrectly; and the first bare stale-payload verifier omitted `PYTHONPATH=src`. Corrected invocations pass without changing frozen behavior.
+- Public implementation seal `73ed1a14aa65580d57a176175f863e46921f3e05` was pushed before either held-out transform or the full candidate evaluation was run.
+- Next eligible action: freeze and verify the pre-reveal manifest, then run the first immutable full candidate evaluation and complete regression gates.
 
 ### BASELINE-0020 split-action coverage gap and frozen contract
 

@@ -8,6 +8,11 @@
 - Selected exactly one project-authored adversarial transform for each missing cell and froze `adversarial-topology-split-coverage-v1` before implementation. The independent validator composes all 31 prior scenario and terminal identities exactly, confirms candidate results are absent, and binds the 9-case target.
 - Retained the first generic milestone-validation failure caused by old repository status vocabulary and missing current-schema terminal gate fields. The normalized milestone passes without warnings; `UNIT-003` is the sole authorized ready unit.
 - No existing case, terminal state, runtime behavior, action, authority, dependency, secret, external asset, model call, or real-infrastructure boundary changed. Forty cases will remain below the separate v0.1.0 target of at least 48.
+- Implemented catalog schema 1.12 with exactly the nine frozen transforms and copied terminal records, plus a fail-closed adversarial domain-by-split metric, missing-pair output, per-split coverage, four hard gates, and a dashboard card. No action or authority changed.
+- The independent implementation verifier passes: all 31 prior scenario and terminal identities are exact, all nine transforms are exact, and adversarial topology split coverage is 16/16 with both splits at 1.0.
+- All seven development transforms pass their exact expected retrieval, diagnosis, action, trajectory, approval/execution, postcondition, replay, audit, trace, and terminal-state checks. The two held-out transforms and full candidate evaluation remained unrevealed.
+- Retained three pre-seal harness observations: the terminal validator still expected the 31-case 12/19 action split; a focused unittest selector used `BaselineTests` instead of `BaselineTest`; and a bare stale-payload invocation omitted `PYTHONPATH=src`. Corrected fixtures and invocations pass.
+- Pushed public implementation seal `73ed1a14aa65580d57a176175f863e46921f3e05` before freezing the candidate manifest or revealing held-out behavior.
 
 ## 2026-08-08 - BASELINE-0019 started
 
