@@ -7,7 +7,7 @@
 - Latest verified checkpoint: public `v0.0.22`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release closure
 - Candidate version: none; `0.0.22` / `baseline-0022` remains the latest verified public checkpoint
 - Active milestone: `BASELINE-0023` adversarial bounded-outcome split coverage
-- Current unit: `UNIT-003` implementing the one frozen transform and fail-closed metric
+- Current unit: `UNIT-004` validating the frozen 42-case candidate across source, package, real surfaces, and a remote-only clean clone
 - Disposition: baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -30,8 +30,10 @@
 - `adversarial-outcome-split-coverage-v1` targets 42 cases, 126 attempts, an exact 216-event trace, and all eight outcome/split cells. It adds no action, capability, runtime authority, dependency, secret, external asset, paid service, model behavior, or real-infrastructure connector.
 - The recursive pre-change identity record composes all 41 public v0.0.22 scenarios and all 41 terminal states exactly. Candidate results remain absent; the independent contract validator passes with the bounded implementation present.
 - The exact transform, eight-cell implementation metric, fail-closed unit test, and prior adversarial action/topology verifiers pass. The first complete suite passes 40 of 41 tests; only the intentional pre-seal manifest/checkpoint mismatch remains until the implementation commit is public and a new manifest is frozen.
+- Public implementation seal `780baddcd753bbd93f1ca6c3dfdfde7182bb5ebb` was pushed before any 42-case candidate evaluation ran. After the retained verifier-only count correction, the 91-file post-implementation manifest freezes `baseline-0023` at `2026-08-10T22:17:12Z`; its 10,692 bytes are SHA-256 `e9b8ed7ea530bcc7a5765a09dd0848339d5d9defb6d8723e435776720772b2fa`.
+- A corrected aggregate `verify_baseline.py` invocation passed every included check but also generated `baseline-0023-attempt-001` before the manifest-seal commit was public. That passing report and exact 216-event trace are retained as process-invalid and superseded; they are not candidate evidence.
 - This metric is synthetic cross-split evidence, not universal prompt-injection resistance. Forty-two cases remain below the separate at-least-48-case v0.1.0 target.
-- Next eligible action: commit and push the exact bounded implementation, then freeze the post-implementation manifest before any 42-case candidate evaluation.
+- Next eligible action: verify and publish the manifest seal, then run the first immutable 42-case candidate evaluation and exact 216-event trace.
 
 ### BASELINE-0022 adversarial action split gap and frozen contract
 

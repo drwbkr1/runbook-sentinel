@@ -144,7 +144,7 @@
       ],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": [
         "eval/adversarial-outcome-split-coverage-contract.json",
         "scripts/verify_adversarial_outcome_split_coverage_contract.py"
@@ -153,17 +153,17 @@
         "catalog schema 1.14 with one exact transformed case and terminal record",
         "fail-closed adversarial-outcome-split-coverage-v1 evaluator metric and hard gates",
         "independent exact implementation verifier",
-        "public implementation seal before candidate evaluation"
+        "public implementation seal 780baddcd753bbd93f1ca6c3dfdfde7182bb5ebb before candidate evaluation"
       ],
       "gates": {
-        "all_41_prechange_scenarios_exact": "pending",
-        "all_41_prechange_terminal_states_exact": "pending",
-        "new_transform_exact": "pending",
-        "adversarial_outcome_split_coverage_8_of_8": "pending",
-        "fail_closed_metric_unit": "pending",
-        "implementation_sealed_before_candidate_evaluation": "pending"
+        "all_41_prechange_scenarios_exact": "pass",
+        "all_41_prechange_terminal_states_exact": "pass",
+        "new_transform_exact": "pass",
+        "adversarial_outcome_split_coverage_8_of_8": "pass",
+        "fail_closed_metric_unit": "pass",
+        "implementation_sealed_before_candidate_evaluation": "pass"
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [
         "The first implementation-validator sequence passed the new contract and metric but the historical BASELINE-0022 action verifier treated the separately contracted successor case as an inventory violation. Historical implementation verifiers now require their own frozen cases exactly while permitting successor-contract cases; no scenario bytes were changed by the correction.",
         "The first focused unittest invocation named BaselineTests instead of the actual BaselineTest class and stopped before executing tests. The exact corrected two-test invocation passes.",
@@ -187,7 +187,7 @@
       ],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": [
         "public implementation seal",
         "frozen manifest",
@@ -208,7 +208,10 @@
         "remote_only_clean_clone": "pending"
       },
       "disposition": null,
-      "retained_failures": [],
+      "retained_failures": [
+        "The first post-manifest aggregate baseline verification passed the 91-file manifest and all preceding validators, then stopped because the terminal-state validator retained the v0.0.22 expectation of 26 no-action cases. BASELINE-0023 adds exactly one abstain case, so the verifier-only count was corrected to 27 before the manifest seal was committed or any candidate evaluation ran.",
+        "The corrected aggregate verify_baseline.py invocation was mistakenly treated as validation-only, but the wrapper also generated and promoted baseline-0023-attempt-001 before the manifest-seal commit was public. The passing bytes and exact trace are retained but are process-invalid and superseded; attempt 002 must be the first admissible candidate after the manifest seal is public."
+      ],
       "exit_condition_delta": {
         "expected": [
           "EXIT-001"

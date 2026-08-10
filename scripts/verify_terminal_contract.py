@@ -87,8 +87,8 @@ def main() -> None:
         errors.append("terminal-state contract ID must be synthetic-terminal-state-v6")
     if contract.get("idempotency_key_template") != "baseline-0010:{scenario_id}:{trial}":
         errors.append("idempotency template must bind baseline-0010")
-    if execute_count != 15 or no_execute_count != 26:
-        errors.append("terminal-state contract must contain 15 actionable and 26 no-action cases")
+    if execute_count != 15 or no_execute_count != 27:
+        errors.append("terminal-state contract must contain 15 actionable and 27 no-action cases")
 
     if errors:
         raise SystemExit(json.dumps({"status": "remediate", "errors": errors}, indent=2))
