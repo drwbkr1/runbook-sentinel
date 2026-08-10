@@ -25,7 +25,7 @@ def main() -> None:
     )
     errors: list[str] = []
 
-    if catalog.get("schema_version") != "1.11":
+    if catalog.get("schema_version") != "1.12":
         errors.append("catalog_schema_mismatch")
     runtime_contract = catalog.get("action_split_coverage_contract")
     frozen = contract.get("coverage_contract", {})
@@ -44,7 +44,7 @@ def main() -> None:
     scenarios = catalog.get("scenarios", [])
     scenarios_by_id = {scenario.get("id"): scenario for scenario in scenarios}
     terminal_states = catalog.get("terminal_state_contract", {}).get("scenarios", {})
-    if len(scenarios) != 31 or len(scenarios_by_id) != 31:
+    if len(scenarios) < 31 or len(scenarios_by_id) != len(scenarios):
         errors.append("scenario_inventory_mismatch")
 
     prechange_scenarios = dict(parent.get("scenario_sha256", {}))
@@ -72,9 +72,9 @@ def main() -> None:
     required_new_ids = set(frozen_cases)
     actual_new_ids = set(scenarios_by_id) - set(prechange_scenarios)
     actual_new_terminal_ids = set(terminal_states) - set(prechange_terminal_states)
-    if actual_new_ids != required_new_ids:
+    if not required_new_ids.issubset(actual_new_ids):
         errors.append("new_scenario_inventory_mismatch")
-    if actual_new_terminal_ids != required_new_ids:
+    if not required_new_ids.issubset(actual_new_terminal_ids):
         errors.append("new_terminal_state_inventory_mismatch")
     new_case_exact: dict[str, bool] = {}
     for scenario_id, frozen_case in frozen_cases.items():

@@ -35,8 +35,8 @@ def parse_timestamp(value: str) -> datetime:
 def main() -> None:
     catalog = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
     errors: list[str] = []
-    if catalog.get("schema_version") != "1.11":
-        errors.append("catalog schema must be 1.11")
+    if catalog.get("schema_version") != "1.12":
+        errors.append("catalog schema must be 1.12")
 
     contract = catalog.get("evidence_condition_contract")
     if not isinstance(contract, dict) or set(contract) != EXPECTED_CONTRACT_KEYS:

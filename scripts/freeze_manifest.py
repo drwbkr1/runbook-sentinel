@@ -32,6 +32,8 @@ FILES = [
     "eval/topology-split-coverage-prechange.json",
     "eval/action-split-coverage-contract.json",
     "eval/action-split-coverage-prechange.json",
+    "eval/adversarial-topology-split-coverage-contract.json",
+    "eval/adversarial-topology-split-coverage-prechange.json",
     "src/runbook_sentinel/__init__.py",
     "src/runbook_sentinel/__main__.py",
     "src/runbook_sentinel/data/scenarios.json",
@@ -73,6 +75,8 @@ FILES = [
     "scripts/verify_topology_split_coverage.py",
     "scripts/verify_action_split_coverage_contract.py",
     "scripts/verify_action_split_coverage.py",
+    "scripts/verify_adversarial_topology_split_coverage_contract.py",
+    "scripts/verify_adversarial_topology_split_coverage.py",
     "scripts/verify_behavioral_relations.py",
     "scripts/verify_retrieval_stress.py",
     "scripts/verify_stale_evidence_stress.py",
@@ -99,7 +103,7 @@ def sha256(path: Path) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--checkpoint", default="baseline-0020")
+    parser.add_argument("--checkpoint", default="baseline-0021")
     parser.add_argument("--frozen-at")
     parser.add_argument("--output", default="eval/manifest.json")
     args = parser.parse_args()

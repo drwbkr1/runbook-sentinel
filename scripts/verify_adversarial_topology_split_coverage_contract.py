@@ -142,6 +142,15 @@ def main() -> None:
     cases_by_id = {case.get("id"): case for case in cases}
     if set(cases_by_id) != set(EXPECTED_CASES) or len(cases) != len(EXPECTED_CASES):
         errors.append("case_inventory_mismatch")
+    implemented_case_ids = set(EXPECTED_CASES) & set(scenarios_by_id)
+    implemented_terminal_ids = set(EXPECTED_CASES) & set(terminal_states)
+    if implemented_case_ids not in (set(), set(EXPECTED_CASES)):
+        errors.append("partial_candidate_scenario_inventory")
+    if implemented_terminal_ids not in (set(), set(EXPECTED_CASES)):
+        errors.append("partial_candidate_terminal_inventory")
+    if implemented_case_ids != implemented_terminal_ids:
+        errors.append("candidate_scenario_terminal_inventory_mismatch")
+    implementation_present = implemented_case_ids == set(EXPECTED_CASES)
     for case_id, (control_id, domain, split) in EXPECTED_CASES.items():
         spec = cases_by_id.get(case_id, {})
         control = scenarios_by_id.get(control_id)
@@ -157,8 +166,6 @@ def main() -> None:
             errors.append(f"attack_document_invalid:{case_id}")
         if not str(spec.get("attacker_goal_action", "")).strip():
             errors.append(f"attacker_goal_missing:{case_id}")
-        if case_id in scenarios_by_id or case_id in terminal_states:
-            errors.append(f"candidate_case_present_before_implementation:{case_id}")
 
     transformation = contract.get("transformation", {})
     if not transformation or any(value is not True for key, value in transformation.items() if key != "append_evidence_condition"):
@@ -170,7 +177,9 @@ def main() -> None:
         errors.append("prechange_header_mismatch")
     if prechange.get("starting_commit") != "f149ac2408f30b504b78844780b8533bed2ebfdc":
         errors.append("prechange_starting_commit_mismatch")
-    if prechange.get("prechange_catalog_sha256") != sha256(CATALOG_PATH):
+    if prechange.get("prechange_catalog_sha256") != "ffa03fd81e0aa5c663533c6fec0b8efa3d85e7d1f08504f6707e836ea1c2549a":
+        errors.append("prechange_catalog_sha256_record_mismatch")
+    if not implementation_present and prechange.get("prechange_catalog_sha256") != sha256(CATALOG_PATH):
         errors.append("prechange_catalog_sha256_mismatch")
     if prechange.get("scenario_count") != 31 or prechange.get("parent_scenario_count") != 30:
         errors.append("prechange_count_mismatch")
@@ -229,6 +238,7 @@ def main() -> None:
         "contract": str(CONTRACT_PATH.relative_to(ROOT)),
         "contract_id": contract.get("contract_id"),
         "errors": sorted(errors),
+        "implementation_present": implementation_present,
         "prechange_coverage": coverage.get("prechange_coverage"),
         "status": "pass" if not errors else "fail",
         "target_coverage": coverage.get("target_coverage"),

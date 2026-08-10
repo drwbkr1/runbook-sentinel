@@ -2,10 +2,10 @@ $ErrorActionPreference = 'Stop'
 $env:PYTHONPATH = if ($env:RUNBOOK_SENTINEL_PYTHONPATH) { $env:RUNBOOK_SENTINEL_PYTHONPATH } else { 'src' }
 
 $pythonCmd = (Get-Command python).Source
-$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0020-stdout.log'
-$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0020-stderr.log'
-$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0020.db'
-$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0020-traces.jsonl'
+$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0021-stdout.log'
+$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0021-stderr.log'
+$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0021.db'
+$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0021-traces.jsonl'
 $traceAnchorPath = "$tracePath.anchor.json"
 $generatedRuntimeFiles = @(
     $databasePath,
@@ -25,8 +25,8 @@ $serverArgs = @(
     '-m', 'runbook_sentinel', 'serve',
     '--host', '127.0.0.1',
     '--port', '8877',
-    '--db', 'var\live-api-baseline-0020.db',
-    '--trace', 'artifacts\runtime\live-api-baseline-0020-traces.jsonl',
+    '--db', 'var\live-api-baseline-0021.db',
+    '--trace', 'artifacts\runtime\live-api-baseline-0021-traces.jsonl',
     '--evaluation', 'artifacts\evaluations\latest.json',
     '--operator-capability-stdin'
 )
@@ -316,7 +316,7 @@ try {
     if (-not $edge) {
         throw 'Microsoft Edge executable not found'
     }
-    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0020.png'
+    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0021.png'
     & $edge `
         --headless `
         --disable-gpu `
@@ -335,7 +335,7 @@ try {
     [System.IO.File]::WriteAllText($stdoutPath, $stdoutText.Replace($operatorCapability, '[redacted]'), [System.Text.UTF8Encoding]::new($false))
     [System.IO.File]::WriteAllText($stderrPath, $stderrText.Replace($operatorCapability, '[redacted]'), [System.Text.UTF8Encoding]::new($false))
 
-    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0020-traces.jsonl'
+    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0021-traces.jsonl'
     $traceAnchorText = Get-Content -Raw $traceAnchorPath
     $traceVerificationJson = & $pythonCmd -c "import json,sys; from runbook_sentinel.telemetry import verify_anchored_trace_files; print(json.dumps(verify_anchored_trace_files(sys.argv[1], sys.argv[2])))" $tracePath $traceAnchorPath
     if ($LASTEXITCODE -ne 0) { throw 'Live trace endpoint verifier failed' }
@@ -399,6 +399,7 @@ try {
         evaluation_evidence_condition_coverage = $evaluation.metrics.coverage.evidence_condition_split_coverage
         evaluation_topology_split_coverage = $evaluation.metrics.coverage.topology_split_coverage
         evaluation_action_split_coverage = $evaluation.metrics.coverage.action_split_coverage
+        evaluation_adversarial_topology_split_coverage = $evaluation.metrics.coverage.adversarial_topology_split_coverage
         evaluation_adversarial_split_coverage = $evaluation.metrics.coverage.adversarial_split_coverage
         evaluation_behavioral_relation_exact = $evaluation.metrics.behavioral_relations.exact_match_rate
         evaluation_retrieval_configuration = $evaluation.retrieval_configuration
@@ -443,6 +444,7 @@ try {
         dashboard_condition_metric = $dashboardResponse.Content.Contains('Evidence condition coverage')
         dashboard_topology_split_metric = $dashboardResponse.Content.Contains('Topology split coverage')
         dashboard_action_split_metric = $dashboardResponse.Content.Contains('Action split coverage')
+        dashboard_adversarial_topology_split_metric = $dashboardResponse.Content.Contains('Adversarial topology split')
         dashboard_relation_metric = $dashboardResponse.Content.Contains('Behavioral relation exact')
         dashboard_guidance_stress_metric = $dashboardResponse.Content.Contains('Guidance stress recall')
         dashboard_fresh_evidence_metric = $dashboardResponse.Content.Contains('Fresh evidence recall')
@@ -463,7 +465,7 @@ try {
     }
     $checks = [ordered]@{
         health_ok = $verification.health -eq 'ok'
-        checkpoint_exact = $verification.checkpoint -eq 'baseline-0020'
+        checkpoint_exact = $verification.checkpoint -eq 'baseline-0021'
         outcome_exact = $verification.outcome -eq 'propose_action'
         proposal_exact = $verification.proposed_action -eq 'restart_worker'
         retrieval_configuration_exact = $verification.retrieval_configuration -eq 'freshness-priority-lexical-v3'
@@ -491,7 +493,7 @@ try {
         idempotent_repeat_equal = [bool]$verification.idempotent_repeat_equal
         replay_rejected = $verification.replay_http_status -eq 409
         approval_token_absent_from_trace = -not $verification.approval_token_in_trace
-        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0020'
+        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0021'
         evaluation_agent_exact = $verification.evaluation_agent -eq 'deterministic-control-v2'
         evaluation_passed = $verification.evaluation_disposition -eq 'pass'
         evaluation_tool_trajectory_exact = $verification.evaluation_tool_trajectory_exact -eq 1.0
@@ -499,6 +501,7 @@ try {
         evaluation_evidence_condition_coverage = $verification.evaluation_evidence_condition_coverage -eq 1.0
         evaluation_topology_split_coverage = $verification.evaluation_topology_split_coverage -eq 1.0
         evaluation_action_split_coverage = $verification.evaluation_action_split_coverage -eq 1.0
+        evaluation_adversarial_topology_split_coverage = $verification.evaluation_adversarial_topology_split_coverage -eq 1.0
         evaluation_adversarial_split_coverage = $verification.evaluation_adversarial_split_coverage -eq 1.0
         evaluation_behavioral_relation_exact = $verification.evaluation_behavioral_relation_exact -eq 1.0
         evaluation_retrieval_configuration_exact = $verification.evaluation_retrieval_configuration -eq 'freshness-priority-lexical-v3'
@@ -543,6 +546,7 @@ try {
         dashboard_condition_metric_present = [bool]$verification.dashboard_condition_metric
         dashboard_topology_split_metric_present = [bool]$verification.dashboard_topology_split_metric
         dashboard_action_split_metric_present = [bool]$verification.dashboard_action_split_metric
+        dashboard_adversarial_topology_split_metric_present = [bool]$verification.dashboard_adversarial_topology_split_metric
         dashboard_relation_metric_present = [bool]$verification.dashboard_relation_metric
         dashboard_guidance_stress_metric_present = [bool]$verification.dashboard_guidance_stress_metric
         dashboard_fresh_evidence_metric_present = [bool]$verification.dashboard_fresh_evidence_metric
