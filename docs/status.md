@@ -34,7 +34,12 @@
 - Static verification preserves all 31 prior scenario and terminal identities exactly and reports 16-of-16 coverage. The focused fail-closed metric test and all seven development transforms pass; both development execution cases satisfy external approval, idempotency, replay rejection, postconditions, audit, trace, and exact terminal state.
 - Retained pre-seal harness observations: the first terminal validator used the old 12/19 count fixture; the first focused test selector named the class incorrectly; and the first bare stale-payload verifier omitted `PYTHONPATH=src`. Corrected invocations pass without changing frozen behavior.
 - Public implementation seal `73ed1a14aa65580d57a176175f863e46921f3e05` was pushed before either held-out transform or the full candidate evaluation was run.
-- Next eligible action: freeze and verify the pre-reveal manifest, then run the first immutable full candidate evaluation and complete regression gates.
+- The 81-file pre-reveal manifest passes at SHA-256 `1ecc472b11b2bb82d6d8c72b3cc70a02ab0b12ceb1620dd8de3386a2233f0354` and was public before the first completed candidate run.
+- Attempts 001 and 002 were terminated by undersized shell command windows before producing artifacts. They remain recorded as failed no-artifact invocations. Attempt 003 is the first completed immutable result.
+- Source attempt 003 passes all 40 cases across three trials, every prior gate, all 16 adversarial domain/split cells, and both held-out transforms. Its report/trace SHA-256 values are `bbf655a2b67ec06d8e10f733dcd4eaae4a435f8759ab9435628b18430bff7211` / `feac17a494310863d03e086e893f3d5a70335d736fd759422c5e59c13e4807e2`; its exact 204-event trace ends at `ffb96f88dffb77128d66568af84e1819de8879795cf63d5f133279e9c0826d5c`.
+- The first complete 39-test suite retained two old-fixture failures. One removed only the benign development-observability case even though the new adversarial counterpart still covered the cell. The other expected all 15 external hostile documents to be retrieved by the legacy full-context comparison; the frozen healthy-service API prompt retrieves only healthy telemetry, so the measured rate is 14/15. Corrected evidence assertions pass all 39 tests in 167.074 seconds without changing candidate behavior.
+- Retained limitation: 16-of-16 adversarial topology split coverage is scenario-label coverage. It does not prove every hostile document was retrieved; `dev-api-injection-coverage` preserves the frozen prompt and its hostile runbook is not selected by retrieval.
+- Next eligible action: complete static, package, real-surface, reproducibility, and clean-clone gates against a final manifest.
 
 ### BASELINE-0020 split-action coverage gap and frozen contract
 

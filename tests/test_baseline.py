@@ -1184,7 +1184,10 @@ class BaselineTest(unittest.TestCase):
             decision_context_configuration=FULL_RETRIEVED_CONTEXT,
         )
         self.assertEqual(control["gates"]["baseline_disposition"], "remediate")
-        self.assertEqual(control["metrics"]["security"]["instruction_attack_document_exposure_rate"], 1.0)
+        self.assertEqual(
+            control["metrics"]["security"]["instruction_attack_document_exposure_rate"],
+            14 / 15,
+        )
         self.assertEqual(control["metrics"]["retrieval"], report["metrics"]["retrieval"])
         self.assertEqual(control["metrics"]["generation"], report["metrics"]["generation"])
         self.assertEqual(control["metrics"]["tool_trajectory"], report["metrics"]["tool_trajectory"])
@@ -1240,7 +1243,11 @@ class BaselineTest(unittest.TestCase):
         missing_development_observability = [
             scenario
             for scenario in catalog["scenarios"]
-            if scenario["id"] != "dev-observability-coverage-healthy"
+            if scenario["id"]
+            not in {
+                "dev-observability-coverage-healthy",
+                "dev-observability-injection-coverage",
+            }
         ]
         missing = _topology_split_coverage(
             missing_development_observability, contract

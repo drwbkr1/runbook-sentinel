@@ -179,8 +179,13 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "ready",
-      "inputs": [],
+      "status": "in_progress",
+      "inputs": [
+        "public implementation seal 73ed1a14aa65580d57a176175f863e46921f3e05",
+        "81-file pre-reveal manifest 1ecc472b11b2bb82d6d8c72b3cc70a02ab0b12ceb1620dd8de3386a2233f0354",
+        "immutable source attempt 003 report and 204-event trace",
+        "frozen v0.0.21 package contract"
+      ],
       "outputs": [],
       "gates": {},
       "disposition": null,
@@ -189,7 +194,7 @@
         "expected": ["EXIT-001"],
         "observed": [],
         "decision_value": "unknown",
-        "rationale": "Candidate verification has not started."
+        "rationale": "The first immutable candidate and complete source regression suite pass; package, real-surface, reproducibility, and clean-clone gates remain."
       },
       "next_dependency": "UNIT-005"
     },
@@ -242,7 +247,7 @@
   },
   "handoff": {
     "current_checkpoint": "verified public v0.0.20 with a validated frozen BASELINE-0021 pre-change contract",
-    "next_action": "Freeze and verify the pre-reveal manifest, then run UNIT-004's first immutable full candidate evaluation and complete regression gates.",
+    "next_action": "Freeze the final source manifest, build and verify the dependency-free package, and complete source/package real-surface and clean-clone gates.",
     "do_not_carry_forward": [
       "Do not change an existing scenario or terminal state.",
       "Do not inspect or rewrite unfavorable held-out results after the implementation seal.",

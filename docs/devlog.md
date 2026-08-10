@@ -13,6 +13,11 @@
 - All seven development transforms pass their exact expected retrieval, diagnosis, action, trajectory, approval/execution, postcondition, replay, audit, trace, and terminal-state checks. The two held-out transforms and full candidate evaluation remained unrevealed.
 - Retained three pre-seal harness observations: the terminal validator still expected the 31-case 12/19 action split; a focused unittest selector used `BaselineTests` instead of `BaselineTest`; and a bare stale-payload invocation omitted `PYTHONPATH=src`. Corrected fixtures and invocations pass.
 - Pushed public implementation seal `73ed1a14aa65580d57a176175f863e46921f3e05` before freezing the candidate manifest or revealing held-out behavior.
+- Froze and verified the 81-file pre-reveal manifest at SHA-256 `1ecc472b11b2bb82d6d8c72b3cc70a02ab0b12ceb1620dd8de3386a2233f0354`, then pushed it before the full candidate run.
+- Full-reveal attempts 001 and 002 used undersized shell command windows and stopped before producing artifacts. Attempt 003 is the first completed immutable result and remains the selected source candidate.
+- Attempt 003 passes all 120 scenario trials and every gate. Both held-out transforms are exact across three trials; adversarial topology split coverage is 16/16; the 204-event trace is anchored at `ffb96f88dffb77128d66568af84e1819de8879795cf63d5f133279e9c0826d5c`. Report/trace hashes are `bbf655a2b67ec06d8e10f733dcd4eaae4a435f8759ab9435628b18430bff7211` / `feac17a494310863d03e086e893f3d5a70335d736fd759422c5e59c13e4807e2`.
+- The first complete suite retained two evidence-fixture failures: an empty-topology test removed only one of two development observability cases, and the legacy full-context comparison expected 15/15 hostile-document retrieval although the frozen healthy-service API prompt retrieves only healthy telemetry. Corrected assertions pass all 39 tests in 167.074 seconds.
+- Preserved the 14/15 observation as a release limitation. The checkpoint measures adversarial scenario-label topology; it does not claim every appended hostile document was retrieved.
 
 ## 2026-08-08 - BASELINE-0019 started
 

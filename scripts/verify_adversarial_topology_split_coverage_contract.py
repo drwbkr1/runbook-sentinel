@@ -301,6 +301,15 @@ def main() -> None:
             item.get("status") != "failed_no_artifact" for item in retained_attempts
         ):
             errors.append("candidate_retained_attempts_mismatch")
+        limitations = candidate_results.get("limitations", [])
+        if (
+            len(limitations) != 1
+            or limitations[0].get("id") != "dev-api-attack-document-not-retrieved"
+            or limitations[0].get("status") != "retained"
+            or "14 of 15" not in limitations[0].get("measured_effect", "")
+            or "scenario-label coverage" not in limitations[0].get("boundary", "")
+        ):
+            errors.append("candidate_limitation_mismatch")
 
     gates = contract.get("gates", {})
     for key in ("contract_valid", "all_sixteen_pairs_covered", "all_prior_source_package_and_real_surface_gates"):
