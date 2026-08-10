@@ -39,8 +39,9 @@
 - All 41 tests and 25 static/package validators pass. Source and package MCP expose exactly three diagnostic/read tools under protocol `2025-11-25` with no approval or execution surface. Both real API paths pass authentication, approval, executor, idempotency, replay, postconditions, SQLite, audit, telemetry, CSP, and dashboard gates.
 - Source/package native receipt SHA-256 values are `aec966e0fc7781dd4dc24cb9a687bc06daa0999617fc6ef87f704d9acb3bc4f4` / `8bf279a267e0cf10699d51359f503d61f7f0d774cfa8d3007ec8afb27ba77d10`; MCP receipts are `c52080ebd1fd7e1a48a5778ec1cad5dffb91c26ee00824bc4b17867d185b536c` / `1c35953564b6179883d87400c621740bd8a28d0d9d3fe3f381d4ab2527f6ccdb`. Original-detail review confirms complete 1440 by 1000 source/package dashboards at SHA-256 `4d0e2718154764fefe7dcd1f465a6e53b8a037142a6b28d5698565f949180f93` / `ad9e00c5dd0646b466ab074513af60cc9ae9b73217e686a7415f53492ca75fe6`.
 - Parsed 436 JSON files and 13,740 records across 150 JSONL files with zero parse errors. All 14 broad credential-pattern files are package-contract scanner definitions; high-signal scanning after excluding those definitions has zero findings, and no model artifact is present.
+- Candidate evidence is public through commit `02c881076db08980354c51505ddfd6bfc1272624`. The 8,658-byte local receipt has disposition `candidate_ready_for_clean_clone` at SHA-256 `a037ba26588bc2f5139f15e81a5e47037633a3ed2ae49c0b613674349fac080d`.
 - This metric is synthetic cross-split evidence, not universal prompt-injection resistance. Forty-two cases remain below the separate at-least-48-case v0.1.0 target.
-- Next eligible action: commit and push the complete candidate evidence, write its immutable receipt, then perform remote-only clean-clone verification of that exact public commit.
+- Next eligible action: commit and push the immutable candidate receipt, then perform remote-only clean-clone verification of that exact public commit.
 
 ### BASELINE-0022 adversarial action split gap and frozen contract
 

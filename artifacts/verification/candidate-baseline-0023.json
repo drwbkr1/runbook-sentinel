@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0023",
+  "candidate_version": "0.0.23",
+  "status": "pass",
+  "disposition": "candidate_ready_for_clean_clone",
+  "observed_at_utc": "2026-08-10T22:53:14.3650142Z",
+  "starting_public_checkpoint": {
+    "version": "0.0.22",
+    "commit": "1973fdec7d961a423777199b954f75515f4613b4"
+  },
+  "implementation_seal_commit": "780baddcd753bbd93f1ca6c3dfdfde7182bb5ebb",
+  "manifest_seal_commit": "89a4f4eaa3976d5d971696f62b6ba0c508d1c4e2",
+  "candidate_boundary_commit": "b94bdd302c3fe8114e9e24054294ad571e1c6e88",
+  "candidate_evidence_commit": "02c881076db08980354c51505ddfd6bfc1272624",
+  "manifest": {
+    "path": "eval/manifest.json",
+    "file_count": 92,
+    "bytes": 10800,
+    "sha256": "25da0d5848fa23af7a97491e737db71029c932fe856fa258c6849ecbc8f638b8"
+  },
+  "package_contract": {
+    "path": "eval/package-contract-0023.json",
+    "entry_count": 38,
+    "runtime_dependency_count": 0,
+    "sha256": "d4928f3dd13fa394aeb9d8de5723fbe9733dcc3effa9ef206a19c408a86d2932"
+  },
+  "selected_archive": {
+    "path": "dist/runbook-sentinel-0.0.23.pyz",
+    "checksum_path": "dist/runbook-sentinel-0.0.23.pyz.sha256",
+    "bytes": 500823,
+    "sha256": "90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917",
+    "checksum_sha256": "1f9ea3101e61aded7fb0d7b6c8d603ca70f8ea921f6e127421ce59e1f0c490c1",
+    "independent_rebuild_sha256": "90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917",
+    "independent_rebuild_bytes": 500823,
+    "independent_rebuild_output_disposition": "local reproducibility evidence; remote-only clean-clone verification must rebuild independently"
+  },
+  "admissible_candidate": {
+    "report_path": "artifacts/evaluations/runs/baseline-0023-attempt-001.json",
+    "report_sha256": "1939c7425a3108c3c9cddc88cc808e8bf9f8cf39423afb8f3575166680ba61f9",
+    "manifest_path": "artifacts/evaluations/runs/baseline-0023-attempt-001.manifest.json",
+    "manifest_sha256": "e9b8ed7ea530bcc7a5765a09dd0848339d5d9defb6d8723e435776720772b2fa",
+    "trace_path": "artifacts/evaluations/runs/baseline-0023-attempt-001.traces.jsonl",
+    "trace_sha256": "3b2effc0b7dcdb28aac9f1ed510739f3fefa4a3463405b72523d9bd90b866ebf",
+    "trace_event_count": 216,
+    "trace_final_event_sha256": "4ccb796787aae171c77ec1ae500c816e1832192c3761d93961775f67ac00001d",
+    "first_post_public_manifest_seal_candidate": true
+  },
+  "retained_process_invalid_run": {
+    "report_path": "artifacts/evaluations/retained-invalid/baseline-0023-attempt-001.json",
+    "report_sha256": "3f9bd2cff84bf7ce5468a86ba1faa8059cc73a2823c4601ba519015b58c66705",
+    "trace_path": "artifacts/evaluations/retained-invalid/baseline-0023-attempt-001.traces.jsonl",
+    "trace_sha256": "b0e7d9a111895945d43f92188d4373ec8945b99013d50896fd3ae9d46cc86bd1",
+    "disposition": "process_invalid_superseded",
+    "reason": "verify_baseline.py generated the run before the manifest-seal commit was public"
+  },
+  "source_evaluation": {
+    "report_path": "artifacts/evaluations/runs/baseline-0023-source-final-attempt-001.json",
+    "report_sha256": "0cc754036fe3b535d726aa473e206a9e2f5c96cb542ffff3338b683b0b731294",
+    "trace_path": "artifacts/evaluations/runs/baseline-0023-source-final-attempt-001.traces.jsonl",
+    "trace_sha256": "46be51a0836439f2c7d2c69877eaa78598fab14e209692f0214493efaa13a730",
+    "trace_event_count": 216,
+    "trace_final_event_sha256": "f3e8bcee1400587166323ef787a0d575003e5d16189e2b98e91ef2109e42ac63"
+  },
+  "package_evaluation": {
+    "report_path": "artifacts/evaluations/runs/baseline-0023-package-attempt-001.json",
+    "report_sha256": "946d3d510aadf71a8ae9fc2ade1a863fda59504d9067a084312cb560fecb7adb",
+    "trace_path": "artifacts/evaluations/runs/baseline-0023-package-attempt-001.traces.jsonl",
+    "trace_sha256": "bef800a66e087575144dfc045dbd92a20f307b276ae6c588d0c27ef98c0ad40a",
+    "trace_event_count": 216,
+    "trace_final_event_sha256": "33e4f22513eb0bacbd798a145d4f6c9e45884643f63f4e5ced789fdbd3cb38cc"
+  },
+  "evaluation_summary": {
+    "scenario_count": 42,
+    "trials_per_scenario": 3,
+    "attempt_count": 126,
+    "adversarial_outcome_split_coverage": 1.0,
+    "covered_adversarial_outcome_split_pairs": 8,
+    "required_adversarial_outcome_split_pairs": 8,
+    "adversarial_action_split_coverage": 1.0,
+    "adversarial_topology_split_coverage": 1.0,
+    "all_41_prior_scenarios_exact": 1.0,
+    "all_41_prior_terminal_states_exact": 1.0,
+    "new_inband_attack_document_exposure": 1.0,
+    "new_inband_proposal_attack_success": 0.0,
+    "new_inband_terminal_attack_success": 0.0,
+    "tool_trajectory_exact": 1.0,
+    "terminal_state_exact": 1.0,
+    "repeated_trial_reliability": 1.0,
+    "benign_utility": 1.0,
+    "model_calls": 0,
+    "estimated_external_api_cost_usd": 0.0
+  },
+  "real_surfaces": {
+    "source_mcp": "pass",
+    "package_mcp": "pass",
+    "mcp_protocol_version": "2025-11-25",
+    "mcp_tool_count": 3,
+    "mcp_approval_or_execution_tool_exposed": false,
+    "source_mcp_receipt": "artifacts/verification/mcp-baseline-0023-source.json",
+    "source_mcp_receipt_sha256": "c52080ebd1fd7e1a48a5778ec1cad5dffb91c26ee00824bc4b17867d185b536c",
+    "package_mcp_receipt": "artifacts/verification/mcp-baseline-0023-package.json",
+    "package_mcp_receipt_sha256": "1c35953564b6179883d87400c621740bd8a28d0d9d3fe3f381d4ab2527f6ccdb",
+    "source_http_api_approval_executor_state_telemetry": "pass",
+    "package_http_api_approval_executor_state_telemetry": "pass",
+    "source_native_receipt": "artifacts/verification/native-baseline-0023-source.json",
+    "source_native_receipt_sha256": "aec966e0fc7781dd4dc24cb9a687bc06daa0999617fc6ef87f704d9acb3bc4f4",
+    "package_native_receipt": "artifacts/verification/native-baseline-0023-package.json",
+    "package_native_receipt_sha256": "8bf279a267e0cf10699d51359f503d61f7f0d774cfa8d3007ec8afb27ba77d10",
+    "source_dashboard": "artifacts/verification/dashboard-baseline-0023-source.png",
+    "source_dashboard_sha256": "4d0e2718154764fefe7dcd1f465a6e53b8a037142a6b28d5698565f949180f93",
+    "package_dashboard": "artifacts/verification/dashboard-baseline-0023-package.png",
+    "package_dashboard_sha256": "ad9e00c5dd0646b466ab074513af60cc9ae9b73217e686a7415f53492ca75fe6",
+    "dashboard_width": 1440,
+    "dashboard_height": 1000,
+    "dashboard_visual_review": "pass"
+  },
+  "regression_and_artifact_checks": {
+    "static_and_package_validators": 25,
+    "unit_tests_passed": 41,
+    "unit_tests_total": 41,
+    "json_files_parsed_before_receipt": 436,
+    "jsonl_files_parsed": 150,
+    "jsonl_records_parsed": 13740,
+    "broad_secret_pattern_files": 14,
+    "broad_matches_classification": "package-contract and package-verifier scanner definitions only",
+    "high_signal_secret_matches_after_scanner_definition_exclusion": 0,
+    "model_artifact_files": 0
+  },
+  "retained_failures": [
+    "The first historical predecessor verifier rejected the separately contracted successor case; it now requires its own frozen cases exactly while permitting successor-contract cases.",
+    "The first focused unit-test wrapper used the wrong test class name and stopped before running tests; the corrected invocation passes.",
+    "The first full implementation suite stopped only at the intentional pre-seal manifest checkpoint mismatch.",
+    "The first aggregate post-manifest gate stopped at the stale v0.0.22 no-action count; the verifier-only count was corrected before candidate admission.",
+    "A corrected aggregate invocation unexpectedly generated a passing pre-public-seal run; its exact bytes are retained as process-invalid and superseded.",
+    "The first standalone candidate trace-verifier invocation omitted PYTHONPATH=src; the corrected invocation verifies the unchanged trace.",
+    "Two no-argument help probes executed source verifiers without PYTHONPATH; corrected bounded invocations pass.",
+    "Both successful dashboard captures emitted Chromium's post-write renderer-task diagnostic; the unchanged complete PNGs pass original-detail review."
+  ],
+  "limitations": [
+    "Eight-of-eight adversarial bounded-outcome-by-split coverage is frozen synthetic evidence, not universal prompt-injection resistance.",
+    "The broader adversarial topology metric remains scenario-label coverage; it does not prove every hostile document is retrieved.",
+    "Forty-two scenarios do not satisfy the separate at-least-48-case v0.1.0 target.",
+    "The system remains synthetic-only and disconnected from real operational infrastructure.",
+    "Docker is not claimed for this checkpoint."
+  ],
+  "next_gate": "remote-only clean-clone verification of the exact candidate receipt commit"
+}
