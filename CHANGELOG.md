@@ -6,6 +6,7 @@
 - Add exactly nine project-authored adversarial transforms and preserve canonical identities for all 31 pre-change scenarios and terminal-state records; add no action, capability, authority, dependency, secret, external asset, or real-infrastructure connector.
 - Pass the first completed immutable 120-attempt reveal, all 39 tests, 21 validators, source/package final-manifest evaluations with exact 204-event anchors, bounded three-tool MCP, and real loopback authentication/approval/executor/replay/state/telemetry checks.
 - Build two byte-identical dependency-free 36-entry, 468,870-byte selected zipapps at SHA-256 `99f2e8b3276e1220073603f3101f02b5f733e5d91b521e2a8f5bac646d64a3de` and visually verify complete source/package dashboards.
+- Reproduce the exact archive twice from a remote-only no-alternates clone of public candidate `d978cc95ff0c2a0b4e779638a97bd767ee063ca3`; independently pass 21 validators, 39 tests, fresh source/package 120-attempt evaluations, bounded MCP, real API/state/telemetry, parsing, scans, and complete dashboard inspection.
 - Retain the two no-artifact command-window failures, stale fixtures, stale rendered-label verifier, superseded first archive pair, and package viewer frame. One frozen hostile dev-API runbook is not retrieved, so 16-of-16 scenario-label coverage is not universal hostile-document exposure evidence. Forty cases remain below the v0.1.0 target.
 
 ## 0.0.20 - 2026-08-09

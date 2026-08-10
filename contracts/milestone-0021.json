@@ -179,22 +179,50 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": [
         "public implementation seal 73ed1a14aa65580d57a176175f863e46921f3e05",
         "81-file pre-reveal manifest 1ecc472b11b2bb82d6d8c72b3cc70a02ab0b12ceb1620dd8de3386a2233f0354",
         "immutable source attempt 003 report and 204-event trace",
         "frozen v0.0.21 package contract"
       ],
-      "outputs": [],
-      "gates": {},
-      "disposition": null,
-      "retained_failures": [],
+      "outputs": [
+        "first completed immutable 120-attempt candidate and exact 204-event trace",
+        "82-file final manifest and frozen 36-entry dependency-free package contract",
+        "byte-identical selected and independent 468870-byte zipapps",
+        "selected source and package evaluations, bounded MCP, real API, approval, executor, state, telemetry, and rendered dashboard evidence",
+        "artifacts/verification/candidate-baseline-0021.json",
+        "artifacts/verification/clean-clone-baseline-0021.json"
+      ],
+      "gates": {
+        "all_40_scenarios_exact_across_three_trials": "pass",
+        "all_31_prechange_scenario_and_terminal_identities_exact": "pass",
+        "all_nine_transforms_exact": "pass",
+        "adversarial_topology_split_coverage_16_of_16": "pass",
+        "all_39_tests": "pass",
+        "all_21_validators": "pass",
+        "source_and_package_evaluation_trace_anchors": "pass",
+        "source_and_package_mcp_authority_boundary": "pass",
+        "source_and_package_api_approval_executor_state_telemetry": "pass",
+        "deterministic_archive_reproduction": "pass",
+        "rendered_dashboard_visual_inspection": "pass",
+        "structured_artifact_parsing_and_security_scan": "pass",
+        "remote_only_clean_clone": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "Full-reveal attempts 001 and 002 used undersized shell command windows and produced no artifacts; attempt 003 is the first completed immutable result.",
+        "The first complete 39-test run exposed two stale evidence assertions; corrected assertions pass without changing candidate behavior.",
+        "The first final-manifest HTTP run used a stale Baseline 0020 rendered-label assertion; the verifier-only correction forced a renewed manifest and archive pair.",
+        "A post-candidate trace invocation first used unsupported named flags; corrected positional source and package checks pass.",
+        "The first clean-clone baseline wrapper invocation passed --help to a wrapper without a help-only path and timed out before an authoritative result; the unchanged complete rerun passed.",
+        "The package dashboard's first original-detail viewer frame showed only the incident-table strip; the unchanged PNG rendered completely at normalized high detail."
+      ],
       "exit_condition_delta": {
         "expected": ["EXIT-001"],
         "observed": [],
-        "decision_value": "unknown",
-        "rationale": "The first immutable candidate and complete source regression suite pass; package, real-surface, reproducibility, and clean-clone gates remain."
+        "decision_value": "risk_reduction",
+        "rationale": "The exact public candidate commit passes local and remote-only source, package, real-surface, reproducibility, parsing, scan, and rendered-dashboard gates without changing behavior or authority."
       },
       "next_dependency": "UNIT-005"
     },
@@ -204,8 +232,12 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "planned",
-      "inputs": [],
+      "status": "in_progress",
+      "inputs": [
+        "exact public candidate commit d978cc95ff0c2a0b4e779638a97bd767ee063ca3",
+        "artifacts/verification/candidate-baseline-0021.json",
+        "artifacts/verification/clean-clone-baseline-0021.json"
+      ],
       "outputs": [],
       "gates": {},
       "disposition": null,
@@ -214,7 +246,7 @@
         "expected": ["EXIT-001"],
         "observed": [],
         "decision_value": "unknown",
-        "rationale": "Release work has not started."
+        "rationale": "Every candidate and clean-clone dependency is satisfied; premerge audit and exact public review are now eligible."
       },
       "next_dependency": null
     }
@@ -243,11 +275,15 @@
       "public v0.0.20 is independently verified",
       "fresh 31-case pre-change evaluation and exact 165-event trace pass",
       "the exact 7-of-16 adversarial topology split gap is retained"
+      ,
+      "all 40 scenarios and all 31 pre-change scenario and terminal identities are exact across the selected candidate",
+      "all 39 tests, 21 validators, source and package 120-attempt evaluations, bounded MCP, real API/state/telemetry, deterministic package reproduction, rendered dashboards, parsing, and scans pass",
+      "a remote-only no-alternates clone of exact public candidate d978cc95ff0c2a0b4e779638a97bd767ee063ca3 independently passes the complete gate stack"
     ]
   },
   "handoff": {
-    "current_checkpoint": "verified public v0.0.20 with a validated frozen BASELINE-0021 pre-change contract",
-    "next_action": "Freeze the final source manifest, build and verify the dependency-free package, and complete source/package real-surface and clean-clone gates.",
+    "current_checkpoint": "verified public v0.0.20 plus exact BASELINE-0021 candidate d978cc95ff0c2a0b4e779638a97bd767ee063ca3 with passing local and remote-only clean-clone gates",
+    "next_action": "Run the premerge release audit, conduct exact public review, merge under expected-head lock, and verify merged public main before release.",
     "do_not_carry_forward": [
       "Do not change an existing scenario or terminal state.",
       "Do not inspect or rewrite unfavorable held-out results after the implementation seal.",
