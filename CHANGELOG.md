@@ -7,7 +7,8 @@
 - Preserve all 41 prior scenario and terminal identities, every action/capability/authority boundary, the dependency-free runtime, and the synthetic-only disconnected-infrastructure scope.
 - Pass 42 cases across three trials, exact 216-event traces, 25 validators, 41 tests, bounded three-tool MCP, and source/package real authentication/approval/executor/replay/state/telemetry/dashboard surfaces.
 - Build two byte-identical 38-entry, 500,823-byte zipapps at SHA-256 `90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917`; reproduce those exact bytes and the complete gate from a remote-only no-alternates clone of public candidate `7325f69bb3a7d39ae998fca9eb6b826aea000bb3`.
-- Retain the predecessor-verifier stop, wrapper errors, pre-seal checkpoint failure, process-invalid pre-public-seal run, and Chromium diagnostics alongside corrected results. Eight-cell coverage is synthetic evidence, not universal prompt-injection resistance; 42 cases remain below the v0.1.0 target. Public release is pending exact review, merge, final audit, asset, page, and public-tag verification.
+- Retain the predecessor-verifier stop, wrapper errors, pre-seal checkpoint failure, process-invalid pre-public-seal run, and Chromium diagnostics alongside corrected results. Eight-cell coverage is synthetic evidence, not universal prompt-injection resistance; 42 cases remain below the v0.1.0 target.
+- Pass the premerge audit; merge exact reviewed PR `#21` head `a13ebd27824c2443349fff2be199710b04c76f84` under expected-head lock with history preserved as `30e4af029c980e90d056f459b59201c34f4f3dee`; repeat the complete stack from a fresh no-alternates public-main clone; pass the final release audit; reconcile the annotated tag, selected release assets, downloaded bytes, rendered public pages, and fresh public-tag verification.
 
 ## 0.0.22 - 2026-08-10
 

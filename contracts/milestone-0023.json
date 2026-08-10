@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0023",
   "project_profile_ref": null,
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -61,8 +61,11 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "All 42 cases pass three trials with all 41 prior scenario and terminal identities exact and all eight adversarial outcome/split cells covered.",
+        "Exact candidate, reviewed merge, merged-main, final audit, annotated tag, selected public assets, downloaded bytes, rendered pages, and public-tag verification reconcile."
+      ]
     }
   ],
   "units": [
@@ -231,7 +234,7 @@
       ],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": [
         "verified candidate and clean-clone evidence",
         "release truth matrix and inherited director authority"
@@ -243,19 +246,25 @@
         "fresh merged-main and public-tag verification"
       ],
       "gates": {
-        "release_audit_verified": "pending",
-        "exact_reviewed_head_merged_with_history_preserved": "pending",
-        "public_refs_assets_downloads_pages_reconciled": "pending",
-        "fresh_public_tag_source_package_and_real_surfaces": "pending"
+        "release_audit_verified": "pass",
+        "exact_reviewed_head_merged_with_history_preserved": "pass",
+        "public_refs_assets_downloads_pages_reconciled": "pass",
+        "fresh_public_tag_source_package_and_real_surfaces": "pass"
       },
-      "disposition": null,
-      "retained_failures": [],
+      "disposition": "pass",
+      "retained_failures": [
+        "Premerge review retained the audit-only successor commit as a one-path scope addition before exact expected-head merge.",
+        "Merged-main verification retained repeated MCP endpoint checks and Chromium post-write diagnostics beside exact passing evidence.",
+        "The process-invalid pre-public-manifest-seal evaluation remains quarantined and superseded rather than rewritten as candidate evidence."
+      ],
       "exit_condition_delta": {
         "expected": [
           "EXIT-001"
         ],
-        "observed": [],
-        "decision_value": "unknown",
+        "observed": [
+          "EXIT-001"
+        ],
+        "decision_value": "advances_exit",
         "rationale": "Release only the exact independently verified checkpoint and reconcile every public surface immediately."
       },
       "next_dependency": null
@@ -291,12 +300,16 @@
       "two byte-identical 38-entry archive builds",
       "bounded source and package MCP",
       "real source and package API, approval, executor, state, telemetry, and dashboard surfaces",
-      "remote-only no-alternates clean-clone verification"
+      "remote-only no-alternates clean-clone verification",
+      "exact reviewed head merged with history preserved",
+      "fresh no-alternates public-main verification",
+      "final ten-check release audit",
+      "annotated tag, selected public assets, downloaded-byte identity, rendered public pages, and fresh public-tag verification"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.22 remains the release; BASELINE-0023 candidate commit 7325f69bb3a7d39ae998fca9eb6b826aea000bb3 passes local and remote-only clean-clone source, package, MCP, real-surface, archive, scan, and dashboard gates.",
-    "next_action": "Reconcile release records, pass the premerge release audit, review the exact GitHub head, and merge only that expected head with history preserved.",
+    "current_checkpoint": "Public v0.0.23 is the latest verified checkpoint; exact reviewed merge, final release audit, annotated tag, selected assets, downloaded bytes, rendered public pages, and fresh public-tag source/package and real-surface verification reconcile to the release closure.",
+    "next_action": "Begin the next cycle by running public v0.0.23 and selecting the highest-leverage measurable weakness; do not restart ideation.",
     "do_not_carry_forward": [
       "any claim that synthetic eight-cell coverage is universal prompt-injection resistance",
       "any authority, secret, dependency, external asset, paid service, or real-infrastructure connector",

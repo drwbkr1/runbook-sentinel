@@ -1,0 +1,309 @@
+{
+  "schema_version": "1.0",
+  "release_id": "RUNBOOK-SENTINEL-v0.0.23",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal and contracts/milestone-0023.json UNIT-005",
+    "authorized_action_classes": [
+      "commit_release_closure",
+      "push_release_closure",
+      "create_annotated_tag",
+      "publish_selected_release_assets",
+      "verify_public_release"
+    ],
+    "verified_at_utc": "2026-08-10T23:36:00Z",
+    "expires_at_utc": null
+  },
+  "risk_classes": [
+    "documentation",
+    "runtime",
+    "data",
+    "package",
+    "public",
+    "security",
+    "external"
+  ],
+  "candidate": {
+    "base_commit": "1973fdec7d961a423777199b954f75515f4613b4",
+    "commit": "30e4af029c980e90d056f459b59201c34f4f3dee",
+    "implementation_candidate_commit": "7325f69bb3a7d39ae998fca9eb6b826aea000bb3",
+    "reviewed_head": "a13ebd27824c2443349fff2be199710b04c76f84",
+    "merge_commit": "30e4af029c980e90d056f459b59201c34f4f3dee",
+    "version": "0.0.23",
+    "tag": "v0.0.23",
+    "manifest_sha256": "25da0d5848fa23af7a97491e737db71029c932fe856fa258c6849ecbc8f638b8",
+    "package_contract_sha256": "d4928f3dd13fa394aeb9d8de5723fbe9733dcc3effa9ef206a19c408a86d2932",
+    "artifacts": [
+      {
+        "path": "dist/runbook-sentinel-0.0.23.pyz",
+        "bytes": 500823,
+        "sha256": "90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917"
+      },
+      {
+        "path": "dist/runbook-sentinel-0.0.23.pyz.sha256",
+        "bytes": 94,
+        "sha256": "1f9ea3101e61aded7fb0d7b6c8d603ca70f8ea921f6e127421ce59e1f0c490c1"
+      }
+    ]
+  },
+  "live_truth": {
+    "verified_at_utc": "2026-08-10T23:36:00Z",
+    "branch": "main",
+    "remote_commit": "30e4af029c980e90d056f459b59201c34f4f3dee",
+    "pull_request": {
+      "number": 21,
+      "url": "https://github.com/drwbkr1/runbook-sentinel/pull/21",
+      "state": "MERGED",
+      "draft": false,
+      "head": "a13ebd27824c2443349fff2be199710b04c76f84",
+      "base": "1973fdec7d961a423777199b954f75515f4613b4",
+      "merge_commit": "30e4af029c980e90d056f459b59201c34f4f3dee",
+      "merged_at_utc": "2026-08-10T23:18:38Z",
+      "configured_checks": 0
+    },
+    "remote_main_commit": "30e4af029c980e90d056f459b59201c34f4f3dee",
+    "latest_public_release": "v0.0.22",
+    "tag_target": "not_created",
+    "release": "not_created",
+    "deployment": null
+  },
+  "real_surface_matrix": {
+    "required": true,
+    "registry_ref": "contracts/milestone-0023.json#verification.required_checks",
+    "evaluation_receipt_ref": "artifacts/verification/merged-main-baseline-0023.json",
+    "status": "verified",
+    "candidate_identity": "30e4af029c980e90d056f459b59201c34f4f3dee",
+    "required_surface_ids": [
+      "source-evaluation",
+      "package-evaluation",
+      "source-mcp",
+      "package-mcp",
+      "source-api-approval-executor-state-telemetry",
+      "package-api-approval-executor-state-telemetry",
+      "source-dashboard",
+      "package-dashboard",
+      "selected-archive-reproduction"
+    ],
+    "verified_surface_ids": [
+      "source-evaluation",
+      "package-evaluation",
+      "source-mcp",
+      "package-mcp",
+      "source-api-approval-executor-state-telemetry",
+      "package-api-approval-executor-state-telemetry",
+      "source-dashboard",
+      "package-dashboard",
+      "selected-archive-reproduction"
+    ],
+    "reason": "A fresh public-main no-alternates clone of exact merge 30e4af029c980e90d056f459b59201c34f4f3dee passes every declared product surface and reproduces the selected release artifact exactly."
+  },
+  "checks": [
+    {
+      "id": "CHECK-001",
+      "category": "scope-and-history",
+      "required": true,
+      "status": "pass",
+      "method": "Reconciled the exact reviewed head, two-parent merge, remote main, ten-path release-closure draft, and authoritative worktree before closure commit.",
+      "evidence": [
+        "PR #21 reviewed head a13ebd27824c2443349fff2be199710b04c76f84",
+        "merge 30e4af029c980e90d056f459b59201c34f4f3dee has exact parents 1973fdec7d961a423777199b954f75515f4613b4 and a13ebd27824c2443349fff2be199710b04c76f84",
+        "remote main equals the exact merge before the release-closure commit",
+        "closure delta is limited to merged-main receipt, final audit, milestone, README, changelog, and five living documentation records"
+      ],
+      "reason": "No runtime, scenario, expectation, contract, manifest, package, authority, or selected artifact byte changes in the release closure."
+    },
+    {
+      "id": "CHECK-002",
+      "category": "contracts-and-data",
+      "required": true,
+      "status": "pass",
+      "method": "Validated frozen identities, one-case transform, manifest, package contract, and active milestone.",
+      "evidence": [
+        "all 41 pre-change scenarios and terminal states remain exact",
+        "the one development in-band transform remains exact and all eight adversarial outcome/split cells are covered",
+        "manifest SHA-256 25da0d5848fa23af7a97491e737db71029c932fe856fa258c6849ecbc8f638b8",
+        "package contract SHA-256 d4928f3dd13fa394aeb9d8de5723fbe9733dcc3effa9ef206a19c408a86d2932",
+        "milestone validates without warnings with UNIT-005 active"
+      ],
+      "reason": "The exact transformed abstention case closes only the measured missing cell."
+    },
+    {
+      "id": "CHECK-003",
+      "category": "evaluation",
+      "required": true,
+      "status": "pass",
+      "method": "Compared fresh merged-main source and package evaluations against frozen contracts and exact trace anchors.",
+      "evidence": [
+        "all 42 cases pass across three trials with all 41 pre-change identities exact",
+        "retrieval, generation, proposal, tool trajectory, terminal state, policy, benign utility, attacks, repeated reliability, latency, cost, authentication, approval, idempotency, and telemetry remain separate",
+        "merged-main source report/trace SHA-256 e399978e987648dfcbd605f84322393deadf5e3261391cd2761a2b35073561d9 / bbb4e4e7f64cafe6f8847b6a669bb94082a5e6c49b0d5bd940424fad2bbf07ff",
+        "merged-main package report/trace SHA-256 8751dd59663ce2e6300aa4ad4dd95a2d8e8b7d810936b31fc6b7b54a79e7cdb2 / e87f9a170bfe77a410a12f2571fe6e5e11deb3c931a3283a38c53302c110f21c",
+        "hostile document exposure is 1.0 and in-band proposal plus terminal attack success are 0.0"
+      ],
+      "reason": "The measured gap closes on source and packaged runtime without a regression in any frozen metric family."
+    },
+    {
+      "id": "CHECK-004",
+      "category": "runtime",
+      "required": true,
+      "status": "pass",
+      "method": "Ran the aggregate verifier and complete test suite in a fresh public-main clone.",
+      "evidence": [
+        "25 of 25 validators pass",
+        "41 of 41 tests pass on merged public main",
+        "source and package each pass 126 attempts and exact 216-event trace anchors",
+        "the agent remains credential-free and lacks final execution authority"
+      ],
+      "reason": "The changed evaluator and synthetic case are verified together with every prior runtime boundary."
+    },
+    {
+      "id": "CHECK-005",
+      "category": "package",
+      "required": true,
+      "status": "pass",
+      "method": "Built, independently rebuilt, inspected, and executed the selected dependency-free zipapp.",
+      "evidence": [
+        "selected archive is 500823 bytes at SHA-256 90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917",
+        "checksum file is 94 bytes at SHA-256 1f9ea3101e61aded7fb0d7b6c8d603ca70f8ea921f6e127421ce59e1f0c490c1",
+        "two merged-main builds reproduce the selected archive exactly",
+        "archive entry metadata, embedded manifest, entrypoint, exclusion inventory, and zero dependencies pass"
+      ],
+      "reason": "The selected release bytes are reproducible and contain only the frozen 38-entry runtime contract."
+    },
+    {
+      "id": "CHECK-006",
+      "category": "real-surfaces-and-rendering",
+      "required": true,
+      "status": "pass",
+      "method": "Exercised source and package MCP, real loopback API, approval, executor, persistence, telemetry, and rendered dashboards.",
+      "evidence": [
+        "MCP protocol 2025-11-25 exposes exactly three diagnostic/read tools and no approval or execution tool",
+        "authorization-before-body, server-derived identity, approval hash binding, idempotency, replay rejection, executor postconditions, SQLite, audit, telemetry, anchors, redaction, and CSP pass",
+        "complete original-detail 1440 by 1000 source and package dashboards render Baseline 0023, adversarial outcome split 1.0, authenticated external operator, and disconnected real infrastructure",
+        "source/package dashboard SHA-256 values are 45bd0864a3335bd8b212728add3c4610b247855a618e85fa8e45f7bc2b94ae15 / d8fa08d467cd43633535602ab5af56234cbec826d36a710ddcbaad6b43df4b6c"
+      ],
+      "reason": "All declared real product surfaces agree with the source and package evaluations."
+    },
+    {
+      "id": "CHECK-007",
+      "category": "security-and-boundaries",
+      "required": true,
+      "status": "pass",
+      "method": "Parsed structured evidence, scanned for credential-shaped values and model artifacts, and reconciled authority boundaries.",
+      "evidence": [
+        "zero high-signal credential findings and zero model artifacts after parsing 430 JSON files and 13963 records across 101 JSONL files",
+        "retrieved content remains untrusted; capabilities, approvals, idempotency, replay protection, executor authority, and postconditions remain outside the model",
+        "no dependency, secret, credential, paid service, external asset, new action, new capability, or real connector was added",
+        "the model may diagnose, request evidence, propose, or abstain but never execute"
+      ],
+      "reason": "The new adversarial evidence exercises but does not weaken the deterministic security boundary."
+    },
+    {
+      "id": "CHECK-008",
+      "category": "research-and-rights",
+      "required": true,
+      "status": "pass",
+      "method": "Reconciled the existing source gate and import ledger for this bounded checkpoint.",
+      "evidence": [
+        "official publisher record https://aclanthology.org/2020.acl-main.442/",
+        "prior identity, authority, availability, rights, provenance, integrity, fitness, privacy, and security review remains applicable",
+        "no external paper bytes, code, data, model, package, executable, service, credential, or other asset was imported"
+      ],
+      "reason": "The checkpoint uses only a previously approved narrow research rationale and project-authored synthetic evidence."
+    },
+    {
+      "id": "CHECK-009",
+      "category": "evidence-integrity",
+      "required": true,
+      "status": "pass",
+      "method": "Inspected retained invalid, failed, corrected, stale, superseded, and successful evidence without rewriting history.",
+      "evidence": [
+        "the process-invalid pre-public-seal evaluation remains quarantined with distinct bytes and explicit reason",
+        "verifier inventory, test-class, manifest, terminal-count, trace-import, MCP-help, and renderer observations remain retained",
+        "premerge and merged-main evidence bind distinct exact commits",
+        "older failed, blocked, stale, superseded, and unpublished baselines remain preserved"
+      ],
+      "reason": "Unfavorable and superseded results remain inspectable and cannot be mistaken for the admitted candidate."
+    },
+    {
+      "id": "CHECK-010",
+      "category": "external-and-recovery",
+      "required": true,
+      "status": "pass",
+      "method": "Queried live GitHub PR, main, tag, and release state immediately before publication.",
+      "evidence": [
+        "PR #21 is merged at the exact reviewed head and merge commit",
+        "remote main is 30e4af029c980e90d056f459b59201c34f4f3dee before the closure commit",
+        "v0.0.23 tag and release are absent",
+        "v0.0.22 remains the latest non-draft public release and recoverable checkpoint"
+      ],
+      "reason": "Publication cannot overwrite an existing version and v0.0.22 remains a complete rollback point."
+    }
+  ],
+  "truth_surfaces": [
+    {
+      "path_or_uri": "C:/Projects/Active/runbook-sentinel",
+      "expected_state": "main at exact verified merge plus bounded release-closure evidence",
+      "observed_state": "30e4af029c980e90d056f459b59201c34f4f3dee with exactly ten planned release-closure paths before commit",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/pull/21",
+      "expected_state": "history-preserving merge of exact reviewed head",
+      "observed_state": "MERGED as 30e4af029c980e90d056f459b59201c34f4f3dee at 2026-08-10T23:18:38Z",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "C:/Projects/Verification/runbook-sentinel-baseline-0023-main-30e4af0-20260810T231923Z",
+      "expected_state": "fresh public-main clone at exact merge commit with complete gate pass",
+      "observed_state": "exact commit, no alternates, initial clean state, and all merged-main gates pass",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "dist/runbook-sentinel-0.0.23.pyz",
+      "expected_state": "selected 500823-byte archive at SHA-256 90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917",
+      "observed_state": "local selected bytes plus candidate-clone and merged-main builds match exactly",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/releases/latest",
+      "expected_state": "v0.0.22 remains latest until the authorized publication action completes",
+      "observed_state": "v0.0.22 is latest and v0.0.23 is absent",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.23",
+      "expected_state": "non-draft public release at the release-closure commit with selected pyz and checksum assets",
+      "observed_state": "publication intentionally follows this audit",
+      "status": "not_applicable"
+    }
+  ],
+  "retained_failures": [
+    "The BASELINE-0023 predecessor verifier inventory rejection, wrong focused test class, and stale-manifest complete-suite stop remain preserved beside exact corrections.",
+    "The first post-manifest wrapper retained an old terminal no-action count; the verifier-only expectation was corrected before the public seal and before an admissible candidate run.",
+    "The process-invalid pre-public-manifest-seal evaluation remains quarantined and superseded rather than relabeled as candidate evidence.",
+    "The standalone trace verifier's missing PYTHONPATH and no-argument MCP/runtime probes remain retained beside exact reruns.",
+    "Chromium post-write diagnostics remain recorded beside complete image bytes and original-detail inspection.",
+    "Older failed, blocked, stale, and superseded baselines remain preserved, including stopped and unpublished baseline-0011."
+  ],
+  "limitations": [
+    "Synthetic SRE only; no real operational infrastructure.",
+    "Eight-of-eight adversarial outcome/split coverage is synthetic evidence and not universal prompt-injection resistance.",
+    "The older adversarial topology metric is scenario-label coverage; the legacy development API hostile runbook is not selected by retrieval.",
+    "Forty-two scenarios do not satisfy the separate at-least-48-case v0.1.0 target.",
+    "No production identity, immutable storage, external collector, signing, paid service, package-registry, container, or deployment claim is made.",
+    "The project remains research-informed and makes no production, universal safety, strict latency-dominance, or external-system superiority claim."
+  ],
+  "decision": {
+    "reported_status": "verified",
+    "rationale": "The bounded adversarial outcome/split change, frozen identities, exact evaluations and anchors, reproducible package, real surfaces, remote-only clones, exact GitHub review and merge, fresh public-main verification, retained failures, rights, security boundaries, recovery path, and current external truth pass without unresolved discrepancy.",
+    "next_action": "Commit and push the exact ten-path release closure, create and push annotated v0.0.23 at that exact commit, publish only the selected zipapp and checksum as a non-draft public GitHub release, and immediately reconcile remote refs, metadata, assets, downloads, rendered pages, and a fresh public-tag clone.",
+    "authorized_next_actions": [
+      "commit_release_closure",
+      "push_release_closure",
+      "create_annotated_tag",
+      "publish_selected_release_assets",
+      "verify_public_release"
+    ]
+  }
+}

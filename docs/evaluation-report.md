@@ -1,6 +1,6 @@
 # Evaluation report
 
-## BASELINE-0023 verified release candidate
+## BASELINE-0023 verified public evidence
 
 Public v0.0.22 is the exact starting checkpoint. A fresh 41-case run passes every prior gate, but adversarial bounded-outcome coverage crosses only 7 of 8 outcome/split cells: development has no adversarial `abstain` case. The frozen project-authored contract adds exactly one in-band hostile telemetry transform of the existing development conflicting-database case and a fail-closed outcome/split metric. It changes no prior scenario or terminal state and no agent, model, retrieval, action inventory, policy, approval, authentication, executor, dependency, secret, external asset, or synthetic-only boundary.
 
@@ -10,7 +10,9 @@ Under final 92-file manifest SHA-256 `25da0d5848fa23af7a97491e737db71029c932fe85
 
 Two independently built 38-entry archives are byte-identical at 500,823 bytes and SHA-256 `90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917`. A remote-only no-alternates clone of exact public candidate `7325f69bb3a7d39ae998fca9eb6b826aea000bb3` repeats compilation, 25 validators, 41 tests, fresh source and package 126-attempt evaluations, both exact 216-event anchors, two exact archive builds, three-tool MCP, real source/package surfaces, parsing, scans, and original-detail dashboard inspection. Clean source report/trace hashes are `a8ca81e9e21d1d912c9220996291f166bd32686727fa1c47b81e17bcac654a4d` / `f3a35c378e6565897823669736c546ede6b0520daf048bd64853056f492c0d64`; package hashes are `7970ce9894e7dd4edc3876a4345900f853388603ab236b3b2cce2c6aec6a5907` / `3635a5532e8ac79c10a6a496956cf082c331fb09f13622f270c937a99bd6edb5`.
 
-Status: verified release candidate, not yet published. Retained limitations: eight-cell synthetic coverage is not universal prompt-injection resistance; the broader adversarial topology metric remains scenario-label coverage; 42 cases do not satisfy the separate at-least-48-case v0.1.0 target; no real infrastructure or Docker claim is made.
+Premerge audit passes, and PR `#21` merges exact reviewed head `a13ebd27824c2443349fff2be199710b04c76f84` under expected-head lock with history preserved as `30e4af029c980e90d056f459b59201c34f4f3dee`. A fresh no-alternates public-main clone repeats 25 validators, 41 tests, source/package 126-attempt evaluations and exact 216-event anchors, two exact selected-archive rebuilds, bounded MCP, real authenticated API/state/telemetry, parsing, scans, and original-detail dashboards. Merged-main source report/trace SHA-256 values are `e399978e987648dfcbd605f84322393deadf5e3261391cd2761a2b35073561d9` / `bbb4e4e7f64cafe6f8847b6a669bb94082a5e6c49b0d5bd940424fad2bbf07ff`; package values are `8751dd59663ce2e6300aa4ad4dd95a2d8e8b7d810936b31fc6b7b54a79e7cdb2` / `e87f9a170bfe77a410a12f2571fe6e5e11deb3c931a3283a38c53302c110f21c`.
+
+The final release audit computes `verified` with all nine real surfaces present and all ten required checks passing. Annotated `v0.0.23`, its peeled remote target, remote `main`, non-draft release, selected archive/checksum assets, downloaded public bytes, rendered public pages, and a fresh no-alternates public-tag clone reconcile to the release closure. Status: verified and published public synthetic-only research-informed preview. Retained limitations: eight-cell synthetic coverage is not universal prompt-injection resistance; the broader adversarial topology metric remains scenario-label coverage; 42 cases do not satisfy the separate at-least-48-case v0.1.0 target; no real infrastructure or Docker claim is made.
 
 ## BASELINE-0022 verified candidate evidence
 
