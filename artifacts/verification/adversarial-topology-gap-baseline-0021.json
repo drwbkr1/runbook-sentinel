@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0021",
+  "status": "pass",
+  "disposition": "remediate",
+  "starting_checkpoint": "public v0.0.20",
+  "starting_commit": "f149ac2408f30b504b78844780b8533bed2ebfdc",
+  "measured_at_utc": "2026-08-10T17:51:26.6241434Z",
+  "source_evaluation": {
+    "report_path": "artifacts/evaluations/runs/baseline-0021-prechange-attempt-001.json",
+    "report_bytes": 565356,
+    "report_sha256": "b6c5c1221cf88833f26e3f875fc13af66fd3eba56d8ceccb341d86450aaffe6c",
+    "trace_path": "artifacts/evaluations/runs/baseline-0021-prechange-attempt-001.traces.jsonl",
+    "trace_bytes": 117271,
+    "trace_sha256": "287a87239c0c00b5fca94eda0f0873a67f2b2056006a47c3ae03d27c67c51697",
+    "trace_event_count": 165,
+    "trace_final_event_sha256": "340d7faaaa2c0bfa171d47d2fe324d7ece0886341e159af34852a1ff5ce1169b",
+    "scenario_count": 31,
+    "trials": 3,
+    "attempt_count": 93,
+    "baseline_disposition": "pass"
+  },
+  "measurement": {
+    "required_domains": [
+      "gateway",
+      "api",
+      "worker",
+      "database",
+      "cache",
+      "deployment",
+      "configuration",
+      "observability"
+    ],
+    "required_splits": ["development", "test"],
+    "required_pair_count": 16,
+    "minimum_cases_per_adversarial_domain_split": 1,
+    "case_count_by_adversarial_domain_split": {
+      "gateway": {"development": 0, "test": 1},
+      "api": {"development": 0, "test": 0},
+      "worker": {"development": 3, "test": 2},
+      "database": {"development": 0, "test": 0},
+      "cache": {"development": 0, "test": 1},
+      "deployment": {"development": 0, "test": 2},
+      "configuration": {"development": 0, "test": 1},
+      "observability": {"development": 0, "test": 3}
+    },
+    "covered_pair_count": 7,
+    "coverage": 0.4375,
+    "split_coverage": {
+      "development": 0.125,
+      "test": 0.75
+    },
+    "adversarial_case_count_by_split": {
+      "development": 3,
+      "test": 10
+    },
+    "missing_pairs": [
+      {"domain": "gateway", "split": "development"},
+      {"domain": "api", "split": "development"},
+      {"domain": "api", "split": "test"},
+      {"domain": "database", "split": "development"},
+      {"domain": "database", "split": "test"},
+      {"domain": "cache", "split": "development"},
+      {"domain": "deployment", "split": "development"},
+      {"domain": "configuration", "split": "development"},
+      {"domain": "observability", "split": "development"}
+    ]
+  },
+  "finding": "The existing adversarial_split_coverage value of 1.0 proves only that both splits contain at least one adversarial case. It hides nine empty domain/split cells; API and database have no adversarial case in either split, and development adversarial coverage exists only for worker.",
+  "bounded_remediation": {
+    "contract_id": "adversarial-topology-split-coverage-v1",
+    "new_case_count": 9,
+    "target_scenario_count": 40,
+    "target_covered_pair_count": 16,
+    "target_coverage": 1.0,
+    "target_split_coverage": {
+      "development": 1.0,
+      "test": 1.0
+    },
+    "target_adversarial_case_count_by_split": {
+      "development": 10,
+      "test": 12
+    },
+    "changes_authority_or_capabilities": false,
+    "satisfies_v0_1_0_case_target": false
+  },
+  "retained_observations": [
+    "The first cross-dimension PowerShell matrix wrapper had an unmatched closing brace and produced no measurement; the corrected unchanged-input wrapper produced this exact matrix.",
+    "A trace inspection probe initially checked a nonexistent execution.postconditions_verified attribute; the actual exact field is postconditions and remains true on execution events.",
+    "The fresh run passes every existing gate, so this is a coverage-discrimination weakness rather than a released-behavior regression."
+  ]
+}

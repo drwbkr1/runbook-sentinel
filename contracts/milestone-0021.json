@@ -1,0 +1,234 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0021",
+  "project_profile_ref": null,
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "active_contract": "contracts/milestone-0021.json",
+    "verified_at_utc": "2026-08-10T17:51:26.6241434Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Make adversarial coverage topology- and split-aware so aggregate split coverage cannot hide untested SRE domains; add exactly one project-authored adversarial transform for each of the nine empty domain/split cells.",
+    "allowed_paths": [
+      "C:/Projects/Active/runbook-sentinel",
+      "C:/Projects/Verification"
+    ],
+    "forbidden_work": [
+      "change any existing scenario or expected result",
+      "change agent, model, retrieval, decision context, action inventory, policy, approval, authentication, executor, API, or MCP authority",
+      "add a dependency, paid service, secret, external asset, remote model call, or real-infrastructure connector",
+      "change repository visibility, access, or ownership",
+      "claim the 40-case checkpoint satisfies the separate at-least-48-case v0.1.0 target"
+    ],
+    "reversible_actions": [
+      "create and update files on the isolated codex/baseline-0021-prechange-audit branch",
+      "run deterministic local evaluations, tests, package builds, dashboard checks, and clean-clone verification",
+      "commit and push bounded checkpoints under the standing director authority",
+      "open, review, and merge a pull request and publish a public release only after every release gate passes"
+    ],
+    "stop_conditions": [
+      "core thesis change or security-boundary weakening",
+      "an existing expected result or runtime authority boundary would need to change",
+      "a dependency, secret, paid service, external asset, real infrastructure, or access change becomes necessary",
+      "pre-change identity, held-out exactness, adversarial topology coverage, prior behavior, or shipment cannot be verified"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.20 refs, release, selected assets, downloaded bytes, rendered pages, and independent public-tag source/package verification reconcile at f149ac2.",
+        "Fresh source evaluation passes all prior gates and exact 165-event trace verification.",
+        "Adversarial split coverage reports 1.0 while only 7 of 16 adversarial domain/split cells are covered; nine cells are empty."
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Run public v0.0.20 and measure adversarial topology coverage by development and held-out split.",
+      "depends_on": [],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "public v0.0.20 checkpoint at f149ac2",
+        "31-case scenario catalog and frozen terminal states"
+      ],
+      "outputs": [
+        "fresh pre-change source evaluation and trace",
+        "adversarial topology gap receipt"
+      ],
+      "gates": {
+        "public_checkpoint_reconciled": "pass",
+        "fresh_prior_evaluation": "pass",
+        "exact_trace_verification": "pass",
+        "gap_measured_and_retained": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": ["EXIT-001"],
+        "observed": [],
+        "decision_value": "risk_reduction",
+        "rationale": "The unit established the exact pre-change state and selected a measurable weakness without changing the system."
+      },
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze exact coverage, all 31 pre-change identities, nine transformed cases, metrics, gates, and forbidden changes before implementation.",
+      "depends_on": ["UNIT-001"],
+      "action_class": "evidence_preservation",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "artifacts/verification/adversarial-topology-gap-baseline-0021.json",
+        "eval/adversarial-topology-split-coverage-prechange.json"
+      ],
+      "outputs": [
+        "frozen adversarial-topology-split-coverage-v1 contract",
+        "recursive pre-change identity record",
+        "independent contract validator"
+      ],
+      "gates": {
+        "json_documents_parse": "pass",
+        "prechange_identities_compose_to_31": "pass",
+        "candidate_results_absent": "pass",
+        "nine_missing_cells_frozen": "pass",
+        "contract_validator": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "The first generic milestone validation attempt failed because this record used the repository's older status vocabulary and omitted current-schema gate fields; the failure was retained and the record was normalized before implementation."
+      ],
+      "exit_condition_delta": {
+        "expected": ["EXIT-001"],
+        "observed": [],
+        "decision_value": "enables_dependency",
+        "rationale": "The exact pre-change identity chain, nine transformations, metrics, gates, and forbidden changes are frozen before implementation."
+      },
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement the fail-closed 16-cell metric and nine exact transformed cases without changing runtime behavior or authority.",
+      "depends_on": ["UNIT-002"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "ready",
+      "inputs": [
+        "eval/adversarial-topology-split-coverage-contract.json",
+        "scripts/verify_adversarial_topology_split_coverage_contract.py"
+      ],
+      "outputs": [],
+      "gates": {},
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": ["EXIT-001"],
+        "observed": [],
+        "decision_value": "unknown",
+        "rationale": "Implementation has not started."
+      },
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Run all prior source, package, API, MCP, state, telemetry, dashboard, reproducibility, and clean-clone gates.",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": [],
+      "outputs": [],
+      "gates": {},
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": ["EXIT-001"],
+        "observed": [],
+        "decision_value": "unknown",
+        "rationale": "Candidate verification has not started."
+      },
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Audit, review, merge, release, and independently verify only if every gate passes.",
+      "depends_on": ["UNIT-004"],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": [],
+      "outputs": [],
+      "gates": {},
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": ["EXIT-001"],
+        "observed": [],
+        "decision_value": "unknown",
+        "rationale": "Release work has not started."
+      },
+      "next_dependency": null
+    }
+  ],
+  "path_efficiency": {
+    "max_consecutive_no_progress_units": 2,
+    "review_action_class": "local_verification",
+    "review_human_gate": false
+  },
+  "verification": {
+    "changed_risks": [
+      "aggregate adversarial split coverage can mask untested topology domains",
+      "nine new transformed cases can drift their controls or prior exact identities",
+      "adversarial topology counts can overcount benign, unknown-domain, or unknown-split cases",
+      "catalog growth can drift package, dashboard, trace, and release identities"
+    ],
+    "required_checks": [
+      "the frozen contract passes before implementation and candidate results are absent",
+      "only adversarial cases in exact required domain/split cells count",
+      "all eight domains appear adversarially in both development and held-out test",
+      "each transformed case preserves its control outcome, action, trajectory, and terminal state while the attacker goal never succeeds",
+      "all 31 prior scenario and terminal identities remain exact",
+      "source/package, real surfaces, clean clone, review, merge, and public release reconcile"
+    ],
+    "completed_checks": [
+      "public v0.0.20 is independently verified",
+      "fresh 31-case pre-change evaluation and exact 165-event trace pass",
+      "the exact 7-of-16 adversarial topology split gap is retained"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "verified public v0.0.20 with a validated frozen BASELINE-0021 pre-change contract",
+    "next_action": "Implement UNIT-003 exactly as frozen, then seal the implementation before revealing full candidate results.",
+    "do_not_carry_forward": [
+      "Do not change an existing scenario or terminal state.",
+      "Do not inspect or rewrite unfavorable held-out results after the implementation seal.",
+      "Do not claim 40 scenarios satisfy the v0.1.0 target."
+    ]
+  }
+}

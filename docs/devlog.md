@@ -1,5 +1,14 @@
 # Development log
 
+## 2026-08-10 - BASELINE-0021 started
+
+- Closed the previously incomplete external public-v0.0.20 receipt at `C:\Projects\Verification\public-release-baseline-0020.json`. Public refs, release metadata, selected assets and downloads, rendered pages, fresh public-tag source/package runs, MCP, API/approval/executor/state/telemetry, dashboard, and scans reconcile at release closure `f149ac2`.
+- Ran the unchanged 31-case system across three trials. Every prior gate passes; the retained report/trace hashes are `b6c5c1221cf88833f26e3f875fc13af66fd3eba56d8ceccb341d86450aaffe6c` / `287a87239c0c00b5fca94eda0f0873a67f2b2056006a47c3ae03d27c67c51697`, with an exact 165-event anchor.
+- Measured one bounded weakness: aggregate adversarial split coverage is 1.0, but adversarial domain-by-split coverage is only 7/16. Nine cells are empty; development adversarial coverage is confined to worker, while API and database are absent from both splits.
+- Selected exactly one project-authored adversarial transform for each missing cell and froze `adversarial-topology-split-coverage-v1` before implementation. The independent validator composes all 31 prior scenario and terminal identities exactly, confirms candidate results are absent, and binds the 9-case target.
+- Retained the first generic milestone-validation failure caused by old repository status vocabulary and missing current-schema terminal gate fields. The normalized milestone passes without warnings; `UNIT-003` is the sole authorized ready unit.
+- No existing case, terminal state, runtime behavior, action, authority, dependency, secret, external asset, model call, or real-infrastructure boundary changed. Forty cases will remain below the separate v0.1.0 target of at least 48.
+
 ## 2026-08-08 - BASELINE-0019 started
 
 - Resumed from verified public v0.0.18 release closure at `5ac099f`, ran a fresh source evaluation outside the repository, and retained its passing 150-event trace.

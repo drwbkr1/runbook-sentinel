@@ -2,13 +2,13 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `codex/baseline-0020-split-action-coverage`
+- Branch: `codex/baseline-0021-prechange-audit`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0020`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.20`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release-closure commit
-- Candidate version: none; next checkpoint intentionally unselected pending a fresh public-v0.0.20 run
-- Active milestone: none; `BASELINE-0020` complete
-- Current unit: release closure complete; next cycle begins with fresh system, trace, and evaluation inspection
-- Disposition: baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Candidate version: proposed `0.0.21` / `baseline-0021`; implementation has not started and release identity remains unfrozen
+- Active milestone: `BASELINE-0021` adversarial topology split coverage
+- Current unit: `UNIT-002` complete; the pre-change identity and nine-case evaluation contract are frozen and validated; `UNIT-003` is the sole authorized ready unit
+- Disposition: baseline-0021 `remediate` the measured 7-of-16 adversarial topology/split gap; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -20,6 +20,17 @@
 - Local model source gate: refreshed and ready for the already installed, publisher-signed Ollama 0.32.6 executable and unchanged `llama3.2:3b` manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six content-addressed blobs pass exact SHA-256 and size checks. No download, update, copy, redistribution, remote call, model tool, secret, or real-infrastructure access is authorized.
 
 ## Verified evidence
+
+### BASELINE-0021 adversarial topology split gap and frozen contract
+
+- Independent public-release receipt `C:\Projects\Verification\public-release-baseline-0020.json` reconciles the public v0.0.20 annotated tag, peeled target, remote `main`, non-draft release, selected assets, downloaded bytes, rendered pages, fresh public-tag source/package execution, MCP, API, approval, executor, persisted state, telemetry, dashboard, and scans. Its 12,609 bytes are SHA-256 `85ee6de58d29c845fbcb8240d173c8bebfaf88210061a7e6dbff7edac93f8d28`.
+- A fresh unchanged 31-case source evaluation passes all prior gates across three trials. Its report/trace SHA-256 values are `b6c5c1221cf88833f26e3f875fc13af66fd3eba56d8ceccb341d86450aaffe6c` / `287a87239c0c00b5fca94eda0f0873a67f2b2056006a47c3ae03d27c67c51697`; the exact 165-event trace ends at `340d7faaaa2c0bfa171d47d2fe324d7ece0886341e159af34852a1ff5ce1169b`.
+- Aggregate adversarial split coverage is 1.0 because both splits contain at least one adversarial case, but only 7 of 16 domain/split cells are covered. Development covers adversarial worker cases only; API and database have no adversarial case in either split.
+- The bounded checkpoint freezes exactly one project-authored adversarial transform for each of the nine missing cells. It targets 40 cases and 16-of-16 coverage without changing any prior scenario, terminal state, agent, model, retrieval, decision context, action, policy, approval, authentication, executor, API/MCP authority, dependency, secret, external asset, or synthetic-only boundary.
+- `adversarial-topology-split-coverage-v1` is frozen with candidate results absent. Its independent validator passes, composes all 31 prior scenario and terminal identities exactly, confirms the 7-of-16 pre-change gap, and binds the nine transformations before implementation.
+- The first generic milestone validation attempt is retained: the draft used the repository's older status vocabulary and omitted current-schema terminal gate records. The normalized milestone validates without warnings and authorizes only `UNIT-003`.
+- The prior approved ACL source is reused only as existing research context. No external paper, code, data, model, package, service, credential, or other asset is imported.
+- Next eligible action: implement the frozen fail-closed metric and nine transformations, then seal the generic implementation before revealing the full candidate result.
 
 ### BASELINE-0020 split-action coverage gap and frozen contract
 

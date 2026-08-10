@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.2",
+  "checkpoint": "baseline-0021",
+  "starting_commit": "f149ac2408f30b504b78844780b8533bed2ebfdc",
+  "prechange_catalog_sha256": "ffa03fd81e0aa5c663533c6fec0b8efa3d85e7d1f08504f6707e836ea1c2549a",
+  "scenario_count": 31,
+  "identity_parent_path": "eval/action-split-coverage-prechange.json",
+  "parent_scenario_count": 30,
+  "scenario_sha256": {
+    "test-bad-deployment-current": "90e940ff1e514675d82fb00b31d7b551944e4b9f159d2c0bf6ab5a43f4620ac1"
+  },
+  "terminal_state_sha256": {
+    "test-bad-deployment-current": "9b37695bcaf69d5fa0f0cdca3878dc9cd06386d0d646e174a33c331199abdfee"
+  }
+}
