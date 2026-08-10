@@ -458,6 +458,95 @@ def _adversarial_topology_split_coverage(
     }
 
 
+def _adversarial_action_split_coverage(
+    scenarios: list[dict], terminal_contract: dict, contract: dict
+) -> dict:
+    errors: list[str] = []
+    if not isinstance(contract, dict):
+        contract = {}
+        errors.append("contract_missing")
+    if contract.get("schema_version") != "1.0":
+        errors.append("schema_version")
+    if contract.get("contract_id") != "adversarial-action-split-coverage-v1":
+        errors.append("contract_id")
+    required_actions = contract.get("required_actions", [])
+    required_splits = contract.get("required_splits", [])
+    minimum = contract.get("minimum_cases_per_adversarial_action_split")
+    if (
+        not isinstance(required_actions, list)
+        or set(required_actions) != set(ACTION_SPECS)
+        or len(required_actions) != len(ACTION_SPECS)
+    ):
+        errors.append("required_actions")
+        required_actions = list(ACTION_SPECS)
+    if required_splits != ["development", "test"]:
+        errors.append("required_splits")
+        required_splits = ["development", "test"]
+    if minimum != 1 or isinstance(minimum, bool):
+        errors.append("minimum_cases_per_adversarial_action_split")
+    threshold = minimum if isinstance(minimum, int) and not isinstance(minimum, bool) else 1
+
+    counts = {
+        action: {split: 0 for split in required_splits}
+        for action in required_actions
+    }
+    terminal_states = terminal_contract.get("scenarios", {})
+    for scenario in scenarios:
+        if scenario.get("adversarial") is not True:
+            continue
+        expected_action = scenario.get("expected", {}).get("action")
+        if expected_action is None:
+            continue
+        scenario_id = scenario.get("id", "<missing-id>")
+        split = scenario.get("split")
+        if expected_action not in counts:
+            errors.append(f"{scenario_id}:action")
+            continue
+        if split not in counts[expected_action]:
+            errors.append(f"{scenario_id}:split")
+            continue
+        terminal = terminal_states.get(scenario_id)
+        if not isinstance(terminal, dict):
+            errors.append(f"{scenario_id}:terminal_missing")
+            continue
+        if terminal.get("execute") is not True or terminal.get("action") != expected_action:
+            errors.append(f"{scenario_id}:terminal_action")
+            continue
+        counts[expected_action][split] += 1
+
+    missing_pairs = [
+        {"action": action, "split": split}
+        for action in required_actions
+        for split in required_splits
+        if counts[action][split] < threshold
+    ]
+    pair_count = len(required_actions) * len(required_splits)
+    covered_pair_count = pair_count - len(missing_pairs)
+    split_coverage = {
+        split: (
+            sum(counts[action][split] >= threshold for action in required_actions)
+            / len(required_actions)
+            if required_actions
+            else 0.0
+        )
+        for split in required_splits
+    }
+    return {
+        "adversarial_action_split_contract_id": contract.get("contract_id"),
+        "adversarial_action_split_contract_valid": not errors,
+        "adversarial_action_split_contract_errors": sorted(set(errors)),
+        "required_adversarial_action_split_pair_count": pair_count,
+        "covered_adversarial_action_split_pair_count": covered_pair_count,
+        "minimum_cases_per_adversarial_action_split": minimum,
+        "case_count_by_adversarial_action_split": counts,
+        "missing_adversarial_action_split_pairs": missing_pairs,
+        "adversarial_action_split_coverage": (
+            covered_pair_count / pair_count if pair_count else 0.0
+        ),
+        "split_adversarial_action_coverage": split_coverage,
+    }
+
+
 def _action_split_coverage(
     scenarios: list[dict], terminal_contract: dict, contract: dict
 ) -> dict:
@@ -1853,6 +1942,9 @@ def run_evaluation(
     adversarial_topology_split_contract = catalog[
         "adversarial_topology_split_coverage_contract"
     ]
+    adversarial_action_split_contract = catalog[
+        "adversarial_action_split_coverage_contract"
+    ]
     behavioral_relation_contract = catalog["behavioral_relation_contract"]
     retrieval_stress_contract = catalog["retrieval_stress_contract"]
     stale_evidence_stress_contract = catalog["stale_evidence_stress_contract"]
@@ -2094,6 +2186,9 @@ def run_evaluation(
     adversarial_topology_split_coverage = _adversarial_topology_split_coverage(
         scenarios, adversarial_topology_split_contract
     )
+    adversarial_action_split_coverage = _adversarial_action_split_coverage(
+        scenarios, terminal_contract, adversarial_action_split_contract
+    )
     behavioral_relations = _behavioral_relation_metrics(
         scenarios,
         terminal_contract,
@@ -2224,6 +2319,7 @@ def run_evaluation(
             **topology_split_coverage,
             **action_split_coverage,
             **adversarial_topology_split_coverage,
+            **adversarial_action_split_coverage,
             **condition_coverage,
         },
     }
@@ -2441,6 +2537,21 @@ def run_evaluation(
         == 1.0,
         "test_adversarial_topology_split_coverage_is_one": metrics["coverage"][
             "split_adversarial_topology_coverage"
+        ].get("test")
+        == 1.0,
+        "adversarial_action_split_contract_valid": metrics["coverage"][
+            "adversarial_action_split_contract_valid"
+        ],
+        "adversarial_action_split_coverage_is_one": metrics["coverage"][
+            "adversarial_action_split_coverage"
+        ]
+        == 1.0,
+        "development_adversarial_action_split_coverage_is_one": metrics[
+            "coverage"
+        ]["split_adversarial_action_coverage"].get("development")
+        == 1.0,
+        "test_adversarial_action_split_coverage_is_one": metrics["coverage"][
+            "split_adversarial_action_coverage"
         ].get("test")
         == 1.0,
         "evidence_condition_contract_valid": metrics["coverage"]["contract_valid"],
@@ -2756,6 +2867,16 @@ def run_evaluation(
                 "test"
             )
             == 1.0
+            and metrics["coverage"]["adversarial_action_split_contract_valid"]
+            and metrics["coverage"]["adversarial_action_split_coverage"] == 1.0
+            and metrics["coverage"]["split_adversarial_action_coverage"].get(
+                "development"
+            )
+            == 1.0
+            and metrics["coverage"]["split_adversarial_action_coverage"].get(
+                "test"
+            )
+            == 1.0
             and metrics["coverage"]["contract_valid"]
             and metrics["coverage"]["evidence_condition_split_coverage"] == 1.0
             and metrics["coverage"]["adversarial_split_coverage"] == 1.0
@@ -2775,7 +2896,7 @@ def run_evaluation(
         ),
     }
     report = {
-        "schema_version": "2.7",
+        "schema_version": "2.8",
         "checkpoint": manifest_checkpoint,
         "manifest_sha256": manifest_sha256,
         "terminal_state_contract_id": terminal_contract["contract_id"],
@@ -2783,6 +2904,9 @@ def run_evaluation(
         "action_split_coverage_contract_id": action_split_contract["contract_id"],
         "adversarial_topology_split_coverage_contract_id": (
             adversarial_topology_split_contract["contract_id"]
+        ),
+        "adversarial_action_split_coverage_contract_id": (
+            adversarial_action_split_contract["contract_id"]
         ),
         "approval_lifetime_contract_id": approval_lifetime["contract_id"],
         "idempotency_authorization_contract_id": idempotency_authorization[

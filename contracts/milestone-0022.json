@@ -107,7 +107,7 @@
       ],
       "action_class": "evidence_preservation",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": [
         "artifacts/verification/adversarial-action-split-gap-baseline-0022.json",
         "eval/adversarial-action-split-coverage-prechange.json"
@@ -118,13 +118,13 @@
         "independent contract validator"
       ],
       "gates": {
-        "json_documents_parse": "pending",
-        "prechange_identities_compose_to_40": "pending",
-        "candidate_results_absent": "pending",
-        "one_missing_cell_frozen": "pending",
-        "contract_validator": "pending"
+        "json_documents_parse": "pass",
+        "prechange_identities_compose_to_40": "pass",
+        "candidate_results_absent": "pass",
+        "one_missing_cell_frozen": "pass",
+        "contract_validator": "pass"
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [
         "The first generic milestone validation attempt used active as a unit status and release_readiness as an exit-condition decision value; both are outside the validator vocabulary. The record was normalized to in_progress and advances_exit before implementation."
       ],
@@ -146,7 +146,7 @@
       ],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": [
         "eval/adversarial-action-split-coverage-contract.json",
         "scripts/verify_adversarial_action_split_coverage_contract.py"

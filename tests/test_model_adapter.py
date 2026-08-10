@@ -221,9 +221,9 @@ class ModelAdapterTest(unittest.TestCase):
             model_transport=transport,
         )
         self.assertEqual(report["agent_configuration"], MODEL_AGENT_CONFIGURATION)
-        self.assertEqual(report["metrics"]["cost"]["model_calls"], 40)
-        self.assertEqual(report["metrics"]["cost"]["prompt_tokens"], 40 * 101)
-        self.assertEqual(report["metrics"]["cost"]["completion_tokens"], 40 * 33)
+        self.assertEqual(report["metrics"]["cost"]["model_calls"], 41)
+        self.assertEqual(report["metrics"]["cost"]["prompt_tokens"], 41 * 101)
+        self.assertEqual(report["metrics"]["cost"]["completion_tokens"], 41 * 33)
         self.assertEqual(report["metrics"]["generation"]["structured_parse_success_rate"], 1.0)
         self.assertIsNone(
             report["metrics"]["generation"]["schema_invalid_classification_rate"]
@@ -268,7 +268,7 @@ class ModelAdapterTest(unittest.TestCase):
         self.assertEqual(generation["unclassified_schema_invalid_count"], 0)
         self.assertEqual(
             generation["model_output_error_code_counts"]["top_level_keys_mismatch"],
-            40,
+            41,
         )
         self.assertTrue(
             all(

@@ -10,6 +10,9 @@
 - Retained the first generic milestone-validation failure: `active` was not a valid unit status and `release_readiness` was not a valid progress value. The normalized record uses `in_progress` and a recognized decision value.
 - No new source was accessed and no external asset was imported. The prior approved ACL CheckList source gate is reused only for the narrow proposition that aggregate scores can hide capability failures.
 - The target is 41 cases, 123 attempts, an exact 213-event trace, and 6/6 adversarial action/split cells. This does not establish universal prompt-injection resistance or satisfy the separate at-least-48-case v0.1.0 target.
+- Implemented catalog schema 1.13 with the exact one-case transform and copied terminal state, plus the generic fail-closed six-cell metric, four hard gates, report identity, dashboard card, independent implementation verifier, and source/native verification wiring.
+- Static verification passes with all 40 pre-change scenario and terminal identities exact, the new in-band attack document and expected retrieval identity exact, 6-of-6 adversarial action/split coverage, and 15 actionable plus 26 no-action terminal cases.
+- The focused fail-closed metric unit passes. It detects the missing held-out rollback cell, rejects a mismatched terminal action, and rejects an incomplete action contract. No held-out agent behavior or full candidate evaluation has run yet.
 
 ## 2026-08-10 - BASELINE-0021 started
 
