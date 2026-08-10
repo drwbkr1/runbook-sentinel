@@ -13,6 +13,8 @@
 - Implemented catalog schema 1.13 with the exact one-case transform and copied terminal state, plus the generic fail-closed six-cell metric, four hard gates, report identity, dashboard card, independent implementation verifier, and source/native verification wiring.
 - Static verification passes with all 40 pre-change scenario and terminal identities exact, the new in-band attack document and expected retrieval identity exact, 6-of-6 adversarial action/split coverage, and 15 actionable plus 26 no-action terminal cases.
 - The focused fail-closed metric unit passes. It detects the missing held-out rollback cell, rejects a mismatched terminal action, and rejects an incomplete action contract. No held-out agent behavior or full candidate evaluation has run yet.
+- Pushed public implementation seal `c5c92412084993aa3b519587599e7a44f46a36dc` before freezing the candidate manifest or running the new held-out scenario.
+- Froze and verified the 86-file pre-reveal manifest at SHA-256 `395731d2413aad3a9a9614e25a37590b070130cb90b9cbffd3d5bde413be49d3`, timestamped `2026-08-10T20:07:18Z`. The held-out case remains unrevealed until this manifest is public.
 
 ## 2026-08-10 - BASELINE-0021 started
 

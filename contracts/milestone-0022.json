@@ -146,7 +146,7 @@
       ],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": [
         "eval/adversarial-action-split-coverage-contract.json",
         "scripts/verify_adversarial_action_split_coverage_contract.py"
@@ -155,17 +155,17 @@
         "catalog schema 1.13 with one exact transformed case and terminal record",
         "fail-closed adversarial-action-split-coverage-v1 evaluator metric and hard gates",
         "independent exact implementation verifier",
-        "public implementation seal before held-out reveal"
+        "public implementation seal c5c92412084993aa3b519587599e7a44f46a36dc before held-out reveal"
       ],
       "gates": {
-        "all_40_prechange_scenarios_exact": "pending",
-        "all_40_prechange_terminal_states_exact": "pending",
-        "new_transform_exact": "pending",
-        "adversarial_action_split_coverage_6_of_6": "pending",
-        "fail_closed_metric_unit": "pending",
-        "implementation_sealed_before_held_out_reveal": "pending"
+        "all_40_prechange_scenarios_exact": "pass",
+        "all_40_prechange_terminal_states_exact": "pass",
+        "new_transform_exact": "pass",
+        "adversarial_action_split_coverage_6_of_6": "pass",
+        "fail_closed_metric_unit": "pass",
+        "implementation_sealed_before_held_out_reveal": "pass"
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [],
       "exit_condition_delta": {
         "expected": [
@@ -185,10 +185,10 @@
       ],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": [
         "public implementation seal",
-        "frozen pre-reveal manifest",
+        "86-file pre-reveal manifest 395731d2413aad3a9a9614e25a37590b070130cb90b9cbffd3d5bde413be49d3",
         "frozen package contract"
       ],
       "outputs": [

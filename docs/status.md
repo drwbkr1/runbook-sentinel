@@ -7,7 +7,7 @@
 - Latest verified checkpoint: public `v0.0.21`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release closure
 - Candidate version: none; `0.0.21` / `baseline-0021` is verified and public
 - Active milestone: `BASELINE-0022` adversarial executable-action split coverage
-- Current unit: `UNIT-003` implementation complete locally; public implementation seal is next and held-out behavior remains unrevealed
+- Current unit: `UNIT-004` freezing the pre-reveal manifest after public implementation seal `c5c9241`; held-out behavior remains unrevealed
 - Disposition: baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -32,8 +32,10 @@
 - The first generic milestone validation attempt retained two control-schema vocabulary errors. The normalized milestone validates without errors or warnings and authorizes only the in-progress freeze unit.
 - Catalog schema 1.13 contains the exact frozen transform and copied terminal record. The generic evaluator counts only adversarial expected actions whose terminal contract agrees, reports the six-cell matrix and missing pairs, and adds four hard gates plus a dashboard metric.
 - Independent static verification preserves all 40 public scenarios and terminal states exactly, confirms the new in-band document and expected retrieval identity, reports 6-of-6 coverage, and passes the fail-closed metric unit without running the held-out scenario.
+- Public implementation seal `c5c92412084993aa3b519587599e7a44f46a36dc` was pushed before the new held-out scenario or any full 41-case candidate evaluation ran.
+- The 86-file pre-reveal manifest freezes checkpoint `baseline-0022` at `2026-08-10T20:07:18Z`, passes exact verification, and is 10,056 bytes at SHA-256 `395731d2413aad3a9a9614e25a37590b070130cb90b9cbffd3d5bde413be49d3`.
 - This metric is synthetic cross-split evidence, not universal prompt-injection resistance. Forty-one cases remain below the separate at-least-48-case v0.1.0 target.
-- Next eligible action: commit and push the exact implementation seal, freeze its manifest, and only then reveal the held-out case in the full candidate evaluation.
+- Next eligible action: push the exact pre-reveal manifest, then run the first immutable 41-case candidate evaluation.
 
 ### BASELINE-0021 adversarial topology split gap and frozen contract
 
