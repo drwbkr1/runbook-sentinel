@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0021",
   "project_profile_ref": null,
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -61,8 +61,12 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "All 40 scenarios and all 31 pre-change identities are exact across three trials with 16-of-16 adversarial topology split coverage.",
+        "Local, remote-only candidate, merged-main, and public-tag source/package, real-surface, package, parsing, scan, dashboard, and release gates pass.",
+        "Annotated v0.0.21, selected archive and checksum assets, public downloads, rendered pages, and fresh public-tag clone reconcile to the release closure."
+      ]
     }
   ],
   "units": [
@@ -232,21 +236,43 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": [
         "exact public candidate commit d978cc95ff0c2a0b4e779638a97bd767ee063ca3",
         "artifacts/verification/candidate-baseline-0021.json",
         "artifacts/verification/clean-clone-baseline-0021.json"
       ],
-      "outputs": [],
-      "gates": {},
-      "disposition": null,
-      "retained_failures": [],
+      "outputs": [
+        "artifacts/verification/release-audit-baseline-0021-premerge.json",
+        "PR 19 exact 11-commit 64-path review and expected-head merge",
+        "history-preserving merge ce7c95f33dfce10e678000df85961d12e987a1f0",
+        "artifacts/verification/merged-main-baseline-0021.json",
+        "artifacts/verification/release-audit-baseline-0021.json",
+        "annotated v0.0.21 tag and non-draft public GitHub release with selected archive and checksum",
+        "public asset downloads, rendered pages, and fresh public-tag clone reconciliation"
+      ],
+      "gates": {
+        "premerge_release_audit": "pass",
+        "local_and_remote_pr_path_sets_equal": "pass",
+        "exact_reviewed_head": "pass",
+        "pr_clean_and_mergeable": "pass",
+        "expected_head_history_preserving_merge": "pass",
+        "fresh_public_main_full_stack": "pass",
+        "final_release_audit": "pass",
+        "annotated_tag_and_selected_assets": "pass",
+        "public_release_and_tag_clone_reconciliation": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "The first GitHub release-absence probe used a command whose expected not-found result is nonzero, and the first release-list query requested an unsupported url field; the corrected query established exact release truth.",
+        "The first merged-main clone command selected the verification root before its repository-scoped parent check and stopped before clone creation; the corrected command passed.",
+        "Merged-main source and package dashboard images each produced a detail-dependent table-strip viewer frame; the same unchanged bytes rendered completely at the alternate detail level."
+      ],
       "exit_condition_delta": {
         "expected": ["EXIT-001"],
-        "observed": [],
-        "decision_value": "unknown",
-        "rationale": "Every candidate and clean-clone dependency is satisfied; premerge audit and exact public review are now eligible."
+        "observed": ["EXIT-001"],
+        "decision_value": "risk_reduction",
+        "rationale": "Premerge and final audits, exact public review, expected-head merge, fresh public-main verification, annotated tag, selected assets, downloads, rendered pages, and public-tag verification all pass."
       },
       "next_dependency": null
     }
@@ -274,16 +300,17 @@
     "completed_checks": [
       "public v0.0.20 is independently verified",
       "fresh 31-case pre-change evaluation and exact 165-event trace pass",
-      "the exact 7-of-16 adversarial topology split gap is retained"
-      ,
+      "the exact 7-of-16 adversarial topology split gap is retained",
       "all 40 scenarios and all 31 pre-change scenario and terminal identities are exact across the selected candidate",
       "all 39 tests, 21 validators, source and package 120-attempt evaluations, bounded MCP, real API/state/telemetry, deterministic package reproduction, rendered dashboards, parsing, and scans pass",
-      "a remote-only no-alternates clone of exact public candidate d978cc95ff0c2a0b4e779638a97bd767ee063ca3 independently passes the complete gate stack"
+      "a remote-only no-alternates clone of exact public candidate d978cc95ff0c2a0b4e779638a97bd767ee063ca3 independently passes the complete gate stack",
+      "premerge audit, exact PR 19 review, expected-head history-preserving merge, and a fresh no-alternates public-main full-stack verification pass",
+      "final audit, annotated v0.0.21 tag, selected release assets, public downloads, rendered pages, and fresh public-tag clone reconcile"
     ]
   },
   "handoff": {
-    "current_checkpoint": "verified public v0.0.20 plus exact BASELINE-0021 candidate d978cc95ff0c2a0b4e779638a97bd767ee063ca3 with passing local and remote-only clean-clone gates",
-    "next_action": "Run the premerge release audit, conduct exact public review, merge under expected-head lock, and verify merged public main before release.",
+    "current_checkpoint": "verified public v0.0.21 BASELINE-0021 release closure",
+    "next_action": "Begin the next cycle by running public v0.0.21, inspecting traces and separate evaluation results, and selecting one bounded measurable weakness.",
     "do_not_carry_forward": [
       "Do not change an existing scenario or terminal state.",
       "Do not inspect or rewrite unfavorable held-out results after the implementation seal.",

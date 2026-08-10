@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0021",
+  "verified_at_utc": "2026-08-10T19:23:32Z",
+  "status": "pass",
+  "merge": {
+    "commit": "ce7c95f33dfce10e678000df85961d12e987a1f0",
+    "parents": [
+      "f149ac2408f30b504b78844780b8533bed2ebfdc",
+      "deb68dc7cbe2812c8b647ee324aa1f99725e47ca"
+    ],
+    "pull_request": 19,
+    "merge_method": "history-preserving merge under expected-head lock",
+    "clone_path": "C:/Projects/Verification/runbook-sentinel-baseline-0021-main-ce7c95f-20260810T191609Z",
+    "initial_worktree_clean": true,
+    "git_alternates_present": false,
+    "clone_mode": "git clone --no-local --single-branch --branch main from the public GitHub repository"
+  },
+  "source_gate": {
+    "manifest_sha256": "f7fee20f2f748c25749255429fd362e3dd94dea7176b0285ce8509465da93bb8",
+    "validators_passed": 21,
+    "test_count": 39,
+    "tests_passed": true,
+    "test_duration_seconds": 165.347,
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0021-attempt-001.json",
+    "evaluation_bytes": 694278,
+    "evaluation_sha256": "b67ff87abd852b57c933bcefa6edd711597c02998c41db9e56738eea05f7776f",
+    "trace_path": "artifacts/evaluations/runs/baseline-0021-attempt-001.traces.jsonl",
+    "trace_bytes": 146963,
+    "trace_sha256": "e36d722993c98d7efc7f03f0727d143cb3eca4e48df856f97c896427e6bc449f",
+    "trace_event_count": 204,
+    "trace_final_event_sha256": "9d8f59dc165c5bc2abea1486981f9e1f09f211a04f38d2c3de359b1b79c708dd",
+    "trace_anchor_independently_verified": true,
+    "scenario_count": 40,
+    "scenario_attempt_count": 120,
+    "adversarial_topology_split_coverage": 1.0,
+    "disposition": "pass"
+  },
+  "package_gate": {
+    "package_contract_sha256": "a6ef8963903275f25d10fa978ce3479c7612df3d82347217d6b01675e55776cb",
+    "archive_paths": [
+      "dist/runbook-sentinel-0.0.21.pyz",
+      "dist/repro/runbook-sentinel-0.0.21.pyz"
+    ],
+    "archive_bytes": 468870,
+    "archive_sha256": "99f2e8b3276e1220073603f3101f02b5f733e5d91b521e2a8f5bac646d64a3de",
+    "selected_archive_sha256_exact": true,
+    "independent_builds_byte_identical": true,
+    "entry_count": 36,
+    "runtime_dependencies": [],
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0021-package-attempt-003.json",
+    "evaluation_bytes": 694302,
+    "evaluation_sha256": "582e03ad3094f383f424c5b92712cb864acf889905f2f1f14fd4145a8269f5a7",
+    "trace_path": "artifacts/evaluations/runs/baseline-0021-package-attempt-003.traces.jsonl",
+    "trace_bytes": 146973,
+    "trace_sha256": "db39a1e476c0734beb6ab22c7bf8f77b03a3ef5617521dd4d66dbf4df59b3864",
+    "trace_event_count": 204,
+    "trace_final_event_sha256": "57fab18c2e89d9a1ca8e62d437ed18358783231a9176c78eb580aa31b7b097b2",
+    "trace_anchor_independently_verified": true,
+    "scenario_count": 40,
+    "scenario_attempt_count": 120,
+    "adversarial_topology_split_coverage": 1.0,
+    "disposition": "pass"
+  },
+  "real_surfaces": {
+    "source_and_package_mcp_version": "0.0.21",
+    "source_and_package_mcp_protocol": "2025-11-25",
+    "source_and_package_mcp_tool_count": 3,
+    "mcp_approval_or_execution_tool_exposed": false,
+    "source_and_package_mcp_trace_chain_valid": true,
+    "source_and_package_mcp_trace_endpoint_anchored": true,
+    "source_mcp_trace_sha256": "201c71431c06a50b08a7c6770af044cbf981f9eece9e40913b5681bccb572619",
+    "package_mcp_trace_sha256": "dcd7861415b20c8a7e45e756c6c5cd58ce505b55f7fc16f9ff6955afce85d5ce",
+    "source_and_package_http_authentication_approval_execution_replay_postconditions_pass": true,
+    "source_and_package_sqlite_state_and_audit_pass": true,
+    "source_and_package_api_trace_chain_valid": true,
+    "source_and_package_api_trace_endpoint_anchored": true,
+    "source_and_package_evaluation_companion_trace_anchor_exact": true,
+    "authorization_before_body_parse": true,
+    "operator_identity_server_derived": true,
+    "cached_result_authorization": true,
+    "forbidden_authentication_material_absent": true
+  },
+  "rendered_dashboards": {
+    "dimensions": [
+      1440,
+      1000
+    ],
+    "source_sha256": "8dcd8c0d3c515654faa60c9835c16d85e1975e8121bbe7f6809623684bedac0b",
+    "source_bytes": 79200,
+    "package_path": "artifacts/verification/dashboard-baseline-0021.png",
+    "package_sha256": "caf44f16aab7206141995dfea4a967999149682416edad0c2481e15e9483252e",
+    "package_bytes": 79652,
+    "visual_inspection": "pass: the unchanged source PNG is complete at normalized high detail and the unchanged package PNG is complete at original detail; both show Baseline 0021, all exact metrics, authenticated external operator, disconnected real infrastructure, and both persisted incidents"
+  },
+  "artifact_parsing": {
+    "tracked_files": 605,
+    "tracked_json_files": 381,
+    "tracked_jsonl_files": 87,
+    "tracked_jsonl_records": 11388,
+    "post_verification_files": 652,
+    "post_verification_json_files": 386,
+    "post_verification_jsonl_files": 91,
+    "post_verification_jsonl_records": 11803,
+    "status": "pass"
+  },
+  "security_scan": {
+    "model_artifact_count": 0,
+    "package_contract_definition_files_excluded": 11,
+    "broad_credential_pattern_match_files": 11,
+    "credential_shaped_matches_outside_frozen_forbidden_pattern_definitions": 0,
+    "status": "pass"
+  },
+  "post_verification_changes_in_clone": {
+    "expected": true,
+    "scope": "fresh source and package evaluation attempts, latest pointer, two reproducibility archives, synthetic runtime state, MCP traces, and rendered dashboard only",
+    "source_contract_manifest_policy_or_authority_changed": false
+  },
+  "retained_observations": [
+    {
+      "stage": "merged-main clone invocation",
+      "result": "wrong_working_directory_before_clone",
+      "detail": "The first command selected C:/Projects/Verification before its repository-scoped fetch and parent check, then stopped before creating a target. The corrected command ran from the authoritative repository and created the exact no-alternates public-main clone."
+    },
+    {
+      "stage": "dashboard renderer",
+      "result": "non_fatal_tooling_warning",
+      "detail": "The Chromium screenshot helper emitted its fallback task-provider diagnostic after writing complete valid PNG bytes; exit status, dimensions, hashes, content assertions, persisted-state checks, and visual inspection pass."
+    },
+    {
+      "stage": "dashboard image viewer",
+      "result": "detail_dependent_viewer_frame_artifact",
+      "detail": "The source original-detail frame and package normalized-high frame each showed only the incident-table strip. The same unchanged source bytes rendered completely at normalized high detail and the same package bytes rendered completely at original detail."
+    }
+  ],
+  "limitations": [
+    "Adversarial topology split coverage is scenario-label coverage; one frozen hostile dev-API runbook is not selected by retrieval, and legacy full-context hostile-document exposure is 14 of 15.",
+    "Forty scenarios do not satisfy the separate at-least-48-case v0.1.0 target.",
+    "The checkpoint remains a synthetic-only research-informed preview and is not authorized for real operational infrastructure.",
+    "Docker is not claimed for this checkpoint."
+  ],
+  "next_gate": "final release audit, exact release-closure commit, annotated tag, selected assets, and immediate public verification"
+}
