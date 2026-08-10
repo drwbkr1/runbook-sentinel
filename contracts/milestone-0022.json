@@ -185,7 +185,7 @@
       ],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": [
         "public implementation seal",
         "86-file pre-reveal manifest 395731d2413aad3a9a9614e25a37590b070130cb90b9cbffd3d5bde413be49d3",
@@ -203,12 +203,15 @@
         "adversarial_action_split_coverage_6_of_6": "pass",
         "all_prior_source_package_and_real_surface_gates": "pass",
         "deterministic_archive_reproduction": "pass",
-        "remote_only_clean_clone": "pending"
+        "remote_only_clean_clone": "pass"
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [
         "The first complete 40-test run retained one stale generic action-split negative-control fixture; only that fixture changed and the immutable candidate remained unchanged.",
-        "A package-verifier wrapper first used unsupported positional arguments, and a following trace-verifier wrapper omitted PYTHONPATH=src. Both corrected bounded invocations pass without candidate changes."
+        "A package-verifier wrapper first used unsupported positional arguments, and a following trace-verifier wrapper omitted PYTHONPATH=src. Both corrected bounded invocations pass without candidate changes.",
+        "The first clean-clone wrapper ran compileall and tests in parallel and contended for one ignored __pycache__ rename; the detached test result was not used, and the sequential compile plus captured suite pass.",
+        "A sequential governance wrapper applied the current milestone schema to retained milestone-0013 and correctly rejected its historical shape; active milestone-0022 validates, and historical evidence was not rewritten.",
+        "Both clean-clone dashboard captures emitted the known Chromium fallback-task diagnostic after writing complete images; original-detail inspection of unchanged bytes passes."
       ],
       "exit_condition_delta": {
         "expected": [
@@ -228,7 +231,7 @@
       ],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": [
         "verified candidate and clean-clone evidence",
         "release truth matrix and inherited director authority"
@@ -284,8 +287,8 @@
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.21 remains the latest release at eaed929dbb2f0d2f8b54c2fe51aaea0902823f77; the local BASELINE-0022 candidate passes every source, package, real-surface, reproducibility, regression, parsing, and scan gate.",
-    "next_action": "Commit and push the exact candidate receipt, then verify that public branch commit from a remote-only no-alternates clean clone.",
+    "current_checkpoint": "Public v0.0.21 remains the latest release at eaed929dbb2f0d2f8b54c2fe51aaea0902823f77; exact public-branch candidate 85390c29f512617e330fbe00764cac0a973ce6b1 passes all local and remote-only source, package, real-surface, reproducibility, regression, parsing, scan, and rendered-dashboard gates.",
+    "next_action": "Run the premerge release audit, reconcile living records, and expose the exact candidate scope for GitHub review before any merge or release.",
     "do_not_carry_forward": [
       "any claim that synthetic six-cell coverage is universal prompt-injection resistance",
       "any authority, secret, dependency, external asset, paid service, or real-infrastructure connector",

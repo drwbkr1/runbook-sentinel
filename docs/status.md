@@ -5,9 +5,9 @@
 - Branch: `codex/baseline-0022-adversarial-action-split`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0021`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.21`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release closure
-- Candidate version: local `0.0.22` / `baseline-0022` passes source, package, real-surface, reproducibility, regression, parsing, and scan gates; remote-only clean-clone verification is next
+- Candidate version: exact public-branch commit `85390c29f512617e330fbe00764cac0a973ce6b1` for `0.0.22` / `baseline-0022` passes local and remote-only source, package, real-surface, reproducibility, regression, parsing, scan, and rendered-dashboard gates
 - Active milestone: `BASELINE-0022` adversarial executable-action split coverage
-- Current unit: `UNIT-004`; the sealed held-out candidate and every local source/package surface pass, with exact candidate commit and remote-only clean-clone verification next
+- Current unit: `UNIT-005` in progress; release records are reconciled to verified-candidate truth and the premerge audit is next
 - Disposition: baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -48,8 +48,14 @@
 - Parsed 410 JSON files and 12,440 records across 142 JSONL files before writing the candidate receipt. All 12 broad credential-shaped hits are package-contract scanner definitions; the high-signal scan excluding those definitions has zero findings, and no model artifact is present.
 - The 7,248-byte local candidate receipt is SHA-256 `c8aeb0a116570a76d0b0aeb644e9d7485f2802df7e87124fc3cf0714818de08b` and has disposition `candidate_ready_for_clean_clone`.
 - Retained command evidence includes the stale action-split negative-control failure, a positional package-verifier invocation rejected by its named-flag interface, and a trace-verifier invocation missing `PYTHONPATH=src`. Corrected bounded invocations pass without changing the candidate.
+- Exact public candidate commit `85390c29f512617e330fbe00764cac0a973ce6b1` was cloned over HTTPS with `--no-local --single-branch` into `C:\Projects\Verification\runbook-sentinel-baseline-0022-clean-85390c2-20260810T203503Z`. The clone began clean at the expected commit and has no object alternates.
+- The clean clone passes compilation, all 23 validators, the active milestone contract, and all 40 tests in 93.977 seconds. A first parallel wrapper contended on an ignored `__pycache__` rename, and a later all-history wrapper correctly rejected retained milestone-0013 under the current schema; neither result is used as candidate evidence.
+- Fresh clean-clone source/package evaluations pass all 123 attempts and exact 213-event trace verification. Source report/trace SHA-256 values are `cacbc2637b4d8428a73a58313b5e804a04adb2d7c6c851a0a08dc634f4e7cad7` / `1ae89efc2cf0d7800f0ec75506c089ac7989b83232048ae41100c96f4c065285`; package values are `9d2100a7d1e30a64f5509e577d0263aab0d838fcf83078d7b76a3c241b4764bc` / `5fc0ebd9d629e94276504a67cb05cee5c26bdada73c1f10e9cc0eaa21d189413`. Their anchors end at `fced30293e952f59e69fa1357c42fb3a7c3b66b6a68ddec3f0e258cc84d01682` / `ea672733d0231814cd903bea9abe8d428b49694da71fc8f7b6ce8111d83c7faf`.
+- Two clean-clone builds reproduce the exact selected 37-entry, 484,945-byte archive at SHA-256 `aae2fe8bacb04c022d3234cd4ab305fe976ddd7fef7130dc83528bcd8d62dd42`. Source and package repeat bounded MCP and every real API/approval/executor/state/telemetry gate.
+- Complete clean-clone source/package dashboards pass original-detail inspection at SHA-256 `2481f9888717b020deb6eb3debd4fe267624b1c79fa409cbe2d8a4f85b621ec5` / `b2d161cc1fbbb71545528e333a421b9645d8529b7a07aecb70297606fe6d8b63`. Both successful captures emitted a Chromium diagnostic after writing their images; the unchanged PNGs are complete.
+- Post-verification parsing covers 403 JSON files and 12,664 records across 95 JSONL files. All 12 broad credential-shaped hits are package-contract scanner definitions, the high-signal scan has zero findings, and no model artifact is present. The 7,428-byte clean-clone receipt is SHA-256 `69ab956519f5c99e03d27586b47ac7c58005a741c0e8457a749f63a61c7e1f2d`.
 - This metric is synthetic cross-split evidence, not universal prompt-injection resistance. Forty-one cases remain below the separate at-least-48-case v0.1.0 target.
-- Next eligible action: commit and push the exact local candidate receipt, then verify that commit from a remote-only no-alternates clean clone.
+- Next eligible action: reconcile release records and run the premerge release audit before exact GitHub review.
 
 ### BASELINE-0021 adversarial topology split gap and frozen contract
 

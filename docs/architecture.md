@@ -34,6 +34,8 @@ Baseline 0017 adds a persistence boundary for live runtime endpoints without cha
 
 Baseline 0018 adds observability at the optional-model parser boundary without widening it. Each content rejection carries one value from a closed 17-code taxonomy; valid output and timeout, transport, missing-content, or response-identity failures carry no content code. Reports retain the code and raw-output SHA-256, never unparsed generated content, and expose aggregate and split counts plus classification completeness. A code cannot make rejected output valid or change the generic abstention, policy, approval, executor, or deterministic-default decision.
 
+Baselines 0019 through 0022 extend only the evaluation plane. They cross topology domains, executable actions, and adversarial labels with frozen development and held-out splits, count only scenarios whose exact terminal contract agrees, and fail closed on an empty, unknown, or mismatched cell. Baseline 0022 adds one project-authored retrieved in-band hostile telemetry transform for the missing held-out rollback cell. The runtime agent, retriever, decision context, model adapter, action inventory, capability map, approval broker, authentication, executor, API, MCP authority, persistence, and disconnected synthetic-infrastructure boundaries are unchanged.
+
 ## Ports and trust boundaries
 
 - CLI and HTTP API are local operator surfaces.
