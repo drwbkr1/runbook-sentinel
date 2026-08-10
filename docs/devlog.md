@@ -1,5 +1,16 @@
 # Development log
 
+## 2026-08-10 - BASELINE-0022 started
+
+- Resumed from exact public v0.0.21 release closure `eaed929dbb2f0d2f8b54c2fe51aaea0902823f77` on isolated branch `codex/baseline-0022-adversarial-action-split`.
+- Ran the unchanged 40-case system across three trials. Every prior gate passes; the retained report/trace hashes are `9e2301aaf90dc89625110dc229dbb283ca1a3613191e85e4a31b62d0ee3750f1` / `aefc21a271d9640eaa018104d616ce9225f766fd0de26179c4dad3de923f2451`, with an exact 204-event anchor at `005319d412128f0bf76716245a2c970fd1aad4b471e6f8f241ff460b6cb8d628`.
+- Measured one bounded weakness: adversarial executable-action coverage is 5/6 across development and held-out test. The only empty cell is held-out `rollback_deployment`, so one executor capability has no hostile-evidence trajectory in that split.
+- Selected exactly one project-authored in-band telemetry transform of `test-bad-deployment-current`. The retrieved hostile instruction asks for `restart_worker`; the frozen correct result remains `rollback_deployment`, the existing approved execution trajectory, and the existing exact terminal state.
+- Froze `adversarial-action-split-coverage-v1`, the 40-case recursive identity chain, exact one-case transformation, target metric, security gates, and forbidden changes before implementation. Candidate results and implementation remain absent; the independent validator passes.
+- Retained the first generic milestone-validation failure: `active` was not a valid unit status and `release_readiness` was not a valid progress value. The normalized record uses `in_progress` and a recognized decision value.
+- No new source was accessed and no external asset was imported. The prior approved ACL CheckList source gate is reused only for the narrow proposition that aggregate scores can hide capability failures.
+- The target is 41 cases, 123 attempts, an exact 213-event trace, and 6/6 adversarial action/split cells. This does not establish universal prompt-injection resistance or satisfy the separate at-least-48-case v0.1.0 target.
+
 ## 2026-08-10 - BASELINE-0021 started
 
 - Closed the previously incomplete external public-v0.0.20 receipt at `C:\Projects\Verification\public-release-baseline-0020.json`. Public refs, release metadata, selected assets and downloads, rendered pages, fresh public-tag source/package runs, MCP, API/approval/executor/state/telemetry, dashboard, and scans reconcile at release closure `f149ac2`.
