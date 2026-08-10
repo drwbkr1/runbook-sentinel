@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ENV = os.environ.copy()
 ENV["PYTHONPATH"] = os.environ.get("RUNBOOK_SENTINEL_PYTHONPATH", str(ROOT / "src"))
-CHECKPOINT = "baseline-0021"
+CHECKPOINT = "baseline-0022"
 
 
 def run(command: list[str]) -> None:
@@ -28,6 +28,8 @@ def main() -> None:
     run([sys.executable, "scripts/verify_action_split_coverage.py"])
     run([sys.executable, "scripts/verify_adversarial_topology_split_coverage_contract.py"])
     run([sys.executable, "scripts/verify_adversarial_topology_split_coverage.py"])
+    run([sys.executable, "scripts/verify_adversarial_action_split_coverage_contract.py"])
+    run([sys.executable, "scripts/verify_adversarial_action_split_coverage.py"])
     run([sys.executable, "scripts/verify_behavioral_relations.py"])
     run([sys.executable, "scripts/verify_retrieval_stress.py"])
     run([sys.executable, "scripts/verify_stale_evidence_stress.py"])

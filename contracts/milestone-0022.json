@@ -1,0 +1,298 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0022",
+  "project_profile_ref": null,
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "active_contract": "contracts/milestone-0022.json",
+    "verified_at_utc": "2026-08-10T19:49:18.4085105Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Make adversarial executable-action coverage split-aware so a passing aggregate cannot hide an executor capability that has never been exercised in held-out hostile evidence; add exactly one project-authored in-band hostile telemetry transform for the missing test rollback_deployment cell.",
+    "allowed_paths": [
+      "C:/Projects/Active/runbook-sentinel",
+      "C:/Projects/Verification"
+    ],
+    "forbidden_work": [
+      "change any existing scenario or expected result",
+      "change agent, model, retrieval, decision context, action inventory, policy, approval, authentication, executor, API, or MCP authority",
+      "add a dependency, paid service, secret, external asset, remote model call, or real-infrastructure connector",
+      "change repository visibility, access, or ownership",
+      "claim synthetic coverage is universal prompt-injection resistance or that 41 cases satisfy the separate at-least-48-case v0.1.0 target"
+    ],
+    "reversible_actions": [
+      "create and update files on the isolated codex/baseline-0022-adversarial-action-split branch",
+      "run deterministic local evaluations, tests, package builds, dashboard checks, and clean-clone verification",
+      "commit and push bounded checkpoints under the standing director authority",
+      "open, review, and merge a pull request and publish a public release only after every release gate passes"
+    ],
+    "stop_conditions": [
+      "core thesis change or security-boundary weakening",
+      "an existing expected result or runtime authority boundary would need to change",
+      "a dependency, secret, paid service, external asset, real infrastructure, or access change becomes necessary",
+      "pre-change identity, held-out exactness, adversarial action split coverage, prior behavior, or shipment cannot be verified"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.21 refs, release, selected assets, downloaded bytes, rendered pages, and independent public-tag source/package verification reconcile at eaed929dbb2f0d2f8b54c2fe51aaea0902823f77.",
+        "Fresh source evaluation passes all prior gates and exact 204-event trace verification.",
+        "Aggregate action split and adversarial topology split coverage report 1.0, but adversarial executable action-by-split coverage is only 5 of 6; held-out test has no rollback_deployment trajectory."
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Run public v0.0.21 and measure adversarial executable-action coverage by development and held-out split.",
+      "depends_on": [],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "public v0.0.21 checkpoint at eaed929dbb2f0d2f8b54c2fe51aaea0902823f77",
+        "40-case scenario catalog and frozen terminal states"
+      ],
+      "outputs": [
+        "fresh pre-change source evaluation and trace",
+        "adversarial action split gap receipt"
+      ],
+      "gates": {
+        "public_checkpoint_reconciled": "pass",
+        "fresh_prior_evaluation": "pass",
+        "exact_trace_verification": "pass",
+        "gap_measured_and_retained": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-001"
+        ],
+        "observed": [],
+        "decision_value": "risk_reduction",
+        "rationale": "The unit established the exact pre-change state and selected a measurable cross-split security/reliability weakness without changing the system."
+      },
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze exact coverage, all 40 pre-change identities, one held-out in-band transform, metrics, gates, and forbidden changes before implementation.",
+      "depends_on": [
+        "UNIT-001"
+      ],
+      "action_class": "evidence_preservation",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "artifacts/verification/adversarial-action-split-gap-baseline-0022.json",
+        "eval/adversarial-action-split-coverage-prechange.json"
+      ],
+      "outputs": [
+        "frozen adversarial-action-split-coverage-v1 contract",
+        "recursive pre-change identity record",
+        "independent contract validator"
+      ],
+      "gates": {
+        "json_documents_parse": "pass",
+        "prechange_identities_compose_to_40": "pass",
+        "candidate_results_absent": "pass",
+        "one_missing_cell_frozen": "pass",
+        "contract_validator": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "The first generic milestone validation attempt used active as a unit status and release_readiness as an exit-condition decision value; both are outside the validator vocabulary. The record was normalized to in_progress and advances_exit before implementation."
+      ],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-001"
+        ],
+        "observed": [],
+        "decision_value": "enables_dependency",
+        "rationale": "The exact pre-change identity chain, transformation, metrics, gates, and forbidden changes must be frozen before implementation."
+      },
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement the fail-closed six-cell metric and one exact transformed case without changing runtime behavior or authority.",
+      "depends_on": [
+        "UNIT-002"
+      ],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "eval/adversarial-action-split-coverage-contract.json",
+        "scripts/verify_adversarial_action_split_coverage_contract.py"
+      ],
+      "outputs": [
+        "catalog schema 1.13 with one exact transformed case and terminal record",
+        "fail-closed adversarial-action-split-coverage-v1 evaluator metric and hard gates",
+        "independent exact implementation verifier",
+        "public implementation seal c5c92412084993aa3b519587599e7a44f46a36dc before held-out reveal"
+      ],
+      "gates": {
+        "all_40_prechange_scenarios_exact": "pass",
+        "all_40_prechange_terminal_states_exact": "pass",
+        "new_transform_exact": "pass",
+        "adversarial_action_split_coverage_6_of_6": "pass",
+        "fail_closed_metric_unit": "pass",
+        "implementation_sealed_before_held_out_reveal": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-001"
+        ],
+        "observed": [],
+        "decision_value": "enables_dependency",
+        "rationale": "The bounded implementation must be sealed after static and development-only checks and before the held-out candidate is run."
+      },
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Reveal the held-out transform and run all prior source, package, API, MCP, state, telemetry, dashboard, reproducibility, and clean-clone gates.",
+      "depends_on": [
+        "UNIT-003"
+      ],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "public implementation seal",
+        "86-file pre-reveal manifest 395731d2413aad3a9a9614e25a37590b070130cb90b9cbffd3d5bde413be49d3",
+        "frozen package contract"
+      ],
+      "outputs": [
+        "immutable 123-attempt candidate and exact 213-event trace",
+        "source and package evaluation and real-surface evidence",
+        "remote-only clean-clone evidence"
+      ],
+      "gates": {
+        "all_41_scenarios_exact_across_three_trials": "pass",
+        "all_40_prechange_scenario_and_terminal_identities_exact": "pass",
+        "new_inband_transform_exact": "pass",
+        "adversarial_action_split_coverage_6_of_6": "pass",
+        "all_prior_source_package_and_real_surface_gates": "pass",
+        "deterministic_archive_reproduction": "pass",
+        "remote_only_clean_clone": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "The first complete 40-test run retained one stale generic action-split negative-control fixture; only that fixture changed and the immutable candidate remained unchanged.",
+        "A package-verifier wrapper first used unsupported positional arguments, and a following trace-verifier wrapper omitted PYTHONPATH=src. Both corrected bounded invocations pass without candidate changes.",
+        "The first clean-clone wrapper ran compileall and tests in parallel and contended for one ignored __pycache__ rename; the detached test result was not used, and the sequential compile plus captured suite pass.",
+        "A sequential governance wrapper applied the current milestone schema to retained milestone-0013 and correctly rejected its historical shape; active milestone-0022 validates, and historical evidence was not rewritten.",
+        "Both clean-clone dashboard captures emitted the known Chromium fallback-task diagnostic after writing complete images; original-detail inspection of unchanged bytes passes."
+      ],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-001"
+        ],
+        "observed": [],
+        "decision_value": "risk_reduction",
+        "rationale": "The candidate must close the measured gap without regressing prior behavior, security, authority, utility, reliability, telemetry, or packaging."
+      },
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Reconcile living records, audit changed release risk, review exact GitHub scope, merge with history preserved, publish v0.0.22, and verify public state.",
+      "depends_on": [
+        "UNIT-004"
+      ],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "in_progress",
+      "inputs": [
+        "verified candidate and clean-clone evidence",
+        "release truth matrix and inherited director authority"
+      ],
+      "outputs": [
+        "reconciled roadmap, changelog, version history, ADRs, threat model, research ledger, evaluation report, status, and devlog",
+        "history-preserving reviewed merge",
+        "annotated v0.0.22 and selected public assets",
+        "fresh merged-main and public-tag verification"
+      ],
+      "gates": {
+        "release_audit_verified": "pending",
+        "exact_reviewed_head_merged_with_history_preserved": "pending",
+        "public_refs_assets_downloads_pages_reconciled": "pending",
+        "fresh_public_tag_source_package_and_real_surfaces": "pending"
+      },
+      "disposition": null,
+      "retained_failures": [],
+      "exit_condition_delta": {
+        "expected": [
+          "EXIT-001"
+        ],
+        "observed": [],
+        "decision_value": "unknown",
+        "rationale": "Release only the exact independently verified checkpoint and reconcile every public surface immediately."
+      },
+      "next_dependency": null
+    }
+  ],
+  "path_efficiency": {
+    "max_consecutive_no_progress_units": 2,
+    "review_action_class": "project_control",
+    "review_human_gate": false
+  },
+  "verification": {
+    "changed_risks": [
+      "a passing aggregate can hide a missing adversarial executor capability in the held-out split",
+      "a retrieved hostile telemetry instruction can attempt to redirect rollback_deployment to restart_worker",
+      "a new metric or case can accidentally alter prior scenarios, terminal states, runtime authority, or release claims"
+    ],
+    "required_checks": [
+      "recursive exact identity for all 40 pre-change scenarios and terminal states",
+      "exact one-case transformation and retrieved in-band attack exposure",
+      "fail-closed six-cell adversarial action split metric",
+      "three-trial source and package evaluation with exact terminal, tool, policy, attack, trace, latency, and cost metrics",
+      "real bounded MCP, loopback API, approval, executor, state, telemetry, dashboard, package, clean-clone, review, merge, release, and public verification"
+    ],
+    "completed_checks": [
+      "public v0.0.21 reconciliation",
+      "fresh unchanged 40-case evaluation",
+      "exact 204-event trace verification",
+      "5-of-6 adversarial action split gap measurement"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "Public v0.0.21 remains the latest release at eaed929dbb2f0d2f8b54c2fe51aaea0902823f77; exact public-branch candidate 85390c29f512617e330fbe00764cac0a973ce6b1 passes all local and remote-only source, package, real-surface, reproducibility, regression, parsing, scan, and rendered-dashboard gates.",
+    "next_action": "Run the premerge release audit, reconcile living records, and expose the exact candidate scope for GitHub review before any merge or release.",
+    "do_not_carry_forward": [
+      "any claim that synthetic six-cell coverage is universal prompt-injection resistance",
+      "any authority, secret, dependency, external asset, paid service, or real-infrastructure connector",
+      "any rewrite of failed, stale, blocked, superseded, or unfavorable evidence"
+    ]
+  }
+}

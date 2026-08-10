@@ -110,8 +110,8 @@ def _released_v2_retrieve(
 def main() -> None:
     catalog = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
     errors: list[str] = []
-    if catalog.get("schema_version") != "1.12":
-        errors.append("catalog schema must be 1.12")
+    if catalog.get("schema_version") != "1.13":
+        errors.append("catalog schema must be 1.13")
     contract = catalog.get("stale_evidence_stress_contract")
     if not isinstance(contract, dict) or set(contract) != EXPECTED_CONTRACT_KEYS:
         errors.append("stale-evidence contract keys do not match the frozen schema")

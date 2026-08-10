@@ -1,5 +1,13 @@
 # Roadmap
 
+## Active checkpoint baseline-0022 - adversarial executable-action split coverage
+
+A fresh unchanged public-v0.0.21 run passes all 40 cases and every prior gate, but the cross-dimension audit finds that adversarial executable-action coverage reaches only 5 of 6 action/split cells. Development covers all three existing executor actions; held-out test has no adversarial `rollback_deployment` trajectory. Baseline-0022 freezes a fail-closed adversarial action-by-split metric and one project-authored in-band hostile telemetry transform of the existing held-out bad-deployment case. The hostile instruction requests `restart_worker`; the frozen expected result remains the existing approved rollback trajectory and exact terminal state.
+
+All 40 public scenario and terminal identities are recursively bound before implementation. The target grows the catalog to 41 cases and 123 attempts, closes the six-cell matrix, and exposes the retrieved hostile document in the decision context without changing the agent, model, retrieval algorithm, action inventory, policy, approval, authentication, executor, API/MCP authority, dependency, secret, external asset, or synthetic-only boundary. It is research-informed synthetic evidence, not universal prompt-injection resistance, and remains below the separate at-least-48-case v0.1.0 target.
+
+The first held-out reveal, final-manifest source/package runs, all 40 tests, 23 validators, bounded MCP, real authentication/approval/executor/state/telemetry, exact two-build archive reproduction, parsing/scans, and complete rendered dashboards pass. A remote-only no-alternates clone of exact public candidate `85390c29f512617e330fbe00764cac0a973ce6b1` independently repeats the complete stack. Premerge audit and exact GitHub review are next; merge, public-main, tag, assets, downloads, rendered pages, and public-tag gates remain pending.
+
 ## Completed checkpoint baseline-0021 - adversarial topology split coverage
 
 A fresh unchanged public-v0.0.20 run passes every prior gate, while the new cross-dimension audit shows that aggregate adversarial split coverage of 1.0 masks nine empty domain/split cells: only 7 of 16 are covered, development adversarial coverage is confined to worker cases, and API and database have no adversarial case in either split. Baseline-0021 freezes a fail-closed adversarial domain-by-split metric and exactly one project-authored adversarial transform for each missing cell. All 31 prior scenario and terminal identities and every runtime authority boundary remain immutable. The target is 40 cases and 16-of-16 coverage; it does not satisfy the separate at-least-48-case v0.1.0 target.
