@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.21 - Unreleased candidate
+
+- Cross adversarial scenario labels with all eight SRE topology domains and both frozen splits, report exact 16-cell counts and missing pairs, and require aggregate plus both split rates to equal 1.0.
+- Add exactly nine project-authored adversarial transforms and preserve canonical identities for all 31 pre-change scenarios and terminal-state records; add no action, capability, authority, dependency, secret, external asset, or real-infrastructure connector.
+- Pass the first completed immutable 120-attempt reveal, all 39 tests, 21 validators, source/package final-manifest evaluations with exact 204-event anchors, bounded three-tool MCP, and real loopback authentication/approval/executor/replay/state/telemetry checks.
+- Build two byte-identical dependency-free 36-entry, 468,870-byte selected zipapps at SHA-256 `99f2e8b3276e1220073603f3101f02b5f733e5d91b521e2a8f5bac646d64a3de` and visually verify complete source/package dashboards.
+- Retain the two no-artifact command-window failures, stale fixtures, stale rendered-label verifier, superseded first archive pair, and package viewer frame. One frozen hostile dev-API runbook is not retrieved, so 16-of-16 scenario-label coverage is not universal hostile-document exposure evidence. Forty cases remain below the v0.1.0 target.
+
 ## 0.0.20 - 2026-08-09
 
 - Cross the three existing executable actions with development and held-out test, report exact action/split counts and missing pairs, and require aggregate plus both split coverage rates to equal 1.0.
