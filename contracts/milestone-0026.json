@@ -170,9 +170,9 @@
         "public release and fresh public-tag verification receipt"
       ],
       "gates": {
-        "premerge_release_audit_verified": "pending",
-        "exact_reviewed_head_merged_with_history_preserved": "pending",
-        "fresh_public_main_source_package_and_real_surfaces": "pending",
+        "premerge_release_audit_verified": "pass",
+        "exact_reviewed_head_merged_with_history_preserved": "pass",
+        "fresh_public_main_source_package_and_real_surfaces": "pass",
         "final_release_audit_verified": "pending",
         "public_refs_assets_downloads_pages_reconciled": "pending",
         "fresh_public_tag_source_package_and_real_surfaces": "pending"
@@ -183,7 +183,7 @@
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Run the premerge release-truth audit, then review and merge only the exact verified GitHub head with history preserved.",
+  "next_action": "Run the final release-truth audit against the exact verified merged-main checkpoint before creating any tag or release.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -219,12 +219,14 @@
       "classified structured-artifact and credential/model scans with zero unresolved finding",
       "remote-only HTTPS no-alternates clone of exact public receipt commit c9718765ecad4b9a003736a6246da1760878bac9",
       "clean-clone 31-validator and 47-test pass, two exact archive rebuilds, fresh source/package evaluations and 261-event anchors, bounded MCP, authenticated API/state/telemetry, parsing/scans, and complete original-detail dashboards",
-      "post-clean-receipt documentation gate: 31 validators and 47 tests pass after retaining an invalid short-timeout wrapper with no inferred result"
+      "post-clean-receipt documentation gate: 31 validators and 47 tests pass after retaining an invalid short-timeout wrapper with no inferred result",
+      "premerge audit verified after retaining a schema-invalid first draft; PR 24 merged exact reviewed head 48eb7669582b372ef2d0c8986374fa0823133f61 with history preserved as 2fac52759e0d3f6857491f40d1958f62a85e70b4",
+      "fresh public-main clone passes 31 validators, 47 tests, two exact archive builds, source/package evaluations and 261-event anchors, bounded MCP, both 59-check authenticated real surfaces, parsing/scans, and complete original-detail dashboards"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.25 remains the latest verified release. BASELINE-0026 UNIT-004 is complete: exact public candidate receipt commit c9718765ecad4b9a003736a6246da1760878bac9 reproduces from a remote-only no-alternates clone across archive, source/package evaluation, MCP, authenticated API/approval/executor/state/telemetry, parsing/scans, and complete dashboards. Review, merge, release, and public-tag verification remain pending.",
-    "next_action": "Run the premerge release-truth audit, then review and merge only the exact verified GitHub head with history preserved.",
+    "current_checkpoint": "Public v0.0.25 remains the latest verified release. BASELINE-0026 exact reviewed head is history-preserving merge 2fac52759e0d3f6857491f40d1958f62a85e70b4 on public main, and a fresh no-alternates clone passes the complete source/package, archive, MCP, authenticated API/state/telemetry, parsing/scan, and dashboard matrix. Final audit, release closure, tag/assets, rendered pages, downloaded bytes, and public-tag verification remain pending.",
+    "next_action": "Run the final release-truth audit against the exact verified merged-main checkpoint before creating any tag or release.",
     "do_not_carry_forward": [
       "any claim that synthetic eighteen-cell coverage is production readiness, learned generalization, or universal prompt-injection resistance",
       "any authority, secret, dependency, external asset, paid service, or real-infrastructure connector",
