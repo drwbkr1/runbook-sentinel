@@ -56,7 +56,7 @@
     "scripts/verify_adversarial_condition_outcome_split_coverage.py": "79ae1b3aaf0ba8de8ca4b7649ce9993d0e780fb06f66d09a9ffb7655d85ec250",
     "scripts/verify_adversarial_condition_outcome_split_coverage_contract.py": "83d88edc80271c833ceb827abb2e8eda2443c2e46527518dca588ddca0e6e320",
     "scripts/verify_adversarial_domain_outcome_split_coverage.py": "5143d5a1337bbfee360e4f9337140360da9903ecdb0954c837a0b2a465b008e5",
-    "scripts/verify_adversarial_domain_outcome_split_coverage_contract.py": "d7b6180deaa62463dceb1f6565f13df5d5d7615ae89fc9c39e5ecefd718c6bbb",
+    "scripts/verify_adversarial_domain_outcome_split_coverage_contract.py": "c7199a163ff2863e40c9010371a98fdcfaec29de2242df426db37957ed2b85c1",
     "scripts/verify_adversarial_outcome_split_coverage.py": "6e04fbb6f2c210a1c833c0d7ee19b0fd482d4c3333de8331b244fd67fbcc6532",
     "scripts/verify_adversarial_outcome_split_coverage_contract.py": "1316b3209440679d699f06b353d9949eb49a512a919a506eed9a098f5dfd842a",
     "scripts/verify_adversarial_topology_split_coverage.py": "d24e70e2a8ac03dd7d1ee1afaa07957c74bc0502eb524ed4ae9b65618cdb0769",
@@ -105,6 +105,6 @@
     "src/runbook_sentinel/telemetry.py": "1e136b8642fc37f76bd803e720d5849123867fe8565426c8ce43ec5b21245815",
     "src/runbook_sentinel/trace_integrity_evaluation.py": "aab63e902297aa2c26734cbaef46b9106c07074696c5cf1d4cef2a1b70690d4a"
   },
-  "frozen_at_utc": "2026-08-11T16:52:31Z",
+  "frozen_at_utc": "2026-08-11T17:21:52Z",
   "schema_version": "1.0"
 }
