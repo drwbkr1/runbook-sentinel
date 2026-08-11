@@ -60,7 +60,7 @@ def main() -> None:
     runtime_contract = catalog.get(
         "adversarial_domain_outcome_split_coverage_contract"
     )
-    if catalog.get("schema_version") != "1.16":
+    if catalog.get("schema_version") != "1.17":
         errors.append("catalog_schema_mismatch")
     if runtime_contract != expected_runtime_contract:
         errors.append("runtime_contract_mismatch")
@@ -70,9 +70,9 @@ def main() -> None:
     terminal_states = catalog.get("terminal_state_contract", {}).get(
         "scenarios", {}
     )
-    if len(scenarios) != 56 or len(scenarios_by_id) != 56:
+    if len(scenarios) != 57 or len(scenarios_by_id) != 57:
         errors.append("scenario_inventory_mismatch")
-    if len(terminal_states) != 56:
+    if len(terminal_states) != 57:
         errors.append("terminal_inventory_mismatch")
 
     prechange_scenarios, prechange_terminal_states = identity_chain(PRECHANGE_PATH)
@@ -98,10 +98,10 @@ def main() -> None:
     }
     new_ids = set(scenarios_by_id) - set(prechange_scenarios)
     new_terminal_ids = set(terminal_states) - set(prechange_terminal_states)
-    if new_ids != set(transformations):
-        errors.append("new_scenario_inventory_mismatch")
-    if new_terminal_ids != set(transformations):
-        errors.append("new_terminal_inventory_mismatch")
+    if not set(transformations).issubset(new_ids):
+        errors.append("frozen_scenario_inventory_missing")
+    if not set(transformations).issubset(new_terminal_ids):
+        errors.append("frozen_terminal_inventory_missing")
 
     new_case_exact: dict[str, bool] = {}
     for scenario_id, transformation in transformations.items():
@@ -133,9 +133,20 @@ def main() -> None:
         if not semantic_exact:
             errors.append(f"{scenario_id}:semantic_mismatch")
 
+    historical_ids = set(prechange_scenarios) | set(transformations)
+    historical_scenarios = [
+        scenario for scenario in scenarios if scenario.get("id") in historical_ids
+    ]
+    historical_terminal_contract = {
+        **catalog.get("terminal_state_contract", {}),
+        "scenarios": {
+            scenario_id: terminal_states[scenario_id]
+            for scenario_id in historical_ids
+        },
+    }
     measured = _adversarial_domain_outcome_split_coverage(
-        scenarios,
-        catalog.get("terminal_state_contract", {}),
+        historical_scenarios,
+        historical_terminal_contract,
         runtime_contract,
     )
     if not measured["adversarial_domain_outcome_split_contract_valid"]:

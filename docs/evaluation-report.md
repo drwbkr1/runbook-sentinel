@@ -8,6 +8,8 @@ The nine observed-valid stage/outcome pairs create eighteen development/test cel
 
 The frozen improvement adds only one exact development analog and a fail-closed metric. All 56 prior scenarios and terminal states are recursively hash-bound; the new case may differ from its control only in ID and split. No model, agent, retrieval, filtering, decision context, policy, action, capability, approval, executor, dependency, asset, secret, or real-infrastructure boundary changes. Candidate evidence is not yet recorded.
 
+Implementation checks now report catalog schema 1.17, 57 exact scenarios, eighteen static cells, both split rates 1.0, all 56 prior identities exact, and the new scenario plus terminal transform exact. The attempt-aware grader and focused tests reject a missing development control, hidden in-band exposure, ambiguous dual-stage catalog identity, and a truncated required-pair contract. Focused runtime/model/MCP/HTTP tests pass; immutable candidate evaluation remains deferred until the implementation and pre-reveal manifest are public.
+
 ## BASELINE-0025 pre-implementation evidence
 
 Public v0.0.24 is the exact starting checkpoint. A fresh public-tag clone and downloaded package pass all 44 cases across three trials, 27 validators, 42 tests, exact 222-event traces, reproducible release bytes, bounded MCP, real authentication/approval/executor/state/telemetry, parsing, scans, and complete rendered dashboards. Source report/trace SHA-256 values are `e03dd6a46c406682c9a7d20565e0a4aad2646c3a2e83ce17c39f9955a2fe99e1` / `40a9b7036db7d64ba62668cff32d125ed0d5f9092969d8663790d37811b31503`; package values are `11ef942c83e4acd3a7673cce88cac4051b353dc1774aba14fdd0ff55e3d0f61b` / `f8a6887b48d38b6b9142ac6f2a96425d381cc4911c108c71dbe11aab985d4e11`.

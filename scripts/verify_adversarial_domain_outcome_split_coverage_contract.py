@@ -142,9 +142,15 @@ def empty_counts() -> dict[str, dict[str, dict[str, int]]]:
     return counts
 
 
-def count_matrix(scenarios: list[dict], terminal_states: dict[str, dict]) -> dict:
+def count_matrix(
+    scenarios: list[dict],
+    terminal_states: dict[str, dict],
+    include_ids: set[str] | None = None,
+) -> dict:
     counts = empty_counts()
     for scenario in scenarios:
+        if include_ids is not None and scenario.get("id") not in include_ids:
+            continue
         if scenario.get("adversarial") is not True:
             continue
         domain = scenario.get("domain")
@@ -360,7 +366,12 @@ def main() -> None:
         elif object_sha256(terminal_states[scenario_id]) != expected_hash:
             errors.append(f"prechange_terminal_changed:{scenario_id}")
 
-    current_counts = count_matrix(scenarios, terminal_states)
+    historical_ids = set(frozen_scenarios) | set(case_ids)
+    current_counts = count_matrix(
+        scenarios,
+        terminal_states,
+        historical_ids if implementation_present else None,
+    )
     current_missing = missing_cells(current_counts)
     if not implementation_present:
         if catalog.get("schema_version") != "1.15":
@@ -378,9 +389,9 @@ def main() -> None:
         }:
             errors.append("candidate_results_present_before_implementation")
     else:
-        if catalog.get("schema_version") != "1.16":
+        if catalog.get("schema_version") not in {"1.16", "1.17"}:
             errors.append("candidate_catalog_schema_mismatch")
-        if len(scenarios) != 56 or len(terminal_states) != 56:
+        if len(scenarios) < 56 or len(terminal_states) < 56:
             errors.append("candidate_catalog_count_mismatch")
         for case_id, control_id, target_split, domain, outcome in TRANSFORMS:
             candidate = scenarios_by_id.get(case_id)

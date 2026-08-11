@@ -118,7 +118,7 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "ready",
+      "status": "in_progress",
       "gates": {
         "all_56_prechange_scenarios_exact": "pending",
         "all_56_prechange_terminal_states_exact": "pending",

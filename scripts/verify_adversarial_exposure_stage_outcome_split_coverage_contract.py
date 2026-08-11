@@ -216,10 +216,14 @@ def validate(root: Path = ROOT) -> dict:
         if catalog.get("schema_version") != ("1.17" if implemented else "1.16"):
             errors.append("catalog_schema_mismatch")
         pointer = catalog.get("adversarial_exposure_stage_outcome_split_coverage_contract")
-        if implemented and pointer != {
+        expected_runtime_contract = {
+            "schema_version": "1.0",
             "contract_id": "adversarial-exposure-stage-outcome-split-coverage-v1",
-            "path": "eval/adversarial-exposure-stage-outcome-split-coverage-contract.json",
-        }:
+            "required_stage_outcome_pairs": REQUIRED_PAIRS,
+            "required_splits": ["development", "test"],
+            "minimum_cases_per_adversarial_exposure_stage_outcome_split": 1,
+        }
+        if implemented and pointer != expected_runtime_contract:
             errors.append("catalog_contract_pointer_mismatch")
         if not implemented and pointer is not None:
             errors.append("preimplementation_contract_pointer_present")

@@ -6,6 +6,8 @@ Fresh public-v0.0.25 evaluation separates three defenses that aggregate attack m
 
 Baseline-0026 freezes all 56 prior scenario and terminal identities plus one exact development analog of the held-out observability control. The target is 57 cases, 171 attempts, an exact 261-event trace, and eighteen-of-eighteen coverage. The new metric must never reward weaker guidance filtering: stage identity is fail-closed, and no retriever, decision context, action, policy, approval, executor, dependency, asset, or authority boundary may change.
 
+Catalog schema 1.17 and report schema 3.2 implement the exact transform plus an attempt-aware grader. Static implementation checks report eighteen of eighteen cells, all prior identities exact, and no missing cell; focused runtime tests exercise the new safe evidence request, exposure mismatch, ambiguous-stage failure, MCP, HTTP/dashboard, and model-output paths. The implementation must be public before the pre-reveal manifest and any immutable candidate run.
+
 ## Completed checkpoint baseline-0025 - adversarial domain/outcome split coverage
 
 Fresh public-tag v0.0.24 source and package runs pass all 44 cases, 132 attempts, prior gates, exact 222-event traces, bounded MCP, real authentication/approval/executor/state/telemetry, reproducible release bytes, and complete dashboards. Crossing the individually complete adversarial topology-by-split and bounded-outcome-by-split metrics exposes only 20 of 32 observed-valid domain/outcome/split cells. Each split covers ten of the sixteen domain/outcome pairs already demonstrated as valid in the other split.
