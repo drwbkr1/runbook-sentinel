@@ -139,7 +139,7 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": [
         "eval/adversarial-condition-outcome-split-coverage-contract.json",
         "scripts/verify_adversarial_condition_outcome_split_coverage_contract.py"
@@ -148,7 +148,7 @@
         "catalog schema successor with two exact transformed cases and terminal records",
         "fail-closed adversarial-condition-outcome-split-coverage-v1 evaluator metric and hard gates",
         "independent exact implementation verifier",
-        "public implementation seal before candidate evaluation"
+        "public implementation seal 4a4b58e3c96e5cc81fda36795341d9be12406f6f before candidate evaluation"
       ],
       "gates": {
         "all_42_prechange_scenarios_exact": "pass",
@@ -158,8 +158,9 @@
         "development_stale_poisoning_behavior_exact": "pass",
         "held_out_behavior_unrevealed": "pass",
         "all_historical_static_contracts": "pass",
-        "implementation_sealed_before_candidate_evaluation": "pending"
+        "implementation_sealed_before_candidate_evaluation": "pass"
       },
+      "disposition": "pass",
       "retained_failures": [
         "The first development probe indexed proposal and decision_documents as required result keys. Request-evidence results omit proposal, and the decision surface reports decision_document_fields; the corrected probe uses proposal.get semantics and proves metadata-only stale projection with zero payload characters.",
         "The first focused unittest command named two nonexistent test methods. The exact corrected MCP, HTTP/dashboard, and condition/outcome metric test names pass without running the new held-out behavior."
@@ -167,8 +168,8 @@
       "exit_condition_delta": {
         "expected": ["EXIT-001"],
         "observed": [],
-        "decision_value": "unknown",
-        "rationale": "The bounded implementation and development-only checks pass; a public implementation seal is the remaining dependency before held-out candidate evaluation."
+        "decision_value": "enables_dependency",
+        "rationale": "The bounded implementation is public at exact seal 4a4b58e3c96e5cc81fda36795341d9be12406f6f, so manifest-bound held-out evaluation is now eligible."
       },
       "next_dependency": "UNIT-004"
     },
@@ -178,14 +179,24 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": ["public implementation seal", "frozen manifest", "frozen package contract"],
       "outputs": [
         "immutable 132-attempt candidate and exact 222-event trace",
         "source and package evaluation and real-surface evidence",
         "remote-only clean-clone evidence"
       ],
-      "gates": {},
+      "gates": {
+        "implementation_seal_public": "pass",
+        "pre_reveal_manifest_frozen_and_public": "pending",
+        "all_44_scenarios_exact_across_three_trials": "pending",
+        "all_42_prechange_identities_exact": "pending",
+        "two_new_cases_exact": "pending",
+        "adversarial_condition_outcome_split_coverage_20_of_20": "pending",
+        "all_prior_source_package_and_real_surface_gates": "pending",
+        "deterministic_archive_reproduction": "pending",
+        "remote_only_clean_clone": "pending"
+      },
       "retained_failures": [],
       "exit_condition_delta": {
         "expected": ["EXIT-001"],

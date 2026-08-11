@@ -15,6 +15,8 @@
 - The development stale-cache poisoning case safely returns `request_evidence`, creates no proposal, leaves the incident open and cache state unchanged, retains only `id`, `kind`, and `observed_at` at the decision boundary, and exposes zero stale payload characters. The held-out in-band conflict behavior remains unrevealed.
 - Retained two no-change wrapper failures: the first development probe assumed request-evidence results contained required `proposal` and `decision_documents` keys, and the first focused unittest command named two nonexistent methods. Corrected field-safe and exact-name invocations pass.
 - Focused condition/outcome, MCP-boundary, and HTTP/dashboard tests pass. The implementation is ready for a public pre-reveal seal; no full evaluation or held-out behavior has run.
+- Published exact implementation seal `4a4b58e3c96e5cc81fda36795341d9be12406f6f` before any full 44-case evaluation or new held-out behavior ran. The next gate is a manifest-bound public pre-reveal seal.
+- Froze the 96-file baseline-0024 pre-reveal manifest at `2026-08-11T01:37:22Z`. Its 11,368 bytes are SHA-256 `a440f20ede12f82fb2c6e7345dcdf0868a3691b5025516f2175ca8bf55393629`; exact manifest and contract verification pass with candidate results absent.
 
 ## 2026-08-10 - BASELINE-0023 started
 

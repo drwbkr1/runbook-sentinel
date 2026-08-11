@@ -7,7 +7,7 @@
 - Latest verified checkpoint: public `v0.0.23`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release closure
 - Candidate version: none; `BASELINE-0024` is frozen before implementation and does not yet have candidate evidence
 - Active milestone: `BASELINE-0024` adversarial condition/outcome split coverage; contract freeze complete
-- Current unit: `UNIT-003` implementation passes static and development-only gates; public implementation seal is required before any held-out candidate evaluation
+- Current unit: `UNIT-004` is freezing the public pre-reveal manifest from exact implementation seal `4a4b58e3c96e5cc81fda36795341d9be12406f6f`; no candidate has run
 - Disposition: baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -34,6 +34,8 @@
 - Public freeze commit `f991a4fd0396b9f58177ebafe60ecd28008accf8` retains a derived-summary error: its exact 18/20 matrix and missing cells are correct, but each split covers 0.9 rather than the recorded 0.8 / 1.0. The active contract corrects only that arithmetic; all cases, targets, and boundaries are unchanged.
 - Catalog schema 1.15 now contains exactly the two frozen transforms and copied terminal states. The generic and independent graders report 20/20 cells, all 42 pre-change identities exact, held-out hostile-document identity exact, and stale-poisoning payload exclusion exact.
 - All 16 current and historical static validators pass. A development-only run of `dev-stale-cache-poisoning` requests evidence, creates no proposal, exposes only stale metadata and zero stale payload characters, and leaves the incident and cache state unchanged. The new held-out behavior has not run.
+- Exact implementation seal `4a4b58e3c96e5cc81fda36795341d9be12406f6f` is public on the draft-PR branch. It precedes any full 44-case candidate or new held-out behavior.
+- The 96-file pre-reveal manifest freezes baseline-0024 at `2026-08-11T01:37:22Z`. It is 11,368 bytes at SHA-256 `a440f20ede12f82fb2c6e7345dcdf0868a3691b5025516f2175ca8bf55393629`; exact verification passes and candidate results remain absent. Publication of this manifest seal is the remaining gate before the held-out reveal.
 
 ### BASELINE-0023 adversarial outcome split gap and frozen contract
 
