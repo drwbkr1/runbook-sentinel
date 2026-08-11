@@ -2,19 +2,19 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `codex/baseline-0025-adversarial-domain-outcome-split`
+- Branch: `main`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0024`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
-- Latest verified checkpoint: public `v0.0.24`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release closure
-- Candidate version: `0.0.25` / `baseline-0025`; local and remote-only clean-clone source/package, reproducibility, MCP, API, state, telemetry, scan, and rendered-dashboard gates pass; premerge release audit is pending
+- Latest verified public checkpoint: `v0.0.24`; release reconciliation binds its annotated tag, peeled remote tag, public release, selected assets, downloads, rendered pages, and fresh public-tag clone
+- Candidate version: `0.0.25` / `baseline-0025`; exact reviewed PR `#23` is merged and a fresh public-main clone passes source/package, reproducibility, MCP, API, state, telemetry, scan, and rendered-dashboard gates; final audit, publication, and public-tag reconciliation are pending
 - Active milestone: `BASELINE-0025` adversarial domain/outcome split coverage
-- Current unit: `UNIT-005`; run the premerge release-truth audit, exact GitHub review, and expected-head merge
-- Disposition: baseline-0025 `clean_clone_pass_premerge_audit_pending`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Current unit: `UNIT-005`; run the final release-truth audit, publish only the exact selected assets, and reconcile public tag/release/download/page/tag-clone truth
+- Disposition: baseline-0025 `merged_main_pass_publication_pending`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: verified baseline-0024 release closure
-- GitHub pull request: none for baseline-0025; prior `#22` merged exact reviewed head `07cc52c329b7dfdbc3d8b68ff0783360fb55df3a` with history preserved as `3b44377b7c13a0bb8a12c20603bc14975d674d87`
-- GitHub release: public, non-draft `v0.0.24` with verified `.pyz` and `.sha256` assets
+- GitHub `main`: verified baseline-0025 merge `6130a6607a5f1538e62b4e230e4dc9709c98c4f3` before the bounded release-closure commit
+- GitHub pull request: `#23` merged exact reviewed head `074a8414563e90d0ee1d671a82fe5b9aea992c31` with history preserved as `6130a6607a5f1538e62b4e230e4dc9709c98c4f3`
+- GitHub release: public, non-draft `v0.0.24` remains latest; `v0.0.25` is absent until the final audit authorizes publication
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
 - Local model source gate: refreshed and ready for the already installed, publisher-signed Ollama 0.32.6 executable and unchanged `llama3.2:3b` manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six content-addressed blobs pass exact SHA-256 and size checks. No download, update, copy, redistribution, remote call, model tool, secret, or real-infrastructure access is authorized.
@@ -55,6 +55,11 @@
 - Complete local evidence is bound by `artifacts/verification/candidate-baseline-0025.json` and was public at exact receipt commit `e40b6c2728f12f45088b088eb4fb474aa0d5c8fe` before remote-only verification; Docker remains deferred and unclaimed.
 - A fresh HTTPS single-branch clone of exact public candidate receipt commit `e40b6c2728f12f45088b088eb4fb474aa0d5c8fe` began clean with 748 tracked files and no object alternates. After digest-verifying the ignored public v0.0.23 historical prerequisite, it independently passes compilation, all 29 validators, 44 tests, fresh source/package 168-attempt evaluations and exact 258-event anchors, two exact `db9bab97...` archive builds, bounded MCP, real authenticated source/package state and telemetry, parsing/scans, and complete original-detail dashboards.
 - The clean-clone receipt is 7,446 bytes at SHA-256 `a03b6759e842209d6c2020b24b61ffe08d5b71560ab599484ca4d283afa0106f`. UNIT-004 is complete; the premerge release-truth audit and exact GitHub review are next.
+- Premerge audit passes at exact candidate head `f3203d9c1bac04d8683d2c26bfb5a708b342be2f`; audit-only successor `074a8414563e90d0ee1d671a82fe5b9aea992c31` adds one exact receipt path. GitHub reports PR `#23` clean and mergeable with 87 local/remote paths equal, zero configured checks, and zero reviews.
+- PR `#23` merged only that expected head under SHA lock. Merge `6130a6607a5f1538e62b4e230e4dc9709c98c4f3` has exact parents public v0.0.24 closure `58a02a2d359e67c9fb26668d80c3018d7fdee64a` and reviewed head `074a8414563e90d0ee1d671a82fe5b9aea992c31`.
+- A fresh HTTPS `--no-local --single-branch --branch main` clone of exact merge `6130a660...` begins clean with 750 tracked files and no object alternates. After hash-verifying the required ignored public-v0.0.23 predecessor archive, compilation, all 29 validators, and all 44 tests pass.
+- Merged-main source/package evaluations each pass 56 scenarios, 168 attempts, 32/32 interaction cells, every prior gate, and exact 258-event traces. Source report/trace SHA-256 values are `d64f7582c608aba2592b1a31cd6b24e28e2fe9457ee4574077409dd207af657b` / `060a7ba8bd1ea2fdbfa4dc4226b605125b003186303d33de128651910d626e38`; package values are `03b0ec24997f4d97ed2bb45824d6624a8ed3ae886ed88e2dee540da82ea2d123` / `a6063f591b25664551ae94b96c87c894504f7d65c73cb99e334c5d5cd143fedf`.
+- Two merged-main builds reproduce selected archive SHA-256 `db9bab97c3dd9ea1bb08cb0353b2cf6ed72f859f476ca6d01766421583ab28e7` exactly. Source/package MCP, 57-check authenticated native surfaces, parsing of 483 JSON files and 16,951 records across 113 JSONL files, secret/model scans, and complete original-detail dashboards pass. Receipt `artifacts/verification/merged-main-baseline-0025.json` binds the result.
 - Target: 56 cases, 168 attempts, exact 258-event trace, 32-of-32 interaction coverage, every prior gate exact, and no runtime-authority change. Passing the 48-case minimum will not establish production readiness or universal prompt-injection resistance.
 
 ### BASELINE-0024 adversarial condition/outcome split gap and frozen contract

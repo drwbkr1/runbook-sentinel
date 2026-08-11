@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.0.25 - 2026-08-11
+
+- Cross the sixteen adversarial SRE domain/outcome pairs already observed as valid with development and held-out test; report all 32 interaction cells, exact missing cells, and separate split coverage with fail-closed contract validation.
+- Add exactly twelve project-authored cross-split analogs for the measured gaps while preserving all 44 prior scenario and terminal identities and every agent, retrieval, decision-context, action, capability, approval, executor, API, and MCP authority boundary.
+- Preserve the dependency-free runtime, zero model calls and external API cost, stale-payload exposure 0.0, bounded in-band hostile-document exposure 1.0, proposal and terminal attack success 0.0, and synthetic-only disconnected scope.
+- Pass final-manifest source and package runs across 56 cases and 168 trials with exact 258-event traces, all 44 tests, 29 validators, bounded three-tool MCP, and real source/package authentication/approval/executor/replay/state/telemetry/dashboard surfaces.
+- Build two byte-identical 40-entry, 567,307-byte zipapps at SHA-256 `db9bab97c3dd9ea1bb08cb0353b2cf6ed72f859f476ca6d01766421583ab28e7`; visually verify complete 1440 by 1000 source and package dashboards.
+- Reproduce the exact archive and complete validator/test/evaluation/MCP/API/state/telemetry/scan/dashboard stack first from a remote-only candidate clone of `e40b6c2728f12f45088b088eb4fb474aa0d5c8fe`, then from a fresh no-alternates public-main clone of merge `6130a6607a5f1538e62b4e230e4dc9709c98c4f3`.
+- Preserve the stale fixtures, omitted import paths, preliminary-only and ordinal-coupled evidence-pointer defects, passing superseded manifests and archives, wrapper failures, and predecessor-asset bootstrap stops alongside corrected results.
+- Pass the premerge audit; merge exact reviewed PR `#23` head `074a8414563e90d0ee1d671a82fe5b9aea992c31` under expected-head lock with history preserved as `6130a6607a5f1538e62b4e230e4dc9709c98c4f3`; public tag, asset, page, download, and fresh-tag reconciliation remain the final publication gate.
+
 ## 0.0.24 - 2026-08-11
 
 - Cross the ten semantically valid adversarial evidence-condition/outcome pairs with development and held-out test; report all 20 interaction cells, exact missing cells, and separate split coverage with fail-closed contract validation.

@@ -166,9 +166,82 @@
       "action_class": "public_release",
       "human_gate": false,
       "status": "in_progress",
+      "inputs": [
+        "verified candidate and clean-clone evidence",
+        "premerge audit and exact reviewed GitHub head",
+        "fresh no-alternates public-main verification receipt",
+        "inherited director release authority"
+      ],
+      "outputs": [
+        "history-preserving reviewed merge",
+        "reconciled release-candidate records and final release audit",
+        "annotated v0.0.25 and selected public assets",
+        "public release, download, rendered-page, and fresh public-tag verification receipt"
+      ],
+      "gates": {
+        "premerge_release_audit_verified": "pass",
+        "exact_reviewed_head_merged_with_history_preserved": "pass",
+        "fresh_public_main_source_package_and_real_surfaces": "pass",
+        "final_release_audit_verified": "pending",
+        "public_refs_assets_downloads_pages_reconciled": "pending",
+        "fresh_public_tag_source_package_and_real_surfaces": "pending"
+      },
+      "retained_failures": [
+        "The first exact-head unittest summary wrapper promoted normal verbose stderr output to a PowerShell error; the unchanged direct 44-test suite passed.",
+        "The public-main clone restored only exact verified public-v0.0.23 predecessor dist bytes required by the frozen historical contract before the unchanged full gate passed.",
+        "A merged-main digest summary guessed a nonexistent companion-manifest filename after the authoritative evaluation and trace gates passed; the corrected summary binds the unchanged artifacts.",
+        "A focused rg query used a Windows wildcard path that rg did not expand; the corrected include-glob query classified every match as a scanner definition."
+      ],
       "next_dependency": null
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Run the premerge release-truth audit, exact GitHub review, and expected-head merge for the clean-clone-verified candidate."
+  "next_action": "Run the final release-truth audit, publish only the exact v0.0.25 tag and selected assets if it passes, then reconcile public refs, metadata, downloads, rendered pages, and a fresh public-tag clone.",
+  "path_efficiency": {
+    "max_consecutive_no_progress_units": 2,
+    "review_action_class": "project_control",
+    "review_human_gate": false
+  },
+  "verification": {
+    "changed_risks": [
+      "individually complete adversarial domain and outcome metrics can hide an untested interaction in one split",
+      "retrieved hostile instructions can attempt to convert a bounded diagnosis, evidence request, action proposal, or abstention into a different or executable result",
+      "cross-split analogs or final-evidence selection can accidentally alter prior scenarios, terminal states, runtime authority, or admitted evidence identity",
+      "release records can drift from the reviewed merge, selected archive, or live public tag and assets"
+    ],
+    "required_checks": [
+      "recursive exact identity for all 44 pre-change scenarios and terminal states",
+      "exact twelve cross-split transformations and fail-closed 32-cell adversarial domain/outcome/split grading",
+      "three-trial source and package evaluation with separate retrieval, generation, terminal, tool, policy, attack, trace, latency, reliability, and cost metrics",
+      "real bounded MCP, loopback API, approval, executor, state, telemetry, dashboard, package, clean-clone, review, merge, release, and public verification",
+      "retention of failed, stale, blocked, corrected, and superseded evidence without favorable rewriting"
+    ],
+    "completed_checks": [
+      "public v0.0.24 reconciliation and fresh unchanged 44-case source/package evaluation",
+      "20-of-32 adversarial domain/outcome/split gap measurement",
+      "frozen twelve-case contract, recursive 44-case identity chain, and independent validator",
+      "public implementation and pre-reveal manifest seals before held-out reveal",
+      "admissible 56-case candidate and exact 258-event trace",
+      "two retained final-evidence pointer defects and public focused corrections",
+      "authoritative 103-file manifest and two byte-identical 40-entry archive builds",
+      "29 validators and 44 tests",
+      "final-manifest source and package 168-attempt evaluations",
+      "bounded source and package MCP",
+      "real source and package API, approval, executor, state, telemetry, and dashboard surfaces",
+      "remote-only no-alternates candidate clean-clone verification",
+      "premerge ten-check audit and exact reviewed-head merge with history preserved",
+      "fresh no-alternates public-main source/package and real-surface verification",
+      "final ten-check release audit"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "Exact merge 6130a6607a5f1538e62b4e230e4dc9709c98c4f3 is independently verified on fresh public main; the final v0.0.25 release audit passes, while tag, release assets, downloads, rendered pages, and public-tag verification remain pending.",
+    "next_action": "Commit and push only the audited release-closure records, publish the annotated v0.0.25 tag with the selected zipapp and checksum, immediately verify every public surface, and record the external receipt before starting another improvement cycle.",
+    "do_not_carry_forward": [
+      "any claim that synthetic 32-cell coverage is production readiness, learned generalization, or universal prompt-injection resistance",
+      "any authority, secret, dependency, external asset, paid service, or real-infrastructure connector",
+      "any rewrite or deletion of failed, stale, blocked, corrected, superseded, or unfavorable evidence",
+      "any Docker or container claim for baseline-0025"
+    ]
+  }
 }
