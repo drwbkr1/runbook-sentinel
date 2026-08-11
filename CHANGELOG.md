@@ -9,7 +9,7 @@
 - Build two byte-identical 40-entry, 567,307-byte zipapps at SHA-256 `db9bab97c3dd9ea1bb08cb0353b2cf6ed72f859f476ca6d01766421583ab28e7`; visually verify complete 1440 by 1000 source and package dashboards.
 - Reproduce the exact archive and complete validator/test/evaluation/MCP/API/state/telemetry/scan/dashboard stack first from a remote-only candidate clone of `e40b6c2728f12f45088b088eb4fb474aa0d5c8fe`, then from a fresh no-alternates public-main clone of merge `6130a6607a5f1538e62b4e230e4dc9709c98c4f3`.
 - Preserve the stale fixtures, omitted import paths, preliminary-only and ordinal-coupled evidence-pointer defects, passing superseded manifests and archives, wrapper failures, and predecessor-asset bootstrap stops alongside corrected results.
-- Pass the premerge audit; merge exact reviewed PR `#23` head `074a8414563e90d0ee1d671a82fe5b9aea992c31` under expected-head lock with history preserved as `6130a6607a5f1538e62b4e230e4dc9709c98c4f3`; public tag, asset, page, download, and fresh-tag reconciliation remain the final publication gate.
+- Pass the premerge and final release audits; merge exact reviewed PR `#23` head `074a8414563e90d0ee1d671a82fe5b9aea992c31` under expected-head lock with history preserved as `6130a6607a5f1538e62b4e230e4dc9709c98c4f3`; reconcile annotated tag object `19bc29e1015778888631b43fa6d0d90a525d052f`, closure commit `abbeea785aef65164a37e149589ee70d32ce4b95`, two selected public assets, downloaded bytes, live repository/release/tag pages, and a fresh full public-tag clone.
 
 ## 0.0.24 - 2026-08-11
 

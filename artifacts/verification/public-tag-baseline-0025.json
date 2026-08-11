@@ -1,0 +1,204 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0025",
+  "version": "0.0.25",
+  "status": "pass",
+  "disposition": "public_release_verified",
+  "observed_at_utc": "2026-08-11T18:41:25Z",
+  "repository": {
+    "url": "https://github.com/drwbkr1/runbook-sentinel",
+    "visibility": "PUBLIC",
+    "release_closure_commit": "abbeea785aef65164a37e149589ee70d32ce4b95",
+    "remote_main_at_verification": "abbeea785aef65164a37e149589ee70d32ce4b95"
+  },
+  "tag": {
+    "name": "v0.0.25",
+    "annotated_tag_object": "19bc29e1015778888631b43fa6d0d90a525d052f",
+    "peeled_commit": "abbeea785aef65164a37e149589ee70d32ce4b95",
+    "remote_ref_verified": true
+  },
+  "release": {
+    "url": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.25",
+    "name": "Runbook Sentinel v0.0.25",
+    "published_at_utc": "2026-08-11T18:31:30Z",
+    "draft": false,
+    "prerelease": false,
+    "latest": true,
+    "target_commitish": "main",
+    "asset_count": 2,
+    "assets": [
+      {
+        "id": "RA_kwDOTwRd884ebXOn",
+        "name": "runbook-sentinel-0.0.25.pyz",
+        "url": "https://github.com/drwbkr1/runbook-sentinel/releases/download/v0.0.25/runbook-sentinel-0.0.25.pyz",
+        "state": "uploaded",
+        "content_type": "application/x-zip-compressed",
+        "bytes": 567307,
+        "github_digest": "sha256:db9bab97c3dd9ea1bb08cb0353b2cf6ed72f859f476ca6d01766421583ab28e7"
+      },
+      {
+        "id": "RA_kwDOTwRd884ebXOt",
+        "name": "runbook-sentinel-0.0.25.pyz.sha256",
+        "url": "https://github.com/drwbkr1/runbook-sentinel/releases/download/v0.0.25/runbook-sentinel-0.0.25.pyz.sha256",
+        "state": "uploaded",
+        "content_type": "application/octet-stream",
+        "bytes": 94,
+        "github_digest": "sha256:1ce81157d4478f3573fda8c89c44f41cce5b0c6bfcf0b79c1548d7c78aa3d04b"
+      }
+    ]
+  },
+  "download_verification": {
+    "path": "C:/Projects/Verification/runbook-sentinel-v0.0.25-release-assets-20260811T183130Z",
+    "archive_bytes": 567307,
+    "archive_sha256": "db9bab97c3dd9ea1bb08cb0353b2cf6ed72f859f476ca6d01766421583ab28e7",
+    "checksum_bytes": 94,
+    "checksum_sha256": "1ce81157d4478f3573fda8c89c44f41cce5b0c6bfcf0b79c1548d7c78aa3d04b",
+    "checksum_value": "db9bab97c3dd9ea1bb08cb0353b2cf6ed72f859f476ca6d01766421583ab28e7",
+    "selected_bytes_exact": true
+  },
+  "rendered_public_pages": {
+    "method": "unauthenticated HTTPS response plus exact gh release metadata",
+    "repository": {
+      "url": "https://github.com/drwbkr1/runbook-sentinel",
+      "status": 200,
+      "response_bytes": 280074,
+      "title_present": true,
+      "version_present": true,
+      "synthetic_limit_present": true
+    },
+    "release": {
+      "url": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.25",
+      "status": 200,
+      "response_bytes": 198563,
+      "title_present": true,
+      "version_present": true,
+      "synthetic_limit_present": true,
+      "asset_inventory_source": "gh release metadata because GitHub lazily loads asset names outside the initial HTML"
+    },
+    "tag": {
+      "url": "https://github.com/drwbkr1/runbook-sentinel/tree/v0.0.25",
+      "status": 200,
+      "response_bytes": 283616,
+      "title_present": true,
+      "version_present": true,
+      "synthetic_limit_present": true
+    },
+    "status": "pass"
+  },
+  "public_tag_clone": {
+    "path": "C:/Projects/Verification/runbook-sentinel-v0.0.25-tag-abbeea7-20260811T183130Z",
+    "mode": "git clone --no-local --single-branch --branch v0.0.25 over HTTPS",
+    "commit": "abbeea785aef65164a37e149589ee70d32ce4b95",
+    "initial_worktree_clean": true,
+    "object_alternates_present": false,
+    "tracked_file_count": 752,
+    "static_verification": {
+      "compileall": "pass",
+      "validator_count": 29,
+      "validator_status": "pass",
+      "test_count": 44,
+      "test_status": "pass",
+      "test_seconds": 108.305
+    },
+    "archive": {
+      "downloaded_sha256": "db9bab97c3dd9ea1bb08cb0353b2cf6ed72f859f476ca6d01766421583ab28e7",
+      "independent_rebuild_sha256": "db9bab97c3dd9ea1bb08cb0353b2cf6ed72f859f476ca6d01766421583ab28e7",
+      "bytes": 567307,
+      "entry_count": 40,
+      "runtime_dependency_count": 0,
+      "byte_identical": true
+    },
+    "source_evaluation": {
+      "report_path": "artifacts/evaluations/runs/baseline-0025-public-tag-source-attempt-001.json",
+      "report_bytes": 927663,
+      "report_sha256": "35a66c2af6461de84bcb4668e57007d9f6f5b38c83b8e501af1c276fb1a47fd5",
+      "trace_path": "artifacts/evaluations/runs/baseline-0025-public-tag-source-attempt-001.traces.jsonl",
+      "trace_bytes": 192684,
+      "trace_sha256": "2891384a9fee5bc592a731375f5ee65a3367e5323f7200b9b25f0088c886e50e",
+      "trace_event_count": 258,
+      "trace_final_event_sha256": "1106030d37af196f19987c1fe2cfb21874150320c8af81a16f31e2297c47ae78",
+      "scenario_count": 56,
+      "attempt_count": 168,
+      "latency_median_ms": 83.315,
+      "latency_p95_ms": 150.652,
+      "disposition": "pass"
+    },
+    "package_evaluation": {
+      "report_path": "artifacts/evaluations/runs/baseline-0025-public-tag-package-attempt-001.json",
+      "report_bytes": 927603,
+      "report_sha256": "99b42eaa989bd04b5b8e2dba32caaa35608528c8fbdbe32154e25d930b3880e2",
+      "trace_path": "artifacts/evaluations/runs/baseline-0025-public-tag-package-attempt-001.traces.jsonl",
+      "trace_bytes": 192631,
+      "trace_sha256": "bb46aa54b70526fb447416ae66efeb49545a9633dbb26de02c8f167358af3ba6",
+      "trace_event_count": 258,
+      "trace_final_event_sha256": "0c584213c3725966b1fd4afe87fae774b8570b5201b0e90bef8ae7755ba16f70",
+      "scenario_count": 56,
+      "attempt_count": 168,
+      "latency_median_ms": 72.415,
+      "latency_p95_ms": 118.984,
+      "disposition": "pass"
+    },
+    "evaluation_summary": {
+      "covered_domain_outcome_split_cells": 32,
+      "required_domain_outcome_split_cells": 32,
+      "development_coverage": 1.0,
+      "test_coverage": 1.0,
+      "stale_payload_exposure": 0.0,
+      "proposal_attack_success": 0.0,
+      "terminal_attack_success": 0.0,
+      "repeated_trial_reliability": 1.0,
+      "model_calls": 0,
+      "estimated_external_api_cost_usd": 0.0
+    },
+    "real_surfaces": {
+      "mcp_protocol": "2025-11-25",
+      "mcp_version": "0.0.25",
+      "mcp_tool_count": 3,
+      "mcp_approval_or_execution_tool_exposed": false,
+      "source_mcp_trace_final_event_sha256": "14b8e45d09d27fedbfe51e910a25bba7d7bcf0c89b279f761d57c3ed1b173c61",
+      "package_mcp_trace_final_event_sha256": "1986d20684132aaefb192d04fa361b7b70d9afa684a284addef045664c9ccd99",
+      "source_native_receipt_sha256": "d821b00aba241c7455dc39732bf05fb9365d65882cdd2dfd77c32d388662f259",
+      "package_native_receipt_sha256": "5188655358e775689d665ceade1f80c890729a45a1da0f1cf9f06c7ad256d4f6",
+      "native_check_count_each": 57,
+      "source_api_trace_final_event_sha256": "ef5a568fdc81d2be082741a5a1b49fed047639661ea31492c6e5faff86602706",
+      "package_api_trace_final_event_sha256": "b0821c2d0ba0dfeb22825e845efbfafabf2c3583af58537a93e7365e76d78c5d"
+    },
+    "rendered_dashboards": {
+      "dimensions": [1440, 1000],
+      "source_bytes": 85471,
+      "source_sha256": "6a7a22ca3ec7004775ac00f90a6f94483e7ed0b470e7eb66afe9b5a0a4016a00",
+      "package_bytes": 85429,
+      "package_sha256": "5c57c73a4c8e4eb505af06b1e7a6fe5674fac1233329e8e818cce75f951ad708",
+      "visual_inspection": "pass: complete original-detail images show Baseline 0025, synthetic SRE only, all required metrics, authenticated external operator, disconnected real infrastructure, never-executes promise, and persisted incidents"
+    },
+    "artifact_parsing": {
+      "json_files": 488,
+      "jsonl_files": 113,
+      "jsonl_records": 16951,
+      "parse_errors": 0
+    },
+    "security_scan": {
+      "credential_shaped_files": 15,
+      "classification": "package-contract scanner definitions only",
+      "credential_findings_after_definition_exclusion": 0,
+      "model_artifact_count": 0
+    }
+  },
+  "retained_observations": [
+    "The first post-create gh release read requested unsupported field isLatest after release creation succeeded; the corrected exact release and latest-release reads pass.",
+    "The general web fetcher returned a cache miss for the newly published release. Unauthenticated direct HTTPS returned status 200 for repository, release, and tag pages; exact asset metadata came from live gh release data.",
+    "The annotated-tag clone emitted Git's normal warning that the named ref is a tag object rather than a commit, then detached at the exact peeled closure commit.",
+    "Source and package dashboard rendering emitted the known Chromium fallback-task-provider diagnostic after writing complete verified PNGs."
+  ],
+  "boundaries": {
+    "synthetic_only": true,
+    "research_informed": true,
+    "model_has_credentials": false,
+    "model_has_approval_authority": false,
+    "model_has_execution_authority": false,
+    "mcp_has_approval_or_execution_authority": false,
+    "real_infrastructure_connected": false,
+    "docker_verified": false
+  },
+  "next_gate": "Complete milestone and living records on main, then begin the next cycle from verified public v0.0.25 by running it and selecting one highest-leverage measurable weakness."
+}

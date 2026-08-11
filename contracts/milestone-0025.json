@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0025",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -60,7 +60,7 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
+      "status": "pass",
       "evidence": [
         "All 56 cases pass three trials with all 44 prior scenario and terminal identities exact and all 32 adversarial domain/outcome/split cells covered.",
         "Exact candidate, reviewed merge, merged-main, final audit, annotated tag, selected public assets, downloaded bytes, rendered pages, and public-tag verification reconcile."
@@ -165,7 +165,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": [
         "verified candidate and clean-clone evidence",
         "premerge audit and exact reviewed GitHub head",
@@ -182,21 +182,28 @@
         "premerge_release_audit_verified": "pass",
         "exact_reviewed_head_merged_with_history_preserved": "pass",
         "fresh_public_main_source_package_and_real_surfaces": "pass",
-        "final_release_audit_verified": "pending",
-        "public_refs_assets_downloads_pages_reconciled": "pending",
-        "fresh_public_tag_source_package_and_real_surfaces": "pending"
+        "final_release_audit_verified": "pass",
+        "public_refs_assets_downloads_pages_reconciled": "pass",
+        "fresh_public_tag_source_package_and_real_surfaces": "pass"
       },
+      "disposition": "pass",
       "retained_failures": [
         "The first exact-head unittest summary wrapper promoted normal verbose stderr output to a PowerShell error; the unchanged direct 44-test suite passed.",
         "The public-main clone restored only exact verified public-v0.0.23 predecessor dist bytes required by the frozen historical contract before the unchanged full gate passed.",
         "A merged-main digest summary guessed a nonexistent companion-manifest filename after the authoritative evaluation and trace gates passed; the corrected summary binds the unchanged artifacts.",
         "A focused rg query used a Windows wildcard path that rg did not expand; the corrected include-glob query classified every match as a scanner definition."
       ],
+      "exit_condition_delta": {
+        "expected": ["EXIT-001"],
+        "observed": ["EXIT-001"],
+        "decision_value": "advances_exit",
+        "rationale": "The exact reviewed checkpoint, selected release bytes, public metadata, downloaded assets, rendered pages, and fresh public-tag product surfaces reconcile without changing authority."
+      },
       "next_dependency": null
     }
   ],
-  "current_unit": "UNIT-005",
-  "next_action": "Run the final release-truth audit, publish only the exact v0.0.25 tag and selected assets if it passes, then reconcile public refs, metadata, downloads, rendered pages, and a fresh public-tag clone.",
+  "current_unit": null,
+  "next_action": null,
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -231,12 +238,16 @@
       "remote-only no-alternates candidate clean-clone verification",
       "premerge ten-check audit and exact reviewed-head merge with history preserved",
       "fresh no-alternates public-main source/package and real-surface verification",
-      "final ten-check release audit"
+      "final ten-check release audit",
+      "annotated v0.0.25 tag and non-draft latest public release",
+      "selected public asset metadata and freshly downloaded byte identity",
+      "live repository, release, and tag page verification",
+      "fresh no-alternates public-tag source/package and real-surface verification"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Exact merge 6130a6607a5f1538e62b4e230e4dc9709c98c4f3 is independently verified on fresh public main; the final v0.0.25 release audit passes, while tag, release assets, downloads, rendered pages, and public-tag verification remain pending.",
-    "next_action": "Commit and push only the audited release-closure records, publish the annotated v0.0.25 tag with the selected zipapp and checksum, immediately verify every public surface, and record the external receipt before starting another improvement cycle.",
+    "current_checkpoint": "Public v0.0.25 is the latest verified checkpoint; exact reviewed merge, final release audit, annotated tag, selected assets, downloaded bytes, live repository/release/tag pages, and fresh public-tag source/package and real-surface verification reconcile to closure commit abbeea785aef65164a37e149589ee70d32ce4b95.",
+    "next_action": "Begin the next cycle by running verified public v0.0.25, inspecting its traces and evaluation results, and selecting one highest-leverage measurable weakness; do not restart ideation.",
     "do_not_carry_forward": [
       "any claim that synthetic 32-cell coverage is production readiness, learned generalization, or universal prompt-injection resistance",
       "any authority, secret, dependency, external asset, paid service, or real-infrastructure connector",

@@ -3,18 +3,18 @@
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
 - Branch: `main`
-- Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0024`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
-- Latest verified public checkpoint: `v0.0.24`; release reconciliation binds its annotated tag, peeled remote tag, public release, selected assets, downloads, rendered pages, and fresh public-tag clone
-- Candidate version: `0.0.25` / `baseline-0025`; exact reviewed PR `#23` is merged and a fresh public-main clone passes source/package, reproducibility, MCP, API, state, telemetry, scan, and rendered-dashboard gates; final audit, publication, and public-tag reconciliation are pending
-- Active milestone: `BASELINE-0025` adversarial domain/outcome split coverage
-- Current unit: `UNIT-005`; run the final release-truth audit, publish only the exact selected assets, and reconcile public tag/release/download/page/tag-clone truth
-- Disposition: baseline-0025 `merged_main_pass_publication_pending`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0025`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
+- Latest verified public checkpoint: `v0.0.25`; release reconciliation binds the annotated tag object and peeled closure commit, public release metadata, selected assets, downloaded bytes, live repository/release/tag pages, and a fresh public-tag clone
+- Candidate version: none; the next checkpoint is intentionally unchosen until a fresh public-v0.0.25 run measures the highest-leverage weakness
+- Active milestone: none; `BASELINE-0025` adversarial domain/outcome split coverage is complete
+- Current unit: none
+- Disposition: baseline-0025 `pass`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: verified baseline-0025 merge `6130a6607a5f1538e62b4e230e4dc9709c98c4f3` before the bounded release-closure commit
+- GitHub `main`: verified v0.0.25 release closure plus evidence-only public reconciliation receipt; the immutable tag remains at closure commit `abbeea785aef65164a37e149589ee70d32ce4b95`
 - GitHub pull request: `#23` merged exact reviewed head `074a8414563e90d0ee1d671a82fe5b9aea992c31` with history preserved as `6130a6607a5f1538e62b4e230e4dc9709c98c4f3`
-- GitHub release: public, non-draft `v0.0.24` remains latest; `v0.0.25` is absent until the final audit authorizes publication
+- GitHub release: public, non-draft latest `v0.0.25` with verified `.pyz` and `.sha256` assets
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
 - Local model source gate: refreshed and ready for the already installed, publisher-signed Ollama 0.32.6 executable and unchanged `llama3.2:3b` manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six content-addressed blobs pass exact SHA-256 and size checks. No download, update, copy, redistribution, remote call, model tool, secret, or real-infrastructure access is authorized.
@@ -60,6 +60,10 @@
 - A fresh HTTPS `--no-local --single-branch --branch main` clone of exact merge `6130a660...` begins clean with 750 tracked files and no object alternates. After hash-verifying the required ignored public-v0.0.23 predecessor archive, compilation, all 29 validators, and all 44 tests pass.
 - Merged-main source/package evaluations each pass 56 scenarios, 168 attempts, 32/32 interaction cells, every prior gate, and exact 258-event traces. Source report/trace SHA-256 values are `d64f7582c608aba2592b1a31cd6b24e28e2fe9457ee4574077409dd207af657b` / `060a7ba8bd1ea2fdbfa4dc4226b605125b003186303d33de128651910d626e38`; package values are `03b0ec24997f4d97ed2bb45824d6624a8ed3ae886ed88e2dee540da82ea2d123` / `a6063f591b25664551ae94b96c87c894504f7d65c73cb99e334c5d5cd143fedf`.
 - Two merged-main builds reproduce selected archive SHA-256 `db9bab97c3dd9ea1bb08cb0353b2cf6ed72f859f476ca6d01766421583ab28e7` exactly. Source/package MCP, 57-check authenticated native surfaces, parsing of 483 JSON files and 16,951 records across 113 JSONL files, secret/model scans, and complete original-detail dashboards pass. Receipt `artifacts/verification/merged-main-baseline-0025.json` binds the result.
+- Final ten-check release audit passes. Exact ten-path evidence/documentation closure `abbeea785aef65164a37e149589ee70d32ce4b95` changes no runtime, script, frozen evaluation, manifest, package, authority, or selected artifact byte.
+- Annotated tag object `19bc29e1015778888631b43fa6d0d90a525d052f` peels to exact closure `abbeea7`. The public non-draft v0.0.25 release is latest and exposes only the 567,307-byte zipapp and 94-byte checksum with exact GitHub-reported digests.
+- Freshly downloaded public assets match SHA-256 `db9bab97c3dd9ea1bb08cb0353b2cf6ed72f859f476ca6d01766421583ab28e7` / `1ce81157d4478f3573fda8c89c44f41cce5b0c6bfcf0b79c1548d7c78aa3d04b`; repository, release, and tag pages return HTTP 200 with the version and synthetic-only boundary visible.
+- A fresh no-alternates public-tag clone passes compilation, 29 validators, 44 tests, exact release-archive reproduction, source/package 168-attempt evaluations and 258-event anchors, bounded MCP, both 57-check native surfaces, parsing/scans, and complete original-detail dashboards. Receipt `artifacts/verification/public-tag-baseline-0025.json` binds the public closure.
 - Target: 56 cases, 168 attempts, exact 258-event trace, 32-of-32 interaction coverage, every prior gate exact, and no runtime-authority change. Passing the 48-case minimum will not establish production readiness or universal prompt-injection resistance.
 
 ### BASELINE-0024 adversarial condition/outcome split gap and frozen contract
