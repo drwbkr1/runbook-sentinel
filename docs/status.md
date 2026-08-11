@@ -44,6 +44,9 @@
 - The current manifest intentionally becomes stale when candidate evidence and its strengthened validator are committed. Package contract, renewed final manifest, reproducible archive, package evaluation, MCP/API/state/telemetry/dashboard, and clean-clone gates remain pending.
 - Source-candidate evidence is public at `310af80d92ae0d116fdea2e9c6c78779c88fe56f`. Current and versioned v0.0.25 package contracts are byte-identical at 13,442 bytes and SHA-256 `2d7706df6aecb44656a8d65b2182745394b59482e01c8c2b36a40a44d1d787b5`; they freeze exactly 40 dependency-free entries, including the new interaction contract.
 - Package-contract validation passes with the target archive absent. The contract and build/verification defaults must be public before the final manifest is renewed or any v0.0.25 archive is built.
+- Package-contract seal `823af3b8ef24b895ffb7952d9a43d9ac7e16c44d` is public with exact local/remote identity and the archive still absent.
+- The renewed 103-file final manifest freezes baseline-0025 at `2026-08-11T16:52:31Z`. It is 12,261 bytes at SHA-256 `d72a4db8a570b9ee72c10635ba0036b75425c9de2098d5590fc9dc72eb4f019f` and passes exact verification.
+- The final manifest must be committed and pushed before either independent v0.0.25 archive build. Source attempt 001 remains valid preliminary evidence but is superseded for release selection by the renewed manifest.
 - Target: 56 cases, 168 attempts, exact 258-event trace, 32-of-32 interaction coverage, every prior gate exact, and no runtime-authority change. Passing the 48-case minimum will not establish production readiness or universal prompt-injection resistance.
 
 ### BASELINE-0024 adversarial condition/outcome split gap and frozen contract

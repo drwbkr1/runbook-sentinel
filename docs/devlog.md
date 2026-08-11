@@ -30,6 +30,8 @@
 - Retained a reporting-wrapper failure: Windows PowerShell `ConvertFrom-Json` does not accept `-Depth`. The corrected parse produced the exact metrics above. Retained a broad credential-scan false positive: `Sentinel-Capability` matched only the frozen public authentication challenge string; raw approval-token and bearer patterns remain absent.
 - Published source-candidate evidence at exact remote head `310af80d92ae0d116fdea2e9c6c78779c88fe56f`.
 - Froze current and versioned v0.0.25 package contracts before archive construction. They are byte-identical at 13,442 bytes and SHA-256 `2d7706df6aecb44656a8d65b2182745394b59482e01c8c2b36a40a44d1d787b5`, allow exactly 40 standard-library-only entries, and add only the frozen domain/outcome interaction contract. Validation passes with the archive absent.
+- Published exact package-contract seal `823af3b8ef24b895ffb7952d9a43d9ac7e16c44d`; local/remote identity matches and the target archive remained absent.
+- Renewed the final 103-file baseline-0025 manifest after binding candidate evidence, its strengthened validator, and v0.0.25 package tooling. It freezes at `2026-08-11T16:52:31Z`, is 12,261 bytes at SHA-256 `d72a4db8a570b9ee72c10635ba0036b75425c9de2098d5590fc9dc72eb4f019f`, and passes exact verification before either archive build.
 
 ## 2026-08-11 - BASELINE-0024 started
 
