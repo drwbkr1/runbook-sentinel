@@ -145,6 +145,7 @@
         "all_32_domain_outcome_split_cells": "pass",
         "all_prior_gates": "pass",
         "candidate_trace_258_events_exact": "pass",
+        "package_contract_frozen_before_archive": "pass",
         "package_and_real_surfaces": "pending",
         "clean_clone": "pending"
       },

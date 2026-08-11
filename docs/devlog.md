@@ -28,6 +28,8 @@
 - All 32 adversarial domain/outcome/split cells and both splits are 1.0. All twelve new analogs pass three trials; proposal and terminal attack success remain 0.0, terminal/tool/utility/`pass^3` remain 1.0, and model calls/cost remain zero. Median/p95 end-to-end latency are 99.299/157.151 ms.
 - Bound the exact candidate paths, sizes, digests, trace anchor, counts, metrics, and identity claims into the frozen contract. Its strengthened validator parses and hashes all three artifacts, rechecks report/manifest/coverage/security/case inventories, verifies the trace chain, and requires `latest.json` equality.
 - Retained a reporting-wrapper failure: Windows PowerShell `ConvertFrom-Json` does not accept `-Depth`. The corrected parse produced the exact metrics above. Retained a broad credential-scan false positive: `Sentinel-Capability` matched only the frozen public authentication challenge string; raw approval-token and bearer patterns remain absent.
+- Published source-candidate evidence at exact remote head `310af80d92ae0d116fdea2e9c6c78779c88fe56f`.
+- Froze current and versioned v0.0.25 package contracts before archive construction. They are byte-identical at 13,442 bytes and SHA-256 `2d7706df6aecb44656a8d65b2182745394b59482e01c8c2b36a40a44d1d787b5`, allow exactly 40 standard-library-only entries, and add only the frozen domain/outcome interaction contract. Validation passes with the archive absent.
 
 ## 2026-08-11 - BASELINE-0024 started
 
