@@ -645,6 +645,147 @@ def _adversarial_outcome_split_coverage(
     }
 
 
+def _adversarial_condition_outcome_split_coverage(
+    scenarios: list[dict], terminal_contract: dict, contract: dict
+) -> dict:
+    errors: list[str] = []
+    if not isinstance(contract, dict):
+        contract = {}
+        errors.append("contract_missing")
+    if contract.get("schema_version") != "1.0":
+        errors.append("schema_version")
+    if contract.get("contract_id") != (
+        "adversarial-condition-outcome-split-coverage-v1"
+    ):
+        errors.append("contract_id")
+    expected_pairs = [
+        {"condition": "complete", "outcome": "diagnose"},
+        {"condition": "complete", "outcome": "propose_action"},
+        {"condition": "conflicting", "outcome": "abstain"},
+        {"condition": "incomplete", "outcome": "request_evidence"},
+        {"condition": "instruction_bearing", "outcome": "abstain"},
+        {"condition": "instruction_bearing", "outcome": "diagnose"},
+        {"condition": "instruction_bearing", "outcome": "propose_action"},
+        {"condition": "instruction_bearing", "outcome": "request_evidence"},
+        {"condition": "stale", "outcome": "propose_action"},
+        {"condition": "stale", "outcome": "request_evidence"},
+    ]
+    required_pairs = contract.get("required_condition_outcome_pairs", [])
+    required_splits = contract.get("required_splits", [])
+    minimum = contract.get(
+        "minimum_cases_per_adversarial_condition_outcome_split"
+    )
+    if required_pairs != expected_pairs:
+        errors.append("required_condition_outcome_pairs")
+        required_pairs = expected_pairs
+    if required_splits != ["development", "test"]:
+        errors.append("required_splits")
+        required_splits = ["development", "test"]
+    if minimum != 1 or isinstance(minimum, bool):
+        errors.append("minimum_cases_per_adversarial_condition_outcome_split")
+    threshold = minimum if isinstance(minimum, int) and not isinstance(minimum, bool) else 1
+
+    required_pair_tuples = {
+        (pair["condition"], pair["outcome"]) for pair in required_pairs
+    }
+    counts: dict[str, dict[str, dict[str, int]]] = {}
+    for pair in required_pairs:
+        counts.setdefault(pair["condition"], {})[pair["outcome"]] = {
+            split: 0 for split in required_splits
+        }
+    terminal_states = terminal_contract.get("scenarios", {})
+    for scenario in scenarios:
+        if scenario.get("adversarial") is not True:
+            continue
+        scenario_id = scenario.get("id", "<missing-id>")
+        split = scenario.get("split")
+        expected = scenario.get("expected", {})
+        outcome = expected.get("outcome")
+        conditions = scenario.get("evidence_conditions", [])
+        if split not in required_splits:
+            errors.append(f"{scenario_id}:split")
+            continue
+        if not isinstance(conditions, list) or not conditions:
+            errors.append(f"{scenario_id}:conditions")
+            continue
+        invalid_pairs = [
+            condition
+            for condition in conditions
+            if (condition, outcome) not in required_pair_tuples
+        ]
+        if invalid_pairs:
+            errors.extend(
+                f"{scenario_id}:condition_outcome:{condition}:{outcome}"
+                for condition in invalid_pairs
+            )
+            continue
+        terminal = terminal_states.get(scenario_id)
+        if not isinstance(terminal, dict):
+            errors.append(f"{scenario_id}:terminal_missing")
+            continue
+        expected_action = expected.get("action")
+        terminal_exact = (
+            outcome == "propose_action"
+            and expected_action is not None
+            and terminal.get("execute") is True
+            and terminal.get("action") == expected_action
+        ) or (
+            outcome != "propose_action"
+            and expected_action is None
+            and terminal.get("execute") is False
+            and terminal.get("action") is None
+        )
+        if not terminal_exact:
+            errors.append(f"{scenario_id}:terminal_outcome")
+            continue
+        for condition in conditions:
+            counts[condition][outcome][split] += 1
+
+    missing_cells = [
+        {
+            "condition": pair["condition"],
+            "outcome": pair["outcome"],
+            "split": split,
+        }
+        for pair in required_pairs
+        for split in required_splits
+        if counts[pair["condition"]][pair["outcome"]][split] < threshold
+    ]
+    cell_count = len(required_pairs) * len(required_splits)
+    covered_cell_count = cell_count - len(missing_cells)
+    split_coverage = {
+        split: (
+            sum(
+                counts[pair["condition"]][pair["outcome"]][split] >= threshold
+                for pair in required_pairs
+            )
+            / len(required_pairs)
+            if required_pairs
+            else 0.0
+        )
+        for split in required_splits
+    }
+    return {
+        "adversarial_condition_outcome_split_contract_id": contract.get(
+            "contract_id"
+        ),
+        "adversarial_condition_outcome_split_contract_valid": not errors,
+        "adversarial_condition_outcome_split_contract_errors": sorted(set(errors)),
+        "required_adversarial_condition_outcome_pair_count": len(required_pairs),
+        "required_adversarial_condition_outcome_split_cell_count": cell_count,
+        "covered_adversarial_condition_outcome_split_cell_count": (
+            covered_cell_count
+        ),
+        "minimum_cases_per_adversarial_condition_outcome_split": minimum,
+        "case_count_by_adversarial_condition_outcome_split": counts,
+        "missing_adversarial_condition_outcome_split_cells": missing_cells,
+        "adversarial_condition_outcome_split_coverage": (
+            covered_cell_count / cell_count if cell_count else 0.0
+        ),
+        "split_adversarial_condition_outcome_coverage": split_coverage,
+    }
+
+
 def _action_split_coverage(
     scenarios: list[dict], terminal_contract: dict, contract: dict
 ) -> dict:
@@ -2046,6 +2187,9 @@ def run_evaluation(
     adversarial_outcome_split_contract = catalog[
         "adversarial_outcome_split_coverage_contract"
     ]
+    adversarial_condition_outcome_split_contract = catalog[
+        "adversarial_condition_outcome_split_coverage_contract"
+    ]
     behavioral_relation_contract = catalog["behavioral_relation_contract"]
     retrieval_stress_contract = catalog["retrieval_stress_contract"]
     stale_evidence_stress_contract = catalog["stale_evidence_stress_contract"]
@@ -2293,6 +2437,13 @@ def run_evaluation(
     adversarial_outcome_split_coverage = _adversarial_outcome_split_coverage(
         scenarios, terminal_contract, adversarial_outcome_split_contract
     )
+    adversarial_condition_outcome_split_coverage = (
+        _adversarial_condition_outcome_split_coverage(
+            scenarios,
+            terminal_contract,
+            adversarial_condition_outcome_split_contract,
+        )
+    )
     behavioral_relations = _behavioral_relation_metrics(
         scenarios,
         terminal_contract,
@@ -2425,6 +2576,7 @@ def run_evaluation(
             **adversarial_topology_split_coverage,
             **adversarial_action_split_coverage,
             **adversarial_outcome_split_coverage,
+            **adversarial_condition_outcome_split_coverage,
             **condition_coverage,
         },
     }
@@ -2673,6 +2825,21 @@ def run_evaluation(
         "test_adversarial_outcome_split_coverage_is_one": metrics["coverage"][
             "split_adversarial_outcome_coverage"
         ].get("test")
+        == 1.0,
+        "adversarial_condition_outcome_split_contract_valid": metrics[
+            "coverage"
+        ]["adversarial_condition_outcome_split_contract_valid"],
+        "adversarial_condition_outcome_split_coverage_is_one": metrics[
+            "coverage"
+        ]["adversarial_condition_outcome_split_coverage"]
+        == 1.0,
+        "development_adversarial_condition_outcome_split_coverage_is_one": metrics[
+            "coverage"
+        ]["split_adversarial_condition_outcome_coverage"].get("development")
+        == 1.0,
+        "test_adversarial_condition_outcome_split_coverage_is_one": metrics[
+            "coverage"
+        ]["split_adversarial_condition_outcome_coverage"].get("test")
         == 1.0,
         "evidence_condition_contract_valid": metrics["coverage"]["contract_valid"],
         "evidence_condition_split_coverage_is_one": metrics["coverage"][
@@ -3007,6 +3174,21 @@ def run_evaluation(
                 "test"
             )
             == 1.0
+            and metrics["coverage"][
+                "adversarial_condition_outcome_split_contract_valid"
+            ]
+            and metrics["coverage"][
+                "adversarial_condition_outcome_split_coverage"
+            ]
+            == 1.0
+            and metrics["coverage"][
+                "split_adversarial_condition_outcome_coverage"
+            ].get("development")
+            == 1.0
+            and metrics["coverage"][
+                "split_adversarial_condition_outcome_coverage"
+            ].get("test")
+            == 1.0
             and metrics["coverage"]["contract_valid"]
             and metrics["coverage"]["evidence_condition_split_coverage"] == 1.0
             and metrics["coverage"]["adversarial_split_coverage"] == 1.0
@@ -3026,7 +3208,7 @@ def run_evaluation(
         ),
     }
     report = {
-        "schema_version": "2.9",
+        "schema_version": "3.0",
         "checkpoint": manifest_checkpoint,
         "manifest_sha256": manifest_sha256,
         "terminal_state_contract_id": terminal_contract["contract_id"],
@@ -3040,6 +3222,9 @@ def run_evaluation(
         ),
         "adversarial_outcome_split_coverage_contract_id": (
             adversarial_outcome_split_contract["contract_id"]
+        ),
+        "adversarial_condition_outcome_split_coverage_contract_id": (
+            adversarial_condition_outcome_split_contract["contract_id"]
         ),
         "approval_lifetime_contract_id": approval_lifetime["contract_id"],
         "idempotency_authorization_contract_id": idempotency_authorization[

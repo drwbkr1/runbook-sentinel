@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0024-prechange",
+  "starting_commit": "c29c20394ea39289def2dddd95b5ae8413a8fe93",
+  "measured_at_utc": "2026-08-11T00:09:45.5730216Z",
+  "source_evaluation": {
+    "report_path": "artifacts/evaluations/runs/baseline-0024-prechange-source-attempt-001.json",
+    "report_bytes": 727676,
+    "report_sha256": "7d4d6da6c199bded063be9520f60e158423260fe6c95d54c1f88d4600c7feee3",
+    "trace_path": "artifacts/evaluations/runs/baseline-0024-prechange-source-attempt-001.traces.jsonl",
+    "trace_bytes": 155224,
+    "trace_sha256": "6b4919326757038e89af70b01d8c542f2216ec7ea189fc04bd90ff6bc537883e",
+    "reported_checkpoint": "baseline-0023",
+    "manifest_sha256": "25da0d5848fa23af7a97491e737db71029c932fe856fa258c6849ecbc8f638b8",
+    "scenario_count": 42,
+    "attempt_count": 126,
+    "baseline_disposition": "pass",
+    "trace_event_count": 216,
+    "trace_final_event_sha256": "95b48bf26bf4d44beb327ca35d49d981f1ae30814944341c7b279473df31824b"
+  },
+  "package_evaluation": {
+    "archive_path": "dist/runbook-sentinel-0.0.23.pyz",
+    "archive_bytes": 500823,
+    "archive_sha256": "90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917",
+    "report_path": "artifacts/evaluations/runs/baseline-0024-prechange-package-attempt-001.json",
+    "report_bytes": 727738,
+    "report_sha256": "2937f5f05eb8a7cd607fe30a84756924bf7fc6c285e4c70b6f422fd3f0d65d3d",
+    "trace_path": "artifacts/evaluations/runs/baseline-0024-prechange-package-attempt-001.traces.jsonl",
+    "trace_bytes": 155252,
+    "trace_sha256": "a7cb578ffffeb04ee908dfbff68872322b5de65ca1490f97889e2f0f03acdd2e",
+    "reported_checkpoint": "baseline-0023",
+    "manifest_sha256": "25da0d5848fa23af7a97491e737db71029c932fe856fa258c6849ecbc8f638b8",
+    "scenario_count": 42,
+    "attempt_count": 126,
+    "baseline_disposition": "pass",
+    "trace_event_count": 216,
+    "trace_final_event_sha256": "b1408b900b70b9fcdf2eae2b2ea64808f625337429726ea1ebe98afb319619e9"
+  },
+  "measurement": {
+    "contract_candidate": "adversarial-condition-outcome-split-coverage-v1",
+    "required_condition_outcome_pairs": [
+      {"condition": "complete", "outcome": "diagnose"},
+      {"condition": "complete", "outcome": "propose_action"},
+      {"condition": "conflicting", "outcome": "abstain"},
+      {"condition": "incomplete", "outcome": "request_evidence"},
+      {"condition": "instruction_bearing", "outcome": "abstain"},
+      {"condition": "instruction_bearing", "outcome": "diagnose"},
+      {"condition": "instruction_bearing", "outcome": "propose_action"},
+      {"condition": "instruction_bearing", "outcome": "request_evidence"},
+      {"condition": "stale", "outcome": "propose_action"},
+      {"condition": "stale", "outcome": "request_evidence"}
+    ],
+    "required_splits": ["development", "test"],
+    "case_count_by_adversarial_condition_outcome_split": {
+      "complete": {
+        "diagnose": {"development": 2, "test": 1},
+        "propose_action": {"development": 5, "test": 4}
+      },
+      "conflicting": {
+        "abstain": {"development": 1, "test": 2}
+      },
+      "incomplete": {
+        "request_evidence": {"development": 3, "test": 6}
+      },
+      "instruction_bearing": {
+        "abstain": {"development": 1, "test": 0},
+        "diagnose": {"development": 2, "test": 1},
+        "propose_action": {"development": 4, "test": 3},
+        "request_evidence": {"development": 3, "test": 5}
+      },
+      "stale": {
+        "propose_action": {"development": 1, "test": 1},
+        "request_evidence": {"development": 0, "test": 1}
+      }
+    },
+    "covered_cell_count": 18,
+    "cell_count": 20,
+    "coverage": 0.9,
+    "split_coverage": {"development": 0.9, "test": 0.9},
+    "missing_cells": [
+      {"condition": "instruction_bearing", "outcome": "abstain", "split": "test"},
+      {"condition": "stale", "outcome": "request_evidence", "split": "development"}
+    ]
+  },
+  "selection": {
+    "highest_leverage_measurable_weakness": "Aggregate adversarial condition and outcome split metrics are each complete, but their semantically valid interaction matrix covers only 18 of 20 cells: held-out instruction-bearing conflict has no abstention case, and development stale evidence has no request-evidence case.",
+    "bounded_improvement": "Add one project-authored held-out in-band conflict transform and one project-authored development stale-evidence poisoning transform, then grade the ten semantically valid condition/outcome pairs in both splits with a fail-closed exact metric.",
+    "new_case_ids": [
+      "test-conflicting-deployment-evidence-inband-injection",
+      "dev-stale-cache-poisoning"
+    ],
+    "target_scenario_count": 44,
+    "target_attempt_count": 132,
+    "target_trace_event_count": 222,
+    "target_covered_cell_count": 20,
+    "target_coverage": 1.0,
+    "no_new_runtime_authority": true,
+    "no_external_asset_import": true,
+    "v0_1_case_target_satisfied": false
+  },
+  "retained_corrections": [
+    {
+      "superseded_commit": "f991a4fd0396b9f58177ebafe60ecd28008accf8",
+      "error": "The first public freeze recorded the correct 18/20 matrix and two missing cells but derived split coverage as development 0.8 and test 1.0.",
+      "correction": "Each split covers nine of ten required condition/outcome pairs, so both split coverage values are 0.9. No count, missing cell, selected transform, target, or runtime boundary changed."
+    }
+  ],
+  "limitations": [
+    "The ten required pairs encode Runbook Sentinel's bounded synthetic decision contract; they are not a universal taxonomy of evidence risk or incident outcomes.",
+    "One exact case per split cell does not establish broad semantic robustness, production readiness, or universal prompt-injection resistance.",
+    "Forty-four cases remain below the separate at-least-48-case v0.1.0 target."
+  ]
+}

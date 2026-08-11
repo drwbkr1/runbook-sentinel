@@ -2,10 +2,10 @@ $ErrorActionPreference = 'Stop'
 $env:PYTHONPATH = if ($env:RUNBOOK_SENTINEL_PYTHONPATH) { $env:RUNBOOK_SENTINEL_PYTHONPATH } else { 'src' }
 
 $pythonCmd = (Get-Command python).Source
-$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0023-stdout.log'
-$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0023-stderr.log'
-$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0023.db'
-$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0023-traces.jsonl'
+$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0024-stdout.log'
+$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0024-stderr.log'
+$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0024.db'
+$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0024-traces.jsonl'
 $traceAnchorPath = "$tracePath.anchor.json"
 $generatedRuntimeFiles = @(
     $databasePath,
@@ -25,8 +25,8 @@ $serverArgs = @(
     '-m', 'runbook_sentinel', 'serve',
     '--host', '127.0.0.1',
     '--port', '8877',
-    '--db', 'var\live-api-baseline-0023.db',
-    '--trace', 'artifacts\runtime\live-api-baseline-0023-traces.jsonl',
+    '--db', 'var\live-api-baseline-0024.db',
+    '--trace', 'artifacts\runtime\live-api-baseline-0024-traces.jsonl',
     '--evaluation', 'artifacts\evaluations\latest.json',
     '--operator-capability-stdin'
 )
@@ -316,7 +316,7 @@ try {
     if (-not $edge) {
         throw 'Microsoft Edge executable not found'
     }
-    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0023.png'
+    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0024.png'
     & $edge `
         --headless `
         --disable-gpu `
@@ -335,7 +335,7 @@ try {
     [System.IO.File]::WriteAllText($stdoutPath, $stdoutText.Replace($operatorCapability, '[redacted]'), [System.Text.UTF8Encoding]::new($false))
     [System.IO.File]::WriteAllText($stderrPath, $stderrText.Replace($operatorCapability, '[redacted]'), [System.Text.UTF8Encoding]::new($false))
 
-    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0023-traces.jsonl'
+    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0024-traces.jsonl'
     $traceAnchorText = Get-Content -Raw $traceAnchorPath
     $traceVerificationJson = & $pythonCmd -c "import json,sys; from runbook_sentinel.telemetry import verify_anchored_trace_files; print(json.dumps(verify_anchored_trace_files(sys.argv[1], sys.argv[2])))" $tracePath $traceAnchorPath
     if ($LASTEXITCODE -ne 0) { throw 'Live trace endpoint verifier failed' }
@@ -402,6 +402,7 @@ try {
         evaluation_adversarial_topology_split_coverage = $evaluation.metrics.coverage.adversarial_topology_split_coverage
         evaluation_adversarial_action_split_coverage = $evaluation.metrics.coverage.adversarial_action_split_coverage
         evaluation_adversarial_outcome_split_coverage = $evaluation.metrics.coverage.adversarial_outcome_split_coverage
+        evaluation_adversarial_condition_outcome_split_coverage = $evaluation.metrics.coverage.adversarial_condition_outcome_split_coverage
         evaluation_adversarial_split_coverage = $evaluation.metrics.coverage.adversarial_split_coverage
         evaluation_behavioral_relation_exact = $evaluation.metrics.behavioral_relations.exact_match_rate
         evaluation_retrieval_configuration = $evaluation.retrieval_configuration
@@ -440,8 +441,8 @@ try {
         live_trace_anchor_file_sha256 = (Get-FileHash -Algorithm SHA256 -LiteralPath $traceAnchorPath).Hash.ToLower()
         dashboard_http_status = $dashboardResponse.StatusCode
         dashboard_csp = $dashboardResponse.Headers['Content-Security-Policy']
-        dashboard_baseline_0023 = $dashboardResponse.Content.Contains('Baseline 0023')
-        dashboard_stale_baseline_absent = -not ($dashboardResponse.Content.Contains('Baseline 0010') -or $dashboardResponse.Content.Contains('Baseline 0011') -or $dashboardResponse.Content.Contains('Baseline 0012') -or $dashboardResponse.Content.Contains('Baseline 0013') -or $dashboardResponse.Content.Contains('Baseline 0014') -or $dashboardResponse.Content.Contains('Baseline 0015') -or $dashboardResponse.Content.Contains('Baseline 0016') -or $dashboardResponse.Content.Contains('Baseline 0017') -or $dashboardResponse.Content.Contains('Baseline 0018') -or $dashboardResponse.Content.Contains('Baseline 0019') -or $dashboardResponse.Content.Contains('Baseline 0020') -or $dashboardResponse.Content.Contains('Baseline 0021') -or $dashboardResponse.Content.Contains('Baseline 0022'))
+        dashboard_baseline_0024 = $dashboardResponse.Content.Contains('Baseline 0024')
+        dashboard_stale_baseline_absent = -not ($dashboardResponse.Content.Contains('Baseline 0010') -or $dashboardResponse.Content.Contains('Baseline 0011') -or $dashboardResponse.Content.Contains('Baseline 0012') -or $dashboardResponse.Content.Contains('Baseline 0013') -or $dashboardResponse.Content.Contains('Baseline 0014') -or $dashboardResponse.Content.Contains('Baseline 0015') -or $dashboardResponse.Content.Contains('Baseline 0016') -or $dashboardResponse.Content.Contains('Baseline 0017') -or $dashboardResponse.Content.Contains('Baseline 0018') -or $dashboardResponse.Content.Contains('Baseline 0019') -or $dashboardResponse.Content.Contains('Baseline 0020') -or $dashboardResponse.Content.Contains('Baseline 0021') -or $dashboardResponse.Content.Contains('Baseline 0022') -or $dashboardResponse.Content.Contains('Baseline 0023'))
         dashboard_terminal_metric = $dashboardResponse.Content.Contains('Terminal state exact')
         dashboard_condition_metric = $dashboardResponse.Content.Contains('Evidence condition coverage')
         dashboard_topology_split_metric = $dashboardResponse.Content.Contains('Topology split coverage')
@@ -449,6 +450,7 @@ try {
         dashboard_adversarial_topology_split_metric = $dashboardResponse.Content.Contains('Adversarial topology split')
         dashboard_adversarial_action_split_metric = $dashboardResponse.Content.Contains('Adversarial action split')
         dashboard_adversarial_outcome_split_metric = $dashboardResponse.Content.Contains('Adversarial outcome split')
+        dashboard_adversarial_condition_outcome_split_metric = $dashboardResponse.Content.Contains('Adversarial condition/outcome split')
         dashboard_relation_metric = $dashboardResponse.Content.Contains('Behavioral relation exact')
         dashboard_guidance_stress_metric = $dashboardResponse.Content.Contains('Guidance stress recall')
         dashboard_fresh_evidence_metric = $dashboardResponse.Content.Contains('Fresh evidence recall')
@@ -469,7 +471,7 @@ try {
     }
     $checks = [ordered]@{
         health_ok = $verification.health -eq 'ok'
-        checkpoint_exact = $verification.checkpoint -eq 'baseline-0023'
+        checkpoint_exact = $verification.checkpoint -eq 'baseline-0024'
         outcome_exact = $verification.outcome -eq 'propose_action'
         proposal_exact = $verification.proposed_action -eq 'restart_worker'
         retrieval_configuration_exact = $verification.retrieval_configuration -eq 'freshness-priority-lexical-v3'
@@ -497,7 +499,7 @@ try {
         idempotent_repeat_equal = [bool]$verification.idempotent_repeat_equal
         replay_rejected = $verification.replay_http_status -eq 409
         approval_token_absent_from_trace = -not $verification.approval_token_in_trace
-        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0023'
+        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0024'
         evaluation_agent_exact = $verification.evaluation_agent -eq 'deterministic-control-v2'
         evaluation_passed = $verification.evaluation_disposition -eq 'pass'
         evaluation_tool_trajectory_exact = $verification.evaluation_tool_trajectory_exact -eq 1.0
@@ -508,6 +510,7 @@ try {
         evaluation_adversarial_topology_split_coverage = $verification.evaluation_adversarial_topology_split_coverage -eq 1.0
         evaluation_adversarial_action_split_coverage = $verification.evaluation_adversarial_action_split_coverage -eq 1.0
         evaluation_adversarial_outcome_split_coverage = $verification.evaluation_adversarial_outcome_split_coverage -eq 1.0
+        evaluation_adversarial_condition_outcome_split_coverage = $verification.evaluation_adversarial_condition_outcome_split_coverage -eq 1.0
         evaluation_adversarial_split_coverage = $verification.evaluation_adversarial_split_coverage -eq 1.0
         evaluation_behavioral_relation_exact = $verification.evaluation_behavioral_relation_exact -eq 1.0
         evaluation_retrieval_configuration_exact = $verification.evaluation_retrieval_configuration -eq 'freshness-priority-lexical-v3'
@@ -546,7 +549,7 @@ try {
         live_trace_anchor_file_sha256_present = $verification.live_trace_anchor_file_sha256 -match '^[0-9a-f]{64}$'
         dashboard_http_ok = $verification.dashboard_http_status -eq 200
         dashboard_csp_present = $verification.dashboard_csp -like "*frame-ancestors 'none'*"
-        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0023
+        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0024
         dashboard_stale_baseline_absent = [bool]$verification.dashboard_stale_baseline_absent
         dashboard_terminal_metric_present = [bool]$verification.dashboard_terminal_metric
         dashboard_condition_metric_present = [bool]$verification.dashboard_condition_metric
@@ -555,6 +558,7 @@ try {
         dashboard_adversarial_topology_split_metric_present = [bool]$verification.dashboard_adversarial_topology_split_metric
         dashboard_adversarial_action_split_metric_present = [bool]$verification.dashboard_adversarial_action_split_metric
         dashboard_adversarial_outcome_split_metric_present = [bool]$verification.dashboard_adversarial_outcome_split_metric
+        dashboard_adversarial_condition_outcome_split_metric_present = [bool]$verification.dashboard_adversarial_condition_outcome_split_metric
         dashboard_relation_metric_present = [bool]$verification.dashboard_relation_metric
         dashboard_guidance_stress_metric_present = [bool]$verification.dashboard_guidance_stress_metric
         dashboard_fresh_evidence_metric_present = [bool]$verification.dashboard_fresh_evidence_metric
