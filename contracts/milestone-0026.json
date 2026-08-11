@@ -158,7 +158,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "active",
+      "status": "in_progress",
       "inputs": [
         "verified candidate and clean-clone evidence",
         "premerge audit and exact reviewed GitHub head",

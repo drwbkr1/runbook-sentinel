@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0026",
+  "observed_at_utc": "2026-08-11T21:31:33Z",
+  "stage": "final release audit preflight",
+  "status": "fail",
+  "disposition": "remediate",
+  "command": "python C:/Users/drewb/.codex/skills/run-controlled-milestone/scripts/validate_milestone.py contracts/milestone-0026.json --as-of 2026-08-11T21:30:30Z",
+  "exit_code": 1,
+  "result": {
+    "valid": false,
+    "milestone_status": "active",
+    "authority_active": true,
+    "authority_mode": "inherited",
+    "errors": [
+      "unit UNIT-005 has invalid status"
+    ],
+    "warnings": []
+  },
+  "cause": "UNIT-005 used milestone-level status active instead of the unit-level status in_progress accepted by the governing validator.",
+  "impact": "No final audit, tag, release, or other publication action was authorized or attempted from this failed check.",
+  "bounded_correction": "Change only UNIT-005.status from active to in_progress, retain this failure, and rerun the unchanged governing validator.",
+  "correction_verification": {
+    "verified_at_utc": "2026-08-11T21:32:07Z",
+    "valid": true,
+    "active_units": [
+      "UNIT-005"
+    ],
+    "authority_active": true,
+    "errors": [],
+    "warnings": []
+  }
+}

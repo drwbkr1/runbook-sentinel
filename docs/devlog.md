@@ -47,6 +47,7 @@
 - A fresh HTTPS public-main clone begins clean with 796 tracked files and no object alternates. After digest-verifying the exact public v0.0.23 historical prerequisite, compilation, 31 validators, 47 tests, and two byte-identical 41-entry archive builds at SHA-256 `091bf7056c394fc65654b7d507c6d2d5a4f12e44bd6d131882339d6c8898d942` pass.
 - Merged-main source/package evaluations pass all 57 cases, 171 attempts, eighteen cells, and exact 261-event anchors. Source report/trace hashes are `da3e30cab36e59b33605cf753aecf1a505d37de10050dd653ce4df64b114038c` / `ba06d5c656c4034a3df20e49362b31eb3f3ce7d3cd24cdcfa008edc305257c70`; package hashes are `14d31ea6ffcf2cb5b2b07b659921ca7eee17a96794b474739bd9e596304817b9` / `e389e3b15d2fbc82e9a298f11b248ec39a81a47302f8d357b992d30bddb5b41a`.
 - Source/package MCP remain bounded to three no-authority tools; both authenticated real surfaces pass 59 checks. Complete original-detail dashboards, structured parsing, and credential/model exclusion pass. Headless Edge retains only its known post-write diagnostic. `merged-main-baseline-0026.json` binds the result; final release audit is next.
+- The final-audit milestone preflight rejected UNIT-005 status `active`, which is valid only at milestone level; the current unit schema requires `in_progress`. The exact failed result is retained and no publication action followed it. The bounded one-field correction passes the unchanged governing validator with active inherited authority and no error or warning.
 
 ## 2026-08-11 - BASELINE-0025 started
 
