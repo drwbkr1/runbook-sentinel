@@ -89,7 +89,9 @@
         "gap_measured_and_retained": "pass"
       },
       "disposition": "pass",
-      "retained_failures": [],
+      "retained_failures": [
+        "The first public-seal candidate gate passed all static validators but stopped before evaluation when the exhaustive exact-outcome unit fixture still enumerated the 42 pre-change scenarios. The runtime catalog and frozen terminal contract already contained the two exact successor cases. The fixture-only correction adds those IDs and expected outcomes; no candidate artifact or held-out runtime result was produced."
+      ],
       "exit_condition_delta": {
         "expected": ["EXIT-001"],
         "observed": [],

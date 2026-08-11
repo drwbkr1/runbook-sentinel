@@ -18,6 +18,7 @@
 - Published exact implementation seal `4a4b58e3c96e5cc81fda36795341d9be12406f6f` before any full 44-case evaluation or new held-out behavior ran. The next gate is a manifest-bound public pre-reveal seal.
 - Froze the 96-file baseline-0024 pre-reveal manifest at `2026-08-11T01:37:22Z`. Its 11,368 bytes are SHA-256 `a440f20ede12f82fb2c6e7345dcdf0868a3691b5025516f2175ca8bf55393629`; exact manifest and contract verification pass with candidate results absent.
 - Published exact manifest seal `3e7593b8398f7bb234301655795f492d8e1d2f6d`. Remote branch identity matches, so the first immutable 44-case candidate and new held-out behavior are now eligible.
+- The first public-seal aggregate candidate gate passed every static validator, then stopped before evaluation because the exhaustive exact-outcome unit fixture still enumerated only the 42 pre-change IDs. No candidate report, trace, or held-out runtime result was produced. The fixture-only correction adds the two already-frozen successor IDs and outcomes; runtime code, scenarios, terminal states, manifest bytes, and authority boundaries are unchanged.
 
 ## 2026-08-10 - BASELINE-0023 started
 
