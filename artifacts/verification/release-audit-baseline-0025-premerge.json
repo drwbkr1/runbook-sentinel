@@ -1,0 +1,167 @@
+{
+  "schema_version": "1.0",
+  "release_id": "BASELINE-0025-PREMERGE",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal and contracts/milestone-0025.json UNIT-005",
+    "authorized_action_classes": [
+      "commit_premerge_audit",
+      "push_premerge_audit",
+      "mark_pr_ready",
+      "merge_exact_head",
+      "verify_merged_main"
+    ],
+    "verified_at_utc": "2026-08-11T18:04:13Z",
+    "expires_at_utc": null
+  },
+  "risk_classes": ["documentation", "runtime", "data", "package", "public", "security", "external"],
+  "candidate": {
+    "commit": "f3203d9c1bac04d8683d2c26bfb5a708b342be2f",
+    "base_commit": "58a02a2d359e67c9fb26668d80c3018d7fdee64a",
+    "audited_commit": "f3203d9c1bac04d8683d2c26bfb5a708b342be2f",
+    "implementation_candidate_commit": "e40b6c2728f12f45088b088eb4fb474aa0d5c8fe",
+    "version": "0.0.25",
+    "tag": "v0.0.25",
+    "manifest_sha256": "344b6d868088e29483a11cb2fc65633c1ecadb1e79144aec15216ff3414eecaf",
+    "package_contract_sha256": "2d7706df6aecb44656a8d65b2182745394b59482e01c8c2b36a40a44d1d787b5",
+    "artifacts": [
+      {"path": "dist/runbook-sentinel-0.0.25.pyz", "bytes": 567307, "sha256": "db9bab97c3dd9ea1bb08cb0353b2cf6ed72f859f476ca6d01766421583ab28e7"},
+      {"path": "dist/runbook-sentinel-0.0.25.pyz.sha256", "bytes": 94, "sha256": "1ce81157d4478f3573fda8c89c44f41cce5b0c6bfcf0b79c1548d7c78aa3d04b"}
+    ]
+  },
+  "live_truth": {
+    "verified_at_utc": "2026-08-11T18:04:13Z",
+    "branch": "codex/baseline-0025-adversarial-domain-outcome-split",
+    "remote_commit": "f3203d9c1bac04d8683d2c26bfb5a708b342be2f",
+    "pull_request": {
+      "number": 23,
+      "url": "https://github.com/drwbkr1/runbook-sentinel/pull/23",
+      "state": "OPEN",
+      "draft": true,
+      "mergeable": "MERGEABLE",
+      "merge_state_status": "CLEAN",
+      "configured_checks": 0,
+      "reviews": 0,
+      "commit_count": 13,
+      "changed_path_count": 86,
+      "local_and_remote_path_sets_equal": true,
+      "description_current": true
+    },
+    "remote_main_commit": "58a02a2d359e67c9fb26668d80c3018d7fdee64a",
+    "latest_public_release": "v0.0.24",
+    "repository_visibility": "PUBLIC",
+    "tag_target": "not_created",
+    "release": "not_created",
+    "deployment": null
+  },
+  "real_surface_matrix": {
+    "required": true,
+    "registry_ref": "contracts/milestone-0025.json#verification.required_checks",
+    "evaluation_receipt_ref": "artifacts/verification/clean-clone-baseline-0025.json",
+    "status": "verified",
+    "candidate_identity": "e40b6c2728f12f45088b088eb4fb474aa0d5c8fe",
+    "required_surface_ids": [
+      "source-evaluation", "package-evaluation", "source-mcp", "package-mcp",
+      "source-api-approval-executor-state-telemetry", "package-api-approval-executor-state-telemetry",
+      "source-dashboard", "package-dashboard", "selected-archive-reproduction"
+    ],
+    "verified_surface_ids": [
+      "source-evaluation", "package-evaluation", "source-mcp", "package-mcp",
+      "source-api-approval-executor-state-telemetry", "package-api-approval-executor-state-telemetry",
+      "source-dashboard", "package-dashboard", "selected-archive-reproduction"
+    ],
+    "reason": "Exact product candidate e40b6c2728f12f45088b088eb4fb474aa0d5c8fe passes every product surface in the remote-only receipt; audited head f3203d9c1bac04d8683d2c26bfb5a708b342be2f adds only that receipt and reconciled checkpoint records while the frozen 103-file product manifest remains exact."
+  },
+  "checks": [
+    {
+      "id": "CHECK-001", "category": "scope", "required": true, "status": "pass",
+      "method": "Compared origin/main...HEAD, all thirteen commits, the tracked worktree, exact 86-path PR inventory, current description, and both remote refs.",
+      "evidence": ["PR #23 exact audited head f3203d9c1bac04d8683d2c26bfb5a708b342be2f", "86 changed paths with local and GitHub path sets equal", "remote branch equals local HEAD and remote main remains v0.0.24 closure 58a02a2d359e67c9fb26668d80c3018d7fdee64a", "draft PR description matches the implemented and verified candidate", "three ignored or untracked local reproducibility outputs are excluded from the PR"],
+      "reason": "This audit report must be the sole path and commit added after the audited head, and that delta must be rechecked before draft promotion."
+    },
+    {
+      "id": "CHECK-002", "category": "contracts-and-data", "required": true, "status": "pass",
+      "method": "Validated the 103-file manifest, frozen 32-cell adversarial domain/outcome/split contract, all 44 pre-change identities, twelve exact transformations, package contract, structured records, and UNIT-005 authority.",
+      "evidence": ["all 44 pre-change scenario and terminal hashes exact", "twelve exact cross-split analogs cover the previously missing observed-valid interactions", "all 32 required domain/outcome/split cells are nonempty", "manifest SHA-256 344b6d868088e29483a11cb2fc65633c1ecadb1e79144aec15216ff3414eecaf", "package contract SHA-256 2d7706df6aecb44656a8d65b2182745394b59482e01c8c2b36a40a44d1d787b5", "milestone records UNIT-005 as the sole active unit"],
+      "reason": "The deterministic agent does not train on development data; the frozen split is a process boundary rather than a learning claim."
+    },
+    {
+      "id": "CHECK-003", "category": "evaluation", "required": true, "status": "pass",
+      "method": "Ran admissible, final-manifest source/package, and remote-only clean-clone 56-case by three-trial evaluations with separate metric families and exact trace anchors.",
+      "evidence": ["retrieval, generation, proposal, tool trajectory, terminal state, policy, benign utility, attacks, repeated reliability, latency, cost, approval, authentication, idempotency, trace integrity, and endpoint anchoring pass separately", "domain/outcome/split coverage is 1.0 in both splits with in-band attack exposure 1.0, stale payload exposure 0.0, and proposal/terminal attack success 0.0", "clean source report/trace SHA-256 67d51360fde84056060e34f502b19a4cdb68911cd89fa8fad9f10bf958b169d3 / 74dbbed1c860b143fd496378c8e87857210f7c454af87a9a5a99c280ac916f7e", "clean package report/trace SHA-256 c8aa9008613c14a0b085be82d7f603da686406955ca320233478607d8b9ed9b2 / 8ea5fd77a84716c2547f18c60c17855f7b99a1f79b9b3f8afd83656577ee6f5c", "each authoritative evaluation has 168 attempts and an exact 258-event trace"],
+      "reason": "This is deterministic synthetic evidence, not production reliability or universal prompt-injection resistance."
+    },
+    {
+      "id": "CHECK-004", "category": "runtime", "required": true, "status": "pass",
+      "method": "Repeated compilation, all 29 independent validators, and all 44 tests at exact public audited head after the complete stack also passed sequentially in a remote-only clean clone.",
+      "evidence": ["all 29 validators pass at f3203d9c1bac04d8683d2c26bfb5a708b342be2f", "all 44 tests pass in 114.670 seconds at the audited head and in the remote-only clean clone", "agent, policy, storage, service, approval broker, and executor retain bounded credential-free external-authority architecture"],
+      "reason": "The model still has no credentials or final execution authority."
+    },
+    {
+      "id": "CHECK-005", "category": "package", "required": true, "status": "pass",
+      "method": "Validated the frozen 40-entry allowlist, built byte-identically twice, and reproduced exact selected bytes in the remote-only clone.",
+      "evidence": ["selected archive is 567307 bytes at SHA-256 db9bab97c3dd9ea1bb08cb0353b2cf6ed72f859f476ca6d01766421583ab28e7", "archive metadata, embedded manifest, source parity, per-entry hashes, checksum, state/secret/model exclusion, and dependency absence pass", "clean-clone rebuild is byte-identical", "runtime dependency list is empty"],
+      "reason": "Docker remains deferred and no container claim is made."
+    },
+    {
+      "id": "CHECK-006", "category": "real-surfaces-and-rendering", "required": true, "status": "pass",
+      "method": "Exercised source, package, and clean-clone MCP plus real loopback authentication, approval, executor, replay, postconditions, state, audit, telemetry, anchors, logs, and dashboard.",
+      "evidence": ["MCP protocol 2025-11-25 exposes exactly three diagnostic/read tools and no approval or execution tool", "source and package each pass 57 authentication, approval, cache authorization, idempotency, replay, executor postcondition, SQLite state, audit, telemetry, redaction, endpoint-anchor, and CSP checks", "original-detail 1440 by 1000 source and package dashboards visibly show Baseline 0025, 32-of-32 interaction coverage, stale payload exposure 0.0, authenticated external operator, disconnected infrastructure, and complete incident rows", "native receipts and dashboard hashes are bound in both candidate and clean-clone receipts"],
+      "reason": "The visual check covers the declared research dashboard; no production deployment claim is made."
+    },
+    {
+      "id": "CHECK-007", "category": "security-and-boundaries", "required": true, "status": "pass",
+      "method": "Reviewed executable diff, authorization boundaries, archive exclusions, credential/model scans, trace integrity, prior identities, and external-source posture.",
+      "evidence": ["zero persisted credential or model-artifact findings after classification", "no key, signer, dependency, collector, credential, paid service, secret, capability, real connector, or real-infrastructure authority was added", "retrieved content remains untrusted and authorization, approvals, capabilities, idempotency, replay protection, executor authority, and postconditions remain outside the model", "MCP exposes no approval or execution tool"],
+      "reason": "The agent remains single-purpose, synthetic-only, credential-free, and without final execution authority."
+    },
+    {
+      "id": "CHECK-008", "category": "research-and-rights", "required": true, "status": "pass",
+      "method": "Used only project-authored synthetic transforms and previously approved narrow research citations; no new source or external asset was imported.",
+      "evidence": ["source identity, authority, availability, rights, provenance, integrity, fitness, privacy, and security criteria remain passed for citation only", "no paper bytes, code, dataset, model, package, executable, service, credential, or other externally controlled asset was imported", "the already-approved public v0.0.23 release asset was used only to satisfy a frozen predecessor-package identity check and matched its exact published hash", "the project describes the result as research-informed"],
+      "reason": "The release makes no external comparative-superiority claim."
+    },
+    {
+      "id": "CHECK-009", "category": "evidence-integrity", "required": true, "status": "pass",
+      "method": "Confirmed failed, stale, corrected, diagnostic, process-invalid, and superseded observations remain preserved and accurately classified.",
+      "evidence": ["the pre-change 20-of-32 gap and all twelve missing cells remain retained", "the stale fixture stop, omitted import paths, invalid wrapper syntax, and clean-clone predecessor-asset bootstrap stop remain recorded", "both passing-but-superseded final-pointer manifests and their reports, traces, archives, surfaces, dashboards, and receipts remain retained", "the preliminary-only and ordinal-coupled final-pointer defects are fixed by public corrections and a focused fail-closed test"],
+      "reason": "No unfavorable, blocked, or superseded result was rewritten into successful history."
+    },
+    {
+      "id": "CHECK-010", "category": "external-and-rollback", "required": true, "status": "pass",
+      "method": "Read the live public repository, PR, branch, main, checks, reviews, release endpoint, tag refs, and latest release with gh and git.",
+      "evidence": ["PR #23 is OPEN, draft, CLEAN, and MERGEABLE at exact audited head with zero configured checks and zero reviews", "remote main remains public v0.0.24 closure 58a02a2d359e67c9fb26668d80c3018d7fdee64a", "v0.0.25 tag and release are absent before merge", "public non-draft v0.0.24 remains the recoverable prior checkpoint", "repository visibility is PUBLIC"],
+      "reason": "Repository, clean-clone, and direct public-state gates are authoritative because GitHub has no configured checks."
+    }
+  ],
+  "truth_surfaces": [
+    {"path_or_uri": "README.md", "expected_state": "v0.0.24 remains the latest verified public release before candidate merge", "observed_state": "exact", "status": "current"},
+    {"path_or_uri": "docs/status.md", "expected_state": "UNIT-005 premerge review with v0.0.24 still public latest and clean clone passing", "observed_state": "exact", "status": "current"},
+    {"path_or_uri": "CHANGELOG.md and docs/version-history.md", "expected_state": "0.0.25 unreleased clean-clone-verified candidate", "observed_state": "exact", "status": "current"},
+    {"path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/pull/23", "expected_state": "draft review at exact audited candidate head with current description", "observed_state": "OPEN, CLEAN, MERGEABLE, exact audited head, current description", "status": "current"},
+    {"path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.25", "expected_state": "absent before merged-main verification", "observed_state": "absent", "status": "current"}
+  ],
+  "retained_failures": [
+    "The first public-manifest aggregate gate passed all 29 validators and 39 of 43 tests but stopped before candidate creation because four test-only expectations retained the predecessor inventory.",
+    "The first source MCP wrapper set only the child runtime path, so verification stopped before launch; corrected source and package paths pass.",
+    "The first final-evidence pointer accepted only preliminary candidate bytes. Passing attempt 001 package and runtime evidence remains retained as superseded after a public correction.",
+    "The first pointer correction remained coupled to attempt ordinal 001. Passing source/package attempt 002 evidence remains retained after the ordinal-independent correction and focused test.",
+    "The first clean-clone validator sequence stopped because ignored dist bytes omitted the frozen public-v0.0.23 predecessor archive; exact approved public assets were downloaded and verified before the unchanged validator passed.",
+    "The first clean source API wrapper promoted a known post-write Chromium fallback diagnostic to a terminating PowerShell error; the unchanged unredirected verifier passed.",
+    "The first PR-create wrapper created PR #23 successfully but omitted the required PR selector from its follow-up gh view; the bounded corrected read passed.",
+    "The first exact-head test summary wrapper promoted unittest's normal verbose stderr stream to a terminating PowerShell error; the unchanged direct suite passed all 44 tests."
+  ],
+  "limitations": [
+    "GitHub has no configured checks or required review for PR #23, so repository, clean-clone, and direct public-state gates are authoritative.",
+    "Thirty-two-of-thirty-two observed-valid adversarial domain/outcome/split cells are synthetic evidence and not universal prompt-injection resistance.",
+    "The split is an evaluation process boundary and does not train the deterministic agent.",
+    "Meeting the 56-case count does not by itself make this a v0.1.0 or production-ready release.",
+    "Real operational infrastructure, production identity, immutable storage, external collectors, signing, paid services, and container packaging remain out of scope."
+  ],
+  "decision": {
+    "reported_status": "verified",
+    "rationale": "Every risk-matched contract, evaluation, runtime, package, real-surface, clean-clone, rendering, rights, evidence-retention, security, and current remote-state check passes with no unresolved discrepancy and unchanged authority boundaries.",
+    "next_action": "Commit and push only this audit, verify the resulting one-path audit-only PR delta at its exact head, mark PR #23 ready, merge only that exact reviewed head, then verify merged main before tagging or publishing.",
+    "authorized_next_actions": ["commit_premerge_audit", "push_premerge_audit", "mark_pr_ready", "merge_exact_head", "verify_merged_main"]
+  }
+}

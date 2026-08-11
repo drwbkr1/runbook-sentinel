@@ -99,14 +99,20 @@ def expected_transform(control: dict, case: dict) -> dict:
     return candidate
 
 
-def count_matrix(scenarios: list[dict], terminal_states: dict[str, dict]) -> dict:
+def count_matrix(
+    scenarios: list[dict],
+    terminal_states: dict[str, dict],
+    include_ids: set[str] | None = None,
+) -> dict:
     counts: dict[str, dict[str, dict[str, int]]] = {}
     for pair in REQUIRED_PAIRS:
         counts.setdefault(pair["condition"], {})[pair["outcome"]] = {
             "development": 0,
             "test": 0,
-        }
+    }
     for scenario in scenarios:
+        if include_ids is not None and scenario.get("id") not in include_ids:
+            continue
         if scenario.get("adversarial") is not True:
             continue
         split = scenario.get("split")
@@ -369,7 +375,7 @@ def main() -> None:
             errors.append("prechange_catalog_schema_mismatch")
         if sha256(CATALOG_PATH) != prechange.get("prechange_catalog_sha256"):
             errors.append("prechange_catalog_sha256_mismatch")
-    elif catalog.get("schema_version") != "1.15":
+    elif catalog.get("schema_version") not in {"1.15", "1.16"}:
         errors.append("candidate_catalog_schema_mismatch")
 
     frozen_scenarios, frozen_terminal_states = identity_chain(PRECHANGE_PATH)
@@ -443,11 +449,12 @@ def main() -> None:
         }
         if runtime_contract != expected_runtime_contract:
             errors.append("runtime_contract_mismatch")
-        if set(scenarios_by_id) - set(frozen_scenarios) != set(CASE_IDS):
-            errors.append("new_scenario_inventory_mismatch")
-        if set(terminal_states) - set(frozen_terminal_states) != set(CASE_IDS):
-            errors.append("new_terminal_inventory_mismatch")
-        if count_matrix(scenarios, terminal_states) != TARGET_COUNTS:
+        if not set(CASE_IDS).issubset(set(scenarios_by_id) - set(frozen_scenarios)):
+            errors.append("frozen_scenario_inventory_missing")
+        if not set(CASE_IDS).issubset(set(terminal_states) - set(frozen_terminal_states)):
+            errors.append("frozen_terminal_inventory_missing")
+        historical_ids = set(frozen_scenarios) | set(CASE_IDS)
+        if count_matrix(scenarios, terminal_states, historical_ids) != TARGET_COUNTS:
             errors.append("implementation_target_counts_mismatch")
     elif count_matrix(scenarios, terminal_states) != PRECHANGE_COUNTS:
         errors.append("catalog_prechange_counts_mismatch")

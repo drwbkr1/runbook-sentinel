@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0025-prechange",
+  "starting_commit": "58a02a2d359e67c9fb26668d80c3018d7fdee64a",
+  "measured_at_utc": "2026-08-11T14:51:39.5868079Z",
+  "public_release": {
+    "repository": "https://github.com/drwbkr1/runbook-sentinel",
+    "tag": "v0.0.24",
+    "tag_object": "75f90d80d62bcb7f9fb9484c6781a4d3e6f963d3",
+    "peeled_commit": "58a02a2d359e67c9fb26668d80c3018d7fdee64a",
+    "release_url": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.24",
+    "public_tag_receipt_path": "C:/Projects/Verification/runbook-sentinel-v0.0.24-tag-58a02a2-20260810T234100Z/artifacts/verification/public-tag-baseline-0024.json",
+    "public_tag_receipt_bytes": 7205,
+    "public_tag_receipt_sha256": "62c6d9d42423ec9daee64447a5e7aeb854cfb8d6fd97eab966ee6c2c90f7b9eb"
+  },
+  "fresh_public_tag_source_evaluation": {
+    "report_path": "artifacts/evaluations/runs/baseline-0024-attempt-002.json",
+    "report_bytes": 758378,
+    "report_sha256": "e03dd6a46c406682c9a7d20565e0a4aad2646c3a2e83ce17c39f9955a2fe99e1",
+    "trace_path": "artifacts/evaluations/runs/baseline-0024-attempt-002.traces.jsonl",
+    "trace_bytes": 160523,
+    "trace_sha256": "40a9b7036db7d64ba62668cff32d125ed0d5f9092969d8663790d37811b31503",
+    "trace_event_count": 222,
+    "trace_final_event_sha256": "e4f49f93477474ea09326fd442f3cdea4b4fc59ff6659bc87b35472e6e7fd67a",
+    "scenario_count": 44,
+    "attempt_count": 132,
+    "baseline_disposition": "pass"
+  },
+  "fresh_public_tag_package_evaluation": {
+    "archive_path": "dist/runbook-sentinel-0.0.24.pyz",
+    "archive_bytes": 525771,
+    "archive_sha256": "22b64f590fef510fd7eaef33fba18a276e2a475565c826101f6422ffed8fe42e",
+    "report_path": "artifacts/evaluations/runs/baseline-0024-public-tag-package-attempt-001.json",
+    "report_bytes": 758395,
+    "report_sha256": "11ef942c83e4acd3a7673cce88cac4051b353dc1774aba14fdd0ff55e3d0f61b",
+    "trace_path": "artifacts/evaluations/runs/baseline-0024-public-tag-package-attempt-001.traces.jsonl",
+    "trace_bytes": 160521,
+    "trace_sha256": "f8a6887b48d38b6b9142ac6f2a96425d381cc4911c108c71dbe11aab985d4e11",
+    "trace_event_count": 222,
+    "trace_final_event_sha256": "41dfb30efb8501d0b7e5b4bf986dcb942e371b78095049c8b3cce5ec8f074dc8",
+    "scenario_count": 44,
+    "attempt_count": 132,
+    "baseline_disposition": "pass"
+  },
+  "measurement": {
+    "contract_candidate": "adversarial-domain-outcome-split-coverage-v1",
+    "required_domain_outcome_pairs": [
+      {"domain": "api", "outcome": "diagnose"},
+      {"domain": "api", "outcome": "request_evidence"},
+      {"domain": "cache", "outcome": "propose_action"},
+      {"domain": "cache", "outcome": "request_evidence"},
+      {"domain": "configuration", "outcome": "abstain"},
+      {"domain": "configuration", "outcome": "request_evidence"},
+      {"domain": "database", "outcome": "abstain"},
+      {"domain": "database", "outcome": "diagnose"},
+      {"domain": "database", "outcome": "request_evidence"},
+      {"domain": "deployment", "outcome": "abstain"},
+      {"domain": "deployment", "outcome": "propose_action"},
+      {"domain": "deployment", "outcome": "request_evidence"},
+      {"domain": "gateway", "outcome": "request_evidence"},
+      {"domain": "observability", "outcome": "diagnose"},
+      {"domain": "observability", "outcome": "request_evidence"},
+      {"domain": "worker", "outcome": "propose_action"}
+    ],
+    "required_splits": ["development", "test"],
+    "case_count_by_adversarial_domain_outcome_split": {
+      "api": {
+        "diagnose": {"development": 1, "test": 0},
+        "request_evidence": {"development": 0, "test": 1}
+      },
+      "cache": {
+        "propose_action": {"development": 1, "test": 1},
+        "request_evidence": {"development": 1, "test": 0}
+      },
+      "configuration": {
+        "abstain": {"development": 0, "test": 1},
+        "request_evidence": {"development": 1, "test": 0}
+      },
+      "database": {
+        "abstain": {"development": 1, "test": 0},
+        "diagnose": {"development": 0, "test": 1},
+        "request_evidence": {"development": 1, "test": 0}
+      },
+      "deployment": {
+        "abstain": {"development": 0, "test": 2},
+        "propose_action": {"development": 1, "test": 1},
+        "request_evidence": {"development": 0, "test": 1}
+      },
+      "gateway": {
+        "request_evidence": {"development": 1, "test": 1}
+      },
+      "observability": {
+        "diagnose": {"development": 1, "test": 0},
+        "request_evidence": {"development": 0, "test": 3}
+      },
+      "worker": {
+        "propose_action": {"development": 3, "test": 2}
+      }
+    },
+    "covered_cell_count": 20,
+    "cell_count": 32,
+    "coverage": 0.625,
+    "split_coverage": {"development": 0.625, "test": 0.625},
+    "missing_cells": [
+      {"domain": "api", "outcome": "request_evidence", "split": "development"},
+      {"domain": "configuration", "outcome": "abstain", "split": "development"},
+      {"domain": "database", "outcome": "diagnose", "split": "development"},
+      {"domain": "deployment", "outcome": "abstain", "split": "development"},
+      {"domain": "deployment", "outcome": "request_evidence", "split": "development"},
+      {"domain": "observability", "outcome": "request_evidence", "split": "development"},
+      {"domain": "api", "outcome": "diagnose", "split": "test"},
+      {"domain": "cache", "outcome": "request_evidence", "split": "test"},
+      {"domain": "configuration", "outcome": "request_evidence", "split": "test"},
+      {"domain": "database", "outcome": "abstain", "split": "test"},
+      {"domain": "database", "outcome": "request_evidence", "split": "test"},
+      {"domain": "observability", "outcome": "diagnose", "split": "test"}
+    ]
+  },
+  "selection": {
+    "highest_leverage_measurable_weakness": "The individually complete adversarial topology-by-split and bounded-outcome-by-split metrics hide a 20-of-32 domain/outcome/split interaction matrix. Each split covers only ten of the sixteen domain/outcome pairs already demonstrated as valid in the other split.",
+    "bounded_improvement": "Add one project-authored cross-split analog for each of the twelve empty cells and grade all sixteen observed-valid adversarial domain/outcome pairs in both splits with a fail-closed exact metric.",
+    "target_scenario_count": 56,
+    "target_attempt_count": 168,
+    "target_trace_event_count": 258,
+    "target_covered_cell_count": 32,
+    "target_coverage": 1.0,
+    "no_new_runtime_authority": true,
+    "no_external_asset_import": true,
+    "v0_1_case_target_satisfied": true
+  },
+  "limitations": [
+    "The sixteen required pairs are the observed-valid pairs in Runbook Sentinel's bounded synthetic catalog, not a universal domain/outcome taxonomy.",
+    "Cross-split analogs improve interaction coverage but do not establish production readiness or universal prompt-injection resistance.",
+    "The deterministic control does not train on the development split; the split boundary is an evaluation-process boundary rather than a learned-model training boundary."
+  ]
+}
