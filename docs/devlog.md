@@ -29,6 +29,7 @@
 - Original-detail review confirms complete 1440 by 1000 source/package dashboards. They visibly report baseline 0024, the new interaction metric at 1.0, stale payload exposure 0.0, authenticated external operator, disconnected infrastructure, and persisted incident state.
 - The complete regression gate passes 27 validators and all 42 tests. All 460 JSON files and 14,845 records across 157 JSONL files parse; 14 credential-shaped files are scanner definitions only, zero high-signal match remains after excluding those definitions, and no model artifact is present.
 - Retained four no-change wrapper failures: a PowerShell `-replace` expression bound to an array before creating either final evaluation; a compact reporter attempted to parse JSONL as one JSON document after both evaluations had already passed; a credential-scan reporter reused PowerShell's special `$Matches` variable; and a documentation inventory guessed a nonexistent consolidated ADR file before locating `docs/adr`. Corrected bounded commands pass without changing product or evidence bytes.
+- Published the complete local candidate evidence at `8821580069af1e0c1f6d07c559a6ac6fc61e7ad6`. The candidate receipt binds that exact commit and authorizes only remote-only no-alternates clean-clone verification next.
 
 ## 2026-08-10 - BASELINE-0023 started
 

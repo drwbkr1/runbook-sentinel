@@ -47,6 +47,7 @@
 - All 42 tests and 27 validators pass. Source/package MCP remain bounded to three diagnostic/read tools, and both real API surfaces pass authentication, approval, executor, postconditions, idempotency, replay, persisted state, audit, redaction, telemetry, endpoint-anchor, CSP, and dashboard gates.
 - Original-detail inspection confirms complete 1440 by 1000 source/package dashboards. All 460 JSON files and 14,845 JSONL records parse with zero error; credential-shaped matches are limited to 14 package-contract scanner definitions, no high-signal match remains, and no model artifact is present.
 - Remote-only clean-clone verification, release-truth audit, exact review/merge, merged-main verification, and public release reconciliation remain pending. Docker is not claimed.
+- Complete local candidate evidence is public at `8821580069af1e0c1f6d07c559a6ac6fc61e7ad6`; the candidate receipt authorizes only a remote-only no-alternates clean clone of its exact receipt commit as the next gate.
 
 ### BASELINE-0023 adversarial outcome split gap and frozen contract
 
