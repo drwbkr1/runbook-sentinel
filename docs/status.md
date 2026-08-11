@@ -33,7 +33,9 @@
 - Exact implementation seal `a5745505fef313cfff0e7987d6900a473eb562f9` is public on the branch before any complete v0.0.26 candidate evaluation.
 - The first 107-file pre-reveal manifest at SHA-256 `cc49231903b1e2d816f4a82c1c7e9e1c5b2289cf22554b25144c38df5a4c579c` is superseded after the retained historical-pointer stop and was never used for a candidate.
 - A post-seal historical-pointer stop supersedes that manifest before candidate use: 29 of 30 validators passed, BASELINE-0025 `latest.json` rejected the legitimate successor-manifest transition, and no tests or candidate ran. The corrected rule accepts only a tracked passing final report bound to the exact embedded current or companion manifest; focused validation passes. A renewed manifest is required.
-- The renewed authoritative 107-file pre-reveal manifest freezes at `2026-08-11T19:31:27Z`, remains 12,849 bytes, has SHA-256 `7c510e2ed22cd3eb7e85ed450a6b0a1dfe79dbbaecd3d08439e438d98ee7e67c`, and passes exact verification. It must be public before candidate attempt 001.
+- The second 107-file pre-reveal manifest at SHA-256 `7c510e2ed22cd3eb7e85ed450a6b0a1dfe79dbbaecd3d08439e438d98ee7e67c` is superseded after the retained fixture-only stop and was never used for a candidate.
+- That renewed manifest is also superseded before candidate use: all 30 validators and 44 of 45 tests passed, while one topology fail-closed fixture omitted the new development-observability ID from its removal set. No production byte or candidate artifact changed; the test-only correction requires one more renewed public manifest.
+- The authoritative 107-file pre-reveal manifest now freezes at `2026-08-11T19:35:19Z`, remains 12,849 bytes, has SHA-256 `fc1b5e756ba0f06613c0996b50aa6f4ffcd4ebae5749988ebb1095c21aa27e05`, and passes exact verification. It must be public before candidate attempt 001.
 
 ### BASELINE-0025 adversarial domain/outcome split gap and frozen contract
 

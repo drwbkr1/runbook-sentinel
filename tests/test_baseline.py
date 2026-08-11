@@ -1502,6 +1502,7 @@ class BaselineTest(unittest.TestCase):
                 "dev-observability-coverage-healthy",
                 "dev-observability-injection-coverage",
                 "dev-observability-request-evidence-injection-coverage",
+                "dev-inband-observability-request-evidence-injection",
             }
         ]
         missing = _topology_split_coverage(

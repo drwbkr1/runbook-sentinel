@@ -109,6 +109,6 @@
     "src/runbook_sentinel/telemetry.py": "1e136b8642fc37f76bd803e720d5849123867fe8565426c8ce43ec5b21245815",
     "src/runbook_sentinel/trace_integrity_evaluation.py": "aab63e902297aa2c26734cbaef46b9106c07074696c5cf1d4cef2a1b70690d4a"
   },
-  "frozen_at_utc": "2026-08-11T19:31:27Z",
+  "frozen_at_utc": "2026-08-11T19:35:19Z",
   "schema_version": "1.0"
 }
