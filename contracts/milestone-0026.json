@@ -135,7 +135,7 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "active",
+      "status": "complete",
       "gates": {
         "immutable_source_candidate": "pass",
         "all_57_scenarios_three_trials": "pass",
@@ -143,12 +143,13 @@
         "all_prior_gates": "pass",
         "candidate_trace_261_events_exact": "pass",
         "package_and_real_surfaces": "pass",
-        "clean_clone": "pending"
+        "clean_clone": "pass"
       },
       "retained_failures": [
-        "artifacts/verification/baseline-0026-post-candidate-historical-latest-failure-001.json"
+        "artifacts/verification/baseline-0026-post-candidate-historical-latest-failure-001.json",
+        "artifacts/verification/baseline-0026-post-clean-receipt-test-wrapper-timeout-001.json"
       ],
-      "disposition": "pending",
+      "disposition": "pass",
       "next_dependency": "UNIT-005"
     },
     {
@@ -157,7 +158,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "planned",
+      "status": "active",
       "inputs": [
         "verified candidate and clean-clone evidence",
         "premerge audit and exact reviewed GitHub head",
@@ -181,8 +182,8 @@
       "next_dependency": null
     }
   ],
-  "current_unit": "UNIT-004",
-  "next_action": "Publish the complete local candidate receipt, then run remote-only no-alternates clean-clone verification of that exact public commit.",
+  "current_unit": "UNIT-005",
+  "next_action": "Run the premerge release-truth audit, then review and merge only the exact verified GitHub head with history preserved.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -215,12 +216,15 @@
       "two byte-identical 41-entry archives at SHA-256 091bf7056c394fc65654b7d507c6d2d5a4f12e44bd6d131882339d6c8898d942",
       "final-manifest source and package evaluations: 57 scenarios, 171 attempts, all eighteen cells, and exact 261-event traces",
       "bounded source/package MCP, authenticated loopback API, approval, executor, persisted state, audit, anchored telemetry, and complete dashboard surfaces",
-      "classified structured-artifact and credential/model scans with zero unresolved finding"
+      "classified structured-artifact and credential/model scans with zero unresolved finding",
+      "remote-only HTTPS no-alternates clone of exact public receipt commit c9718765ecad4b9a003736a6246da1760878bac9",
+      "clean-clone 31-validator and 47-test pass, two exact archive rebuilds, fresh source/package evaluations and 261-event anchors, bounded MCP, authenticated API/state/telemetry, parsing/scans, and complete original-detail dashboards",
+      "post-clean-receipt documentation gate: 31 validators and 47 tests pass after retaining an invalid short-timeout wrapper with no inferred result"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.25 remains the latest verified release. BASELINE-0026 is a complete local candidate: reproducible archive, final source/package evaluation, bounded MCP, authenticated API/approval/executor/state/telemetry, complete dashboards, and classified scans pass; remote-only clean-clone repetition remains pending.",
-    "next_action": "Publish the complete local candidate receipt, then run remote-only no-alternates clean-clone verification of that exact public commit.",
+    "current_checkpoint": "Public v0.0.25 remains the latest verified release. BASELINE-0026 UNIT-004 is complete: exact public candidate receipt commit c9718765ecad4b9a003736a6246da1760878bac9 reproduces from a remote-only no-alternates clone across archive, source/package evaluation, MCP, authenticated API/approval/executor/state/telemetry, parsing/scans, and complete dashboards. Review, merge, release, and public-tag verification remain pending.",
+    "next_action": "Run the premerge release-truth audit, then review and merge only the exact verified GitHub head with history preserved.",
     "do_not_carry_forward": [
       "any claim that synthetic eighteen-cell coverage is production readiness, learned generalization, or universal prompt-injection resistance",
       "any authority, secret, dependency, external asset, paid service, or real-infrastructure connector",

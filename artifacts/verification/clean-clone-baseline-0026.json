@@ -1,0 +1,193 @@
+{
+  "schema_version": "1.1",
+  "checkpoint": "baseline-0026",
+  "status": "pass",
+  "disposition": "clean_clone_verified",
+  "observed_at_utc": "2026-08-11T20:47:02.5164402Z",
+  "clone": {
+    "path": "C:/Projects/Verification/runbook-sentinel-baseline-0026-clean-c971876-20260811T203041Z",
+    "remote": "https://github.com/drwbkr1/runbook-sentinel.git",
+    "branch": "codex/baseline-0026-adversarial-exposure-stage-outcome-split",
+    "commit": "c9718765ecad4b9a003736a6246da1760878bac9",
+    "single_branch": true,
+    "no_local_clone": true,
+    "initial_worktree_clean": true,
+    "object_alternates_present": false,
+    "tracked_file_count": 792,
+    "expected_post_verification_tracked_changes": [
+      "artifacts/verification/dashboard-baseline-0026.png",
+      "artifacts/verification/native-baseline-0026.json"
+    ]
+  },
+  "candidate_receipt": {
+    "path": "artifacts/verification/candidate-baseline-0026.json",
+    "bytes": 11264,
+    "sha256": "de6cd642c68e5928f829dbc0b01c241c10718bbf1e199ab3713bc0b4f9e226df"
+  },
+  "historical_release_prerequisite": {
+    "reason": "The BASELINE-0024 pre-change validator binds the ignored public v0.0.23 release archive.",
+    "source": "public GitHub release v0.0.23",
+    "archive_path": "dist/runbook-sentinel-0.0.23.pyz",
+    "bytes": 500823,
+    "sha256": "90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917",
+    "verified_before_use": true
+  },
+  "static_verification": {
+    "compileall": "pass",
+    "validator_count": 31,
+    "validator_status": "pass",
+    "validator_seconds": 4.6,
+    "test_count": 47,
+    "test_status": "pass",
+    "test_seconds": 104.027
+  },
+  "archive": {
+    "selected_path": "dist/runbook-sentinel-0.0.26.pyz",
+    "independent_path": "C:/Projects/Verification/runbook-sentinel-baseline-0026-clean-build-b-c971876/runbook-sentinel-0.0.26.pyz",
+    "entry_count": 41,
+    "runtime_dependency_count": 0,
+    "bytes": 589143,
+    "selected_sha256": "091bf7056c394fc65654b7d507c6d2d5a4f12e44bd6d131882339d6c8898d942",
+    "independent_sha256": "091bf7056c394fc65654b7d507c6d2d5a4f12e44bd6d131882339d6c8898d942",
+    "candidate_archive_sha256_exact": true,
+    "builds_byte_identical": true,
+    "checksum_sha256": "489829976155e74540e443d2845a1bfc76ba415461bc5c884681474a2299f57b"
+  },
+  "evidence_root": "C:/Projects/Verification/runbook-sentinel-baseline-0026-clean-evidence-c971876",
+  "source_evaluation": {
+    "report_path": "baseline-0026-clean-source-attempt-001.json",
+    "report_bytes": 943921,
+    "report_sha256": "9a45eaee2ac66a3aefacef2e0f904f0f06f6ee491492c0ff951723dd91f91eac",
+    "manifest_path": "baseline-0026-clean-source-attempt-001.manifest.json",
+    "manifest_bytes": 12957,
+    "manifest_sha256": "fcf54dda78c2502277280163f8249715886d11494f3830ba4bdf43ab213d1c75",
+    "trace_path": "baseline-0026-clean-source-attempt-001.traces.jsonl",
+    "trace_bytes": 195302,
+    "trace_sha256": "6f2187b914c88facbff88658629319566abdc49172d7988f3092c6217c5ebab5",
+    "trace_event_count": 261,
+    "trace_final_event_sha256": "fa80968189498438a68a5fa14035855d51f853cd8c884d8983ce1f87c8c4bf40",
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "latency_median_ms": 44.391,
+    "latency_p95_ms": 70.068,
+    "disposition": "pass"
+  },
+  "package_evaluation": {
+    "report_path": "baseline-0026-clean-package-attempt-001.json",
+    "report_bytes": 943920,
+    "report_sha256": "298b3a4f30e428ff6e0060fccfcd5e53e5fe6025ec3602930bf779da7e419da3",
+    "manifest_path": "baseline-0026-clean-package-attempt-001.manifest.json",
+    "manifest_bytes": 12957,
+    "manifest_sha256": "fcf54dda78c2502277280163f8249715886d11494f3830ba4bdf43ab213d1c75",
+    "trace_path": "baseline-0026-clean-package-attempt-001.traces.jsonl",
+    "trace_bytes": 195313,
+    "trace_sha256": "431c4a6cd7bac1018103ea12d22fbadfe78c7977ffa395ed48f571b1e6009d90",
+    "trace_event_count": 261,
+    "trace_final_event_sha256": "2f4cc5610ae1d0dd48f2a0e6a784eaeebf6149fbeb859d6df7c6357624e84aa3",
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "latency_median_ms": 47.334,
+    "latency_p95_ms": 67.717,
+    "disposition": "pass"
+  },
+  "evaluation_summary": {
+    "adversarial_exposure_stage_outcome_split_coverage": 1.0,
+    "development_adversarial_exposure_stage_outcome_split_coverage": 1.0,
+    "test_adversarial_exposure_stage_outcome_split_coverage": 1.0,
+    "covered_cells": 18,
+    "required_cells": 18,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "terminal_state_exact": 1.0,
+    "tool_trajectory_exact": 1.0,
+    "repeated_trial_reliability": 1.0,
+    "benign_utility": 1.0,
+    "model_calls": 0,
+    "external_api_cost_usd": 0.0
+  },
+  "source_package_parity": {
+    "status": "pass",
+    "all_gates_exact": true,
+    "contract_normalized_reports_exact": true,
+    "runtime_varying_fields_excluded_by_contract": [
+      "per-attempt and aggregate latency",
+      "launch-scoped operator identity",
+      "database and trace state SHA-256 values",
+      "runtime trace filenames and final-event SHA-256 values"
+    ]
+  },
+  "mcp": {
+    "source": "pass",
+    "package": "pass",
+    "protocol_version": "2025-11-25",
+    "server_version": "0.0.26",
+    "tool_names": [
+      "list_synthetic_scenarios",
+      "diagnose_synthetic_incident",
+      "get_synthetic_incident"
+    ],
+    "approval_or_execution_tool_exposed": false,
+    "source_receipt": "mcp-source.json",
+    "source_receipt_sha256": "d0489a73a130c6be39b6f3c0d49cbc47f30ebabe23b60e1911ba16364e31e628",
+    "source_trace_event_count": 2,
+    "source_trace_final_event_sha256": "b2ea6dc729fdb83b0d7bf821221e1ccc41d28261dd84e9aaaf36852b21db124c",
+    "package_receipt": "mcp-package.json",
+    "package_receipt_sha256": "8284a9fa2d7a83562b66077e2a4d5aaf0de1153c8b29c8ac9ccfbb2505ce7729",
+    "package_trace_event_count": 2,
+    "package_trace_final_event_sha256": "93dd67cb85b3ba990244748295a3d8b13dcd4b58887e18c19058e08cc81ad302"
+  },
+  "real_surfaces": {
+    "source_status": "pass",
+    "package_status": "pass",
+    "native_check_count_each": 59,
+    "authentication_approval_executor_idempotency_replay_postconditions": "pass",
+    "persisted_state_audit_redaction_telemetry_anchor": "pass",
+    "source_native_receipt": "native-source.json",
+    "source_native_receipt_sha256": "993846168c1116e024c812268b56c3cdb9198ccb8729a3ffa0ef55b52aeb576f",
+    "package_native_receipt": "native-package.json",
+    "package_native_receipt_sha256": "047d8e76b2494fcd4a650b68a265b51a621120724d1f6c719601b88a5aecb0f0",
+    "source_dashboard": "dashboard-source.png",
+    "source_dashboard_bytes": 86912,
+    "source_dashboard_sha256": "6f446f31cabd034671e9748d3ecc739cc3c87e9fa9e6f608b5e5afd8c0b6edae",
+    "package_dashboard": "dashboard-package.png",
+    "package_dashboard_bytes": 86762,
+    "package_dashboard_sha256": "6a49bbda22cf1defcc9df638ab9d3b08ad8032238c695d5422ddfac8b64563f0",
+    "dashboard_dimensions": [1440, 1000],
+    "source_dashboard_visual_review": "pass",
+    "package_dashboard_visual_review": "pass"
+  },
+  "artifact_checks": {
+    "clone_file_count_scanned": 798,
+    "clone_json_files_parsed": 511,
+    "clone_jsonl_files_parsed": 115,
+    "clone_jsonl_records_parsed": 17476,
+    "external_evidence_file_count": 26,
+    "external_evidence_json_files_parsed": 8,
+    "external_evidence_jsonl_files_parsed": 2,
+    "external_evidence_jsonl_records_parsed": 522,
+    "parse_failures_outside_retained_expected_invalid_evidence": 0,
+    "retained_expected_invalid_json_path": "artifacts/verification/mcp-source-baseline-0026.json",
+    "retained_expected_invalid_json_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "private_key_scanner_definition_hits": 16,
+    "private_key_scanner_definition_files": 16,
+    "symbolic_approval_token_role_definition_files": 2,
+    "persisted_secret_matches": 0,
+    "model_artifact_files": 0
+  },
+  "retained_failures": [
+    "The first validator pass stopped because the ignored public v0.0.23 release archive required by the frozen BASELINE-0024 validator was absent. Only the exact public asset was downloaded and digest-verified before the complete 31-validator pass.",
+    "Chromium retained its known post-write task-provider fallback diagnostics while producing complete passing source and package dashboard bytes.",
+    "The first combined image-viewer call aggregated both complete PNGs and truncated its own display output. Each exact PNG was then opened separately at original detail and passed visual review."
+  ],
+  "boundaries": {
+    "synthetic_only": true,
+    "research_informed": true,
+    "model_has_credentials": false,
+    "model_has_approval_authority": false,
+    "model_has_execution_authority": false,
+    "mcp_has_approval_or_execution_authority": false,
+    "real_infrastructure_connected": false,
+    "docker_verified": false
+  },
+  "next_gate": "premerge release-truth audit and exact GitHub review of the clean-clone receipt head"
+}

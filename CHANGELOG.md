@@ -9,6 +9,7 @@
 - Freeze a dependency-free 41-entry v0.0.26 zipapp contract before archive construction, adding only the exposure-stage evaluation contract to the prior package inventory and retaining the synthetic-only, no-secret, no-model, no-container, and no-real-infrastructure boundaries.
 - Pass the pre-build final-manifest seal with all 47 tests and 31 validators before constructing any archive.
 - Build two byte-identical 41-entry, 589,143-byte zipapps at SHA-256 `091bf7056c394fc65654b7d507c6d2d5a4f12e44bd6d131882339d6c8898d942`; pass final-manifest source/package 171-attempt evaluations with exact 261-event traces, bounded three-tool MCP, both 59-check authenticated real surfaces, classified scans, and complete 1440 by 1000 dashboards.
+- Reproduce the exact archive twice from a public HTTPS no-alternates clone of receipt commit `c9718765ecad4b9a003736a6246da1760878bac9`; independently pass 31 validators, 47 tests, fresh source/package 171-attempt evaluations and 261-event anchors, bounded MCP, both 59-check authenticated surfaces, structured parsing and scans, and complete original-detail dashboards.
 
 ## 0.0.25 - 2026-08-11
 
