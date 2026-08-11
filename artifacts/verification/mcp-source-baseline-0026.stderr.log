@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "C:\Projects\Active\runbook-sentinel\scripts\verify_mcp_stdio.py", line 10, in <module>
+    from runbook_sentinel.telemetry import (
+ModuleNotFoundError: No module named 'runbook_sentinel'

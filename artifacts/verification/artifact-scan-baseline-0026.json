@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0026",
+  "observed_at_utc": "2026-08-11T20:21:23.0704932Z",
+  "status": "pass",
+  "scope": {
+    "repository_root": "C:/Projects/Active/runbook-sentinel",
+    "file_count_scanned": 921,
+    "excluded_directories": [".git", "__pycache__", "dist", "var"],
+    "excluded_local_disposable_prefixes": [
+      "artifacts/verification/repro-build-0025",
+      "artifacts/verification/native-baseline-0025.json"
+    ]
+  },
+  "structured_artifacts": {
+    "json_file_count": 526,
+    "jsonl_file_count": 172,
+    "jsonl_record_count": 17706,
+    "parse_errors": [],
+    "retained_expected_invalid_json": [
+      {
+        "path": "artifacts/verification/mcp-source-baseline-0026.json",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_path": "artifacts/verification/mcp-source-baseline-0026.stderr.log",
+        "stderr_sha256": "f0c91343881f0954c04d2e1f79de6a7c740122f20b96f7840565ac182cb97d74",
+        "classification": "retained pre-import MCP harness failure; the verifier stopped before launching MCP or creating runtime state"
+      }
+    ]
+  },
+  "credential_scan": {
+    "broad_high_signal_hit_count": 18,
+    "classified_package_contract_private_key_definitions": 16,
+    "classified_symbolic_approval_token_role_definitions": 2,
+    "symbolic_role_definition_files": [
+      "eval/idempotency-authorization-contract.json",
+      "scripts/verify_idempotency_authorization_contract.py"
+    ],
+    "symbolic_role_values": [
+      "other_proposal_valid_unconsumed",
+      "wrong_syntactically_valid"
+    ],
+    "unresolved_high_signal_hits": [],
+    "persisted_secret_matches": 0,
+    "patterns": [
+      "private key header",
+      "GitHub classic token",
+      "GitHub fine-grained token",
+      "OpenAI-style key",
+      "Sentinel capability value",
+      "serialized approval token value",
+      "serialized operator capability value"
+    ]
+  },
+  "model_artifacts": {
+    "extensions": [".gguf", ".safetensors", ".pt", ".pth", ".onnx", ".ckpt"],
+    "files": []
+  },
+  "retained_initial_scan": {
+    "status": "fail",
+    "parse_error_count": 1,
+    "unresolved_high_signal_hit_count": 2,
+    "reason": "The first broad run treated the exact retained zero-byte MCP failure output as ordinary JSON and treated frozen symbolic token-role labels as runtime token values. The evidence-bound rerun excludes only the exact empty-file digest and classifies only the exact two frozen role-definition files and allowed role labels."
+  }
+}

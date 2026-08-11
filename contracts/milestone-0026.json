@@ -140,9 +140,9 @@
         "immutable_source_candidate": "pass",
         "all_57_scenarios_three_trials": "pass",
         "all_18_stage_outcome_split_cells": "pass",
-        "all_prior_gates": "pending",
+        "all_prior_gates": "pass",
         "candidate_trace_261_events_exact": "pass",
-        "package_and_real_surfaces": "pending",
+        "package_and_real_surfaces": "pass",
         "clean_clone": "pending"
       },
       "retained_failures": [
@@ -182,7 +182,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Publish the exact package-contract and final-manifest seal, then build twice and run source/package real-surface gates.",
+  "next_action": "Publish the complete local candidate receipt, then run remote-only no-alternates clean-clone verification of that exact public commit.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -211,12 +211,16 @@
       "immutable source candidate attempt 001: 57 scenarios, 171 attempts, eighteen-of-eighteen cells, every prior source gate, zero proposal and terminal attack success, and exact 261-event anchored trace",
       "frozen 41-entry v0.0.26 package contract at SHA-256 3667729c7f917fedfbdb2ae9bc382f61ecb7fc34fbebb1736d5ef765423b9770 before archive construction",
       "final 108-file evaluation manifest at SHA-256 fcf54dda78c2502277280163f8249715886d11494f3830ba4bdf43ab213d1c75 before archive construction",
-      "pre-build seal gate: 31 validators and 47 tests pass before package-contract and final-manifest publication"
+      "pre-build seal gate: 31 validators and 47 tests pass before package-contract and final-manifest publication",
+      "two byte-identical 41-entry archives at SHA-256 091bf7056c394fc65654b7d507c6d2d5a4f12e44bd6d131882339d6c8898d942",
+      "final-manifest source and package evaluations: 57 scenarios, 171 attempts, all eighteen cells, and exact 261-event traces",
+      "bounded source/package MCP, authenticated loopback API, approval, executor, persisted state, audit, anchored telemetry, and complete dashboard surfaces",
+      "classified structured-artifact and credential/model scans with zero unresolved finding"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.25 remains the latest verified release. BASELINE-0026 source candidate attempt 001 passes exactly; the 41-entry package contract and 108-file final manifest are frozen locally and pass static validation, while their public seal, archive, and real-surface evidence remain pending.",
-    "next_action": "Publish the exact package-contract and final-manifest seal, then build twice and run source/package real-surface gates.",
+    "current_checkpoint": "Public v0.0.25 remains the latest verified release. BASELINE-0026 is a complete local candidate: reproducible archive, final source/package evaluation, bounded MCP, authenticated API/approval/executor/state/telemetry, complete dashboards, and classified scans pass; remote-only clean-clone repetition remains pending.",
+    "next_action": "Publish the complete local candidate receipt, then run remote-only no-alternates clean-clone verification of that exact public commit.",
     "do_not_carry_forward": [
       "any claim that synthetic eighteen-cell coverage is production readiness, learned generalization, or universal prompt-injection resistance",
       "any authority, secret, dependency, external asset, paid service, or real-infrastructure connector",
