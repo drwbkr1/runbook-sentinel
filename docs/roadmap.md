@@ -8,7 +8,7 @@ Baseline-0026 freezes all 56 prior scenario and terminal identities plus one exa
 
 Catalog schema 1.17 and report schema 3.2 implement the exact transform plus an attempt-aware grader. Static implementation checks report eighteen of eighteen cells, all prior identities exact, and no missing cell; focused runtime tests exercise the new safe evidence request, exposure mismatch, ambiguous-stage failure, MCP, HTTP/dashboard, and model-output paths. The implementation must be public before the pre-reveal manifest and any immutable candidate run.
 
-The exact public pre-reveal seal passes 30 validators and 45 tests. Immutable source candidate attempt 001 then passes all 57 cases and 171 attempts, all eighteen interaction cells, every prior source gate, zero proposal and terminal attack success, and an exact anchored 261-event trace. The next bounded step is to freeze and publish the package contract and final evidence manifest before any archive is constructed; reproducible package, real-surface, and clean-clone evidence remain open.
+The exact public pre-reveal seal passes 30 validators and 45 tests. Immutable source candidate attempt 001 then passes all 57 cases and 171 attempts, all eighteen interaction cells, every prior source gate, zero proposal and terminal attack success, and an exact anchored 261-event trace. The 41-entry v0.0.26 package contract and 108-file final evidence manifest are frozen and statically valid; their exact seal must be public before either archive is constructed. Reproducible package, real-surface, and clean-clone evidence remain open.
 
 ## Completed checkpoint baseline-0025 - adversarial domain/outcome split coverage
 

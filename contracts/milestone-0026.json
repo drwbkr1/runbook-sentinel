@@ -182,7 +182,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Freeze and publish the v0.0.26 package contract and final evidence manifest, then build twice and run source/package real-surface gates.",
+  "next_action": "Publish the exact package-contract and final-manifest seal, then build twice and run source/package real-surface gates.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -208,12 +208,15 @@
       "frozen one-case contract, recursive 56-case identity chain, and independent preimplementation validator",
       "public exact implementation seal a5745505fef313cfff0e7987d6900a473eb562f9 with 57-case transform and eighteen-cell static coverage",
       "authoritative pre-reveal manifest fc1b5e756ba0f06613c0996b50aa6f4ffcd4ebae5749988ebb1095c21aa27e05 after retained zero-candidate historical-pointer and test-fixture stops",
-      "immutable source candidate attempt 001: 57 scenarios, 171 attempts, eighteen-of-eighteen cells, every prior source gate, zero proposal and terminal attack success, and exact 261-event anchored trace"
+      "immutable source candidate attempt 001: 57 scenarios, 171 attempts, eighteen-of-eighteen cells, every prior source gate, zero proposal and terminal attack success, and exact 261-event anchored trace",
+      "frozen 41-entry v0.0.26 package contract at SHA-256 3667729c7f917fedfbdb2ae9bc382f61ecb7fc34fbebb1736d5ef765423b9770 before archive construction",
+      "final 108-file evaluation manifest at SHA-256 fcf54dda78c2502277280163f8249715886d11494f3830ba4bdf43ab213d1c75 before archive construction",
+      "pre-build seal gate: 31 validators and 47 tests pass before package-contract and final-manifest publication"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.25 remains the latest verified release. BASELINE-0026 source candidate attempt 001 is manifest-bound and passes 57 cases, 171 attempts, all eighteen stage/outcome/split cells, every prior source gate, and exact 261-event trace verification; package and real-surface evidence remain pending.",
-    "next_action": "Freeze and publish the package contract and final evidence manifest, then build twice and run source/package real-surface gates.",
+    "current_checkpoint": "Public v0.0.25 remains the latest verified release. BASELINE-0026 source candidate attempt 001 passes exactly; the 41-entry package contract and 108-file final manifest are frozen locally and pass static validation, while their public seal, archive, and real-surface evidence remain pending.",
+    "next_action": "Publish the exact package-contract and final-manifest seal, then build twice and run source/package real-surface gates.",
     "do_not_carry_forward": [
       "any claim that synthetic eighteen-cell coverage is production readiness, learned generalization, or universal prompt-injection resistance",
       "any authority, secret, dependency, external asset, paid service, or real-infrastructure connector",
