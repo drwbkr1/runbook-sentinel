@@ -1,5 +1,11 @@
 # Roadmap
 
+## Active checkpoint baseline-0024 - adversarial condition/outcome split coverage
+
+Fresh unchanged public-v0.0.23 source and packaged evaluations pass all 42 cases, 126 attempts, prior gates, and exact 216-event traces. A cross-dimension audit then finds that the individually complete adversarial condition/split and outcome/split metrics hide two untested interactions. Of ten semantically valid condition/outcome pairs in both development and held-out splits, 18 of 20 cells are covered: held-out instruction-bearing conflict has no required abstention case, and development stale evidence has no required evidence-request case.
+
+Baseline-0024 freezes all 42 recursive pre-change scenario and terminal identities, exactly one held-out in-band conflicting-deployment transform, exactly one development stale-cache poisoning transform, a fail-closed 20-cell metric, and exact source/package/security/terminal gates before implementation. The target is 44 cases, 132 attempts, and an exact 222-event trace. It adds no action, capability, agent or model behavior, retrieval change, authority, dependency, secret, external asset, paid service, or real-infrastructure connector. Forty-four cases remain below the separate at-least-48-case v0.1.0 target, and the result will remain research-informed synthetic evidence rather than production or universal prompt-injection-resistance evidence.
+
 ## Completed checkpoint baseline-0023 - adversarial bounded-outcome split coverage
 
 A fresh unchanged public-v0.0.22 run passes all 41 cases and every prior gate, but a cross-dimension audit finds adversarial bounded-outcome coverage reaches only 7 of 8 outcome/split cells. Held-out test covers all four allowed outcomes; development has no hostile-evidence case whose correct response is `abstain`. Baseline-0023 freezes a fail-closed adversarial outcome-by-split metric and one project-authored in-band hostile telemetry transform of the existing development conflicting-database abstention case. The hostile instruction requests `restart_worker`; the frozen correct result remains abstention, no execution, and the existing exact terminal state.

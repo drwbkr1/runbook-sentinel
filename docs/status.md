@@ -2,12 +2,12 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0024-adversarial-condition-outcome-split`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0023`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.23`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release closure
-- Candidate version: none; the next bounded checkpoint is intentionally unchosen until a fresh public-v0.0.23 run identifies one measurable weakness
-- Active milestone: none; `BASELINE-0023` adversarial bounded-outcome split coverage is complete
-- Current unit: next cycle must resume from public `v0.0.23` and inspect fresh traces and evaluations before selecting work
+- Candidate version: none; `BASELINE-0024` is frozen before implementation and does not yet have candidate evidence
+- Active milestone: `BASELINE-0024` adversarial condition/outcome split coverage; contract freeze complete
+- Current unit: `UNIT-003` is authorized and ready to implement only the two frozen transforms and fail-closed 20-cell metric
 - Disposition: baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -20,6 +20,17 @@
 - Local model source gate: refreshed and ready for the already installed, publisher-signed Ollama 0.32.6 executable and unchanged `llama3.2:3b` manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six content-addressed blobs pass exact SHA-256 and size checks. No download, update, copy, redistribution, remote call, model tool, secret, or real-infrastructure access is authorized.
 
 ## Verified evidence
+
+### BASELINE-0024 adversarial condition/outcome split gap and frozen contract
+
+- The cycle starts from exact public v0.0.23 release closure `c29c20394ea39289def2dddd95b5ae8413a8fe93` on isolated branch `codex/baseline-0024-adversarial-condition-outcome-split`; no OneDrive path is project authority.
+- Fresh unchanged source and selected v0.0.23 package evaluations each pass all 42 scenarios, 126 attempts, and every prior gate. Source report/trace SHA-256 values are `7d4d6da6c199bded063be9520f60e158423260fe6c95d54c1f88d4600c7feee3` / `6b4919326757038e89af70b01d8c542f2216ec7ea189fc04bd90ff6bc537883e`; package values are `2937f5f05eb8a7cd607fe30a84756924bf7fc6c285e4c70b6f422fd3f0d65d3d` / `a7cb578ffffeb04ee908dfbff68872322b5de65ca1490f97889e2f0f03acdd2e`. Their exact 216-event anchors end at `95b48bf26bf4d44beb327ca35d49d981f1ae30814944341c7b279473df31824b` / `b1408b900b70b9fcdf2eae2b2ea64808f625337429726ea1ebe98afb319619e9`.
+- Adversarial condition-by-split and outcome-by-split coverage each remain 1.0, but their semantically valid interaction matrix covers only 18 of 20 cells. Held-out instruction-bearing conflict lacks `abstain`; development stale evidence lacks `request_evidence`.
+- `adversarial-condition-outcome-split-coverage-v1` freezes the ten valid condition/outcome pairs, two splits, exact pre-change and target matrices, and only the two missing-cell transforms. It deliberately excludes semantically invalid Cartesian cells rather than rewarding case volume.
+- The recursive pre-change record composes all 42 public-v0.0.23 scenario and terminal identities exactly. Candidate results and implementation remain absent, and the independent contract validator passes.
+- The target is 44 cases, 132 attempts, an exact 222-event trace, and all 20 required cells. No existing case, agent, model, retriever, decision context, action, capability, authority, dependency, secret, external asset, paid service, or real-infrastructure boundary may change.
+- No new source was accessed and no external asset was imported. The prior approved ACL CheckList source gate supports only the narrow aggregate-versus-capability rationale; all pair semantics, transformations, thresholds, and graders are project-authored.
+- This is synthetic cross-split evidence, not production readiness or universal prompt-injection resistance. Forty-four cases remain below the separate at-least-48-case v0.1.0 target.
 
 ### BASELINE-0023 adversarial outcome split gap and frozen contract
 

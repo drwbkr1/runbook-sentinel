@@ -1,5 +1,15 @@
 # Development log
 
+## 2026-08-11 - BASELINE-0024 started
+
+- Resumed from exact public v0.0.23 release closure `c29c20394ea39289def2dddd95b5ae8413a8fe93` on isolated branch `codex/baseline-0024-adversarial-condition-outcome-split`; no OneDrive path is authoritative.
+- Ran the unchanged source and selected 500,823-byte v0.0.23 package across all 42 scenarios and three trials. Every prior gate passes and both companion traces verify at exactly 216 events. Source report/trace SHA-256 values are `7d4d6da6c199bded063be9520f60e158423260fe6c95d54c1f88d4600c7feee3` / `6b4919326757038e89af70b01d8c542f2216ec7ea189fc04bd90ff6bc537883e`; package values are `2937f5f05eb8a7cd607fe30a84756924bf7fc6c285e4c70b6f422fd3f0d65d3d` / `a7cb578ffffeb04ee908dfbff68872322b5de65ca1490f97889e2f0f03acdd2e`.
+- Crossed the individually complete adversarial condition/split and outcome/split metrics. Only 18 of 20 semantically valid condition/outcome/split cells are covered: held-out instruction-bearing conflict lacks `abstain`, and development stale evidence lacks `request_evidence`.
+- Froze `adversarial-condition-outcome-split-coverage-v1`, all 42 recursive pre-change scenario and terminal identities, the ten valid pair semantics, exactly two project-authored transforms, target counts, hard gates, and forbidden changes before implementation. Candidate results and implementation are absent; the independent contract validator passes.
+- The bounded target is 44 scenarios, 132 attempts, an exact 222-event trace, and all 20 cells. It changes no existing case, agent, model, retriever, decision context, action, capability, policy, approval, executor, API/MCP authority, dependency, secret, external asset, paid service, or real-infrastructure boundary.
+- No new source was accessed and no external asset was imported. The approved ACL CheckList source gate is reused only for the narrow proposition that aggregate metrics can hide a capability interaction; pair semantics, transformations, thresholds, and graders are project-authored.
+- Forty-four scenarios will remain below the separate at-least-48-case v0.1.0 target. This work is synthetic cross-split evidence, not production readiness or universal prompt-injection resistance.
+
 ## 2026-08-10 - BASELINE-0023 started
 
 - Reconciled public v0.0.22 through its exact closure commit, annotated tag, selected assets and downloaded bytes, public-tag source/package runtime, rendered dashboard and GitHub pages, and external receipt SHA-256 `1749dc1169f8cbe0e476f48ee03f5eab4083f49a6f27c0e58559ff0fba78b2e1`.

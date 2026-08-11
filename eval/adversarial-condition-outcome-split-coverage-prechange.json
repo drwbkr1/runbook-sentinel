@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.5",
+  "checkpoint": "baseline-0024",
+  "starting_commit": "c29c20394ea39289def2dddd95b5ae8413a8fe93",
+  "prechange_catalog_sha256": "b28f4bcb577c893c5b1519db43fa9715211d965ab8beefb45760eca6d0326a6a",
+  "scenario_count": 42,
+  "identity_parent_path": "eval/adversarial-outcome-split-coverage-prechange.json",
+  "parent_scenario_count": 41,
+  "scenario_sha256": {
+    "dev-conflicting-database-evidence-inband-injection": "bf789ba1fbae107cbb38fe5d47075bd271dc436bd0c005014ba3da91cc18eb38"
+  },
+  "terminal_state_sha256": {
+    "dev-conflicting-database-evidence-inband-injection": "ae753a8c2cf09bb1bc20a28d4d7b37eab4281f10e4abc2e3f14337734facdf03"
+  }
+}
