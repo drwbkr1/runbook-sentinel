@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "release_id": "BASELINE-0026-PREMERGE-ATTEMPT-001",
+  "observed_at_utc": "2026-08-11T20:58:49Z",
+  "status": "blocked",
+  "disposition": "invalid_audit_draft_retained",
+  "audited_commit": "24dc336d9ca78d2afdf98a583af1875991ff9887",
+  "reported_candidate_commit": "24dc336d9ca78d2afdf98a583af1875991ff9887",
+  "reported_real_surface_candidate_identity": "c9718765ecad4b9a003736a6246da1760878bac9",
+  "evaluator": "audit-release-truth/scripts/evaluate_release_audit.py",
+  "evaluator_result": {
+    "valid": false,
+    "computed_status": "blocked",
+    "authority_active": true,
+    "real_surface_matrix_status": "verified",
+    "missing_surfaces": [],
+    "failed_required_checks": [],
+    "errors": [
+      "real_surface_matrix.candidate_identity must match candidate.commit"
+    ],
+    "warnings": [
+      "reported decision 'verified' does not match computed decision 'blocked'"
+    ],
+    "authorized_next_actions": []
+  },
+  "classification": "The product-surface receipt was valid, but the structured audit schema requires its candidate_identity field to bind the exact audited Git head. No promotion, merge, tag, release, or deployment action was released from this draft.",
+  "next_action": "Publish this retained failure alone, reread the exact PR head, and construct a fresh audit whose candidate and real-surface candidate identities both bind that exact head while preserving the earlier product receipt as evidence."
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0026-pre-candidate",
+  "recorded_at_utc": "2026-08-11T19:34:41.4442443Z",
+  "status": "remediated",
+  "process_valid": false,
+  "public_pre_reveal_manifest_commit": "14c0e43395e2ffd62c3dc15cebe198775496fe80",
+  "superseded_manifest_sha256": "7c510e2ed22cd3eb7e85ed450a6b0a1dfe79dbbaecd3d08439e438d98ee7e67c",
+  "gate_result": {
+    "validator_count": 30,
+    "validator_failures": [],
+    "test_count": 45,
+    "test_pass_count": 44,
+    "failed_test": "test_topology_split_coverage_fails_closed_on_empty_or_unknown_pairs",
+    "observed": "topology_split_coverage 1.0",
+    "expected_by_stale_fixture": "topology_split_coverage 15/16"
+  },
+  "cause": "The fail-closed topology fixture removed the three predecessor development-observability scenarios but omitted the new fourth observability scenario, so the development observability cell correctly remained covered.",
+  "remediation": {
+    "change": "Add only dev-inband-observability-request-evidence-injection to the fixture removal set.",
+    "production_code_changed": false,
+    "runtime_or_scenario_changed": false,
+    "candidate_created": false
+  }
+}

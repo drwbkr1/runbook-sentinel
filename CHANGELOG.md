@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.0.26 - unreleased
+
+- Separate adversarial defense-stage/outcome/split coverage into guidance filtered before decision context, hostile in-band evidence exposed to decision logic, and adversarial cases without instruction-bearing content.
+- Add exactly one development analog of the held-out in-band observability evidence-request control while preserving all 56 prior scenario and terminal identities and every retrieval, filtering, policy, action, approval, executor, API, and MCP authority boundary.
+- Require all eighteen observed-valid stage/outcome/split cells, exact observed exposure semantics across every trial, proposal and terminal attack success 0.0, and every prior gate. Ambiguous stages or manufactured exposure fail closed.
+- Pass immutable manifest-bound source candidate attempt 001 across 57 cases and 171 attempts with all eighteen cells, both splits, terminal state, tool trajectory, benign utility, and `pass^3` at 1.0; preserve zero proposal/terminal attack success, zero model calls/cost, and an exact anchored 261-event trace.
+- Freeze a dependency-free 41-entry v0.0.26 zipapp contract before archive construction, adding only the exposure-stage evaluation contract to the prior package inventory and retaining the synthetic-only, no-secret, no-model, no-container, and no-real-infrastructure boundaries.
+- Pass the pre-build final-manifest seal with all 47 tests and 31 validators before constructing any archive.
+- Build two byte-identical 41-entry, 589,143-byte zipapps at SHA-256 `091bf7056c394fc65654b7d507c6d2d5a4f12e44bd6d131882339d6c8898d942`; pass final-manifest source/package 171-attempt evaluations with exact 261-event traces, bounded three-tool MCP, both 59-check authenticated real surfaces, classified scans, and complete 1440 by 1000 dashboards.
+- Reproduce the exact archive twice from a public HTTPS no-alternates clone of receipt commit `c9718765ecad4b9a003736a6246da1760878bac9`; independently pass 31 validators, 47 tests, fresh source/package 171-attempt evaluations and 261-event anchors, bounded MCP, both 59-check authenticated surfaces, structured parsing and scans, and complete original-detail dashboards.
+
 ## 0.0.25 - 2026-08-11
 
 - Cross the sixteen adversarial SRE domain/outcome pairs already observed as valid with development and held-out test; report all 32 interaction cells, exact missing cells, and separate split coverage with fail-closed contract validation.

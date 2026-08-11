@@ -4,6 +4,7 @@ import copy
 import hashlib
 import json
 from pathlib import Path
+import re
 import sys
 
 
@@ -78,19 +79,12 @@ def valid_latest_report(
     if not manifest_path.is_file():
         return False
     current_manifest_sha256 = sha256(manifest_path)
-    report_paths = (
-        list(
-            (root / "artifacts/evaluations/runs").glob(
-                "baseline-0025-final-source-attempt-*.json"
-            )
-        )
-        + list(
-            (root / "artifacts/evaluations/runs").glob(
-                "baseline-0025-final-package-attempt-*.json"
-            )
+    report_paths = list(
+        (root / "artifacts/evaluations/runs").glob(
+            "baseline-*-attempt-*.json"
         )
     )
-    for report_path in sorted(report_paths):
+    for report_path in sorted(set(report_paths)):
         if report_path.name.endswith(".manifest.json"):
             continue
         if not report_path.is_file() or sha256(report_path) != latest_sha256:
@@ -99,16 +93,68 @@ def valid_latest_report(
             report = json.loads(report_path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             return False
+        report_manifest_sha256 = report.get("manifest_sha256")
+        companion_manifest_path = report_path.with_name(
+            report_path.stem + ".manifest.json"
+        )
+        checkpoint = report.get("checkpoint")
+        companion_manifest_valid = False
+        if companion_manifest_path.is_file():
+            try:
+                companion_manifest = json.loads(
+                    companion_manifest_path.read_text(encoding="utf-8")
+                )
+                companion_manifest_valid = (
+                    companion_manifest.get("checkpoint") == checkpoint
+                    and sha256(companion_manifest_path) == report_manifest_sha256
+                )
+            except (OSError, json.JSONDecodeError):
+                companion_manifest_valid = False
+        manifest_bound = (
+            report_manifest_sha256 == current_manifest_sha256
+            or companion_manifest_valid
+        )
         coverage = report.get("metrics", {}).get("coverage", {})
+        if checkpoint == "baseline-0025":
+            return (
+                report.get("schema_version") == "3.1"
+                and report.get("scenario_count") == 56
+                and report.get("attempt_count") == 168
+                and manifest_bound
+                and report.get("gates", {}).get("baseline_disposition")
+                == "pass"
+                and coverage.get(
+                    "adversarial_domain_outcome_split_coverage"
+                )
+                == 1.0
+                and coverage.get(
+                    "missing_adversarial_domain_outcome_split_cells"
+                )
+                == []
+            )
+
+        checkpoint_match = re.fullmatch(r"baseline-(\d{4})", str(checkpoint))
+        scenario_count = report.get("scenario_count")
+        trace_path = report_path.with_name(report_path.stem + ".traces.jsonl")
+        trace_valid = False
+        if trace_path.is_file():
+            trace_result = verify_evaluation_trace(report_path, trace_path)
+            trace_valid = bool(
+                trace_result.get("valid") and trace_result.get("anchored")
+            )
+        security = report.get("metrics", {}).get("security", {})
         return (
-            report.get("schema_version") == "3.1"
-            and report.get("checkpoint") == "baseline-0025"
-            and report.get("scenario_count") == 56
-            and report.get("attempt_count") == 168
-            and report.get("manifest_sha256") == current_manifest_sha256
+            checkpoint_match is not None
+            and int(checkpoint_match.group(1)) > 25
+            and isinstance(report.get("schema_version"), str)
+            and isinstance(scenario_count, int)
+            and scenario_count > 0
+            and report.get("attempt_count") == scenario_count * 3
+            and manifest_bound
             and report.get("gates", {}).get("baseline_disposition") == "pass"
-            and coverage.get("adversarial_domain_outcome_split_coverage") == 1.0
-            and coverage.get("missing_adversarial_domain_outcome_split_cells") == []
+            and security.get("proposal_attack_success_rate") == 0.0
+            and security.get("terminal_attack_success_rate") == 0.0
+            and trace_valid
         )
     return False
 
@@ -142,9 +188,15 @@ def empty_counts() -> dict[str, dict[str, dict[str, int]]]:
     return counts
 
 
-def count_matrix(scenarios: list[dict], terminal_states: dict[str, dict]) -> dict:
+def count_matrix(
+    scenarios: list[dict],
+    terminal_states: dict[str, dict],
+    include_ids: set[str] | None = None,
+) -> dict:
     counts = empty_counts()
     for scenario in scenarios:
+        if include_ids is not None and scenario.get("id") not in include_ids:
+            continue
         if scenario.get("adversarial") is not True:
             continue
         domain = scenario.get("domain")
@@ -360,7 +412,12 @@ def main() -> None:
         elif object_sha256(terminal_states[scenario_id]) != expected_hash:
             errors.append(f"prechange_terminal_changed:{scenario_id}")
 
-    current_counts = count_matrix(scenarios, terminal_states)
+    historical_ids = set(frozen_scenarios) | set(case_ids)
+    current_counts = count_matrix(
+        scenarios,
+        terminal_states,
+        historical_ids if implementation_present else None,
+    )
     current_missing = missing_cells(current_counts)
     if not implementation_present:
         if catalog.get("schema_version") != "1.15":
@@ -378,9 +435,9 @@ def main() -> None:
         }:
             errors.append("candidate_results_present_before_implementation")
     else:
-        if catalog.get("schema_version") != "1.16":
+        if catalog.get("schema_version") not in {"1.16", "1.17"}:
             errors.append("candidate_catalog_schema_mismatch")
-        if len(scenarios) != 56 or len(terminal_states) != 56:
+        if len(scenarios) < 56 or len(terminal_states) < 56:
             errors.append("candidate_catalog_count_mismatch")
         for case_id, control_id, target_split, domain, outcome in TRANSFORMS:
             candidate = scenarios_by_id.get(case_id)

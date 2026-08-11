@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0026-preimplementation",
+  "recorded_at_utc": "2026-08-11T18:54:25.3969129Z",
+  "status": "remediated",
+  "process_valid": false,
+  "failure": {
+    "operation": "broad filename-based verifier sweep",
+    "cause": "The sweep treated every verify_*.py file as a standalone validator and also invoked the aggregate verify_baseline.py orchestrator.",
+    "invalid_direct_invocations": [
+      "scripts/verify_evaluation_trace.py",
+      "scripts/verify_mcp_stdio.py",
+      "scripts/verify_model_comparison.py",
+      "scripts/verify_stale_payload_projection.py"
+    ],
+    "side_effect": "The aggregate orchestrator produced an unintended but passing v0.0.25 attempt and promoted it to artifacts/evaluations/latest.json.",
+    "follow_on_failure": "The first corrected curated validator run then failed only candidate_latest_pointer_mismatch in the historical BASELINE-0025 contract."
+  },
+  "retained_superseded_experiment": {
+    "report_path": "artifacts/evaluations/runs/baseline-0025-attempt-002.json",
+    "report_bytes": 927562,
+    "report_sha256": "40de862e3f37857f7e8389975760c8b0edd18451d3883a157a892e7e8c24f0ec",
+    "manifest_path": "artifacts/evaluations/runs/baseline-0025-attempt-002.manifest.json",
+    "manifest_bytes": 12261,
+    "manifest_sha256": "344b6d868088e29483a11cb2fc65633c1ecadb1e79144aec15216ff3414eecaf",
+    "trace_path": "artifacts/evaluations/runs/baseline-0025-attempt-002.traces.jsonl",
+    "trace_bytes": 192626,
+    "trace_sha256": "033f0a79b023acca05870037de6bfaf80e7a9080c5afa1d940a9736ff61ec7c5"
+  },
+  "remediation": {
+    "latest_restored_from": "artifacts/evaluations/runs/baseline-0025-final-source-attempt-003.json",
+    "latest_sha256": "861a615ede7b402d02ddae40afbd9d92744859d95ebe586d9c6a302e0f34f848",
+    "restoration_identity": "The restoration source and tracked HEAD latest.json share Git blob 24fcd9cc4d58c3a1cebd1d812ad13ffeeaa8bbd8.",
+    "corrected_gate": "The repository-defined curated 29 validators plus the new BASELINE-0026 contract validator and all 44 tests pass.",
+    "baseline_0026_candidate_created": false,
+    "runtime_or_scenario_changed": false
+  }
+}

@@ -2,6 +2,8 @@
 
 Reviewed through 2026-08-11. References inform design; they are not imported datasets or code.
 
+Baseline-0026 reuses the approved ACL Anthology CheckList source gate only for the narrow proposition that aggregate metrics can hide a capability interaction. The three defense-stage definitions, nine observed-valid stage/outcome pairs, one cross-split analog, exact exposure checks, thresholds, and graders are project-authored. The cycle accesses no new paper, code, dataset, model, package, sample, executable, service, credential, or externally controlled asset.
+
 Baseline-0025 reuses the approved ACL Anthology CheckList source gate only for the narrow proposition that individually complete aggregate metrics can hide a capability interaction. The sixteen observed-valid adversarial domain/outcome pairs, twelve cross-split analogs, thresholds, exact terminal checks, and attack-success gates are project-authored. The cycle accesses no new paper, code, dataset, model, package, sample, executable, service, credential, or externally controlled asset.
 
 Baseline-0024 reuses the already approved ACL Anthology CheckList source gate only for the narrow proposition that individually passing aggregate metrics can hide a capability interaction in one evaluation slice. The ten valid condition/outcome pairs, held-out in-band conflict transform, development stale-poisoning transform, thresholds, exact terminal grader, and attack-success gates are project-authored. Candidate verification uses only project-authored synthetic evidence and the existing standard-library runtime; no new paper, code, dataset, model, package, sample, executable, service, credential, or other external asset is accessed or imported.

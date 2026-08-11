@@ -56,7 +56,7 @@ def main() -> None:
         ),
     }
     runtime_contract = catalog.get("adversarial_topology_split_coverage_contract")
-    if catalog.get("schema_version") != "1.16":
+    if catalog.get("schema_version") != "1.17":
         errors.append("catalog_schema_mismatch")
     if runtime_contract != expected_runtime_contract:
         errors.append("runtime_contract_mismatch")
@@ -64,9 +64,9 @@ def main() -> None:
     scenarios = catalog.get("scenarios", [])
     scenarios_by_id = {scenario.get("id"): scenario for scenario in scenarios}
     terminal_states = catalog.get("terminal_state_contract", {}).get("scenarios", {})
-    if len(scenarios) != 56 or len(scenarios_by_id) != 56:
+    if len(scenarios) != 57 or len(scenarios_by_id) != 57:
         errors.append("scenario_inventory_mismatch")
-    if len(terminal_states) != 56:
+    if len(terminal_states) != 57:
         errors.append("terminal_inventory_mismatch")
 
     prechange_scenarios, prechange_terminal_states = identity_chain(PRECHANGE_PATH)
