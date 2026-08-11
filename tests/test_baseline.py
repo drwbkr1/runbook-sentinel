@@ -68,6 +68,9 @@ from scripts.verify_operator_authentication_contract import (
 from scripts.verify_adversarial_domain_outcome_split_coverage_contract import (
     valid_latest_report,
 )
+from scripts.verify_adversarial_exposure_stage_outcome_split_coverage_contract import (
+    valid_latest_report as valid_latest_exposure_report,
+)
 
 
 class BaselineTest(unittest.TestCase):
@@ -130,6 +133,102 @@ class BaselineTest(unittest.TestCase):
         self.assertFalse(valid_latest_report(latest, None, root))
         candidate_sha256 = hashlib.sha256(latest.read_bytes()).hexdigest()
         self.assertTrue(valid_latest_report(latest, candidate_sha256, root))
+
+    def test_historical_latest_report_accepts_exact_passing_successor(self):
+        baseline_0025_contract = json.loads(
+            (
+                ROOT
+                / "eval/adversarial-domain-outcome-split-coverage-contract.json"
+            ).read_text(encoding="utf-8")
+        )
+        self.assertTrue(
+            valid_latest_report(
+                ROOT / "artifacts/evaluations/latest.json",
+                baseline_0025_contract["candidate_results"]["report_sha256"],
+                ROOT,
+            )
+        )
+
+        root = Path(self.temp.name)
+        manifest_path = root / "eval/manifest.json"
+        report_dir = root / "artifacts/evaluations/runs"
+        latest = root / "artifacts/evaluations/latest.json"
+        manifest_path.parent.mkdir(parents=True)
+        report_dir.mkdir(parents=True)
+        manifest_path.write_text(
+            '{"checkpoint":"baseline-0027"}\n', encoding="utf-8"
+        )
+        stem = "baseline-0026-attempt-001"
+        copied = {}
+        for suffix in (".json", ".manifest.json", ".traces.jsonl"):
+            source = ROOT / "artifacts/evaluations/runs" / f"{stem}{suffix}"
+            target = report_dir / f"{stem}{suffix}"
+            target.write_bytes(source.read_bytes())
+            copied[suffix] = target
+        latest.parent.mkdir(parents=True, exist_ok=True)
+        latest.write_bytes(copied[".json"].read_bytes())
+        self.assertTrue(valid_latest_report(latest, None, root))
+
+        manifest_bytes = copied[".manifest.json"].read_bytes()
+        copied[".manifest.json"].write_text("{}\n", encoding="utf-8")
+        self.assertFalse(valid_latest_report(latest, None, root))
+        copied[".manifest.json"].write_bytes(manifest_bytes)
+
+        with copied[".traces.jsonl"].open("ab") as handle:
+            handle.write(b"{}\n")
+        self.assertFalse(valid_latest_report(latest, None, root))
+
+    def test_exposure_latest_report_accepts_candidate_or_bound_final(self):
+        root = Path(self.temp.name)
+        manifest_path = root / "eval/manifest.json"
+        report_dir = root / "artifacts/evaluations/runs"
+        latest = root / "artifacts/evaluations/latest.json"
+        manifest_path.parent.mkdir(parents=True)
+        report_dir.mkdir(parents=True)
+        manifest_path.write_text(
+            '{"checkpoint":"baseline-0026"}\n', encoding="utf-8"
+        )
+        manifest_sha256 = hashlib.sha256(manifest_path.read_bytes()).hexdigest()
+        report = {
+            "schema_version": "3.2",
+            "checkpoint": "baseline-0026",
+            "scenario_count": 57,
+            "attempt_count": 171,
+            "manifest_sha256": manifest_sha256,
+            "gates": {"baseline_disposition": "pass"},
+            "metrics": {
+                "coverage": {
+                    "adversarial_exposure_stage_outcome_split_coverage": 1.0,
+                    "missing_adversarial_exposure_stage_outcome_split_cells": [],
+                }
+            },
+        }
+        report_bytes = (json.dumps(report, sort_keys=True) + "\n").encode("utf-8")
+        final_report = report_dir / "baseline-0026-final-source-attempt-002.json"
+        final_report.write_bytes(report_bytes)
+        latest.parent.mkdir(parents=True, exist_ok=True)
+        latest.write_bytes(report_bytes)
+        self.assertTrue(valid_latest_exposure_report(latest, None, root))
+
+        companion_manifest = final_report.with_name(
+            final_report.stem + ".manifest.json"
+        )
+        companion_manifest.write_text(
+            '{"checkpoint":"baseline-0026"}\n', encoding="utf-8"
+        )
+        manifest_path.write_text(
+            '{"checkpoint":"baseline-0027"}\n', encoding="utf-8"
+        )
+        self.assertTrue(valid_latest_exposure_report(latest, None, root))
+        companion_manifest.write_text("{}\n", encoding="utf-8")
+        self.assertFalse(valid_latest_exposure_report(latest, None, root))
+
+        latest.write_text("{}\n", encoding="utf-8")
+        self.assertFalse(valid_latest_exposure_report(latest, None, root))
+        candidate_sha256 = hashlib.sha256(latest.read_bytes()).hexdigest()
+        self.assertTrue(
+            valid_latest_exposure_report(latest, candidate_sha256, root)
+        )
 
     def test_all_frozen_scenarios_match_exact_expected_outcome(self):
         expected = {

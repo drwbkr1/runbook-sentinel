@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0026",
+  "recorded_at_utc": "2026-08-11T19:50:53.2906985Z",
+  "status": "retained_failure",
+  "phase": "post_source_candidate_validator_sweep",
+  "public_seal_commit": "a8682a0226a4eedaaea46b29d0125d3dab96bed5",
+  "remote_branch_commit": "a8682a0226a4eedaaea46b29d0125d3dab96bed5",
+  "candidate": {
+    "report_path": "artifacts/evaluations/runs/baseline-0026-attempt-001.json",
+    "report_bytes": 943935,
+    "report_sha256": "62471737faa371337831d45b45291211d2a88df3adb628b1d5726099a4f98d63",
+    "manifest_path": "artifacts/evaluations/runs/baseline-0026-attempt-001.manifest.json",
+    "manifest_bytes": 12849,
+    "manifest_sha256": "fc1b5e756ba0f06613c0996b50aa6f4ffcd4ebae5749988ebb1095c21aa27e05",
+    "trace_path": "artifacts/evaluations/runs/baseline-0026-attempt-001.traces.jsonl",
+    "trace_bytes": 195315,
+    "trace_sha256": "acd44ad5752cdea838c0a25f0dea5d76cacb644530c5f4a6cfb90c3203c39300",
+    "trace_event_count": 261,
+    "trace_final_event_sha256": "bbd6ea451f7e2b571803b466ab0862625c95164b4cd21bcc6768feac0f00bedc",
+    "baseline_disposition": "pass"
+  },
+  "regression": {
+    "test_count": 46,
+    "test_status": "pass",
+    "failing_validator": "scripts/verify_adversarial_domain_outcome_split_coverage_contract.py",
+    "validator_error": "candidate_latest_pointer_mismatch"
+  },
+  "cause": "The completed BASELINE-0025 validator accepts its own recorded candidate and valid baseline-0025 final reports, but does not admit a later tracked passing checkpoint after latest.json advances to the exact BASELINE-0026 source candidate.",
+  "impact": "The BASELINE-0026 candidate remains valid and immutable, but the aggregate validator gate is stopped until successor-checkpoint latest-pointer evidence is validated without weakening candidate or manifest binding.",
+  "artifact_disposition": "preserve_candidate_and_failure; no package or release artifact exists",
+  "next_action": "Add a fail-closed successor-checkpoint rule requiring a tracked passing report, exact companion manifest, and exact anchored companion trace; add focused acceptance and corruption tests before renewing the final manifest."
+}

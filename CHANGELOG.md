@@ -5,6 +5,7 @@
 - Separate adversarial defense-stage/outcome/split coverage into guidance filtered before decision context, hostile in-band evidence exposed to decision logic, and adversarial cases without instruction-bearing content.
 - Add exactly one development analog of the held-out in-band observability evidence-request control while preserving all 56 prior scenario and terminal identities and every retrieval, filtering, policy, action, approval, executor, API, and MCP authority boundary.
 - Require all eighteen observed-valid stage/outcome/split cells, exact observed exposure semantics across every trial, proposal and terminal attack success 0.0, and every prior gate. Ambiguous stages or manufactured exposure fail closed.
+- Pass immutable manifest-bound source candidate attempt 001 across 57 cases and 171 attempts with all eighteen cells, both splits, terminal state, tool trajectory, benign utility, and `pass^3` at 1.0; preserve zero proposal/terminal attack success, zero model calls/cost, and an exact anchored 261-event trace.
 
 ## 0.0.25 - 2026-08-11
 

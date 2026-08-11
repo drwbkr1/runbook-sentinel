@@ -135,17 +135,19 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "ready",
+      "status": "active",
       "gates": {
-        "immutable_source_candidate": "pending",
-        "all_57_scenarios_three_trials": "pending",
-        "all_18_stage_outcome_split_cells": "pending",
+        "immutable_source_candidate": "pass",
+        "all_57_scenarios_three_trials": "pass",
+        "all_18_stage_outcome_split_cells": "pass",
         "all_prior_gates": "pending",
-        "candidate_trace_261_events_exact": "pending",
+        "candidate_trace_261_events_exact": "pass",
         "package_and_real_surfaces": "pending",
         "clean_clone": "pending"
       },
-      "retained_failures": [],
+      "retained_failures": [
+        "artifacts/verification/baseline-0026-post-candidate-historical-latest-failure-001.json"
+      ],
       "disposition": "pending",
       "next_dependency": "UNIT-005"
     },
@@ -180,7 +182,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Freeze and publish the pre-reveal manifest, then run the first immutable 57-case candidate and all prior real-surface gates.",
+  "next_action": "Freeze and publish the v0.0.26 package contract and final evidence manifest, then build twice and run source/package real-surface gates.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -205,12 +207,13 @@
       "seventeen-of-eighteen stage/outcome/split gap measurement",
       "frozen one-case contract, recursive 56-case identity chain, and independent preimplementation validator",
       "public exact implementation seal a5745505fef313cfff0e7987d6900a473eb562f9 with 57-case transform and eighteen-cell static coverage",
-      "authoritative pre-reveal manifest fc1b5e756ba0f06613c0996b50aa6f4ffcd4ebae5749988ebb1095c21aa27e05 after retained zero-candidate historical-pointer and test-fixture stops"
+      "authoritative pre-reveal manifest fc1b5e756ba0f06613c0996b50aa6f4ffcd4ebae5749988ebb1095c21aa27e05 after retained zero-candidate historical-pointer and test-fixture stops",
+      "immutable source candidate attempt 001: 57 scenarios, 171 attempts, eighteen-of-eighteen cells, every prior source gate, zero proposal and terminal attack success, and exact 261-event anchored trace"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.25 remains the latest verified release. BASELINE-0026 contract and implementation seals are public; exact implementation commit a5745505fef313cfff0e7987d6900a473eb562f9 has 57 cases and eighteen static cells, with no candidate evaluation yet.",
-    "next_action": "Freeze and publish the pre-reveal manifest, then run the first immutable 57-case candidate and prior real-surface gates.",
+    "current_checkpoint": "Public v0.0.25 remains the latest verified release. BASELINE-0026 source candidate attempt 001 is manifest-bound and passes 57 cases, 171 attempts, all eighteen stage/outcome/split cells, every prior source gate, and exact 261-event trace verification; package and real-surface evidence remain pending.",
+    "next_action": "Freeze and publish the package contract and final evidence manifest, then build twice and run source/package real-surface gates.",
     "do_not_carry_forward": [
       "any claim that synthetic eighteen-cell coverage is production readiness, learned generalization, or universal prompt-injection resistance",
       "any authority, secret, dependency, external asset, paid service, or real-infrastructure connector",
