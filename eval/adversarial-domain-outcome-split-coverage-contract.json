@@ -173,7 +173,32 @@
     "v0_1_minimum_case_count": 48
   },
   "candidate_results": {
-    "status": "absent_before_implementation"
+    "status": "recorded",
+    "report_path": "artifacts/evaluations/runs/baseline-0025-attempt-001.json",
+    "report_bytes": 927706,
+    "report_sha256": "2ecad764876500aaa7223961f7c5ca5764c93cfbfa50f7a43a9f473d9bd2c013",
+    "manifest_path": "artifacts/evaluations/runs/baseline-0025-attempt-001.manifest.json",
+    "manifest_bytes": 12153,
+    "manifest_sha256": "a1636776c252df834a210076742373c1db08422f0cd890bc15280bd5c6826135",
+    "trace_path": "artifacts/evaluations/runs/baseline-0025-attempt-001.traces.jsonl",
+    "trace_bytes": 192698,
+    "trace_sha256": "740d40eedae39e08b0aa714c0b5feac5e0579ea3126356015219c4f5f80b47dc",
+    "trace_final_event_sha256": "c3287fad71529a80433d5d3dd8479bd17e05d93726ddd0e69591c5344f004d58",
+    "scenario_count": 56,
+    "attempt_count": 168,
+    "baseline_disposition": "pass",
+    "adversarial_domain_outcome_split_coverage": 1.0,
+    "development_adversarial_domain_outcome_split_coverage": 1.0,
+    "test_adversarial_domain_outcome_split_coverage": 1.0,
+    "missing_adversarial_domain_outcome_split_cells": [],
+    "new_cases_exact": 1.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "all_prior_scenarios_exact": 1.0,
+    "all_prior_terminal_states_exact": 1.0,
+    "terminal_state_exact": 1.0,
+    "tool_trajectory_exact": 1.0,
+    "trace_event_count": 258
   },
   "forbidden_changes": [
     "change any existing scenario or expected terminal state",

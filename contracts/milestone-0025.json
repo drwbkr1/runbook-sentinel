@@ -139,6 +139,15 @@
       "action_class": "local_verification",
       "human_gate": false,
       "status": "in_progress",
+      "gates": {
+        "immutable_source_candidate": "pass",
+        "all_56_scenarios_three_trials": "pass",
+        "all_32_domain_outcome_split_cells": "pass",
+        "all_prior_gates": "pass",
+        "candidate_trace_258_events_exact": "pass",
+        "package_and_real_surfaces": "pending",
+        "clean_clone": "pending"
+      },
       "retained_failures": [
         "The first public-manifest aggregate gate passed all 29 validators and 39 of 43 tests but stopped before immutable candidate generation because four test-only expectations retained the 44-case predecessor inventory; candidate artifact count remained zero."
       ],

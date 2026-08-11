@@ -5,10 +5,10 @@
 - Branch: `codex/baseline-0025-adversarial-domain-outcome-split`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0024`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.24`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release closure
-- Candidate version: `0.0.25` / `baseline-0025`; implementation publicly sealed, pre-reveal manifest frozen locally, candidate results absent
+- Candidate version: `0.0.25` / `baseline-0025`; immutable source candidate passes, package and real-surface gates pending
 - Active milestone: `BASELINE-0025` adversarial domain/outcome split coverage
 - Current unit: `UNIT-004`; publish the exact 102-file manifest seal before the first complete candidate run
-- Disposition: baseline-0025 `active_manifest_preseal`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Disposition: baseline-0025 `active_source_candidate_pass`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -37,6 +37,11 @@
 - The 102-file pre-reveal manifest freezes baseline-0025 at `2026-08-11T15:23:57Z`. It is 12,153 bytes at SHA-256 `a1636776c252df834a210076742373c1db08422f0cd890bc15280bd5c6826135`; exact manifest verification passes and public manifest seal `88354010a9be56f56c02b3fd6bd3421fc12a1df6` matches the remote branch.
 - The first post-seal aggregate gate passes all 29 validators and 39 of 43 tests, then stops before creating immutable attempt 001. The exhaustive 56-scenario oracle passes; four stale test-only inventory/derived-count fixtures fail. A structured process-invalid receipt is retained, and candidate artifact count remains zero.
 - Only those non-manifest fixtures were corrected; all four focused reruns pass in 112.615 seconds. They will be published before retry. No scenario, terminal state, manifest-bound source, authority boundary, immutable candidate report, or immutable candidate trace changed.
+- After public fixture correction `57cec81223fb6214ae7ca9cf199ad60e4a9d0f1f`, immutable attempt 001 passes all 56 scenarios, 168 trials, 43 tests, 29 validators, every prior gate, and exact 258-event trace verification.
+- The interaction metric is 32/32 with development and test each 1.0. All twelve analogs pass three trials; proposal and terminal attack success remain 0.0, bounded in-band hostile-document exposure remains 1.0, `pass^3` is 1.0, and model calls/cost are zero.
+- Attempt 001 report/trace SHA-256 values are `2ecad764876500aaa7223961f7c5ca5764c93cfbfa50f7a43a9f473d9bd2c013` / `740d40eedae39e08b0aa714c0b5feac5e0579ea3126356015219c4f5f80b47dc`; the exact 258-event trace ends at `c3287fad71529a80433d5d3dd8479bd17e05d93726ddd0e69591c5344f004d58`. Median/p95 end-to-end latency are 99.299/157.151 ms.
+- Candidate bytes and metrics are bound into the frozen contract and independently revalidated. A credential scan's broad `Sentinel-Capability` term matched only the public 401 challenge string, not approval material or a credential; exact approval-token and bearer patterns remain absent.
+- The current manifest intentionally becomes stale when candidate evidence and its strengthened validator are committed. Package contract, renewed final manifest, reproducible archive, package evaluation, MCP/API/state/telemetry/dashboard, and clean-clone gates remain pending.
 - Target: 56 cases, 168 attempts, exact 258-event trace, 32-of-32 interaction coverage, every prior gate exact, and no runtime-authority change. Passing the 48-case minimum will not establish production readiness or universal prompt-injection resistance.
 
 ### BASELINE-0024 adversarial condition/outcome split gap and frozen contract
