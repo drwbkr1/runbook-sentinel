@@ -89,9 +89,7 @@
         "gap_measured_and_retained": "pass"
       },
       "disposition": "pass",
-      "retained_failures": [
-        "The first public-seal candidate gate passed all static validators but stopped before evaluation when the exhaustive exact-outcome unit fixture still enumerated the 42 pre-change scenarios. The runtime catalog and frozen terminal contract already contained the two exact successor cases. The fixture-only correction adds those IDs and expected outcomes; no candidate artifact or held-out runtime result was produced."
-      ],
+      "retained_failures": [],
       "exit_condition_delta": {
         "expected": ["EXIT-001"],
         "observed": [],
@@ -199,11 +197,17 @@
         "two_new_cases_exact": "pass",
         "adversarial_condition_outcome_split_coverage_20_of_20": "pass",
         "package_contract_and_final_manifest_frozen": "pass",
-        "all_prior_source_package_and_real_surface_gates": "pending",
-        "deterministic_archive_reproduction": "pending",
+        "all_prior_source_package_and_real_surface_gates": "pass",
+        "deterministic_archive_reproduction": "pass",
         "remote_only_clean_clone": "pending"
       },
-      "retained_failures": [],
+      "retained_failures": [
+        "The first public-seal candidate gate passed all static validators but stopped before evaluation when the exhaustive exact-outcome unit fixture still enumerated the 42 pre-change scenarios. The runtime catalog and frozen terminal contract already contained the two exact successor cases. The fixture-only correction adds those IDs and expected outcomes; no candidate artifact or held-out runtime result was produced.",
+        "A PowerShell preflight used -replace inside an array without grouping and stopped before creating either final evaluation. The corrected command used explicit source and package trace variables.",
+        "A compact post-evaluation reporter attempted to parse JSONL trace files as single JSON documents after both source and package evaluations had already passed and been independently trace-verified. The corrected reporter handled report and trace types separately.",
+        "A credential-scan reporting wrapper reused PowerShell's special $Matches variable and failed during serialization; the corrected task-specific variables reported only package-contract scanner definitions and zero remaining high-signal files.",
+        "A living-record inventory guessed docs/architecture-decisions.md before locating the actual docs/adr directory. No record was changed by the failed lookup."
+      ],
       "exit_condition_delta": {
         "expected": ["EXIT-001"],
         "observed": [],
