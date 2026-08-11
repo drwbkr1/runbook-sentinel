@@ -121,14 +121,15 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "gates": {
         "all_44_prechange_scenarios_exact": "pass",
         "all_44_prechange_terminal_states_exact": "pass",
         "twelve_new_transforms_exact": "pass",
         "adversarial_domain_outcome_split_coverage_32_of_32": "pass",
-        "implementation_sealed_before_candidate_evaluation": "pending"
+        "implementation_sealed_before_candidate_evaluation": "pass"
       },
+      "disposition": "pass",
       "next_dependency": "UNIT-004"
     },
     {
@@ -137,7 +138,7 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "pending",
+      "status": "in_progress",
       "next_dependency": "UNIT-005"
     },
     {
@@ -150,6 +151,6 @@
       "next_dependency": null
     }
   ],
-  "current_unit": "UNIT-003",
-  "next_action": "Commit and push the exact held-out-safe implementation seal before freezing the pre-reveal manifest or running any complete candidate evaluation."
+  "current_unit": "UNIT-004",
+  "next_action": "Commit and push the exact 102-file pre-reveal manifest seal before running the first complete candidate evaluation."
 }
