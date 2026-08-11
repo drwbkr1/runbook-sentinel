@@ -188,7 +188,7 @@
       ],
       "gates": {
         "implementation_seal_public": "pass",
-        "pre_reveal_manifest_frozen_and_public": "pending",
+        "pre_reveal_manifest_frozen_and_public": "pass",
         "all_44_scenarios_exact_across_three_trials": "pending",
         "all_42_prechange_identities_exact": "pending",
         "two_new_cases_exact": "pending",
@@ -255,12 +255,14 @@
       "fresh unchanged 42-case source and package evaluations",
       "exact source and package 216-event trace verification",
       "18-of-20 adversarial condition/outcome/split gap measurement",
-      "frozen two-case contract, recursive 42-case identity chain, and independent validator"
+      "frozen two-case contract, recursive 42-case identity chain, and independent validator",
+      "public implementation seal 4a4b58e3c96e5cc81fda36795341d9be12406f6f",
+      "public 96-file pre-reveal manifest seal 3e7593b8398f7bb234301655795f492d8e1d2f6d"
     ]
   },
   "handoff": {
     "current_checkpoint": "Public v0.0.23 is the latest verified checkpoint; BASELINE-0024 is active only on its isolated branch with pre-change evidence retained.",
-    "next_action": "Implement only the two frozen BASELINE-0024 transforms and fail-closed 20-cell metric, then seal the implementation before candidate evaluation.",
+    "next_action": "Run the immutable 44-case candidate from public manifest seal 3e7593b8398f7bb234301655795f492d8e1d2f6d, retain its exact trace, then complete full source, package, real-surface, and clean-clone verification.",
     "do_not_carry_forward": [
       "any claim that synthetic 20-cell coverage is production readiness or universal prompt-injection resistance",
       "any authority, secret, dependency, external asset, paid service, or real-infrastructure connector",
