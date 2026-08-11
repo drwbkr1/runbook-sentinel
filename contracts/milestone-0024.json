@@ -185,6 +185,9 @@
       "inputs": ["public implementation seal", "frozen manifest", "frozen package contract"],
       "outputs": [
         "immutable 132-attempt candidate and exact 222-event trace",
+        "candidate evidence seal aee9949a1d1a896caf15b90656e314c7e2244f91",
+        "v0.0.24 package contract seal 9781d334eceaa836037197e35c8abbc63c7f9d8a",
+        "97-file final evaluation manifest",
         "source and package evaluation and real-surface evidence",
         "remote-only clean-clone evidence"
       ],
@@ -195,6 +198,7 @@
         "all_42_prechange_identities_exact": "pass",
         "two_new_cases_exact": "pass",
         "adversarial_condition_outcome_split_coverage_20_of_20": "pass",
+        "package_contract_and_final_manifest_frozen": "pass",
         "all_prior_source_package_and_real_surface_gates": "pending",
         "deterministic_archive_reproduction": "pending",
         "remote_only_clean_clone": "pending"
