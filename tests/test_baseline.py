@@ -106,7 +106,7 @@ class BaselineTest(unittest.TestCase):
             },
         }
         report_bytes = (json.dumps(report, sort_keys=True) + "\n").encode("utf-8")
-        final_report = report_dir / "baseline-0025-final-source-attempt-001.json"
+        final_report = report_dir / "baseline-0025-final-source-attempt-002.json"
         final_report.write_bytes(report_bytes)
         latest.parent.mkdir(parents=True, exist_ok=True)
         latest.write_bytes(report_bytes)

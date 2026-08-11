@@ -78,11 +78,21 @@ def valid_latest_report(
     if not manifest_path.is_file():
         return False
     current_manifest_sha256 = sha256(manifest_path)
-    for name in (
-        "baseline-0025-final-source-attempt-001.json",
-        "baseline-0025-final-package-attempt-001.json",
-    ):
-        report_path = root / "artifacts/evaluations/runs" / name
+    report_paths = (
+        list(
+            (root / "artifacts/evaluations/runs").glob(
+                "baseline-0025-final-source-attempt-*.json"
+            )
+        )
+        + list(
+            (root / "artifacts/evaluations/runs").glob(
+                "baseline-0025-final-package-attempt-*.json"
+            )
+        )
+    )
+    for report_path in sorted(report_paths):
+        if report_path.name.endswith(".manifest.json"):
+            continue
         if not report_path.is_file() or sha256(report_path) != latest_sha256:
             continue
         try:
