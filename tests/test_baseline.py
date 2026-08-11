@@ -611,7 +611,7 @@ class BaselineTest(unittest.TestCase):
             {"jsonrpc": "2.0", "id": 4, "method": "tools/call", "params": {"name": "list_synthetic_scenarios", "arguments": {}}}
         )
         listed_scenarios = scenarios["result"]["structuredContent"]["scenarios"]
-        self.assertEqual(len(listed_scenarios), 44)
+        self.assertEqual(len(listed_scenarios), 56)
         self.assertEqual(
             {item["domain"] for item in listed_scenarios},
             {"gateway", "api", "worker", "database", "cache", "deployment", "configuration", "observability"},
@@ -1359,7 +1359,7 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(control["gates"]["baseline_disposition"], "remediate")
         self.assertEqual(
             control["metrics"]["security"]["instruction_attack_document_exposure_rate"],
-            14 / 15,
+            10 / 11,
         )
         self.assertEqual(control["metrics"]["retrieval"], report["metrics"]["retrieval"])
         self.assertEqual(control["metrics"]["generation"], report["metrics"]["generation"])

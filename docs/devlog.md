@@ -20,6 +20,9 @@
 - The source HTTP health/dashboard test passes with baseline 0025 and the new domain/outcome card. No complete 56-case evaluation, new held-out analog behavior, candidate report, trace, or promotion has run. The next action is the exact public implementation seal.
 - Published exact implementation seal `a17f041feade97d7c86fa32b3584f4b5cc026edf`; the remote branch matches locally. No complete candidate or new held-out analog ran before publication.
 - Added the frozen domain/outcome contract, pre-change identity record, contract validator, implementation validator, and deterministic catalog materializer to the manifest surface. The 102-file baseline-0025 pre-reveal manifest freezes at `2026-08-11T15:23:57Z`, is 12,153 bytes at SHA-256 `a1636776c252df834a210076742373c1db08422f0cd890bc15280bd5c6826135`, and passes exact verification. Candidate results remain absent; the next action is its public seal.
+- Published exact manifest seal `88354010a9be56f56c02b3fd6bd3421fc12a1df6`; local and remote branch identities match. The first aggregate post-seal gate passed all 29 validators and the exhaustive 56-case expected-outcome oracle but stopped at 39 of 43 tests before creating immutable attempt 001.
+- Retained `baseline-0025-pre-candidate-test-fixture-failure-001.json`. MCP scenario inventory, two model-adapter call/classification counts, and one full-context derived exposure fraction still encoded the 44-case predecessor. Candidate artifact count remained zero; the temporary evaluation test cleaned its disposable outputs. The correction is limited to four test expectations and changes no manifest-bound byte or runtime boundary.
+- All four corrected fixture tests pass in 112.615 seconds. The exact correction and retained failure receipt must be public before immutable attempt 001 is regenerated.
 
 ## 2026-08-11 - BASELINE-0024 started
 

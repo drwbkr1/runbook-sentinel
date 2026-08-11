@@ -34,8 +34,9 @@
 - All 27 held-out-safe static validators and eight focused fail-closed coverage tests pass. The six new development analogs produce their frozen no-action outcomes exactly; the HTTP health/dashboard surface passes.
 - Retained implementation-process failures include a corrected materializer marker, an unbound `PYTHONPATH` development wrapper, historical successor-schema stops, and two guessed-test-name/expanded-coverage fixture stops. None produced a candidate artifact or changed runtime behavior.
 - Exact implementation seal `a17f041feade97d7c86fa32b3584f4b5cc026edf` is public on the branch, with exact local/remote identity, before any complete candidate evaluation or new held-out analog ran.
-- The 102-file pre-reveal manifest freezes baseline-0025 at `2026-08-11T15:23:57Z`. It is 12,153 bytes at SHA-256 `a1636776c252df834a210076742373c1db08422f0cd890bc15280bd5c6826135`; exact manifest verification passes and candidate results remain absent.
-- No BASELINE-0025 complete evaluation or new held-out analog has run. The exact manifest seal must be committed and pushed before the first candidate run.
+- The 102-file pre-reveal manifest freezes baseline-0025 at `2026-08-11T15:23:57Z`. It is 12,153 bytes at SHA-256 `a1636776c252df834a210076742373c1db08422f0cd890bc15280bd5c6826135`; exact manifest verification passes and public manifest seal `88354010a9be56f56c02b3fd6bd3421fc12a1df6` matches the remote branch.
+- The first post-seal aggregate gate passes all 29 validators and 39 of 43 tests, then stops before creating immutable attempt 001. The exhaustive 56-scenario oracle passes; four stale test-only inventory/derived-count fixtures fail. A structured process-invalid receipt is retained, and candidate artifact count remains zero.
+- Only those non-manifest fixtures were corrected; all four focused reruns pass in 112.615 seconds. They will be published before retry. No scenario, terminal state, manifest-bound source, authority boundary, immutable candidate report, or immutable candidate trace changed.
 - Target: 56 cases, 168 attempts, exact 258-event trace, 32-of-32 interaction coverage, every prior gate exact, and no runtime-authority change. Passing the 48-case minimum will not establish production readiness or universal prompt-injection resistance.
 
 ### BASELINE-0024 adversarial condition/outcome split gap and frozen contract
