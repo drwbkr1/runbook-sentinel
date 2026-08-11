@@ -57,7 +57,7 @@ def main() -> None:
         ),
     }
     runtime_contract = catalog.get("adversarial_outcome_split_coverage_contract")
-    if catalog.get("schema_version") != "1.14":
+    if catalog.get("schema_version") != "1.15":
         errors.append("catalog_schema_mismatch")
     if runtime_contract != expected_runtime_contract:
         errors.append("runtime_contract_mismatch")
@@ -65,9 +65,9 @@ def main() -> None:
     scenarios = catalog.get("scenarios", [])
     scenarios_by_id = {scenario.get("id"): scenario for scenario in scenarios}
     terminal_states = catalog.get("terminal_state_contract", {}).get("scenarios", {})
-    if len(scenarios) != 42 or len(scenarios_by_id) != 42:
+    if len(scenarios) != 44 or len(scenarios_by_id) != 44:
         errors.append("scenario_inventory_mismatch")
-    if len(terminal_states) != 42:
+    if len(terminal_states) != 44:
         errors.append("terminal_inventory_mismatch")
 
     prechange_scenarios, prechange_terminal_states = identity_chain(PRECHANGE_PATH)
@@ -91,10 +91,10 @@ def main() -> None:
     frozen_cases = {case["id"]: case for case in contract.get("cases", [])}
     new_ids = set(scenarios_by_id) - set(prechange_scenarios)
     new_terminal_ids = set(terminal_states) - set(prechange_terminal_states)
-    if new_ids != set(frozen_cases):
-        errors.append("new_scenario_inventory_mismatch")
-    if new_terminal_ids != set(frozen_cases):
-        errors.append("new_terminal_inventory_mismatch")
+    if not set(frozen_cases).issubset(new_ids):
+        errors.append("frozen_scenario_inventory_missing")
+    if not set(frozen_cases).issubset(new_terminal_ids):
+        errors.append("frozen_terminal_inventory_missing")
 
     new_case_exact: dict[str, bool] = {}
     inband_document_exact: dict[str, bool] = {}
@@ -138,7 +138,10 @@ def main() -> None:
         else None
     )
     counts = {outcome: {split: 0 for split in splits} for outcome in outcomes}
+    historical_ids = set(prechange_scenarios) | set(frozen_cases)
     for scenario in scenarios:
+        if scenario.get("id") not in historical_ids:
+            continue
         if scenario.get("adversarial") is not True:
             continue
         outcome = scenario.get("expected", {}).get("outcome")

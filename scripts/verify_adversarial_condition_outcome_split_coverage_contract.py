@@ -298,7 +298,7 @@ def main() -> None:
         measured.get("covered_cell_count") != 18
         or measured.get("cell_count") != 20
         or measured.get("coverage") != 0.9
-        or measured.get("split_coverage") != {"development": 0.8, "test": 1.0}
+        or measured.get("split_coverage") != {"development": 0.9, "test": 0.9}
         or measured.get("missing_cells") != expected_missing
     ):
         errors.append("measurement_coverage_mismatch")
@@ -330,7 +330,7 @@ def main() -> None:
         coverage.get("prechange_covered_cell_count") != 18
         or coverage.get("prechange_coverage") != 0.9
         or coverage.get("prechange_split_coverage")
-        != {"development": 0.8, "test": 1.0}
+        != {"development": 0.9, "test": 0.9}
         or coverage.get("prechange_missing_cells") != expected_missing
     ):
         errors.append("coverage_prechange_summary_mismatch")

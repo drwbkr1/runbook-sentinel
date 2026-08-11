@@ -122,7 +122,9 @@
         "contract_validator": "pass"
       },
       "disposition": "pass",
-      "retained_failures": [],
+      "retained_failures": [
+        "Public freeze commit f991a4fd0396b9f58177ebafe60ecd28008accf8 preserved the correct 18/20 count matrix and two missing cells but miscomputed their split summary as development 0.8 and test 1.0. The corrected derived values are 0.9 and 0.9; no frozen case, transform, target, gate, or runtime boundary changed."
+      ],
       "exit_condition_delta": {
         "expected": ["EXIT-001"],
         "observed": [],
@@ -137,7 +139,7 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "ready",
+      "status": "in_progress",
       "inputs": [
         "eval/adversarial-condition-outcome-split-coverage-contract.json",
         "scripts/verify_adversarial_condition_outcome_split_coverage_contract.py"
@@ -148,13 +150,25 @@
         "independent exact implementation verifier",
         "public implementation seal before candidate evaluation"
       ],
-      "gates": {},
-      "retained_failures": [],
+      "gates": {
+        "all_42_prechange_scenarios_exact": "pass",
+        "all_42_prechange_terminal_states_exact": "pass",
+        "two_new_transforms_exact": "pass",
+        "adversarial_condition_outcome_split_coverage_20_of_20": "pass",
+        "development_stale_poisoning_behavior_exact": "pass",
+        "held_out_behavior_unrevealed": "pass",
+        "all_historical_static_contracts": "pass",
+        "implementation_sealed_before_candidate_evaluation": "pending"
+      },
+      "retained_failures": [
+        "The first development probe indexed proposal and decision_documents as required result keys. Request-evidence results omit proposal, and the decision surface reports decision_document_fields; the corrected probe uses proposal.get semantics and proves metadata-only stale projection with zero payload characters.",
+        "The first focused unittest command named two nonexistent test methods. The exact corrected MCP, HTTP/dashboard, and condition/outcome metric test names pass without running the new held-out behavior."
+      ],
       "exit_condition_delta": {
         "expected": ["EXIT-001"],
         "observed": [],
         "decision_value": "unknown",
-        "rationale": "Implementation is not authorized until the freeze unit passes."
+        "rationale": "The bounded implementation and development-only checks pass; a public implementation seal is the remaining dependency before held-out candidate evaluation."
       },
       "next_dependency": "UNIT-004"
     },
