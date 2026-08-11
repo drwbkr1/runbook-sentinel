@@ -5,14 +5,14 @@
 - Branch: `main`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0025`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified public checkpoint: `v0.0.25`; release reconciliation binds the annotated tag object and peeled closure commit, public release metadata, selected assets, downloaded bytes, live repository/release/tag pages, and a fresh public-tag clone
-- Candidate version: `v0.0.26`; local, remote-only candidate, and fresh public-main source/package checkpoints pass, while final audit, release closure, assets, and public-tag verification remain pending
+- Candidate version: `v0.0.26`; local, remote-only candidate, fresh public-main, and final release-audit checkpoints pass, while release closure, assets, and public-tag verification remain pending
 - Active milestone: `BASELINE-0026` adversarial exposure-stage/outcome split coverage
-- Current unit: `UNIT-005` active; PR `#24` merged exact reviewed head with history preserved as `2fac52759e0d3f6857491f40d1958f62a85e70b4`, fresh public-main verification passes, and final release audit is next
+- Current unit: `UNIT-005` in progress; final audit-only commit `91e05ae7c00d4db17e1f7edc25cb4014583898d7` is verified, and exact release closure, tag/assets, and immediate public verification are next
 - Disposition: baseline-0025 `pass`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: baseline-0026 history-preserving merge `2fac52759e0d3f6857491f40d1958f62a85e70b4`; public v0.0.25 remains the latest immutable tag and release until final audit passes
+- GitHub `main`: baseline-0026 final audit-only commit `91e05ae7c00d4db17e1f7edc25cb4014583898d7`; public v0.0.25 remains the latest immutable tag and release until the authorized closure is published
 - GitHub pull request: `#24` merged exact reviewed head `48eb7669582b372ef2d0c8986374fa0823133f61` with history preserved as `2fac52759e0d3f6857491f40d1958f62a85e70b4`
 - GitHub release: public, non-draft latest `v0.0.25` with verified `.pyz` and `.sha256` assets
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
@@ -56,7 +56,10 @@
 - Premerge audit attempt 001 was blocked because the real-surface matrix named the earlier product receipt rather than the literal audited Git head; the evaluator released no action. The corrected audit binds exact public head `48b153a30d242a425d3bcfebd156ecb8ca00b851`, evaluates `verified`, and the audit-only head `48eb7669582b372ef2d0c8986374fa0823133f61` has one exact added path.
 - PR `#24` merged under an expected-head lock. Merge `2fac52759e0d3f6857491f40d1958f62a85e70b4` has exact parents prior public main `5ea71c2573d8bdcb7c84c22587f2e4ef6723e29a` and reviewed head `48eb7669582b372ef2d0c8986374fa0823133f61`.
 - A fresh public-main HTTPS clone begins clean with 796 tracked files and no object alternates. Compilation, all 31 validators, all 47 tests, two byte-identical 41-entry archive builds, source/package 171-attempt evaluations with exact 261-event anchors, three-tool no-authority MCP, both 59-check authenticated real surfaces, parsing/scans, and complete source/package dashboards pass.
-- Merged-main source report/trace SHA-256 values are `da3e30cab36e59b33605cf753aecf1a505d37de10050dd653ce4df64b114038c` / `ba06d5c656c4034a3df20e49362b31eb3f3ce7d3cd24cdcfa008edc305257c70`; package values are `14d31ea6ffcf2cb5b2b07b659921ca7eee17a96794b474739bd9e596304817b9` / `e389e3b15d2fbc82e9a298f11b248ec39a81a47302f8d357b992d30bddb5b41a`. `artifacts/verification/merged-main-baseline-0026.json` binds the result; final release audit is next.
+- Merged-main source report/trace SHA-256 values are `da3e30cab36e59b33605cf753aecf1a505d37de10050dd653ce4df64b114038c` / `ba06d5c656c4034a3df20e49362b31eb3f3ce7d3cd24cdcfa008edc305257c70`; package values are `14d31ea6ffcf2cb5b2b07b659921ca7eee17a96794b474739bd9e596304817b9` / `e389e3b15d2fbc82e9a298f11b248ec39a81a47302f8d357b992d30bddb5b41a`. `artifacts/verification/merged-main-baseline-0026.json` binds that stage; the final release-audit result follows below.
+- The first final-audit milestone preflight rejected UNIT-005 status `active`; the exact failed receipt remains, no publication followed, and the one-field `in_progress` correction validates with active inherited authority and no warning.
+- Final audit `artifacts/verification/release-audit-baseline-0026.json` is 21,045 bytes at SHA-256 `9de4063febd11251ececb208f341dc2b276c4cc6d65882b5cf2ecd623a958eb4`. The evaluator reports `verified`, all ten required checks and nine declared surfaces pass, and no error, warning, missing, stale, unknown, failed, or unrun item remains.
+- The audit-only commit adds exactly that one path. Its first push stopped on transient `github.com` DNS resolution without changing remote state; reachability then passed and exact commit `91e05ae7c00d4db17e1f7edc25cb4014583898d7` became public `main`.
 
 ### BASELINE-0025 adversarial domain/outcome split gap and frozen contract
 

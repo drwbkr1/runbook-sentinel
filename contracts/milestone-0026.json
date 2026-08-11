@@ -162,28 +162,33 @@
       "inputs": [
         "verified candidate and clean-clone evidence",
         "premerge audit and exact reviewed GitHub head",
+        "fresh no-alternates public-main verification receipt",
         "inherited director release authority"
       ],
       "outputs": [
         "history-preserving reviewed merge",
+        "reconciled release-candidate records and final release audit",
         "annotated v0.0.26 and selected public assets",
-        "public release and fresh public-tag verification receipt"
+        "public release, download, rendered-page, and fresh public-tag verification receipt"
       ],
       "gates": {
         "premerge_release_audit_verified": "pass",
         "exact_reviewed_head_merged_with_history_preserved": "pass",
         "fresh_public_main_source_package_and_real_surfaces": "pass",
-        "final_release_audit_verified": "pending",
+        "final_release_audit_verified": "pass",
         "public_refs_assets_downloads_pages_reconciled": "pending",
         "fresh_public_tag_source_package_and_real_surfaces": "pending"
       },
       "disposition": "pending",
-      "retained_failures": [],
+      "retained_failures": [
+        "The first final-audit milestone preflight used milestone-level status active for UNIT-005; the validator failed, no publication followed, and the exact one-field in_progress correction passes.",
+        "The first final-audit commit push stopped on a transient github.com DNS-resolution failure without changing remote state; reachability then passed and the unchanged audit-only commit was pushed exactly."
+      ],
       "next_dependency": null
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Run the final release-truth audit against the exact verified merged-main checkpoint before creating any tag or release.",
+  "next_action": "Commit and push the exact release-closure records, create annotated v0.0.26 at that exact commit, publish only the selected zipapp and checksum, then immediately reconcile all public surfaces and a fresh public-tag clone.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -221,12 +226,13 @@
       "clean-clone 31-validator and 47-test pass, two exact archive rebuilds, fresh source/package evaluations and 261-event anchors, bounded MCP, authenticated API/state/telemetry, parsing/scans, and complete original-detail dashboards",
       "post-clean-receipt documentation gate: 31 validators and 47 tests pass after retaining an invalid short-timeout wrapper with no inferred result",
       "premerge audit verified after retaining a schema-invalid first draft; PR 24 merged exact reviewed head 48eb7669582b372ef2d0c8986374fa0823133f61 with history preserved as 2fac52759e0d3f6857491f40d1958f62a85e70b4",
-      "fresh public-main clone passes 31 validators, 47 tests, two exact archive builds, source/package evaluations and 261-event anchors, bounded MCP, both 59-check authenticated real surfaces, parsing/scans, and complete original-detail dashboards"
+      "fresh public-main clone passes 31 validators, 47 tests, two exact archive builds, source/package evaluations and 261-event anchors, bounded MCP, both 59-check authenticated real surfaces, parsing/scans, and complete original-detail dashboards",
+      "final ten-check release audit verifies every declared surface, current external truth, active inherited authority, recovery path, and exact selected asset without warning"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.25 remains the latest verified release. BASELINE-0026 exact reviewed head is history-preserving merge 2fac52759e0d3f6857491f40d1958f62a85e70b4 on public main, and a fresh no-alternates clone passes the complete source/package, archive, MCP, authenticated API/state/telemetry, parsing/scan, and dashboard matrix. Final audit, release closure, tag/assets, rendered pages, downloaded bytes, and public-tag verification remain pending.",
-    "next_action": "Run the final release-truth audit against the exact verified merged-main checkpoint before creating any tag or release.",
+    "current_checkpoint": "Exact reviewed merge 2fac52759e0d3f6857491f40d1958f62a85e70b4 is independently verified on fresh public main, and final audit-only commit 91e05ae7c00d4db17e1f7edc25cb4014583898d7 evaluates verified. Public v0.0.25 remains latest until the exact release closure, v0.0.26 tag/assets, rendered pages, downloads, and public-tag verification complete.",
+    "next_action": "Commit and push only the audited release-closure records, publish annotated v0.0.26 with the selected zipapp and checksum, immediately verify every public surface, and record the external receipt before starting another improvement cycle.",
     "do_not_carry_forward": [
       "any claim that synthetic eighteen-cell coverage is production readiness, learned generalization, or universal prompt-injection resistance",
       "any authority, secret, dependency, external asset, paid service, or real-infrastructure connector",
