@@ -179,7 +179,7 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["public implementation seal", "frozen manifest", "frozen package contract"],
       "outputs": [
         "immutable 132-attempt candidate and exact 222-event trace",
@@ -201,8 +201,9 @@
         "package_contract_and_final_manifest_frozen": "pass",
         "all_prior_source_package_and_real_surface_gates": "pass",
         "deterministic_archive_reproduction": "pass",
-        "remote_only_clean_clone": "pending"
+        "remote_only_clean_clone": "pass"
       },
+      "disposition": "pass",
       "retained_failures": [
         "The first public-seal candidate gate passed all static validators but stopped before evaluation when the exhaustive exact-outcome unit fixture still enumerated the 42 pre-change scenarios. The runtime catalog and frozen terminal contract already contained the two exact successor cases. The fixture-only correction adds those IDs and expected outcomes; no candidate artifact or held-out runtime result was produced.",
         "A PowerShell preflight used -replace inside an array without grouping and stopped before creating either final evaluation. The corrected command used explicit source and package trace variables.",
@@ -213,8 +214,8 @@
       "exit_condition_delta": {
         "expected": ["EXIT-001"],
         "observed": [],
-        "decision_value": "unknown",
-        "rationale": "Candidate verification depends on a sealed bounded implementation."
+        "decision_value": "enables_dependency",
+        "rationale": "Local and remote-only clean-clone source, package, real-surface, reproducibility, parsing, scan, and rendered-dashboard gates all pass."
       },
       "next_dependency": "UNIT-005"
     },
@@ -224,7 +225,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": ["verified candidate and clean-clone evidence", "release truth matrix and inherited director authority"],
       "outputs": [
         "reconciled roadmap, changelog, version history, ADRs, threat model, research ledger, evaluation report, status, and devlog",

@@ -5,15 +5,15 @@
 - Branch: `codex/baseline-0024-adversarial-condition-outcome-split`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0023`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.23`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release closure
-- Candidate version: `v0.0.24` candidate; immutable attempt 001 passes, with package and real-surface gates still pending
-- Active milestone: `BASELINE-0024` adversarial condition/outcome split coverage; candidate evidence is being bound before package verification
-- Current unit: `UNIT-004` is verifying the candidate package, real surfaces, reproducibility, and remote-only clean clone
+- Candidate version: `v0.0.24` candidate; immutable attempt 001, package, real-surface, reproducibility, and remote-only clean-clone gates pass
+- Active milestone: `BASELINE-0024` adversarial condition/outcome split coverage; release-truth audit and exact GitHub promotion are active
+- Current unit: `UNIT-005` is reconciling release truth, exact review/merge, merged-main verification, and public v0.0.24 release evidence
 - Disposition: baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
 - GitHub `main`: verified baseline-0023 release closure
-- GitHub pull request: `#21` merged exact reviewed head `a13ebd27824c2443349fff2be199710b04c76f84` with history preserved as `30e4af029c980e90d056f459b59201c34f4f3dee`
+- GitHub pull request: draft `#22` tracks the v0.0.24 candidate; `#21` merged exact reviewed v0.0.23 head `a13ebd27824c2443349fff2be199710b04c76f84` with history preserved as `30e4af029c980e90d056f459b59201c34f4f3dee`
 - GitHub release: public, non-draft `v0.0.23` with verified `.pyz` and `.sha256` assets
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
@@ -46,8 +46,9 @@
 - Final-manifest source and package evaluations each pass 44 scenarios, 132 attempts, every gate, and exact 222-event trace verification. Source report/trace hashes are `d234fed2104baf0991f306848529698d3daa8f050e020c5315c93b3e0d6c25e8` / `1ef52457846819eb4ca3fa52ec533523363b3fc679e523c97a8b5df0a9085376`; package hashes are `37838c29df976dfe60e429ce6faaf9f60308d2ecb3f966cfbeb3d5686cf73a57` / `39b2a7a5f56a953246f5bdf431f4c982b2ffbb3f575e9ba7b6bba314472ad04d`.
 - All 42 tests and 27 validators pass. Source/package MCP remain bounded to three diagnostic/read tools, and both real API surfaces pass authentication, approval, executor, postconditions, idempotency, replay, persisted state, audit, redaction, telemetry, endpoint-anchor, CSP, and dashboard gates.
 - Original-detail inspection confirms complete 1440 by 1000 source/package dashboards. All 460 JSON files and 14,845 JSONL records parse with zero error; credential-shaped matches are limited to 14 package-contract scanner definitions, no high-signal match remains, and no model artifact is present.
-- Remote-only clean-clone verification, release-truth audit, exact review/merge, merged-main verification, and public release reconciliation remain pending. Docker is not claimed.
+- Remote-only clean-clone verification passes. Release-truth audit, exact review/merge, merged-main verification, and public release reconciliation remain pending. Docker is not claimed.
 - Complete local candidate evidence is public at `8821580069af1e0c1f6d07c559a6ac6fc61e7ad6`; the candidate receipt authorizes only a remote-only no-alternates clean clone of its exact receipt commit as the next gate.
+- A remote-only no-alternates clone of exact public receipt commit `4a2bdb30a0e8484f1c4facaba02b53e53f630f26` independently passes compilation, 27 validators, 42 tests, source/package 132-attempt evaluations and exact 222-event anchors, two exact archive builds, bounded MCP, real authenticated API/state/telemetry, parsing, scans, and complete source/package dashboards. The 6,367-byte receipt is SHA-256 `46f45551c22225f70992dc512e363ac07d3a1daef5c971fd4b50d9dfcfb3e0a3`; premerge release audit and exact review/merge are next.
 
 ### BASELINE-0023 adversarial outcome split gap and frozen contract
 

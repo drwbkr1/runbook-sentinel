@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0024",
+  "status": "pass",
+  "disposition": "clean_clone_verified",
+  "observed_at_utc": "2026-08-11T02:34:52.0787365Z",
+  "clone": {
+    "path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0024-clean-4a2bdb3-20260811T022538Z",
+    "remote": "https://github.com/drwbkr1/runbook-sentinel.git",
+    "branch": "codex/baseline-0024-adversarial-condition-outcome-split",
+    "commit": "4a2bdb30a0e8484f1c4facaba02b53e53f630f26",
+    "clone_flags": ["--no-local", "--single-branch"],
+    "started_clean": true,
+    "object_alternates_present": false
+  },
+  "predecessor_release_dependency": {
+    "version": "0.0.23",
+    "archive_path": "dist/runbook-sentinel-0.0.23.pyz",
+    "archive_sha256": "90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917",
+    "checksum_sha256": "1f9ea3101e61aded7fb0d7b6c8d603ca70f8ea921f6e127421ce59e1f0c490c1",
+    "source": "verified public GitHub v0.0.23 release assets",
+    "purpose": "recheck the frozen pre-change package identity referenced by the BASELINE-0024 gap contract"
+  },
+  "source_gate": {
+    "compileall": "pass",
+    "static_and_package_validators": 27,
+    "unit_tests_passed": 42,
+    "unit_tests_total": 42,
+    "evaluation": {
+      "report_path": "artifacts/evaluations/runs/baseline-0024-clean-source-attempt-001.json",
+      "report_bytes": 758407,
+      "report_sha256": "b2a9b5214cccc74fd428af8ba1f15e0d5f6516439a1cacd0b6a52fad7d5eaf0a",
+      "trace_path": "artifacts/evaluations/runs/baseline-0024-clean-source-attempt-001.traces.jsonl",
+      "trace_bytes": 160543,
+      "trace_sha256": "1b5f50c9ddb0cd615cad814530481676f55af0af7d13dcd5bdad7cff7703c7ad",
+      "scenario_count": 44,
+      "attempt_count": 132,
+      "trace_event_count": 222,
+      "trace_final_event_sha256": "4a69ade14b477af8b3098690cfabfd9dd8df42b6a98ce67771986848e78eac1d",
+      "disposition": "pass"
+    }
+  },
+  "package_gate": {
+    "contract_sha256": "ffb471e46ceab5c77ae65947b113d25b9932ec80c75cf8a56db158aa2633b827",
+    "entry_count": 39,
+    "runtime_dependencies": [],
+    "selected_archive": {
+      "path": "dist/runbook-sentinel-0.0.24.pyz",
+      "bytes": 525771,
+      "sha256": "22b64f590fef510fd7eaef33fba18a276e2a475565c826101f6422ffed8fe42e",
+      "checksum_bytes": 94,
+      "checksum_sha256": "c8333db98209a28225cd62ab9ba2e5cbe891e18858ea65080b5fd6e3c6ca0ba2"
+    },
+    "independent_rebuild": {
+      "path": "dist/runbook-sentinel-0.0.24-build-002.pyz",
+      "bytes": 525771,
+      "sha256": "22b64f590fef510fd7eaef33fba18a276e2a475565c826101f6422ffed8fe42e",
+      "byte_identical": true
+    },
+    "evaluation": {
+      "report_path": "artifacts/evaluations/runs/baseline-0024-clean-package-attempt-001.json",
+      "report_bytes": 758390,
+      "report_sha256": "d3ea508549dc5b44eeb911e64cc71385a48657864f4da09561e7f657ebdf8573",
+      "trace_path": "artifacts/evaluations/runs/baseline-0024-clean-package-attempt-001.traces.jsonl",
+      "trace_bytes": 160535,
+      "trace_sha256": "4b6dd0df9332d9bef9eb97b0161649476ed2b0926b607c14265363b4c0a758f4",
+      "scenario_count": 44,
+      "attempt_count": 132,
+      "trace_event_count": 222,
+      "trace_final_event_sha256": "cb44498cebe62273b8360a5bc2e3a4c4ca13f9adafd498990b5f7a125b9c6ec9",
+      "disposition": "pass"
+    }
+  },
+  "mcp": {
+    "source": {
+      "status": "pass",
+      "protocol_version": "2025-11-25",
+      "server_version": "0.0.24",
+      "tool_count": 3,
+      "approval_or_execution_tool_exposed": false,
+      "trace_chain_valid": true,
+      "trace_final_event_sha256": "f42874af468261087b29aa3bbb7e81fb034553ab2f81cd873f1c8bf98e39e835"
+    },
+    "package": {
+      "status": "pass",
+      "protocol_version": "2025-11-25",
+      "server_version": "0.0.24",
+      "tool_count": 3,
+      "approval_or_execution_tool_exposed": false,
+      "trace_chain_valid": true,
+      "trace_final_event_sha256": "011622d4fcc05dcb3d734a6557e41b39935df5c89153d3a33623713427d6d682"
+    }
+  },
+  "real_surfaces": {
+    "source_api_approval_executor_state_telemetry": "pass",
+    "package_api_approval_executor_state_telemetry": "pass",
+    "source_mcp_receipt_sha256": "6804c3a860696b1b9c92560659cc44adb63b38615b19a0e3a21c1f6481fb5fc3",
+    "package_mcp_receipt_sha256": "956059de220e089aaea7a9a8e3f330e6a52f20aa637b623a64a44613a967d646",
+    "source_native_receipt_sha256": "3f01810a4d83f5db722d161a958d82602fe443e98f3ec6a32b9c48a7876ff14a",
+    "package_native_receipt_sha256": "695029d932501177d014fe623bd5128d2b5b3eff01154187d6cd8b88ab5e9ca9",
+    "source_dashboard_sha256": "e49940bd827a215a7101fc26f80ac75af3d7c146485d582bd4b7fa0497d84492",
+    "package_dashboard_sha256": "ee0ddf56a6690c4dbb48ecbf861d97da419938a8e7cc8a153a577a5d1921aeb3",
+    "dashboard_width": 1440,
+    "dashboard_height": 1000,
+    "source_dashboard_visual_review": "pass_original_detail",
+    "package_dashboard_visual_review": "pass_original_detail"
+  },
+  "artifact_checks": {
+    "json_files_parsed": 453,
+    "json_parse_errors": 0,
+    "jsonl_files_parsed": 106,
+    "jsonl_records_parsed": 15073,
+    "jsonl_parse_errors": 0,
+    "credential_shaped_files": 14,
+    "credential_shaped_files_classification": "package-contract scanner definitions only",
+    "high_signal_secret_matches_after_scanner_definition_exclusion": 0,
+    "model_artifact_files": 0
+  },
+  "retained_failures": [
+    "The first full validator pass stopped when the clean clone lacked ignored public-v0.0.23 dist bytes required by the frozen pre-change package identity check. Exact verified release assets were downloaded and hash-checked before the unchanged validator passed.",
+    "The first clean-clone scan reporter used invalid inline PowerShell syntax for git safe.directory. The corrected resolved argument produced zero parse errors, zero remaining high-signal credential files, and zero model artifacts."
+  ],
+  "limitations": [
+    "Twenty-of-twenty semantically valid adversarial condition/outcome/split coverage is synthetic evidence, not universal prompt-injection resistance.",
+    "Forty-four scenarios remain below the separate at-least-48-case v0.1.0 target.",
+    "The verified runtime is synthetic-only and disconnected from real operational infrastructure.",
+    "Docker remains deferred and is not claimed."
+  ],
+  "next_gate": "premerge release audit and exact reviewed-head GitHub merge"
+}
