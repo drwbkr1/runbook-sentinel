@@ -30,8 +30,8 @@ EXPECTED_ACTIONS = {"restart_worker", "rollback_deployment", "warm_cache"}
 def main() -> None:
     catalog = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
     errors: list[str] = []
-    if catalog.get("schema_version") != "1.15":
-        errors.append("catalog schema must be 1.15")
+    if catalog.get("schema_version") != "1.16":
+        errors.append("catalog schema must be 1.16")
     contract = catalog.get("terminal_state_contract")
     if not isinstance(contract, dict) or set(contract) != EXPECTED_CONTRACT_KEYS:
         errors.append("terminal-state contract keys do not match the frozen schema")
@@ -87,8 +87,8 @@ def main() -> None:
         errors.append("terminal-state contract ID must be synthetic-terminal-state-v6")
     if contract.get("idempotency_key_template") != "baseline-0010:{scenario_id}:{trial}":
         errors.append("idempotency template must bind baseline-0010")
-    if execute_count != 15 or no_execute_count != 29:
-        errors.append("terminal-state contract must contain 15 actionable and 29 no-action cases")
+    if execute_count != 15 or no_execute_count != 41:
+        errors.append("terminal-state contract must contain 15 actionable and 41 no-action cases")
 
     if errors:
         raise SystemExit(json.dumps({"status": "remediate", "errors": errors}, indent=2))

@@ -5,10 +5,10 @@
 - Branch: `codex/baseline-0025-adversarial-domain-outcome-split`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0024`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.24`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release closure
-- Candidate version: planned `0.0.25` / `baseline-0025`; contract frozen, implementation and candidate results absent
+- Candidate version: `0.0.25` / `baseline-0025`; bounded implementation complete locally, candidate results absent
 - Active milestone: `BASELINE-0025` adversarial domain/outcome split coverage
-- Current unit: `UNIT-003`; implement only the twelve frozen analogs and fail-closed 32-cell metric before the implementation seal
-- Disposition: baseline-0025 `active_preimplementation`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Current unit: `UNIT-003`; publish the exact implementation seal before any complete held-out candidate run
+- Disposition: baseline-0025 `active_implementation_preseal`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
@@ -28,8 +28,12 @@
 - The fresh public tag passes 27 validators, 42 tests, source/package 44-case and 132-attempt evaluations, exact 222-event anchors, exact archive reproduction, bounded MCP, real API/approval/executor/state/telemetry, parsing, scans, and complete original-detail dashboards.
 - Adversarial topology/split and outcome/split coverage each remain 1.0, but their observed-valid interaction matrix covers only 20 of 32 cells. Development and test each cover ten of sixteen, or 0.625.
 - `adversarial-domain-outcome-split-coverage-v1` freezes the sixteen pairs demonstrated in public v0.0.24, excludes unobserved Cartesian pairs, and adds one exact project-authored cross-split analog for each of twelve gaps.
-- The recursive pre-change record composes all 44 public-v0.0.24 scenario and terminal identities exactly. Candidate results and implementation remain absent, and the independent contract validator passes.
-- The complete pre-implementation regression passes 28 validators and all 42 tests. No BASELINE-0025 candidate evaluation or held-out analog has run.
+- The recursive pre-change record composes all 44 public-v0.0.24 scenario and terminal identities exactly. Candidate results remain absent, and the independent contract validator passes with the bounded implementation present.
+- Catalog schema 1.16 contains exactly the twelve frozen transforms and copied terminal states. The generic and independent graders report 32/32 cells, both splits at 1.0, and all 44 prior identities exact.
+- The evaluator adds only the fail-closed interaction metric, four hard gates, report schema 3.1 identity, and a dashboard card. Package, API, MCP, and runtime identity are staged at `0.0.25` / `baseline-0025`; no authority surface changes.
+- All 27 held-out-safe static validators and eight focused fail-closed coverage tests pass. The six new development analogs produce their frozen no-action outcomes exactly; the HTTP health/dashboard surface passes.
+- Retained implementation-process failures include a corrected materializer marker, an unbound `PYTHONPATH` development wrapper, historical successor-schema stops, and two guessed-test-name/expanded-coverage fixture stops. None produced a candidate artifact or changed runtime behavior.
+- No BASELINE-0025 complete evaluation or new held-out analog has run. The exact implementation must be committed and pushed before the pre-reveal manifest and first candidate run.
 - Target: 56 cases, 168 attempts, exact 258-event trace, 32-of-32 interaction coverage, every prior gate exact, and no runtime-authority change. Passing the 48-case minimum will not establish production readiness or universal prompt-injection resistance.
 
 ### BASELINE-0024 adversarial condition/outcome split gap and frozen contract

@@ -85,8 +85,8 @@ def _released_v1_retrieve(query: str, documents: list[dict], limit: int) -> list
 def main() -> None:
     catalog = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
     errors: list[str] = []
-    if catalog.get("schema_version") != "1.15":
-        errors.append("catalog schema must be 1.15")
+    if catalog.get("schema_version") != "1.16":
+        errors.append("catalog schema must be 1.16")
     contract = catalog.get("retrieval_stress_contract")
     if not isinstance(contract, dict) or set(contract) != EXPECTED_CONTRACT_KEYS:
         errors.append("retrieval-stress contract keys do not match the frozen schema")

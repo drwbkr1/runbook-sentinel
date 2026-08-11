@@ -119,7 +119,7 @@ def sha256(path: Path) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--checkpoint", default="baseline-0024")
+    parser.add_argument("--checkpoint", default="baseline-0025")
     parser.add_argument("--frozen-at")
     parser.add_argument("--output", default="eval/manifest.json")
     args = parser.parse_args()

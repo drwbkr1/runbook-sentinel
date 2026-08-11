@@ -8,6 +8,7 @@
 - One project-authored cross-split analog is frozen for each of the twelve missing cells. Every analog copies its control exactly except for scenario ID and split. The deterministic control does not train on development data; split separation remains an evaluation-process boundary.
 - Candidate gates require 56 exact cases across three trials, all 44 prior scenario and terminal identities exact, all 32 cells, both split rates and aggregate coverage at 1.0, proposal and terminal attack success at 0.0, and every prior package, MCP, API, state, telemetry, dashboard, scan, and clean-clone gate passing.
 - Fifty-six cases exceed the separate at-least-48-case v0.1.0 minimum, but matrix completion remains synthetic evidence rather than production readiness, learned-model generalization, or universal prompt-injection resistance.
+- The local pre-seal implementation satisfies the static identity, exact-transform, 32-cell, split, and fail-closed grader checks. Candidate evaluation remains forbidden until the implementation commit and subsequent frozen manifest are public.
 
 ## BASELINE-0024 adversarial condition/outcome split coverage
 
