@@ -1,0 +1,220 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0026",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "active_contract": "contracts/milestone-0026.json",
+    "verified_at_utc": "2026-08-11T18:54:25.3969129Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Make the interaction between retrieval-defense stage, bounded safe outcome, and development versus held-out split explicit and fail-closed; add the single exact development analog needed to cover the measured in-band-exposed request-evidence gap.",
+    "allowed_paths": [
+      "C:/Projects/Active/runbook-sentinel",
+      "C:/Projects/Verification"
+    ],
+    "forbidden_work": [
+      "change any existing scenario or expected result",
+      "change agent, model, retrieval, decision context, action inventory, policy, approval, authentication, executor, API, or MCP authority",
+      "weaken guidance filtering or change evidence exposure to manufacture coverage",
+      "add a dependency, paid service, secret, external asset, remote model call, or real-infrastructure connector",
+      "change repository visibility, access, or ownership",
+      "claim synthetic eighteen-cell coverage is production readiness or universal prompt-injection resistance"
+    ],
+    "reversible_actions": [
+      "create and update files on the isolated codex/baseline-0026-adversarial-exposure-stage-outcome-split branch",
+      "run deterministic local evaluations, tests, package builds, dashboard checks, and clean-clone verification",
+      "commit and push bounded checkpoints under the standing director authority",
+      "open, review, and merge a pull request and publish a public release only after every release gate passes"
+    ],
+    "stop_conditions": [
+      "core thesis change or security-boundary weakening",
+      "an existing expected result or runtime authority boundary would need to change",
+      "a dependency, secret, paid service, external asset, real infrastructure, or access change becomes necessary",
+      "pre-change identity, exact safe outcomes, eighteen-cell coverage, prior behavior, or shipment cannot be verified"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.25 refs, release, selected assets, downloaded bytes, rendered pages, and independent public-tag source/package verification reconcile at abbeea785aef65164a37e149589ee70d32ce4b95.",
+        "Fresh public-tag source evaluation passes 56 scenarios, 168 attempts, every prior gate, and exact 258-event trace verification.",
+        "The nine observed-valid attack-stage/outcome pairs produce eighteen split cells; seventeen pass and only inband_exposed/request_evidence/development is empty."
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": [
+        "All 57 cases pass three trials with all 56 prior scenario and terminal identities exact and all eighteen attack-stage/outcome/split cells covered.",
+        "Exact candidate, reviewed merge, merged-main, final audit, annotated tag, selected public assets, downloaded bytes, rendered pages, and public-tag verification reconcile."
+      ]
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Run and inspect public v0.0.25, then measure defense-stage/outcome coverage in each split.",
+      "depends_on": [],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": [
+        "public-tag-baseline-0025 external receipt",
+        "adversarial exposure-stage/outcome/split gap measurement"
+      ],
+      "gates": {
+        "public_checkpoint_reconciled": "pass",
+        "fresh_source_evaluation": "pass",
+        "gap_measured_and_retained": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze all 56 pre-change identities, nine observed-valid stage/outcome pairs, the one exact cross-split analog, target metrics, gates, and forbidden changes before implementation.",
+      "depends_on": ["UNIT-001"],
+      "action_class": "evidence_preservation",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": [
+        "frozen adversarial-exposure-stage-outcome-split-coverage-v1 contract",
+        "recursive 56-case pre-change identity record",
+        "independent pre/post implementation contract validator"
+      ],
+      "gates": {
+        "json_documents_parse": "pass",
+        "prechange_identities_compose_to_56": "pass",
+        "candidate_results_absent": "pass",
+        "single_missing_cell_frozen": "pass",
+        "contract_validator": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement the fail-closed eighteen-cell metric and one exact development analog without changing runtime behavior or authority.",
+      "depends_on": ["UNIT-002"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "ready",
+      "gates": {
+        "all_56_prechange_scenarios_exact": "pending",
+        "all_56_prechange_terminal_states_exact": "pending",
+        "new_transform_exact": "pending",
+        "adversarial_exposure_stage_outcome_split_coverage_18_of_18": "pending",
+        "implementation_sealed_before_candidate_evaluation": "pending"
+      },
+      "disposition": "pending",
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Run all prior source, package, API, MCP, state, telemetry, dashboard, reproducibility, and clean-clone gates on the frozen candidate.",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "planned",
+      "gates": {
+        "immutable_source_candidate": "pending",
+        "all_57_scenarios_three_trials": "pending",
+        "all_18_stage_outcome_split_cells": "pending",
+        "all_prior_gates": "pending",
+        "candidate_trace_261_events_exact": "pending",
+        "package_and_real_surfaces": "pending",
+        "clean_clone": "pending"
+      },
+      "retained_failures": [],
+      "disposition": "pending",
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Audit, review, merge, release, and independently verify the exact passing checkpoint.",
+      "depends_on": ["UNIT-004"],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": [
+        "verified candidate and clean-clone evidence",
+        "premerge audit and exact reviewed GitHub head",
+        "inherited director release authority"
+      ],
+      "outputs": [
+        "history-preserving reviewed merge",
+        "annotated v0.0.26 and selected public assets",
+        "public release and fresh public-tag verification receipt"
+      ],
+      "gates": {
+        "premerge_release_audit_verified": "pending",
+        "exact_reviewed_head_merged_with_history_preserved": "pending",
+        "fresh_public_main_source_package_and_real_surfaces": "pending",
+        "final_release_audit_verified": "pending",
+        "public_refs_assets_downloads_pages_reconciled": "pending",
+        "fresh_public_tag_source_package_and_real_surfaces": "pending"
+      },
+      "disposition": "pending",
+      "retained_failures": [],
+      "next_dependency": null
+    }
+  ],
+  "current_unit": "UNIT-003",
+  "next_action": "Commit and publish the frozen pre-implementation contract, then add only the exact development analog and fail-closed eighteen-cell evaluator metric.",
+  "path_efficiency": {
+    "max_consecutive_no_progress_units": 2,
+    "review_action_class": "project_control",
+    "review_human_gate": false
+  },
+  "verification": {
+    "changed_risks": [
+      "aggregate exposure and attack-success rates can hide an untested safe outcome at one defense stage and split",
+      "a stage grader can misclassify filtered guidance as exposed content or reward weakened filtering",
+      "the cross-split analog can accidentally alter prior scenarios, terminal states, runtime authority, or admitted evidence identity",
+      "release records can drift from the reviewed merge, selected archive, or live public tag and assets"
+    ],
+    "required_checks": [
+      "recursive exact identity for all 56 pre-change scenarios and terminal states",
+      "exact one-case transformation and fail-closed eighteen-cell stage/outcome/split grading",
+      "three-trial source and package evaluation with separate retrieval, generation, terminal, tool, policy, attack, trace, latency, reliability, and cost metrics",
+      "real bounded MCP, loopback API, approval, executor, state, telemetry, dashboard, package, clean-clone, review, merge, release, and public verification",
+      "retention of failed, stale, blocked, corrected, and superseded evidence without favorable rewriting"
+    ],
+    "completed_checks": [
+      "public v0.0.25 reconciliation and fresh unchanged 56-case source evaluation",
+      "seventeen-of-eighteen stage/outcome/split gap measurement",
+      "frozen one-case contract, recursive 56-case identity chain, and independent preimplementation validator"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "Public v0.0.25 remains the latest verified checkpoint. BASELINE-0026 has a measured one-cell gap and a frozen pre-implementation contract; no runtime or scenario byte has changed.",
+    "next_action": "Publish the frozen contract, then implement only the exact development analog and fail-closed metric before any candidate evaluation.",
+    "do_not_carry_forward": [
+      "any claim that synthetic eighteen-cell coverage is production readiness, learned generalization, or universal prompt-injection resistance",
+      "any authority, secret, dependency, external asset, paid service, or real-infrastructure connector",
+      "any weakening of guidance filtering or change to exposure semantics",
+      "any rewrite or deletion of failed, stale, blocked, corrected, superseded, or unfavorable evidence",
+      "any Docker or container claim for baseline-0026"
+    ]
+  }
+}

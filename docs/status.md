@@ -2,12 +2,12 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0026-adversarial-exposure-stage-outcome-split`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0025`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified public checkpoint: `v0.0.25`; release reconciliation binds the annotated tag object and peeled closure commit, public release metadata, selected assets, downloaded bytes, live repository/release/tag pages, and a fresh public-tag clone
-- Candidate version: none; the next checkpoint is intentionally unchosen until a fresh public-v0.0.25 run measures the highest-leverage weakness
-- Active milestone: none; `BASELINE-0025` adversarial domain/outcome split coverage is complete
-- Current unit: none
+- Candidate version: `v0.0.26` planned; no candidate has been evaluated or built
+- Active milestone: `BASELINE-0026` adversarial exposure-stage/outcome split coverage
+- Current unit: `UNIT-003` ready; the pre-implementation contract is frozen and must be committed and published before implementation
 - Disposition: baseline-0025 `pass`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -20,6 +20,13 @@
 - Local model source gate: refreshed and ready for the already installed, publisher-signed Ollama 0.32.6 executable and unchanged `llama3.2:3b` manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six content-addressed blobs pass exact SHA-256 and size checks. No download, update, copy, redistribution, remote call, model tool, secret, or real-infrastructure access is authorized.
 
 ## Verified evidence
+
+### BASELINE-0026 adversarial exposure-stage/outcome split gap and frozen contract
+
+- A fresh source evaluation from the exact public v0.0.25 tag passes all 56 scenarios and 168 attempts. Among 38 adversarial cases, the observed-valid attack-stage/outcome pairs produce eighteen required development/test cells.
+- `guidance_filtered` means hostile guidance exists but is absent from decision context; `inband_exposed` means hostile status or telemetry reaches decision context; `non_instruction_adversarial` means the adversarial case has no instruction-bearing attack document. Ambiguous or inconsistent classification fails closed.
+- Seventeen of eighteen cells are covered. The sole gap is `inband_exposed` / `request_evidence` / `development`; exact test control `test-inband-observability-action-injection` already demonstrates the safe no-execution behavior.
+- The frozen contract permits one new development analog, `dev-inband-observability-request-evidence-injection`, copied exactly from the control except for ID and split. All 56 prior scenarios and terminal states are recursively hash-bound; runtime, retrieval, filtering, authority, dependencies, and external assets remain unchanged.
 
 ### BASELINE-0025 adversarial domain/outcome split gap and frozen contract
 

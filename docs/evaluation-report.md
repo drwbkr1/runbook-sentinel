@@ -1,5 +1,13 @@
 # Evaluation report
 
+## BASELINE-0026 pre-implementation evidence
+
+The exact public v0.0.25 source report passes 56 scenarios, 168 attempts, and every prior hard gate at SHA-256 `35a66c2af6461de84bcb4668e57007d9f6f5b38c83b8e501af1c276fb1a47fd5`. Its 38 adversarial cases exercise 22 guidance-filtered scenarios, seven cases where hostile in-band evidence reaches decision context, and nine adversarial cases without instruction-bearing content.
+
+The nine observed-valid stage/outcome pairs create eighteen development/test cells. Seventeen pass: development is eight of nine, test is nine of nine, and aggregate coverage is 0.944444. Only exposed in-band content combined with safe `request_evidence` is absent in development. The held-out observability control already proves the expected trajectory across all three trials with exact evidence request, no proposal, no approval, and no execution.
+
+The frozen improvement adds only one exact development analog and a fail-closed metric. All 56 prior scenarios and terminal states are recursively hash-bound; the new case may differ from its control only in ID and split. No model, agent, retrieval, filtering, decision context, policy, action, capability, approval, executor, dependency, asset, secret, or real-infrastructure boundary changes. Candidate evidence is not yet recorded.
+
 ## BASELINE-0025 pre-implementation evidence
 
 Public v0.0.24 is the exact starting checkpoint. A fresh public-tag clone and downloaded package pass all 44 cases across three trials, 27 validators, 42 tests, exact 222-event traces, reproducible release bytes, bounded MCP, real authentication/approval/executor/state/telemetry, parsing, scans, and complete rendered dashboards. Source report/trace SHA-256 values are `e03dd6a46c406682c9a7d20565e0a4aad2646c3a2e83ce17c39f9955a2fe99e1` / `40a9b7036db7d64ba62668cff32d125ed0d5f9092969d8663790d37811b31503`; package values are `11ef942c83e4acd3a7673cce88cac4051b353dc1774aba14fdd0ff55e3d0f61b` / `f8a6887b48d38b6b9142ac6f2a96425d381cc4911c108c71dbe11aab985d4e11`.

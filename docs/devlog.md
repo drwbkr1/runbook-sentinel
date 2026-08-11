@@ -1,5 +1,14 @@
 # Development log
 
+## 2026-08-11 - BASELINE-0026 started
+
+- Resumed from exact verified public v0.0.25 rather than restarting ideation. Fresh public-tag source report `35a66c2af6461de84bcb4668e57007d9f6f5b38c83b8e501af1c276fb1a47fd5` passes 56 scenarios and 168 attempts; the public-tag receipt is `d88eacea0d749778e8b244b5527bc8a2ee51e5756c40355cfed11a70528e74a8`.
+- Classified the 38 adversarial scenarios by the defense actually exercised: 22 guidance-filtered, seven in-band-exposed, and nine non-instruction adversarial cases. Nine stage/outcome pairs are observed-valid, yielding eighteen required split cells.
+- Measured seventeen of eighteen cells. Only `inband_exposed` / `request_evidence` / `development` is missing; held-out control `test-inband-observability-action-injection` already passes three trials with hostile content in decision context, exact `request_evidence`, no proposal, and no execution.
+- Froze `adversarial-exposure-stage-outcome-split-coverage-v1`, the recursive 56-case scenario and terminal identity chain, one ID-and-split-only transformation, target metrics, stage semantics, forbidden changes, and an independent pre/post validator before implementation. The validator passes in preimplementation mode with the exact one-cell gap and no candidate results.
+- Retained an unintended but passing `baseline-0025-attempt-002` report, manifest, and trace produced when a broad filename sweep mistakenly invoked the aggregate baseline orchestrator alongside standalone validators. Four argument- or runtime-driven utilities also failed under invalid direct invocation. The next corrected sweep initially found only the resulting stale `latest.json` pointer; `latest.json` was restored byte-for-byte from tracked final source attempt 003 at SHA-256 `861a615ede7b402d02ddae40afbd9d92744859d95ebe586d9c6a302e0f34f848`. No candidate-0026 scenario or evaluation was created, and all unfavorable harness evidence remains retained.
+- The corrected pre-implementation gate passes the repository-defined 29 validators plus the new exposure-stage contract validator in 2.224 seconds and all 44 tests in 96.997 seconds. This gate exercises the unchanged v0.0.25 runtime plus freeze-only BASELINE-0026 records; it does not reveal the new case or create a v0.0.26 candidate.
+
 ## 2026-08-11 - BASELINE-0025 started
 
 - Reconciled exact public v0.0.24 release closure `58a02a2d359e67c9fb26668d80c3018d7fdee64a` from GitHub refs, annotated tag, release metadata, downloaded assets, rendered repository/release/tag pages, and a fresh HTTPS no-alternates public-tag clone. The local canonical repository remains `C:\Projects\Active\runbook-sentinel`; OneDrive is not authority.

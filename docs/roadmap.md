@@ -1,5 +1,11 @@
 # Roadmap
 
+## Active checkpoint baseline-0026 - adversarial exposure-stage/outcome split coverage
+
+Fresh public-v0.0.25 evaluation separates three defenses that aggregate attack metrics blur: hostile guidance filtered before decision context, hostile in-band status or telemetry exposed to decision logic, and adversarial cases without instruction-bearing content. The nine stage/outcome pairs already demonstrated as valid produce eighteen development/test cells; seventeen are covered. The only empty cell is safe `request_evidence` under exposed in-band content in development.
+
+Baseline-0026 freezes all 56 prior scenario and terminal identities plus one exact development analog of the held-out observability control. The target is 57 cases, 171 attempts, an exact 261-event trace, and eighteen-of-eighteen coverage. The new metric must never reward weaker guidance filtering: stage identity is fail-closed, and no retriever, decision context, action, policy, approval, executor, dependency, asset, or authority boundary may change.
+
 ## Completed checkpoint baseline-0025 - adversarial domain/outcome split coverage
 
 Fresh public-tag v0.0.24 source and package runs pass all 44 cases, 132 attempts, prior gates, exact 222-event traces, bounded MCP, real authentication/approval/executor/state/telemetry, reproducible release bytes, and complete dashboards. Crossing the individually complete adversarial topology-by-split and bounded-outcome-by-split metrics exposes only 20 of 32 observed-valid domain/outcome/split cells. Each split covers ten of the sixteen domain/outcome pairs already demonstrated as valid in the other split.

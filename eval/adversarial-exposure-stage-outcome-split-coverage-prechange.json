@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.7",
+  "checkpoint": "baseline-0026",
+  "starting_commit": "5ea71c2573d8bdcb7c84c22587f2e4ef6723e29a",
+  "prechange_catalog_sha256": "c7386c135c71d01168ed46e5082749e90263f3d4864d844138714f2140cbf507",
+  "scenario_count": 56,
+  "identity_parent_path": "eval/adversarial-domain-outcome-split-coverage-prechange.json",
+  "parent_scenario_count": 44,
+  "scenario_sha256": {
+    "dev-api-request-evidence-injection-coverage": "3c1babcba4f29b44e1e704b3e6738b86d2537f1848c3398eb5944f5873cd2b5d",
+    "dev-configuration-conflict-injection-coverage": "2a54c764e7f79e80f079ca30236e66bdc20ec6075b6f732e783512d15fd4be92",
+    "dev-database-diagnose-injection-coverage": "0ba53dadeec415e1010fea67f56b7a2230643126e50c41b5dbfe5ea37310456c",
+    "dev-deployment-conflict-injection-coverage": "47e1809f2d7848393017ebc0112014abdc74374d47b75d914e1e2f95148fb250",
+    "dev-deployment-request-evidence-injection-coverage": "dba5bcd5a63415323bde5df52ced174879eefdfe5e32787e446d05ae0a2501dc",
+    "dev-observability-request-evidence-injection-coverage": "3c991c08c2aa8bed2a805a2fea30ae8d941037e5d985060e8f74a2e864ca1cdc",
+    "test-api-diagnose-injection-coverage": "f91e21e384038db5dd65c6b49311a32503421d84fdc4057cc4db92665fe26455",
+    "test-cache-request-evidence-injection-coverage": "854ca9302eaa874c43efb373337e3cd02867f22be87169bfd14e0248025ce87a",
+    "test-configuration-request-evidence-injection-coverage": "5af2f75694f888cc197edf135452043bda4c2484b0edbf67797452cc9cbf58b2",
+    "test-database-conflict-injection-coverage": "a2dc4a4318f75387fa08c9f7f4bb1ef6d3771d298eb50d6de886f113667ac536",
+    "test-database-request-evidence-injection-coverage": "56f16ef6f4411adeae5e39988295539f7b5fc2df003730903cfbf814816b3b13",
+    "test-observability-diagnose-injection-coverage": "7d3ee6974e8d003e3924c8770e0bd009f0ad04bc6d953f405799f7cc0c595116"
+  },
+  "terminal_state_sha256": {
+    "dev-api-request-evidence-injection-coverage": "9a854fde8df40ceaf27763a0176097293e37eda1d027e65008e830a38f3c086b",
+    "dev-configuration-conflict-injection-coverage": "51eada93177a7624b282c432434cfab6b66a279349b3d905f995342de083501d",
+    "dev-database-diagnose-injection-coverage": "263103e1d522d2dafb96224afe33d8a3636c869a3844209d8f0cff790fad6aa5",
+    "dev-deployment-conflict-injection-coverage": "953c9499298ace3db37e9217beea727a992ca6f5bb84f01481f870f211adb9a3",
+    "dev-deployment-request-evidence-injection-coverage": "8ebc510aaff1ef61e6f67811be3bade500d439ec054560ba82af91d8bba1fffe",
+    "dev-observability-request-evidence-injection-coverage": "263103e1d522d2dafb96224afe33d8a3636c869a3844209d8f0cff790fad6aa5",
+    "test-api-diagnose-injection-coverage": "7993c8c7ff340547b43f2c6f2e3cf22aaa5272ed87e001d5a087664a31ccf2f2",
+    "test-cache-request-evidence-injection-coverage": "13aea0d75548c22c582e4369a5ce34b425a230d72649a077d727640e5a639733",
+    "test-configuration-request-evidence-injection-coverage": "51eada93177a7624b282c432434cfab6b66a279349b3d905f995342de083501d",
+    "test-database-conflict-injection-coverage": "ae753a8c2cf09bb1bc20a28d4d7b37eab4281f10e4abc2e3f14337734facdf03",
+    "test-database-request-evidence-injection-coverage": "ae753a8c2cf09bb1bc20a28d4d7b37eab4281f10e4abc2e3f14337734facdf03",
+    "test-observability-diagnose-injection-coverage": "5afe07389bc8f2b87c08947bd31771f38b8fff00e45315300a2c6f444323b5dd"
+  }
+}
