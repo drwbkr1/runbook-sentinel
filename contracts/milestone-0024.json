@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0024",
   "project_profile_ref": null,
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -61,8 +61,11 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "All 44 cases pass three trials with all 42 prior scenario and terminal identities exact and all 20 adversarial condition/outcome/split cells covered.",
+        "Exact candidate, reviewed merge, merged-main, final audit, annotated tag, selected public assets, downloaded bytes, rendered pages, and public-tag verification reconcile."
+      ]
     }
   ],
   "units": [
@@ -225,7 +228,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["verified candidate and clean-clone evidence", "release truth matrix and inherited director authority"],
       "outputs": [
         "reconciled roadmap, changelog, version history, ADRs, threat model, research ledger, evaluation report, status, and devlog",
@@ -233,13 +236,24 @@
         "annotated v0.0.24 and selected public assets",
         "fresh merged-main and public-tag verification"
       ],
-      "gates": {},
-      "retained_failures": [],
+      "gates": {
+        "release_audit_verified": "pass",
+        "exact_reviewed_head_merged_with_history_preserved": "pass",
+        "public_refs_assets_downloads_pages_reconciled": "pass",
+        "fresh_public_tag_source_package_and_real_surfaces": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "Premerge review retained the audit-only successor commit as a one-path scope addition before exact expected-head merge.",
+        "The first structured premerge audit evaluation rejected a missing candidate.commit field; the exact binding was added before publication.",
+        "The first post-push PR read briefly returned the preceding head, and the draft description retained pre-implementation wording; bounded live rereads and description correction passed before promotion.",
+        "The public-main clone restored only exact verified public-v0.0.23 predecessor dist bytes required by the frozen contract before the unchanged full gate passed."
+      ],
       "exit_condition_delta": {
         "expected": ["EXIT-001"],
-        "observed": [],
-        "decision_value": "unknown",
-        "rationale": "Release is downstream of all local, package, real-surface, and clean-clone gates."
+        "observed": ["EXIT-001"],
+        "decision_value": "advances_exit",
+        "rationale": "Release only the exact independently verified checkpoint and reconcile every public surface immediately."
       },
       "next_dependency": null
     }
@@ -270,12 +284,23 @@
       "18-of-20 adversarial condition/outcome/split gap measurement",
       "frozen two-case contract, recursive 42-case identity chain, and independent validator",
       "public implementation seal 4a4b58e3c96e5cc81fda36795341d9be12406f6f",
-      "public 96-file pre-reveal manifest seal 3e7593b8398f7bb234301655795f492d8e1d2f6d"
+      "public 96-file pre-reveal manifest seal 3e7593b8398f7bb234301655795f492d8e1d2f6d",
+      "admissible 44-case candidate and exact 222-event trace",
+      "final-manifest source and package evaluation",
+      "27 validators and 42 tests",
+      "two byte-identical 39-entry archive builds",
+      "bounded source and package MCP",
+      "real source and package API, approval, executor, state, telemetry, and dashboard surfaces",
+      "remote-only no-alternates clean-clone verification",
+      "exact reviewed head merged with history preserved",
+      "fresh no-alternates public-main verification",
+      "final ten-check release audit",
+      "annotated tag, selected public assets, downloaded-byte identity, rendered public pages, and fresh public-tag verification"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.23 is the latest verified checkpoint; BASELINE-0024 is active only on its isolated branch with pre-change evidence retained.",
-    "next_action": "Run the immutable 44-case candidate from public manifest seal 3e7593b8398f7bb234301655795f492d8e1d2f6d, retain its exact trace, then complete full source, package, real-surface, and clean-clone verification.",
+    "current_checkpoint": "Public v0.0.24 is the latest verified checkpoint; exact reviewed merge, final release audit, annotated tag, selected assets, downloaded bytes, rendered public pages, and fresh public-tag source/package and real-surface verification reconcile to the release closure.",
+    "next_action": "Begin the next cycle by running public v0.0.24 and selecting the highest-leverage measurable weakness; do not restart ideation.",
     "do_not_carry_forward": [
       "any claim that synthetic 20-cell coverage is production readiness or universal prompt-injection resistance",
       "any authority, secret, dependency, external asset, paid service, or real-infrastructure connector",

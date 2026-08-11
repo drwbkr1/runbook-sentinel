@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.24 - Unreleased
+## 0.0.24 - 2026-08-11
 
 - Cross the ten semantically valid adversarial evidence-condition/outcome pairs with development and held-out test; report all 20 interaction cells, exact missing cells, and separate split coverage with fail-closed contract validation.
 - Add exactly two project-authored transforms for the measured gaps: a held-out instruction-bearing conflicting-deployment case that must abstain, and a development stale-cache poisoning case that must request evidence with zero stale payload exposure.
@@ -8,7 +8,8 @@
 - Pass the admissible candidate and final-manifest source/package runs across 44 cases and 132 trials with exact 222-event traces, all 42 tests, 27 validators, bounded three-tool MCP, and real source/package authentication/approval/executor/replay/state/telemetry/dashboard surfaces.
 - Build two byte-identical 39-entry, 525,771-byte zipapps at SHA-256 `22b64f590fef510fd7eaef33fba18a276e2a475565c826101f6422ffed8fe42e`; visually verify complete 1440 by 1000 source and package dashboards.
 - Reproduce the exact archive and complete validator/test/evaluation/MCP/API/state/telemetry/scan/dashboard stack from a remote-only no-alternates clone of public receipt commit `4a2bdb30a0e8484f1c4facaba02b53e53f630f26`.
-- Retain the public freeze arithmetic correction, stale exhaustive test fixture, no-artifact and reporting-wrapper failures, documentation inventory guess, and missing ignored predecessor-asset clean-clone gate alongside corrected results. Twenty-cell coverage is synthetic evidence, not universal prompt-injection resistance; 44 cases remain below the v0.1.0 target. Review/merge and public-release gates remain pending.
+- Retain the public freeze arithmetic correction, stale exhaustive test fixture, no-artifact and reporting-wrapper failures, documentation inventory guess, and missing ignored predecessor-asset clean-clone gate alongside corrected results. Twenty-cell coverage is synthetic evidence, not universal prompt-injection resistance; 44 cases remain below the v0.1.0 target.
+- Pass the premerge audit; merge exact reviewed PR `#22` head `07cc52c329b7dfdbc3d8b68ff0783360fb55df3a` under expected-head lock with history preserved as `3b44377b7c13a0bb8a12c20603bc14975d674d87`; repeat the complete stack from a fresh no-alternates public-main clone; pass the final release audit; reconcile the annotated tag, selected release assets, downloaded bytes, rendered public pages, and fresh public-tag verification.
 
 ## 0.0.23 - 2026-08-10
 

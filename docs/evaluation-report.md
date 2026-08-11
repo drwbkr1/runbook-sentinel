@@ -1,6 +1,6 @@
 # Evaluation report
 
-## BASELINE-0024 local candidate evidence
+## BASELINE-0024 verified public evidence
 
 Public v0.0.23 is the exact starting checkpoint. Fresh unchanged source and package runs pass all 42 cases and prior gates, but crossing ten semantically valid adversarial evidence-condition/outcome pairs with development and held-out test reveals only 18 of 20 cells. Held-out instruction-bearing conflict has no abstention case, while development stale evidence has no evidence-request case. The frozen project-authored contract adds exactly those two transforms and a fail-closed interaction metric without changing any prior scenario, terminal state, agent/model/retrieval behavior, action, capability, approval, executor, dependency, secret, external asset, or synthetic-only boundary.
 
@@ -12,7 +12,9 @@ All 42 tests and 27 validators pass. Two independently built 39-entry zipapps ar
 
 A remote-only no-alternates clone of exact public receipt commit `4a2bdb30a0e8484f1c4facaba02b53e53f630f26` independently passes compilation, 27 validators, 42 tests, fresh source/package 132-attempt evaluations with exact 222-event anchors, two exact archive builds, three-tool MCP, real source/package surfaces, parsing, scans, and original-detail dashboard inspection. Clean source report/trace hashes are `b2a9b5214cccc74fd428af8ba1f15e0d5f6516439a1cacd0b6a52fad7d5eaf0a` / `1b5f50c9ddb0cd615cad814530481676f55af0af7d13dcd5bdad7cff7703c7ad`; package hashes are `d3ea508549dc5b44eeb911e64cc71385a48657864f4da09561e7f657ebdf8573` / `4b6dd0df9332d9bef9eb97b0161649476ed2b0926b607c14265363b4c0a758f4`.
 
-Release-truth audit, exact GitHub review/merge, merged-main verification, and public release reconciliation remain pending. Twenty-cell synthetic coverage is not production readiness or universal prompt-injection resistance; 44 scenarios remain below the separate at-least-48-case v0.1.0 target, Docker is not claimed, and real operational infrastructure remains excluded.
+A fresh public-main no-alternates clone of exact merge `3b44377b7c13a0bb8a12c20603bc14975d674d87` passes 27 validators, 42 tests, source/package 132-attempt evaluations with exact 222-event anchors, byte-identical archive rebuilds, bounded MCP, real API/approval/executor/state/telemetry, parsing, scans, and original-detail dashboards. Merged-main source report/trace hashes are `94bc055003ac466b689704dd295473a082895f9d22210d258d4e2a3cf1dbb57d` / `398235a3e938721d87d62b4fd9694ed542b274c4b7663eff1cccc8e1fc82d762`; package hashes are `e5f0264fb084f68845adfc76b17de8e7fac3266ae4059b41d069eb8e54e37c41` / `5cc6934913a6461c2ab4c17e0b7476aa029603eff683e5ec95398ae9778a8693`.
+
+Premerge and final release-truth audits, exact expected-head merge, annotated tag, selected assets, downloaded public-byte checks, rendered repository/release/tag pages, and fresh public-tag source/package verification reconcile to the release closure. Twenty-cell synthetic coverage is not production readiness or universal prompt-injection resistance; 44 scenarios remain below the separate at-least-48-case v0.1.0 target, Docker is not claimed, and real operational infrastructure remains excluded.
 
 ## BASELINE-0023 verified public evidence
 

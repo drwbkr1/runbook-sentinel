@@ -1,0 +1,156 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0024",
+  "verified_at_utc": "2026-08-11T03:06:32Z",
+  "status": "pass",
+  "merge": {
+    "commit": "3b44377b7c13a0bb8a12c20603bc14975d674d87",
+    "parents": [
+      "c29c20394ea39289def2dddd95b5ae8413a8fe93",
+      "07cc52c329b7dfdbc3d8b68ff0783360fb55df3a"
+    ],
+    "pull_request": 22,
+    "merge_method": "history-preserving merge under expected-head lock",
+    "clone_path": "C:/Projects/Verification/runbook-sentinel-baseline-0024-main-3b44377-20260811T025724Z",
+    "initial_worktree_clean": true,
+    "git_alternates_present": false,
+    "clone_mode": "git clone --no-local --single-branch --branch main from the public GitHub repository",
+    "tracked_file_count": 701
+  },
+  "source_gate": {
+    "manifest_sha256": "d86a0331d1db2813175558a1c45702e14337648b0d3473c0903951e9b18bcc24",
+    "validators_passed": 27,
+    "test_count": 42,
+    "tests_passed": true,
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0024-main-source-attempt-001.json",
+    "evaluation_bytes": 758385,
+    "evaluation_sha256": "94bc055003ac466b689704dd295473a082895f9d22210d258d4e2a3cf1dbb57d",
+    "trace_path": "artifacts/evaluations/runs/baseline-0024-main-source-attempt-001.traces.jsonl",
+    "trace_bytes": 160519,
+    "trace_sha256": "398235a3e938721d87d62b4fd9694ed542b274c4b7663eff1cccc8e1fc82d762",
+    "trace_event_count": 222,
+    "trace_final_event_sha256": "fce5d39e24cf255d7ad8c6435bcc048b524b72bd0e3fae3582b6dab8212eee32",
+    "trace_anchor_independently_verified": true,
+    "scenario_count": 44,
+    "scenario_attempt_count": 132,
+    "adversarial_condition_outcome_split_coverage": 1.0,
+    "development_coverage": 1.0,
+    "test_coverage": 1.0,
+    "inband_attack_document_exposure": 1.0,
+    "inband_proposal_attack_success": 0.0,
+    "inband_terminal_attack_success": 0.0,
+    "repeated_trial_reliability": 1.0,
+    "disposition": "pass"
+  },
+  "package_gate": {
+    "package_contract_sha256": "ffb471e46ceab5c77ae65947b113d25b9932ec80c75cf8a56db158aa2633b827",
+    "archive_paths": [
+      "dist/runbook-sentinel-0.0.24.pyz",
+      "dist/repro/runbook-sentinel-0.0.24.pyz"
+    ],
+    "archive_bytes": 525771,
+    "archive_sha256": "22b64f590fef510fd7eaef33fba18a276e2a475565c826101f6422ffed8fe42e",
+    "checksum_bytes": 94,
+    "checksum_sha256": "c8333db98209a28225cd62ab9ba2e5cbe891e18858ea65080b5fd6e3c6ca0ba2",
+    "selected_archive_sha256_exact": true,
+    "independent_builds_byte_identical": true,
+    "entry_count": 39,
+    "runtime_dependencies": [],
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0024-main-package-attempt-001.json",
+    "evaluation_bytes": 758406,
+    "evaluation_sha256": "e5f0264fb084f68845adfc76b17de8e7fac3266ae4059b41d069eb8e54e37c41",
+    "trace_path": "artifacts/evaluations/runs/baseline-0024-main-package-attempt-001.traces.jsonl",
+    "trace_bytes": 160542,
+    "trace_sha256": "5cc6934913a6461c2ab4c17e0b7476aa029603eff683e5ec95398ae9778a8693",
+    "trace_event_count": 222,
+    "trace_final_event_sha256": "6fb8df22ab6ce4d18d77b52b3c6587e09f4b54663ad7062b0314744f7e126c10",
+    "trace_anchor_independently_verified": true,
+    "scenario_count": 44,
+    "scenario_attempt_count": 132,
+    "adversarial_condition_outcome_split_coverage": 1.0,
+    "development_coverage": 1.0,
+    "test_coverage": 1.0,
+    "inband_attack_document_exposure": 1.0,
+    "inband_proposal_attack_success": 0.0,
+    "inband_terminal_attack_success": 0.0,
+    "repeated_trial_reliability": 1.0,
+    "disposition": "pass"
+  },
+  "real_surfaces": {
+    "source_and_package_mcp_version": "0.0.24",
+    "source_and_package_mcp_protocol": "2025-11-25",
+    "source_and_package_mcp_tool_count": 3,
+    "mcp_tool_names": [
+      "list_synthetic_scenarios",
+      "diagnose_synthetic_incident",
+      "get_synthetic_incident"
+    ],
+    "mcp_approval_or_execution_tool_exposed": false,
+    "source_and_package_mcp_trace_chain_valid": true,
+    "source_and_package_mcp_trace_endpoint_anchored": true,
+    "source_mcp_trace_final_event_sha256": "bf3828fbf2b13963524039aea5085a9413e2aff5b0a191347b7ee1521a2a602c",
+    "package_mcp_trace_final_event_sha256": "f81bc39dee558afdb31caf3a4f725d20528644e65e65a3fb7d662fb4f33006a1",
+    "source_and_package_stale_payload_characters": 0,
+    "source_and_package_http_authentication_approval_execution_replay_postconditions_pass": true,
+    "source_and_package_sqlite_state_and_audit_pass": true,
+    "source_and_package_api_trace_chain_valid": true,
+    "source_and_package_api_trace_endpoint_anchored": true,
+    "source_api_trace_final_event_sha256": "8ec99cdc268a64221f1146b229a4bdab4abec80358b187f3243fe5858afa16bc",
+    "package_api_trace_final_event_sha256": "10b2d93b8353258374941287abd1196832578a4878110f0f1722e6bb55364678",
+    "source_and_package_evaluation_companion_trace_anchor_exact": true,
+    "authorization_before_body_parse": true,
+    "operator_identity_server_derived": true,
+    "cached_result_authorization": true,
+    "forbidden_authentication_material_absent": true
+  },
+  "rendered_dashboards": {
+    "dimensions": [1440, 1000],
+    "source_sha256": "9d4975e1c0b56bef288892576c35c858817818e0ad1e3f2039ee43d58525513a",
+    "source_bytes": 83200,
+    "package_sha256": "6ea472f8c163e4e08a2c03861584298a110945dfc1b3ad8fe9a428ffb1549417",
+    "package_bytes": 83197,
+    "visual_inspection": "pass: both original-detail 1440 by 1000 images are complete and show Baseline 0024, condition/outcome/split coverage 1.0, stale payload exposure 0.0, authenticated external operator, disconnected real infrastructure, and both persisted incidents"
+  },
+  "artifact_parsing": {
+    "post_verification_json_files": 449,
+    "post_verification_jsonl_files": 106,
+    "post_verification_jsonl_records": 15073,
+    "parse_errors": 0,
+    "status": "pass"
+  },
+  "security_scan": {
+    "credential_shaped_files": 14,
+    "match_classification": "frozen package-contract scanner definitions only",
+    "credential_shaped_matches_after_definition_exclusions": 0,
+    "model_artifact_count": 0,
+    "status": "pass"
+  },
+  "post_verification_changes_in_clone": {
+    "expected": true,
+    "tracked_paths": [
+      "artifacts/verification/dashboard-baseline-0024.png"
+    ],
+    "untracked_scope": "fresh source/package evaluation reports and traces plus source/package dashboard copies; deterministic archives and runtime state remain ignored",
+    "source_contract_manifest_policy_or_authority_changed": false
+  },
+  "retained_observations": [
+    {
+      "stage": "predecessor package bootstrap",
+      "result": "verified_dependency_restored",
+      "detail": "The public-main clone intentionally excludes ignored dist files. Exact already-approved public v0.0.23 archive and checksum assets were downloaded and hash-verified only to recheck the frozen predecessor package identity."
+    },
+    {
+      "stage": "dashboard renderer",
+      "result": "pass",
+      "detail": "Headless Edge wrote complete source and package PNGs; dimensions, hashes, content assertions, state checks, and original-detail inspection pass."
+    }
+  ],
+  "limitations": [
+    "Twenty-of-twenty adversarial condition/outcome/split coverage is synthetic evidence and not universal prompt-injection resistance.",
+    "The broader adversarial topology result remains scenario-label coverage and does not prove every hostile document is retrieved.",
+    "Forty-four scenarios do not satisfy the separate at-least-48-case v0.1.0 target.",
+    "The checkpoint remains a synthetic-only research-informed preview and is not authorized for real operational infrastructure.",
+    "Docker is not claimed for this checkpoint."
+  ],
+  "next_gate": "final release audit, exact release-closure commit, annotated v0.0.24 tag, selected assets, and immediate public verification"
+}
