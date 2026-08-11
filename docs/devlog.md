@@ -1,5 +1,18 @@
 # Development log
 
+## 2026-08-11 - BASELINE-0025 started
+
+- Reconciled exact public v0.0.24 release closure `58a02a2d359e67c9fb26668d80c3018d7fdee64a` from GitHub refs, annotated tag, release metadata, downloaded assets, rendered repository/release/tag pages, and a fresh HTTPS no-alternates public-tag clone. The local canonical repository remains `C:\Projects\Active\runbook-sentinel`; OneDrive is not authority.
+- Retained the first public tag clone's connection-reset failure; Git left no target directory. The fresh retry at `C:\Projects\Verification\runbook-sentinel-v0.0.24-tag-58a02a2-20260810T234100Z` is the only clone used as evidence. A fixed verifier `--help` probe also timed out and is excluded from evidence because those scripts have no help-only path.
+- The public tag passes compilation, 27 validators, 42 tests, fresh source/package 44-case and 132-attempt evaluations, exact 222-event traces, two byte-identical archive rebuilds equal to the downloaded 525,771-byte release, bounded MCP, real API/approval/executor/state/telemetry, parsing, scans, and original-detail dashboard inspection.
+- Public-tag source report/trace SHA-256 values are `e03dd6a46c406682c9a7d20565e0a4aad2646c3a2e83ce17c39f9955a2fe99e1` / `40a9b7036db7d64ba62668cff32d125ed0d5f9092969d8663790d37811b31503`; package values are `11ef942c83e4acd3a7673cce88cac4051b353dc1774aba14fdd0ff55e3d0f61b` / `f8a6887b48d38b6b9142ac6f2a96425d381cc4911c108c71dbe11aab985d4e11`. The external 7,205-byte public-tag receipt is SHA-256 `62c6d9d42423ec9daee64447a5e7aeb854cfb8d6fd97eab966ee6c2c90f7b9eb`.
+- Crossed adversarial domain, bounded outcome, and split. Although topology/split and outcome/split each report 1.0, only 20 of 32 observed-valid domain/outcome/split cells are covered. Development and test each cover ten of sixteen, or 0.625.
+- Selected the 12-cell interaction gap rather than adding arbitrary cases to reach a count. The frozen target mirrors one exact control into the opposite split for each empty cell, producing 56 scenarios, 168 attempts, and an exact 258-event trace without runtime-behavior or authority changes.
+- Froze `adversarial-domain-outcome-split-coverage-v1`, all 44 recursive pre-change scenario and terminal identities, the observed-valid pair rule, exact pre-change and target matrices, twelve transformations, hard gates, and forbidden changes before implementation. Implementation and candidate results are absent; the independent contract validator passes.
+- The complete pre-implementation regression passes 28 validators and all 42 tests in 116.206 seconds. This run exercises only the unchanged v0.0.24 runtime plus the new frozen contract; it does not reveal a BASELINE-0025 candidate or new held-out behavior.
+- No new external source was accessed and no external asset was imported. The prior ACL CheckList source gate is reused only for the narrow proposition that aggregate scores can hide a capability interaction; pairs, analogs, thresholds, and graders are project-authored.
+- The 56-case target exceeds the separate at-least-48-case v0.1.0 minimum, but this remains synthetic cross-split evidence, not learned-model generalization, production readiness, or universal prompt-injection resistance.
+
 ## 2026-08-11 - BASELINE-0024 started
 
 - Resumed from exact public v0.0.23 release closure `c29c20394ea39289def2dddd95b5ae8413a8fe93` on isolated branch `codex/baseline-0024-adversarial-condition-outcome-split`; no OneDrive path is authoritative.

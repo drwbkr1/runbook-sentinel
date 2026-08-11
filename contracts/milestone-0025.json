@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0025",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "active_contract": "contracts/milestone-0025.json",
+    "verified_at_utc": "2026-08-11T14:51:39.5868079Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Make the interaction between adversarial SRE domain, bounded safe outcome, and development versus held-out split explicit and fail-closed; add one exact project-authored cross-split analog for each of the twelve measured empty cells.",
+    "allowed_paths": [
+      "C:/Projects/Active/runbook-sentinel",
+      "C:/Projects/Verification"
+    ],
+    "forbidden_work": [
+      "change any existing scenario or expected result",
+      "change agent, model, retrieval, decision context, action inventory, policy, approval, authentication, executor, API, or MCP authority",
+      "add a dependency, paid service, secret, external asset, remote model call, or real-infrastructure connector",
+      "change repository visibility, access, or ownership",
+      "claim synthetic 32-cell coverage is production readiness or universal prompt-injection resistance"
+    ],
+    "reversible_actions": [
+      "create and update files on the isolated codex/baseline-0025-adversarial-domain-outcome-split branch",
+      "run deterministic local evaluations, tests, package builds, dashboard checks, and clean-clone verification",
+      "commit and push bounded checkpoints under the standing director authority",
+      "open, review, and merge a pull request and publish a public release only after every release gate passes"
+    ],
+    "stop_conditions": [
+      "core thesis change or security-boundary weakening",
+      "an existing expected result or runtime authority boundary would need to change",
+      "a dependency, secret, paid service, external asset, real infrastructure, or access change becomes necessary",
+      "pre-change identity, exact safe outcomes, 32-cell coverage, prior behavior, or shipment cannot be verified"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.24 refs, release, selected assets, downloaded bytes, rendered pages, and independent public-tag source/package verification reconcile at 58a02a2d359e67c9fb26668d80c3018d7fdee64a.",
+        "Fresh public-tag source and package evaluations each pass 44 scenarios, 132 attempts, every prior gate, and exact 222-event trace verification.",
+        "Adversarial topology-by-split and outcome-by-split coverage each report 1.0, but the observed-valid domain/outcome/split interaction matrix is 20 of 32."
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": [
+        "All 56 cases pass three trials with all 44 prior scenario and terminal identities exact and all 32 adversarial domain/outcome/split cells covered.",
+        "Exact candidate, reviewed merge, merged-main, final audit, annotated tag, selected public assets, downloaded bytes, rendered pages, and public-tag verification reconcile."
+      ]
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Reconcile and run public v0.0.24 from its tag and selected package, then measure adversarial domain/outcome coverage in each split.",
+      "depends_on": [],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": [
+        "public-tag-baseline-0024 external receipt",
+        "adversarial domain/outcome/split gap measurement"
+      ],
+      "gates": {
+        "public_checkpoint_reconciled": "pass",
+        "fresh_source_and_package_evaluation": "pass",
+        "real_source_and_package_surfaces": "pass",
+        "gap_measured_and_retained": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "The first HTTPS tag clone failed on a connection reset and left no target directory; the fresh retry is the only clone used as evidence.",
+        "A help probe timed out because fixed verification scripts do not implement help-only paths; no output from that probe is release evidence."
+      ],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze all 44 pre-change identities, sixteen observed-valid domain/outcome pairs, twelve exact cross-split analogs, target metrics, gates, and forbidden changes before implementation.",
+      "depends_on": ["UNIT-001"],
+      "action_class": "evidence_preservation",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": [
+        "frozen adversarial-domain-outcome-split-coverage-v1 contract",
+        "recursive 44-case pre-change identity record",
+        "independent pre/post implementation contract validator"
+      ],
+      "gates": {
+        "json_documents_parse": "pass",
+        "prechange_identities_compose_to_44": "pass",
+        "candidate_results_absent": "pass",
+        "twelve_missing_cells_frozen": "pass",
+        "contract_validator": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement the fail-closed 32-cell metric and twelve exact cross-split analogs without changing runtime behavior or authority.",
+      "depends_on": ["UNIT-002"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "pending",
+      "gates": {
+        "all_44_prechange_scenarios_exact": "pending",
+        "all_44_prechange_terminal_states_exact": "pending",
+        "twelve_new_transforms_exact": "pending",
+        "adversarial_domain_outcome_split_coverage_32_of_32": "pending",
+        "implementation_sealed_before_candidate_evaluation": "pending"
+      },
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Run all prior source, package, API, MCP, state, telemetry, dashboard, reproducibility, and clean-clone gates on the frozen candidate.",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "pending",
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Audit, review, merge, release, and independently verify the exact passing checkpoint.",
+      "depends_on": ["UNIT-004"],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "pending",
+      "next_dependency": null
+    }
+  ],
+  "current_unit": "UNIT-003",
+  "next_action": "Implement only the twelve frozen cross-split analogs and the fail-closed 32-cell metric, then seal implementation before any full held-out candidate run."
+}

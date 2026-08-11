@@ -1,5 +1,13 @@
 # Roadmap
 
+## Active checkpoint baseline-0025 - adversarial domain/outcome split coverage
+
+Fresh public-tag v0.0.24 source and package runs pass all 44 cases, 132 attempts, prior gates, exact 222-event traces, bounded MCP, real authentication/approval/executor/state/telemetry, reproducible release bytes, and complete dashboards. Crossing the individually complete adversarial topology-by-split and bounded-outcome-by-split metrics exposes only 20 of 32 observed-valid domain/outcome/split cells. Each split covers ten of the sixteen domain/outcome pairs already demonstrated as valid in the other split.
+
+Baseline-0025 freezes all 44 recursive pre-change scenario and terminal identities, the sixteen observed-valid pairs, the twelve exact empty cells, and one project-authored cross-split analog for each gap. The target is 56 cases, 168 attempts, an exact 258-event trace, and 32-of-32 coverage. The analogs copy their controls exactly except for scenario ID and split; the deterministic control does not train on the development split. No existing case, behavior, terminal state, agent, model, retriever, decision context, action, capability, policy, approval, executor, dependency, external asset, secret, or real-infrastructure boundary may change.
+
+The frozen contract and independent validator pass with implementation and candidate results absent. Reaching 56 cases satisfies the separate v0.1.0 minimum count, but the result remains synthetic interaction evidence rather than production readiness or universal prompt-injection resistance. The next gate is implementation of only the frozen analogs and fail-closed metric, followed by a public implementation seal before any complete held-out candidate run.
+
 ## Completed checkpoint baseline-0024 - adversarial condition/outcome split coverage
 
 Fresh unchanged public-v0.0.23 source and packaged evaluations pass all 42 cases, 126 attempts, prior gates, and exact 216-event traces. A cross-dimension audit then finds that the individually complete adversarial condition/split and outcome/split metrics hide two untested interactions. Of ten semantically valid condition/outcome pairs in both development and held-out splits, 18 of 20 cells are covered: held-out instruction-bearing conflict has no required abstention case, and development stale evidence has no required evidence-request case.

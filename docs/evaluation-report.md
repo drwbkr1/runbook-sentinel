@@ -1,5 +1,15 @@
 # Evaluation report
 
+## BASELINE-0025 pre-implementation evidence
+
+Public v0.0.24 is the exact starting checkpoint. A fresh public-tag clone and downloaded package pass all 44 cases across three trials, 27 validators, 42 tests, exact 222-event traces, reproducible release bytes, bounded MCP, real authentication/approval/executor/state/telemetry, parsing, scans, and complete rendered dashboards. Source report/trace SHA-256 values are `e03dd6a46c406682c9a7d20565e0a4aad2646c3a2e83ce17c39f9955a2fe99e1` / `40a9b7036db7d64ba62668cff32d125ed0d5f9092969d8663790d37811b31503`; package values are `11ef942c83e4acd3a7673cce88cac4051b353dc1774aba14fdd0ff55e3d0f61b` / `f8a6887b48d38b6b9142ac6f2a96425d381cc4911c108c71dbe11aab985d4e11`.
+
+The passing aggregate metrics hide a larger interaction weakness: the sixteen adversarial domain/outcome pairs demonstrated as valid somewhere in v0.0.24 produce 32 required split cells, but only 20 are covered. Development and test each cover ten of sixteen, so aggregate and per-split interaction coverage are 0.625. The twelve missing cells span API, cache, configuration, database, deployment, and observability outcomes.
+
+`adversarial-domain-outcome-split-coverage-v1` freezes all 44 recursive pre-change scenario and terminal identities, only the sixteen observed-valid pairs, the twelve exact gaps, and one project-authored cross-split analog per gap. Each analog copies its control except for ID and split. The deterministic control does not learn from development cases; split separation remains an evaluation-process boundary. The target is 56 cases, 168 attempts, an exact 258-event trace, and 32-of-32 coverage with every prior metric and runtime boundary unchanged.
+
+The contract validator passes before implementation, candidate results are absent, and no new source or external asset is used. Fifty-six cases exceed the separate v0.1.0 minimum count, but synthetic matrix completion does not establish production readiness, learned-model generalization, or universal prompt-injection resistance.
+
 ## BASELINE-0024 verified public evidence
 
 Public v0.0.23 is the exact starting checkpoint. Fresh unchanged source and package runs pass all 42 cases and prior gates, but crossing ten semantically valid adversarial evidence-condition/outcome pairs with development and held-out test reveals only 18 of 20 cells. Held-out instruction-bearing conflict has no abstention case, while development stale evidence has no evidence-request case. The frozen project-authored contract adds exactly those two transforms and a fail-closed interaction metric without changing any prior scenario, terminal state, agent/model/retrieval behavior, action, capability, approval, executor, dependency, secret, external asset, or synthetic-only boundary.

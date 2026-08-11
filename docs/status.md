@@ -2,24 +2,35 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0025-adversarial-domain-outcome-split`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0024`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.24`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release closure
-- Candidate version: none; the next checkpoint is intentionally unchosen until a fresh public-v0.0.24 run identifies one measurable weakness
-- Active milestone: none; `BASELINE-0024` adversarial condition/outcome split coverage is complete
-- Current unit: none; the next cycle must resume from the verified v0.0.24 checkpoint
-- Disposition: baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
+- Candidate version: planned `0.0.25` / `baseline-0025`; contract frozen, implementation and candidate results absent
+- Active milestone: `BASELINE-0025` adversarial domain/outcome split coverage
+- Current unit: `UNIT-003`; implement only the twelve frozen analogs and fail-closed 32-cell metric before the implementation seal
+- Disposition: baseline-0025 `active_preimplementation`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
 - GitHub `main`: verified baseline-0024 release closure
-- GitHub pull request: `#22` merged exact reviewed head `07cc52c329b7dfdbc3d8b68ff0783360fb55df3a` with history preserved as `3b44377b7c13a0bb8a12c20603bc14975d674d87`
+- GitHub pull request: none for baseline-0025; prior `#22` merged exact reviewed head `07cc52c329b7dfdbc3d8b68ff0783360fb55df3a` with history preserved as `3b44377b7c13a0bb8a12c20603bc14975d674d87`
 - GitHub release: public, non-draft `v0.0.24` with verified `.pyz` and `.sha256` assets
 - Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
 - External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
 - Local model source gate: refreshed and ready for the already installed, publisher-signed Ollama 0.32.6 executable and unchanged `llama3.2:3b` manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six content-addressed blobs pass exact SHA-256 and size checks. No download, update, copy, redistribution, remote call, model tool, secret, or real-infrastructure access is authorized.
 
 ## Verified evidence
+
+### BASELINE-0025 adversarial domain/outcome split gap and frozen contract
+
+- The cycle starts from exact public v0.0.24 release closure `58a02a2d359e67c9fb26668d80c3018d7fdee64a` on isolated branch `codex/baseline-0025-adversarial-domain-outcome-split`; no OneDrive path is project authority.
+- Remote `main`, annotated and peeled tag, public release metadata, exact asset digests, downloaded bytes, rendered repository/release/tag pages, and fresh no-alternates public-tag source/package execution reconcile. The external receipt is 7,205 bytes at SHA-256 `62c6d9d42423ec9daee64447a5e7aeb854cfb8d6fd97eab966ee6c2c90f7b9eb`.
+- The fresh public tag passes 27 validators, 42 tests, source/package 44-case and 132-attempt evaluations, exact 222-event anchors, exact archive reproduction, bounded MCP, real API/approval/executor/state/telemetry, parsing, scans, and complete original-detail dashboards.
+- Adversarial topology/split and outcome/split coverage each remain 1.0, but their observed-valid interaction matrix covers only 20 of 32 cells. Development and test each cover ten of sixteen, or 0.625.
+- `adversarial-domain-outcome-split-coverage-v1` freezes the sixteen pairs demonstrated in public v0.0.24, excludes unobserved Cartesian pairs, and adds one exact project-authored cross-split analog for each of twelve gaps.
+- The recursive pre-change record composes all 44 public-v0.0.24 scenario and terminal identities exactly. Candidate results and implementation remain absent, and the independent contract validator passes.
+- The complete pre-implementation regression passes 28 validators and all 42 tests. No BASELINE-0025 candidate evaluation or held-out analog has run.
+- Target: 56 cases, 168 attempts, exact 258-event trace, 32-of-32 interaction coverage, every prior gate exact, and no runtime-authority change. Passing the 48-case minimum will not establish production readiness or universal prompt-injection resistance.
 
 ### BASELINE-0024 adversarial condition/outcome split gap and frozen contract
 
