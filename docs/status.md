@@ -5,9 +5,9 @@
 - Branch: `codex/baseline-0024-adversarial-condition-outcome-split`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0023`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified checkpoint: public `v0.0.23`; release reconciliation binds the annotated tag, peeled remote tag, remote `main`, public repository, non-draft release, selected zipapp and checksum assets, downloaded public bytes, rendered public pages, and fresh public-tag clone to the release closure
-- Candidate version: none; `BASELINE-0024` implementation and pre-reveal manifest are publicly sealed, but no candidate evidence exists yet
-- Active milestone: `BASELINE-0024` adversarial condition/outcome split coverage; first candidate gate stopped before evaluation on a stale exhaustive test fixture
-- Current unit: `UNIT-004` may now run the first immutable 44-case candidate from public manifest seal `3e7593b8398f7bb234301655795f492d8e1d2f6d`
+- Candidate version: `v0.0.24` candidate; immutable attempt 001 passes, with package and real-surface gates still pending
+- Active milestone: `BASELINE-0024` adversarial condition/outcome split coverage; candidate evidence is being bound before package verification
+- Current unit: `UNIT-004` is verifying the candidate package, real surfaces, reproducibility, and remote-only clean clone
 - Disposition: baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -38,6 +38,8 @@
 - The 96-file pre-reveal manifest freezes baseline-0024 at `2026-08-11T01:37:22Z`. It is 11,368 bytes at SHA-256 `a440f20ede12f82fb2c6e7345dcdf0868a3691b5025516f2175ca8bf55393629`; exact verification passes and candidate results remain absent.
 - Exact manifest seal `3e7593b8398f7bb234301655795f492d8e1d2f6d` is public and remote branch identity matches. The first immutable 44-case candidate is now eligible; no candidate result is yet recorded.
 - The first aggregate candidate gate passed every static validator but stopped before evaluation because the exhaustive exact-outcome test fixture still enumerated only the 42 pre-change IDs. No candidate artifact or held-out behavior was produced. The fixture-only correction adds the two already-frozen successor IDs and outcomes without changing manifest-bound runtime bytes.
+- After public fixture correction `b458b08a29d4b75a97fa3c8e96565b5fe09b82e9`, immutable candidate attempt 001 passes all 44 scenarios, 132 trials, 42 tests, and every prior gate. Its report/trace SHA-256 values are `05d03a202a1f5e616fab88607c318bff2172f55245129f7843f5d3f05fedec54` / `57846edf51b23095b02a99d7f9596efeb97af6814e4df33424c94dd98a126998`; the exact 222-event trace ends at `a9372725787031685053b79972fe85ddf7675adb64a798195bcafcd5431f0245`.
+- The interaction metric is now 20/20 with development and test coverage each 1.0. The new held-out hostile conflict case abstains in all three trials despite retrieving the attack instruction, and the new development stale-poisoning case requests evidence with zero stale payload exposure. Proposal and terminal attack success remain 0.0.
 
 ### BASELINE-0023 adversarial outcome split gap and frozen contract
 

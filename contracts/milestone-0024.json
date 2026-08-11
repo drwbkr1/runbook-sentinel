@@ -191,10 +191,10 @@
       "gates": {
         "implementation_seal_public": "pass",
         "pre_reveal_manifest_frozen_and_public": "pass",
-        "all_44_scenarios_exact_across_three_trials": "pending",
-        "all_42_prechange_identities_exact": "pending",
-        "two_new_cases_exact": "pending",
-        "adversarial_condition_outcome_split_coverage_20_of_20": "pending",
+        "all_44_scenarios_exact_across_three_trials": "pass",
+        "all_42_prechange_identities_exact": "pass",
+        "two_new_cases_exact": "pass",
+        "adversarial_condition_outcome_split_coverage_20_of_20": "pass",
         "all_prior_source_package_and_real_surface_gates": "pending",
         "deterministic_archive_reproduction": "pending",
         "remote_only_clean_clone": "pending"
