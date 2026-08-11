@@ -7,7 +7,7 @@
 - Latest verified public checkpoint: `v0.0.25`; release reconciliation binds the annotated tag object and peeled closure commit, public release metadata, selected assets, downloaded bytes, live repository/release/tag pages, and a fresh public-tag clone
 - Candidate version: `v0.0.26` planned; no candidate has been evaluated or built
 - Active milestone: `BASELINE-0026` adversarial exposure-stage/outcome split coverage
-- Current unit: `UNIT-003` in progress; the frozen one-case transform and fail-closed evaluator metric are being implemented before candidate evaluation
+- Current unit: `UNIT-004` ready; implementation is public and the pre-reveal manifest must be frozen and published before candidate evaluation
 - Disposition: baseline-0025 `pass`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -30,6 +30,8 @@
 - Catalog schema 1.17 now contains exactly 57 scenarios and terminal states. The independent implementation verifier confirms all 56 prior identities, the new transform, and the embedded contract exactly; static coverage is eighteen of eighteen.
 - The evaluator grades actual attempt-stage flags rather than catalog labels alone: filtered guidance must remain unexposed, in-band hostile evidence must be observed in decision context, non-instruction cases must expose neither class, and every attempt must retain its exact safe outcome. Ambiguous or inconsistent stages fail the contract and do not count.
 - The focused implementation gate passes the exhaustive 57-case outcome oracle, the new fail-closed metric mutations, bounded MCP inventory/version, rendered HTTP identity/dashboard, and both structured-model evaluation paths. Twenty-nine held-out-safe validators also pass before implementation seal; no immutable v0.0.26 candidate exists yet.
+- Exact implementation seal `a5745505fef313cfff0e7987d6900a473eb562f9` is public on the branch before any complete v0.0.26 candidate evaluation.
+- The 107-file pre-reveal manifest freezes baseline-0026 at `2026-08-11T19:28:42Z`; it is 12,849 bytes at SHA-256 `cc49231903b1e2d816f4a82c1c7e9e1c5b2289cf22554b25144c38df5a4c579c` and passes exact verification. It must be public before candidate attempt 001.
 
 ### BASELINE-0025 adversarial domain/outcome split gap and frozen contract
 

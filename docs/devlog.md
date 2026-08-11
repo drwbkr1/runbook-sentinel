@@ -12,6 +12,8 @@
 - Added only `dev-inband-observability-request-evidence-injection`, copied from the held-out observability control except for ID and development split, plus its exact no-execution terminal state. Catalog schema 1.17 contains 57 cases; all 56 prior scenario and terminal hashes remain exact.
 - Added the generic attempt-aware eighteen-cell metric, four hard gates, report schema 3.2 identity, dashboard card, independent static implementation verifier, and `0.0.26` / `baseline-0026` runtime-verifier wiring. A stage counts only when every observed trial matches the frozen filtering/exposure semantics and exact outcome; ambiguous or inconsistent stages fail closed.
 - Twenty-nine held-out-safe validators pass. Six focused tests pass the exhaustive 57-case oracle, fail-closed missing/exposure/ambiguity/contract mutations, bounded MCP inventory/version, rendered HTTP identity/dashboard, and valid/invalid structured-model evaluation paths in 45.108 seconds. No immutable candidate report exists.
+- Published exact implementation seal `a5745505fef313cfff0e7987d6900a473eb562f9`; local and remote branch identities match before any complete 57-case candidate evaluation.
+- Froze the 107-file baseline-0026 pre-reveal manifest at `2026-08-11T19:28:42Z`. The 12,849-byte manifest has SHA-256 `cc49231903b1e2d816f4a82c1c7e9e1c5b2289cf22554b25144c38df5a4c579c` and passes exact verification; candidate results remain absent until this manifest seal is public.
 
 ## 2026-08-11 - BASELINE-0025 started
 
