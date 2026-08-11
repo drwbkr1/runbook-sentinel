@@ -113,6 +113,19 @@ class BaselineTest(unittest.TestCase):
         latest.write_bytes(report_bytes)
         self.assertTrue(valid_latest_report(latest, None, root))
 
+        companion_manifest = final_report.with_name(
+            final_report.stem + ".manifest.json"
+        )
+        companion_manifest.write_text(
+            '{"checkpoint":"baseline-0025"}\n', encoding="utf-8"
+        )
+        manifest_path.write_text(
+            '{"checkpoint":"baseline-0026"}\n', encoding="utf-8"
+        )
+        self.assertTrue(valid_latest_report(latest, None, root))
+        companion_manifest.write_text("{}\n", encoding="utf-8")
+        self.assertFalse(valid_latest_report(latest, None, root))
+
         latest.write_text("{}\n", encoding="utf-8")
         self.assertFalse(valid_latest_report(latest, None, root))
         candidate_sha256 = hashlib.sha256(latest.read_bytes()).hexdigest()

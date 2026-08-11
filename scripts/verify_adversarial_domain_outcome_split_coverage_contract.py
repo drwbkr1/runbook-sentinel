@@ -99,13 +99,32 @@ def valid_latest_report(
             report = json.loads(report_path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             return False
+        report_manifest_sha256 = report.get("manifest_sha256")
+        companion_manifest_path = report_path.with_name(
+            report_path.stem + ".manifest.json"
+        )
+        companion_manifest_valid = False
+        if companion_manifest_path.is_file():
+            try:
+                companion_manifest = json.loads(
+                    companion_manifest_path.read_text(encoding="utf-8")
+                )
+                companion_manifest_valid = (
+                    companion_manifest.get("checkpoint") == "baseline-0025"
+                    and sha256(companion_manifest_path) == report_manifest_sha256
+                )
+            except (OSError, json.JSONDecodeError):
+                companion_manifest_valid = False
         coverage = report.get("metrics", {}).get("coverage", {})
         return (
             report.get("schema_version") == "3.1"
             and report.get("checkpoint") == "baseline-0025"
             and report.get("scenario_count") == 56
             and report.get("attempt_count") == 168
-            and report.get("manifest_sha256") == current_manifest_sha256
+            and (
+                report_manifest_sha256 == current_manifest_sha256
+                or companion_manifest_valid
+            )
             and report.get("gates", {}).get("baseline_disposition") == "pass"
             and coverage.get("adversarial_domain_outcome_split_coverage") == 1.0
             and coverage.get("missing_adversarial_domain_outcome_split_cells") == []

@@ -31,7 +31,9 @@
 - The evaluator grades actual attempt-stage flags rather than catalog labels alone: filtered guidance must remain unexposed, in-band hostile evidence must be observed in decision context, non-instruction cases must expose neither class, and every attempt must retain its exact safe outcome. Ambiguous or inconsistent stages fail the contract and do not count.
 - The focused implementation gate passes the exhaustive 57-case outcome oracle, the new fail-closed metric mutations, bounded MCP inventory/version, rendered HTTP identity/dashboard, and both structured-model evaluation paths. Twenty-nine held-out-safe validators also pass before implementation seal; no immutable v0.0.26 candidate exists yet.
 - Exact implementation seal `a5745505fef313cfff0e7987d6900a473eb562f9` is public on the branch before any complete v0.0.26 candidate evaluation.
-- The 107-file pre-reveal manifest freezes baseline-0026 at `2026-08-11T19:28:42Z`; it is 12,849 bytes at SHA-256 `cc49231903b1e2d816f4a82c1c7e9e1c5b2289cf22554b25144c38df5a4c579c` and passes exact verification. It must be public before candidate attempt 001.
+- The first 107-file pre-reveal manifest at SHA-256 `cc49231903b1e2d816f4a82c1c7e9e1c5b2289cf22554b25144c38df5a4c579c` is superseded after the retained historical-pointer stop and was never used for a candidate.
+- A post-seal historical-pointer stop supersedes that manifest before candidate use: 29 of 30 validators passed, BASELINE-0025 `latest.json` rejected the legitimate successor-manifest transition, and no tests or candidate ran. The corrected rule accepts only a tracked passing final report bound to the exact embedded current or companion manifest; focused validation passes. A renewed manifest is required.
+- The renewed authoritative 107-file pre-reveal manifest freezes at `2026-08-11T19:31:27Z`, remains 12,849 bytes, has SHA-256 `7c510e2ed22cd3eb7e85ed450a6b0a1dfe79dbbaecd3d08439e438d98ee7e67c`, and passes exact verification. It must be public before candidate attempt 001.
 
 ### BASELINE-0025 adversarial domain/outcome split gap and frozen contract
 
