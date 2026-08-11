@@ -147,11 +147,14 @@
         "candidate_trace_258_events_exact": "pass",
         "package_contract_frozen_before_archive": "pass",
         "final_manifest_frozen_before_archive": "pass",
-        "package_and_real_surfaces": "pending",
+        "package_and_real_surfaces": "pass",
         "clean_clone": "pending"
       },
       "retained_failures": [
-        "The first public-manifest aggregate gate passed all 29 validators and 39 of 43 tests but stopped before immutable candidate generation because four test-only expectations retained the 44-case predecessor inventory; candidate artifact count remained zero."
+        "The first public-manifest aggregate gate passed all 29 validators and 39 of 43 tests but stopped before immutable candidate generation because four test-only expectations retained the 44-case predecessor inventory; candidate artifact count remained zero.",
+        "The first source MCP wrapper set only the child runtime path, so the verifier itself stopped before MCP startup; corrected source and package parent/child import paths pass.",
+        "The first final-evidence pointer rule accepted only preliminary candidate bytes; passing attempt 001 package and runtime evidence is retained as superseded after public correction.",
+        "The first pointer correction still coupled final evidence to attempt ordinal 001; passing attempt 002 evidence is retained after an ordinal-independent public correction and focused test."
       ],
       "next_dependency": "UNIT-005"
     },
@@ -166,5 +169,5 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Commit and push the exact 102-file pre-reveal manifest seal before running the first complete candidate evaluation."
+  "next_action": "Commit and push the complete local candidate receipt, then verify its exact public commit from a remote-only no-alternates clean clone."
 }
