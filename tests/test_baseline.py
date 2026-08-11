@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 import json
 import secrets
 import sys
@@ -63,6 +64,9 @@ from scripts.verify_idempotency_authorization_contract import (
 from scripts.verify_operator_authentication_contract import (
     validate as validate_operator_authentication_contract,
 )
+from scripts.verify_adversarial_domain_outcome_split_coverage_contract import (
+    valid_latest_report,
+)
 
 
 class BaselineTest(unittest.TestCase):
@@ -77,6 +81,41 @@ class BaselineTest(unittest.TestCase):
 
     def tearDown(self):
         self.temp.cleanup()
+
+    def test_latest_report_accepts_only_candidate_or_current_manifest_final(self):
+        root = Path(self.temp.name)
+        manifest_path = root / "eval/manifest.json"
+        report_dir = root / "artifacts/evaluations/runs"
+        latest = root / "artifacts/evaluations/latest.json"
+        manifest_path.parent.mkdir(parents=True)
+        report_dir.mkdir(parents=True)
+        manifest_path.write_text('{"checkpoint":"baseline-0025"}\n', encoding="utf-8")
+        manifest_sha256 = hashlib.sha256(manifest_path.read_bytes()).hexdigest()
+        report = {
+            "schema_version": "3.1",
+            "checkpoint": "baseline-0025",
+            "scenario_count": 56,
+            "attempt_count": 168,
+            "manifest_sha256": manifest_sha256,
+            "gates": {"baseline_disposition": "pass"},
+            "metrics": {
+                "coverage": {
+                    "adversarial_domain_outcome_split_coverage": 1.0,
+                    "missing_adversarial_domain_outcome_split_cells": [],
+                }
+            },
+        }
+        report_bytes = (json.dumps(report, sort_keys=True) + "\n").encode("utf-8")
+        final_report = report_dir / "baseline-0025-final-source-attempt-001.json"
+        final_report.write_bytes(report_bytes)
+        latest.parent.mkdir(parents=True, exist_ok=True)
+        latest.write_bytes(report_bytes)
+        self.assertTrue(valid_latest_report(latest, None, root))
+
+        latest.write_text("{}\n", encoding="utf-8")
+        self.assertFalse(valid_latest_report(latest, None, root))
+        candidate_sha256 = hashlib.sha256(latest.read_bytes()).hexdigest()
+        self.assertTrue(valid_latest_report(latest, candidate_sha256, root))
 
     def test_all_frozen_scenarios_match_exact_expected_outcome(self):
         expected = {

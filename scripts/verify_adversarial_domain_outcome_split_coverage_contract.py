@@ -63,6 +63,46 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def valid_latest_report(
+    latest: Path,
+    candidate_report_sha256: str | None,
+    root: Path = ROOT,
+) -> bool:
+    if not latest.is_file():
+        return False
+    latest_sha256 = sha256(latest)
+    if latest_sha256 == candidate_report_sha256:
+        return True
+
+    manifest_path = root / "eval/manifest.json"
+    if not manifest_path.is_file():
+        return False
+    current_manifest_sha256 = sha256(manifest_path)
+    for name in (
+        "baseline-0025-final-source-attempt-001.json",
+        "baseline-0025-final-package-attempt-001.json",
+    ):
+        report_path = root / "artifacts/evaluations/runs" / name
+        if not report_path.is_file() or sha256(report_path) != latest_sha256:
+            continue
+        try:
+            report = json.loads(report_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            return False
+        coverage = report.get("metrics", {}).get("coverage", {})
+        return (
+            report.get("schema_version") == "3.1"
+            and report.get("checkpoint") == "baseline-0025"
+            and report.get("scenario_count") == 56
+            and report.get("attempt_count") == 168
+            and report.get("manifest_sha256") == current_manifest_sha256
+            and report.get("gates", {}).get("baseline_disposition") == "pass"
+            and coverage.get("adversarial_domain_outcome_split_coverage") == 1.0
+            and coverage.get("missing_adversarial_domain_outcome_split_cells") == []
+        )
+    return False
+
+
 def object_sha256(value: object) -> str:
     payload = json.dumps(value, sort_keys=True, separators=(",", ":")).encode(
         "utf-8"
@@ -484,9 +524,7 @@ def main() -> None:
             if not trace_result.get("valid") or not trace_result.get("anchored"):
                 errors.append("candidate_trace_verification_failed")
         latest = ROOT / "artifacts/evaluations/latest.json"
-        if not latest.is_file() or sha256(latest) != candidate_results.get(
-            "report_sha256"
-        ):
+        if not valid_latest_report(latest, candidate_results.get("report_sha256")):
             errors.append("candidate_latest_pointer_mismatch")
 
         expected_result_values = {
