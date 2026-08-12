@@ -9,7 +9,8 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CONTRACT = ROOT / "eval/container-contract.json"
-VERSIONED_CONTRACT = ROOT / "eval/container-contract-0027-v5.json"
+VERSIONED_CONTRACT = ROOT / "eval/container-contract-0027-v6.json"
+SUPERSEDED_V5_CONTRACT = ROOT / "eval/container-contract-0027-v5.json"
 SUPERSEDED_V4_CONTRACT = ROOT / "eval/container-contract-0027-v4.json"
 SUPERSEDED_V3_CONTRACT = ROOT / "eval/container-contract-0027-v3.json"
 EXPECTED_V4_CONTRACT_SHA256 = (
@@ -20,6 +21,15 @@ EXPECTED_V4_EVENT_FAILURE_SHA256 = (
 )
 EXPECTED_V5_SOURCE_GATE_SHA256 = (
     "8a318d1f943937a44772dccc4176d689015062cd6929094deb4a2caf15c5ab87"
+)
+EXPECTED_V5_CONTRACT_SHA256 = (
+    "e71817e465dd8f25c183427389f7c1d1aaeefadbf318506e566e6eb0c842b30a"
+)
+EXPECTED_V5_RUNTIME_FAILURE_SHA256 = (
+    "b340fcc5526a73f5730e48fccedbf0dc29c20aca6a09f6c8e553470594e2a0cd"
+)
+EXPECTED_V6_SOURCE_GATE_SHA256 = (
+    "88a9448c8716c33bed7059ef5b60ef00cb3a466057fc9a8a6aec78824d2f4f07"
 )
 EXPECTED_V3_CONTRACT_SHA256 = (
     "1f63fcb6707f129ecc803c05026308680ea9417a6b61c4fdb4d379737d9d6b67"
@@ -248,7 +258,7 @@ def validate_v4_contract(contract: dict, raw: bytes, errors: list[str]) -> None:
     expect(raw.endswith(b"\n"), "contract must end with LF", errors)
 
 
-def validate_contract(contract: dict, raw: bytes, errors: list[str]) -> None:
+def validate_v5_contract(contract: dict, raw: bytes, errors: list[str]) -> None:
     expect(contract.get("schema_version") == "1.0", "schema_version must be 1.0", errors)
     expect(contract.get("contract_id") == "container-runtime-v5", "contract_id mismatch", errors)
     expect(contract.get("checkpoint") == "baseline-0027", "checkpoint mismatch", errors)
@@ -308,6 +318,84 @@ def validate_contract(contract: dict, raw: bytes, errors: list[str]) -> None:
     pre = contract.get("preimplementation_identity", {})
     expect(pre.get("runtime_verifier_v4_sha256") == "ed71ad8cbe8b379598c3e9442ecef2312992bae588cb2251a074c0dd1bc22712", "v4 runtime verifier identity mismatch", errors)
     expect(pre.get("tests_v4_sha256") == "67e0f54a9f3a70302595e04da0b01c8df9d8a5dbaab593c98441cf16f07a45db", "v4 tests identity mismatch", errors)
+    required_checks = contract.get("verification_contract", {}).get("required_checks", [])
+    expect(len(required_checks) == 42, "exactly 42 container checks are required", errors)
+    expect(len(required_checks) == len(set(required_checks)), "container check IDs must be unique", errors)
+    expect(bool(contract.get("no_go_boundaries")), "no-go boundaries must be nonempty", errors)
+    expect(raw.endswith(b"\n"), "contract must end with LF", errors)
+
+
+def validate_contract(contract: dict, raw: bytes, errors: list[str]) -> None:
+    expect(contract.get("schema_version") == "1.0", "schema_version must be 1.0", errors)
+    expect(contract.get("contract_id") == "container-runtime-v6", "contract_id mismatch", errors)
+    expect(contract.get("checkpoint") == "baseline-0027", "checkpoint mismatch", errors)
+    expect(
+        contract.get("contract_status")
+        == "frozen_after_v5_private_ipc_validation_failure_before_v6_implementation",
+        "contract_status mismatch",
+        errors,
+    )
+    supersedes = contract.get("supersedes", {})
+    expect(supersedes.get("contract") == "eval/container-contract-0027-v5.json", "superseded contract path mismatch", errors)
+    expect(supersedes.get("contract_id") == "container-runtime-v5", "superseded contract ID mismatch", errors)
+    expect(supersedes.get("contract_sha256") == EXPECTED_V5_CONTRACT_SHA256, "superseded v5 contract hash mismatch", errors)
+    expect(
+        supersedes.get("reason_receipt")
+        == "artifacts/verification/container-baseline-0027-v5-runtime-security-failure-001.json",
+        "v5 failure receipt path mismatch",
+        errors,
+    )
+    expect(
+        supersedes.get("reason_receipt_sha256") == EXPECTED_V5_RUNTIME_FAILURE_SHA256,
+        "v5 failure receipt hash mismatch",
+        errors,
+    )
+    source = contract.get("source_checkpoint", {})
+    expect(source.get("public_version") == "0.0.26", "source public version mismatch", errors)
+    expect(source.get("public_v5_payload_commit") == "a284c60c44972664294c67e4727f3075ac8a361d", "public v5 payload commit mismatch", errors)
+    expect(source.get("v5_image_ids_equal") is True, "v5 image identity evidence mismatch", errors)
+    expect(source.get("v5_event_window_passed") is True, "v5 event-window evidence mismatch", errors)
+    expect(source.get("v5_product_runtime_started") is False, "v5 product runtime must remain unstarted", errors)
+    inheritance = contract.get("inheritance", {})
+    expect(inheritance.get("contract") == "eval/container-contract-0027-v5.json", "v5 inheritance path mismatch", errors)
+    expect(inheritance.get("contract_sha256") == EXPECTED_V5_CONTRACT_SHA256, "v5 inheritance hash mismatch", errors)
+    expect(len(inheritance.get("unchanged_surfaces", [])) == 7, "unchanged surface inventory mismatch", errors)
+    gate = contract.get("v6_source_gate", {})
+    expect(gate.get("path") == "artifacts/verification/research-source-gate-baseline-0027-container-v6-namespaces.json", "v6 source gate path mismatch", errors)
+    expect(gate.get("sha256") == EXPECTED_V6_SOURCE_GATE_SHA256, "v6 source gate hash mismatch", errors)
+    expect(gate.get("status") == "ready", "v6 source gate not ready", errors)
+    expect(
+        contract.get("event_capture_contract")
+        == {
+            "clock": "time.time_ns",
+            "timestamp_format": "Unix seconds.nanoseconds with exactly nine fractional digits",
+            "start_grace_nanoseconds": 1000000000,
+            "completion_grace_nanoseconds": 1000000000,
+            "query_filter": "type=image",
+            "format": "Docker JSON Lines",
+            "expected_tags": "both unique tags generated for the current verifier run",
+            "expected_image_id": "the exact shared ID returned by both independent builds",
+            "required_scope": "local",
+            "allowed_actions": ["create", "tag"],
+            "push_event_rejected": True,
+            "remote_scope_rejected": True,
+            "missing_tag_rejected": True,
+            "unrelated_image_events_ignored": True,
+            "claim_boundary": "The bounded future until value completes capture of the final event second; it does not weaken tag, image-ID, scope, action, exporter, or publication checks.",
+        },
+        "event capture contract mismatch",
+        errors,
+    )
+    namespace = contract.get("namespace_security_contract", {})
+    expect(namespace.get("builder_scope") == "Docker Engine 29.4.3, Docker Desktop 4.74.0, linux/amd64", "namespace builder scope mismatch", errors)
+    expect(namespace.get("pid_mode") == "", "PID namespace mode mismatch", errors)
+    expect(namespace.get("ipc_mode") == "private", "IPC namespace mode mismatch", errors)
+    expect(namespace.get("uts_mode") == "", "UTS namespace mode mismatch", errors)
+    expect(namespace.get("userns_mode") == "", "user namespace mode mismatch", errors)
+    expect(len(namespace.get("reject", [])) == 4, "namespace rejection inventory mismatch", errors)
+    pre = contract.get("preimplementation_identity", {})
+    expect(pre.get("runtime_verifier_v5_sha256") == "1eca1d240f786891fc0412d4eb7b9c59b25cfab042e710169120d581fd0d1f06", "v5 runtime verifier identity mismatch", errors)
+    expect(pre.get("tests_v5_sha256") == "bbe58a67924d7296682d99ce940b7db5eafe684dc125201a204970a71d153cae", "v5 tests identity mismatch", errors)
     required_checks = contract.get("verification_contract", {}).get("required_checks", [])
     expect(len(required_checks) == 42, "exactly 42 container checks are required", errors)
     expect(len(required_checks) == len(set(required_checks)), "container check IDs must be unique", errors)
@@ -386,6 +474,23 @@ def validate_v5_source_gate(contract: dict, errors: list[str]) -> None:
     ]
     expect(len(criteria) == 8, "v5 source gate must contain eight criteria", errors)
     expect(all(item.get("status") == "pass" for item in criteria), "every v5 source criterion must pass", errors)
+
+
+def validate_v6_source_gate(contract: dict, errors: list[str]) -> None:
+    gate_path = ROOT / contract["v6_source_gate"]["path"]
+    expect(gate_path.is_file(), "v6 source gate is missing", errors)
+    if not gate_path.is_file():
+        return
+    expect(sha256_file(gate_path) == EXPECTED_V6_SOURCE_GATE_SHA256, "v6 source gate bytes changed", errors)
+    gate = json.loads(gate_path.read_text(encoding="utf-8"))
+    expect(gate.get("decision", {}).get("status") == "ready", "v6 source gate is not ready", errors)
+    criteria = [
+        criterion
+        for source in gate.get("sources", [])
+        for criterion in source.get("criteria", [])
+    ]
+    expect(len(criteria) == 8, "v6 source gate must contain eight criteria", errors)
+    expect(all(item.get("status") == "pass" for item in criteria), "every v6 source criterion must pass", errors)
 
 
 def validate_reproducibility_inputs(contract: dict, errors: list[str]) -> None:
@@ -492,6 +597,43 @@ def validate_v5_implementation(require: bool, errors: list[str]) -> str:
     return "nonconforming"
 
 
+def validate_v6_implementation(require: bool, errors: list[str]) -> str:
+    runtime_path = ROOT / "scripts/verify_container_runtime.py"
+    tests_path = ROOT / "tests/test_baseline.py"
+    expect(runtime_path.is_file(), "container runtime verifier is missing", errors)
+    expect(tests_path.is_file(), "container tests are missing", errors)
+    if not runtime_path.is_file() or not tests_path.is_file():
+        return "missing"
+    runtime_hash = sha256_file(runtime_path)
+    tests_hash = sha256_file(tests_path)
+    v5_exact = (
+        runtime_hash == "1eca1d240f786891fc0412d4eb7b9c59b25cfab042e710169120d581fd0d1f06"
+        and tests_hash == "bbe58a67924d7296682d99ce940b7db5eafe684dc125201a204970a71d153cae"
+    )
+    runtime_text = runtime_path.read_text(encoding="utf-8")
+    tests_text = tests_path.read_text(encoding="utf-8")
+    v6_markers = [
+        '"pid_mode_empty": host.get("PidMode") == ""',
+        '"ipc_mode_private": host.get("IpcMode") == "private"',
+        '"uts_mode_empty": host.get("UTSMode") == ""',
+        '"userns_mode_empty": host.get("UsernsMode") == ""',
+    ]
+    v6_exact = all(marker in runtime_text for marker in v6_markers) and all(
+        marker in tests_text
+        for marker in (
+            "test_container_v6_namespace_modes_fail_closed",
+            "namespace_security_checks",
+        )
+    )
+    if v6_exact:
+        return "implemented_v6"
+    if v5_exact:
+        expect(not require, "v6 namespace-mode implementation is required", errors)
+        return "frozen_v5_preimplementation"
+    expect(False, "container verifier or tests do not match frozen v5 or required v6 implementation", errors)
+    return "nonconforming"
+
+
 def validate_receipt(contract: dict, receipt_path: Path, require: bool, errors: list[str]) -> str:
     if not receipt_path.exists():
         expect(not require, "container verification receipt is required", errors)
@@ -537,16 +679,23 @@ def main() -> None:
     validate_contract(contract, raw, errors)
     if contract_path == DEFAULT_CONTRACT.resolve():
         expect(VERSIONED_CONTRACT.read_bytes() == raw, "current and versioned container contracts differ", errors)
+    expect(SUPERSEDED_V5_CONTRACT.is_file(), "superseded v5 contract is missing", errors)
+    v5_raw = SUPERSEDED_V5_CONTRACT.read_bytes() if SUPERSEDED_V5_CONTRACT.is_file() else b"{}\n"
+    expect(hashlib.sha256(v5_raw).hexdigest() == EXPECTED_V5_CONTRACT_SHA256, "superseded v5 contract bytes changed", errors)
+    v5_contract = json.loads(v5_raw)
+    validate_v5_contract(v5_contract, v5_raw, errors)
     expect(SUPERSEDED_V4_CONTRACT.is_file(), "superseded v4 contract is missing", errors)
     v4_raw = SUPERSEDED_V4_CONTRACT.read_bytes() if SUPERSEDED_V4_CONTRACT.is_file() else b"{}\n"
     expect(hashlib.sha256(v4_raw).hexdigest() == EXPECTED_V4_CONTRACT_SHA256, "superseded v4 contract bytes changed", errors)
     v4_contract = json.loads(v4_raw)
     validate_v4_contract(v4_contract, v4_raw, errors)
     validate_source_gate(v4_contract, errors)
-    validate_v5_source_gate(contract, errors)
+    validate_v5_source_gate(v5_contract, errors)
+    validate_v6_source_gate(contract, errors)
     validate_reproducibility_inputs(v4_contract, errors)
     validate_implementation(v4_contract, True, errors)
-    phase = validate_v5_implementation(args.require_implementation, errors)
+    validate_v5_implementation(True, errors)
+    phase = validate_v6_implementation(args.require_implementation, errors)
     receipt_path = (args.receipt or ROOT / contract["verification_contract"]["receipt"]).resolve()
     receipt_state = validate_receipt(contract, receipt_path, args.require_result, errors)
     result = {

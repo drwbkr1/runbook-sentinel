@@ -1,0 +1,115 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0027-container-v6-official-docker-namespaces-20260812",
+  "assessed_at": "2026-08-12T22:18:50Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal and contracts/milestone-0027.json",
+    "authorized_actions": [
+      "review and cite exact official Docker PID, IPC, UTS, and user-namespace semantics",
+      "freeze project-authored container-runtime-v6 around the measured private-IPC verifier mismatch",
+      "update only namespace-mode validation and its independent tests after the v6 freeze is public",
+      "rerun local networkless container verification without archive export registry push or publication"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Use official Docker runtime semantics and the retained v5 failure to distinguish an explicitly private IPC namespace from host or cross-container namespace sharing. No external code, configuration, package, service, secret, image, data, or model is imported.",
+    "planned_actions": [
+      "require PidMode, UTSMode, and UsernsMode to remain empty on the exact verified builder",
+      "require IpcMode to be exactly private on the exact verified builder",
+      "reject host, shareable, and container-linked IPC modes",
+      "retain every non-root, read-only, capability, network, device, bind, secret, no-export, no-push, and clean-clone boundary unchanged"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "docker-docs-container-run-c8c1ada-20260812",
+      "name": "Docker container run namespace specification",
+      "locator": "https://github.com/docker/docs/blob/c8c1ada37a8a3c598d0f8744d66f2dfbb780c145/data/cli/engine/docker_container_run.yaml",
+      "revision": "c8c1ada37a8a3c598d0f8744d66f2dfbb780c145",
+      "blob_sha": "1d8363edbf4725f0c7f78ca1b1337dab59fda89f",
+      "rendered_locator": "https://docs.docker.com/reference/cli/docker/container/run/",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "docker/docs revision c8c1ada37a8a3c598d0f8744d66f2dfbb780c145 blob 1d8363edbf4725f0c7f78ca1b1337dab59fda89f", "observed_at": "2026-08-12T22:18:50Z", "note": "Exact official revision and container-run source blob resolved."}]
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://docs.docker.com/reference/cli/docker/container/run/", "observed_at": "2026-08-12T22:18:50Z", "note": "Official Docker CLI documentation for the installed runtime."}]
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "public Docker documentation", "observed_at": "2026-08-12T22:18:50Z", "note": "Public read-only access needs no account, payment, secret, or terms acceptance."}]
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://github.com/docker/docs/blob/c8c1ada37a8a3c598d0f8744d66f2dfbb780c145/LICENSE", "observed_at": "2026-08-12T22:18:50Z", "note": "Apache License 2.0; no source text, sample, or artifact is copied."}]
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "docker/docs revision and source blob above", "note": "Publisher, repository, revision, blob, and rendered surface are exact."}]
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "artifacts/verification/container-baseline-0027-v5-runtime-security-failure-001.json", "note": "Official namespace semantics are checked against exact Docker inspect metadata from the already-built v5 image."}]
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "Docker container run PID, IPC, UTS, and userns sections", "note": "Private IPC owns an isolated namespace; host IPC uses the host; container IPC joins another container; shareable IPC permits later sharing. These directly classify the measured HostConfig fields."}]
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "contracts/milestone-0027.json and retained v5 failure", "note": "The successor becomes stricter than daemon-default acceptance by requiring exact private IPC and rejecting host, shareable, or container-linked modes. All other security and publication boundaries remain unchanged."}]
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "freeze the exact v6 namespace-mode contract before implementation",
+      "implement only exact private IPC plus empty PID, UTS, and userns validation",
+      "add fail-closed tests for host, shareable, and container-linked namespace modes",
+      "rerun exact local and clean-clone verification"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "retain exact source identities, factual semantics, limitations, and local measurements",
+      "freeze and implement only the project-authored namespace-mode correction",
+      "rerun exact local and clean-clone verification under unchanged security and publication boundaries"
+    ],
+    "requires_explicit_authorization": [
+      "import external code, sample, configuration, package, executable, service, image, data, or model",
+      "authenticate, purchase, accept terms, add a secret, widen runtime authority, export an image archive, push, publish, or redistribute a container image"
+    ]
+  }
+}

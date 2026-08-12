@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T22:13:48Z",
+  "status": "fail",
+  "public_input_commit": "a284c60c44972664294c67e4727f3075ac8a361d",
+  "contract_id": "container-runtime-v5",
+  "contract_sha256": "e71817e465dd8f25c183427389f7c1d1aaeefadbf318506e566e6eb0c842b30a",
+  "evidence_directory": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v5-container-20260812T2212Z",
+  "image": {
+    "independent_image_ids": [
+      "sha256:96655a011b8ec8079fe23df988025fbb899575ae3b72ebbef30e92291cf0c5bf",
+      "sha256:96655a011b8ec8079fe23df988025fbb899575ae3b72ebbef30e92291cf0c5bf"
+    ],
+    "image_ids_equal": true,
+    "created_at_utc": "2026-08-12T17:42:57Z",
+    "repo_digest": "runbook-sentinel@sha256:96655a011b8ec8079fe23df988025fbb899575ae3b72ebbef30e92291cf0c5bf",
+    "local_content_digest_matches_image_id": true,
+    "tags": [
+      "runbook-sentinel:baseline-0027-a-4932e00468",
+      "runbook-sentinel:baseline-0027-b-4932e00468"
+    ],
+    "event_window_passed": true,
+    "event_scope": "local",
+    "event_actions": ["tag"],
+    "push_event_observed": false
+  },
+  "build_logs": [
+    {
+      "path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v5-container-20260812T2212Z/build-1.log",
+      "bytes": 1704,
+      "sha256": "8a9ab590ae3d231c5b6c2de997f23dd2110571338759cf267f57d8c6e90ca165"
+    },
+    {
+      "path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v5-container-20260812T2212Z/build-2.log",
+      "bytes": 1550,
+      "sha256": "9dd83623143a1e8336b6638b096a828d6ab4c722efd4fe3f35a94db361b01f3d"
+    }
+  ],
+  "failed_check": {
+    "id": "no_host_namespaces",
+    "result": false,
+    "observed_checks": {
+      "user_nonroot": true,
+      "read_only": true,
+      "cap_drop_all": true,
+      "no_new_privileges": true,
+      "not_privileged": true,
+      "network_none": true,
+      "no_host_namespaces": false,
+      "no_devices": true,
+      "no_binds": true,
+      "no_secrets_env": true
+    },
+    "v5_expression": "not any(HostConfig value for PidMode, IpcMode, UTSMode, UsernsMode)",
+    "classification": "verifier semantics treated Docker's explicit private IPC namespace as host sharing"
+  },
+  "bounded_diagnostic": {
+    "observed_at_utc": "2026-08-12T22:16:00Z",
+    "method": "Run the already-built local image with the exact frozen runtime flags, inspect HostConfig, then remove the diagnostic container in a finally block.",
+    "container_removed": true,
+    "host_config": {
+      "PidMode": "",
+      "IpcMode": "private",
+      "UTSMode": "",
+      "UsernsMode": "",
+      "NetworkMode": "none",
+      "ReadonlyRootfs": true,
+      "Privileged": false,
+      "CapDrop": ["ALL"],
+      "SecurityOpt": ["no-new-privileges"],
+      "Binds": null,
+      "Devices": [],
+      "Tmpfs": {
+        "/state": "rw,noexec,nosuid,nodev,uid=65532,gid=65532,mode=0700",
+        "/tmp": "rw,noexec,nosuid,nodev,uid=65532,gid=65532,mode=0700"
+      }
+    },
+    "finding": "The container had its own private IPC namespace. PidMode, UTSMode, and UsernsMode were empty; no host namespace, device, bind, network, privilege, capability, or secret boundary was widened."
+  },
+  "post_failure_reconciliation": {
+    "keeper_container_removed": true,
+    "container_evaluation_started": false,
+    "container_mcp_started": false,
+    "container_api_started": false,
+    "container_scan_started": false,
+    "clean_clone_started": false,
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false
+  },
+  "disposition": "stopped_before_product_runtime; preserve v5 outcome and freeze a successor namespace-semantics contract before implementation"
+}

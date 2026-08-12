@@ -44,6 +44,8 @@
 - Renewed the authoritative manifest to 119 exact files after the public inventory seal. Exact validation, required-v5 validation, 53 tests, and 31 applicable validators pass; the predecessor archive is retained as superseded only by its embedded-manifest mismatch, and no replacement archive, evaluation, or image was created before this seal.
 - Rebuilt the 41-entry zipapp twice with exact 590,320-byte identity, selected source/package attempt 005 after all 119 Boolean gates and exact anchored traces passed, and revalidated bounded MCP, authenticated API/approval/executor/replay, persisted state, telemetry, and complete dashboards for both runtimes.
 - Bound the v5 pre-image payload and passing bounded artifact scan in `package-source-baseline-0027-v5.json`; no successor image, export, push, or publication exists before its public seal.
+- Built exact v5 image ID `96655a01...` twice and passed the nanosecond local-event boundary, then retained a fail-closed runtime-security result when the verifier incorrectly treated Docker's explicit private IPC mode as host sharing. No product runtime, scan, clean clone, export, push, or publication followed.
+- Source-gated official Docker namespace semantics and froze container-runtime-v6 plus ADR 0021 before implementation. V6 requires exact private IPC and empty PID, UTS, and userns modes on the verified builder while rejecting host, shareable, cross-container, default-empty, and unknown IPC values; all other runtime and publication boundaries remain exact.
 
 ## 0.0.26 - 2026-08-11
 

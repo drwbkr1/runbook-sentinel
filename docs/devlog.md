@@ -1,5 +1,13 @@
 # Development log
 
+## 2026-08-12 BASELINE-0027 v6 namespace-semantics freeze
+
+- Ran container-runtime-v5 from public input `a284c60c44972664294c67e4727f3075ac8a361d`. Both independent builds produced exact local image ID `sha256:96655a011b8ec8079fe23df988025fbb899575ae3b72ebbef30e92291cf0c5bf`; both tags were captured as local tag events with no push, and frozen creation time plus local content identity passed.
+- Runtime security stopped before CLI, evaluation, MCP, API, dashboard, scan, or clean clone because v5 evaluated every non-empty namespace value as host sharing. Every other observed runtime control passed. The exact failure, logs, image identity, later-gate boundary, and no-export/no-push result are preserved in `container-baseline-0027-v5-runtime-security-failure-001.json`.
+- A bounded diagnostic using the already-built local image and exact runtime flags reported empty PID, UTS, and userns modes plus `IpcMode: private`; it retained network none, read-only root, non-root user, all capabilities dropped, no-new-privileges, no devices, no binds, and only the two frozen tmpfs mounts. The diagnostic container was removed, and Docker's local destroy event confirms cleanup.
+- Official Docker container-run namespace semantics passed all eight source-gate criteria without importing code, configuration, data, image, or model. ADR 0021 and container-runtime-v6 now require exact private IPC and exact empty PID, UTS, and userns modes on the verified builder, rejecting host, shareable, container-linked, default-empty, and unknown IPC representations.
+- Current and versioned v6 contracts are byte-identical at 6,758 bytes and SHA-256 `76ca2b7dad77710a1a98ba0227847fffdb926a4e7610d0e7beded2aa8f5b27ae`. The independent validator passes in `frozen_v5_preimplementation` state and fails exactly with `v6 namespace-mode implementation is required` when implementation is required. No successor code, image, product runtime, export, push, or publication exists before the public freeze seal.
+
 ## 2026-08-12 BASELINE-0027 v4 implementation before manifest renewal
 
 - Published v4 freeze `c207ac25af883b38410e3f3604dd5ea68de382ee` before changing implementation. Removed only the Dockerfile `WORKDIR`; absolute application and entrypoint paths, user, payloads, network, runtime security, and authority remain unchanged.
