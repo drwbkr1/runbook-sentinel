@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T21:25:15Z",
+  "status": "fail",
+  "public_input_commit": "56fe0c1ac13f5ab2ce375e50e8882d44bfe4c90e",
+  "contract_id": "container-runtime-v4",
+  "contract_sha256": "ab822c1500ef09f0eff52759c7665536a5e9caa823f6c4ce2afa61614b5caacb",
+  "image": {
+    "independent_image_ids": [
+      "sha256:2d3f89d5807513719d958ae2b6c6f65e1cf391ea47c66aa6f084d0766d9039ee",
+      "sha256:2d3f89d5807513719d958ae2b6c6f65e1cf391ea47c66aa6f084d0766d9039ee"
+    ],
+    "image_ids_equal": true,
+    "created_at_utc": "2026-08-12T17:42:57Z",
+    "repo_digest": "runbook-sentinel@sha256:2d3f89d5807513719d958ae2b6c6f65e1cf391ea47c66aa6f084d0766d9039ee",
+    "local_content_digest_matches_image_id": true,
+    "tags": [
+      "runbook-sentinel:baseline-0027-a-30c0f131d3",
+      "runbook-sentinel:baseline-0027-b-30c0f131d3"
+    ]
+  },
+  "build_logs": [
+    {
+      "path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v4-container-20260812T2123Z/build-1.log",
+      "bytes": 1650,
+      "sha256": "1d3b645977b2fca7b85b287d4f9d4fe8d47bc5c380795d1abbf032ea98bd64d5"
+    },
+    {
+      "path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v4-container-20260812T2123Z/build-2.log",
+      "bytes": 1555,
+      "sha256": "bcbe330ed2f3a821fa0d244ffbf44fe6d960a512ab3ae756cd3dfec88aaa5c84"
+    }
+  ],
+  "failed_check": {
+    "id": "both_tags_observed",
+    "result": false,
+    "queried_since_unix_seconds": 1786569910,
+    "queried_until_unix_seconds": 1786569915,
+    "returned_tag": "runbook-sentinel:baseline-0027-a-30c0f131d3",
+    "excluded_same_second_tag": "runbook-sentinel:baseline-0027-b-30c0f131d3",
+    "excluded_event_time_unix_seconds": 1786569915,
+    "excluded_event_time_nanos": 1786569915162754846,
+    "classification": "integer-second until boundary excluded the build-B tag recorded later within that same second"
+  },
+  "post_failure_reconciliation": {
+    "both_tags_resolve_to_exact_image_id": true,
+    "expanded_read_only_event_query_returns_both_tags": true,
+    "all_relevant_event_scopes_local": true,
+    "all_relevant_event_actions_create_or_tag": true,
+    "push_event_observed": false,
+    "runtime_verification_started": false,
+    "container_created": false,
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false
+  },
+  "disposition": "stopped_before_runtime; preserve v4 outcome and freeze a successor event-window contract before implementation"
+}

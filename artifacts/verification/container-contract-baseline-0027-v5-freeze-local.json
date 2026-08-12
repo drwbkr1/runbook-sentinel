@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T21:35:00Z",
+  "status": "pass",
+  "contract_id": "container-runtime-v5",
+  "contract": {
+    "current_path": "eval/container-contract.json",
+    "versioned_path": "eval/container-contract-0027-v5.json",
+    "bytes": 5798,
+    "sha256": "e71817e465dd8f25c183427389f7c1d1aaeefadbf318506e566e6eb0c842b30a",
+    "current_and_versioned_exact": true
+  },
+  "source_gate": {
+    "path": "artifacts/verification/research-source-gate-baseline-0027-container-v5-events.json",
+    "sha256": "8a318d1f943937a44772dccc4176d689015062cd6929094deb4a2caf15c5ab87",
+    "criteria_passed": 8,
+    "criteria_total": 8,
+    "decision": "ready"
+  },
+  "decision_record": {
+    "path": "docs/adr/0020-capture-docker-image-events-with-nanosecond-bounds.md",
+    "sha256": "12842ce3a96d3710fb424aeb3d7e818be2f16da615a8a47e468c9362e9982ed0"
+  },
+  "independent_validator": {
+    "path": "scripts/verify_container_contract.py",
+    "bytes": 28661,
+    "sha256": "257441ecb5d84bad7fd507837a226ae3e0a416f27066e2077a6078321f6826a1",
+    "preimplementation_status": "pass",
+    "preimplementation_phase": "frozen_v4_preimplementation",
+    "required_implementation_exit_code": 1,
+    "required_implementation_error_exact": "v5 event-window implementation is required"
+  },
+  "v4_failure": {
+    "path": "artifacts/verification/container-baseline-0027-v4-event-window-failure-001.json",
+    "sha256": "674760339e9b975b61cd496b4430ee946fa483861d918fb85b7bdbdc8f57b9f1",
+    "two_image_ids_equal": true,
+    "runtime_started": false
+  },
+  "implementation_changed": false,
+  "image_built_after_v5_freeze": false,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false,
+  "next_gate": "Commit and push the exact v5 source gate, failure receipt, contract, ADR, and independent preimplementation validator before changing event capture."
+}
