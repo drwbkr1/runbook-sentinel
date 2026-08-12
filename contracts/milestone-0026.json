@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0026",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -61,7 +61,7 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
+      "status": "pass",
       "evidence": [
         "All 57 cases pass three trials with all 56 prior scenario and terminal identities exact and all eighteen attack-stage/outcome/split cells covered.",
         "Exact candidate, reviewed merge, merged-main, final audit, annotated tag, selected public assets, downloaded bytes, rendered pages, and public-tag verification reconcile."
@@ -158,7 +158,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": [
         "verified candidate and clean-clone evidence",
         "premerge audit and exact reviewed GitHub head",
@@ -176,19 +176,23 @@
         "exact_reviewed_head_merged_with_history_preserved": "pass",
         "fresh_public_main_source_package_and_real_surfaces": "pass",
         "final_release_audit_verified": "pass",
-        "public_refs_assets_downloads_pages_reconciled": "pending",
-        "fresh_public_tag_source_package_and_real_surfaces": "pending"
+        "public_refs_assets_downloads_pages_reconciled": "pass",
+        "fresh_public_tag_source_package_and_real_surfaces": "pass"
       },
-      "disposition": "pending",
+      "disposition": "pass",
       "retained_failures": [
         "The first final-audit milestone preflight used milestone-level status active for UNIT-005; the validator failed, no publication followed, and the exact one-field in_progress correction passes.",
-        "The first final-audit commit push stopped on a transient github.com DNS-resolution failure without changing remote state; reachability then passed and the unchanged audit-only commit was pushed exactly."
+        "The first final-audit commit push stopped on a transient github.com DNS-resolution failure without changing remote state; reachability then passed and the unchanged audit-only commit was pushed exactly.",
+        "The release-create command succeeded before its immediate follow-up read requested unsupported gh field isLatest; supported release metadata and the releases/latest API independently confirm v0.0.26 is latest.",
+        "The first release-page browser navigation timed out after the exact page loaded; the recovered same tab and screenshot passed inspection.",
+        "The first three-way archive summary failed only because a scalar PowerShell string was indexed as a Char before ToLower; explicit string comparison passed for both rebuilds and downloaded bytes.",
+        "The first public-tag live-surface wrapper copied tracked native receipts and mislabeled them as current; both copies remain preserved, while fresh raw 110-check captures and current 59-check receipts pass for source and package."
       ],
       "next_dependency": null
     }
   ],
-  "current_unit": "UNIT-005",
-  "next_action": "Commit and push the exact release-closure records, create annotated v0.0.26 at that exact commit, publish only the selected zipapp and checksum, then immediately reconcile all public surfaces and a fresh public-tag clone.",
+  "current_unit": null,
+  "next_action": "Begin the next cycle from verified public v0.0.26 by running the accepted system, inspecting traces and separated evaluation metrics, and selecting one highest-leverage measurable weakness before implementation.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -227,12 +231,17 @@
       "post-clean-receipt documentation gate: 31 validators and 47 tests pass after retaining an invalid short-timeout wrapper with no inferred result",
       "premerge audit verified after retaining a schema-invalid first draft; PR 24 merged exact reviewed head 48eb7669582b372ef2d0c8986374fa0823133f61 with history preserved as 2fac52759e0d3f6857491f40d1958f62a85e70b4",
       "fresh public-main clone passes 31 validators, 47 tests, two exact archive builds, source/package evaluations and 261-event anchors, bounded MCP, both 59-check authenticated real surfaces, parsing/scans, and complete original-detail dashboards",
-      "final ten-check release audit verifies every declared surface, current external truth, active inherited authority, recovery path, and exact selected asset without warning"
+      "final ten-check release audit verifies every declared surface, current external truth, active inherited authority, recovery path, and exact selected asset without warning",
+      "annotated tag object 2c8593ec5f77ab76e12da926336dfa06b97a67eb peels to exact release closure 74bf5cba93b0697e74163a335c3dbfcc4d5d7418",
+      "public non-draft latest v0.0.26 release exposes only the selected 589143-byte zipapp and 94-byte checksum with exact GitHub digests and downloaded-byte identity",
+      "live repository, release, and tag pages render the expected version, limitations, selected assets, and closure identity",
+      "fresh public-tag source and package runs pass 31 validators, 47 tests, three-way byte-identical archive reproduction, 171-attempt evaluations with exact 261-event anchors, bounded MCP, both raw 110-check and native 59-check real surfaces, complete dashboards, parsing, and classified scans",
+      "artifacts/verification/public-tag-baseline-0026.json binds the complete external release receipt and retained tooling observations"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Exact reviewed merge 2fac52759e0d3f6857491f40d1958f62a85e70b4 is independently verified on fresh public main, and final audit-only commit 91e05ae7c00d4db17e1f7edc25cb4014583898d7 evaluates verified. Public v0.0.25 remains latest until the exact release closure, v0.0.26 tag/assets, rendered pages, downloads, and public-tag verification complete.",
-    "next_action": "Commit and push only the audited release-closure records, publish annotated v0.0.26 with the selected zipapp and checksum, immediately verify every public surface, and record the external receipt before starting another improvement cycle.",
+    "current_checkpoint": "Verified public v0.0.26 is bound to annotated tag object 2c8593ec5f77ab76e12da926336dfa06b97a67eb and peeled closure 74bf5cba93b0697e74163a335c3dbfcc4d5d7418. Release metadata, selected assets, downloaded bytes, rendered pages, and a fresh no-alternates public-tag full-stack verification reconcile in artifacts/verification/public-tag-baseline-0026.json.",
+    "next_action": "Start the next cycle from verified public v0.0.26, run the accepted system, inspect traces and separated evaluation results, and freeze only one highest-leverage measurable weakness before implementation.",
     "do_not_carry_forward": [
       "any claim that synthetic eighteen-cell coverage is production readiness, learned generalization, or universal prompt-injection resistance",
       "any authority, secret, dependency, external asset, paid service, or real-infrastructure connector",
