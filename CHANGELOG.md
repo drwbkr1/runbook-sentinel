@@ -48,6 +48,7 @@
 - Source-gated official Docker namespace semantics and froze container-runtime-v6 plus ADR 0021 before implementation. V6 requires exact private IPC and empty PID, UTS, and userns modes on the verified builder while rejecting host, shareable, cross-container, default-empty, and unknown IPC values; all other runtime and publication boundaries remain exact.
 - Published the v6 freeze, implemented only its exact namespace predicate, retained a focused-test placement error, then passed the corrected focused suite, all 54 tests, all 31 side-effect-free validators, required-v6 validation, and a transient real-Docker fourteen-check metadata probe. No successor image was built before the implementation seal.
 - Published the v6 implementation seal and added only its versioned contract path to the explicit manifest inventory before renewing the authoritative manifest.
+- Published the inventory seal, froze a 120-file authoritative v6 manifest, and passed all 54 tests plus 31 applicable validators. The predecessor archive remains preserved and differs only at its embedded manifest; no replacement archive or successor image was created before the manifest seal.
 
 ## 0.0.26 - 2026-08-11
 
