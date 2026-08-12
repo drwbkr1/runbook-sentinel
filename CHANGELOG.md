@@ -6,6 +6,7 @@
 - Source-gated exact official Docker `cp` and `exec` semantics without importing external assets, then froze container-runtime-v7 before implementation around an eight-file allowlist, bounded unprivileged byte stream, no overwrite, and pre/post-write length plus SHA-256 verification.
 - Published the v7 freeze, implemented only the verified extraction path, passed 55 tests and required-contract validation, and proved the real path against the already-built hardened image without changing image inputs or publication boundaries.
 - Published the v7 implementation seal and added only its versioned contract to the explicit manifest inventory before renewing any manifest-bound package or evaluation bytes.
+- Published the inventory seal and froze a verified 121-file authoritative manifest; retained the predecessor archive's exact embedded-manifest mismatch before replacement.
 
 - Reran exact public v0.0.26 and bound the passing 57-case, 171-attempt, separate-metric, 261-event orientation evidence.
 - Retained a measured retrieval-stage label gap for a later cycle: two declared hostile guidance documents are not retrieved, while twenty are retrieved and filtered, yet v0.0.26 reports one combined stage.
