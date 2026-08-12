@@ -29,6 +29,7 @@
 - Excluded two successful timestamp-rewrite probes from release evidence because the v2 Dockerfile still adds three layers and the settings were not frozen before execution.
 - Froze `container-runtime-v3` before implementation. It preserves the two-payload-layer invariant, moves `WORKDIR` after both COPY directives, binds the exact timestamp and local image-exporter settings, adds builder/clean-process checks, and limits the reproducibility claim to the exact verified builder and clean-clone path.
 - Published the v3 freeze before implementing it, then passed 49 tests, 31 side-effect-free validators, exact static contract validation, and live builder/epoch preflight with no manifest renewal, archive rebuild, candidate evaluation, or image build yet.
+- Published the v3 implementation before freezing a renewed 117-file manifest; the renewed seal passes 49 tests and 32 validators, and the predecessor archive is retained as superseded by its exact embedded-manifest mismatch.
 
 ## 0.0.26 - 2026-08-11
 

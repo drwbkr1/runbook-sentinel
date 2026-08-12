@@ -22,6 +22,8 @@ Two excluded networkless probes using BuildKit's image exporter, `rewrite-timest
 
 V3 contract freeze `553bec64eb4264290952e3953310782fd976ce97` is public. The exact implementation now passes 49 tests, 31 side-effect-free validators, static contract validation, and live builder preflight without building an image. The predecessor manifest remains intentionally stale on only the four v3-bound identities. The implementation seal must be public before manifest renewal; the renewed manifest, rebuilt archive, selected source/package evaluations, and real surfaces must all pass again before the first v3 image build.
 
+Implementation seal `837014643a0c38ccbe038102ea3ec9f0c9dcc5fa` is public. Renewed 117-file manifest `0785d861...` passes 49 tests and 32 validators. The predecessor archive is now superseded by exact embedded-manifest mismatch and remains in public history. This manifest seal must be public before two new archive builds, renewed source/package evaluations, and all real surfaces; the image gate remains closed.
+
 ## Completed checkpoint baseline-0026 - adversarial exposure-stage/outcome split coverage
 
 Fresh public-v0.0.25 evaluation separates three defenses that aggregate attack metrics blur: hostile guidance filtered before decision context, hostile in-band status or telemetry exposed to decision logic, and adversarial cases without instruction-bearing content. The nine stage/outcome pairs already demonstrated as valid produce eighteen development/test cells; seventeen are covered. The only empty cell is safe `request_evidence` under exposed in-band content in development.

@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T19:42:57Z",
+  "status": "pass",
+  "disposition": "pass",
+  "phase": "v3_manifest_seal_before_archive_rebuild_or_image_build",
+  "public_implementation_commit": "837014643a0c38ccbe038102ea3ec9f0c9dcc5fa",
+  "manifest": {
+    "path": "eval/manifest.json",
+    "frozen_at_utc": "2026-08-12T19:39:39Z",
+    "file_count": 117,
+    "bytes": 13908,
+    "sha256": "0785d8611a5afa0e42c8931c075e21459b1c82361edf9b12dbfce1b319413238",
+    "container_contract_v3_sha256": "1f63fcb6707f129ecc803c05026308680ea9417a6b61c4fdb4d379737d9d6b67",
+    "runtime_verifier_sha256": "d39a1cb16c133b8378e39c3c714c56e79a6432969b3b0c016bce4cdd98f0f3ec"
+  },
+  "gate": {
+    "tests_passed": 49,
+    "test_seconds": 84.623,
+    "validators_passed": 32,
+    "validator_seconds": 2.236,
+    "manifest_validation": "pass",
+    "container_v3_implementation_validation": "pass",
+    "package_contract_source_only_validation": "pass"
+  },
+  "retained_wrapper_failure": {
+    "class": "powershell_native_stderr_capture",
+    "description": "The first captured verbose unittest wrapper used ErrorActionPreference Stop. Windows PowerShell treated unittest's normal stderr progress as NativeCommandError and stopped before a process result. No test disposition was inferred; the unchanged rerun captured the native exit explicitly and passed.",
+    "project_bytes_changed_by_failure": false
+  },
+  "superseded_archive": {
+    "sha256": "7721e1c6976bc1f7d5162ce4873e7fa101f0fef7143f30e6a6b5d3eeb2591493",
+    "status_under_renewed_manifest": "fail",
+    "exact_error": "archive content differs from source: runbook_sentinel/data/eval-manifest.json",
+    "preservation": "Exact bytes remain in public Git history at bab9fc67b5633060d370f3151b09a7f88712b629 and are not promoted."
+  },
+  "preserved_inputs": {
+    "selected_evaluation_sha256": "59e9e415df86e6653ae6a97f86a06cfe3520425d34f630cccf2c3b2ddabcdf63",
+    "container_receipt_exists": false
+  },
+  "not_run": [
+    "archive rebuild",
+    "candidate source evaluation",
+    "candidate package evaluation",
+    "container image build",
+    "container runtime",
+    "container scan",
+    "clean clone"
+  ],
+  "publication": {
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false
+  },
+  "next_gate": "Publish this exact renewed manifest seal before rebuilding the zipapp or running any candidate evaluation or image build."
+}

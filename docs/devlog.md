@@ -12,6 +12,9 @@
 - Published exact v3 contract freeze `553bec64eb4264290952e3953310782fd976ce97`; local, tracking, and live remote refs match before implementation.
 - Implemented only the frozen v3 delta: both payload COPY directives precede `WORKDIR`; the runtime verifier sets the frozen epoch, uses the exact local image exporter, captures logs before accepting process status, rejects terminal exporter errors, recomputes prerequisite identities, verifies live builder versions, and revalidates the complete image in clean-build mode. It neither relaxes runtime controls nor adds a dependency, network, secret, archive export, registry push, or publication path.
 - The pre-manifest implementation gate passes all 49 tests in 91.426 seconds, 31 side-effect-free validators, compilation, the required-implementation contract mode, and live builder preflight. The old manifest fails only on the expected four v3 identities; selected evaluation `59e9e415...` and archive `7721e1c6...` remain exact, no container receipt exists, and no image was built.
+- Published exact v3 implementation seal `837014643a0c38ccbe038102ea3ec9f0c9dcc5fa`; local, tracking, and live remote refs match before manifest renewal.
+- Froze the renewed 117-file manifest at `2026-08-12T19:39:39Z`, 13,908 bytes, SHA-256 `0785d8611a5afa0e42c8931c075e21459b1c82361edf9b12dbfce1b319413238`. It binds the immutable v3 contract path and passes exact verification.
+- The old archive is now correctly superseded because its embedded manifest differs; exact old bytes remain in public Git history. The first captured verbose-test wrapper stopped on Windows PowerShell's `NativeCommandError` treatment of normal unittest stderr. No disposition was inferred. The unchanged rerun passes 49 tests in 84.623 seconds and 32 validators in 2.236 seconds. No archive rebuild, candidate evaluation, image build, or container receipt exists.
 
 ## 2026-08-11 - BASELINE-0026 started
 

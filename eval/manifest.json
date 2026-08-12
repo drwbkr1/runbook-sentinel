@@ -2,7 +2,7 @@
   "checkpoint": "baseline-0027",
   "files": {
     ".dockerignore": "c0286c20fbc11b6b809eefa28dcbf3c8a8cdd606b3f6ceef2084e8d0f27768fb",
-    "Dockerfile": "2def193e9c66a1fbd0fc6800fdc85b4551875006c98c4b12b79b99e78633cbb9",
+    "Dockerfile": "7743b710eddb79a23e6bed13f5bade1f640e7ffb5fb1d2c5cb43e82cf06bad0d",
     "eval/action-split-coverage-contract.json": "7e7b747fef34fc7315bb002bef43c517eedbdc330cef93cfc980967557ea665a",
     "eval/action-split-coverage-prechange.json": "9e1bf4c9adc3460904e480b78be8fc54c239225a97103831831d39e710753c08",
     "eval/adversarial-action-split-coverage-contract.json": "863e11cfbdee75c34e6d9ce266eb0f941bc43d00eb3d9824c15c6b2249e5cf49",
@@ -19,8 +19,9 @@
     "eval/adversarial-topology-split-coverage-prechange.json": "1dcb70bbb29c26f2d0b0129d925d014b9fe58deef71a8ba32365243a97e1a8ff",
     "eval/approval-lifetime-contract.json": "ec700f3d33780e433672ef34d703cbbecb664a54597965acc45d69f547fa5122",
     "eval/container-contract-0027-v2.json": "093c4c8167a8aed41770a1c8b100614334c60e431ec885d8cc4cc74bc4157df8",
+    "eval/container-contract-0027-v3.json": "1f63fcb6707f129ecc803c05026308680ea9417a6b61c4fdb4d379737d9d6b67",
     "eval/container-contract-0027.json": "6a2f0df63909852994c0436a308e6d89577e2d48293130134b85c1969f5507b0",
-    "eval/container-contract.json": "093c4c8167a8aed41770a1c8b100614334c60e431ec885d8cc4cc74bc4157df8",
+    "eval/container-contract.json": "1f63fcb6707f129ecc803c05026308680ea9417a6b61c4fdb4d379737d9d6b67",
     "eval/dashboard-identity-contract.json": "10ccc78dda8e909343a01aa15a8d287b3dd3aa5480a3922ef5c820dfdd8e4ac6",
     "eval/idempotency-authorization-contract.json": "c785a4a09825b2fe0e675576d8b3403a9736775725dde3b603272401370e80c8",
     "eval/live-trace-anchor-contract.json": "12b69d7743bfc1b9ad3c8a078bd7e21cb2d35da08898209cd6b4110fde7c2b95",
@@ -75,8 +76,8 @@
     "scripts/verify_approval_lifetime_contract.py": "0413edfcc7128898bac217be4fcb7500325a58fe024fc7d32ee855bfa1f4e6e5",
     "scripts/verify_baseline.py": "c315c8c7eb58da001e45e9f7a020b286ce1b528a773f3a0b7410d1095ed417b4",
     "scripts/verify_behavioral_relations.py": "ed41db80545beafedd13da5f7c45dc9a2f1e4249c7ea387374a2dcee72db2c40",
-    "scripts/verify_container_contract.py": "81c6793cf25a1c5b84331d1b9a8aac838ac3b5231fed7994d689fbbccc091142",
-    "scripts/verify_container_runtime.py": "bf91cf4db96ee87412b6c364796fbeecd4ad3c346999f4214010856224ced43f",
+    "scripts/verify_container_contract.py": "133e29d1175cb781f43b1f9d6c42fb707a8ac955612dc471305afe7afeda0e1d",
+    "scripts/verify_container_runtime.py": "d39a1cb16c133b8378e39c3c714c56e79a6432969b3b0c016bce4cdd98f0f3ec",
     "scripts/verify_evaluation_trace.py": "2e14f5e1ab0e87910bb1ba25896e7fc0c9b91e49a750af3a82776bf8767352ef",
     "scripts/verify_evidence_conditions.py": "b9ee5644deb0624803f9227feb18d1f56205f49fef3bc586520994d30c96ddb4",
     "scripts/verify_idempotency_authorization_contract.py": "ad502c58678cd3d5e74710add6babc6dce68d68c100383e9627e8164fa5385ec",
@@ -118,6 +119,6 @@
     "src/runbook_sentinel/telemetry.py": "1e136b8642fc37f76bd803e720d5849123867fe8565426c8ce43ec5b21245815",
     "src/runbook_sentinel/trace_integrity_evaluation.py": "aab63e902297aa2c26734cbaef46b9106c07074696c5cf1d4cef2a1b70690d4a"
   },
-  "frozen_at_utc": "2026-08-12T17:42:57Z",
+  "frozen_at_utc": "2026-08-12T19:39:39Z",
   "schema_version": "1.0"
 }
