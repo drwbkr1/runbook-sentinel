@@ -71,6 +71,12 @@ from scripts.verify_adversarial_domain_outcome_split_coverage_contract import (
 from scripts.verify_adversarial_exposure_stage_outcome_split_coverage_contract import (
     valid_latest_report as valid_latest_exposure_report,
 )
+from scripts.verify_container_runtime import (
+    EXPECTED_BUILDER,
+    SOURCE_DATE_EPOCH,
+    SOURCE_DATE_EPOCH_UTC,
+    build_command,
+)
 
 
 class BaselineTest(unittest.TestCase):
@@ -85,6 +91,26 @@ class BaselineTest(unittest.TestCase):
 
     def tearDown(self):
         self.temp.cleanup()
+
+    def test_container_v3_build_command_is_frozen_and_local_only(self):
+        tag = "runbook-sentinel:baseline-0027-test"
+        command = build_command(tag)
+        self.assertEqual(command[:3], ["docker", "buildx", "build"])
+        self.assertNotIn("--load", command)
+        self.assertNotIn("--push", command)
+        self.assertNotIn("--tag", command)
+        self.assertIn("--no-cache", command)
+        self.assertIn("--network=none", command)
+        self.assertIn("--provenance=false", command)
+        self.assertIn("--sbom=false", command)
+        self.assertEqual(
+            command[command.index("--output") + 1],
+            "type=image,name=runbook-sentinel:baseline-0027-test,"
+            "rewrite-timestamp=true,unpack=false,store=true,push=false",
+        )
+        self.assertEqual(SOURCE_DATE_EPOCH, "1786556577")
+        self.assertEqual(SOURCE_DATE_EPOCH_UTC, "2026-08-12T17:42:57Z")
+        self.assertEqual(EXPECTED_BUILDER["buildkit"], "0.29.0")
 
     def test_latest_report_accepts_only_candidate_or_current_manifest_final(self):
         root = Path(self.temp.name)

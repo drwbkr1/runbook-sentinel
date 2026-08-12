@@ -15,6 +15,7 @@ FILES = [
     "eval/container-contract.json",
     "eval/container-contract-0027.json",
     "eval/container-contract-0027-v2.json",
+    "eval/container-contract-0027-v3.json",
     "eval/model-contract.json",
     "eval/model-output-failure-contract.json",
     "eval/package-contract.json",

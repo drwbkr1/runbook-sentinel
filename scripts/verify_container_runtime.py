@@ -22,6 +22,14 @@ CONTRACT_PATH = ROOT / "eval/container-contract.json"
 SOURCE_GATE_PATH = ROOT / "artifacts/verification/container-source-gate-baseline-0027-chainguard-python.json"
 PACKAGE_PATH = ROOT / "dist/runbook-sentinel-0.0.27.pyz"
 EVALUATION_PATH = ROOT / "artifacts/evaluations/latest.json"
+SOURCE_DATE_EPOCH_MANIFEST = (
+    ROOT / "artifacts/evaluations/runs/baseline-0027-final-source-attempt-002.manifest.json"
+)
+SOURCE_DATE_EPOCH_MANIFEST_SHA256 = (
+    "cdc9ced520421f89b87ea04629bbce1b4a80e7f875b4366a6359c987a009f67a"
+)
+SOURCE_DATE_EPOCH = "1786556577"
+SOURCE_DATE_EPOCH_UTC = "2026-08-12T17:42:57Z"
 IMAGE_APP = "/opt/runbook-sentinel/runbook-sentinel.pyz"
 BASE_REFERENCE = (
     "cgr.dev/chainguard/python@"
@@ -63,6 +71,13 @@ RUNTIME_FLAGS = [
     "--tmpfs",
     "/tmp:rw,noexec,nosuid,nodev,uid=65532,gid=65532,mode=0700",
 ]
+EXPECTED_BUILDER = {
+    "docker_engine": "29.4.3",
+    "docker_desktop": "4.74.0",
+    "docker_buildx": "0.33.0-desktop.1",
+    "buildkit": "0.29.0",
+    "driver": "docker",
+}
 
 
 API_PROBE = r'''
@@ -262,24 +277,151 @@ def image_inspect(reference: str) -> dict:
     return value[0]
 
 
-def build_image(tag: str, log_path: Path) -> dict:
-    command = [
+def build_command(tag: str) -> list[str]:
+    exporter = (
+        f"type=image,name={tag},rewrite-timestamp=true,"
+        "unpack=false,store=true,push=false"
+    )
+    return [
         "docker",
         "buildx",
         "build",
-        "--load",
         "--no-cache",
         "--network=none",
         "--provenance=false",
         "--sbom=false",
         "--platform=linux/amd64",
-        "--tag",
-        tag,
+        "--output",
+        exporter,
         ".",
     ]
-    result = run(command, timeout=600)
-    log_path.write_text(result.stdout + result.stderr, encoding="utf-8")
-    return image_inspect(tag)
+
+
+def inspect_builder() -> dict:
+    version = json.loads(run(["docker", "version", "--format", "{{json .}}"]).stdout)
+    buildx_version = run(["docker", "buildx", "version"]).stdout.strip()
+    buildx_inspect = run(["docker", "buildx", "inspect", "--bootstrap"]).stdout
+    platform_name = version["Server"]["Platform"]["Name"]
+    observed = {
+        "docker_engine": version["Server"]["Version"],
+        "docker_desktop": platform_name.removeprefix("Docker Desktop ").split(" ", 1)[0],
+        "docker_buildx": buildx_version.split()[1].removeprefix("v"),
+        "buildkit": next(
+            line.split(":", 1)[1].strip().removeprefix("v")
+            for line in buildx_inspect.splitlines()
+            if line.startswith("BuildKit version:")
+        ),
+        "driver": next(
+            line.split(":", 1)[1].strip()
+            for line in buildx_inspect.splitlines()
+            if line.startswith("Driver:")
+        ),
+    }
+    checks = {key: observed.get(key) == value for key, value in EXPECTED_BUILDER.items()}
+    if not all(checks.values()):
+        raise AssertionError(json.dumps({"observed": observed, "expected": EXPECTED_BUILDER}, indent=2))
+    return {
+        "observed": observed,
+        "checks": checks,
+        "docker_version_sha256": hashlib.sha256(
+            json.dumps(version, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest(),
+        "buildx_version": buildx_version,
+        "buildx_inspect_sha256": hashlib.sha256(buildx_inspect.encode()).hexdigest(),
+    }
+
+
+def validate_source_date_epoch() -> dict:
+    if sha256_file(SOURCE_DATE_EPOCH_MANIFEST) != SOURCE_DATE_EPOCH_MANIFEST_SHA256:
+        raise AssertionError("SOURCE_DATE_EPOCH manifest bytes changed")
+    manifest = json.loads(SOURCE_DATE_EPOCH_MANIFEST.read_text(encoding="utf-8"))
+    if manifest.get("frozen_at_utc") != SOURCE_DATE_EPOCH_UTC:
+        raise AssertionError("SOURCE_DATE_EPOCH manifest timestamp changed")
+    if str(int(datetime.fromisoformat(SOURCE_DATE_EPOCH_UTC.replace("Z", "+00:00")).timestamp())) != SOURCE_DATE_EPOCH:
+        raise AssertionError("SOURCE_DATE_EPOCH numeric value does not match UTC source")
+    return {
+        "value": SOURCE_DATE_EPOCH,
+        "utc": SOURCE_DATE_EPOCH_UTC,
+        "manifest_path": str(SOURCE_DATE_EPOCH_MANIFEST.relative_to(ROOT)).replace("\\", "/"),
+        "manifest_sha256": SOURCE_DATE_EPOCH_MANIFEST_SHA256,
+    }
+
+
+def validate_prerequisites(evaluation: dict) -> dict:
+    contract_result = run(
+        [sys.executable, "scripts/verify_container_contract.py", "--require-implementation"]
+    )
+    manifest_result = run([sys.executable, "scripts/verify_manifest.py"])
+    package_result = run(
+        [
+            sys.executable,
+            "scripts/verify_package_contract.py",
+            "--archive",
+            str(PACKAGE_PATH),
+        ]
+    )
+    contract_validation = json.loads(contract_result.stdout)
+    manifest_validation = json.loads(manifest_result.stdout)
+    package_validation = json.loads(package_result.stdout)
+    checks = {
+        "container_contract": contract_validation.get("status") == "pass"
+        and contract_validation.get("implementation_phase") == "implemented_v3",
+        "manifest": manifest_validation.get("status") == "pass",
+        "package": package_validation.get("status") == "pass",
+        "evaluation_checkpoint": evaluation.get("checkpoint") == "baseline-0027"
+        and evaluation.get("gates", {}).get("baseline_disposition") == "pass",
+    }
+    if not all(checks.values()):
+        raise AssertionError(
+            json.dumps(
+                {
+                    "checks": checks,
+                    "container_contract": contract_validation,
+                    "manifest": manifest_validation,
+                    "package": package_validation,
+                },
+                indent=2,
+            )
+        )
+    return {
+        "checks": checks,
+        "container_contract": contract_validation,
+        "manifest": manifest_validation,
+        "package": package_validation,
+        "evaluation_sha256": sha256_file(EVALUATION_PATH),
+        "package_sha256": sha256_file(PACKAGE_PATH),
+    }
+
+
+def build_image(tag: str, log_path: Path) -> dict:
+    command = build_command(tag)
+    environment = os.environ.copy()
+    environment["SOURCE_DATE_EPOCH"] = SOURCE_DATE_EPOCH
+    result = subprocess.run(
+        command,
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        timeout=600,
+        env=environment,
+    )
+    combined = result.stdout + result.stderr
+    log_path.write_text(combined, encoding="utf-8")
+    exporter_error = any(
+        line.lstrip().startswith("ERROR:") for line in combined.splitlines()
+    )
+    process = {
+        "command": command,
+        "source_date_epoch": environment["SOURCE_DATE_EPOCH"],
+        "exit_code": result.returncode,
+        "exporter_error": exporter_error,
+        "log_path": str(log_path),
+        "log_bytes": log_path.stat().st_size,
+        "log_sha256": sha256_file(log_path),
+    }
+    if result.returncode != 0 or exporter_error:
+        raise RuntimeError(json.dumps(process, indent=2))
+    return {"image": image_inspect(tag), "process": process}
 
 
 def validate_image(tag: str, candidate: dict, base: dict) -> dict:
@@ -346,6 +488,7 @@ print(json.dumps(sorted(files, key=lambda item: item["path"]), separators=(",", 
         "cmd": config.get("Cmd") == ["--help"],
         "payload_allowlist": filesystem == expected_files,
         "no_repo_digest": not candidate.get("RepoDigests"),
+        "created_at_frozen": candidate.get("Created") == SOURCE_DATE_EPOCH_UTC,
     }
     if not all(checks.values()):
         raise AssertionError(json.dumps({"checks": checks, "filesystem": filesystem}, indent=2))
@@ -646,15 +789,17 @@ def inspect_database(path: Path) -> dict:
 def full_verification(args: argparse.Namespace) -> dict:
     contract = json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
     evaluation = json.loads(EVALUATION_PATH.read_text(encoding="utf-8"))
-    if evaluation.get("checkpoint") != "baseline-0027" or evaluation.get("gates", {}).get("baseline_disposition") != "pass":
-        raise AssertionError("The admitted evaluation must be a passing baseline-0027 report")
     if not PACKAGE_PATH.is_file():
         raise FileNotFoundError(PACKAGE_PATH)
     evidence_dir = args.evidence_dir.resolve()
     evidence_dir.mkdir(parents=True, exist_ok=False)
+    prerequisites = validate_prerequisites(evaluation)
+    builder = inspect_builder()
+    source_date_epoch = validate_source_date_epoch()
     token = uuid.uuid4().hex[:10]
     tags = [f"runbook-sentinel:baseline-0027-a-{token}", f"runbook-sentinel:baseline-0027-b-{token}"]
-    builds = [build_image(tag, evidence_dir / f"build-{index + 1}.log") for index, tag in enumerate(tags)]
+    build_records = [build_image(tag, evidence_dir / f"build-{index + 1}.log") for index, tag in enumerate(tags)]
+    builds = [record["image"] for record in build_records]
     image_ids = [item["Id"] for item in builds]
     if len(set(image_ids)) != 1:
         raise AssertionError(f"Independent image IDs differ: {image_ids}")
@@ -726,12 +871,26 @@ def full_verification(args: argparse.Namespace) -> dict:
                 "source_gate_ready": json.loads(SOURCE_GATE_PATH.read_text(encoding="utf-8"))["decision"]["status"] == "ready",
                 "base_index_digest_exact": base["Descriptor"]["digest"] == BASE_REFERENCE.split("@", 1)[1],
                 "base_platform_manifest_exact": PLATFORM_MANIFEST in run(["docker", "buildx", "imagetools", "inspect", BASE_REFERENCE]).stdout,
-                "dockerfile_contract_exact": True,
-                "dockerignore_contract_exact": True,
-                "package_contract_exact": True,
-                "evaluation_artifact_checkpoint_exact": True,
+                "dockerfile_contract_exact": prerequisites["checks"]["container_contract"],
+                "dockerignore_contract_exact": prerequisites["checks"]["container_contract"],
+                "package_contract_exact": prerequisites["checks"]["package"],
+                "evaluation_artifact_checkpoint_exact": prerequisites["checks"]["evaluation_checkpoint"],
                 "build_one_pass": True,
                 "build_two_pass": True,
+                "buildkit_version_compatible": all(builder["checks"].values()),
+                "source_date_epoch_exact": source_date_epoch["value"] == SOURCE_DATE_EPOCH,
+                "image_exporter_contract_exact": all(
+                    record["process"]["command"] == build_command(tag)
+                    for record, tag in zip(build_records, tags, strict=True)
+                ),
+                "image_created_at_frozen": all(
+                    item.get("Created") == SOURCE_DATE_EPOCH_UTC for item in builds
+                ),
+                "build_processes_exit_zero_without_exporter_error": all(
+                    record["process"]["exit_code"] == 0
+                    and record["process"]["exporter_error"] is False
+                    for record in build_records
+                ),
                 "independent_image_ids_equal": True,
                 "base_rootfs_layers_exact_prefix": image_validation["checks"]["base_rootfs_prefix"],
                 "added_layer_count_exact": image_validation["checks"]["added_layer_count"],
@@ -769,7 +928,16 @@ def full_verification(args: argparse.Namespace) -> dict:
             "contract_sha256": sha256_file(CONTRACT_PATH),
             "source_gate_sha256": sha256_file(SOURCE_GATE_PATH),
             "base_image": {"reference": BASE_REFERENCE, "platform_manifest_digest": PLATFORM_MANIFEST, "id": base["Id"]},
-            "image": {"independent_image_ids": image_ids, "tags": tags, "rootfs_layers": image_validation["rootfs_layers"]},
+            "builder": builder,
+            "prerequisites": prerequisites,
+            "source_date_epoch": source_date_epoch,
+            "builds": [record["process"] for record in build_records],
+            "image": {
+                "independent_image_ids": image_ids,
+                "created_at_utc": [item["Created"] for item in builds],
+                "tags": tags,
+                "rootfs_layers": image_validation["rootfs_layers"],
+            },
             "checks": checks,
             "evaluation": {
                 "stdout_sha256": hashlib.sha256(evaluation_result.stdout.encode()).hexdigest(),
@@ -790,7 +958,7 @@ def full_verification(args: argparse.Namespace) -> dict:
             "scan": scan,
             "secret_hits": secret_hits,
             "publication": {"image_exported": False, "image_pushed": False},
-            "next_gate": "Rebuild the exact image from a clean public-branch clone, then compose the canonical receipt with all 36 checks true.",
+            "next_gate": "Rebuild the exact image from a clean public-branch clone, then compose the canonical receipt with all 41 checks true.",
         }
         write_json(args.receipt, result)
         return result
@@ -805,9 +973,20 @@ def clean_build(args: argparse.Namespace) -> dict:
         raise ValueError("--expected-image-id is required in clean-build mode")
     evidence_dir = args.evidence_dir.resolve()
     evidence_dir.mkdir(parents=True, exist_ok=False)
+    evaluation = json.loads(EVALUATION_PATH.read_text(encoding="utf-8"))
+    prerequisites = validate_prerequisites(evaluation)
+    builder = inspect_builder()
+    source_date_epoch = validate_source_date_epoch()
     tag = f"runbook-sentinel:baseline-0027-clean-{uuid.uuid4().hex[:10]}"
-    inspect = build_image(tag, evidence_dir / "clean-build.log")
-    exact = inspect["Id"] == args.expected_image_id
+    build = build_image(tag, evidence_dir / "clean-build.log")
+    inspect = build["image"]
+    base = image_inspect(BASE_REFERENCE)
+    image_validation = validate_image(tag, inspect, base)
+    exact = (
+        inspect["Id"] == args.expected_image_id
+        and inspect["Created"] == SOURCE_DATE_EPOCH_UTC
+        and all(image_validation["checks"].values())
+    )
     result = {
         "schema_version": "1.0",
         "checkpoint": "baseline-0027",
@@ -817,6 +996,13 @@ def clean_build(args: argparse.Namespace) -> dict:
         "expected_image_id": args.expected_image_id,
         "exact": exact,
         "tag": tag,
+        "created_at_utc": inspect["Created"],
+        "created_at_frozen": inspect["Created"] == SOURCE_DATE_EPOCH_UTC,
+        "builder": builder,
+        "prerequisites": prerequisites,
+        "source_date_epoch": source_date_epoch,
+        "build": build["process"],
+        "image_validation": image_validation,
         "image_exported": False,
         "image_pushed": False,
     }
