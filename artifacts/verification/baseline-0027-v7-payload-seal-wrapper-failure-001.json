@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T23:57:14Z",
+  "status": "retained_failure",
+  "phase": "v7 payload seal summary",
+  "failures": [
+    {
+      "type": "schema_probe_error",
+      "error": "KeyError: latency_ms",
+      "cause": "The ad hoc summary assumed latency fields were directly under metrics.latency_ms; the verified report schema stores them under metrics.latency."
+    },
+    {
+      "type": "environment_probe_error",
+      "error": "Get-Date has no AsUTC parameter",
+      "cause": "The local Windows PowerShell version does not implement Get-Date -AsUTC; the supported DateTime.UtcNow path was used instead."
+    },
+    {
+      "type": "verifier_invocation_error",
+      "error": "verify_package_contract.py: unrecognized positional archive argument",
+      "cause": "The package verifier declares --archive rather than a positional archive parameter; the corrected invocation used the declared option."
+    }
+  ],
+  "candidate_bytes_changed": false,
+  "evaluation_bytes_changed": false,
+  "real_surface_bytes_changed": false,
+  "disposition": "corrected_before_seal"
+}
