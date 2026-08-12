@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T20:57:31Z",
+  "status": "stopped",
+  "disposition": "remediate",
+  "phase": "v4_source_package_attempt_004_preflight",
+  "failure": {
+    "command": ["python", "-m", "runbook_sentinel", "--help"],
+    "exit_code": 1,
+    "exact_error": "No module named runbook_sentinel",
+    "cause": "The host source preflight omitted the required project src directory from PYTHONPATH. Windows PowerShell stopped on the native stderr before the package preflight."
+  },
+  "effects": {
+    "source_evaluation_ran": false,
+    "package_evaluation_ran": false,
+    "candidate_files_created": false,
+    "manifest_changed": false,
+    "archive_changed_by_failure": false,
+    "container_image_built": false
+  },
+  "inputs": {
+    "manifest_sha256": "42b5fafa553b3bc0b0190368c83ca5d8978da7938f2adb8e9c7e8153cafd28b0",
+    "archive_sha256": "766a0157998ea40e08d7bb6ac6ebf370c2ecbeb9efbe54ecc947eb5ae19f55b7"
+  },
+  "correction": "Rerun unchanged bytes with PYTHONPATH bound to the exact repository src directory and preserve this stopped preflight."
+}

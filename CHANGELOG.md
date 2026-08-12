@@ -34,6 +34,9 @@
 - Source-gated official Dockerfile, exporter, and digest semantics; froze container-runtime-v4 before implementation to remove only WORKDIR, verify default root working directory, retain exactly two COPY layers, and distinguish exact local content identity from registry publication without changing push/export or runtime-security boundaries.
 - Implemented only the frozen v4 delta. The verifier now proves the inherited root working directory at runtime, requires the exact local content digest to equal the image ID, and binds local-only image events plus the no-push/no-export command. All 51 tests and 31 side-effect-free validators pass before manifest renewal or any v4 image build.
 - Renewed the authoritative manifest to 118 exact files after the public v4 implementation seal. It passes 51 tests and 32 validators; the predecessor archive is retained as superseded only by its embedded-manifest mismatch, and no replacement archive, evaluation, or image was created before this seal.
+- Published the v4 manifest seal, rebuilt the 41-entry zipapp twice with exact 590,207-byte identity, and selected source/package attempt 004 after all 119 Boolean gates and both anchored 261-event traces passed.
+- Revalidated the exact three-tool MCP boundary, authenticated API/approval/executor/replay flow, persisted state, telemetry, and complete rendered dashboard for both source and package runtimes. A bounded artifact scan passes after preserving and classifying its first package-contract definition false positive.
+- Bound the pre-image payload in `package-source-baseline-0027-v4.json`; the v4 image, container runtime, scan, and clean-clone gates remain pending, and no container image bytes were exported or published.
 
 ## 0.0.26 - 2026-08-11
 

@@ -1,0 +1,25 @@
+{
+  "archive_entry_count": 41,
+  "archive_forbidden_entries": [],
+  "checkpoint": "baseline-0027",
+  "docker_context_payload_paths": [
+    "dist/runbook-sentinel-0.0.27.pyz",
+    "artifacts/evaluations/latest.json"
+  ],
+  "docker_context_payload_sha256": {
+    "artifacts/evaluations/latest.json": "0d568c73a3f6ce6bc515365b89e8961b7c658563eede1fae85b2ee3662cb1861",
+    "dist/runbook-sentinel-0.0.27.pyz": "766a0157998ea40e08d7bb6ac6ebf370c2ecbeb9efbe54ecc947eb5ae19f55b7"
+  },
+  "high_signal_secret_hits": [
+    {
+      "path": "eval/package-contract-0027.json",
+      "pattern": "private_key"
+    }
+  ],
+  "model_artifacts": [],
+  "parse_errors": [],
+  "parsed_record_count": 540,
+  "schema_version": "1.0",
+  "selected_file_count": 24,
+  "status": "fail"
+}

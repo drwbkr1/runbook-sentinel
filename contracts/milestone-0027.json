@@ -185,6 +185,9 @@
         "The second two-image build supplied SOURCE_DATE_EPOCH 1786556577. Both configs received the exact frozen creation time, but both COPY layer digests and image IDs still differed; no later gate ran. Official BuildKit semantics and exact logs are retained.",
         "Two process-valid type=image rewrite-timestamp probes produced the same local image ID and frozen creation time, but are excluded from release evidence because the unchanged v2 Dockerfile still adds three layers and the exporter settings were not frozen before the probes. Container-runtime-v3 is now locally frozen before implementation; it preserves exactly two payload layers, moves WORKDIR after both COPY directives, and binds the timestamp, exporter, builder compatibility, clean-process, and no-publication checks."
         ,"The first v3 two-image run reproduced exact image ID ad9160e8... twice, then stopped before runtime because WORKDIR still emitted a canonical empty third layer and the exact Docker containerd store assigned a local content digest. Official Docker semantics, exact logs, and local-only events are retained. Container-runtime-v4 is frozen before implementation to remove only WORKDIR and verify local digest-to-ID equality without weakening push/export or runtime boundaries."
+        ,"The first v4 evaluation preflight omitted PYTHONPATH and stopped before either evaluation. A corrected fail-fast run produced selected passing source/package attempt 004; the import failure remains retained."
+        ,"The first v4 parity summary used nonexistent split_records instead of split_metrics after parity was already established. The reports remained unchanged and the corrected exact result is retained."
+        ,"The first bounded v4 artifact scan classified the package contract's literal private-key forbidden-pattern definition as credential material. The failed scan remains retained; the corrected receipt classifies only that definition and has zero unresolved hits."
       ],
       "disposition": "pending",
       "next_dependency": "UNIT-005"
@@ -221,7 +224,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Commit and push the exact renewed v4 manifest seal before rebuilding the archive, rerunning source/package evidence, or building a v4 image.",
+  "next_action": "Commit and push the exact manifest-bound v4 archive, source/package attempt 004, real-surface evidence, scan, and package-source receipt before building a v4 image.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -262,11 +265,12 @@
       ,"public v3 payload 09f9e2c8e5ccda1f82c4d956ba830cc5d3b3e2e3; retained v3 metadata-validation failure after two exact image IDs; valid eight-criterion Docker semantics gate; and locally frozen v4 contract before implementation"
       ,"public v4 contract freeze c207ac25af883b38410e3f3604dd5ea68de382ee; exact bounded v4 implementation; 51 tests; 31 side-effect-free validators; required static validation; compilation; and live Docker, Buildx, BuildKit, and epoch preflight before manifest renewal or image build"
       ,"public v4 implementation e000ece7b66b98cca96f4334f9d8b1b9bd85cf1d; renewed 118-file manifest 42b5fafa553b3bc0b0190368c83ca5d8978da7938f2adb8e9c7e8153cafd28b0; 51 tests; 32 validators; compilation; and predecessor archive retained with exact embedded-manifest mismatch before replacement build or image"
+      ,"public v4 manifest seal 8e501098bd2613f731e211a794b508c8ba2b0b26; two exact 590207-byte archives at 766a0157998ea40e08d7bb6ac6ebf370c2ecbeb9efbe54ecc947eb5ae19f55b7; source/package attempt 004 with all 119 Boolean gates and exact 261-event anchors; bounded MCP; both 110-check APIs; both 59-check native receipts; complete dashboards; corrected artifact scan; 32 validators; and 51 tests before any v4 image build"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.26 remains the latest verified release. BASELINE-0027 renewed v3 payload and real surfaces remain preserved at 09f9e2c8e5ccda1f82c4d956ba830cc5d3b3e2e3. V4 freeze and exact implementation are public through e000ece7b66b98cca96f4334f9d8b1b9bd85cf1d. The renewed 118-file manifest passes 51 tests, 32 validators, compilation, and exact contract validation; the predecessor archive is superseded only by its embedded-manifest mismatch. No replacement archive, v4 candidate evaluation, image, or passing container receipt exists.",
-    "next_action": "Commit and push the exact renewed v4 manifest seal before rebuilding the archive, rerunning source/package evidence, or building a v4 image.",
+    "current_checkpoint": "Public v0.0.26 remains the latest verified release. V4 contract, implementation, and renewed 118-file manifest are public through 8e501098bd2613f731e211a794b508c8ba2b0b26. Two replacement archives reproduce exactly, source/package attempt 004 and real surfaces pass, and the corrected bounded scan plus post-surface regression pass locally. No v4 image or passing container receipt exists.",
+    "next_action": "Commit and push the exact manifest-bound v4 archive, source/package attempt 004, real-surface evidence, scan, and package-source receipt before building a v4 image.",
     "do_not_carry_forward": [
       "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
       "any container image export, registry authentication, push, publication, or redistribution",
