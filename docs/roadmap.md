@@ -14,6 +14,8 @@ Source attempt 001 and the correction are public at `7221f89556573051513b91b5dd6
 
 The exact package contract and final manifest passed 48 tests plus 31 validators and are public at `22aeb0cfe3116521c93e1119d02ef600aa265086` with archive and image results absent. UNIT-003 is complete. UNIT-004 begins with two independent archive builds and exact contract verification, followed by source/package evaluations and real surfaces before the first container build.
 
+Two independent v0.0.27 zipapps now reproduce exact bytes. Selected fail-fast source/package attempt 002 preserves all 119 Boolean gates, exact 261-event traces, and deterministic metric projection identity. Bounded MCP, authenticated API/approval/executor/replay, persisted state, anchored telemetry, and complete source/package dashboards pass; 48 tests and all 31 side-effect-free validators also pass. The exact payload and retained orchestration failures must be public before the frozen verifier builds the first two networkless images.
+
 ## Completed checkpoint baseline-0026 - adversarial exposure-stage/outcome split coverage
 
 Fresh public-v0.0.25 evaluation separates three defenses that aggregate attack metrics blur: hostile guidance filtered before decision context, hostile in-band status or telemetry exposed to decision logic, and adversarial cases without instruction-bearing content. The nine stage/outcome pairs already demonstrated as valid produce eighteen development/test cells; seventeen are covered. The only empty cell is safe `request_evidence` under exposed in-band content in development.

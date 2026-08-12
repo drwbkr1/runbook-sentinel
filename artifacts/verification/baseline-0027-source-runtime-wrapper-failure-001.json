@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0027-source-runtime-wrapper-failure-001",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T18:04:48Z",
+  "disposition": "exclude",
+  "command_scope": "source MCP then source API and evidence inspection",
+  "failure": {
+    "stage": "source MCP verifier import",
+    "error": "ModuleNotFoundError: No module named 'runbook_sentinel'",
+    "cause": "RUNBOOK_SENTINEL_PYTHONPATH was set for the verifier's child runtime, but the verifier itself imports runbook_sentinel before applying that override and also requires PYTHONPATH."
+  },
+  "downstream_started": false,
+  "mcp_output_created": false,
+  "api_output_created": false,
+  "native_output_created": false,
+  "container_image_built": false,
+  "product_or_contract_changed": false,
+  "next_gate": "Rerun the unchanged verifier with both PYTHONPATH and RUNBOOK_SENTINEL_PYTHONPATH bound to the exact source tree."
+}

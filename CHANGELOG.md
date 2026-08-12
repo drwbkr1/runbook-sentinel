@@ -18,6 +18,11 @@
 - Froze identical 41-entry v0.0.27 package contracts and a 116-file final manifest before constructing any package archive or container image.
 - Passed the complete pre-build seal gate with 48 tests and 31 validators while package and image artifacts remained absent.
 - Published exact package/final-manifest pre-build seal `22aeb0cfe3116521c93e1119d02ef600aa265086` and opened UNIT-004 verification with the image gate still closed.
+- Built two byte-identical, contract-valid 41-entry v0.0.27 zipapps and retained an excluded final-evaluation attempt whose PowerShell immutability guard was invalid before any image build.
+- Selected fail-fast final source/package attempt 002 with exact deterministic metric parity, and retained a source-MCP orchestration stop caused by a missing verifier import path.
+- Verified source and packaged MCP, authenticated API, approval/executor/replay, persisted state, anchored telemetry, and complete rendered dashboards before building any container image.
+- Passed the post-package 48-test and side-effect-free 31-validator gate; retained an aggregate-verifier promotion side effect and a missing-`PYTHONPATH` wrapper stop without replacing the selected final source/package evidence.
+- Parsed and classified the candidate evidence corpus with zero unresolved credential-shaped value or model artifact, while retaining the exact previously classified empty MCP failure.
 
 ## 0.0.26 - 2026-08-11
 

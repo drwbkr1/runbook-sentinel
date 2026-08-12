@@ -163,15 +163,21 @@
       "human_gate": false,
       "status": "in_progress",
       "gates": {
-        "immutable_source_candidate": "pending",
-        "all_prior_source_and_package_gates": "pending",
+        "immutable_source_candidate": "pass",
+        "all_prior_source_and_package_gates": "pass",
         "two_image_builds_exact": "pending",
         "container_cli_evaluation_mcp_api_state_telemetry_dashboard": "pending",
         "container_security_contract": "pending",
         "candidate_scan": "pending",
         "clean_clone_source_package_and_container": "pending"
       },
-      "retained_failures": [],
+      "retained_failures": [
+        "Final source/package evaluation attempt 001 is excluded after a non-terminating PowerShell Test-Path guard error allowed both outputs to run. A subsequent trace-verifier probe also omitted PYTHONPATH and stopped at import. All six outputs and the exact wrapper failure remain retained; no image was built.",
+        "The first source-real-surface wrapper set only RUNBOOK_SENTINEL_PYTHONPATH; the MCP verifier itself stopped at import because PYTHONPATH was absent. No MCP/API/native output or image was created; exact failure receipt retained.",
+        "The first parity-summary hash helper used unavailable System.Convert.ToHexString. Reports remained unchanged; the supported SHA256.Create/ComputeHash path proved exact parity and the diagnostic is retained.",
+        "The first post-package aggregate regression invocation ran its designed evaluation-and-promotion tail after all validators and tests passed, creating a valid but unselected baseline-0027-attempt-002 and replacing latest.json. The three output files are retained; latest.json was restored exactly to the selected fail-fast final source attempt before the side-effect-free validator sweep.",
+        "The first side-effect-free validator wrapper omitted PYTHONPATH and stopped after 21 passes when verify_stale_payload_projection.py could not import runbook_sentinel. The corrected unchanged sweep set the exact source path and passed all 31 validators while latest.json remained selected exactly."
+      ],
       "disposition": "pending",
       "next_dependency": "UNIT-005"
     },
@@ -207,7 +213,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Build and verify two byte-identical v0.0.27 zipapps, then run exact source/package evaluations and real surfaces before the first container image build.",
+  "next_action": "Publish the exact selected archive, final source/package evaluations, real-surface evidence, retained failures, and post-package regression record; then run the frozen two-build container verifier from that public commit.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -240,11 +246,12 @@
       "public implementation seal b521d16d91f5c8e198449ef17bb52e9f8d7490d5 and locally verified 115-file pre-reveal manifest with candidate and image results absent",
       "public pre-reveal manifest seal 8c486c6d9e0bc26c03749c45e9e5b89c1c72770a after 47 tests and 31 standalone validators passed"
       ,"public package-contract and final-manifest seal 22aeb0cfe3116521c93e1119d02ef600aa265086 after 48 tests and 31 standalone validators passed with archive and image results absent"
+      ,"two byte-identical contract-valid v0.0.27 zipapps, selected final source/package attempt 002 parity, bounded MCP, authenticated API/approval/executor/replay/state/telemetry, complete rendered dashboards, 48 tests, and a side-effect-free 31-validator sweep"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.26 remains the latest verified release. BASELINE-0027 source attempt 001, its retained/corrected pointer stop, and the exact v0.0.27 package-contract plus 116-file final-manifest seal are public. UNIT-003 is complete; no package archive or Runbook Sentinel image exists yet.",
-    "next_action": "Build two independent v0.0.27 zipapps, require byte identity, then verify source/package evaluations and real surfaces before any image build.",
+    "current_checkpoint": "Public v0.0.26 remains the latest verified release. BASELINE-0027 has a public implementation and final-manifest seal, two byte-identical local zipapps, selected exact source/package evaluations, bounded MCP, authenticated API/approval/executor/replay/state/telemetry, complete rendered dashboards, and passing post-package regression. The exact UNIT-004 payload commit remains to be published before any container image build.",
+    "next_action": "Publish the exact source/package payload and evidence, then run the frozen two-build networkless container verifier from that public commit.",
     "do_not_carry_forward": [
       "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
       "any container image export, registry authentication, push, publication, or redistribution",

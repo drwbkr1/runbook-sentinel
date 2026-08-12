@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T18:28:35Z",
+  "status": "pass",
+  "scope": {
+    "repository_root": "C:/Projects/Active/runbook-sentinel",
+    "file_count_scanned": 993,
+    "excluded_directories": [".git", "__pycache__", "dist", "var"],
+    "excluded_local_disposable_prefixes": [
+      "artifacts/verification/repro-build-0025",
+      "artifacts/verification/native-baseline-0025.json"
+    ]
+  },
+  "structured_artifacts": {
+    "json_file_count": 581,
+    "jsonl_file_count": 180,
+    "jsonl_record_count": 19279,
+    "parse_errors": [],
+    "retained_expected_invalid_json": [
+      {
+        "path": "artifacts/verification/mcp-source-baseline-0026.json",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "classification": "retained pre-import BASELINE-0026 MCP harness failure already classified by artifact-scan-baseline-0026.json"
+      }
+    ]
+  },
+  "credential_scan": {
+    "broad_high_signal_hit_files": 22,
+    "classified_package_contract_private_key_definitions": 17,
+    "classified_symbolic_approval_token_definition_files": 3,
+    "classified_container_scanner_definition_files": 1,
+    "classified_historical_rebuild_archive": 1,
+    "package_contract_definition_files": [
+      "eval/package-contract-0012.json",
+      "eval/package-contract-0013.json",
+      "eval/package-contract-0014.json",
+      "eval/package-contract-0015.json",
+      "eval/package-contract-0016.json",
+      "eval/package-contract-0017.json",
+      "eval/package-contract-0018.json",
+      "eval/package-contract-0019.json",
+      "eval/package-contract-0020.json",
+      "eval/package-contract-0021.json",
+      "eval/package-contract-0022.json",
+      "eval/package-contract-0023.json",
+      "eval/package-contract-0024.json",
+      "eval/package-contract-0025.json",
+      "eval/package-contract-0026.json",
+      "eval/package-contract-0027.json",
+      "eval/package-contract.json"
+    ],
+    "symbolic_definition_files": [
+      "eval/idempotency-authorization-contract.json",
+      "scripts/verify_idempotency_authorization_contract.py",
+      "scripts/verify_container_runtime.py"
+    ],
+    "symbolic_values": [
+      "original_consumed",
+      "other_proposal_valid_unconsumed",
+      "wrong_syntactically_valid",
+      "wrong-syntactically-valid-token"
+    ],
+    "historical_rebuild_archive": "artifacts/builds/runbook-sentinel-0.0.22-rebuild.pyz",
+    "unresolved_high_signal_hits": [],
+    "persisted_secret_matches": 0,
+    "patterns": [
+      "private key header",
+      "GitHub classic token",
+      "GitHub fine-grained token",
+      "OpenAI-style key",
+      "JWT-shaped value",
+      "Bearer value",
+      "serialized operator capability",
+      "serialized capability token",
+      "serialized approval token"
+    ]
+  },
+  "model_artifacts": {
+    "extensions": [".gguf", ".safetensors", ".pt", ".pth", ".onnx", ".ckpt"],
+    "files": []
+  },
+  "retained_scan_orchestration_errors": [
+    "The first ripgrep pattern began with a private-key header and was parsed as a command flag; it produced no security result. The corrected command used an explicit pattern argument.",
+    "The first repository-wide parser used unavailable System.IO.Path.GetRelativePath under Windows PowerShell and stopped before scanning. The compatible prefix-relative implementation produced this result."
+  ],
+  "claim_boundary": "This classifies repository-local evidence at the observation time. It is not a proof against every possible secret format or future file."
+}

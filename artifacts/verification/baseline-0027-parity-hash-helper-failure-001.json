@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0027-parity-hash-helper-failure-001",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T18:07:21Z",
+  "disposition": "exclude",
+  "failure": {
+    "helper": "System.Convert.ToHexString",
+    "error": "Method invocation failed because System.Convert does not contain a method named ToHexString.",
+    "scope": "Parity-summary hashing only; source and package reports were unchanged."
+  },
+  "corrected_helper": "SHA256.Create().ComputeHash(...) plus BitConverter.ToString(...).Replace('-', '').ToLowerInvariant()",
+  "corrected_result": {
+    "container_projection_exact": true,
+    "container_projection_sha256": "d08823b3ddda041f24567f70f11326661b749d63ddc07dbdd1d160836c7ca820",
+    "full_normalized_report_exact": true,
+    "full_normalized_report_sha256": "87b49f84253b05e672785dbb1be0e4f0041a2243c6a07104c5ec3da45188fbcb"
+  },
+  "next_gate": "Use the repository's container projection for source/package/container parity and retain the full normalized audit as supporting evidence."
+}
