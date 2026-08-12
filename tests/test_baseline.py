@@ -72,10 +72,12 @@ from scripts.verify_adversarial_exposure_stage_outcome_split_coverage_contract i
     valid_latest_report as valid_latest_exposure_report,
 )
 from scripts.verify_container_runtime import (
+    EVENT_WINDOW_GRACE_NANOSECONDS,
     EXPECTED_BUILDER,
     SOURCE_DATE_EPOCH,
     SOURCE_DATE_EPOCH_UTC,
     build_command,
+    format_unix_nanoseconds,
     local_content_digest_matches_image_id,
     validate_local_image_events,
 )
@@ -83,6 +85,7 @@ from scripts.verify_container_contract import (
     EXPECTED_DOCKERFILE_LINES as EXPECTED_V4_DOCKERFILE_LINES,
     EXPECTED_V3_DOCKERFILE_LINES,
     validate_contract as validate_container_contract,
+    validate_v4_contract,
 )
 
 
@@ -120,11 +123,11 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(EXPECTED_BUILDER["buildkit"], "0.29.0")
 
     def test_container_v4_contract_fails_closed_on_metadata_boundary_weakening(self):
-        contract_path = ROOT / "eval/container-contract.json"
+        contract_path = ROOT / "eval/container-contract-0027-v4.json"
         raw = contract_path.read_bytes()
         contract = json.loads(raw)
         errors: list[str] = []
-        validate_container_contract(contract, raw, errors)
+        validate_v4_contract(contract, raw, errors)
         self.assertEqual(errors, [])
         self.assertNotIn("WORKDIR /opt/runbook-sentinel", EXPECTED_V4_DOCKERFILE_LINES)
         self.assertIn("WORKDIR /opt/runbook-sentinel", EXPECTED_V3_DOCKERFILE_LINES)
@@ -134,7 +137,7 @@ class BaselineTest(unittest.TestCase):
             8, "WORKDIR /opt/runbook-sentinel"
         )
         errors = []
-        validate_container_contract(workdir_mutation, raw, errors)
+        validate_v4_contract(workdir_mutation, raw, errors)
         self.assertIn("Dockerfile contract lines mismatch", errors)
 
         digest_mutation = copy.deepcopy(contract)
@@ -142,8 +145,28 @@ class BaselineTest(unittest.TestCase):
             "repo_digest_content_must_equal_image_id"
         ] = False
         errors = []
-        validate_container_contract(digest_mutation, raw, errors)
+        validate_v4_contract(digest_mutation, raw, errors)
         self.assertIn("local image identity contract mismatch", errors)
+
+    def test_container_v5_contract_fails_closed_on_event_window_weakening(self):
+        contract_path = ROOT / "eval/container-contract.json"
+        raw = contract_path.read_bytes()
+        contract = json.loads(raw)
+        errors: list[str] = []
+        validate_container_contract(contract, raw, errors)
+        self.assertEqual(errors, [])
+
+        no_completion_grace = copy.deepcopy(contract)
+        no_completion_grace["event_capture_contract"]["completion_grace_nanoseconds"] = 0
+        errors = []
+        validate_container_contract(no_completion_grace, raw, errors)
+        self.assertIn("event capture contract mismatch", errors)
+
+        push_allowed = copy.deepcopy(contract)
+        push_allowed["event_capture_contract"]["push_event_rejected"] = False
+        errors = []
+        validate_container_contract(push_allowed, raw, errors)
+        self.assertIn("event capture contract mismatch", errors)
 
     def test_container_v4_local_content_identity_and_events_fail_closed(self):
         image_id = "sha256:" + "a" * 64
@@ -186,6 +209,22 @@ class BaselineTest(unittest.TestCase):
         )
         with self.assertRaises(AssertionError):
             validate_local_image_events(pushed, tags, image_id)
+
+    def test_container_v5_event_time_bounds_are_nanosecond_complete(self):
+        self.assertEqual(EVENT_WINDOW_GRACE_NANOSECONDS, 1_000_000_000)
+        self.assertEqual(format_unix_nanoseconds(0), "0.000000000")
+        self.assertEqual(
+            format_unix_nanoseconds(1_786_569_915_162_754_846),
+            "1786569915.162754846",
+        )
+        self.assertEqual(
+            format_unix_nanoseconds(1_786_569_916_000_000_000),
+            "1786569916.000000000",
+        )
+        with self.assertRaises(ValueError):
+            format_unix_nanoseconds(-1)
+        with self.assertRaises(ValueError):
+            format_unix_nanoseconds(True)
 
     def test_latest_report_accepts_only_candidate_or_current_manifest_final(self):
         root = Path(self.temp.name)

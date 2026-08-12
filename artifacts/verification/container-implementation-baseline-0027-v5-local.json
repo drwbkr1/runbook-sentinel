@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T21:45:00Z",
+  "status": "pass",
+  "contract": {
+    "id": "container-runtime-v5",
+    "sha256": "e71817e465dd8f25c183427389f7c1d1aaeefadbf318506e566e6eb0c842b30a",
+    "public_freeze_commit": "80afa4999535dca90764f16c651279512b2e6a8d"
+  },
+  "implementation": {
+    "runtime_verifier": {
+      "path": "scripts/verify_container_runtime.py",
+      "bytes": 47965,
+      "sha256": "1eca1d240f786891fc0412d4eb7b9c59b25cfab042e710169120d581fd0d1f06"
+    },
+    "contract_verifier": {
+      "path": "scripts/verify_container_contract.py",
+      "bytes": 28661,
+      "sha256": "257441ecb5d84bad7fd507837a226ae3e0a416f27066e2077a6078321f6826a1"
+    },
+    "tests": {
+      "path": "tests/test_baseline.py",
+      "bytes": 117830,
+      "sha256": "bbe58a67924d7296682d99ce940b7db5eafe684dc125201a204970a71d153cae"
+    }
+  },
+  "bounded_delta": {
+    "clock": "time.time_ns",
+    "timestamp_format": "seconds.nanoseconds with nine fractional digits",
+    "start_grace_nanoseconds": 1000000000,
+    "completion_grace_nanoseconds": 1000000000,
+    "exact_tag_image_scope_and_action_validation_unchanged": true
+  },
+  "unchanged_inputs": {
+    "dockerfile_sha256": "2db4d99f90f261b1df3bda292e8e31f7fede1189954082d31f4abf0bb731f1e7",
+    "package_sha256": "766a0157998ea40e08d7bb6ac6ebf370c2ecbeb9efbe54ecc947eb5ae19f55b7",
+    "evaluation_sha256": "0d568c73a3f6ce6bc515365b89e8961b7c658563eede1fae85b2ee3662cb1861",
+    "dockerfile_context_package_evaluation_and_src_diff_from_freeze": []
+  },
+  "verification": {
+    "compilation": "pass",
+    "required_implementation_contract": "pass; implemented_v5",
+    "focused_tests": {"passed": 5, "total": 5, "elapsed_seconds": 0.124},
+    "full_tests": {"passed": 53, "total": 53, "elapsed_seconds": 101.232},
+    "side_effect_free_validators_excluding_expected_stale_manifest": {"passed": 31, "total": 31, "elapsed_seconds": 31.658},
+    "selected_evaluation_pointer_unchanged": true,
+    "expected_pre_manifest_mismatch_count": 3,
+    "unexpected_pre_manifest_mismatch_count": 0
+  },
+  "retained_failures": [
+    "artifacts/verification/container-v5-focused-test-schema-failure-001.json",
+    "artifacts/verification/container-v5-validator-powershell-wrapper-failure-001.json",
+    "artifacts/verification/container-v5-pre-manifest-expected-mismatch-001.json"
+  ],
+  "image_built_after_v5_freeze": false,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false,
+  "next_gate": "Commit and push the exact v5 implementation seal before renewing the manifest or rerunning an image."
+}

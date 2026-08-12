@@ -170,6 +170,7 @@
         "container_runtime_v4_implemented_before_manifest_renewal": "pass",
         "container_runtime_v4_manifest_frozen_before_archive_or_image": "pass",
         "container_runtime_v5_frozen_before_event_window_implementation": "pass",
+        "container_runtime_v5_implemented_before_manifest_renewal": "pass",
         "two_image_builds_exact": "pending",
         "container_cli_evaluation_mcp_api_state_telemetry_dashboard": "pending",
         "container_security_contract": "pending",
@@ -190,6 +191,8 @@
         ,"The first v4 parity summary used nonexistent split_records instead of split_metrics after parity was already established. The reports remained unchanged and the corrected exact result is retained."
         ,"The first bounded v4 artifact scan classified the package contract's literal private-key forbidden-pattern definition as credential material. The failed scan remains retained; the corrected receipt classifies only that definition and has zero unresolved hits."
         ,"The first genuine v4 image reveal built exact image ID 2d3f89d... twice but stopped before runtime because integer-second --until excluded build B's tag later within the same second. Expanded read-only events prove both local tags and no push. V5 is frozen around nanosecond bounds plus a one-second completion grace before implementation."
+        ,"The first focused v5 suite retained one test-schema error after a v4 invariant test loaded the compact v5 contract. The corrected suite separates inherited v4 and v5 event-window mutations and passes five of five."
+        ,"The first side-effect-free v5 wrapper stopped on PowerShell native-stream handling. The direct subprocess run then reported only the expected three-file stale-manifest boundary; 31 other validators and all 53 tests pass with the selected report unchanged."
       ],
       "disposition": "pending",
       "next_dependency": "UNIT-005"
@@ -226,7 +229,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Commit and push the exact v5 event-window source gate, v4 failure, contract, ADR, and independent preimplementation validator before implementing the bounded capture correction.",
+  "next_action": "Commit and push the exact v5 event-window implementation seal before renewing the manifest or rerunning an image.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -269,11 +272,12 @@
       ,"public v4 implementation e000ece7b66b98cca96f4334f9d8b1b9bd85cf1d; renewed 118-file manifest 42b5fafa553b3bc0b0190368c83ca5d8978da7938f2adb8e9c7e8153cafd28b0; 51 tests; 32 validators; compilation; and predecessor archive retained with exact embedded-manifest mismatch before replacement build or image"
       ,"public v4 manifest seal 8e501098bd2613f731e211a794b508c8ba2b0b26; two exact 590207-byte archives at 766a0157998ea40e08d7bb6ac6ebf370c2ecbeb9efbe54ecc947eb5ae19f55b7; source/package attempt 004 with all 119 Boolean gates and exact 261-event anchors; bounded MCP; both 110-check APIs; both 59-check native receipts; complete dashboards; corrected artifact scan; 32 validators; and 51 tests before any v4 image build"
       ,"public v4 payload 56fe0c1ac13f5ab2ce375e50e8882d44bfe4c90e; retained wrapper-only timeout and existing-directory stops; exact two-build v4 image ID 2d3f89d5807513719d958ae2b6c6f65e1cf391ea47c66aa6f084d0766d9039ee; retained integer-second event-window failure before runtime; official eight-criterion Docker events source gate; and locally frozen v5 contract with required implementation failing closed"
+      ,"public v5 freeze 80afa4999535dca90764f16c651279512b2e6a8d; exact nanosecond event-window implementation; five focused tests; 53 full tests; 31 non-manifest side-effect-free validators; compilation; required implementation pass; exactly three expected stale-manifest identities; unchanged Dockerfile, package, selected evaluation, source, and image inputs; no successor image build"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.26 remains the latest verified release. Public v4 payload 56fe0c1ac13f5ab2ce375e50e8882d44bfe4c90e built exact local image ID 2d3f89d... twice, then stopped before runtime because an integer-second Docker event end bound excluded build B's same-second tag. Exact logs, both local tags, no push, and the v4 failure are retained. V5 is locally source-gated and frozen before implementation; no passing container receipt exists.",
-    "next_action": "Commit and push the exact v5 event-window source gate, v4 failure, contract, ADR, and independent preimplementation validator before implementing the bounded capture correction.",
+    "current_checkpoint": "Public v0.0.26 remains the latest verified release. V5 freeze 80afa4999535dca90764f16c651279512b2e6a8d is public. The bounded nanosecond event-window implementation passes required contract validation, five focused tests, all 53 tests, 31 non-manifest side-effect-free validators, and compilation. The old manifest is stale only on the exact three v5 implementation identities. Dockerfile, package, selected evaluation, source, and image inputs remain unchanged; no successor image or passing container receipt exists.",
+    "next_action": "Commit and push the exact v5 event-window implementation seal before renewing the manifest or rerunning an image.",
     "do_not_carry_forward": [
       "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
       "any container image export, registry authentication, push, publication, or redistribution",

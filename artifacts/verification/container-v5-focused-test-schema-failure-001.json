@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T21:39:00Z",
+  "status": "fail",
+  "scope": "four focused container tests after v5 event-window implementation",
+  "passed": 3,
+  "failed": 0,
+  "errors": 1,
+  "error": "test_container_v4_contract_fails_closed_on_metadata_boundary_weakening loaded the compact current v5 contract and attempted to access inherited v4 dockerfile_contract directly, raising KeyError before its mutation assertion.",
+  "implementation_contract_result": "pass; implemented_v5",
+  "product_or_runtime_result": "not exercised",
+  "correction": "Load the frozen v4 contract for v4 Dockerfile/local-digest mutation tests and add a separate current-v5 event-window mutation test."
+}

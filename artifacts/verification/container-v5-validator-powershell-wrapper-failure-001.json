@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T21:42:00Z",
+  "status": "stopped",
+  "failure": "The first v5 side-effect-free validator wrapper used PowerShell ErrorActionPreference Stop with native stream redirection. PowerShell promoted native JSON output to a NativeCommandError before the wrapper could record a validator identity or exit code.",
+  "validator_result": "unknown; no pass or fail inferred",
+  "product_or_selected_evidence_changed": false,
+  "correction": "Run the exact validator inventory through Python subprocess.run and record each direct process exit code."
+}

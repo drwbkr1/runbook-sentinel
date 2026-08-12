@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T21:43:00Z",
+  "status": "expected_pre_manifest_mismatch",
+  "validator": "scripts/verify_manifest.py",
+  "mismatches": [
+    {
+      "path": "eval/container-contract.json",
+      "expected": "ab822c1500ef09f0eff52759c7665536a5e9caa823f6c4ce2afa61614b5caacb",
+      "actual": "e71817e465dd8f25c183427389f7c1d1aaeefadbf318506e566e6eb0c842b30a"
+    },
+    {
+      "path": "scripts/verify_container_contract.py",
+      "expected": "a0085b81f4d1db1210d20033099b154879b079531a2392dfeb42fd8fc9d08dea",
+      "actual": "257441ecb5d84bad7fd507837a226ae3e0a416f27066e2077a6078321f6826a1"
+    },
+    {
+      "path": "scripts/verify_container_runtime.py",
+      "expected": "ed71ad8cbe8b379598c3e9442ecef2312992bae588cb2251a074c0dd1bc22712",
+      "actual": "1eca1d240f786891fc0412d4eb7b9c59b25cfab042e710169120d581fd0d1f06"
+    }
+  ],
+  "unexpected_mismatch_count": 0,
+  "image_built_after_v5_freeze": false,
+  "next_gate": "Pass all implementation tests and exact v5 contract validation, publish the implementation seal, then renew the manifest before rebuilding the package or image."
+}

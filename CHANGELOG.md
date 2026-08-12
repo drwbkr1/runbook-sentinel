@@ -39,6 +39,7 @@
 - Bound the pre-image payload in `package-source-baseline-0027-v4.json`; the v4 image, container runtime, scan, and clean-clone gates remain pending, and no container image bytes were exported or published.
 - Retained wrapper-only timeout and evidence-directory setup stops, then built exact local image ID `2d3f89d...` twice from the public v4 payload. The first real reveal stopped before runtime when an integer-second Docker event end bound excluded the second tag later within that same second.
 - Source-gated official Docker event time/scope/filter/JSONL semantics and froze container-runtime-v5, ADR 0020, and an independent preimplementation validator around nanosecond bounds plus one second of completion grace. Exact tags, image identity, local scope, create/tag-only actions, no export/push, and all runtime boundaries remain unchanged.
+- Implemented only the frozen v5 event-window delta. Required-v5 validation, five focused tests, all 53 tests, 31 non-manifest side-effect-free validators, and compilation pass; exactly three expected manifest identities are stale before renewal, selected image inputs are unchanged, and no successor image was built.
 
 ## 0.0.26 - 2026-08-11
 

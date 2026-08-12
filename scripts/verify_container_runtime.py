@@ -78,6 +78,7 @@ EXPECTED_BUILDER = {
     "buildkit": "0.29.0",
     "driver": "docker",
 }
+EVENT_WINDOW_GRACE_NANOSECONDS = 1_000_000_000
 
 
 API_PROBE = r'''
@@ -313,15 +314,24 @@ def validate_local_image_events(events: list[dict], tags: list[str], image_id: s
     return {"checks": checks, "events": relevant}
 
 
+def format_unix_nanoseconds(value: int) -> str:
+    if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+        raise ValueError("Unix nanoseconds must be a non-negative integer")
+    seconds, nanoseconds = divmod(value, 1_000_000_000)
+    return f"{seconds}.{nanoseconds:09d}"
+
+
 def image_events(since: int, until: int) -> list[dict]:
+    if until <= since:
+        raise ValueError("Docker event end bound must be after start bound")
     result = run(
         [
             "docker",
             "events",
             "--since",
-            str(since),
+            format_unix_nanoseconds(since),
             "--until",
-            str(until),
+            format_unix_nanoseconds(until),
             "--filter",
             "type=image",
             "--format",
@@ -419,7 +429,7 @@ def validate_prerequisites(evaluation: dict) -> dict:
     package_validation = json.loads(package_result.stdout)
     checks = {
         "container_contract": contract_validation.get("status") == "pass"
-        and contract_validation.get("implementation_phase") == "implemented_v4",
+        and contract_validation.get("implementation_phase") == "implemented_v5",
         "manifest": manifest_validation.get("status") == "pass",
         "package": package_validation.get("status") == "pass",
         "evaluation_checkpoint": evaluation.get("checkpoint") == "baseline-0027"
@@ -872,14 +882,15 @@ def full_verification(args: argparse.Namespace) -> dict:
     source_date_epoch = validate_source_date_epoch()
     token = uuid.uuid4().hex[:10]
     tags = [f"runbook-sentinel:baseline-0027-a-{token}", f"runbook-sentinel:baseline-0027-b-{token}"]
-    build_started_at = int(time.time()) - 1
+    build_started_at_ns = time.time_ns() - EVENT_WINDOW_GRACE_NANOSECONDS
     build_records = [build_image(tag, evidence_dir / f"build-{index + 1}.log") for index, tag in enumerate(tags)]
+    build_finished_at_ns = time.time_ns() + EVENT_WINDOW_GRACE_NANOSECONDS
     builds = [record["image"] for record in build_records]
     image_ids = [item["Id"] for item in builds]
     if len(set(image_ids)) != 1:
         raise AssertionError(f"Independent image IDs differ: {image_ids}")
     local_events = validate_local_image_events(
-        image_events(build_started_at, int(time.time())), tags, image_ids[0]
+        image_events(build_started_at_ns, build_finished_at_ns), tags, image_ids[0]
     )
     base = image_inspect(BASE_REFERENCE)
     image_validation = validate_image(tags[0], builds[0], base)
@@ -1068,11 +1079,12 @@ def clean_build(args: argparse.Namespace) -> dict:
     builder = inspect_builder()
     source_date_epoch = validate_source_date_epoch()
     tag = f"runbook-sentinel:baseline-0027-clean-{uuid.uuid4().hex[:10]}"
-    build_started_at = int(time.time()) - 1
+    build_started_at_ns = time.time_ns() - EVENT_WINDOW_GRACE_NANOSECONDS
     build = build_image(tag, evidence_dir / "clean-build.log")
+    build_finished_at_ns = time.time_ns() + EVENT_WINDOW_GRACE_NANOSECONDS
     inspect = build["image"]
     local_events = validate_local_image_events(
-        image_events(build_started_at, int(time.time())), [tag], inspect["Id"]
+        image_events(build_started_at_ns, build_finished_at_ns), [tag], inspect["Id"]
     )
     base = image_inspect(BASE_REFERENCE)
     image_validation = validate_image(tag, inspect, base)
