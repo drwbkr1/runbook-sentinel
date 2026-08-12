@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0027-package-seal-local-20260812T174257Z",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T17:42:57Z",
+  "disposition": "pass",
+  "source_candidate": {
+    "public_commit": "7221f89556573051513b91b5dd6c3e048964f65f",
+    "report_sha256": "6ec1368c31d2f1a18a25a474ea98874ece035414e516dc7d87b32afc7bd4c64d",
+    "trace_sha256": "72e19641a92221e94a03b79af5d48de1acd17cd1be56200b1f50f4e2b539b1fe",
+    "manifest_sha256": "eff82128c034c7534ebf3c05fc7bec5cc4a04689d86f7304e40d0813b28d1523"
+  },
+  "package_contract": {
+    "current_path": "eval/package-contract.json",
+    "versioned_path": "eval/package-contract-0027.json",
+    "bytes": 14968,
+    "sha256": "2eac29cedf0b422c0873629b7d3d682882ff403556059446ac232555479bf57e",
+    "current_and_versioned_exact": true,
+    "entry_count": 41,
+    "runtime_dependencies": [],
+    "static_validation": "pass"
+  },
+  "final_manifest": {
+    "path": "eval/manifest.json",
+    "frozen_at_utc": "2026-08-12T17:42:57Z",
+    "file_count": 116,
+    "bytes": 13795,
+    "sha256": "cdc9ced520421f89b87ea04629bbce1b4a80e7f875b4366a6359c987a009f67a",
+    "exact_verification": "pass",
+    "package_contract_hashes_exact": true,
+    "corrected_validator_sha256": "1200d0bdcd8f9007923753de9dacfed2f9e06e14c109a77dcaa03febccce2134"
+  },
+  "pre_build_absence": {
+    "package_archive": "absent",
+    "package_checksum": "absent",
+    "container_runtime_receipt": "absent",
+    "runbook_sentinel_container_image": "absent"
+  },
+  "complete_gate": {
+    "unit_tests_passed": 48,
+    "unit_tests_total": 48,
+    "unit_tests_elapsed_seconds": 101.783,
+    "standalone_validators_passed": 31,
+    "standalone_validators_total": 31,
+    "standalone_validators_elapsed_seconds": 7.168,
+    "archive_created": false,
+    "image_built": false
+  },
+  "seal_status": "complete_gate_pass_awaiting_public_commit",
+  "authorized_next_action": "Commit and push this exact package contract and final manifest before constructing any archive or image."
+}

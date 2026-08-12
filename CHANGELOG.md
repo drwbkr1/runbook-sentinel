@@ -15,6 +15,8 @@
 - Recorded immutable source attempt 001 with 57 passing scenarios, 171 attempts, all 119 Boolean gates, and an exact 261-event trace.
 - Retained a post-candidate historical latest-pointer stop and added a validation-only successor rule requiring exact manifest binding, passing safety gates, and an anchored trace before package construction.
 - Verified the correction with 48 tests and 30 non-manifest validators while preserving the immutable pre-reveal companion and its one expected transitional validator-hash mismatch.
+- Froze identical 41-entry v0.0.27 package contracts and a 116-file final manifest before constructing any package archive or container image.
+- Passed the complete pre-build seal gate with 48 tests and 31 validators while package and image artifacts remained absent.
 
 ## 0.0.26 - 2026-08-11
 

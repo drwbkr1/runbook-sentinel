@@ -12,6 +12,8 @@ The first post-candidate sweep retains a process stop: sixteen validators passed
 
 The correction passes the previously failing validator, three focused pointer tests, all 48 unit tests, and all 30 non-manifest validators. The unchanged pre-reveal manifest correctly reports one transitional mismatch for the corrected validator itself; source attempt 001 remains bound to the exact pre-correction companion, while a new final manifest is required after the package-contract freeze and before any package or image construction.
 
+The v0.0.27 package contract now freezes 41 dependency-free entries at SHA-256 `2eac29cedf0b422c0873629b7d3d682882ff403556059446ac232555479bf57e`. The 116-file final manifest is SHA-256 `cdc9ced520421f89b87ea04629bbce1b4a80e7f875b4366a6359c987a009f67a` and binds the corrected validator plus both identical package-contract paths. No archive or image exists; these are pre-build identities, not package or container results.
+
 ## BASELINE-0026 pre-implementation evidence
 
 The exact public v0.0.25 source report passes 56 scenarios, 168 attempts, and every prior hard gate at SHA-256 `35a66c2af6461de84bcb4668e57007d9f6f5b38c83b8e501af1c276fb1a47fd5`. Its 38 adversarial cases exercise 22 guidance-filtered scenarios, seven cases where hostile in-band evidence reaches decision context, and nine adversarial cases without instruction-bearing content.

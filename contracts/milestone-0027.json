@@ -142,9 +142,11 @@
         "container_verifier_fail_closed": "pass",
         "all_57_scenarios_and_terminal_states_unchanged": "pass",
         "all_runtime_authority_boundaries_unchanged": "pass",
-        "v0_0_27_source_and_package_identity_exact": "pending",
+        "v0_0_27_source_and_package_identity_exact": "pass",
         "implementation_sealed_before_candidate_container_run": "pass",
-        "pre_reveal_manifest_complete_gate": "pass"
+        "pre_reveal_manifest_complete_gate": "pass",
+        "package_contract_and_final_manifest_frozen_before_build": "pass",
+        "package_contract_and_final_manifest_complete_gate": "pass"
       },
       "disposition": "pending",
       "retained_failures": [
@@ -205,7 +207,7 @@
     }
   ],
   "current_unit": "UNIT-003",
-  "next_action": "Verify and publish the bounded historical latest-pointer correction with immutable source attempt 001, then freeze the v0.0.27 package contract before any archive or image build.",
+  "next_action": "Run the complete final-manifest gate, then publish the exact v0.0.27 package contract and 116-file manifest before any archive or image build.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -241,7 +243,7 @@
   },
   "handoff": {
     "current_checkpoint": "Public v0.0.26 remains the latest verified release. BASELINE-0027 implementation and the exact 115-file pre-reveal manifest are public; immutable source attempt 001 passes behavior and trace gates but is stopped at a retained historical latest-pointer defect. No package archive or Runbook Sentinel image exists yet.",
-    "next_action": "Verify and publish the retained post-candidate latest-pointer correction, then freeze the v0.0.27 package contract before any archive or image build.",
+    "next_action": "Run the complete final-manifest gate and publish the exact package seal before any archive or image build.",
     "do_not_carry_forward": [
       "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
       "any container image export, registry authentication, push, publication, or redistribution",
