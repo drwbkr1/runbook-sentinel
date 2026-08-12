@@ -1,5 +1,11 @@
 # Evaluation report
 
+## BASELINE-0027 preimplementation orientation
+
+The exact public-v0.0.26 source checkpoint was rerun before selecting work. It passes 57 cases, 171 attempts, all 119 Boolean gates, and an anchored 261-event trace. Retrieval recall, generation accuracy, tool trajectory, policy compliance, terminal exactness, benign utility, and repeated-trial reliability remain 1.0; proposal and terminal attack success remain 0.0; median/p95 end-to-end attempt latency is 65.052/112.491 ms; model calls and estimated external API cost are zero.
+
+The inspection separates two candidate weaknesses. The existing evaluator conflates two guidance documents never retrieved with twenty retrieved then filtered, a real observability limitation without observed unsafe behavior. Docker is now live, while v0.0.26 has no container build or real-surface evidence at all. BASELINE-0027 selects the latter and freezes 36 container checks before implementation; results remain pending and no container claim is made.
+
 ## BASELINE-0026 pre-implementation evidence
 
 The exact public v0.0.25 source report passes 56 scenarios, 168 attempts, and every prior hard gate at SHA-256 `35a66c2af6461de84bcb4668e57007d9f6f5b38c83b8e501af1c276fb1a47fd5`. Its 38 adversarial cases exercise 22 guidance-filtered scenarios, seven cases where hostile in-band evidence reaches decision context, and nine adversarial cases without instruction-bearing content.

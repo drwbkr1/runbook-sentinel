@@ -1,5 +1,7 @@
 # Research ledger
 
+Baseline-0027 reviews current official Chainguard container-category, Python-image specification, signature, and SBOM guidance before admitting an external base. The publisher states that Free Containers are anonymously available for use and Python is a Base Container intended to be extended; its live directory reports a non-root, shell-free Python image. Official signature and SBOM documentation establishes available verification mechanisms, but no Cosign executable was reviewed or invoked and no signature claim is made. The project instead binds an exact OCI index and linux/amd64 manifest, records current package and vulnerability evidence, permits only local build/run verification, and forbids container export or publication.
+
 Reviewed through 2026-08-11. References inform design; they are not imported datasets or code.
 
 Baseline-0026 reuses the approved ACL Anthology CheckList source gate only for the narrow proposition that aggregate metrics can hide a capability interaction. The three defense-stage definitions, nine observed-valid stage/outcome pairs, one cross-split analog, exact exposure checks, thresholds, and graders are project-authored. The cycle accesses no new paper, code, dataset, model, package, sample, executable, service, credential, or externally controlled asset.

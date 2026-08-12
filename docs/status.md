@@ -2,12 +2,12 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: `main`
+- Branch: `codex/baseline-0027-container-runtime`; `main` remains the latest verified public line
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0026`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified public checkpoint: `v0.0.26`; release reconciliation binds annotated tag object `2c8593ec5f77ab76e12da926336dfa06b97a67eb`, peeled closure `74bf5cba93b0697e74163a335c3dbfcc4d5d7418`, public release metadata, selected assets, downloaded bytes, live repository/release/tag pages, and a fresh public-tag clone
-- Candidate version: none; the next cycle must select one measured weakness only after running verified public v0.0.26 and inspecting separated evaluation and trace evidence
-- Active milestone: none; `BASELINE-0026` is complete
-- Current unit: none; `artifacts/verification/public-tag-baseline-0026.json` is the complete external receipt
+- Candidate version: `v0.0.27`; container contract frozen, no Dockerfile, image, or container result exists yet
+- Active milestone: `BASELINE-0027`
+- Current unit: `UNIT-003` ready; implement only the frozen digest-pinned container path after publishing the preimplementation seal
 - Disposition: baseline-0026 `pass`; baseline-0025 `pass`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -15,11 +15,20 @@
 - GitHub `main`: evidence-only release-reconciliation successor to closure `74bf5cba93b0697e74163a335c3dbfcc4d5d7418`; immutable `v0.0.26` remains bound to that closure
 - GitHub pull request: `#24` merged exact reviewed head `48eb7669582b372ef2d0c8986374fa0823133f61` with history preserved as `2fac52759e0d3f6857491f40d1958f62a85e70b4`
 - GitHub release: public, non-draft latest `v0.0.26` with verified `.pyz` and `.sha256` assets
-- Docker: client 29.4.3 is installed but the daemon is currently off; container packaging remains deferred after three base-image candidates failed the source gate
-- External runtime dependencies: none for the accepted baseline; optional local Ollama evaluation is source-gated separately
+- Docker: client and server 29.4.3 are live. The three earlier Python candidates remain excluded; exact Chainguard Free Python index `sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5` now passes a narrow eight-criterion gate for anonymous local build and verification only. No Runbook Sentinel image has been built, exported, pushed, or verified.
+- External runtime dependencies: none for accepted v0.0.26; the v0.0.27 container candidate may add only the frozen digest-pinned base outside the application package. Optional local Ollama evaluation remains source-gated separately.
 - Local model source gate: refreshed and ready for the already installed, publisher-signed Ollama 0.32.6 executable and unchanged `llama3.2:3b` manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six content-addressed blobs pass exact SHA-256 and size checks. No download, update, copy, redistribution, remote call, model tool, secret, or real-infrastructure access is authorized.
 
 ## Verified evidence
+
+### BASELINE-0027 container runtime orientation and frozen contract
+
+- A fresh exact-v0.0.26 source run passes all 57 scenarios and 171 attempts, all 119 Boolean gates, separate retrieval, generation, trajectory, policy, terminal, utility, security, reliability, latency, and cost metrics, and an anchored 261-event trace. `artifacts/verification/orientation-baseline-0027.json` binds the report and trace outside the repository.
+- The run also exposes a retained evaluation-truth gap: v0.0.26 labels twenty retrieved-and-filtered guidance cases and two guidance-never-retrieved cases as one `guidance_filtered` stage. No behavior failure is observed; a four-stage metric remains the next evaluation candidate.
+- Docker availability is the higher-leverage current gap because the active goal explicitly requires container validation when available and v0.0.26 has no container evidence. Historical checkpoint statements that Docker was unavailable remain true at their observation times.
+- The earlier three official Python candidates remain excluded. `artifacts/verification/container-source-gate-baseline-0027-chainguard-python.json` passes all eight criteria for exact Chainguard Free Python OCI index `sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5`, linux/amd64 manifest `sha256:15e66fa35e0b07095bbc4f4f0522718b780944709026687485f4e712cc6d5ae0`, anonymous local use, and no image publication. A current Docker Scout 1.20.4 scan reports 54 packages and zero critical, high, medium, or low findings; that is observation-time evidence, not a perpetual claim.
+- `eval/container-contract-0027.json` freezes the exact Dockerfile, three-file build-context allowlist, non-root identity, read-only/no-capability/no-new-privileges runtime, network boundaries, two-build identity, base-layer prefix, two-file added-layer allowlist, CLI/evaluation/MCP/API/approval/executor/state/telemetry/dashboard checks, clean clone, and no-export/no-push boundary before implementation. Current and versioned contract SHA-256 is `6a2f0df63909852994c0436a308e6d89577e2d48293130134b85c1969f5507b0`.
+- The independent preimplementation validator passes with both Dockerfile and result absent. `contracts/milestone-0027.json` validates with active inherited authority, UNIT-003 ready, and no human gate. No container claim is admitted yet.
 
 ### BASELINE-0026 adversarial exposure-stage/outcome split gap and frozen contract
 

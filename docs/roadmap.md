@@ -1,5 +1,13 @@
 # Roadmap
 
+## Active checkpoint baseline-0027 - digest-pinned container runtime
+
+A fresh run of exact public v0.0.26 passes all 57 cases, 171 attempts, separate metric families, and an anchored 261-event trace. It reveals one evaluation-label truth gap—two declared hostile guidance documents were never retrieved while twenty were retrieved and filtered—but no behavior failure. Docker also changed from unavailable to live. Because container verification when available is an explicit product goal and no Runbook Sentinel container has ever been admitted, the missing real surface is the higher-leverage bounded weakness; the retrieval-stage distinction remains retained for the next evaluation cycle.
+
+The previous three official Python candidates remain excluded. An eight-criterion gate now admits only Chainguard Free Python index `sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5` for anonymous digest-bound local extension and verification, with no export, push, or redistribution. Its selected linux/amd64 manifest is exact, the runtime is Python 3.14.7 as UID 65532 with no shell or package manager, and a current 54-package Docker Scout scan reports no known finding at any severity. These are bounded observation-time facts.
+
+Before implementation, `container-runtime-v1` freezes exact Dockerfile and build-context bytes, a networkless dependency-free build, two identical local image builds, exact base layers plus only the zipapp and evaluation report, non-root/read-only/no-capability/no-new-privileges runtime controls, and real CLI, full evaluation, MCP, authenticated API, approval, executor, replay, persisted state, anchored telemetry, dashboard, scan, clean-clone, and public-tag reproduction gates. No container image bytes may be exported or published. UNIT-003 is ready; no Dockerfile or Runbook Sentinel image exists yet.
+
 ## Completed checkpoint baseline-0026 - adversarial exposure-stage/outcome split coverage
 
 Fresh public-v0.0.25 evaluation separates three defenses that aggregate attack metrics blur: hostile guidance filtered before decision context, hostile in-band status or telemetry exposed to decision logic, and adversarial cases without instruction-bearing content. The nine stage/outcome pairs already demonstrated as valid produce eighteen development/test cells; seventeen are covered. The only empty cell is safe `request_evidence` under exposed in-band content in development.

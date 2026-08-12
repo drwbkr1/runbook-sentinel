@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased - BASELINE-0027
+
+- Reran exact public v0.0.26 and bound the passing 57-case, 171-attempt, separate-metric, 261-event orientation evidence.
+- Retained a measured retrieval-stage label gap for a later cycle: two declared hostile guidance documents are not retrieved, while twenty are retrieved and filtered, yet v0.0.26 reports one combined stage.
+- Reconciled Docker 29.4.3 as live without rewriting historical unavailable-at-verification records.
+- Preserved the three excluded Python base candidates and passed a new eight-criterion gate for one exact Chainguard Free Python digest under local-only, no-publication authority.
+- Froze `container-runtime-v1`, BASELINE-0027, and an independent preimplementation validator before creating any Dockerfile or Runbook Sentinel image.
+
 ## 0.0.26 - 2026-08-11
 
 - Separate adversarial defense-stage/outcome/split coverage into guidance filtered before decision context, hostile in-band evidence exposed to decision logic, and adversarial cases without instruction-bearing content.
