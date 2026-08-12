@@ -1,0 +1,163 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0027-v3-source-package-real-surfaces-20260812T200131Z",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T20:01:31Z",
+  "status": "pass",
+  "disposition": "candidate_ready_for_public_image_input_commit",
+  "public_manifest_input_commit": "793fef5ab1cd3df6728f7a235c03c52eb76b2e3f",
+  "manifest": {
+    "path": "eval/manifest.json",
+    "file_count": 117,
+    "bytes": 13908,
+    "sha256": "0785d8611a5afa0e42c8931c075e21459b1c82361edf9b12dbfce1b319413238"
+  },
+  "selected_archive": {
+    "path": "dist/runbook-sentinel-0.0.27.pyz",
+    "bytes": 590094,
+    "sha256": "101766dad8795d0c5d44bb488d7ff976a52d2fec0dfc3e5d8bf17623f366adb6",
+    "checksum_bytes": 94,
+    "checksum_sha256": "3af42af0dc4e8a020621426e4db11841d0eae1d1fd1d9b50ab60b7cb6c53cfa2",
+    "entry_count": 41,
+    "independent_build_path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v3-package-build-001/runbook-sentinel-0.0.27.pyz",
+    "independent_bytes_exact": true,
+    "both_package_contract_verifications": "pass"
+  },
+  "selected_evaluations": {
+    "source_report": {
+      "path": "artifacts/evaluations/runs/baseline-0027-final-source-attempt-003.json",
+      "bytes": 943929,
+      "sha256": "79d4298258d1e05996218dbfbec5787675dffb3f8cfbb905aa97d21cd2741c65"
+    },
+    "source_trace": {
+      "path": "artifacts/evaluations/runs/baseline-0027-final-source-attempt-003.traces.jsonl",
+      "bytes": 195317,
+      "sha256": "41ea59349dbf8f2b79c47828c70edbe09c386232085f2e72f00b40e0c776aa21",
+      "event_count": 261,
+      "final_event_sha256": "4b762d2f2a30ed6c8573b81a32f93278ee06dc5efbcee4279ba20619bd07ed95",
+      "valid": true,
+      "anchored": true
+    },
+    "package_report": {
+      "path": "artifacts/evaluations/runs/baseline-0027-final-package-attempt-003.json",
+      "bytes": 943949,
+      "sha256": "43e61914bc3d344068ae5061f4e93d96fbe6084efab08a27532618e418d48337"
+    },
+    "package_trace": {
+      "path": "artifacts/evaluations/runs/baseline-0027-final-package-attempt-003.traces.jsonl",
+      "bytes": 195326,
+      "sha256": "be0ccab7158acb9fa7b0daaa0b804fff798e51bf39adb215ae1a74642a2f136b",
+      "event_count": 261,
+      "final_event_sha256": "b47e38de513dffead1aeeb9e853d5c9d2223e99f0c6a544be6175fba62827c9c",
+      "valid": true,
+      "anchored": true
+    },
+    "latest_equals_selected_source": true,
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "boolean_gate_count": 119,
+    "false_boolean_gate_count": 0,
+    "tool_trajectory_exact": 1.0,
+    "terminal_state_exact": 1.0,
+    "repeated_trial_pass_power_3": 1.0,
+    "policy_compliance": 1.0,
+    "benign_utility": 1.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "model_calls": 0,
+    "estimated_external_api_cost_usd": 0.0,
+    "container_projection_sha256": "d08823b3ddda041f24567f70f11326661b749d63ddc07dbdd1d160836c7ca820",
+    "container_projection_exact": true
+  },
+  "source_real_surfaces": {
+    "mcp": {
+      "path": "artifacts/verification/mcp-source-baseline-0027-v3.json",
+      "bytes": 1176,
+      "sha256": "54c16fc0ad7181f6fb5ac9ddd41c85e13064bdf0e8499ec7520d01eab106c646"
+    },
+    "api": {
+      "path": "artifacts/verification/live-api-source-baseline-0027-v3.json",
+      "bytes": 15855,
+      "sha256": "5a1302a109d103c0f380f19ee425268e5591f1ff0bf202dda04758d960cdc7dc"
+    },
+    "native": {
+      "path": "artifacts/verification/native-source-baseline-0027-v3.json",
+      "bytes": 6546,
+      "sha256": "d8118143bd16cac9e120bdc33fd192ca09c204830050eb663799a228b429c1a4"
+    },
+    "dashboard": {
+      "path": "artifacts/verification/dashboard-source-baseline-0027-v3.png",
+      "bytes": 86913,
+      "sha256": "512fb88edca863960608d378f0cd20989526e67f660131f2820912a78dd431fa",
+      "dimensions": [1440, 1000],
+      "visually_inspected_at_original_detail": true
+    }
+  },
+  "package_real_surfaces": {
+    "mcp": {
+      "path": "artifacts/verification/mcp-package-baseline-0027-v3.json",
+      "bytes": 1176,
+      "sha256": "aa67c9685a0ebbea0445b348bf366865ec85396ea90f595df478fc8c5bfc80b2"
+    },
+    "api": {
+      "path": "artifacts/verification/live-api-package-baseline-0027-v3.json",
+      "bytes": 15855,
+      "sha256": "c884886debdd16d46ed25426f6e11538ccf99ec1476c734ace73dbe3de954ca7"
+    },
+    "native": {
+      "path": "artifacts/verification/native-package-baseline-0027-v3.json",
+      "bytes": 6546,
+      "sha256": "24972492eaf51c545cf19a74058879dff7fe67e82a6355cc23579e132d3b8c75"
+    },
+    "dashboard": {
+      "path": "artifacts/verification/dashboard-package-baseline-0027-v3.png",
+      "bytes": 86640,
+      "sha256": "0e43062f8347f5537044dabc40d17b8dba64c605007ded5339412c912b915866",
+      "dimensions": [1440, 1000],
+      "visually_inspected_at_original_detail": true
+    }
+  },
+  "current_runtime_pointers": {
+    "dashboard": {
+      "path": "artifacts/verification/dashboard-baseline-0027.png",
+      "sha256": "0e43062f8347f5537044dabc40d17b8dba64c605007ded5339412c912b915866",
+      "equals_package_dashboard": true
+    },
+    "native": {
+      "path": "artifacts/verification/native-baseline-0027.json",
+      "sha256": "24972492eaf51c545cf19a74058879dff7fe67e82a6355cc23579e132d3b8c75",
+      "equals_package_native": true
+    }
+  },
+  "real_surface_checks": {
+    "source_mcp_three_diagnostic_read_tools_no_authority": true,
+    "package_mcp_three_diagnostic_read_tools_no_authority": true,
+    "source_api_110_checks_all_true": true,
+    "package_api_110_checks_all_true": true,
+    "source_native_59_checks_all_true": true,
+    "package_native_59_checks_all_true": true,
+    "source_dashboard_complete": true,
+    "package_dashboard_complete": true,
+    "approval_executor_replay_idempotency_state_and_telemetry_verified": true,
+    "operator_capability_absent_from_persisted_and_rendered_evidence": true,
+    "real_infrastructure_disconnected": true
+  },
+  "post_surface_regression": {
+    "side_effect_free_validators": {
+      "passed": 32,
+      "total": 32,
+      "elapsed_seconds": 9.471
+    },
+    "unit_tests": {
+      "passed": 49,
+      "total": 49,
+      "elapsed_seconds": 84.738
+    }
+  },
+  "retained_diagnostic": "artifacts/verification/baseline-0027-v3-evidence-summary-probe-correction-001.json",
+  "container_image_built": false,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false,
+  "next_gate": "Commit and push this exact manifest-bound source/package payload and real-surface evidence, then run the first v3 two-image container verification from that public commit."
+}

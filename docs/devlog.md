@@ -1,5 +1,13 @@
 # Development log
 
+## 2026-08-12 BASELINE-0027 v3 manifest-bound payload and real surfaces
+
+- Rebuilt the 41-entry v0.0.27 zipapp twice after public manifest seal `793fef5ab1cd3df6728f7a235c03c52eb76b2e3f`. Selected and independent bytes are exact at 590,094 bytes and SHA-256 `101766dad8795d0c5d44bb488d7ff976a52d2fec0dfc3e5d8bf17623f366adb6`; the predecessor `7721e1c6...` archive remains preserved as superseded evidence.
+- Renewed source/package attempt 003 passes 57 scenarios, 171 attempts, 119 Boolean gates, exact 261-event anchored traces, terminal and tool trajectories at 1.0, `pass^3` at 1.0, policy and benign utility at 1.0, proposal and terminal attack success at 0.0, and zero external model/API spend. The frozen container projection is exact at SHA-256 `d08823b3ddda041f24567f70f11326661b749d63ddc07dbdd1d160836c7ca820`.
+- Re-ran source and zipapp real surfaces against the selected attempt. Each MCP run exposes only the same three diagnostic/read tools and no approval/execution authority; each authenticated API run passes 110 checks; each native inspection passes 59 checks. Original-detail inspection accepts both complete 1440 by 1000 dashboards with Baseline 0027, the authenticated external-operator boundary, and disconnected real infrastructure visible.
+- The post-surface regression passes all 32 side-effect-free validators in 9.471 seconds and all 49 tests in 84.738 seconds. An ad hoc one-argument trace probe and a wrong-family parity probe are retained with their exact corrections; neither changed project bytes or candidate disposition.
+- `artifacts/verification/package-source-baseline-0027-v3.json` binds the complete pre-image payload. The next gate is its exact commit and push, followed by the frozen two-image v3 runtime verification. No v3 image, scan, export, push, or publication exists yet.
+
 ## 2026-08-12 - BASELINE-0027 container v3 recovery
 
 - Resumed at exact public branch head `9a14d5e533ad941bd3c2b15de00540c23ad789ca`; local, tracking, and live remote refs matched. The tracked worktree was clean, Docker Engine 29.4.3 / Buildx 0.33.0-desktop.1 / BuildKit 0.29.0 were live, and four unrelated untracked BASELINE-0025 scratch paths remained untouched.

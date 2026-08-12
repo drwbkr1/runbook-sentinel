@@ -217,7 +217,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Publish the exact container-runtime-v3 contract, validator, source gate, corrected diagnosis, second failure, and excluded probe evidence before changing Dockerfile or the runtime verifier; then implement only those frozen v3 bytes and renew the manifest-bound source/package chain.",
+  "next_action": "Commit and push the exact renewed v3 source/package payload and real-surface evidence, then run the frozen two-image container verification from that public commit.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -254,11 +254,12 @@
       ,"public package-contract and final-manifest seal 22aeb0cfe3116521c93e1119d02ef600aa265086 after 48 tests and 31 standalone validators passed with archive and image results absent"
       ,"two byte-identical contract-valid v0.0.27 zipapps, selected final source/package attempt 002 parity, bounded MCP, authenticated API/approval/executor/replay/state/telemetry, complete rendered dashboards, 48 tests, and a side-effect-free 31-validator sweep"
       ,"public source/package payload bab9fc67b5633060d370f3151b09a7f88712b629, retained first image-identity failure at 9a14d5e533ad941bd3c2b15de00540c23ad789ca, exact eleven-layer base correction, SOURCE_DATE_EPOCH-only failure, successful but excluded rewrite-timestamp probes, and locally frozen container-runtime-v3 contract before implementation"
+      ,"public v3 contract, implementation, and renewed-manifest seals through 793fef5ab1cd3df6728f7a235c03c52eb76b2e3f; two exact 590094-byte archive builds; renewed source/package attempt 003 parity; bounded MCP; authenticated API approval, executor, replay, state, and telemetry; two complete rendered dashboards; 32 validators; and 49 tests"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.26 remains the latest verified release. BASELINE-0027 source/package evidence is public and exact. Two v2 two-image attempts failed before runtime; the first diagnosis is corrected to an eleven-layer base plus a directory-only WORKDIR layer and two COPY layers, while the second proves SOURCE_DATE_EPOCH alone does not normalize the COPY layers. Two excluded probes establish a supported local successor mechanism. Container-runtime-v3 is locally frozen and independently validates with the unchanged Dockerfile classified as superseded v2; no v3 implementation or passing container result exists.",
-    "next_action": "Publish the exact v3 freeze and retained evidence before changing Dockerfile or the runtime verifier, then implement the frozen v3 correction and renew all manifest-bound source/package evidence.",
+    "current_checkpoint": "Public v0.0.26 remains the latest verified release. BASELINE-0027 v3 contract, implementation, and renewed manifest are public through 793fef5ab1cd3df6728f7a235c03c52eb76b2e3f. Renewed source/package attempt 003, two exact archive builds, bounded MCP, authenticated API/approval/executor/replay/state/telemetry, native inspection, rendered dashboards, 32 validators, and 49 tests pass locally. Two v2 image attempts remain failed and preserved; no v3 image or passing container receipt exists.",
+    "next_action": "Commit and push the exact renewed v3 payload and real-surface evidence, then run the frozen two-image container verification from that public commit.",
     "do_not_carry_forward": [
       "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
       "any container image export, registry authentication, push, publication, or redistribution",
