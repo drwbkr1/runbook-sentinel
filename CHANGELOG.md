@@ -5,6 +5,7 @@
 - Retained the v6 tmpfs-extraction failure after exact two-build identity, local events, image validation, hardened runtime, CLI, and evaluation execution passed; an unchanged-runtime diagnostic proves the report and trace existed inside `/state` at exact identities while `docker cp` reproduced its documented tmpfs limitation.
 - Source-gated exact official Docker `cp` and `exec` semantics without importing external assets, then froze container-runtime-v7 before implementation around an eight-file allowlist, bounded unprivileged byte stream, no overwrite, and pre/post-write length plus SHA-256 verification.
 - Published the v7 freeze, implemented only the verified extraction path, passed 55 tests and required-contract validation, and proved the real path against the already-built hardened image without changing image inputs or publication boundaries.
+- Published the v7 implementation seal and added only its versioned contract to the explicit manifest inventory before renewing any manifest-bound package or evaluation bytes.
 
 - Reran exact public v0.0.26 and bound the passing 57-case, 171-attempt, separate-metric, 261-event orientation evidence.
 - Retained a measured retrieval-stage label gap for a later cycle: two declared hostile guidance documents are not retrieved, while twenty are retrieved and filtered, yet v0.0.26 reports one combined stage.

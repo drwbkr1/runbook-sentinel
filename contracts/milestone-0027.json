@@ -179,6 +179,7 @@
         "container_runtime_v6_manifest_frozen_before_archive_or_image": "pass",
         "container_runtime_v7_frozen_before_tmpfs_extraction_implementation": "pass",
         "container_runtime_v7_implemented_before_manifest_renewal": "pass",
+        "container_runtime_v7_manifest_inventory_sealed_before_renewal": "pass",
         "two_image_builds_exact": "pending",
         "container_cli_evaluation_mcp_api_state_telemetry_dashboard": "pending",
         "container_security_contract": "pending",
@@ -291,7 +292,7 @@
   },
   "handoff": {
     "current_checkpoint": "Public v0.0.26 remains the latest verified release. V6 payload 6245be0 and its 120-file manifest-bound package/evaluation evidence are public. Two independent v6 builds reproduce exact image ID 90b8b4a9...; event, image, namespace, hardened runtime, CLI, and evaluation execution pass, but artifact acceptance stops at Docker's documented inability to copy /state tmpfs. The exact failure and in-container identities remain retained; v7 is frozen before implementation and no passing complete container receipt exists.",
-    "next_action": "Commit and push the exact v7 extraction implementation before manifest inventory renewal or another image run.",
+    "next_action": "Commit and push the exact one-path v7 manifest inventory update before authoritative manifest renewal or another image run.",
     "do_not_carry_forward": [
       "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
       "any container image export, registry authentication, push, publication, or redistribution",
