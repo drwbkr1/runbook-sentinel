@@ -23,6 +23,7 @@
 - Verified source and packaged MCP, authenticated API, approval/executor/replay, persisted state, anchored telemetry, and complete rendered dashboards before building any container image.
 - Passed the post-package 48-test and side-effect-free 31-validator gate; retained an aggregate-verifier promotion side effect and a missing-`PYTHONPATH` wrapper stop without replacing the selected final source/package evidence.
 - Parsed and classified the candidate evidence corpus with zero unresolved credential-shaped value or model artifact, while retaining the exact previously classified empty MCP failure.
+- Retained a two-image identity failure caused by BuildKit creation timestamps and bounded the recovery to the official `SOURCE_DATE_EPOCH` mechanism using the already-frozen final-manifest time.
 
 ## 0.0.26 - 2026-08-11
 

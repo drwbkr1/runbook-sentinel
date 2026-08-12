@@ -16,6 +16,8 @@ The exact package contract and final manifest passed 48 tests plus 31 validators
 
 Two independent v0.0.27 zipapps now reproduce exact bytes. Selected fail-fast source/package attempt 002 preserves all 119 Boolean gates, exact 261-event traces, and deterministic metric projection identity. Bounded MCP, authenticated API/approval/executor/replay, persisted state, anchored telemetry, and complete source/package dashboards pass; 48 tests and all 31 side-effect-free validators also pass. The exact payload and retained orchestration failures must be public before the frozen verifier builds the first two networkless images.
 
+The payload is public at `bab9fc67b5633060d370f3151b09a7f88712b629`. The first two-image run fails closed before runtime verification because BuildKit stamps each no-cache build with a different creation time, changing both added COPY layer digests while every exact base layer matches. The retained recovery uses the official `SOURCE_DATE_EPOCH` mechanism with the already-frozen final-manifest time, then requires the complete two-build and clean-clone identity gates again.
+
 ## Completed checkpoint baseline-0026 - adversarial exposure-stage/outcome split coverage
 
 Fresh public-v0.0.25 evaluation separates three defenses that aggregate attack metrics blur: hostile guidance filtered before decision context, hostile in-band status or telemetry exposed to decision logic, and adversarial cases without instruction-bearing content. The nine stage/outcome pairs already demonstrated as valid produce eighteen development/test cells; seventeen are covered. The only empty cell is safe `request_evidence` under exposed in-band content in development.

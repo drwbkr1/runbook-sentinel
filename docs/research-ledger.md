@@ -1,5 +1,7 @@
 # Research ledger
 
+Baseline-0027 reviews the current official BuildKit reproducible-build specification and Docker reproducible-build guide after the first two no-cache local image builds differ only through build-time creation metadata. Both primary publisher sources identify `SOURCE_DATE_EPOCH` as the supported input for deterministic OCI image-config and history timestamps; current Buildx propagates it as a special build argument. The project supplies the final evaluation manifest's already-frozen UTC timestamp in the caller environment while leaving the manifest-bound verifier unchanged. No external code, sample, asset, package, service, secret, or image is imported, and no image is exported or published.
+
 Baseline-0027 reviews current official Chainguard container-category, Python-image specification, signature, and SBOM guidance before admitting an external base. The publisher states that Free Containers are anonymously available for use and Python is a Base Container intended to be extended; its live directory reports a non-root, shell-free Python image. Official signature and SBOM documentation establishes available verification mechanisms, but no Cosign executable was reviewed or invoked and no signature claim is made. The project instead binds an exact OCI index and linux/amd64 manifest, records current package and vulnerability evidence, permits only local build/run verification, and forbids container export or publication.
 
 Reviewed through 2026-08-11. References inform design; they are not imported datasets or code.
