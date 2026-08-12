@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T21:51:37Z",
+  "status": "pass",
+  "public_inventory_commit": "aa55a9c833468982eaa84c29f6577ebcc1d84b1f",
+  "manifest": {
+    "path": "eval/manifest.json",
+    "frozen_at_utc": "2026-08-12T21:51:37Z",
+    "file_count": 119,
+    "bytes": 14134,
+    "sha256": "812c05ef8cf4342997723ece11668dad033a41726028519b4ff667695da18a7a",
+    "exact_verification": "pass"
+  },
+  "gates": {
+    "full_tests": {"passed": 53, "total": 53, "elapsed_seconds": 93.291},
+    "side_effect_free_validators_excluding_superseded_archive": {"passed": 31, "total": 31, "elapsed_seconds": 31.828},
+    "compilation": "pass",
+    "required_v5_implementation": "pass",
+    "selected_evaluation_pointer_unchanged": true
+  },
+  "predecessor_archive": {
+    "path": "dist/runbook-sentinel-0.0.27.pyz",
+    "bytes": 590207,
+    "sha256": "766a0157998ea40e08d7bb6ac6ebf370c2ecbeb9efbe54ecc947eb5ae19f55b7",
+    "status": "superseded",
+    "only_error": "archive content differs from source: runbook_sentinel/data/eval-manifest.json",
+    "retained_receipt": "artifacts/verification/container-v5-predecessor-archive-manifest-mismatch-001.json"
+  },
+  "replacement_archive_built": false,
+  "candidate_evaluation_rerun": false,
+  "successor_image_built": false,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false,
+  "next_gate": "Commit and push the exact 119-file authoritative v5 manifest seal before rebuilding the archive, rerunning source/package evidence, or building an image."
+}
