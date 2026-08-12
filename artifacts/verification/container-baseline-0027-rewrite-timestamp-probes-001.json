@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T19:10:08Z",
+  "disposition": "exclude",
+  "purpose": "Bounded local diagnostic of the official BuildKit layer-timestamp rewrite before freezing a successor contract.",
+  "public_input_commit": "9a14d5e533ad941bd3c2b15de00540c23ad789ca",
+  "unchanged_v2_contract_sha256": "093c4c8167a8aed41770a1c8b100614334c60e431ec885d8cc4cc74bc4157df8",
+  "environment": {
+    "docker_engine": "29.4.3",
+    "docker_desktop": "4.74.0",
+    "docker_buildx": "0.33.0-desktop.1",
+    "buildkit": "0.29.0",
+    "builder_driver": "docker",
+    "platform": "linux/amd64",
+    "source_date_epoch": "1786556577",
+    "network": "none"
+  },
+  "excluded_exporter_conflict_probes": {
+    "command_shape": "docker buildx build ... --output type=docker,name=<local-tag>,rewrite-timestamp=true .",
+    "observed_internal_manifest": "sha256:598a9f51b9235ea5b98f391df9dab1805d8ad27c74f8f14784e6037a5b97b2ab",
+    "terminal_error": "exporter option rewrite-timestamp conflicts with unpack",
+    "reason_excluded": "The docker exporter forced unpack under this Docker driver. Tags appearing in the local store after the terminal exporter error do not convert a failed process into passing evidence."
+  },
+  "successful_diagnostic_builds": [
+    {
+      "tag": "runbook-sentinel:baseline-0027-rewrite-probe-d",
+      "exit_code": 0,
+      "image_id": "sha256:598a9f51b9235ea5b98f391df9dab1805d8ad27c74f8f14784e6037a5b97b2ab",
+      "created_at_utc": "2026-08-12T17:42:57Z",
+      "layer_count": 14
+    },
+    {
+      "tag": "runbook-sentinel:baseline-0027-rewrite-probe-e",
+      "exit_code": 0,
+      "image_id": "sha256:598a9f51b9235ea5b98f391df9dab1805d8ad27c74f8f14784e6037a5b97b2ab",
+      "created_at_utc": "2026-08-12T17:42:57Z",
+      "layer_count": 14
+    }
+  ],
+  "successful_command_shape": "SOURCE_DATE_EPOCH=1786556577 docker buildx build --no-cache --network=none --provenance=false --sbom=false --platform=linux/amd64 --output type=image,name=<local-tag>,rewrite-timestamp=true,unpack=false .",
+  "successful_added_layers": [
+    "sha256:65e0b20307c542e7ba7574549d04a0c4db1ce6f896850d15e50d68e88cc67849",
+    "sha256:5ae868119c189ec3c400151a89bbaa7dc0532a736fb241745c6d986a62feb2e8",
+    "sha256:4e72bf405042d056b38b4d437a5c27fdd44f0182a4f1c9d86f863dc7eb589288"
+  ],
+  "observations": {
+    "two_successful_processes": true,
+    "independent_image_ids_equal": true,
+    "image_config_created_at_equal_and_frozen": true,
+    "copy_layer_digests_equal": true,
+    "base_layer_prefix_exact": true,
+    "v2_added_layer_count_exact": false,
+    "directory_only_workdir_layer_present": true,
+    "local_image_cli_help_pass_for_exact_same_image_id": true
+  },
+  "why_not_release_evidence": "The unchanged Dockerfile still adds three rootfs layers against a contract requiring two, and the exporter settings were not frozen before these probes. They demonstrate a viable successor mechanism only.",
+  "publication": {
+    "archive_destination": null,
+    "registry_push": false,
+    "image_published": false
+  }
+}

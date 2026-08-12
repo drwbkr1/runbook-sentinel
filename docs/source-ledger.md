@@ -1,6 +1,6 @@
 # External source ledger
 
-Baseline-0027 admits only narrow factual specification use from the official BuildKit reproducible-build document and Docker reproducible-build guide under `artifacts/verification/research-source-gate-baseline-0027-buildkit-reproducibility.json`. The gate supports supplying BuildKit's special `SOURCE_DATE_EPOCH` input in the caller environment of the unchanged manifest-bound verifier to normalize OCI creation/history timestamps after an exact retained two-build failure. It imports no external code or sample, changes no Dockerfile, verifier, manifest, package, or payload byte, and authorizes no mutable dependency, authentication, purchase, secret, network widening, export, push, publication, or redistribution.
+Baseline-0027 preserves its first narrow BuildKit/Docker gate and adds validated successor `artifacts/verification/research-source-gate-baseline-0027-buildkit-reproducibility-v2.json` after `SOURCE_DATE_EPOCH` alone failed to make COPY layers deterministic. The successor binds exact official BuildKit and Docker Docs revisions and authorizes only project-authored use of the final-manifest epoch plus `type=image`, `rewrite-timestamp=true`, `store=true`, `unpack=false`, and `push=false` after the v3 contract is public. No external code, sample, configuration, package, executable, service, secret, image, data, or model is imported. No mutable dependency, authentication, purchase, network widening, archive destination, registry push, publication, or redistribution is authorized.
 
 ## Approved for baseline-0001
 

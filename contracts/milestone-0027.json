@@ -165,6 +165,7 @@
       "gates": {
         "immutable_source_candidate": "pass",
         "all_prior_source_and_package_gates": "pass",
+        "container_runtime_v3_frozen_before_implementation": "pass",
         "two_image_builds_exact": "pending",
         "container_cli_evaluation_mcp_api_state_telemetry_dashboard": "pending",
         "container_security_contract": "pending",
@@ -177,7 +178,9 @@
         "The first parity-summary hash helper used unavailable System.Convert.ToHexString. Reports remained unchanged; the supported SHA256.Create/ComputeHash path proved exact parity and the diagnostic is retained.",
         "The first post-package aggregate regression invocation ran its designed evaluation-and-promotion tail after all validators and tests passed, creating a valid but unselected baseline-0027-attempt-002 and replacing latest.json. The three output files are retained; latest.json was restored exactly to the selected fail-fast final source attempt before the side-effect-free validator sweep.",
         "The first side-effect-free validator wrapper omitted PYTHONPATH and stopped after 21 passes when verify_stale_payload_projection.py could not import runbook_sentinel. The corrected unchanged sweep set the exact source path and passed all 31 validators while latest.json remained selected exactly.",
-        "The first two-image build stopped before runtime verification because BuildKit assigned different current creation timestamps to both added COPY layers, producing image IDs e231ceed and 63f64522 while all twelve exact base layers matched. No runtime, MCP, API, scan, export, or publication followed. Exact external logs and a structured failure receipt are retained; the bounded recovery pins BuildKit's special SOURCE_DATE_EPOCH to the already-frozen final-manifest timestamp without changing Dockerfile, context, payload, dependency, network, secret, or authority."
+        "The first two-image build stopped before runtime verification because BuildKit assigned different current creation timestamps, producing image IDs e231ceed and 63f64522. A correction receipt records that the exact base has eleven layers and the candidates add a directory-only WORKDIR layer plus two COPY layers; the original failure outcome remains correct. No runtime, MCP, API, scan, export, or publication followed.",
+        "The second two-image build supplied SOURCE_DATE_EPOCH 1786556577. Both configs received the exact frozen creation time, but both COPY layer digests and image IDs still differed; no later gate ran. Official BuildKit semantics and exact logs are retained.",
+        "Two process-valid type=image rewrite-timestamp probes produced the same local image ID and frozen creation time, but are excluded from release evidence because the unchanged v2 Dockerfile still adds three layers and the exporter settings were not frozen before the probes. Container-runtime-v3 is now locally frozen before implementation; it preserves exactly two payload layers, moves WORKDIR after both COPY directives, and binds the timestamp, exporter, builder compatibility, clean-process, and no-publication checks."
       ],
       "disposition": "pending",
       "next_dependency": "UNIT-005"
@@ -214,7 +217,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Publish the exact selected archive, final source/package evaluations, real-surface evidence, retained failures, and post-package regression record; then run the frozen two-build container verifier from that public commit.",
+  "next_action": "Publish the exact container-runtime-v3 contract, validator, source gate, corrected diagnosis, second failure, and excluded probe evidence before changing Dockerfile or the runtime verifier; then implement only those frozen v3 bytes and renew the manifest-bound source/package chain.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -227,6 +230,7 @@
       "container defaults can run as root or gain privilege, host access, external egress, writable state, or hidden authority",
       "a passing source or zipapp test can hide a broken container CLI, evaluator, MCP, API, approval, executor, state, telemetry, or dashboard",
       "container build metadata or context can make clean-clone image identity irreproducible",
+      "a directory-only WORKDIR layer or exporter-side unpack conflict can violate an apparently correct two-payload-layer and clean-process contract",
       "release prose can overclaim a local image that was not published or a vulnerability observation that can become stale"
     ],
     "required_checks": [
@@ -234,6 +238,7 @@
       "independent contract validation and exact Dockerfile plus .dockerignore bytes",
       "recursive preservation of all 57 scenarios, terminal states, evaluation gates, and authority boundaries",
       "two independent local builds, exact base layer prefix, exact two-file added-layer allowlist, and identical image IDs",
+      "exact BuildKit compatibility, SOURCE_DATE_EPOCH, image exporter, frozen creation timestamp, and clean process exit checks",
       "non-root read-only no-capability no-new-privileges synthetic runtime with no external egress, host path, secret, or real infrastructure",
       "container CLI, full evaluation and trace, bounded MCP, authenticated API, approval, executor, replay, state, telemetry, and rendered dashboard",
       "separate source package and container metrics, candidate security scan, structured artifact scan, clean clone, review, merge, release, and public-tag reproduction",
@@ -248,17 +253,19 @@
       "public pre-reveal manifest seal 8c486c6d9e0bc26c03749c45e9e5b89c1c72770a after 47 tests and 31 standalone validators passed"
       ,"public package-contract and final-manifest seal 22aeb0cfe3116521c93e1119d02ef600aa265086 after 48 tests and 31 standalone validators passed with archive and image results absent"
       ,"two byte-identical contract-valid v0.0.27 zipapps, selected final source/package attempt 002 parity, bounded MCP, authenticated API/approval/executor/replay/state/telemetry, complete rendered dashboards, 48 tests, and a side-effect-free 31-validator sweep"
+      ,"public source/package payload bab9fc67b5633060d370f3151b09a7f88712b629, retained first image-identity failure at 9a14d5e533ad941bd3c2b15de00540c23ad789ca, exact eleven-layer base correction, SOURCE_DATE_EPOCH-only failure, successful but excluded rewrite-timestamp probes, and locally frozen container-runtime-v3 contract before implementation"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.26 remains the latest verified release. BASELINE-0027 has a public implementation and final-manifest seal, two byte-identical local zipapps, selected exact source/package evaluations, bounded MCP, authenticated API/approval/executor/replay/state/telemetry, complete rendered dashboards, and passing post-package regression. The exact UNIT-004 payload commit remains to be published before any container image build.",
-    "next_action": "Publish the exact source/package payload and evidence, then run the frozen two-build networkless container verifier from that public commit.",
+    "current_checkpoint": "Public v0.0.26 remains the latest verified release. BASELINE-0027 source/package evidence is public and exact. Two v2 two-image attempts failed before runtime; the first diagnosis is corrected to an eleven-layer base plus a directory-only WORKDIR layer and two COPY layers, while the second proves SOURCE_DATE_EPOCH alone does not normalize the COPY layers. Two excluded probes establish a supported local successor mechanism. Container-runtime-v3 is locally frozen and independently validates with the unchanged Dockerfile classified as superseded v2; no v3 implementation or passing container result exists.",
+    "next_action": "Publish the exact v3 freeze and retained evidence before changing Dockerfile or the runtime verifier, then implement the frozen v3 correction and renew all manifest-bound source/package evidence.",
     "do_not_carry_forward": [
       "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
       "any container image export, registry authentication, push, publication, or redistribution",
       "any change to scenarios, agent behavior, retrieval, policy, approval, executor, API, MCP, or authority",
       "any rewrite or deletion of failed, stale, blocked, corrected, superseded, excluded, or unfavorable evidence",
       "any production readiness, universal safety, or perpetual CVE-free claim",
+      "any claim of universal cross-BuildKit-version reproducibility beyond the exact verified builder and clean-clone evidence",
       "the retained two-case retrieval-stage observability gap as if it had been fixed by container work"
     ]
   }

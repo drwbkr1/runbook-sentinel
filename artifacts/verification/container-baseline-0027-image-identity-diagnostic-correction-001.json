@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T19:10:08Z",
+  "disposition": "remediate",
+  "corrects_receipt": "artifacts/verification/container-baseline-0027-image-identity-failure-001.json",
+  "corrected_claims": {
+    "base_layer_count": 11,
+    "candidate_layer_count_each": 14,
+    "candidate_added_layer_count_each": 3,
+    "base_layer_prefix_exact": true,
+    "shared_first_added_layer_is_workdir_directory": true
+  },
+  "exact_base": {
+    "reference": "cgr.dev/chainguard/python@sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5",
+    "layer_count": 11,
+    "last_layer": "sha256:f466517c8afa7c59ebb03fed4606fdc8d14b8b7234c24243640cf346a2892caa"
+  },
+  "candidates": [
+    {
+      "image_id": "sha256:e231ceed5a91427466232f3b93bb2f01daf98b725ad7b70e238006e15d8dae74",
+      "added_layers": [
+        "sha256:9dd5fc387c30edb4c95bc6217f0395f716ebc5c32c80868fde01d08b052e1df4",
+        "sha256:68509e2cf0e374ae5b4682cc47c4eb03cad2cf6f3979ace3ce2aef8bcb404f8c",
+        "sha256:bb45397ad98d6254ad34675ab4f0d8d55ced70ef7c0c1772b47a832429d411c3"
+      ]
+    },
+    {
+      "image_id": "sha256:63f6452277618e26962828916285873fa19e973003b4328fcdbcd3be29273986",
+      "added_layers": [
+        "sha256:9dd5fc387c30edb4c95bc6217f0395f716ebc5c32c80868fde01d08b052e1df4",
+        "sha256:43b69f78c1e69d3510240dab1659aa1e5648ff089c41df2a420c12840682968d",
+        "sha256:c096c01cdf05ab4653dfbe9ac45cba05b3dfda77390c9c814a020467b0eac20f"
+      ]
+    }
+  ],
+  "diagnosis": "The original receipt compared the candidates to their twelve-layer shared prefix and called that prefix the base. The digest-pinned base has eleven layers; candidate layer twelve is a directory-only WORKDIR layer. The original two entries called added_layers are the two COPY layers, not the complete candidate-added rootfs layer set.",
+  "unchanged_outcome": {
+    "independent_image_ids_equal": false,
+    "v2_added_layer_count_exact": false,
+    "later_runtime_checks_ran": false,
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false
+  }
+}

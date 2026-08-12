@@ -9,7 +9,20 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CONTRACT = ROOT / "eval/container-contract.json"
-VERSIONED_CONTRACT = ROOT / "eval/container-contract-0027-v2.json"
+VERSIONED_CONTRACT = ROOT / "eval/container-contract-0027-v3.json"
+SUPERSEDED_V2_CONTRACT = ROOT / "eval/container-contract-0027-v2.json"
+EXPECTED_V2_CONTRACT_SHA256 = (
+    "093c4c8167a8aed41770a1c8b100614334c60e431ec885d8cc4cc74bc4157df8"
+)
+EXPECTED_REPRODUCIBILITY_SOURCE_GATE_SHA256 = (
+    "84368c0cf636e2afaca68e9ba47048f1b936af8205377e9de7604148c5abb1a2"
+)
+SOURCE_DATE_EPOCH_MANIFEST = (
+    ROOT / "artifacts/evaluations/runs/baseline-0027-final-source-attempt-002.manifest.json"
+)
+EXPECTED_SOURCE_DATE_EPOCH_MANIFEST_SHA256 = (
+    "cdc9ced520421f89b87ea04629bbce1b4a80e7f875b4366a6359c987a009f67a"
+)
 EXPECTED_BASE = (
     "cgr.dev/chainguard/python@"
     "sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5"
@@ -20,7 +33,7 @@ EXPECTED_PLATFORM_MANIFEST = (
 EXPECTED_SOURCE_GATE_SHA256 = (
     "effc86d7c30dcbc08cbc7c70eb1271208acea5c1af725cd55b1577019ed24d18"
 )
-EXPECTED_DOCKERFILE_LINES = [
+EXPECTED_V2_DOCKERFILE_LINES = [
     f"FROM {EXPECTED_BASE}",
     'LABEL org.opencontainers.image.title="Runbook Sentinel"',
     'LABEL org.opencontainers.image.description="Research-informed synthetic SRE incident-agent preview"',
@@ -33,6 +46,13 @@ EXPECTED_DOCKERFILE_LINES = [
     "USER 65532:65532",
     'ENTRYPOINT ["/usr/bin/python", "/opt/runbook-sentinel/runbook-sentinel.pyz"]',
     'CMD ["--help"]',
+]
+EXPECTED_DOCKERFILE_LINES = [
+    *EXPECTED_V2_DOCKERFILE_LINES[:6],
+    "COPY --chown=65532:65532 dist/runbook-sentinel-0.0.27.pyz /opt/runbook-sentinel/runbook-sentinel.pyz",
+    "COPY --chown=65532:65532 artifacts/evaluations/latest.json /opt/runbook-sentinel/evaluation.json",
+    "WORKDIR /opt/runbook-sentinel",
+    *EXPECTED_V2_DOCKERFILE_LINES[9:],
 ]
 EXPECTED_DOCKERIGNORE_LINES = [
     "**",
@@ -60,18 +80,30 @@ def expect(condition: bool, message: str, errors: list[str]) -> None:
 
 def validate_contract(contract: dict, raw: bytes, errors: list[str]) -> None:
     expect(contract.get("schema_version") == "1.0", "schema_version must be 1.0", errors)
-    expect(contract.get("contract_id") == "container-runtime-v2", "contract_id mismatch", errors)
+    expect(contract.get("contract_id") == "container-runtime-v3", "contract_id mismatch", errors)
     expect(contract.get("checkpoint") == "baseline-0027", "checkpoint mismatch", errors)
     expect(
-        contract.get("contract_status") == "frozen_before_dockerfile_and_image_build",
+        contract.get("contract_status")
+        == "frozen_after_v2_reproducibility_failures_before_v3_implementation",
         "contract_status mismatch",
         errors,
     )
     supersedes = contract.get("supersedes", {})
-    expect(supersedes.get("contract_id") == "container-runtime-v1", "superseded contract mismatch", errors)
+    expect(supersedes.get("contract_id") == "container-runtime-v2", "superseded contract mismatch", errors)
     expect(
-        supersedes.get("contract_sha256") == "6a2f0df63909852994c0436a308e6d89577e2d48293130134b85c1969f5507b0",
+        supersedes.get("contract_sha256") == EXPECTED_V2_CONTRACT_SHA256,
         "superseded contract hash mismatch",
+        errors,
+    )
+    expect(
+        supersedes.get("reason_receipts")
+        == [
+            "artifacts/verification/container-baseline-0027-image-identity-failure-001.json",
+            "artifacts/verification/container-baseline-0027-image-identity-diagnostic-correction-001.json",
+            "artifacts/verification/container-baseline-0027-source-date-epoch-failure-002.json",
+            "artifacts/verification/container-baseline-0027-rewrite-timestamp-probes-001.json",
+        ],
+        "superseding receipt inventory mismatch",
         errors,
     )
     source = contract.get("source_checkpoint", {})
@@ -110,7 +142,50 @@ def validate_contract(contract: dict, raw: bytes, errors: list[str]) -> None:
         errors,
     )
     build = contract.get("build_contract", {})
+    reproducibility_gate = build.get("reproducibility_source_gate", {})
+    expect(
+        reproducibility_gate.get("sha256") == EXPECTED_REPRODUCIBILITY_SOURCE_GATE_SHA256,
+        "reproducibility source gate hash mismatch",
+        errors,
+    )
+    expect(reproducibility_gate.get("status") == "ready", "reproducibility source gate not ready", errors)
+    compatibility = build.get("builder_compatibility", {})
+    expect(compatibility.get("docker_engine") == "29.4.3", "Docker Engine compatibility mismatch", errors)
+    expect(compatibility.get("docker_buildx") == "0.33.0-desktop.1", "Buildx compatibility mismatch", errors)
+    expect(compatibility.get("buildkit") == "0.29.0", "BuildKit compatibility mismatch", errors)
+    expect(compatibility.get("driver") == "docker", "builder driver compatibility mismatch", errors)
     expect(build.get("network") == "none", "build network must be none", errors)
+    expect(
+        build.get("cache") == "disabled for both independent builds and the clean-clone build",
+        "build cache contract mismatch",
+        errors,
+    )
+    expect(
+        build.get("source_date_epoch")
+        == {
+            "value": "1786556577",
+            "utc": "2026-08-12T17:42:57Z",
+            "source": "artifacts/evaluations/runs/baseline-0027-final-source-attempt-002.manifest.json frozen_at_utc",
+            "source_sha256": "cdc9ced520421f89b87ea04629bbce1b4a80e7f875b4366a6359c987a009f67a",
+            "transport": "Buildx caller environment propagated to the special BuildKit build argument",
+        },
+        "SOURCE_DATE_EPOCH contract mismatch",
+        errors,
+    )
+    expect(
+        build.get("image_exporter")
+        == {
+            "type": "image",
+            "name": "unique local verification tag",
+            "rewrite_timestamp": True,
+            "unpack": False,
+            "store": True,
+            "push": False,
+            "destination": None,
+        },
+        "image exporter contract mismatch",
+        errors,
+    )
     expect(build.get("independent_build_count") == 2, "independent build count must be two", errors)
     expect(build.get("image_ids_must_match") is True, "image IDs must match", errors)
     expect(build.get("added_layer_count") == 2, "added layer count must be two", errors)
@@ -136,7 +211,7 @@ def validate_contract(contract: dict, raw: bytes, errors: list[str]) -> None:
         errors,
     )
     required_checks = contract.get("verification_contract", {}).get("required_checks", [])
-    expect(len(required_checks) == 36, "exactly 36 container checks are required", errors)
+    expect(len(required_checks) == 41, "exactly 41 container checks are required", errors)
     expect(len(required_checks) == len(set(required_checks)), "container check IDs must be unique", errors)
     expect(bool(contract.get("no_go_boundaries")), "no-go boundaries must be nonempty", errors)
     expect(raw.endswith(b"\n"), "contract must end with LF", errors)
@@ -158,6 +233,62 @@ def validate_source_gate(contract: dict, errors: list[str]) -> None:
         "source gate admitted a different base",
         errors,
     )
+    reproducibility_path = ROOT / contract["build_contract"]["reproducibility_source_gate"]["path"]
+    expect(reproducibility_path.is_file(), "reproducibility source gate is missing", errors)
+    if reproducibility_path.is_file():
+        expect(
+            sha256_file(reproducibility_path) == EXPECTED_REPRODUCIBILITY_SOURCE_GATE_SHA256,
+            "reproducibility source gate bytes changed",
+            errors,
+        )
+        reproducibility_gate = json.loads(reproducibility_path.read_text(encoding="utf-8"))
+        expect(
+            reproducibility_gate.get("decision", {}).get("status") == "ready",
+            "reproducibility source gate is not ready",
+            errors,
+        )
+        criteria = [
+            criterion
+            for source in reproducibility_gate.get("sources", [])
+            for criterion in source.get("criteria", [])
+        ]
+        expect(len(criteria) == 16, "reproducibility source gate must contain sixteen criteria", errors)
+        expect(
+            all(item.get("status") == "pass" for item in criteria),
+            "every reproducibility source criterion must pass",
+            errors,
+        )
+
+
+def validate_reproducibility_inputs(contract: dict, errors: list[str]) -> None:
+    expect(SUPERSEDED_V2_CONTRACT.is_file(), "superseded v2 contract is missing", errors)
+    if SUPERSEDED_V2_CONTRACT.is_file():
+        expect(
+            sha256_file(SUPERSEDED_V2_CONTRACT) == EXPECTED_V2_CONTRACT_SHA256,
+            "superseded v2 contract bytes changed",
+            errors,
+        )
+    source_date_epoch = contract["build_contract"]["source_date_epoch"]
+    expect(SOURCE_DATE_EPOCH_MANIFEST.is_file(), "SOURCE_DATE_EPOCH manifest is missing", errors)
+    if SOURCE_DATE_EPOCH_MANIFEST.is_file():
+        expect(
+            sha256_file(SOURCE_DATE_EPOCH_MANIFEST) == EXPECTED_SOURCE_DATE_EPOCH_MANIFEST_SHA256,
+            "SOURCE_DATE_EPOCH manifest bytes changed",
+            errors,
+        )
+        manifest = json.loads(SOURCE_DATE_EPOCH_MANIFEST.read_text(encoding="utf-8"))
+        expect(
+            manifest.get("frozen_at_utc") == source_date_epoch["utc"],
+            "SOURCE_DATE_EPOCH manifest timestamp mismatch",
+            errors,
+        )
+        expect(
+            source_date_epoch["source_sha256"] == EXPECTED_SOURCE_DATE_EPOCH_MANIFEST_SHA256,
+            "SOURCE_DATE_EPOCH manifest contract hash mismatch",
+            errors,
+        )
+    for receipt in contract["supersedes"]["reason_receipts"]:
+        expect((ROOT / receipt).is_file(), f"superseding receipt is missing: {receipt}", errors)
 
 
 def validate_implementation(contract: dict, require: bool, errors: list[str]) -> str:
@@ -169,18 +300,24 @@ def validate_implementation(contract: dict, require: bool, errors: list[str]) ->
     expect(dockerfile.is_file(), "Dockerfile is missing", errors)
     expect(dockerignore.is_file(), ".dockerignore is missing", errors)
     if dockerfile.is_file():
-        expect(
-            dockerfile.read_text(encoding="utf-8").splitlines() == EXPECTED_DOCKERFILE_LINES,
-            "Dockerfile bytes violate the frozen instruction sequence",
-            errors,
-        )
+        dockerfile_lines = dockerfile.read_text(encoding="utf-8").splitlines()
+        if dockerfile_lines == EXPECTED_DOCKERFILE_LINES:
+            phase = "implemented_v3"
+        elif dockerfile_lines == EXPECTED_V2_DOCKERFILE_LINES:
+            phase = "superseded_v2_implementation"
+            expect(not require, "v3 Dockerfile implementation is required", errors)
+        else:
+            phase = "nonconforming"
+            expect(False, "Dockerfile bytes violate the frozen v3 instruction sequence", errors)
+    else:
+        phase = "missing"
     if dockerignore.is_file():
         expect(
             dockerignore.read_text(encoding="utf-8").splitlines() == EXPECTED_DOCKERIGNORE_LINES,
             ".dockerignore bytes violate the frozen context allowlist",
             errors,
         )
-    return "implemented"
+    return phase
 
 
 def validate_receipt(contract: dict, receipt_path: Path, require: bool, errors: list[str]) -> str:
@@ -229,6 +366,7 @@ def main() -> None:
     if contract_path == DEFAULT_CONTRACT.resolve():
         expect(VERSIONED_CONTRACT.read_bytes() == raw, "current and versioned container contracts differ", errors)
     validate_source_gate(contract, errors)
+    validate_reproducibility_inputs(contract, errors)
     phase = validate_implementation(contract, args.require_implementation, errors)
     receipt_path = (args.receipt or ROOT / contract["verification_contract"]["receipt"]).resolve()
     receipt_state = validate_receipt(contract, receipt_path, args.require_result, errors)

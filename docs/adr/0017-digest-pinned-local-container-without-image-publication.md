@@ -1,6 +1,6 @@
 # ADR 0017: digest-pinned local container without image publication
 
-- Status: accepted for BASELINE-0027 implementation
+- Status: superseded in part by ADR 0018; digest pin, runtime boundary, and no-publication decision retained
 - Date: 2026-08-12
 
 ## Context
