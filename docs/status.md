@@ -7,7 +7,7 @@
 - Latest verified public checkpoint: `v0.0.26`; release reconciliation binds annotated tag object `2c8593ec5f77ab76e12da926336dfa06b97a67eb`, peeled closure `74bf5cba93b0697e74163a335c3dbfcc4d5d7418`, public release metadata, selected assets, downloaded bytes, live repository/release/tag pages, and a fresh public-tag clone
 - Candidate version: `v0.0.27`; public v5 payload `a284c60c44972664294c67e4727f3075ac8a361d` built exact local image ID `96655a01...` twice and passed its nanosecond local-event window. Runtime security stopped before product execution because the v5 verifier treated Docker's explicit `IpcMode: private` as host sharing. The failure and exact inspect evidence are retained. Official Docker namespace semantics are source-gated and container-runtime-v6 is frozen before a narrow exact-private-IPC validation correction; no passing container result exists.
 - Active milestone: `BASELINE-0027`
-- Current unit: `UNIT-004` in progress; publish the exact v6 namespace-semantics freeze before implementation or another image run
+- Current unit: `UNIT-004` in progress; publish the exact v6 namespace implementation seal before manifest renewal or another image run
 - Disposition: baseline-0026 `pass`; baseline-0025 `pass`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`

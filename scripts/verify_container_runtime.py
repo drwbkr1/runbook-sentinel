@@ -429,7 +429,7 @@ def validate_prerequisites(evaluation: dict) -> dict:
     package_validation = json.loads(package_result.stdout)
     checks = {
         "container_contract": contract_validation.get("status") == "pass"
-        and contract_validation.get("implementation_phase") == "implemented_v5",
+        and contract_validation.get("implementation_phase") == "implemented_v6",
         "manifest": manifest_validation.get("status") == "pass",
         "package": package_validation.get("status") == "pass",
         "evaluation_checkpoint": evaluation.get("checkpoint") == "baseline-0027"
@@ -583,6 +583,7 @@ def container_security(container_name: str) -> dict:
     inspect = docker_json("container", "inspect", container_name)[0]
     host = inspect["HostConfig"]
     config = inspect["Config"]
+    namespace_checks = namespace_security_checks(host)
     checks = {
         "user_nonroot": config.get("User") == "65532:65532",
         "read_only": host.get("ReadonlyRootfs") is True,
@@ -590,7 +591,7 @@ def container_security(container_name: str) -> dict:
         "no_new_privileges": "no-new-privileges" in (host.get("SecurityOpt") or []),
         "not_privileged": host.get("Privileged") is False,
         "network_none": host.get("NetworkMode") == "none",
-        "no_host_namespaces": not any(host.get(key) for key in ("PidMode", "IpcMode", "UTSMode", "UsernsMode")),
+        **namespace_checks,
         "no_devices": not host.get("Devices"),
         "no_binds": not host.get("Binds"),
         "no_secrets_env": all(
@@ -601,6 +602,17 @@ def container_security(container_name: str) -> dict:
     if not all(checks.values()):
         raise AssertionError(json.dumps(checks, indent=2))
     return {"checks": checks, "host_config": {key: host.get(key) for key in ("ReadonlyRootfs", "CapDrop", "SecurityOpt", "Privileged", "NetworkMode", "PidMode", "IpcMode", "UTSMode", "UsernsMode", "Devices", "Binds", "Tmpfs")}}
+
+
+def namespace_security_checks(host: dict) -> dict:
+    checks = {
+        "pid_mode_empty": host.get("PidMode") == "",
+        "ipc_mode_private": host.get("IpcMode") == "private",
+        "uts_mode_empty": host.get("UTSMode") == "",
+        "userns_mode_empty": host.get("UsernsMode") == "",
+    }
+    checks["no_host_namespaces"] = all(checks.values())
+    return checks
 
 
 def create_keeper(name: str, image: str) -> None:

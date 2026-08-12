@@ -79,6 +79,7 @@ from scripts.verify_container_runtime import (
     build_command,
     format_unix_nanoseconds,
     local_content_digest_matches_image_id,
+    namespace_security_checks,
     validate_local_image_events,
 )
 from scripts.verify_container_contract import (
@@ -167,6 +168,32 @@ class BaselineTest(unittest.TestCase):
         errors = []
         validate_container_contract(push_allowed, raw, errors)
         self.assertIn("event capture contract mismatch", errors)
+
+    def test_container_v6_namespace_modes_fail_closed(self):
+        isolated = {
+            "PidMode": "",
+            "IpcMode": "private",
+            "UTSMode": "",
+            "UsernsMode": "",
+        }
+        self.assertTrue(all(namespace_security_checks(isolated).values()))
+
+        for key, value in (
+            ("PidMode", "host"),
+            ("PidMode", "container:other"),
+            ("IpcMode", ""),
+            ("IpcMode", "host"),
+            ("IpcMode", "shareable"),
+            ("IpcMode", "container:other"),
+            ("IpcMode", "unexpected"),
+            ("UTSMode", "host"),
+            ("UsernsMode", "host"),
+        ):
+            with self.subTest(key=key, value=value):
+                mutated = copy.deepcopy(isolated)
+                mutated[key] = value
+                result = namespace_security_checks(mutated)
+                self.assertFalse(result["no_host_namespaces"])
 
     def test_container_v4_local_content_identity_and_events_fail_closed(self):
         image_id = "sha256:" + "a" * 64

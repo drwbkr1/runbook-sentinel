@@ -46,6 +46,7 @@
 - Bound the v5 pre-image payload and passing bounded artifact scan in `package-source-baseline-0027-v5.json`; no successor image, export, push, or publication exists before its public seal.
 - Built exact v5 image ID `96655a01...` twice and passed the nanosecond local-event boundary, then retained a fail-closed runtime-security result when the verifier incorrectly treated Docker's explicit private IPC mode as host sharing. No product runtime, scan, clean clone, export, push, or publication followed.
 - Source-gated official Docker namespace semantics and froze container-runtime-v6 plus ADR 0021 before implementation. V6 requires exact private IPC and empty PID, UTS, and userns modes on the verified builder while rejecting host, shareable, cross-container, default-empty, and unknown IPC values; all other runtime and publication boundaries remain exact.
+- Published the v6 freeze, implemented only its exact namespace predicate, retained a focused-test placement error, then passed the corrected focused suite, all 54 tests, all 31 side-effect-free validators, required-v6 validation, and a transient real-Docker fourteen-check metadata probe. No successor image was built before the implementation seal.
 
 ## 0.0.26 - 2026-08-11
 

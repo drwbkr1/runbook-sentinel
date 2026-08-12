@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T22:33:00Z",
+  "status": "fail",
+  "phase": "v6 focused implementation tests before implementation seal",
+  "tests_requested": 3,
+  "tests_passed": 2,
+  "tests_errored": 1,
+  "error": {
+    "test": "test_container_v6_namespace_modes_fail_closed",
+    "type": "NameError",
+    "message": "name 'contract' is not defined",
+    "line": 192,
+    "classification": "test placement moved the inherited v5 push-event mutation into the new v6 method, outside the local contract variable's scope"
+  },
+  "implementation_at_failure": {
+    "runtime_verifier_sha256": "83a77bfbfa4178d8b5f05c836771c29e840f9191daaef6d2f91870983b3dca6d",
+    "tests_sha256": "12153d1883e3229da4868bec2aee8de7b5dc179253f7e3a60d761b2f687158d1",
+    "compile_passed": true,
+    "independent_contract_validator_passed": true,
+    "implementation_phase": "implemented_v6"
+  },
+  "product_or_container_run": false,
+  "image_built": false,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false,
+  "disposition": "retain exact focused-suite failure; restore inherited v5 mutation to its original method without changing product or runtime-policy code"
+}
