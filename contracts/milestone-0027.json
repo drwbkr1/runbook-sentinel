@@ -111,19 +111,23 @@
       "human_gate": false,
       "status": "complete",
       "outputs": [
-        "eval/container-contract-0027.json",
+        "eval/container-contract-0027.json (retained superseded v1)",
+        "eval/container-contract-0027-v2.json",
         "eval/container-contract.json",
         "scripts/verify_container_contract.py"
       ],
       "gates": {
-        "current_and_versioned_contract_bytes_exact": "pass",
+        "current_and_v2_contract_bytes_exact": "pass",
         "source_gate_hash_and_ready_status_exact": "pass",
         "dockerfile_absent_before_freeze": "pass",
         "container_receipt_absent_before_implementation": "pass",
-        "preimplementation_validator": "pass"
+        "preimplementation_validator": "pass",
+        "v1_network_plan_failure_retained": "pass"
       },
       "disposition": "pass",
-      "retained_failures": [],
+      "retained_failures": [
+        "container-runtime-v1 proposed host loopback publication for an API that intentionally binds container-local loopback; widening the API, host networking, and a proxy were excluded. The public v1 contract and exact failure receipt remain retained, and v2 uses no network plus docker exec."
+      ],
       "next_dependency": "UNIT-003"
     },
     {

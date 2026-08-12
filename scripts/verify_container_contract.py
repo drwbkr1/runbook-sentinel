@@ -9,7 +9,7 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CONTRACT = ROOT / "eval/container-contract.json"
-VERSIONED_CONTRACT = ROOT / "eval/container-contract-0027.json"
+VERSIONED_CONTRACT = ROOT / "eval/container-contract-0027-v2.json"
 EXPECTED_BASE = (
     "cgr.dev/chainguard/python@"
     "sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5"
@@ -60,11 +60,18 @@ def expect(condition: bool, message: str, errors: list[str]) -> None:
 
 def validate_contract(contract: dict, raw: bytes, errors: list[str]) -> None:
     expect(contract.get("schema_version") == "1.0", "schema_version must be 1.0", errors)
-    expect(contract.get("contract_id") == "container-runtime-v1", "contract_id mismatch", errors)
+    expect(contract.get("contract_id") == "container-runtime-v2", "contract_id mismatch", errors)
     expect(contract.get("checkpoint") == "baseline-0027", "checkpoint mismatch", errors)
     expect(
         contract.get("contract_status") == "frozen_before_dockerfile_and_image_build",
         "contract_status mismatch",
+        errors,
+    )
+    supersedes = contract.get("supersedes", {})
+    expect(supersedes.get("contract_id") == "container-runtime-v1", "superseded contract mismatch", errors)
+    expect(
+        supersedes.get("contract_sha256") == "6a2f0df63909852994c0436a308e6d89577e2d48293130134b85c1969f5507b0",
+        "superseded contract hash mismatch",
         errors,
     )
     source = contract.get("source_checkpoint", {})
@@ -122,6 +129,12 @@ def validate_contract(contract: dict, raw: bytes, errors: list[str]) -> None:
     for key, expected in required_runtime.items():
         expect(runtime.get(key) is expected, f"runtime boundary {key} mismatch", errors)
     expect(runtime.get("cap_drop") == ["ALL"], "runtime must drop ALL capabilities", errors)
+    expect(
+        runtime.get("api_network")
+        == "none; docker exec invokes the actual HTTP surface through container-local loopback and extracts exact dashboard HTML for host rendering",
+        "API network verification boundary mismatch",
+        errors,
+    )
     required_checks = contract.get("verification_contract", {}).get("required_checks", [])
     expect(len(required_checks) == 36, "exactly 36 container checks are required", errors)
     expect(len(required_checks) == len(set(required_checks)), "container check IDs must be unique", errors)

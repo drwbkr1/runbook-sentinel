@@ -7,6 +7,7 @@
 - Reconciled Docker 29.4.3 as live without rewriting historical unavailable-at-verification records.
 - Preserved the three excluded Python base candidates and passed a new eight-criterion gate for one exact Chainguard Free Python digest under local-only, no-publication authority.
 - Froze `container-runtime-v1`, BASELINE-0027, and an independent preimplementation validator before creating any Dockerfile or Runbook Sentinel image.
+- Retained v1 as superseded after its host-port plan proved incompatible with the unchanged loopback-only API; v2 uses no network and `docker exec` for actual HTTP verification instead of weakening the API or using host networking.
 
 ## 0.0.26 - 2026-08-11
 
