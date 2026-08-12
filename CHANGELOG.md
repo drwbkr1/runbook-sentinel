@@ -17,6 +17,7 @@
 - Verified the correction with 48 tests and 30 non-manifest validators while preserving the immutable pre-reveal companion and its one expected transitional validator-hash mismatch.
 - Froze identical 41-entry v0.0.27 package contracts and a 116-file final manifest before constructing any package archive or container image.
 - Passed the complete pre-build seal gate with 48 tests and 31 validators while package and image artifacts remained absent.
+- Published exact package/final-manifest pre-build seal `22aeb0cfe3116521c93e1119d02ef600aa265086` and opened UNIT-004 verification with the image gate still closed.
 
 ## 0.0.26 - 2026-08-11
 

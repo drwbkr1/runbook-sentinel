@@ -136,7 +136,7 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "gates": {
         "dockerfile_and_context_allowlist_exact": "pass",
         "container_verifier_fail_closed": "pass",
@@ -148,7 +148,7 @@
         "package_contract_and_final_manifest_frozen_before_build": "pass",
         "package_contract_and_final_manifest_complete_gate": "pass"
       },
-      "disposition": "pending",
+      "disposition": "pass",
       "retained_failures": [
         "The pre-manifest 47-test run passed 46 tests and failed only the new baseline-0027 checkpoint assertion because the evaluator correctly retained the still-public baseline-0026 manifest. No candidate evaluation or image ran; exact failure receipt retained.",
         "Immutable source attempt 001 passed behavior and trace gates, but the post-candidate sweep stopped after 16 of 31 validators because the historical BASELINE-0026 exposure-stage validator rejected the legitimate baseline-0027 latest pointer. Exact failure receipt retained; package and image construction stayed closed."
@@ -161,7 +161,7 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "gates": {
         "immutable_source_candidate": "pending",
         "all_prior_source_and_package_gates": "pending",
@@ -206,8 +206,8 @@
       "next_dependency": null
     }
   ],
-  "current_unit": "UNIT-003",
-  "next_action": "Run the complete final-manifest gate, then publish the exact v0.0.27 package contract and 116-file manifest before any archive or image build.",
+  "current_unit": "UNIT-004",
+  "next_action": "Build and verify two byte-identical v0.0.27 zipapps, then run exact source/package evaluations and real surfaces before the first container image build.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -239,11 +239,12 @@
       "frozen container-runtime-v1 contract and passing preimplementation validator",
       "public implementation seal b521d16d91f5c8e198449ef17bb52e9f8d7490d5 and locally verified 115-file pre-reveal manifest with candidate and image results absent",
       "public pre-reveal manifest seal 8c486c6d9e0bc26c03749c45e9e5b89c1c72770a after 47 tests and 31 standalone validators passed"
+      ,"public package-contract and final-manifest seal 22aeb0cfe3116521c93e1119d02ef600aa265086 after 48 tests and 31 standalone validators passed with archive and image results absent"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.26 remains the latest verified release. BASELINE-0027 implementation and the exact 115-file pre-reveal manifest are public; immutable source attempt 001 passes behavior and trace gates but is stopped at a retained historical latest-pointer defect. No package archive or Runbook Sentinel image exists yet.",
-    "next_action": "Run the complete final-manifest gate and publish the exact package seal before any archive or image build.",
+    "current_checkpoint": "Public v0.0.26 remains the latest verified release. BASELINE-0027 source attempt 001, its retained/corrected pointer stop, and the exact v0.0.27 package-contract plus 116-file final-manifest seal are public. UNIT-003 is complete; no package archive or Runbook Sentinel image exists yet.",
+    "next_action": "Build two independent v0.0.27 zipapps, require byte identity, then verify source/package evaluations and real surfaces before any image build.",
     "do_not_carry_forward": [
       "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
       "any container image export, registry authentication, push, publication, or redistribution",

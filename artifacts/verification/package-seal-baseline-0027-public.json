@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0027-package-seal-public-20260812T174808Z",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T17:48:08Z",
+  "disposition": "pass",
+  "public_branch": {
+    "name": "codex/baseline-0027-container-runtime",
+    "commit": "22aeb0cfe3116521c93e1119d02ef600aa265086",
+    "local_head": "22aeb0cfe3116521c93e1119d02ef600aa265086",
+    "remote_tracking_head": "22aeb0cfe3116521c93e1119d02ef600aa265086",
+    "live_remote_head": "22aeb0cfe3116521c93e1119d02ef600aa265086",
+    "exact_match": true
+  },
+  "final_manifest": {
+    "path": "eval/manifest.json",
+    "sha256": "cdc9ced520421f89b87ea04629bbce1b4a80e7f875b4366a6359c987a009f67a",
+    "git_blob": "82f38da644bf36fb8fb911c5a5cadc572aafe3ba",
+    "file_count": 116,
+    "exact_verification": "pass"
+  },
+  "package_contract": {
+    "current_path": "eval/package-contract.json",
+    "versioned_path": "eval/package-contract-0027.json",
+    "sha256": "2eac29cedf0b422c0873629b7d3d682882ff403556059446ac232555479bf57e",
+    "current_git_blob": "88758731c03779b4a97c6f1085354fbd2d3b7842",
+    "versioned_git_blob": "88758731c03779b4a97c6f1085354fbd2d3b7842",
+    "entry_count": 41,
+    "exact_match": true,
+    "static_validation": "pass"
+  },
+  "complete_gate": {
+    "unit_tests_passed": 48,
+    "unit_tests_total": 48,
+    "standalone_validators_passed": 31,
+    "standalone_validators_total": 31
+  },
+  "preserved_predecessor_receipt": {
+    "path": "artifacts/verification/package-seal-baseline-0027-local.json",
+    "git_blob": "273291560afc6b592ce96dde48e5108fa9cce63e",
+    "historical_state": "complete_gate_pass_awaiting_public_commit"
+  },
+  "pre_build_absence": {
+    "package_archive": "absent",
+    "package_checksum": "absent",
+    "container_runtime_receipt": "absent",
+    "runbook_sentinel_container_image": "absent"
+  },
+  "seal_status": "public_verified",
+  "authorized_next_action": "Build two independent v0.0.27 zipapps, require byte identity and exact contract verification, then run source and package evaluation plus real-surface gates before any container image build."
+}

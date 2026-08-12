@@ -12,6 +12,8 @@ Immutable source attempt 001 passes all 57 cases, 171 attempts, 119 Boolean gate
 
 Source attempt 001 and the correction are public at `7221f89556573051513b91b5dd6c3e048964f65f`. The 41-entry v0.0.27 package contract and 116-file final manifest now validate locally at SHA-256 `2eac29cedf0b422c0873629b7d3d682882ff403556059446ac232555479bf57e` and `cdc9ced520421f89b87ea04629bbce1b4a80e7f875b4366a6359c987a009f67a`. They must pass the complete gate and be public before two archive builds or any image build begins.
 
+The exact package contract and final manifest passed 48 tests plus 31 validators and are public at `22aeb0cfe3116521c93e1119d02ef600aa265086` with archive and image results absent. UNIT-003 is complete. UNIT-004 begins with two independent archive builds and exact contract verification, followed by source/package evaluations and real surfaces before the first container build.
+
 ## Completed checkpoint baseline-0026 - adversarial exposure-stage/outcome split coverage
 
 Fresh public-v0.0.25 evaluation separates three defenses that aggregate attack metrics blur: hostile guidance filtered before decision context, hostile in-band status or telemetry exposed to decision logic, and adversarial cases without instruction-bearing content. The nine stage/outcome pairs already demonstrated as valid produce eighteen development/test cells; seventeen are covered. The only empty cell is safe `request_evidence` under exposed in-band content in development.
