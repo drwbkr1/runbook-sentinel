@@ -36,6 +36,8 @@ Pre-image payload `56fe0c1ac13f5ab2ce375e50e8882d44bfe4c90e` is public. After tw
 
 V5 freeze `80afa4999535dca90764f16c651279512b2e6a8d` is public. The bounded implementation now uses nanosecond event bounds and one second of completion grace. Required validation, five focused tests, all 53 tests, 31 non-manifest validators, and compilation pass; exactly the three v5 implementation identities are stale in the predecessor manifest. Dockerfile, package, selected evaluation, source, and image inputs remain unchanged. The implementation seal must be public before manifest renewal or another image run.
 
+Implementation seal `7a0a7c56219163be26f1e5d80baeaecd41f9c6ff` is public. The explicit freeze inventory adds only the versioned v5 contract and previews 119 unique files. Authoritative manifest, archive, evaluation, Dockerfile, source, and image inputs remain unchanged. The inventory seal must be public before authoritative manifest renewal or another build.
+
 ## Completed checkpoint baseline-0026 - adversarial exposure-stage/outcome split coverage
 
 Fresh public-v0.0.25 evaluation separates three defenses that aggregate attack metrics blur: hostile guidance filtered before decision context, hostile in-band status or telemetry exposed to decision logic, and adversarial cases without instruction-bearing content. The nine stage/outcome pairs already demonstrated as valid produce eighteen development/test cells; seventeen are covered. The only empty cell is safe `request_evidence` under exposed in-band content in development.

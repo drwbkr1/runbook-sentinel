@@ -171,6 +171,7 @@
         "container_runtime_v4_manifest_frozen_before_archive_or_image": "pass",
         "container_runtime_v5_frozen_before_event_window_implementation": "pass",
         "container_runtime_v5_implemented_before_manifest_renewal": "pass",
+        "container_runtime_v5_manifest_inventory_sealed_before_renewal": "pass",
         "two_image_builds_exact": "pending",
         "container_cli_evaluation_mcp_api_state_telemetry_dashboard": "pending",
         "container_security_contract": "pending",
@@ -229,7 +230,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Commit and push the exact v5 event-window implementation seal before renewing the manifest or rerunning an image.",
+  "next_action": "Commit and push the exact 119-file v5 manifest inventory seal before generating the authoritative manifest or rerunning an image.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -273,11 +274,12 @@
       ,"public v4 manifest seal 8e501098bd2613f731e211a794b508c8ba2b0b26; two exact 590207-byte archives at 766a0157998ea40e08d7bb6ac6ebf370c2ecbeb9efbe54ecc947eb5ae19f55b7; source/package attempt 004 with all 119 Boolean gates and exact 261-event anchors; bounded MCP; both 110-check APIs; both 59-check native receipts; complete dashboards; corrected artifact scan; 32 validators; and 51 tests before any v4 image build"
       ,"public v4 payload 56fe0c1ac13f5ab2ce375e50e8882d44bfe4c90e; retained wrapper-only timeout and existing-directory stops; exact two-build v4 image ID 2d3f89d5807513719d958ae2b6c6f65e1cf391ea47c66aa6f084d0766d9039ee; retained integer-second event-window failure before runtime; official eight-criterion Docker events source gate; and locally frozen v5 contract with required implementation failing closed"
       ,"public v5 freeze 80afa4999535dca90764f16c651279512b2e6a8d; exact nanosecond event-window implementation; five focused tests; 53 full tests; 31 non-manifest side-effect-free validators; compilation; required implementation pass; exactly three expected stale-manifest identities; unchanged Dockerfile, package, selected evaluation, source, and image inputs; no successor image build"
+      ,"public v5 implementation 7a0a7c56219163be26f1e5d80baeaecd41f9c6ff; explicit 119-file manifest inventory preview includes the versioned v5 contract exactly once; authoritative manifest, archive, evaluation, and image remain unchanged before inventory seal"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.26 remains the latest verified release. V5 freeze 80afa4999535dca90764f16c651279512b2e6a8d is public. The bounded nanosecond event-window implementation passes required contract validation, five focused tests, all 53 tests, 31 non-manifest side-effect-free validators, and compilation. The old manifest is stale only on the exact three v5 implementation identities. Dockerfile, package, selected evaluation, source, and image inputs remain unchanged; no successor image or passing container receipt exists.",
-    "next_action": "Commit and push the exact v5 event-window implementation seal before renewing the manifest or rerunning an image.",
+    "current_checkpoint": "Public v0.0.26 remains the latest verified release. V5 freeze and implementation are public through 7a0a7c56219163be26f1e5d80baeaecd41f9c6ff. The manifest freeze inventory now explicitly includes the versioned v5 contract exactly once in a 119-file preview. The authoritative manifest, archive, selected evaluation, Dockerfile, source, and image inputs remain unchanged; no successor image or passing container receipt exists.",
+    "next_action": "Commit and push the exact 119-file v5 manifest inventory seal before generating the authoritative manifest or rerunning an image.",
     "do_not_carry_forward": [
       "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
       "any container image export, registry authentication, push, publication, or redistribution",

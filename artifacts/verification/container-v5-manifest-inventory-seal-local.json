@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T21:48:00Z",
+  "status": "pass",
+  "freeze_script": {
+    "path": "scripts/freeze_manifest.py",
+    "sha256": "9c86ad6d4400b336b0e2f6466ce761bb3bd24438b1c5500176766f4cf40f0a52",
+    "bounded_change": "add eval/container-contract-0027-v5.json to the explicit manifest inventory"
+  },
+  "preview": {
+    "path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v5-manifest-preview.json",
+    "frozen_at_utc": "2026-08-12T21:48:00Z",
+    "file_count": 119,
+    "unique_file_count": 119,
+    "versioned_v5_contract_present": true,
+    "bytes": 14134,
+    "sha256": "562e4bcd3b21e9f8bb241b6b5655fc0389e15e7e6225e3a03c3f082095b2b857"
+  },
+  "authoritative_manifest_changed": false,
+  "archive_rebuilt": false,
+  "image_built": false,
+  "next_gate": "Commit and push the exact inventory seal, then generate the authoritative 119-file manifest from that public commit."
+}

@@ -20,6 +20,7 @@
 - Published the v5 freeze at `80afa4999535dca90764f16c651279512b2e6a8d`, then implemented only `time.time_ns()`, exact nine-digit fractional formatting, and one second of completion grace in full and clean-build event capture. Exact tag, image-ID, local-scope, create/tag-only, and push rejection logic remains unchanged.
 - Retained one focused test-schema error when an inherited-v4 invariant test read the compact v5 contract; the corrected split tests pass five of five. Retained a PowerShell native-stream wrapper stop and the direct pre-renewal manifest result: exactly current contract, contract verifier, and runtime verifier are stale. Compilation, all 53 tests in 101.232 seconds, and 31 non-manifest side-effect-free validators in 31.658 seconds pass with `latest.json` unchanged.
 - `container-implementation-baseline-0027-v5-local.json` binds the bounded delta and unchanged image inputs. No successor image exists; the implementation seal must be public before manifest renewal or another image run.
+- Published implementation seal `7a0a7c56219163be26f1e5d80baeaecd41f9c6ff`. Before renewing the manifest, added only `eval/container-contract-0027-v5.json` to the explicit freeze inventory. A preview outside the repository contains 119 unique paths and includes the versioned v5 contract exactly once; authoritative manifest, archive, selected evaluation, and image bytes remain unchanged pending a public inventory seal.
 
 ## 2026-08-12 BASELINE-0027 v3 failure and v4 preimplementation freeze
 
