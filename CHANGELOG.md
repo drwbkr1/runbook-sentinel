@@ -9,6 +9,8 @@
 - Froze `container-runtime-v1`, BASELINE-0027, and an independent preimplementation validator before creating any Dockerfile or Runbook Sentinel image.
 - Retained v1 as superseded after its host-port plan proved incompatible with the unchanged loopback-only API; v2 uses no network and `docker exec` for actual HTTP verification instead of weakening the API or using host networking.
 - Implemented the exact v2 Dockerfile, context allowlist, v0.0.27 identity, and container verification harness; retained the expected one-test pre-manifest identity failure and ran no image or candidate evaluation before the public implementation seal.
+- Published exact implementation seal `b521d16d91f5c8e198449ef17bb52e9f8d7490d5`, then froze a 115-file baseline-0027 pre-reveal manifest with candidate evaluation and image results still absent.
+- Passed the complete pre-reveal gate with 47 tests and 31 standalone validators before creating any source candidate, package, or image.
 
 ## 0.0.26 - 2026-08-11
 

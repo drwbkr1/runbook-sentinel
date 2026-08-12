@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0027-pre-reveal-manifest-local-20260812T172050Z",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T17:24:50Z",
+  "disposition": "pass",
+  "implementation_seal": {
+    "branch": "codex/baseline-0027-container-runtime",
+    "local_commit": "b521d16d91f5c8e198449ef17bb52e9f8d7490d5",
+    "remote_commit": "b521d16d91f5c8e198449ef17bb52e9f8d7490d5",
+    "remote_ref": "refs/heads/codex/baseline-0027-container-runtime",
+    "exact_match": true
+  },
+  "manifest": {
+    "path": "eval/manifest.json",
+    "checkpoint": "baseline-0027",
+    "schema_version": "1.0",
+    "frozen_at_utc": "2026-08-12T17:16:39Z",
+    "file_count": 115,
+    "bytes": 13687,
+    "sha256": "eff82128c034c7534ebf3c05fc7bec5cc4a04689d86f7304e40d0813b28d1523",
+    "exact_verification": "pass"
+  },
+  "source_gate": {
+    "path": "artifacts/verification/container-source-gate-baseline-0027-chainguard-python.json",
+    "sha256": "effc86d7c30dcbc08cbc7c70eb1271208acea5c1af725cd55b1577019ed24d18",
+    "computed_status": "ready"
+  },
+  "pre_reveal_gate": {
+    "unit_tests": {
+      "passed": 47,
+      "total": 47,
+      "elapsed_seconds": 85.58
+    },
+    "standalone_validators": {
+      "passed": 31,
+      "total": 31,
+      "elapsed_seconds": 2.131
+    },
+    "manifest_verification": "pass",
+    "container_contract_static_verification": "pass",
+    "archive_created": false,
+    "candidate_evaluation_created": false,
+    "image_built": false
+  },
+  "pre_reveal_absence": {
+    "immutable_baseline_0027_candidate": "absent",
+    "baseline_0027_evaluation_report": "absent",
+    "baseline_0027_evaluation_trace": "absent",
+    "runbook_sentinel_baseline_0027_image": "absent"
+  },
+  "seal_status": "local_gate_pass_awaiting_public_commit",
+  "authorized_next_action": "Commit and push this exact manifest and gate receipt before any immutable candidate evaluation or image build."
+}

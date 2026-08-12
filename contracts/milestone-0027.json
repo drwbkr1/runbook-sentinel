@@ -143,7 +143,8 @@
         "all_57_scenarios_and_terminal_states_unchanged": "pass",
         "all_runtime_authority_boundaries_unchanged": "pass",
         "v0_0_27_source_and_package_identity_exact": "pending",
-        "implementation_sealed_before_candidate_container_run": "pending"
+        "implementation_sealed_before_candidate_container_run": "pass",
+        "pre_reveal_manifest_complete_gate": "pass"
       },
       "disposition": "pending",
       "retained_failures": [
@@ -203,7 +204,7 @@
     }
   ],
   "current_unit": "UNIT-003",
-  "next_action": "Publish the exact Dockerfile, context allowlist, runtime identity, and verifier implementation seal; then freeze and publish a baseline-0027 pre-reveal manifest before any candidate evaluation or image build.",
+  "next_action": "Run the complete pre-reveal gates, then publish the exact 115-file baseline-0027 manifest before any candidate evaluation or image build.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -232,12 +233,13 @@
       "public v0.0.26 release reconciliation and fresh unchanged 57-case source evaluation",
       "Docker 29.4.3 live-state reconciliation and competing metric-gap measurement",
       "ready eight-criterion exact Chainguard source gate with previous failed candidates retained",
-      "frozen container-runtime-v1 contract and passing preimplementation validator"
+      "frozen container-runtime-v1 contract and passing preimplementation validator",
+      "public implementation seal b521d16d91f5c8e198449ef17bb52e9f8d7490d5 and locally verified 115-file pre-reveal manifest with candidate and image results absent"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.26 remains the latest verified release. BASELINE-0027 has a fresh passing v0.0.26 run, a ready exact base-image gate, and frozen container contract; no Runbook Sentinel Dockerfile or image exists yet.",
-    "next_action": "Publish the frozen contract checkpoint, then add only the exact contracted Dockerfile, build-context allowlist, fail-closed verifier, and v0.0.27 package identity before any candidate image run.",
+    "current_checkpoint": "Public v0.0.26 remains the latest verified release. BASELINE-0027 has public implementation seal b521d16d91f5c8e198449ef17bb52e9f8d7490d5 and a locally verified 115-file pre-reveal manifest; no candidate evaluation or Runbook Sentinel image exists yet.",
+    "next_action": "Run the complete pre-reveal gates and publish the exact 115-file manifest, then begin immutable source verification before any candidate image run.",
     "do_not_carry_forward": [
       "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
       "any container image export, registry authentication, push, publication, or redistribution",
