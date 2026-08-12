@@ -177,6 +177,7 @@
         "container_runtime_v6_implemented_before_manifest_renewal": "pass",
         "container_runtime_v6_manifest_inventory_sealed_before_renewal": "pass",
         "container_runtime_v6_manifest_frozen_before_archive_or_image": "pass",
+        "container_runtime_v7_frozen_before_tmpfs_extraction_implementation": "pass",
         "two_image_builds_exact": "pending",
         "container_cli_evaluation_mcp_api_state_telemetry_dashboard": "pending",
         "container_security_contract": "pending",
@@ -200,6 +201,7 @@
          ,"The first focused v5 suite retained one test-schema error after a v4 invariant test loaded the compact v5 contract. The corrected suite separates inherited v4 and v5 event-window mutations and passes five of five."
          ,"The first side-effect-free v5 wrapper stopped on PowerShell native-stream handling. The direct subprocess run then reported only the expected three-file stale-manifest boundary; 31 other validators and all 53 tests pass with the selected report unchanged."
          ,"The first genuine v5 runtime reveal built exact image ID 96655a01... twice and passed the nanosecond event window, then stopped before product execution because the verifier treated Docker's explicit IpcMode private as host sharing. Exact inspect evidence proves private IPC, empty PID/UTS/userns modes, and every other runtime boundary passing. The failure remains retained; v6 is frozen before the narrow namespace-semantic correction."
+         ,"The first genuine v6 runtime reveal built exact image ID 90b8b4a9... twice and passed local events, image validation, exact private namespaces, hardened runtime, CLI, and evaluation execution, then stopped because docker cp cannot read files from the /state tmpfs. Exact in-container sizes and hashes plus the reproduced copy failure remain retained; v7 is frozen before a bounded verified exec-stream extraction correction."
       ],
       "disposition": "pending",
       "next_dependency": "UNIT-005"
@@ -286,8 +288,8 @@
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.26 remains the latest verified release. V5 freeze, implementation, inventory, and authoritative manifest are public through 51249548294d2030ebd1f74941f67362d291d426. Two replacement archives reproduce exactly; source/package attempt 005, bounded MCP, authenticated API/approval/executor/replay, native state/telemetry, complete dashboards, scan, 32 validators, and 53 tests pass locally. No successor image or passing container receipt exists.",
-    "next_action": "Commit and push the exact manifest-bound v5 archive, source/package attempt 005, real-surface evidence, scan, and package-source receipt before building an image.",
+    "current_checkpoint": "Public v0.0.26 remains the latest verified release. V6 payload 6245be0 and its 120-file manifest-bound package/evaluation evidence are public. Two independent v6 builds reproduce exact image ID 90b8b4a9...; event, image, namespace, hardened runtime, CLI, and evaluation execution pass, but artifact acceptance stops at Docker's documented inability to copy /state tmpfs. The exact failure and in-container identities remain retained; v7 is frozen before implementation and no passing complete container receipt exists.",
+    "next_action": "Commit and push the exact v6 tmpfs-extraction failure and v7 contract freeze before changing extraction code or running another image.",
     "do_not_carry_forward": [
       "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
       "any container image export, registry authentication, push, publication, or redistribution",

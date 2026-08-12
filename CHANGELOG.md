@@ -2,6 +2,9 @@
 
 ## Unreleased - BASELINE-0027
 
+- Retained the v6 tmpfs-extraction failure after exact two-build identity, local events, image validation, hardened runtime, CLI, and evaluation execution passed; an unchanged-runtime diagnostic proves the report and trace existed inside `/state` at exact identities while `docker cp` reproduced its documented tmpfs limitation.
+- Source-gated exact official Docker `cp` and `exec` semantics without importing external assets, then froze container-runtime-v7 before implementation around an eight-file allowlist, bounded unprivileged byte stream, no overwrite, and pre/post-write length plus SHA-256 verification.
+
 - Reran exact public v0.0.26 and bound the passing 57-case, 171-attempt, separate-metric, 261-event orientation evidence.
 - Retained a measured retrieval-stage label gap for a later cycle: two declared hostile guidance documents are not retrieved, while twenty are retrieved and filtered, yet v0.0.26 reports one combined stage.
 - Reconciled Docker 29.4.3 as live without rewriting historical unavailable-at-verification records.

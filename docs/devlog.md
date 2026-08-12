@@ -1,5 +1,13 @@
 # Development log
 
+## 2026-08-12 BASELINE-0027 v7 tmpfs-extraction freeze
+
+- Ran container-runtime-v6 from public input `6245be0b9241d789347ac3bb7ebf869561aaa5f4`. Both networkless no-cache builds produced exact local image ID `sha256:90b8b4a9ac25bb1fc1632c1f0851430c1d833b912d77942b97b0328348079a44`; local create/tag events, image metadata and layers, exact private namespaces, all hardened runtime checks, and CLI help passed.
+- The in-container 57-case evaluation exited zero, then the verifier stopped when `docker cp` could not find `/state/container-evaluation.json`. A bounded unchanged-runtime diagnostic proved the report and trace existed and were readable inside `/state` tmpfs at exact identities; the same `docker cp` error reproduced. Both containers were removed. MCP, API, dashboard, scan, clean clone, export, push, and publication did not run.
+- Official Docker `cp` and `exec` specifications at exact docs revision `c8c1ada...` and blobs `5ff5b80e...` / `fea80c9d...` pass all sixteen source-gate criteria. Docker documents that `cp` cannot copy tmpfs or user-created mounts and identifies `exec` as the recovery path; no external code, configuration, package, data, model, or image is imported.
+- ADR 0022 and byte-identical current/versioned container-runtime-v7 freeze an eight-file project-owned `/state` allowlist, a 4 MiB bound, exact `/usr/bin/python` execution as the existing non-root user, one header plus raw bytes, no overwrite, empty stderr and zero exit, and host length/SHA-256 checks before and after writing. No shell, TTY, privilege, user/environment override, mount, device, capability, secret, network, product, or authority boundary changes.
+- Current and versioned v7 contracts are 8,658 bytes at SHA-256 `b4c078b1e2a836ddf23ab0644c9a1810bfe9e0fdf40997256396f3de439643c0`. Independent preimplementation validation passes in `frozen_v6_preimplementation` state and required implementation fails exactly with `v7 tmpfs extraction implementation is required`. No extraction implementation or successor image exists before the public freeze seal.
+
 ## 2026-08-12 BASELINE-0027 v6 namespace-semantics freeze
 
 - Ran container-runtime-v5 from public input `a284c60c44972664294c67e4727f3075ac8a361d`. Both independent builds produced exact local image ID `sha256:96655a011b8ec8079fe23df988025fbb899575ae3b72ebbef30e92291cf0c5bf`; both tags were captured as local tag events with no push, and frozen creation time plus local content identity passed.

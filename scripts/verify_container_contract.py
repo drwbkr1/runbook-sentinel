@@ -9,7 +9,8 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CONTRACT = ROOT / "eval/container-contract.json"
-VERSIONED_CONTRACT = ROOT / "eval/container-contract-0027-v6.json"
+VERSIONED_CONTRACT = ROOT / "eval/container-contract-0027-v7.json"
+SUPERSEDED_V6_CONTRACT = ROOT / "eval/container-contract-0027-v6.json"
 SUPERSEDED_V5_CONTRACT = ROOT / "eval/container-contract-0027-v5.json"
 SUPERSEDED_V4_CONTRACT = ROOT / "eval/container-contract-0027-v4.json"
 SUPERSEDED_V3_CONTRACT = ROOT / "eval/container-contract-0027-v3.json"
@@ -30,6 +31,15 @@ EXPECTED_V5_RUNTIME_FAILURE_SHA256 = (
 )
 EXPECTED_V6_SOURCE_GATE_SHA256 = (
     "88a9448c8716c33bed7059ef5b60ef00cb3a466057fc9a8a6aec78824d2f4f07"
+)
+EXPECTED_V6_CONTRACT_SHA256 = (
+    "76ca2b7dad77710a1a98ba0227847fffdb926a4e7610d0e7beded2aa8f5b27ae"
+)
+EXPECTED_V6_EXTRACTION_FAILURE_SHA256 = (
+    "ba8f8210cfece3b6657d62aebc9314fc8aa39ed94ac952cee58f0d28c8434f70"
+)
+EXPECTED_V7_SOURCE_GATE_SHA256 = (
+    "cc860f90ae5b04718790ab9f6ced70751a5df0f2e30b88f9aa72d6599021dd29"
 )
 EXPECTED_V3_CONTRACT_SHA256 = (
     "1f63fcb6707f129ecc803c05026308680ea9417a6b61c4fdb4d379737d9d6b67"
@@ -325,7 +335,7 @@ def validate_v5_contract(contract: dict, raw: bytes, errors: list[str]) -> None:
     expect(raw.endswith(b"\n"), "contract must end with LF", errors)
 
 
-def validate_contract(contract: dict, raw: bytes, errors: list[str]) -> None:
+def validate_v6_contract(contract: dict, raw: bytes, errors: list[str]) -> None:
     expect(contract.get("schema_version") == "1.0", "schema_version must be 1.0", errors)
     expect(contract.get("contract_id") == "container-runtime-v6", "contract_id mismatch", errors)
     expect(contract.get("checkpoint") == "baseline-0027", "checkpoint mismatch", errors)
@@ -398,6 +408,96 @@ def validate_contract(contract: dict, raw: bytes, errors: list[str]) -> None:
     expect(pre.get("tests_v5_sha256") == "bbe58a67924d7296682d99ce940b7db5eafe684dc125201a204970a71d153cae", "v5 tests identity mismatch", errors)
     required_checks = contract.get("verification_contract", {}).get("required_checks", [])
     expect(len(required_checks) == 42, "exactly 42 container checks are required", errors)
+    expect(len(required_checks) == len(set(required_checks)), "container check IDs must be unique", errors)
+    expect(bool(contract.get("no_go_boundaries")), "no-go boundaries must be nonempty", errors)
+    expect(raw.endswith(b"\n"), "contract must end with LF", errors)
+
+
+def validate_contract(contract: dict, raw: bytes, errors: list[str]) -> None:
+    expect(contract.get("schema_version") == "1.0", "schema_version must be 1.0", errors)
+    expect(contract.get("contract_id") == "container-runtime-v7", "contract_id mismatch", errors)
+    expect(contract.get("checkpoint") == "baseline-0027", "checkpoint mismatch", errors)
+    expect(
+        contract.get("contract_status")
+        == "frozen_after_v6_tmpfs_extraction_failure_before_v7_implementation",
+        "contract_status mismatch",
+        errors,
+    )
+    supersedes = contract.get("supersedes", {})
+    expect(supersedes.get("contract") == "eval/container-contract-0027-v6.json", "superseded contract path mismatch", errors)
+    expect(supersedes.get("contract_id") == "container-runtime-v6", "superseded contract ID mismatch", errors)
+    expect(supersedes.get("contract_sha256") == EXPECTED_V6_CONTRACT_SHA256, "superseded v6 contract hash mismatch", errors)
+    expect(
+        supersedes.get("reason_receipt")
+        == "artifacts/verification/container-baseline-0027-v6-tmpfs-extraction-failure-001.json",
+        "v6 failure receipt path mismatch",
+        errors,
+    )
+    expect(
+        supersedes.get("reason_receipt_sha256") == EXPECTED_V6_EXTRACTION_FAILURE_SHA256,
+        "v6 failure receipt hash mismatch",
+        errors,
+    )
+    source = contract.get("source_checkpoint", {})
+    expect(source.get("public_version") == "0.0.26", "source public version mismatch", errors)
+    expect(source.get("public_v6_payload_commit") == "6245be0b9241d789347ac3bb7ebf869561aaa5f4", "public v6 payload commit mismatch", errors)
+    expect(source.get("v6_image_ids_equal") is True, "v6 image identity evidence mismatch", errors)
+    expect(source.get("v6_event_window_passed") is True, "v6 event-window evidence mismatch", errors)
+    expect(source.get("v6_runtime_security_passed") is True, "v6 runtime-security evidence mismatch", errors)
+    expect(source.get("v6_cli_help_passed") is True, "v6 CLI evidence mismatch", errors)
+    expect(source.get("v6_evaluation_exit_code") == 0, "v6 evaluation exit-code evidence mismatch", errors)
+    expect(source.get("v6_artifact_extraction_passed") is False, "v6 extraction failure must remain explicit", errors)
+    inheritance = contract.get("inheritance", {})
+    expect(inheritance.get("contract") == "eval/container-contract-0027-v6.json", "v6 inheritance path mismatch", errors)
+    expect(inheritance.get("contract_sha256") == EXPECTED_V6_CONTRACT_SHA256, "v6 inheritance hash mismatch", errors)
+    expect(len(inheritance.get("unchanged_surfaces", [])) == 8, "unchanged surface inventory mismatch", errors)
+    gate = contract.get("v7_source_gate", {})
+    expect(gate.get("path") == "artifacts/verification/research-source-gate-baseline-0027-container-v7-extraction.json", "v7 source gate path mismatch", errors)
+    expect(gate.get("sha256") == EXPECTED_V7_SOURCE_GATE_SHA256, "v7 source gate hash mismatch", errors)
+    expect(gate.get("status") == "ready", "v7 source gate not ready", errors)
+    expect(
+        contract.get("event_capture_contract")
+        == json.loads(SUPERSEDED_V6_CONTRACT.read_text(encoding="utf-8")).get("event_capture_contract"),
+        "event capture contract mismatch",
+        errors,
+    )
+    expect(
+        contract.get("namespace_security_contract")
+        == json.loads(SUPERSEDED_V6_CONTRACT.read_text(encoding="utf-8")).get("namespace_security_contract"),
+        "namespace security contract mismatch",
+        errors,
+    )
+    extraction = contract.get("tmpfs_extraction_contract", {})
+    expected_sources = [
+        "/state/container-evaluation.json",
+        "/state/container-evaluation.traces.jsonl",
+        "/state/mcp-traces.jsonl",
+        "/state/mcp-traces.jsonl.anchor.json",
+        "/state/dashboard.html",
+        "/state/api.db",
+        "/state/api-traces.jsonl",
+        "/state/api-traces.jsonl.anchor.json",
+    ]
+    expect(extraction.get("allowed_sources") == expected_sources, "tmpfs extraction source allowlist mismatch", errors)
+    expect(extraction.get("executable") == "/usr/bin/python", "tmpfs extraction executable mismatch", errors)
+    expect(extraction.get("header_fields") == ["source", "bytes", "sha256"], "tmpfs extraction header mismatch", errors)
+    expect(extraction.get("header_max_bytes") == 1024, "tmpfs extraction header bound mismatch", errors)
+    expect(extraction.get("source_max_bytes") == 4 * 1024 * 1024, "tmpfs extraction size bound mismatch", errors)
+    for key in (
+        "stderr_must_be_empty",
+        "exec_exit_code_must_be_zero",
+        "destination_must_not_exist",
+        "host_length_and_sha256_must_match_header",
+        "host_postwrite_length_and_sha256_must_match",
+    ):
+        expect(extraction.get(key) is True, f"tmpfs extraction boundary {key} mismatch", errors)
+    pre = contract.get("preimplementation_identity", {})
+    expect(pre.get("runtime_verifier_v6_sha256") == "83a77bfbfa4178d8b5f05c836771c29e840f9191daaef6d2f91870983b3dca6d", "v6 runtime verifier identity mismatch", errors)
+    expect(pre.get("tests_v6_sha256") == "55b49e5f1910c441be42de2bab043e30cfdb9ed42d4179b7618db84e762e1209", "v6 tests identity mismatch", errors)
+    expect(pre.get("contract_verifier_v6_sha256") == "17b7adf9c20f7657761fa32235b5bd9b67de71579e049123543f1823817fe419", "v6 contract verifier identity mismatch", errors)
+    required_checks = contract.get("verification_contract", {}).get("required_checks", [])
+    expect(len(required_checks) == 43, "exactly 43 container checks are required", errors)
+    expect("container_tmpfs_artifact_extraction_verified" in required_checks, "tmpfs extraction check is required", errors)
     expect(len(required_checks) == len(set(required_checks)), "container check IDs must be unique", errors)
     expect(bool(contract.get("no_go_boundaries")), "no-go boundaries must be nonempty", errors)
     expect(raw.endswith(b"\n"), "contract must end with LF", errors)
@@ -491,6 +591,23 @@ def validate_v6_source_gate(contract: dict, errors: list[str]) -> None:
     ]
     expect(len(criteria) == 8, "v6 source gate must contain eight criteria", errors)
     expect(all(item.get("status") == "pass" for item in criteria), "every v6 source criterion must pass", errors)
+
+
+def validate_v7_source_gate(contract: dict, errors: list[str]) -> None:
+    gate_path = ROOT / contract["v7_source_gate"]["path"]
+    expect(gate_path.is_file(), "v7 source gate is missing", errors)
+    if not gate_path.is_file():
+        return
+    expect(sha256_file(gate_path) == EXPECTED_V7_SOURCE_GATE_SHA256, "v7 source gate bytes changed", errors)
+    gate = json.loads(gate_path.read_text(encoding="utf-8"))
+    expect(gate.get("decision", {}).get("status") == "ready", "v7 source gate is not ready", errors)
+    criteria = [
+        criterion
+        for source in gate.get("sources", [])
+        for criterion in source.get("criteria", [])
+    ]
+    expect(len(criteria) == 16, "v7 source gate must contain sixteen criteria", errors)
+    expect(all(item.get("status") == "pass" for item in criteria), "every v7 source criterion must pass", errors)
 
 
 def validate_reproducibility_inputs(contract: dict, errors: list[str]) -> None:
@@ -634,6 +751,43 @@ def validate_v6_implementation(require: bool, errors: list[str]) -> str:
     return "nonconforming"
 
 
+def validate_v7_implementation(require: bool, errors: list[str]) -> str:
+    runtime_path = ROOT / "scripts/verify_container_runtime.py"
+    tests_path = ROOT / "tests/test_baseline.py"
+    expect(runtime_path.is_file(), "container runtime verifier is missing", errors)
+    expect(tests_path.is_file(), "container tests are missing", errors)
+    if not runtime_path.is_file() or not tests_path.is_file():
+        return "missing"
+    runtime_hash = sha256_file(runtime_path)
+    tests_hash = sha256_file(tests_path)
+    v6_exact = (
+        runtime_hash == "83a77bfbfa4178d8b5f05c836771c29e840f9191daaef6d2f91870983b3dca6d"
+        and tests_hash == "55b49e5f1910c441be42de2bab043e30cfdb9ed42d4179b7618db84e762e1209"
+    )
+    runtime_text = runtime_path.read_text(encoding="utf-8")
+    tests_text = tests_path.read_text(encoding="utf-8")
+    v7_markers = [
+        "ALLOWED_TMPFS_EXTRACTION_SOURCES",
+        "def decode_tmpfs_extraction_stream(",
+        "def extract_tmpfs_file(",
+        '"container_tmpfs_artifact_extraction_verified"',
+    ]
+    v7_exact = all(marker in runtime_text for marker in v7_markers) and all(
+        marker in tests_text
+        for marker in (
+            "test_container_v7_tmpfs_extraction_stream_fails_closed",
+            "decode_tmpfs_extraction_stream",
+        )
+    )
+    if v7_exact:
+        return "implemented_v7"
+    if v6_exact:
+        expect(not require, "v7 tmpfs extraction implementation is required", errors)
+        return "frozen_v6_preimplementation"
+    expect(False, "container verifier or tests do not match frozen v6 or required v7 implementation", errors)
+    return "nonconforming"
+
+
 def validate_receipt(contract: dict, receipt_path: Path, require: bool, errors: list[str]) -> str:
     if not receipt_path.exists():
         expect(not require, "container verification receipt is required", errors)
@@ -679,6 +833,11 @@ def main() -> None:
     validate_contract(contract, raw, errors)
     if contract_path == DEFAULT_CONTRACT.resolve():
         expect(VERSIONED_CONTRACT.read_bytes() == raw, "current and versioned container contracts differ", errors)
+    expect(SUPERSEDED_V6_CONTRACT.is_file(), "superseded v6 contract is missing", errors)
+    v6_raw = SUPERSEDED_V6_CONTRACT.read_bytes() if SUPERSEDED_V6_CONTRACT.is_file() else b"{}\n"
+    expect(hashlib.sha256(v6_raw).hexdigest() == EXPECTED_V6_CONTRACT_SHA256, "superseded v6 contract bytes changed", errors)
+    v6_contract = json.loads(v6_raw)
+    validate_v6_contract(v6_contract, v6_raw, errors)
     expect(SUPERSEDED_V5_CONTRACT.is_file(), "superseded v5 contract is missing", errors)
     v5_raw = SUPERSEDED_V5_CONTRACT.read_bytes() if SUPERSEDED_V5_CONTRACT.is_file() else b"{}\n"
     expect(hashlib.sha256(v5_raw).hexdigest() == EXPECTED_V5_CONTRACT_SHA256, "superseded v5 contract bytes changed", errors)
@@ -691,11 +850,13 @@ def main() -> None:
     validate_v4_contract(v4_contract, v4_raw, errors)
     validate_source_gate(v4_contract, errors)
     validate_v5_source_gate(v5_contract, errors)
-    validate_v6_source_gate(contract, errors)
+    validate_v6_source_gate(v6_contract, errors)
+    validate_v7_source_gate(contract, errors)
     validate_reproducibility_inputs(v4_contract, errors)
     validate_implementation(v4_contract, True, errors)
     validate_v5_implementation(True, errors)
-    phase = validate_v6_implementation(args.require_implementation, errors)
+    validate_v6_implementation(True, errors)
+    phase = validate_v7_implementation(args.require_implementation, errors)
     receipt_path = (args.receipt or ROOT / contract["verification_contract"]["receipt"]).resolve()
     receipt_state = validate_receipt(contract, receipt_path, args.require_result, errors)
     result = {
