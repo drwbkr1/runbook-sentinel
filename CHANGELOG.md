@@ -30,6 +30,8 @@
 - Froze `container-runtime-v3` before implementation. It preserves the two-payload-layer invariant, moves `WORKDIR` after both COPY directives, binds the exact timestamp and local image-exporter settings, adds builder/clean-process checks, and limits the reproducibility claim to the exact verified builder and clean-clone path.
 - Published the v3 freeze before implementing it, then passed 49 tests, 31 side-effect-free validators, exact static contract validation, and live builder/epoch preflight with no manifest renewal, archive rebuild, candidate evaluation, or image build yet.
 - Published the v3 implementation before freezing a renewed 117-file manifest; the renewed seal passes 49 tests and 32 validators, and the predecessor archive is retained as superseded by its exact embedded-manifest mismatch.
+- Published the renewed v3 source/package payload and real-surface evidence at `09f9e2c8e5ccda1f82c4d956ba830cc5d3b3e2e3`, then retained the first v3 two-image run as a fail-closed metadata-validation result: both independent builds reproduced image ID `ad9160e8...`, but WORKDIR still emitted a third empty layer and the local image store assigned a content digest.
+- Source-gated official Dockerfile, exporter, and digest semantics; froze container-runtime-v4 before implementation to remove only WORKDIR, verify default root working directory, retain exactly two COPY layers, and distinguish exact local content identity from registry publication without changing push/export or runtime-security boundaries.
 
 ## 0.0.26 - 2026-08-11
 

@@ -77,6 +77,11 @@ from scripts.verify_container_runtime import (
     SOURCE_DATE_EPOCH_UTC,
     build_command,
 )
+from scripts.verify_container_contract import (
+    EXPECTED_DOCKERFILE_LINES as EXPECTED_V4_DOCKERFILE_LINES,
+    EXPECTED_V3_DOCKERFILE_LINES,
+    validate_contract as validate_container_contract,
+)
 
 
 class BaselineTest(unittest.TestCase):
@@ -92,7 +97,7 @@ class BaselineTest(unittest.TestCase):
     def tearDown(self):
         self.temp.cleanup()
 
-    def test_container_v3_build_command_is_frozen_and_local_only(self):
+    def test_container_v4_build_command_is_frozen_and_local_only(self):
         tag = "runbook-sentinel:baseline-0027-test"
         command = build_command(tag)
         self.assertEqual(command[:3], ["docker", "buildx", "build"])
@@ -111,6 +116,32 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(SOURCE_DATE_EPOCH, "1786556577")
         self.assertEqual(SOURCE_DATE_EPOCH_UTC, "2026-08-12T17:42:57Z")
         self.assertEqual(EXPECTED_BUILDER["buildkit"], "0.29.0")
+
+    def test_container_v4_contract_fails_closed_on_metadata_boundary_weakening(self):
+        contract_path = ROOT / "eval/container-contract.json"
+        raw = contract_path.read_bytes()
+        contract = json.loads(raw)
+        errors: list[str] = []
+        validate_container_contract(contract, raw, errors)
+        self.assertEqual(errors, [])
+        self.assertNotIn("WORKDIR /opt/runbook-sentinel", EXPECTED_V4_DOCKERFILE_LINES)
+        self.assertIn("WORKDIR /opt/runbook-sentinel", EXPECTED_V3_DOCKERFILE_LINES)
+
+        workdir_mutation = copy.deepcopy(contract)
+        workdir_mutation["dockerfile_contract"]["expected_lines"].insert(
+            8, "WORKDIR /opt/runbook-sentinel"
+        )
+        errors = []
+        validate_container_contract(workdir_mutation, raw, errors)
+        self.assertIn("Dockerfile contract lines mismatch", errors)
+
+        digest_mutation = copy.deepcopy(contract)
+        digest_mutation["build_contract"]["local_image_identity"][
+            "repo_digest_content_must_equal_image_id"
+        ] = False
+        errors = []
+        validate_container_contract(digest_mutation, raw, errors)
+        self.assertIn("local image identity contract mismatch", errors)
 
     def test_latest_report_accepts_only_candidate_or_current_manifest_final(self):
         root = Path(self.temp.name)

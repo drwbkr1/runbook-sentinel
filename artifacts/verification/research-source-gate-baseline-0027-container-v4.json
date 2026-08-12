@@ -1,0 +1,173 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0027-container-v4-official-docker-semantics-20260812",
+  "assessed_at": "2026-08-12T20:15:32Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal and contracts/milestone-0027.json",
+    "authorized_actions": [
+      "review and cite exact official Dockerfile exporter and image-digest specifications",
+      "freeze project-authored container-runtime-v4 around measured local image-store behavior",
+      "update only the project-authored Dockerfile and container verifiers after the v4 freeze is public",
+      "rerun local networkless container verification without archive export registry push or publication"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Use exact official Docker documentation revisions and the retained v3 local build failure to distinguish Dockerfile filesystem layers from image configuration and local content identity from registry publication. No external code, configuration, package, service, secret, image, data, or model is imported.",
+    "planned_actions": [
+      "review and cite exact official Dockerfile exporter and image-digest specifications",
+      "freeze project-authored container-runtime-v4 around measured local image-store behavior",
+      "update only the project-authored Dockerfile and container verifiers after the v4 freeze is public",
+      "rerun local networkless container verification without archive export registry push or publication"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "docker-docs-container-v4-c8c1ada-20260812",
+      "name": "Docker Dockerfile, exporter, and image digest specifications",
+      "locator": "https://github.com/docker/docs/tree/c8c1ada37a8a3c598d0f8744d66f2dfbb780c145",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://github.com/docker/docs/tree/c8c1ada37a8a3c598d0f8744d66f2dfbb780c145",
+              "observed_at": "2026-08-12T20:15:32Z",
+              "note": "Official main revision c8c1ada37a8a3c598d0f8744d66f2dfbb780c145; Dockerfile reference blob 5a366a1b90e9b15c322762d764bf8a7a30143363, exporters index blob 57f465191adc8b0f3eb4a894b9476dcead16277e, image exporter blob 12fa29bff9d12883bd42e1d47230f00d2eb6df47, and image-ls CLI definition blob b870d29ac1277a73f969559aa22cd33d1715e720."
+            }
+          ],
+          "note": "Publisher, revision, exact primary blobs, and rendered official locators are frozen."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://docs.docker.com/reference/dockerfile/",
+              "observed_at": "2026-08-12T20:15:32Z",
+              "note": "Official Docker product documentation for the installed Dockerfile frontend, Buildx exporter, and image store workflow."
+            }
+          ],
+          "note": "Authority is limited to documented Docker semantics."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://docs.docker.com/build/exporters/",
+              "observed_at": "2026-08-12T20:15:32Z",
+              "note": "Publicly readable without account authentication, payment, terms acceptance, or API secret."
+            }
+          ],
+          "note": "Read-only factual review only."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://github.com/docker/docs/blob/c8c1ada37a8a3c598d0f8744d66f2dfbb780c145/LICENSE",
+              "observed_at": "2026-08-12T20:15:32Z",
+              "note": "Official license blob f8971197c6f5ba9d1c7b9d8f4b6198ec5a885596 is Apache License 2.0; no source text, sample, or artifact is copied."
+            }
+          ],
+          "note": "Only factual semantics, identities, and citations are retained."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "docker/docs revision c8c1ada37a8a3c598d0f8744d66f2dfbb780c145",
+              "note": "Exact blobs were resolved directly through the official Git repository and matched the rendered official documentation."
+            }
+          ],
+          "note": "No external artifact enters project custody."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "Git revision and blob identities plus C:/Projects/Verification/runbook-sentinel-baseline-0027-v3-full-001",
+              "note": "The exact public source revisions are content-addressed and the documented semantics are checked against two measured local build logs and Docker local-scope create/tag events."
+            }
+          ],
+          "note": "No downloaded asset requires a project checksum."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "Dockerfile WORKDIR and COPY sections; exporters overview; image digest definition",
+              "note": "The specifications establish that WORKDIR creates a missing directory, COPY creates missing destination paths, the image exporter stores a local result while registry export or push=true performs a push, and image digests are content-addressed identifiers."
+            }
+          ],
+          "note": "These are the exact semantics needed to classify the v3 empty layer and local RepoDigest without broadening the claim."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "contracts/milestone-0027.json and artifacts/verification/container-baseline-0027-v3-runtime-validation-failure-001.json",
+              "note": "The proposed correction adds no dependency, secret, network, privilege, external asset, execution authority, or real infrastructure; push remains false and archive destination remains absent."
+            }
+          ],
+          "note": "All existing security and no-publication boundaries remain exact."
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "review and cite exact official Dockerfile exporter and image-digest specifications",
+      "freeze project-authored container-runtime-v4 around measured local image-store behavior",
+      "update only the project-authored Dockerfile and container verifiers after the v4 freeze is public",
+      "rerun local networkless container verification without archive export registry push or publication"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "retain exact source identities, factual semantics, limitations, and local measurement evidence",
+      "freeze and implement the project-authored v4 metadata-only correction",
+      "rerun exact local and clean-clone verification under the unchanged runtime and publication boundaries"
+    ],
+    "requires_explicit_authorization": [
+      "import external code, sample, configuration, package, executable, service, image, data, or model",
+      "authenticate, purchase, accept terms, add a secret, widen runtime authority, export an image archive, push, publish, or redistribute a container image"
+    ]
+  },
+  "retained_tooling_observation": "A first read-only GitHub API query interpolated ?ref ambiguously in PowerShell and returned HTTP 404. The corrected explicit-variable query resolved the exact same official revision and blobs; no source or project file was changed by the failed probe."
+}

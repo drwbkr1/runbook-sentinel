@@ -165,7 +165,8 @@
       "gates": {
         "immutable_source_candidate": "pass",
         "all_prior_source_and_package_gates": "pass",
-        "container_runtime_v3_frozen_before_implementation": "pass",
+      "container_runtime_v3_frozen_before_implementation": "pass",
+        "container_runtime_v4_frozen_before_implementation": "pass",
         "two_image_builds_exact": "pending",
         "container_cli_evaluation_mcp_api_state_telemetry_dashboard": "pending",
         "container_security_contract": "pending",
@@ -181,6 +182,7 @@
         "The first two-image build stopped before runtime verification because BuildKit assigned different current creation timestamps, producing image IDs e231ceed and 63f64522. A correction receipt records that the exact base has eleven layers and the candidates add a directory-only WORKDIR layer plus two COPY layers; the original failure outcome remains correct. No runtime, MCP, API, scan, export, or publication followed.",
         "The second two-image build supplied SOURCE_DATE_EPOCH 1786556577. Both configs received the exact frozen creation time, but both COPY layer digests and image IDs still differed; no later gate ran. Official BuildKit semantics and exact logs are retained.",
         "Two process-valid type=image rewrite-timestamp probes produced the same local image ID and frozen creation time, but are excluded from release evidence because the unchanged v2 Dockerfile still adds three layers and the exporter settings were not frozen before the probes. Container-runtime-v3 is now locally frozen before implementation; it preserves exactly two payload layers, moves WORKDIR after both COPY directives, and binds the timestamp, exporter, builder compatibility, clean-process, and no-publication checks."
+        ,"The first v3 two-image run reproduced exact image ID ad9160e8... twice, then stopped before runtime because WORKDIR still emitted a canonical empty third layer and the exact Docker containerd store assigned a local content digest. Official Docker semantics, exact logs, and local-only events are retained. Container-runtime-v4 is frozen before implementation to remove only WORKDIR and verify local digest-to-ID equality without weakening push/export or runtime boundaries."
       ],
       "disposition": "pending",
       "next_dependency": "UNIT-005"
@@ -217,7 +219,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Commit and push the exact renewed v3 source/package payload and real-surface evidence, then run the frozen two-image container verification from that public commit.",
+  "next_action": "Commit and push the exact v3 failure, official-source gate, and v4 preimplementation freeze before changing Dockerfile or the runtime verifier.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -255,11 +257,12 @@
       ,"two byte-identical contract-valid v0.0.27 zipapps, selected final source/package attempt 002 parity, bounded MCP, authenticated API/approval/executor/replay/state/telemetry, complete rendered dashboards, 48 tests, and a side-effect-free 31-validator sweep"
       ,"public source/package payload bab9fc67b5633060d370f3151b09a7f88712b629, retained first image-identity failure at 9a14d5e533ad941bd3c2b15de00540c23ad789ca, exact eleven-layer base correction, SOURCE_DATE_EPOCH-only failure, successful but excluded rewrite-timestamp probes, and locally frozen container-runtime-v3 contract before implementation"
       ,"public v3 contract, implementation, and renewed-manifest seals through 793fef5ab1cd3df6728f7a235c03c52eb76b2e3f; two exact 590094-byte archive builds; renewed source/package attempt 003 parity; bounded MCP; authenticated API approval, executor, replay, state, and telemetry; two complete rendered dashboards; 32 validators; and 49 tests"
+      ,"public v3 payload 09f9e2c8e5ccda1f82c4d956ba830cc5d3b3e2e3; retained v3 metadata-validation failure after two exact image IDs; valid eight-criterion Docker semantics gate; and locally frozen v4 contract before implementation"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.26 remains the latest verified release. BASELINE-0027 v3 contract, implementation, and renewed manifest are public through 793fef5ab1cd3df6728f7a235c03c52eb76b2e3f. Renewed source/package attempt 003, two exact archive builds, bounded MCP, authenticated API/approval/executor/replay/state/telemetry, native inspection, rendered dashboards, 32 validators, and 49 tests pass locally. Two v2 image attempts remain failed and preserved; no v3 image or passing container receipt exists.",
-    "next_action": "Commit and push the exact renewed v3 payload and real-surface evidence, then run the frozen two-image container verification from that public commit.",
+    "current_checkpoint": "Public v0.0.26 remains the latest verified release. BASELINE-0027 renewed v3 payload and real surfaces are public at 09f9e2c8e5ccda1f82c4d956ba830cc5d3b3e2e3. The first v3 run reproduced one exact image ID twice, then failed closed before runtime on a third empty WORKDIR layer and invalid local-digest absence assumption. Exact logs, local events, and every unrun surface are retained. Container-runtime-v4 is locally frozen and independently validates with the unchanged Dockerfile classified as superseded v3; no passing container receipt exists.",
+    "next_action": "Commit and push the exact v3 failure, official-source gate, and v4 preimplementation freeze before changing Dockerfile or the runtime verifier.",
     "do_not_carry_forward": [
       "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
       "any container image export, registry authentication, push, publication, or redistribution",

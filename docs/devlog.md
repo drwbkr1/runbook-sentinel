@@ -1,5 +1,13 @@
 # Development log
 
+## 2026-08-12 BASELINE-0027 v3 failure and v4 preimplementation freeze
+
+- Ran the first v3 two-build gate from exact public input `09f9e2c8e5ccda1f82c4d956ba830cc5d3b3e2e3`. Both no-cache builds exit zero and reproduce image ID `sha256:ad9160e8976174c34d05671a7293389943ef260d3b14c2d7996689f9c9fdd1c1` at the frozen creation time.
+- Retained a fail-closed metadata result before runtime. The image has the exact eleven-layer base prefix, two correct COPY payload layers, and one canonical empty WORKDIR diff layer; the Docker 29.4.3 containerd store also assigns a local RepoDigest equal to the image ID. Only the two exact build logs exist in the fresh evidence directory. No CLI, evaluation, MCP, API, dashboard, scan, clean clone, export, push, or publication ran.
+- Source-gated exact official Dockerfile, exporter, and digest semantics. A first read-only GitHub API query used ambiguous PowerShell interpolation and returned 404; the corrected explicit query resolved the frozen official revision and blobs. No external code or asset was imported.
+- Froze byte-identical current/versioned container-runtime-v4 at SHA-256 `ab822c1500ef09f0eff52759c7665536a5e9caa823f6c4ce2afa61614b5caacb`. V4 removes only WORKDIR, verifies inherited root workdir `/`, retains two exact COPY layers, and requires the local content digest to equal the image ID while preserving `push=false`, no destination, and all runtime-security boundaries.
+- The independent static validator passes with the unchanged Dockerfile classified `superseded_v3_implementation`; required implementation fails only on the deliberate preimplementation boundary. The exact freeze must be public before Dockerfile or runtime-verifier changes.
+
 ## 2026-08-12 BASELINE-0027 v3 manifest-bound payload and real surfaces
 
 - Rebuilt the 41-entry v0.0.27 zipapp twice after public manifest seal `793fef5ab1cd3df6728f7a235c03c52eb76b2e3f`. Selected and independent bytes are exact at 590,094 bytes and SHA-256 `101766dad8795d0c5d44bb488d7ff976a52d2fec0dfc3e5d8bf17623f366adb6`; the predecessor `7721e1c6...` archive remains preserved as superseded evidence.
