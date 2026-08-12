@@ -1,5 +1,12 @@
 # Development log
 
+## 2026-08-12 BASELINE-0027 v4 implementation before manifest renewal
+
+- Published v4 freeze `c207ac25af883b38410e3f3604dd5ea68de382ee` before changing implementation. Removed only the Dockerfile `WORKDIR`; absolute application and entrypoint paths, user, payloads, network, runtime security, and authority remain unchanged.
+- Updated the runtime verifier to accept only unset inherited workdir metadata plus actual constrained runtime `cwd=/`, to require one local `runbook-sentinel@sha256:...` content digest exactly equal to the image ID, and to require both unique tags in local-scope allowlisted image events. No-publication evidence remains the exact `push=false`, no-destination exporter and local-only events.
+- The final pre-manifest gate passes 51 tests in 90.311 seconds, all 31 side-effect-free validators in 2.118 seconds, compilation, exact v4 required-implementation validation, and live Docker 29.4.3 / Buildx 0.33.0-desktop.1 / BuildKit 0.29.0 preflight. The predecessor manifest reports exactly the four expected v4-bound mismatches. Selected archive and evaluation hashes remain unchanged; no v4 image or canonical container receipt exists.
+- `container-implementation-baseline-0027-v4-local.json` binds the implementation and boundaries. Its exact commit and push must precede manifest renewal; archive, candidate evaluation, runtime, scan, and clean clone remain unrun.
+
 ## 2026-08-12 BASELINE-0027 v3 failure and v4 preimplementation freeze
 
 - Ran the first v3 two-build gate from exact public input `09f9e2c8e5ccda1f82c4d956ba830cc5d3b3e2e3`. Both no-cache builds exit zero and reproduce image ID `sha256:ad9160e8976174c34d05671a7293389943ef260d3b14c2d7996689f9c9fdd1c1` at the frozen creation time.

@@ -277,6 +277,60 @@ def image_inspect(reference: str) -> dict:
     return value[0]
 
 
+def local_content_digest_matches_image_id(candidate: dict) -> bool:
+    image_id = candidate.get("Id")
+    repo_digests = candidate.get("RepoDigests") or []
+    if not isinstance(image_id, str) or not isinstance(repo_digests, list):
+        return False
+    if len(repo_digests) != 1 or not all(isinstance(value, str) for value in repo_digests):
+        return False
+    names_and_digests = [value.rsplit("@", 1) for value in repo_digests]
+    return all(
+        len(parts) == 2 and parts[0] == "runbook-sentinel" and parts[1] == image_id
+        for parts in names_and_digests
+    )
+
+
+def validate_local_image_events(events: list[dict], tags: list[str], image_id: str) -> dict:
+    relevant = [
+        event
+        for event in events
+        if event.get("Actor", {}).get("ID") == image_id
+    ]
+    observed_tags = {
+        event.get("Actor", {}).get("Attributes", {}).get("name")
+        for event in relevant
+        if event.get("Actor", {}).get("Attributes", {}).get("name") in tags
+    }
+    checks = {
+        "both_tags_observed": observed_tags == set(tags),
+        "scope_local": bool(relevant) and all(event.get("scope") == "local" for event in relevant),
+        "actions_allowlisted": bool(relevant)
+        and all(event.get("Action") in {"create", "tag"} for event in relevant),
+    }
+    if not all(checks.values()):
+        raise AssertionError(json.dumps({"checks": checks, "events": relevant}, indent=2))
+    return {"checks": checks, "events": relevant}
+
+
+def image_events(since: int, until: int) -> list[dict]:
+    result = run(
+        [
+            "docker",
+            "events",
+            "--since",
+            str(since),
+            "--until",
+            str(until),
+            "--filter",
+            "type=image",
+            "--format",
+            "{{json .}}",
+        ]
+    )
+    return [json.loads(line) for line in result.stdout.splitlines() if line.strip()]
+
+
 def build_command(tag: str) -> list[str]:
     exporter = (
         f"type=image,name={tag},rewrite-timestamp=true,"
@@ -365,7 +419,7 @@ def validate_prerequisites(evaluation: dict) -> dict:
     package_validation = json.loads(package_result.stdout)
     checks = {
         "container_contract": contract_validation.get("status") == "pass"
-        and contract_validation.get("implementation_phase") == "implemented_v3",
+        and contract_validation.get("implementation_phase") == "implemented_v4",
         "manifest": manifest_validation.get("status") == "pass",
         "package": package_validation.get("status") == "pass",
         "evaluation_checkpoint": evaluation.get("checkpoint") == "baseline-0027"
@@ -439,9 +493,9 @@ for directory, _, names in os.walk(root):
         data = open(path, "rb").read()
         stat = os.stat(path)
         files.append({"path": path, "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest(), "uid": stat.st_uid, "gid": stat.st_gid})
-print(json.dumps(sorted(files, key=lambda item: item["path"]), separators=(",", ":")))
+print(json.dumps({"files": sorted(files, key=lambda item: item["path"]), "working_dir": os.getcwd()}, separators=(",", ":")))
 '''
-    filesystem = json.loads(
+    runtime_probe = json.loads(
         run(
             [
                 "docker",
@@ -462,6 +516,7 @@ print(json.dumps(sorted(files, key=lambda item: item["path"]), separators=(",", 
             ]
         ).stdout
     )
+    filesystem = runtime_probe.get("files")
     expected_files = [
         {
             "path": "/opt/runbook-sentinel/evaluation.json",
@@ -483,16 +538,35 @@ print(json.dumps(sorted(files, key=lambda item: item["path"]), separators=(",", 
         "added_layer_count": len(rootfs) - len(base_layers) == 2,
         "labels": all(labels.get(key) == value for key, value in EXPECTED_LABELS.items()),
         "user": config.get("User") == "65532:65532",
-        "workdir": config.get("WorkingDir") == "/opt/runbook-sentinel",
+        "workdir": config.get("WorkingDir") in (None, "")
+        and runtime_probe.get("working_dir") == "/",
         "entrypoint": config.get("Entrypoint") == ["/usr/bin/python", IMAGE_APP],
         "cmd": config.get("Cmd") == ["--help"],
         "payload_allowlist": filesystem == expected_files,
-        "no_repo_digest": not candidate.get("RepoDigests"),
+        "local_content_digest": local_content_digest_matches_image_id(candidate),
         "created_at_frozen": candidate.get("Created") == SOURCE_DATE_EPOCH_UTC,
     }
     if not all(checks.values()):
-        raise AssertionError(json.dumps({"checks": checks, "filesystem": filesystem}, indent=2))
-    return {"checks": checks, "filesystem": filesystem, "rootfs_layers": rootfs}
+        raise AssertionError(
+            json.dumps(
+                {
+                    "checks": checks,
+                    "filesystem": filesystem,
+                    "runtime_workdir": runtime_probe.get("working_dir"),
+                    "config_workdir": config.get("WorkingDir"),
+                    "repo_digests": candidate.get("RepoDigests") or [],
+                },
+                indent=2,
+            )
+        )
+    return {
+        "checks": checks,
+        "filesystem": filesystem,
+        "runtime_workdir": runtime_probe.get("working_dir"),
+        "config_workdir": config.get("WorkingDir"),
+        "repo_digests": candidate.get("RepoDigests") or [],
+        "rootfs_layers": rootfs,
+    }
 
 
 def container_security(container_name: str) -> dict:
@@ -798,11 +872,15 @@ def full_verification(args: argparse.Namespace) -> dict:
     source_date_epoch = validate_source_date_epoch()
     token = uuid.uuid4().hex[:10]
     tags = [f"runbook-sentinel:baseline-0027-a-{token}", f"runbook-sentinel:baseline-0027-b-{token}"]
+    build_started_at = int(time.time()) - 1
     build_records = [build_image(tag, evidence_dir / f"build-{index + 1}.log") for index, tag in enumerate(tags)]
     builds = [record["image"] for record in build_records]
     image_ids = [item["Id"] for item in builds]
     if len(set(image_ids)) != 1:
         raise AssertionError(f"Independent image IDs differ: {image_ids}")
+    local_events = validate_local_image_events(
+        image_events(build_started_at, int(time.time())), tags, image_ids[0]
+    )
     base = image_inspect(BASE_REFERENCE)
     image_validation = validate_image(tags[0], builds[0], base)
     keeper = f"rs-b0027-{token}"
@@ -892,6 +970,7 @@ def full_verification(args: argparse.Namespace) -> dict:
                     for record in build_records
                 ),
                 "independent_image_ids_equal": True,
+                "local_image_content_digest_matches_id": image_validation["checks"]["local_content_digest"],
                 "base_rootfs_layers_exact_prefix": image_validation["checks"]["base_rootfs_prefix"],
                 "added_layer_count_exact": image_validation["checks"]["added_layer_count"],
                 "added_layer_payload_allowlist_exact": image_validation["checks"]["payload_allowlist"],
@@ -917,7 +996,11 @@ def full_verification(args: argparse.Namespace) -> dict:
                 "candidate_scan_no_critical_or_high": scan["critical_high_findings"] == 0,
                 "candidate_contains_no_secret_model_or_runtime_state": not secret_hits and image_validation["checks"]["payload_allowlist"],
                 "clean_clone_container_rebuild_image_id_exact": False,
-                "container_image_not_exported_or_published": image_validation["checks"]["no_repo_digest"],
+                "container_image_not_exported_or_published": all(local_events["checks"].values())
+                and all(
+                    record["process"]["command"] == build_command(tag)
+                    for record, tag in zip(build_records, tags, strict=True)
+                ),
             }
         )
         result = {
@@ -936,6 +1019,9 @@ def full_verification(args: argparse.Namespace) -> dict:
                 "independent_image_ids": image_ids,
                 "created_at_utc": [item["Created"] for item in builds],
                 "tags": tags,
+                "repo_digests": image_validation["repo_digests"],
+                "runtime_workdir": image_validation["runtime_workdir"],
+                "config_workdir": image_validation["config_workdir"],
                 "rootfs_layers": image_validation["rootfs_layers"],
             },
             "checks": checks,
@@ -957,8 +1043,12 @@ def full_verification(args: argparse.Namespace) -> dict:
             "security": security,
             "scan": scan,
             "secret_hits": secret_hits,
-            "publication": {"image_exported": False, "image_pushed": False},
-            "next_gate": "Rebuild the exact image from a clean public-branch clone, then compose the canonical receipt with all 41 checks true.",
+            "publication": {
+                "image_exported": False,
+                "image_pushed": False,
+                "local_image_events": local_events,
+            },
+            "next_gate": "Rebuild the exact image from a clean public-branch clone, then compose the canonical receipt with all 42 checks true.",
         }
         write_json(args.receipt, result)
         return result
@@ -978,8 +1068,12 @@ def clean_build(args: argparse.Namespace) -> dict:
     builder = inspect_builder()
     source_date_epoch = validate_source_date_epoch()
     tag = f"runbook-sentinel:baseline-0027-clean-{uuid.uuid4().hex[:10]}"
+    build_started_at = int(time.time()) - 1
     build = build_image(tag, evidence_dir / "clean-build.log")
     inspect = build["image"]
+    local_events = validate_local_image_events(
+        image_events(build_started_at, int(time.time())), [tag], inspect["Id"]
+    )
     base = image_inspect(BASE_REFERENCE)
     image_validation = validate_image(tag, inspect, base)
     exact = (
@@ -1003,8 +1097,11 @@ def clean_build(args: argparse.Namespace) -> dict:
         "source_date_epoch": source_date_epoch,
         "build": build["process"],
         "image_validation": image_validation,
-        "image_exported": False,
-        "image_pushed": False,
+        "publication": {
+            "image_exported": False,
+            "image_pushed": False,
+            "local_image_events": local_events,
+        },
     }
     write_json(args.receipt, result)
     if not exact:

@@ -76,6 +76,8 @@ from scripts.verify_container_runtime import (
     SOURCE_DATE_EPOCH,
     SOURCE_DATE_EPOCH_UTC,
     build_command,
+    local_content_digest_matches_image_id,
+    validate_local_image_events,
 )
 from scripts.verify_container_contract import (
     EXPECTED_DOCKERFILE_LINES as EXPECTED_V4_DOCKERFILE_LINES,
@@ -142,6 +144,48 @@ class BaselineTest(unittest.TestCase):
         errors = []
         validate_container_contract(digest_mutation, raw, errors)
         self.assertIn("local image identity contract mismatch", errors)
+
+    def test_container_v4_local_content_identity_and_events_fail_closed(self):
+        image_id = "sha256:" + "a" * 64
+        candidate = {
+            "Id": image_id,
+            "RepoDigests": [f"runbook-sentinel@{image_id}"],
+        }
+        self.assertTrue(local_content_digest_matches_image_id(candidate))
+        self.assertFalse(
+            local_content_digest_matches_image_id(
+                {"Id": image_id, "RepoDigests": ["runbook-sentinel@sha256:" + "b" * 64]}
+            )
+        )
+        self.assertFalse(local_content_digest_matches_image_id({"Id": image_id, "RepoDigests": []}))
+
+        tags = ["runbook-sentinel:baseline-0027-a-test", "runbook-sentinel:baseline-0027-b-test"]
+        events = [
+            {
+                "Action": "tag",
+                "Actor": {"ID": image_id, "Attributes": {"name": tag}},
+                "scope": "local",
+            }
+            for tag in tags
+        ]
+        self.assertTrue(all(validate_local_image_events(events, tags, image_id)["checks"].values()))
+        mutated = copy.deepcopy(events)
+        mutated[1]["scope"] = "remote"
+        with self.assertRaises(AssertionError):
+            validate_local_image_events(mutated, tags, image_id)
+        pushed = copy.deepcopy(events)
+        pushed.append(
+            {
+                "Action": "push",
+                "Actor": {
+                    "ID": image_id,
+                    "Attributes": {"name": "registry.example/runbook-sentinel:unexpected"},
+                },
+                "scope": "remote",
+            }
+        )
+        with self.assertRaises(AssertionError):
+            validate_local_image_events(pushed, tags, image_id)
 
     def test_latest_report_accepts_only_candidate_or_current_manifest_final(self):
         root = Path(self.temp.name)

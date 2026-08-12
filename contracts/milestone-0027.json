@@ -165,8 +165,9 @@
       "gates": {
         "immutable_source_candidate": "pass",
         "all_prior_source_and_package_gates": "pass",
-      "container_runtime_v3_frozen_before_implementation": "pass",
+        "container_runtime_v3_frozen_before_implementation": "pass",
         "container_runtime_v4_frozen_before_implementation": "pass",
+        "container_runtime_v4_implemented_before_manifest_renewal": "pass",
         "two_image_builds_exact": "pending",
         "container_cli_evaluation_mcp_api_state_telemetry_dashboard": "pending",
         "container_security_contract": "pending",
@@ -219,7 +220,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Commit and push the exact v3 failure, official-source gate, and v4 preimplementation freeze before changing Dockerfile or the runtime verifier.",
+  "next_action": "Commit and push the exact v4 implementation seal before renewing the manifest, rebuilding the archive, rerunning source/package evidence, or building a v4 image.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -258,11 +259,12 @@
       ,"public source/package payload bab9fc67b5633060d370f3151b09a7f88712b629, retained first image-identity failure at 9a14d5e533ad941bd3c2b15de00540c23ad789ca, exact eleven-layer base correction, SOURCE_DATE_EPOCH-only failure, successful but excluded rewrite-timestamp probes, and locally frozen container-runtime-v3 contract before implementation"
       ,"public v3 contract, implementation, and renewed-manifest seals through 793fef5ab1cd3df6728f7a235c03c52eb76b2e3f; two exact 590094-byte archive builds; renewed source/package attempt 003 parity; bounded MCP; authenticated API approval, executor, replay, state, and telemetry; two complete rendered dashboards; 32 validators; and 49 tests"
       ,"public v3 payload 09f9e2c8e5ccda1f82c4d956ba830cc5d3b3e2e3; retained v3 metadata-validation failure after two exact image IDs; valid eight-criterion Docker semantics gate; and locally frozen v4 contract before implementation"
+      ,"public v4 contract freeze c207ac25af883b38410e3f3604dd5ea68de382ee; exact bounded v4 implementation; 51 tests; 31 side-effect-free validators; required static validation; compilation; and live Docker, Buildx, BuildKit, and epoch preflight before manifest renewal or image build"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.26 remains the latest verified release. BASELINE-0027 renewed v3 payload and real surfaces are public at 09f9e2c8e5ccda1f82c4d956ba830cc5d3b3e2e3. The first v3 run reproduced one exact image ID twice, then failed closed before runtime on a third empty WORKDIR layer and invalid local-digest absence assumption. Exact logs, local events, and every unrun surface are retained. Container-runtime-v4 is locally frozen and independently validates with the unchanged Dockerfile classified as superseded v3; no passing container receipt exists.",
-    "next_action": "Commit and push the exact v3 failure, official-source gate, and v4 preimplementation freeze before changing Dockerfile or the runtime verifier.",
+    "current_checkpoint": "Public v0.0.26 remains the latest verified release. BASELINE-0027 renewed v3 payload and real surfaces are public at 09f9e2c8e5ccda1f82c4d956ba830cc5d3b3e2e3. The retained v3 run reproduced one exact image ID twice, then failed closed before runtime. V4 freeze c207ac25af883b38410e3f3604dd5ea68de382ee is public, and its exact bounded implementation passes 51 tests, 31 side-effect-free validators, required static validation, compilation, and live builder/epoch preflight before manifest renewal or any v4 image build. No passing container receipt exists.",
+    "next_action": "Commit and push the exact v4 implementation seal before renewing the manifest, rebuilding the archive, rerunning source/package evidence, or building a v4 image.",
     "do_not_carry_forward": [
       "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
       "any container image export, registry authentication, push, publication, or redistribution",
