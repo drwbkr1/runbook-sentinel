@@ -231,7 +231,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Commit and push the exact authoritative 119-file v5 manifest seal before rebuilding the archive, rerunning source/package evidence, or building an image.",
+  "next_action": "Commit and push the exact manifest-bound v5 archive, source/package attempt 005, real-surface evidence, scan, and package-source receipt before building an image.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -277,11 +277,12 @@
       ,"public v5 freeze 80afa4999535dca90764f16c651279512b2e6a8d; exact nanosecond event-window implementation; five focused tests; 53 full tests; 31 non-manifest side-effect-free validators; compilation; required implementation pass; exactly three expected stale-manifest identities; unchanged Dockerfile, package, selected evaluation, source, and image inputs; no successor image build"
       ,"public v5 implementation 7a0a7c56219163be26f1e5d80baeaecd41f9c6ff; explicit 119-file manifest inventory preview includes the versioned v5 contract exactly once; authoritative manifest, archive, evaluation, and image remain unchanged before inventory seal"
       ,"public manifest inventory seal aa55a9c833468982eaa84c29f6577ebcc1d84b1f; authoritative 119-file manifest 812c05ef8cf4342997723ece11668dad033a41726028519b4ff667695da18a7a; 53 tests; 31 validators; compilation; required v5 validation; selected evaluation pointer unchanged; predecessor archive retained with only embedded-manifest mismatch before replacement build or image"
+      ,"public v5 manifest seal 51249548294d2030ebd1f74941f67362d291d426; two exact 590320-byte archives at b31acc48a597f105755524a2ddc99d38f29e5c3f2bc96b3ba0798043a43c82c6; source/package attempt 005 with all 119 Boolean gates and exact 261-event anchors; bounded MCP; both 110-check APIs; both 59-check native receipts; complete dashboards; bounded artifact scan; 32 validators; and 53 tests before successor image build"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.26 remains the latest verified release. V5 freeze, implementation, and manifest inventory are public through aa55a9c833468982eaa84c29f6577ebcc1d84b1f. The authoritative 119-file manifest passes 53 tests, 31 validators, compilation, and required-v5 validation locally. The predecessor archive is superseded only by embedded-manifest mismatch; no replacement archive, renewed evaluation, successor image, or passing container receipt exists.",
-    "next_action": "Commit and push the exact authoritative 119-file v5 manifest seal before rebuilding the archive, rerunning source/package evidence, or building an image.",
+    "current_checkpoint": "Public v0.0.26 remains the latest verified release. V5 freeze, implementation, inventory, and authoritative manifest are public through 51249548294d2030ebd1f74941f67362d291d426. Two replacement archives reproduce exactly; source/package attempt 005, bounded MCP, authenticated API/approval/executor/replay, native state/telemetry, complete dashboards, scan, 32 validators, and 53 tests pass locally. No successor image or passing container receipt exists.",
+    "next_action": "Commit and push the exact manifest-bound v5 archive, source/package attempt 005, real-surface evidence, scan, and package-source receipt before building an image.",
     "do_not_carry_forward": [
       "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
       "any container image export, registry authentication, push, publication, or redistribution",

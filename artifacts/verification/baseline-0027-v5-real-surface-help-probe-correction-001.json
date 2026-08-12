@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T22:00:50Z",
+  "status": "corrected",
+  "failed_probe": {
+    "command_intent": "inspect --help for source MCP, API, and native scripts",
+    "actual_behavior": "verify_mcp_stdio.py and inspect_runtime_evidence.py have no argument parser and stopped at import because PYTHONPATH was absent; verify_live_api.ps1 has no help-only mode and executed the real source API surface."
+  },
+  "retained_result": {
+    "source_api_checks_passed": 110,
+    "source_api_checks_total": 110,
+    "dashboard_bytes": 86887,
+    "mcp_result": "not run",
+    "native_result": "not run"
+  },
+  "product_or_selected_evaluation_changed": false,
+  "correction": "Use the established explicit source/package runtime selectors, set PYTHONPATH before MCP/native invocations, and copy each exact result to an isolated v5 evidence name."
+}

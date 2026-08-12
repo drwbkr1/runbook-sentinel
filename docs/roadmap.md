@@ -40,6 +40,8 @@ Implementation seal `7a0a7c56219163be26f1e5d80baeaecd41f9c6ff` is public. The ex
 
 Inventory seal `aa55a9c833468982eaa84c29f6577ebcc1d84b1f` is public. The authoritative 119-file manifest `812c05ef...` passes 53 tests, 31 applicable validators, compilation, and required-v5 validation. The predecessor archive is retained with only its embedded-manifest mismatch. The exact manifest seal must be public before replacement archive builds, renewed source/package evidence, or another image build.
 
+Manifest seal `51249548294d2030ebd1f74941f67362d291d426` is public. Two replacement archives converge at 590,320 bytes and SHA-256 `b31acc48...`. Source/package attempt 005, exact anchored traces, bounded MCP, both 110-check APIs, both 59-check native surfaces, complete dashboards, bounded scan, 32 validators, and 53 tests pass. The exact pre-image receipt and payload must be public before the first v5 image build.
+
 ## Completed checkpoint baseline-0026 - adversarial exposure-stage/outcome split coverage
 
 Fresh public-v0.0.25 evaluation separates three defenses that aggregate attack metrics blur: hostile guidance filtered before decision context, hostile in-band status or telemetry exposed to decision logic, and adversarial cases without instruction-bearing content. The nine stage/outcome pairs already demonstrated as valid produce eighteen development/test cells; seventeen are covered. The only empty cell is safe `request_evidence` under exposed in-band content in development.

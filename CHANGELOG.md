@@ -42,6 +42,8 @@
 - Implemented only the frozen v5 event-window delta. Required-v5 validation, five focused tests, all 53 tests, 31 non-manifest side-effect-free validators, and compilation pass; exactly three expected manifest identities are stale before renewal, selected image inputs are unchanged, and no successor image was built.
 - Added only the versioned v5 contract to the explicit manifest inventory. A 119-file preview passes uniqueness and inclusion checks outside the repository; authoritative manifest, archive, evaluation, and image inputs remain unchanged before the public inventory seal.
 - Renewed the authoritative manifest to 119 exact files after the public inventory seal. Exact validation, required-v5 validation, 53 tests, and 31 applicable validators pass; the predecessor archive is retained as superseded only by its embedded-manifest mismatch, and no replacement archive, evaluation, or image was created before this seal.
+- Rebuilt the 41-entry zipapp twice with exact 590,320-byte identity, selected source/package attempt 005 after all 119 Boolean gates and exact anchored traces passed, and revalidated bounded MCP, authenticated API/approval/executor/replay, persisted state, telemetry, and complete dashboards for both runtimes.
+- Bound the v5 pre-image payload and passing bounded artifact scan in `package-source-baseline-0027-v5.json`; no successor image, export, push, or publication exists before its public seal.
 
 ## 0.0.26 - 2026-08-11
 
