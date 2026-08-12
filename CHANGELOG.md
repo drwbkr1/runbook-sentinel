@@ -12,6 +12,9 @@
 - Published exact implementation seal `b521d16d91f5c8e198449ef17bb52e9f8d7490d5`, then froze a 115-file baseline-0027 pre-reveal manifest with candidate evaluation and image results still absent.
 - Passed the complete pre-reveal gate with 47 tests and 31 standalone validators before creating any source candidate, package, or image.
 - Published the exact 115-file pre-reveal seal at `8c486c6d9e0bc26c03749c45e9e5b89c1c72770a`, preserving the predecessor awaiting-public receipt instead of rewriting it.
+- Recorded immutable source attempt 001 with 57 passing scenarios, 171 attempts, all 119 Boolean gates, and an exact 261-event trace.
+- Retained a post-candidate historical latest-pointer stop and added a validation-only successor rule requiring exact manifest binding, passing safety gates, and an anchored trace before package construction.
+- Verified the correction with 48 tests and 30 non-manifest validators while preserving the immutable pre-reveal companion and its one expected transitional validator-hash mismatch.
 
 ## 0.0.26 - 2026-08-11
 

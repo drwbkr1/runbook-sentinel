@@ -148,7 +148,8 @@
       },
       "disposition": "pending",
       "retained_failures": [
-        "The pre-manifest 47-test run passed 46 tests and failed only the new baseline-0027 checkpoint assertion because the evaluator correctly retained the still-public baseline-0026 manifest. No candidate evaluation or image ran; exact failure receipt retained."
+        "The pre-manifest 47-test run passed 46 tests and failed only the new baseline-0027 checkpoint assertion because the evaluator correctly retained the still-public baseline-0026 manifest. No candidate evaluation or image ran; exact failure receipt retained.",
+        "Immutable source attempt 001 passed behavior and trace gates, but the post-candidate sweep stopped after 16 of 31 validators because the historical BASELINE-0026 exposure-stage validator rejected the legitimate baseline-0027 latest pointer. Exact failure receipt retained; package and image construction stayed closed."
       ],
       "next_dependency": "UNIT-004"
     },
@@ -204,7 +205,7 @@
     }
   ],
   "current_unit": "UNIT-003",
-  "next_action": "Create and verify the first immutable baseline-0027 source candidate, then freeze the v0.0.27 package contract before any archive or image build.",
+  "next_action": "Verify and publish the bounded historical latest-pointer correction with immutable source attempt 001, then freeze the v0.0.27 package contract before any archive or image build.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -239,8 +240,8 @@
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.26 remains the latest verified release. BASELINE-0027 implementation and the exact 115-file pre-reveal manifest are public at seals b521d16d91f5c8e198449ef17bb52e9f8d7490d5 and 8c486c6d9e0bc26c03749c45e9e5b89c1c72770a; no candidate evaluation or Runbook Sentinel image exists yet.",
-    "next_action": "Create and verify immutable source candidate attempt 001, then freeze the v0.0.27 package contract before any archive or image build.",
+    "current_checkpoint": "Public v0.0.26 remains the latest verified release. BASELINE-0027 implementation and the exact 115-file pre-reveal manifest are public; immutable source attempt 001 passes behavior and trace gates but is stopped at a retained historical latest-pointer defect. No package archive or Runbook Sentinel image exists yet.",
+    "next_action": "Verify and publish the retained post-candidate latest-pointer correction, then freeze the v0.0.27 package contract before any archive or image build.",
     "do_not_carry_forward": [
       "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
       "any container image export, registry authentication, push, publication, or redistribution",

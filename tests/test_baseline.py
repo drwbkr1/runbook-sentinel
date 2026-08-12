@@ -230,6 +230,50 @@ class BaselineTest(unittest.TestCase):
             valid_latest_exposure_report(latest, candidate_sha256, root)
         )
 
+    def test_exposure_historical_latest_accepts_exact_passing_successor(self):
+        exposure_contract = json.loads(
+            (
+                ROOT
+                / "eval/adversarial-exposure-stage-outcome-split-coverage-contract.json"
+            ).read_text(encoding="utf-8")
+        )
+        self.assertTrue(
+            valid_latest_exposure_report(
+                ROOT / "artifacts/evaluations/latest.json",
+                exposure_contract["candidate_results"]["report_sha256"],
+                ROOT,
+            )
+        )
+
+        root = Path(self.temp.name)
+        manifest_path = root / "eval/manifest.json"
+        report_dir = root / "artifacts/evaluations/runs"
+        latest = root / "artifacts/evaluations/latest.json"
+        manifest_path.parent.mkdir(parents=True)
+        report_dir.mkdir(parents=True)
+        manifest_path.write_text(
+            '{"checkpoint":"baseline-0028"}\n', encoding="utf-8"
+        )
+        stem = "baseline-0027-attempt-001"
+        copied = {}
+        for suffix in (".json", ".manifest.json", ".traces.jsonl"):
+            source = ROOT / "artifacts/evaluations/runs" / f"{stem}{suffix}"
+            target = report_dir / f"{stem}{suffix}"
+            target.write_bytes(source.read_bytes())
+            copied[suffix] = target
+        latest.parent.mkdir(parents=True, exist_ok=True)
+        latest.write_bytes(copied[".json"].read_bytes())
+        self.assertTrue(valid_latest_exposure_report(latest, None, root))
+
+        manifest_bytes = copied[".manifest.json"].read_bytes()
+        copied[".manifest.json"].write_text("{}\n", encoding="utf-8")
+        self.assertFalse(valid_latest_exposure_report(latest, None, root))
+        copied[".manifest.json"].write_bytes(manifest_bytes)
+
+        with copied[".traces.jsonl"].open("ab") as handle:
+            handle.write(b"{}\n")
+        self.assertFalse(valid_latest_exposure_report(latest, None, root))
+
     def test_all_frozen_scenarios_match_exact_expected_outcome(self):
         expected = {
             "dev-worker-backlog": ("propose_action", "worker_stalled", "restart_worker"),
