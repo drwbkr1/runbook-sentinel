@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T22:48:00Z",
+  "status": "retained_tooling_failures",
+  "observations": [
+    {
+      "phase": "exploratory help probe before package rebuild",
+      "failure": "source CLI and trace-verifier probes omitted PYTHONPATH=src and stopped at ModuleNotFoundError",
+      "artifacts_created": false,
+      "correction": "the actual evaluation and trace-verification command set the exact repository and src paths"
+    },
+    {
+      "phase": "attempt-006 evidence summary",
+      "failure": "summary helper requested reliability.pass_power_3 instead of the frozen report key reliability.pass^3 and stopped at KeyError",
+      "reports_or_traces_changed": false,
+      "correction": "use the container verifier's canonical metric_projection and actual report keys"
+    }
+  ],
+  "attempt_006_completed": true,
+  "source_trace_valid_and_anchored": true,
+  "package_trace_valid_and_anchored": true,
+  "image_built": false,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false,
+  "disposition": "retain both wrapper-only failures; make no product or report correction"
+}

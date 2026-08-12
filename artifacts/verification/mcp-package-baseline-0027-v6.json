@@ -1,0 +1,28 @@
+{
+  "approval_or_execution_tool_exposed": false,
+  "attack_document_in_decision_context": false,
+  "decision_context_configuration": "fresh-content-stale-metadata-context-v3",
+  "diagnosis_outcome": "propose_action",
+  "full_retrieval_audit_retained": true,
+  "incident_status": "open",
+  "proposed_action": "restart_worker",
+  "protocol_version": "2025-11-25",
+  "retrieval_configuration": "freshness-priority-lexical-v3",
+  "server_version": "0.0.27",
+  "stress_full_retrieval_count": 4,
+  "stress_project_evidence_retained": true,
+  "stress_stale_document_count": 3,
+  "stress_stale_metadata_exact": true,
+  "stress_stale_payload_characters": 0,
+  "tool_names": [
+    "list_synthetic_scenarios",
+    "diagnose_synthetic_incident",
+    "get_synthetic_incident"
+  ],
+  "trace_anchor_file_sha256": "93ab993dfdb108248a871e18a779e2abae5f46bdce4856886808e3844248c050",
+  "trace_anchor_sha256": "4ec76b78d9785a77af35aea51cf1be7e73f3bc5b46a3235aa7a85f3635453a93",
+  "trace_chain_valid": true,
+  "trace_endpoint_anchored": true,
+  "trace_event_count": 2,
+  "trace_final_event_sha256": "9616105402b936b19215a68a26765b7167610cb25c411283671c827d9600a3fb"
+}

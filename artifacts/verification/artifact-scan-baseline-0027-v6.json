@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T22:54:00Z",
+  "status": "pass",
+  "selected_file_count": 20,
+  "parsed_record_count": 536,
+  "parse_errors": [],
+  "credential_scan": {
+    "unresolved_high_signal_hits": [],
+    "persisted_secret_matches": 0,
+    "excluded_definition_file": "eval/package-contract-0027.json"
+  },
+  "model_artifacts": [],
+  "archive": {
+    "path": "dist/runbook-sentinel-0.0.27.pyz",
+    "bytes": 590433,
+    "sha256": "9a352891ba353a374657fe819ee3d66ccc440a7d0c33d0c598d5a7d29dbadfaf",
+    "entry_count": 41,
+    "package_contract": "pass"
+  },
+  "docker_context_payload_sha256": {
+    "dist/runbook-sentinel-0.0.27.pyz": "9a352891ba353a374657fe819ee3d66ccc440a7d0c33d0c598d5a7d29dbadfaf",
+    "artifacts/evaluations/latest.json": "7585e288c53e594a5b12a4540ab85c99bd48fc50d8a97b9c3fc196fa9ad7b1b6"
+  },
+  "claim_boundary": "This bounded scan classifies the selected v6 package, evaluation, real-surface, contract, and Docker-context evidence. It is not proof against every possible secret format or future file."
+}

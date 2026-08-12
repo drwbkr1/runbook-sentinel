@@ -49,6 +49,8 @@
 - Published the v6 freeze, implemented only its exact namespace predicate, retained a focused-test placement error, then passed the corrected focused suite, all 54 tests, all 31 side-effect-free validators, required-v6 validation, and a transient real-Docker fourteen-check metadata probe. No successor image was built before the implementation seal.
 - Published the v6 implementation seal and added only its versioned contract path to the explicit manifest inventory before renewing the authoritative manifest.
 - Published the inventory seal, froze a 120-file authoritative v6 manifest, and passed all 54 tests plus 31 applicable validators. The predecessor archive remains preserved and differs only at its embedded manifest; no replacement archive or successor image was created before the manifest seal.
+- Published the v6 manifest seal, rebuilt the 41-entry zipapp twice at exact SHA-256 `9a352891...`, selected manifest-bound source/package attempt 006 with all 119 Boolean gates and exact 261-event traces, and revalidated bounded MCP, authenticated API/approval/executor/replay, persisted state, telemetry, and complete dashboards for both runtimes.
+- Bound the v6 pre-image payload and passing bounded artifact scan; retained an immutable-overwrite builder stop, an import-path help wrapper, and a wrong reliability-key summary without rewriting outcomes. All 54 tests and 32 validators pass before the next image run.
 
 ## 0.0.26 - 2026-08-11
 

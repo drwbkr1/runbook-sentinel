@@ -236,7 +236,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Commit and push the authoritative 120-file v6 manifest seal before rebuilding the archive, regenerating manifest-bound evaluation evidence, or running another image.",
+  "next_action": "Commit and push the exact manifest-bound v6 archive, source/package attempt 006, real-surface evidence, scan, and package-source receipt before building another image.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
