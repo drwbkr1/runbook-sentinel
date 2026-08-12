@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T23:22:00Z",
+  "status": "fail",
+  "scope": "focused v7 test harness only",
+  "command": "python -m unittest tests.test_baseline.BaselineTest.test_container_v7_tmpfs_extraction_stream_fails_closed",
+  "tests_run": 1,
+  "failures": 0,
+  "errors": 1,
+  "error": "AttributeError: 'BaselineTest' object has no attribute 'temp_path'",
+  "classification": "new test assumed a nonexistent helper before exercising product extraction code",
+  "correction": "Use the existing TemporaryDirectory fixture at Path(self.temp.name) and preserve the same fail-closed assertions.",
+  "product_code_exercised_before_error": false,
+  "runtime_or_image_changed": false,
+  "disposition": "retained tooling failure; rerun corrected focused test before accepting implementation"
+}

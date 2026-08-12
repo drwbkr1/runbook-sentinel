@@ -3,6 +3,7 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import subprocess
 import secrets
 import sys
 import tempfile
@@ -72,14 +73,17 @@ from scripts.verify_adversarial_exposure_stage_outcome_split_coverage_contract i
     valid_latest_report as valid_latest_exposure_report,
 )
 from scripts.verify_container_runtime import (
+    ALLOWED_TMPFS_EXTRACTION_SOURCES,
     EVENT_WINDOW_GRACE_NANOSECONDS,
     EXPECTED_BUILDER,
     SOURCE_DATE_EPOCH,
     SOURCE_DATE_EPOCH_UTC,
     build_command,
+    decode_tmpfs_extraction_stream,
     format_unix_nanoseconds,
     local_content_digest_matches_image_id,
     namespace_security_checks,
+    validate_tmpfs_extraction_process,
     validate_local_image_events,
 )
 from scripts.verify_container_contract import (
@@ -194,6 +198,59 @@ class BaselineTest(unittest.TestCase):
                 mutated[key] = value
                 result = namespace_security_checks(mutated)
                 self.assertFalse(result["no_host_namespaces"])
+
+    def test_container_v7_tmpfs_extraction_stream_fails_closed(self):
+        source = "/state/container-evaluation.json"
+        self.assertIn(source, ALLOWED_TMPFS_EXTRACTION_SOURCES)
+        payload = b'{"synthetic":true}\n'
+        header = {
+            "source": source,
+            "bytes": len(payload),
+            "sha256": hashlib.sha256(payload).hexdigest(),
+        }
+        stream = json.dumps(header, sort_keys=True, separators=(",", ":")).encode() + b"\n" + payload
+        decoded_header, decoded_payload = decode_tmpfs_extraction_stream(source, stream)
+        self.assertEqual(decoded_header, header)
+        self.assertEqual(decoded_payload, payload)
+
+        destination = Path(self.temp.name) / "extraction.json"
+        process = subprocess.CompletedProcess(
+            args=["docker", "exec"], returncode=0, stdout=stream, stderr=b""
+        )
+        self.assertEqual(
+            validate_tmpfs_extraction_process(source, destination, process),
+            (header, payload),
+        )
+        for invalid_source in ("/state/../etc/passwd", "/tmp/untrusted"):
+            with self.subTest(invalid_source=invalid_source):
+                with self.assertRaises(ValueError):
+                    validate_tmpfs_extraction_process(invalid_source, destination, process)
+        destination.write_bytes(b"existing")
+        with self.assertRaises(FileExistsError):
+            validate_tmpfs_extraction_process(source, destination, process)
+
+        failures = [
+            subprocess.CompletedProcess(["docker", "exec"], 1, b"", b"failed"),
+            subprocess.CompletedProcess(["docker", "exec"], 0, stream, b"warning"),
+        ]
+        for process in failures:
+            with self.subTest(returncode=process.returncode, stderr=process.stderr):
+                failure_destination = Path(self.temp.name) / f"process-failure-{process.returncode}-{len(process.stderr)}.json"
+                with self.assertRaises(RuntimeError):
+                    validate_tmpfs_extraction_process(source, failure_destination, process)
+
+        invalid_streams = [
+            b"no delimiter",
+            b"{}\n" + payload,
+            json.dumps({**header, "source": "/state/api.db"}, sort_keys=True).encode() + b"\n" + payload,
+            json.dumps({**header, "bytes": len(payload) + 1}, sort_keys=True).encode() + b"\n" + payload,
+            json.dumps({**header, "sha256": "0" * 64}, sort_keys=True).encode() + b"\n" + payload,
+            json.dumps({**header, "bytes": 4 * 1024 * 1024 + 1}, sort_keys=True).encode() + b"\n" + payload,
+        ]
+        for invalid in invalid_streams:
+            with self.subTest(stream=invalid[:80]):
+                with self.assertRaises(ValueError):
+                    decode_tmpfs_extraction_stream(source, invalid)
 
     def test_container_v4_local_content_identity_and_events_fail_closed(self):
         image_id = "sha256:" + "a" * 64

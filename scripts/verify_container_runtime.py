@@ -7,6 +7,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import secrets
 import shutil
 import sqlite3
@@ -58,6 +59,26 @@ PARITY_METRIC_FAMILIES = [
     "coverage",
 ]
 SECRET_PATTERNS = [b"-----BEGIN PRIVATE KEY-----", b"ghp_", b"github_pat_", b"sk-"]
+ALLOWED_TMPFS_EXTRACTION_SOURCES = (
+    "/state/container-evaluation.json",
+    "/state/container-evaluation.traces.jsonl",
+    "/state/mcp-traces.jsonl",
+    "/state/mcp-traces.jsonl.anchor.json",
+    "/state/dashboard.html",
+    "/state/api.db",
+    "/state/api-traces.jsonl",
+    "/state/api-traces.jsonl.anchor.json",
+)
+TMPFS_EXTRACTION_HEADER_MAX_BYTES = 1024
+TMPFS_EXTRACTION_SOURCE_MAX_BYTES = 4 * 1024 * 1024
+TMPFS_EXTRACTION_PROGRAM = (
+    "import hashlib,json,sys;"
+    "source=sys.argv[1];limit=int(sys.argv[2]);"
+    "data=open(source,'rb').read(limit+1);"
+    "assert len(data)<=limit,'source exceeds frozen extraction limit';"
+    "header={'source':source,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()};"
+    "sys.stdout.buffer.write(json.dumps(header,sort_keys=True,separators=(',',':')).encode('utf-8')+b'\\n'+data)"
+)
 RUNTIME_FLAGS = [
     "--network",
     "none",
@@ -633,9 +654,99 @@ def create_keeper(name: str, image: str) -> None:
     )
 
 
-def copy_from(container: str, source: str, destination: Path) -> None:
+def decode_tmpfs_extraction_stream(source: str, stream: bytes) -> tuple[dict, bytes]:
+    header_raw, separator, payload = stream.partition(b"\n")
+    if not separator:
+        raise ValueError("tmpfs extraction stream has no header delimiter")
+    if not header_raw or len(header_raw) > TMPFS_EXTRACTION_HEADER_MAX_BYTES:
+        raise ValueError("tmpfs extraction header length is invalid")
+    try:
+        header = json.loads(header_raw.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise ValueError("tmpfs extraction header is invalid JSON") from exc
+    if not isinstance(header, dict) or set(header) != {"source", "bytes", "sha256"}:
+        raise ValueError("tmpfs extraction header fields are invalid")
+    if header["source"] != source:
+        raise ValueError("tmpfs extraction source identity mismatch")
+    byte_count = header["bytes"]
+    if isinstance(byte_count, bool) or not isinstance(byte_count, int):
+        raise ValueError("tmpfs extraction byte count is not an integer")
+    if byte_count < 0 or byte_count > TMPFS_EXTRACTION_SOURCE_MAX_BYTES:
+        raise ValueError("tmpfs extraction byte count is outside the frozen bound")
+    digest = header["sha256"]
+    if not isinstance(digest, str) or re.fullmatch(r"[0-9a-f]{64}", digest) is None:
+        raise ValueError("tmpfs extraction SHA-256 identity is invalid")
+    if len(payload) != byte_count:
+        raise ValueError("tmpfs extraction payload length mismatch")
+    if hashlib.sha256(payload).hexdigest() != digest:
+        raise ValueError("tmpfs extraction payload SHA-256 mismatch")
+    return header, payload
+
+
+def validate_tmpfs_extraction_process(
+    source: str,
+    destination: Path,
+    result: subprocess.CompletedProcess[bytes],
+) -> tuple[dict, bytes]:
+    if source not in ALLOWED_TMPFS_EXTRACTION_SOURCES:
+        raise ValueError(f"tmpfs extraction source is not allowlisted: {source}")
+    if destination.exists():
+        raise FileExistsError(f"tmpfs extraction destination already exists: {destination}")
+    if result.returncode != 0:
+        raise RuntimeError(
+            f"tmpfs extraction command failed ({result.returncode}): "
+            f"{result.stderr.decode('utf-8', errors='replace')}"
+        )
+    if result.stderr:
+        raise RuntimeError(
+            "tmpfs extraction command emitted stderr: "
+            + result.stderr.decode("utf-8", errors="replace")
+        )
+    return decode_tmpfs_extraction_stream(source, result.stdout)
+
+
+def extract_tmpfs_file(container: str, source: str, destination: Path) -> dict:
+    if source not in ALLOWED_TMPFS_EXTRACTION_SOURCES:
+        raise ValueError(f"tmpfs extraction source is not allowlisted: {source}")
+    if destination.exists():
+        raise FileExistsError(f"tmpfs extraction destination already exists: {destination}")
+    command = [
+        "docker",
+        "exec",
+        container,
+        "/usr/bin/python",
+        "-c",
+        TMPFS_EXTRACTION_PROGRAM,
+        source,
+        str(TMPFS_EXTRACTION_SOURCE_MAX_BYTES),
+    ]
+    result = subprocess.run(command, cwd=ROOT, capture_output=True, timeout=120)
+    header, payload = validate_tmpfs_extraction_process(source, destination, result)
     destination.parent.mkdir(parents=True, exist_ok=True)
-    run(["docker", "cp", f"{container}:{source}", str(destination)])
+    temporary = destination.parent / f".{destination.name}.{uuid.uuid4().hex}.tmp"
+    try:
+        with temporary.open("xb") as handle:
+            handle.write(payload)
+            handle.flush()
+            os.fsync(handle.fileno())
+        if temporary.stat().st_size != header["bytes"] or sha256_file(temporary) != header["sha256"]:
+            raise RuntimeError("tmpfs extraction temporary-file identity mismatch")
+        os.link(temporary, destination)
+        if destination.stat().st_size != header["bytes"] or sha256_file(destination) != header["sha256"]:
+            destination.unlink(missing_ok=True)
+            raise RuntimeError("tmpfs extraction destination identity mismatch")
+    finally:
+        temporary.unlink(missing_ok=True)
+    return {
+        "source": source,
+        "destination": str(destination),
+        "bytes": header["bytes"],
+        "sha256": header["sha256"],
+        "command": command,
+        "exit_code": result.returncode,
+        "stderr_empty": result.stderr == b"",
+        "verified_before_and_after_write": True,
+    }
 
 
 def verify_trace(report: Path, trace: Path) -> dict:
@@ -742,8 +853,10 @@ def run_mcp(container: str, evidence_dir: Path) -> dict:
             and result["attack_excluded_from_decision"]
         ):
             raise AssertionError(json.dumps(result, indent=2))
-        copy_from(container, "/state/mcp-traces.jsonl", evidence_dir / "container-mcp-traces.jsonl")
-        copy_from(container, "/state/mcp-traces.jsonl.anchor.json", evidence_dir / "container-mcp-traces.jsonl.anchor.json")
+        result["artifact_extractions"] = [
+            extract_tmpfs_file(container, "/state/mcp-traces.jsonl", evidence_dir / "container-mcp-traces.jsonl"),
+            extract_tmpfs_file(container, "/state/mcp-traces.jsonl.anchor.json", evidence_dir / "container-mcp-traces.jsonl.anchor.json"),
+        ]
         return result
     finally:
         if process.stdin:
@@ -800,7 +913,9 @@ def run_api(container: str, evidence_dir: Path) -> tuple[dict, subprocess.Popen[
         ("/state/api-traces.jsonl", "container-api-traces.jsonl"),
         ("/state/api-traces.jsonl.anchor.json", "container-api-traces.jsonl.anchor.json"),
     ):
-        copy_from(container, source, evidence_dir / name)
+        result.setdefault("artifact_extractions", []).append(
+            extract_tmpfs_file(container, source, evidence_dir / name)
+        )
     del capability
     return result, process
 
@@ -929,8 +1044,10 @@ def full_verification(args: argparse.Namespace) -> dict:
             ],
             timeout=300,
         )
-        copy_from(keeper, "/state/container-evaluation.json", evidence_dir / "container-evaluation.json")
-        copy_from(keeper, "/state/container-evaluation.traces.jsonl", evidence_dir / "container-evaluation.traces.jsonl")
+        evaluation_extractions = [
+            extract_tmpfs_file(keeper, "/state/container-evaluation.json", evidence_dir / "container-evaluation.json"),
+            extract_tmpfs_file(keeper, "/state/container-evaluation.traces.jsonl", evidence_dir / "container-evaluation.traces.jsonl"),
+        ]
         container_report_path = evidence_dir / "container-evaluation.json"
         container_trace_path = evidence_dir / "container-evaluation.traces.jsonl"
         trace_result = verify_trace(container_report_path, container_trace_path)
@@ -1007,6 +1124,12 @@ def full_verification(args: argparse.Namespace) -> dict:
                 "container_evaluation_57_scenarios_171_attempts": container_report["scenario_count"] == 57 and container_report["attempt_count"] == 171,
                 "container_evaluation_trace_261_events_exact": trace_result["valid"] is True and trace_result["anchored"] is True and trace_result["event_count"] == 261,
                 "container_source_package_metric_parity": parity,
+                "container_tmpfs_artifact_extraction_verified": all(
+                    item["verified_before_and_after_write"]
+                    for item in evaluation_extractions
+                    + mcp["artifact_extractions"]
+                    + api["artifact_extractions"]
+                ),
                 "container_mcp_protocol_and_three_tool_boundary_exact": len(mcp["tool_names"]) == 3 and not mcp["approval_or_execution_tool_exposed"],
                 "container_api_approval_executor_replay_state_audit_pass": api["status"] == "pass",
                 "container_persisted_state_and_anchored_telemetry_pass": database["row_counts"].get("audit_log", 0) > 0 and api_trace["valid"] is True and mcp_trace["valid"] is True,
@@ -1056,6 +1179,7 @@ def full_verification(args: argparse.Namespace) -> dict:
                 "trace_sha256": sha256_file(container_trace_path),
                 "trace_verification": trace_result,
                 "metric_projection_sha256": hashlib.sha256(json.dumps(projections[2], sort_keys=True, separators=(",", ":")).encode()).hexdigest(),
+                "artifact_extractions": evaluation_extractions,
             },
             "mcp": mcp,
             "mcp_trace": mcp_trace,
@@ -1071,7 +1195,7 @@ def full_verification(args: argparse.Namespace) -> dict:
                 "image_pushed": False,
                 "local_image_events": local_events,
             },
-            "next_gate": "Rebuild the exact image from a clean public-branch clone, then compose the canonical receipt with all 42 checks true.",
+            "next_gate": "Rebuild the exact image from a clean public-branch clone, then compose the canonical receipt with all 43 checks true.",
         }
         write_json(args.receipt, result)
         return result
