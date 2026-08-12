@@ -168,6 +168,7 @@
         "container_runtime_v3_frozen_before_implementation": "pass",
         "container_runtime_v4_frozen_before_implementation": "pass",
         "container_runtime_v4_implemented_before_manifest_renewal": "pass",
+        "container_runtime_v4_manifest_frozen_before_archive_or_image": "pass",
         "two_image_builds_exact": "pending",
         "container_cli_evaluation_mcp_api_state_telemetry_dashboard": "pending",
         "container_security_contract": "pending",
@@ -220,7 +221,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Commit and push the exact v4 implementation seal before renewing the manifest, rebuilding the archive, rerunning source/package evidence, or building a v4 image.",
+  "next_action": "Commit and push the exact renewed v4 manifest seal before rebuilding the archive, rerunning source/package evidence, or building a v4 image.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -260,11 +261,12 @@
       ,"public v3 contract, implementation, and renewed-manifest seals through 793fef5ab1cd3df6728f7a235c03c52eb76b2e3f; two exact 590094-byte archive builds; renewed source/package attempt 003 parity; bounded MCP; authenticated API approval, executor, replay, state, and telemetry; two complete rendered dashboards; 32 validators; and 49 tests"
       ,"public v3 payload 09f9e2c8e5ccda1f82c4d956ba830cc5d3b3e2e3; retained v3 metadata-validation failure after two exact image IDs; valid eight-criterion Docker semantics gate; and locally frozen v4 contract before implementation"
       ,"public v4 contract freeze c207ac25af883b38410e3f3604dd5ea68de382ee; exact bounded v4 implementation; 51 tests; 31 side-effect-free validators; required static validation; compilation; and live Docker, Buildx, BuildKit, and epoch preflight before manifest renewal or image build"
+      ,"public v4 implementation e000ece7b66b98cca96f4334f9d8b1b9bd85cf1d; renewed 118-file manifest 42b5fafa553b3bc0b0190368c83ca5d8978da7938f2adb8e9c7e8153cafd28b0; 51 tests; 32 validators; compilation; and predecessor archive retained with exact embedded-manifest mismatch before replacement build or image"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.26 remains the latest verified release. BASELINE-0027 renewed v3 payload and real surfaces are public at 09f9e2c8e5ccda1f82c4d956ba830cc5d3b3e2e3. The retained v3 run reproduced one exact image ID twice, then failed closed before runtime. V4 freeze c207ac25af883b38410e3f3604dd5ea68de382ee is public, and its exact bounded implementation passes 51 tests, 31 side-effect-free validators, required static validation, compilation, and live builder/epoch preflight before manifest renewal or any v4 image build. No passing container receipt exists.",
-    "next_action": "Commit and push the exact v4 implementation seal before renewing the manifest, rebuilding the archive, rerunning source/package evidence, or building a v4 image.",
+    "current_checkpoint": "Public v0.0.26 remains the latest verified release. BASELINE-0027 renewed v3 payload and real surfaces remain preserved at 09f9e2c8e5ccda1f82c4d956ba830cc5d3b3e2e3. V4 freeze and exact implementation are public through e000ece7b66b98cca96f4334f9d8b1b9bd85cf1d. The renewed 118-file manifest passes 51 tests, 32 validators, compilation, and exact contract validation; the predecessor archive is superseded only by its embedded-manifest mismatch. No replacement archive, v4 candidate evaluation, image, or passing container receipt exists.",
+    "next_action": "Commit and push the exact renewed v4 manifest seal before rebuilding the archive, rerunning source/package evidence, or building a v4 image.",
     "do_not_carry_forward": [
       "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
       "any container image export, registry authentication, push, publication, or redistribution",

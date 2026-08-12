@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T20:54:53Z",
+  "status": "pass",
+  "disposition": "pass",
+  "phase": "v4_manifest_seal_before_archive_rebuild_or_image_build",
+  "public_implementation_commit": "e000ece7b66b98cca96f4334f9d8b1b9bd85cf1d",
+  "manifest": {
+    "path": "eval/manifest.json",
+    "frozen_at_utc": "2026-08-12T20:51:54Z",
+    "bytes": 14021,
+    "sha256": "42b5fafa553b3bc0b0190368c83ca5d8978da7938f2adb8e9c7e8153cafd28b0",
+    "file_count": 118,
+    "container_contract_v4_sha256": "ab822c1500ef09f0eff52759c7665536a5e9caa823f6c4ce2afa61614b5caacb",
+    "runtime_verifier_sha256": "ed71ad8cbe8b379598c3e9442ecef2312992bae588cb2251a074c0dd1bc22712"
+  },
+  "gate": {
+    "container_v4_implementation_validation": "pass",
+    "manifest_validation": "pass",
+    "package_contract_source_only_validation": "pass",
+    "compilation_passed": true,
+    "tests_passed": 51,
+    "test_seconds": 84.716,
+    "validators_passed": 32,
+    "validator_seconds": 3.375
+  },
+  "superseded_archive": {
+    "sha256": "101766dad8795d0c5d44bb488d7ff976a52d2fec0dfc3e5d8bf17623f366adb6",
+    "status_under_renewed_manifest": "fail",
+    "exact_error": "archive content differs from source: runbook_sentinel/data/eval-manifest.json",
+    "preservation": "Exact bytes remain in public Git history at 09f9e2c8e5ccda1f82c4d956ba830cc5d3b3e2e3 and are not promoted."
+  },
+  "preserved_inputs": {
+    "selected_evaluation_sha256": "79d4298258d1e05996218dbfbec5787675dffb3f8cfbb905aa97d21cd2741c65",
+    "container_receipt_exists": false
+  },
+  "not_run": [
+    "archive rebuild",
+    "candidate source evaluation",
+    "candidate package evaluation",
+    "container image build",
+    "container runtime",
+    "container scan",
+    "clean clone"
+  ],
+  "publication": {
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false
+  },
+  "next_gate": "Publish this exact v4 manifest seal before rebuilding the zipapp, running candidate evaluation, or building a v4 image."
+}

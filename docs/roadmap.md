@@ -28,6 +28,8 @@ Implementation seal `837014643a0c38ccbe038102ea3ec9f0c9dcc5fa` is public. Renewe
 
 V4 freeze `c207ac25af883b38410e3f3604dd5ea68de382ee` is public. The exact bounded implementation removes only WORKDIR and makes the verifier prove both inherited runtime `cwd=/` and local content-digest identity. It passes 51 tests, 31 side-effect-free validators, static required-implementation validation, compilation, and live builder/epoch preflight without renewing the manifest or building an image. The implementation seal must be public before a renewed manifest, archive rebuild, source/package rerun, or v4 image build.
 
+Implementation seal `e000ece7b66b98cca96f4334f9d8b1b9bd85cf1d` is public. The renewed 118-file manifest `42b5fafa...` passes 51 tests, 32 validators, compilation, and exact v4 validation. The predecessor archive is retained with only its embedded-manifest mismatch. This manifest seal must be public before two replacement archive builds, source/package reruns, real surfaces, or a v4 image build.
+
 ## Completed checkpoint baseline-0026 - adversarial exposure-stage/outcome split coverage
 
 Fresh public-v0.0.25 evaluation separates three defenses that aggregate attack metrics blur: hostile guidance filtered before decision context, hostile in-band status or telemetry exposed to decision logic, and adversarial cases without instruction-bearing content. The nine stage/outcome pairs already demonstrated as valid produce eighteen development/test cells; seventeen are covered. The only empty cell is safe `request_evidence` under exposed in-band content in development.
