@@ -5,9 +5,9 @@
 - Branch: `codex/baseline-0027-container-runtime`; `main` remains the latest verified public line
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0026`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified public checkpoint: `v0.0.26`; release reconciliation binds annotated tag object `2c8593ec5f77ab76e12da926336dfa06b97a67eb`, peeled closure `74bf5cba93b0697e74163a335c3dbfcc4d5d7418`, public release metadata, selected assets, downloaded bytes, live repository/release/tag pages, and a fresh public-tag clone
-- Candidate version: `v0.0.27`; container contract frozen, no Dockerfile, image, or container result exists yet
+- Candidate version: `v0.0.27`; exact Dockerfile, context allowlist, runtime identity, and verifier are implemented locally, but no image or container result exists yet
 - Active milestone: `BASELINE-0027`
-- Current unit: `UNIT-003` ready; implement only the frozen digest-pinned container path after publishing the preimplementation seal
+- Current unit: `UNIT-003` in progress; publish the implementation seal, then freeze the pre-reveal manifest before candidate evaluation or image build
 - Disposition: baseline-0026 `pass`; baseline-0025 `pass`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -28,7 +28,8 @@
 - Docker availability is the higher-leverage current gap because the active goal explicitly requires container validation when available and v0.0.26 has no container evidence. Historical checkpoint statements that Docker was unavailable remain true at their observation times.
 - The earlier three official Python candidates remain excluded. `artifacts/verification/container-source-gate-baseline-0027-chainguard-python.json` passes all eight criteria for exact Chainguard Free Python OCI index `sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5`, linux/amd64 manifest `sha256:15e66fa35e0b07095bbc4f4f0522718b780944709026687485f4e712cc6d5ae0`, anonymous local use, and no image publication. A current Docker Scout 1.20.4 scan reports 54 packages and zero critical, high, medium, or low findings; that is observation-time evidence, not a perpetual claim.
 - Public `container-runtime-v1` at SHA-256 `6a2f0df63909852994c0436a308e6d89577e2d48293130134b85c1969f5507b0` is retained as superseded: its proposed host-port path cannot reach an API that intentionally binds container-local loopback without weakening the API or using forbidden host networking. Current and versioned `container-runtime-v2` at SHA-256 `093c4c8167a8aed41770a1c8b100614334c60e431ec885d8cc4cc74bc4157df8` preserves no networking at all and uses `docker exec` to verify the actual authenticated HTTP surface through its own loopback namespace, extract exact dashboard HTML, and render those bytes on the host. All other frozen Dockerfile, context, runtime, two-build, layer, real-surface, clean-clone, and no-publication gates remain exact.
-- The independent preimplementation validator passes with both Dockerfile and result absent. `contracts/milestone-0027.json` validates with active inherited authority, UNIT-003 ready, and no human gate. No container claim is admitted yet.
+- Before implementation, the independent validator passed with both Dockerfile and result absent. The milestone remains valid under active inherited authority with no human gate. No container claim is admitted yet.
+- The exact v2 Dockerfile, three-file context, v0.0.27 runtime identity, and host verifier now pass static contract and compilation checks. A pre-manifest 47-test run passed 46 and retained only the expected identity failure: evaluation still reads the public baseline-0026 manifest. No candidate evaluation or image ran; the baseline-0027 pre-reveal manifest remains blocked until this implementation is public.
 
 ### BASELINE-0026 adversarial exposure-stage/outcome split gap and frozen contract
 

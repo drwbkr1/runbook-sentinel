@@ -9,7 +9,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 FILES = [
+    ".dockerignore",
+    "Dockerfile",
     "pyproject.toml",
+    "eval/container-contract.json",
+    "eval/container-contract-0027.json",
+    "eval/container-contract-0027-v2.json",
     "eval/model-contract.json",
     "eval/model-output-failure-contract.json",
     "eval/package-contract.json",
@@ -74,6 +79,8 @@ FILES = [
     "src/runbook_sentinel/trace_integrity_evaluation.py",
     "src/runbook_sentinel/live_trace_anchor_evaluation.py",
     "scripts/verify_baseline.py",
+    "scripts/verify_container_contract.py",
+    "scripts/verify_container_runtime.py",
     "scripts/verify_live_api.ps1",
     "scripts/verify_mcp_stdio.py",
     "scripts/inspect_runtime_evidence.py",
@@ -130,7 +137,7 @@ def sha256(path: Path) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--checkpoint", default="baseline-0026")
+    parser.add_argument("--checkpoint", default="baseline-0027")
     parser.add_argument("--frozen-at")
     parser.add_argument("--output", default="eval/manifest.json")
     args = parser.parse_args()

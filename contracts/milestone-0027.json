@@ -136,17 +136,19 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "ready",
+      "status": "in_progress",
       "gates": {
-        "dockerfile_and_context_allowlist_exact": "pending",
-        "container_verifier_fail_closed": "pending",
-        "all_57_scenarios_and_terminal_states_unchanged": "pending",
-        "all_runtime_authority_boundaries_unchanged": "pending",
+        "dockerfile_and_context_allowlist_exact": "pass",
+        "container_verifier_fail_closed": "pass",
+        "all_57_scenarios_and_terminal_states_unchanged": "pass",
+        "all_runtime_authority_boundaries_unchanged": "pass",
         "v0_0_27_source_and_package_identity_exact": "pending",
         "implementation_sealed_before_candidate_container_run": "pending"
       },
       "disposition": "pending",
-      "retained_failures": [],
+      "retained_failures": [
+        "The pre-manifest 47-test run passed 46 tests and failed only the new baseline-0027 checkpoint assertion because the evaluator correctly retained the still-public baseline-0026 manifest. No candidate evaluation or image ran; exact failure receipt retained."
+      ],
       "next_dependency": "UNIT-004"
     },
     {
@@ -201,7 +203,7 @@
     }
   ],
   "current_unit": "UNIT-003",
-  "next_action": "Commit and publish the frozen source gate, orientation, milestone, container contract, and preimplementation validator; then implement only the exact Dockerfile, context allowlist, verifier, and v0.0.27 package identity.",
+  "next_action": "Publish the exact Dockerfile, context allowlist, runtime identity, and verifier implementation seal; then freeze and publish a baseline-0027 pre-reveal manifest before any candidate evaluation or image build.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
