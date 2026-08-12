@@ -11,6 +11,7 @@
 - Implemented the exact v2 Dockerfile, context allowlist, v0.0.27 identity, and container verification harness; retained the expected one-test pre-manifest identity failure and ran no image or candidate evaluation before the public implementation seal.
 - Published exact implementation seal `b521d16d91f5c8e198449ef17bb52e9f8d7490d5`, then froze a 115-file baseline-0027 pre-reveal manifest with candidate evaluation and image results still absent.
 - Passed the complete pre-reveal gate with 47 tests and 31 standalone validators before creating any source candidate, package, or image.
+- Published the exact 115-file pre-reveal seal at `8c486c6d9e0bc26c03749c45e9e5b89c1c72770a`, preserving the predecessor awaiting-public receipt instead of rewriting it.
 
 ## 0.0.26 - 2026-08-11
 

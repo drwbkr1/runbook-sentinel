@@ -7,7 +7,7 @@
 - Latest verified public checkpoint: `v0.0.26`; release reconciliation binds annotated tag object `2c8593ec5f77ab76e12da926336dfa06b97a67eb`, peeled closure `74bf5cba93b0697e74163a335c3dbfcc4d5d7418`, public release metadata, selected assets, downloaded bytes, live repository/release/tag pages, and a fresh public-tag clone
 - Candidate version: `v0.0.27`; exact Dockerfile, context allowlist, runtime identity, and verifier are public at implementation seal `b521d16d91f5c8e198449ef17bb52e9f8d7490d5`, but no image or container result exists yet
 - Active milestone: `BASELINE-0027`
-- Current unit: `UNIT-003` in progress; run complete pre-reveal gates and publish the exact 115-file manifest before candidate evaluation or image build
+- Current unit: `UNIT-003` in progress; create and verify immutable source candidate attempt 001, then freeze v0.0.27 package identity before any archive or image build
 - Disposition: baseline-0026 `pass`; baseline-0025 `pass`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -31,7 +31,8 @@
 - Before implementation, the independent validator passed with both Dockerfile and result absent. The milestone remains valid under active inherited authority with no human gate. No container claim is admitted yet.
 - The exact v2 Dockerfile, three-file context, v0.0.27 runtime identity, and host verifier pass static contract and compilation checks at public implementation seal `b521d16d91f5c8e198449ef17bb52e9f8d7490d5`. A pre-manifest 47-test run passed 46 and retained only the expected identity failure: evaluation still read the public baseline-0026 manifest.
 - The successor 115-file baseline-0027 pre-reveal manifest freezes at `2026-08-12T17:16:39Z`, is 13,687 bytes at SHA-256 `eff82128c034c7534ebf3c05fc7bec5cc4a04689d86f7304e40d0813b28d1523`, and passes exact verification. Candidate evaluation, report, trace, and Runbook Sentinel image results remain absent while the complete pre-reveal gates and public manifest seal are pending.
-- The complete local pre-reveal gate passes all 47 tests in 85.580 seconds and all 31 standalone validators in 2.131 seconds. It builds no archive or image and creates no candidate evaluation; the exact manifest commit and push remain the only gate before immutable source verification.
+- The complete local pre-reveal gate passed all 47 tests in 85.580 seconds and all 31 standalone validators in 2.131 seconds. It built no archive or image and created no candidate evaluation; at that observation point, the exact manifest commit and push remained the only gate before immutable source verification.
+- Public pre-reveal seal `8c486c6d9e0bc26c03749c45e9e5b89c1c72770a` contains the exact manifest blob and predecessor local receipt; local, remote-tracking, and live remote branch identities match. The predecessor receipt remains unchanged as its observation-time “awaiting public commit” state. No archive or image exists, and immutable source attempt 001 is now the next gate.
 
 ### BASELINE-0026 adversarial exposure-stage/outcome split gap and frozen contract
 

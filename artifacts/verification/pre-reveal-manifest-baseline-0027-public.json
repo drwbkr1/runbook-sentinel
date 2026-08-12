@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0027-pre-reveal-manifest-public-20260812T172613Z",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T17:26:13Z",
+  "disposition": "pass",
+  "public_branch": {
+    "name": "codex/baseline-0027-container-runtime",
+    "commit": "8c486c6d9e0bc26c03749c45e9e5b89c1c72770a",
+    "local_head": "8c486c6d9e0bc26c03749c45e9e5b89c1c72770a",
+    "remote_tracking_head": "8c486c6d9e0bc26c03749c45e9e5b89c1c72770a",
+    "live_remote_head": "8c486c6d9e0bc26c03749c45e9e5b89c1c72770a",
+    "exact_match": true
+  },
+  "manifest": {
+    "path": "eval/manifest.json",
+    "checkpoint": "baseline-0027",
+    "frozen_at_utc": "2026-08-12T17:16:39Z",
+    "file_count": 115,
+    "bytes": 13687,
+    "sha256": "eff82128c034c7534ebf3c05fc7bec5cc4a04689d86f7304e40d0813b28d1523",
+    "git_blob": "0625717c9fffd481a6b18972a2ba4746b1bfd2c1",
+    "exact_verification": "pass"
+  },
+  "pre_reveal_gate": {
+    "unit_tests_passed": 47,
+    "unit_tests_total": 47,
+    "standalone_validators_passed": 31,
+    "standalone_validators_total": 31,
+    "archive_created_before_public_seal": false,
+    "candidate_evaluation_created_before_public_seal": false,
+    "image_built_before_public_seal": false
+  },
+  "preserved_predecessor_receipt": {
+    "path": "artifacts/verification/pre-reveal-manifest-baseline-0027-local.json",
+    "git_blob": "7f99f64abc3cdb8902033a00d37ad0ce0cfd259a",
+    "historical_state": "local_gate_pass_awaiting_public_commit"
+  },
+  "seal_status": "public_verified",
+  "authorized_next_action": "Create the first immutable baseline-0027 source candidate and verify its exact evaluation report and trace before freezing the v0.0.27 package contract or building any container image."
+}
