@@ -854,8 +854,8 @@ def run_mcp(container: str, evidence_dir: Path) -> dict:
         ):
             raise AssertionError(json.dumps(result, indent=2))
         result["artifact_extractions"] = [
-            extract_tmpfs_file(container, "/state/mcp-traces.jsonl", evidence_dir / "container-mcp-traces.jsonl"),
-            extract_tmpfs_file(container, "/state/mcp-traces.jsonl.anchor.json", evidence_dir / "container-mcp-traces.jsonl.anchor.json"),
+            extract_tmpfs_file(container, "/state/mcp-traces.jsonl", evidence_dir / "mcp-traces.jsonl"),
+            extract_tmpfs_file(container, "/state/mcp-traces.jsonl.anchor.json", evidence_dir / "mcp-traces.jsonl.anchor.json"),
         ]
         return result
     finally:
@@ -910,8 +910,8 @@ def run_api(container: str, evidence_dir: Path) -> tuple[dict, subprocess.Popen[
     for source, name in (
         ("/state/dashboard.html", "container-dashboard.html"),
         ("/state/api.db", "container-api.db"),
-        ("/state/api-traces.jsonl", "container-api-traces.jsonl"),
-        ("/state/api-traces.jsonl.anchor.json", "container-api-traces.jsonl.anchor.json"),
+        ("/state/api-traces.jsonl", "api-traces.jsonl"),
+        ("/state/api-traces.jsonl.anchor.json", "api-traces.jsonl.anchor.json"),
     ):
         result.setdefault("artifact_extractions", []).append(
             extract_tmpfs_file(container, source, evidence_dir / name)
@@ -1060,13 +1060,13 @@ def full_verification(args: argparse.Namespace) -> dict:
             raise AssertionError("Source, package, and container metric projections differ")
         mcp = run_mcp(keeper, evidence_dir)
         mcp_trace = verify_endpoint_trace(
-            evidence_dir / "container-mcp-traces.jsonl",
-            evidence_dir / "container-mcp-traces.jsonl.anchor.json",
+            evidence_dir / "mcp-traces.jsonl",
+            evidence_dir / "mcp-traces.jsonl.anchor.json",
         )
         api, api_process = run_api(keeper, evidence_dir)
         api_trace = verify_endpoint_trace(
-            evidence_dir / "container-api-traces.jsonl",
-            evidence_dir / "container-api-traces.jsonl.anchor.json",
+            evidence_dir / "api-traces.jsonl",
+            evidence_dir / "api-traces.jsonl.anchor.json",
         )
         dashboard_render = render_dashboard(
             evidence_dir / "container-dashboard.html",

@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-13T00:18:14Z",
+  "status": "retained_failure",
+  "phase": "second public-input v7 full container verification",
+  "public_input_commit": "3e18aa640b4c8e0f9baf98e8b8986ecc775a7c35",
+  "evidence_directory": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v7-container-full-attempt-002-20260813T0025Z",
+  "verified_before_failure": {
+    "independent_image_ids": ["sha256:cbd8ba000da07abb91ef6f7300aef8566202c06b88e1495d53b919440b762c77", "sha256:cbd8ba000da07abb91ef6f7300aef8566202c06b88e1495d53b919440b762c77"],
+    "image_created_at_utc": "2026-08-12T17:42:57Z",
+    "image_user": "65532:65532",
+    "rootfs_layer_count": 13,
+    "cli_help": "pass",
+    "container_evaluation": {"scenario_count": 57, "attempt_count": 171, "boolean_gate_count": 119, "disposition": "pass", "trace_event_count": 261, "trace_valid": true, "trace_anchored": true},
+    "source_package_container_metric_parity": true,
+    "evaluation_tmpfs_extraction": "pass",
+    "mcp_protocol_and_three_tool_boundary": "pass",
+    "mcp_trace_bytes": {"bytes": 867, "sha256": "528b9adae79b7d53d2e819970f510a55139f4978da4e12b60b5c1f1ae2efba83"},
+    "mcp_trace_anchor_bytes": {"bytes": 285, "sha256": "8638f4d4ebde7500438bbee2f5927c3ff77486f29b2f958a542901e316c10b9d"},
+    "mcp_trace_chain_if_verified_against_recorded_identity": "pass"
+  },
+  "failure": {
+    "type": "endpoint_trace_host_destination_name_mismatch",
+    "anchor_expected_trace_file_name": "mcp-traces.jsonl",
+    "host_destination_name": "container-mcp-traces.jsonl",
+    "verification": {"valid": false, "anchored": true, "error_code": "anchor_trace_file_name_mismatch"},
+    "api_path_has_same_latent_rename": true
+  },
+  "container_removed": true,
+  "passing_receipt_created": false,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false,
+  "disposition": "preserve exact endpoint trace basenames on the host, add regression coverage, renew manifest/package/evaluation/public input, and retry in a new evidence directory"
+}

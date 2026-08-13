@@ -87,6 +87,7 @@ from scripts.verify_container_runtime import (
     validate_prerequisites,
     validate_tmpfs_extraction_process,
     validate_local_image_events,
+    verify_endpoint_trace,
 )
 from scripts.verify_container_contract import (
     EXPECTED_DOCKERFILE_LINES as EXPECTED_V4_DOCKERFILE_LINES,
@@ -288,6 +289,24 @@ class BaselineTest(unittest.TestCase):
             with self.subTest(stream=invalid[:80]):
                 with self.assertRaises(ValueError):
                     decode_tmpfs_extraction_stream(source, invalid)
+
+    def test_container_v7_endpoint_trace_preserves_anchor_basename(self):
+        trace = Path(self.temp.name) / "mcp-traces.jsonl"
+        anchor = Path(str(trace) + ".anchor.json")
+        with mock.patch("scripts.verify_container_runtime.run") as execute:
+            execute.return_value = subprocess.CompletedProcess(
+                args=[],
+                returncode=0,
+                stdout=json.dumps({"valid": True, "anchored": True}),
+                stderr="",
+            )
+            self.assertEqual(
+                verify_endpoint_trace(trace, anchor),
+                {"valid": True, "anchored": True},
+            )
+        command = execute.call_args.args[0]
+        self.assertEqual(Path(command[-2]).name, "mcp-traces.jsonl")
+        self.assertEqual(Path(command[-1]).name, "mcp-traces.jsonl.anchor.json")
 
     def test_container_v4_local_content_identity_and_events_fail_closed(self):
         image_id = "sha256:" + "a" * 64
