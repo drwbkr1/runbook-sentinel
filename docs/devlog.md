@@ -1,5 +1,16 @@
 # Development log
 
+## 2026-08-13 BASELINE-0027 reviewed merge and public-main verification
+
+- Premerge audit passed; PR `#25` merged exact reviewed head `eb057438113573e1fdecd459b6843b7fd8902d01` under expected-head lock as `70d90e015b0ef0cadc8222c18113517de941d41d`. The merge parents and tree prove history preservation and exact reviewed content.
+- A fresh no-alternates public-main clone passed all 31 validators, all 58 tests in 90.855 seconds, a new 57-scenario/171-attempt source evaluation, an exact 261-event anchor, two exact 590,546-byte archive builds, and a new package evaluation with its own exact anchor.
+- Source and package MCP expose exactly the same three diagnostic/read tools and no approval/execution authority. Both authenticated API runs pass 110 checks; current independent native inspections pass all 59 state, audit, telemetry, capability-exclusion, and dashboard checks. Original-detail inspection accepts complete source and package 1440 by 1000 dashboards.
+- A full container run after source promotion consumed the fresh evaluation payload and reproduced distinct image ID `3f64310b...` twice while passing every runtime and product gate. It is retained but not selected: the exact layer comparison isolates only the evaluation payload. Two untouched selected-input public-main builds and a third no-alternates clean build reproduce release image ID `4a29935f...` exactly.
+- The selected-input container passes all hardened runtime, CLI, evaluation, MCP, authenticated API, approval, executor, replay, persisted SQLite, audit, anchored telemetry, verified tmpfs extraction, rendered dashboard, and structured Docker Scout gates. Source/package/container projections match at `d08823b3...`; no image was exported, pushed, or published.
+- The first broad parse/credential scan failed closed on the known zero-byte BASELINE-0026 MCP failure and scanner-definition literals. The bounded rerun parses 746 JSON files and 24,535 records across 146 JSONL files with exactly that expected historical exception, zero unexpected parse error, zero unresolved credential value, and zero model artifact.
+- A combined post-reconciliation wrapper returned no usable per-command evidence and received no product disposition. Separated unchanged checks then pass the 58-test regression, exact package contract, implemented v7 contract, and committed 43-of-43 container result.
+- Public main receipt commit `b1ca54995cd795b207717c3c8d39141ecfe2ebaa` binds the full result. Final audit, release closure, annotated tag, selected zipapp/checksum publication, downloaded-byte/page verification, and fresh public-tag reproduction remain pending.
+
 ## 2026-08-13 BASELINE-0027 verified container and clean-clone closure
 
 - Published the manifest-bound structured-scanner source/package input at `428d12f57f01cecdf2e97e0a18746d9226eef9c1`. The selected 41-entry archive is 590,546 bytes at SHA-256 `bf73aac861e1a2a8317069a058fa1774012ea5fdc00865e1bb582f0244cddaf8`; source/package attempt 010 passes 57 scenarios, 171 attempts, all 119 Boolean gates, and exact 261-event anchors.

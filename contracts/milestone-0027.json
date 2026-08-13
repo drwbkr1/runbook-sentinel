@@ -232,21 +232,27 @@
         "public-tag source package and local container reproduction receipt"
       ],
       "gates": {
-        "premerge_release_audit_verified": "pending",
-        "exact_reviewed_head_merged_with_history_preserved": "pending",
-        "fresh_public_main_source_package_container_and_real_surfaces": "pending",
+        "premerge_release_audit_verified": "pass",
+        "exact_reviewed_head_merged_with_history_preserved": "pass",
+        "fresh_public_main_source_package_container_and_real_surfaces": "pass",
         "final_release_audit_verified": "pending",
         "public_refs_zipapp_assets_downloads_pages_reconciled": "pending",
-        "no_container_image_bytes_published": "pending",
+        "no_container_image_bytes_published": "pass",
         "fresh_public_tag_source_package_and_local_container_reproduction": "pending"
       },
       "disposition": "pending",
-      "retained_failures": [],
+      "retained_failures": [
+        "The fresh public-main clone initially lacked the exact ignored public-v0.0.23 archive required by a frozen historical validator. The gate stopped at package_archive_identity_mismatch; the already approved public asset was downloaded and hash-verified at 500823 bytes and SHA-256 90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917 before the unchanged gate passed.",
+        "The first helper launch referenced a script that had not been created and stopped before product execution. Later summary and package-verifier wrappers respectively collided with PowerShell's h alias and omitted the required --archive flag. Corrected read-only summaries and unchanged archive validators passed; no failed wrapper produced product disposition.",
+        "A full container run after fresh source verification intentionally consumed the newly promoted evaluation payload and reproduced a distinct internally exact image ID twice. It passed every runtime and product gate and is retained as non-selected; the layer diff isolates the expected evaluation payload change. Two untouched selected-input public-main builds and an independent clean-build clone reproduce the release image ID exactly three times.",
+        "The first source/package native receipt copies were tracked prior receipts because the independent inspector had not yet run. Those exact mislabeled copies remain external and superseded; fresh independent inspectors bind the actual runtime state and pass all 59 checks for both source and package.",
+        "The first broad evidence sweep failed closed on one previously classified zero-byte BASELINE-0026 MCP failure plus scanner-definition literals. The bounded rerun classifies those exact paths and reports zero unexpected parse error, unresolved credential value, or model artifact."
+      ],
       "next_dependency": null
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Reconcile the verified 43-of-43 container candidate, bind a premerge release audit to the exact public branch head, and open an exact-head GitHub review before merge or release.",
+  "next_action": "Reconcile the exact reviewed merge and fresh public-main source/package/container real-surface evidence, then run the final release audit before any tag or release.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -297,11 +303,15 @@
       ,"two independent no-cache networkless builds and a fresh public-branch clean-clone build reproduce exact image ID sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee on Docker 29.4.3, Buildx 0.33.0-desktop.1, BuildKit 0.29.0, and driver docker"
       ,"canonical container receipt fd1c6952c42acf2703e88c365852605c00f112039e9aba26216287463a439949 passes all 43 frozen checks, including rootless read-only no-capability no-new-privileges network-none runtime, CLI, evaluation, exact trace, MCP, authenticated API, approval, executor, replay, state, telemetry, rendered dashboard, verified tmpfs extraction, structured scanner, clean clone, and no image export or publication"
       ,"post-container regression passes all 58 tests in 84.128 seconds plus exact manifest, package, source/package trace, and required-result container validators; public receipt commit 727c29e7ffebf718844f7648e859e29514de4862 matches local, tracking, and live remote refs"
+      ,"premerge audit 0a7862c3d4076444e9c7a5f3bd91d4ebc52a0a01d59c3ab103839282dd2e006b is preserved in reviewed head eb057438113573e1fdecd459b6843b7fd8902d01; PR 25 merged that exact head with history preserved as 70d90e015b0ef0cadc8222c18113517de941d41d and an identical tree"
+      ,"fresh no-alternates public-main source, package, MCP, authenticated API, approval, executor, replay, persisted state, anchored telemetry, and complete dashboards pass; all 58 tests and 31 validators pass; two archive builds reproduce bf73aac861e1a2a8317069a058fa1774012ea5fdc00865e1bb582f0244cddaf8"
+      ,"fresh source, package, and selected-input container metric projections are exact at d08823b3ddda041f24567f70f11326661b749d63ddc07dbdd1d160836c7ca820; two full public-main builds plus a third no-alternates clean build reproduce image ID sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee"
+      ,"public merged-main receipt commit b1ca54995cd795b207717c3c8d39141ecfe2ebaa binds the complete result; v0.0.27 tag and release remain absent, v0.0.26 remains latest, and no container image bytes were exported pushed or published"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.26 remains the latest verified release. The v0.0.27 candidate is public on its branch through 727c29e7ffebf718844f7648e859e29514de4862. Source, zipapp, two local image builds, hardened container real surfaces, point-in-time structured scan, and a fresh public-branch clean-clone rebuild pass all 43 frozen checks at exact image ID sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee. No image was exported, pushed, or published; release review remains pending.",
-    "next_action": "Reconcile the candidate records, produce a premerge audit bound to the exact public head, and open an exact-head GitHub review before merge or release.",
+    "current_checkpoint": "Public v0.0.26 remains the latest verified release. PR 25 merged exact reviewed head eb057438113573e1fdecd459b6843b7fd8902d01 with history preserved as 70d90e015b0ef0cadc8222c18113517de941d41d. Fresh no-alternates public-main source, package, real-surface, selected-input container, scan, rendering, and clean-build verification passes; public receipt commit b1ca54995cd795b207717c3c8d39141ecfe2ebaa binds the result. No image was exported, pushed, or published; final audit, release closure, selected zipapp publication, and public-tag reproduction remain pending.",
+    "next_action": "Run the final release audit against exact public main b1ca54995cd795b207717c3c8d39141ecfe2ebaa, then publish only the selected zipapp and checksum if the audited closure passes.",
     "do_not_carry_forward": [
       "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
       "any container image export, registry authentication, push, publication, or redistribution",
