@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-13T00:20:00Z",
+  "status": "pass",
+  "selected_file_count": 24,
+  "parsed_record_count": 538,
+  "parse_errors": [],
+  "credential_scan": {
+    "unresolved_high_signal_hits": [],
+    "persisted_secret_matches": 0,
+    "excluded_definition_file": "eval/package-contract-0027.json"
+  },
+  "model_artifacts": [],
+  "archive": {
+    "path": "dist/runbook-sentinel-0.0.27.pyz",
+    "bytes": 590546,
+    "sha256": "9af9d75a50a1e64b91cb77eede7e0d76f1f5c1559f73704350df724b6f440347",
+    "entry_count": 41,
+    "embedded_manifest_sha256": "e743e37c22cdc746ebfae9bca87a19380e292976943fcecfb2f3191fd68dbdd0",
+    "package_contract": "pass"
+  },
+  "docker_context_payload_sha256": {
+    "dist/runbook-sentinel-0.0.27.pyz": "9af9d75a50a1e64b91cb77eede7e0d76f1f5c1559f73704350df724b6f440347",
+    "artifacts/evaluations/latest.json": "68637c41c0eada91f18578beaf2e8542be18459f68eaf8ea06fb815cd664ccb5"
+  },
+  "claim_boundary": "This bounded scan classifies the selected post-phase-correction v7 package, evaluation, real-surface, contract, and Docker-context evidence. It is not proof against every possible secret format or future file."
+}
