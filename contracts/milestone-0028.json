@@ -152,7 +152,9 @@
         "proposal_and_terminal_attack_success_zero": "pending"
       },
       "disposition": null,
-      "retained_failures": [],
+      "retained_failures": [
+        "UNIT-003 manifest regression attempt 001 ran 59 tests: 58 passed and test_evaluation_reports_separate_metrics_and_passes_control_gates failed only because its assertion expected baseline-0027 after the authoritative manifest correctly advanced to baseline-0028. Retained at artifacts/verification/baseline-0028-manifest-regression-failure-001.json; disposition remediate and renew manifest."
+      ],
       "next_dependency": "UNIT-004"
     },
     {

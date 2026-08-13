@@ -1241,3 +1241,7 @@ The first full regression found one honest compatibility defect: a stale-payload
 Next: publish the implementation seal, then freeze a new manifest and reveal one immutable source candidate. Do not reuse or relabel the old v0.0.27 archive.
 
 The pre-candidate validator sweep also exposed an older portability dependency: the BASELINE-0024 contract validator required exact v0.0.23 release bytes that were absent from this clean worktree. Controlled intake fetched the project-owned public asset, verified its published size/SHA-256 plus ZIP and embedded package identity, and promoted it without replacement into tracked verification custody. The old validator now passes from portable controlled bytes; the artifact is historical evidence, not a v0.0.28 candidate.
+
+The first 127-file baseline-0028 manifest passed exact verification and all 24 validators, then its 59-test run retained one identity-only failure: the evaluation report correctly emitted baseline-0028 while one test still expected baseline-0027. The test assertion was corrected, the failed manifest remains preserved by digest and receipt, and a renewed manifest is required before the manifest seal or any immutable candidate.
+
+The renewed manifest freezes at `2026-08-13T04:08:00Z`, contains 127 unique exact paths, and is SHA-256 `5bbd08327b569aba4381f7ea7a0dd01e0c05fc07e0861dcd7e35788bee763a9a`. Manifest verification, 24 source validators, compilation, and all 59 tests pass. No baseline-0028 candidate report, trace, package, or container image was created before this pre-reveal seal.

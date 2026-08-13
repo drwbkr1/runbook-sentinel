@@ -23,6 +23,7 @@
 
 ### BASELINE-0028 retrieval-stage implementation
 
+- The pre-reveal manifest now binds 127 exact files at SHA-256 `5bbd08327b569aba4381f7ea7a0dd01e0c05fc07e0861dcd7e35788bee763a9a`. Exact verification, all 24 source validators, compilation, and all 59 tests pass. Its predecessor `e1f6c0f1...` remains retained after one test identity lag; no immutable baseline-0028 report or trace exists at this seal point.
 - Public freeze `62e59a3f54c1cd7e9fe3865259c1d510a23750c3` preceded every evaluator, catalog, identity, API, and dashboard change. The independent contract validator confirms all 57 scenarios and terminal states remain exact.
 - The additive metric reproduces the frozen 20-of-20 matrix: 22 hostile-guidance cases and 66 attempts divide into 20 cases/60 attempts retrieved then filtered and 2 cases/6 attempts never retrieved. Mixed trials, malformed retrieval audits, ambiguous catalog stages, and invalid contracts fail closed; the released 18-cell three-stage metric remains 1.0.
 - UNIT-002 regression attempt 001 is retained after 58 of 59 tests passed and the stale-payload validator rejected catalog schema 1.18. Current catalog validators were reconciled without changing behavior, and the full rerun passes 59 of 59 tests. Agent, retriever, policy, service, storage, and operator-authentication sources are byte-identical to the public freeze.
