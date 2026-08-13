@@ -1,5 +1,11 @@
 # Development log
 
+## 2026-08-13 BASELINE-0027 final release audit
+
+- Reconciled the verified public-main candidate in exactly eight living records at `e86594ca0e2ab9b2deb063115121e97a50465d10`; all 58 tests, manifest, package, implemented-v7, required-result container, milestone, compilation, and diff gates pass.
+- Wrote the sole-path 23,823-byte final audit at SHA-256 `2f01b1fce0d9be230cc4082ed94dd37a656323f0a849fc360fe1e590963165ff`. The release-truth evaluator reports `verified` with ten of ten checks, all sixteen required real surfaces, active inherited authority, and no error, warning, stale, missing, unknown, or unrun surface.
+- Published the audit-only commit at `f7fbdc8e0a771f8e109d6ad9bb979bda223ee232`. Public v0.0.26 remains latest; v0.0.27 tag and release remain absent. Exact eight-record release closure, annotated tag, selected zipapp/checksum publication, downloaded-byte/page verification, and fresh public-tag source/package/local-container reproduction are next.
+
 ## 2026-08-13 BASELINE-0027 reviewed merge and public-main verification
 
 - Premerge audit passed; PR `#25` merged exact reviewed head `eb057438113573e1fdecd459b6843b7fd8902d01` under expected-head lock as `70d90e015b0ef0cadc8222c18113517de941d41d`. The merge parents and tree prove history preservation and exact reviewed content.

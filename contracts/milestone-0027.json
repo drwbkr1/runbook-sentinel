@@ -235,7 +235,7 @@
         "premerge_release_audit_verified": "pass",
         "exact_reviewed_head_merged_with_history_preserved": "pass",
         "fresh_public_main_source_package_container_and_real_surfaces": "pass",
-        "final_release_audit_verified": "pending",
+        "final_release_audit_verified": "pass",
         "public_refs_zipapp_assets_downloads_pages_reconciled": "pending",
         "no_container_image_bytes_published": "pass",
         "fresh_public_tag_source_package_and_local_container_reproduction": "pending"
@@ -252,7 +252,7 @@
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Reconcile the exact reviewed merge and fresh public-main source/package/container real-surface evidence, then run the final release audit before any tag or release.",
+  "next_action": "Commit and push the exact release-closure records, create annotated v0.0.27 at that exact commit, publish only the selected zipapp and checksum, then immediately reconcile every public surface and a fresh public-tag source/package/local-container reproduction.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -307,11 +307,12 @@
       ,"fresh no-alternates public-main source, package, MCP, authenticated API, approval, executor, replay, persisted state, anchored telemetry, and complete dashboards pass; all 58 tests and 31 validators pass; two archive builds reproduce bf73aac861e1a2a8317069a058fa1774012ea5fdc00865e1bb582f0244cddaf8"
       ,"fresh source, package, and selected-input container metric projections are exact at d08823b3ddda041f24567f70f11326661b749d63ddc07dbdd1d160836c7ca820; two full public-main builds plus a third no-alternates clean build reproduce image ID sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee"
       ,"public merged-main receipt commit b1ca54995cd795b207717c3c8d39141ecfe2ebaa binds the complete result; v0.0.27 tag and release remain absent, v0.0.26 remains latest, and no container image bytes were exported pushed or published"
+      ,"eight-record merged-main reconciliation commit e86594ca0e2ab9b2deb063115121e97a50465d10 is public; final audit-only commit f7fbdc8e0a771f8e109d6ad9bb979bda223ee232 evaluates verified with ten of ten checks, all sixteen required real surfaces, active inherited authority, and no error warning stale missing unknown or unrun surface"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.26 remains the latest verified release. PR 25 merged exact reviewed head eb057438113573e1fdecd459b6843b7fd8902d01 with history preserved as 70d90e015b0ef0cadc8222c18113517de941d41d. Fresh no-alternates public-main source, package, real-surface, selected-input container, scan, rendering, and clean-build verification passes; public receipt commit b1ca54995cd795b207717c3c8d39141ecfe2ebaa binds the result. No image was exported, pushed, or published; final audit, release closure, selected zipapp publication, and public-tag reproduction remain pending.",
-    "next_action": "Run the final release audit against exact public main b1ca54995cd795b207717c3c8d39141ecfe2ebaa, then publish only the selected zipapp and checksum if the audited closure passes.",
+    "current_checkpoint": "Public v0.0.26 remains the latest verified release. PR 25 merged exact reviewed head eb057438113573e1fdecd459b6843b7fd8902d01 with history preserved as 70d90e015b0ef0cadc8222c18113517de941d41d. Fresh no-alternates public-main source, package, real-surface, selected-input container, scan, rendering, and clean-build verification passes; public receipt commit b1ca54995cd795b207717c3c8d39141ecfe2ebaa binds the result. Final audit-only commit f7fbdc8e0a771f8e109d6ad9bb979bda223ee232 evaluates verified. No image was exported, pushed, or published; exact release closure, selected zipapp publication, and public-tag reproduction remain pending.",
+    "next_action": "Commit and push only the audited release-closure records, publish annotated v0.0.27 with the selected zipapp and checksum, immediately verify every public surface and a fresh public-tag source/package/local-container reproduction, and record the external receipt before selecting another improvement.",
     "do_not_carry_forward": [
       "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
       "any container image export, registry authentication, push, publication, or redistribution",

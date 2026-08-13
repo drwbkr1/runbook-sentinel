@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - BASELINE-0027
+## 0.0.27 - 2026-08-13
 
 - Selected final source/package attempt 010 and a reproducible 590,546-byte zipapp at SHA-256 `bf73aac861e1a2a8317069a058fa1774012ea5fdc00865e1bb582f0244cddaf8`; all 57 scenarios, 171 attempts, 119 Boolean gates, and exact 261-event anchors pass.
 - Built the frozen image twice and independently from a fresh public-branch clone at exact image ID `sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee`.
@@ -9,7 +9,7 @@
 - Published the canonical 43-of-43 receipt at `727c29e7ffebf718844f7648e859e29514de4862`; at that checkpoint no image had been exported, pushed, or published, and release review was still pending.
 - Verified premerge audit, PR `#25`, exact reviewed head `eb057438113573e1fdecd459b6843b7fd8902d01`, and history-preserving merge `70d90e015b0ef0cadc8222c18113517de941d41d` with identical reviewed and merged trees.
 - From fresh no-alternates public-main clones, passed all 31 validators, 58 tests, source/package 171-attempt evaluations and exact 261-event anchors, two exact archive rebuilds, bounded MCP, authenticated API/approval/executor/replay/state/telemetry, complete dashboards, two selected-input full image builds, and an independent clean build at exact image ID `4a29935f...`.
-- Published merged-main receipt commit `b1ca54995cd795b207717c3c8d39141ecfe2ebaa`. Final audit, annotated tag, selected zipapp/checksum release, downloaded-byte and page verification, and fresh public-tag reproduction remain pending; no container image bytes were exported, pushed, or published.
+- Published merged-main receipt commit `b1ca54995cd795b207717c3c8d39141ecfe2ebaa`, reconciled eight living records at `e86594ca0e2ab9b2deb063115121e97a50465d10`, and passed the warning-free final release audit at `f7fbdc8e0a771f8e109d6ad9bb979bda223ee232`. Annotated tag, selected zipapp/checksum release, downloaded-byte and page verification, and fresh public-tag reproduction remain the publication gate; no container image bytes were exported, pushed, or published.
 
 - Retained the v6 tmpfs-extraction failure after exact two-build identity, local events, image validation, hardened runtime, CLI, and evaluation execution passed; an unchanged-runtime diagnostic proves the report and trace existed inside `/state` at exact identities while `docker cp` reproduced its documented tmpfs limitation.
 - Source-gated exact official Docker `cp` and `exec` semantics without importing external assets, then froze container-runtime-v7 before implementation around an eight-file allowlist, bounded unprivileged byte stream, no overwrite, and pre/post-write length plus SHA-256 verification.
