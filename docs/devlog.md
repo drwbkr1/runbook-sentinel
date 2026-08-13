@@ -1,5 +1,16 @@
 # Development log
 
+## 2026-08-13 BASELINE-0027 public release verification
+
+- Published annotated `v0.0.27` tag object `610fb4be58943cd22ab6a672c7db7abf8590a2e2` peeled to audited closure `02029b3045e7f90bb8590d5c6fb18ddfadffec6e`, then published the non-draft latest release with only the selected 590,546-byte zipapp at SHA-256 `bf73aac861e1a2a8317069a058fa1774012ea5fdc00865e1bb582f0244cddaf8` and its checksum upload. The annotated tag is unsigned, matching the existing tag model; no signature claim is made.
+- Controlled anonymous intake promoted exact public bytes with no-replace semantics. Live repository, release, and tag pages render the expected version, limits, asset labels, digests, and sizes. No container image bytes were exported, pushed, published, or redistributed.
+- Three fresh no-alternates HTTPS tag clones peel to exact closure `02029b3...` with no object alternates. All 31 validators and 58 tests pass; two independent archive rebuilds are byte-identical to the downloaded release artifact.
+- Fresh source and downloaded-package evaluations each pass 57 scenarios, 171 attempts, all gates, and exact 261-event anchors. Source and package each pass 110 live API checks, 59 persisted state/telemetry checks, and the bounded three-tool MCP with no approval or execution tool. Original-detail inspection accepts complete source and package dashboards.
+- Two full no-cache networkless tag-source builds and one independent tag-source clean build reproduce exact local image ID `sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee` on Docker 29.4.3, Buildx 0.33.0-desktop.1, BuildKit 0.29.0, driver docker, linux/amd64. Hardened CLI/evaluation/MCP/API/state/telemetry/dashboard, structured SARIF, and local-only checks pass. This is not a cross-builder or perpetual-CVE claim.
+- Parsed 721 JSON files and 23,211 records across 135 JSONL files from the tag clone with only the exact previously classified zero-byte BASELINE-0026 MCP harness failure and zero unclassified parse errors or model artifacts. Headless Edge's post-write diagnostic and a no-write PowerShell helper alias collision remain retained without product disposition.
+- The first post-reconciliation validator wrapper stopped on PowerShell native stderr handling. Its separated successor proved manifest, package, and both trace checks pass, while two container checks were invalid invocations because they applied the current v7 validator to retained superseded v1 contract `eval/container-contract-0027.json`; no product input changed. The corrected checks use current `eval/container-contract.json`.
+- `artifacts/verification/public-tag-baseline-0027.json` binds the complete external result. BASELINE-0027 is complete; the next cycle must begin from verified public v0.0.27 and formally orient around one measurable weakness before implementation.
+
 ## 2026-08-13 BASELINE-0027 final release audit
 
 - Reconciled the verified public-main candidate in exactly eight living records at `e86594ca0e2ab9b2deb063115121e97a50465d10`; all 58 tests, manifest, package, implemented-v7, required-result container, milestone, compilation, and diff gates pass.

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0027",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -66,7 +66,7 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
+      "status": "pass",
       "evidence": [
         "Two independent image builds and a clean-clone rebuild have the same immutable image ID, exact base-layer prefix, and two-file added-layer allowlist.",
         "The container passes CLI, 57-case evaluation, exact trace, MCP, authenticated API, approval, executor, replay, state, anchored telemetry, and rendered-dashboard gates under the frozen runtime restrictions.",
@@ -220,7 +220,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": [
         "verified source package container and clean-clone evidence",
         "premerge audit and exact reviewed GitHub head",
@@ -236,11 +236,11 @@
         "exact_reviewed_head_merged_with_history_preserved": "pass",
         "fresh_public_main_source_package_container_and_real_surfaces": "pass",
         "final_release_audit_verified": "pass",
-        "public_refs_zipapp_assets_downloads_pages_reconciled": "pending",
+        "public_refs_zipapp_assets_downloads_pages_reconciled": "pass",
         "no_container_image_bytes_published": "pass",
-        "fresh_public_tag_source_package_and_local_container_reproduction": "pending"
+        "fresh_public_tag_source_package_and_local_container_reproduction": "pass"
       },
-      "disposition": "pending",
+      "disposition": "pass",
       "retained_failures": [
         "The fresh public-main clone initially lacked the exact ignored public-v0.0.23 archive required by a frozen historical validator. The gate stopped at package_archive_identity_mismatch; the already approved public asset was downloaded and hash-verified at 500823 bytes and SHA-256 90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917 before the unchanged gate passed.",
         "The first helper launch referenced a script that had not been created and stopped before product execution. Later summary and package-verifier wrappers respectively collided with PowerShell's h alias and omitted the required --archive flag. Corrected read-only summaries and unchanged archive validators passed; no failed wrapper produced product disposition.",
@@ -251,8 +251,8 @@
       "next_dependency": null
     }
   ],
-  "current_unit": "UNIT-005",
-  "next_action": "Commit and push the exact release-closure records, create annotated v0.0.27 at that exact commit, publish only the selected zipapp and checksum, then immediately reconcile every public surface and a fresh public-tag source/package/local-container reproduction.",
+  "current_unit": null,
+  "next_action": "Begin the next cycle from verified public v0.0.27 by running the accepted system, inspecting traces and separated evaluation metrics, and selecting one highest-leverage measurable weakness before implementation.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -308,11 +308,12 @@
       ,"fresh source, package, and selected-input container metric projections are exact at d08823b3ddda041f24567f70f11326661b749d63ddc07dbdd1d160836c7ca820; two full public-main builds plus a third no-alternates clean build reproduce image ID sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee"
       ,"public merged-main receipt commit b1ca54995cd795b207717c3c8d39141ecfe2ebaa binds the complete result; v0.0.27 tag and release remain absent, v0.0.26 remains latest, and no container image bytes were exported pushed or published"
       ,"eight-record merged-main reconciliation commit e86594ca0e2ab9b2deb063115121e97a50465d10 is public; final audit-only commit f7fbdc8e0a771f8e109d6ad9bb979bda223ee232 evaluates verified with ten of ten checks, all sixteen required real surfaces, active inherited authority, and no error warning stale missing unknown or unrun surface"
+      ,"annotated v0.0.27 tag object 610fb4be58943cd22ab6a672c7db7abf8590a2e2 peels to audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e; selected public zipapp and checksum, controlled downloads, rendered pages, and fresh public-tag source package MCP API state telemetry scan dashboard and local-container reproduction pass with no image export push or publication"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.26 remains the latest verified release. PR 25 merged exact reviewed head eb057438113573e1fdecd459b6843b7fd8902d01 with history preserved as 70d90e015b0ef0cadc8222c18113517de941d41d. Fresh no-alternates public-main source, package, real-surface, selected-input container, scan, rendering, and clean-build verification passes; public receipt commit b1ca54995cd795b207717c3c8d39141ecfe2ebaa binds the result. Final audit-only commit f7fbdc8e0a771f8e109d6ad9bb979bda223ee232 evaluates verified. No image was exported, pushed, or published; exact release closure, selected zipapp publication, and public-tag reproduction remain pending.",
-    "next_action": "Commit and push only the audited release-closure records, publish annotated v0.0.27 with the selected zipapp and checksum, immediately verify every public surface and a fresh public-tag source/package/local-container reproduction, and record the external receipt before selecting another improvement.",
+    "current_checkpoint": "Verified public v0.0.27 is bound to annotated tag object 610fb4be58943cd22ab6a672c7db7abf8590a2e2 and peeled audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e. Selected public zipapp and checksum, controlled downloads, rendered pages, and fresh no-alternates public-tag source, downloaded-package, MCP, API, state, telemetry, scan, dashboard, and exact-stack local-container evidence reconcile in artifacts/verification/public-tag-baseline-0027.json. No image was exported, pushed, or published.",
+    "next_action": "Start the next cycle from verified public v0.0.27, run the accepted system, inspect traces and separated evaluation results, and freeze only one highest-leverage measurable weakness before implementation.",
     "do_not_carry_forward": [
       "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
       "any container image export, registry authentication, push, publication, or redistribution",
