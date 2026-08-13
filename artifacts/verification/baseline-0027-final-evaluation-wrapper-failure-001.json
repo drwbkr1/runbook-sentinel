@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0027-final-evaluation-wrapper-failure-001",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T17:57:10Z",
+  "disposition": "exclude",
+  "wrapper_error": {
+    "command_fragment": "if(Test-Path $src -or Test-Path $pkg)",
+    "error": "Test-Path : A parameter cannot be found that matches parameter name 'or'.",
+    "classification": "PowerShell non-terminating precondition error",
+    "effect": "PowerShell continued and produced both evaluation outputs despite an invalid immutability guard."
+  },
+  "retained_outputs": [
+    {"path": "artifacts/evaluations/runs/baseline-0027-final-source-attempt-001.json", "bytes": 943951, "sha256": "955472f1feedd2b3139c12dc47e2559a3163b4d267b00621dda0e6882d7d3c75"},
+    {"path": "artifacts/evaluations/runs/baseline-0027-final-source-attempt-001.manifest.json", "bytes": 13795, "sha256": "cdc9ced520421f89b87ea04629bbce1b4a80e7f875b4366a6359c987a009f67a"},
+    {"path": "artifacts/evaluations/runs/baseline-0027-final-source-attempt-001.traces.jsonl", "bytes": 195330, "sha256": "d63ade885fe2f27736c861439e13eb3c068ea4f009c2336d1feeb26a89a3f1a1"},
+    {"path": "artifacts/evaluations/runs/baseline-0027-final-package-attempt-001.json", "bytes": 943940, "sha256": "19e6651bc5aa40a4cf2693590b9f7afd17f91d5592a69aab65fe7f42ad812b37"},
+    {"path": "artifacts/evaluations/runs/baseline-0027-final-package-attempt-001.manifest.json", "bytes": 13795, "sha256": "cdc9ced520421f89b87ea04629bbce1b4a80e7f875b4366a6359c987a009f67a"},
+    {"path": "artifacts/evaluations/runs/baseline-0027-final-package-attempt-001.traces.jsonl", "bytes": 195324, "sha256": "557dbaa797c7e9214b743ee76a5fef8243ae39ae8a18ecc722462a7ef0ab5d41"}
+  ],
+  "secondary_probe_failure": {
+    "command": "python scripts/verify_evaluation_trace.py <report> <trace>",
+    "error": "ModuleNotFoundError: No module named 'runbook_sentinel'",
+    "cause": "The standalone verifier requires the source path in PYTHONPATH.",
+    "admitted_result": false
+  },
+  "evidence_status": "process_invalid_not_selected",
+  "package_archive_identity_affected": false,
+  "container_image_built": false,
+  "next_gate": "Use explicit parenthesized Test-Path conditions with ErrorAction Stop, write immutable attempt 002 outputs, bind PYTHONPATH for trace validation, and select nothing until both reports and traces pass."
+}

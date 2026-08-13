@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T22:45:00Z",
+  "status": "fail",
+  "phase": "select renewed v6 archive after two exact external builds",
+  "command": ["python", "scripts/build_zipapp.py", "--output", "dist/runbook-sentinel-0.0.27.pyz"],
+  "error": {
+    "type": "FileExistsError",
+    "message": "Package attempt is immutable and already exists: C:\\Projects\\Active\\runbook-sentinel\\dist\\runbook-sentinel-0.0.27.pyz"
+  },
+  "wrapper_followup": "The wrapper then compared the unchanged predecessor archive to the expected renewed hash and stopped with selected archive differs.",
+  "predecessor_archive": {
+    "bytes": 590320,
+    "sha256": "b31acc48a597f105755524a2ddc99d38f29e5c3f2bc96b3ba0798043a43c82c6",
+    "checksum_bytes": 94,
+    "checksum_sha256": "90c8f8e0f925945814ec1c620195c23f938006e0c79d1a0df7547e372007ac1f",
+    "changed": false
+  },
+  "renewed_external_archives": {
+    "root": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v6-package-20260812T2244Z",
+    "both_bytes": 590433,
+    "both_sha256": "9a352891ba353a374657fe819ee3d66ccc440a7d0c33d0c598d5a7d29dbadfaf",
+    "both_contract_valid": true
+  },
+  "image_built": false,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false,
+  "disposition": "retain wrapper failure; move exact predecessor bytes to external verification custody and rebuild selected paths without overwriting"
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0027-post-candidate-latest-pointer-failure-001",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T17:32:14Z",
+  "disposition": "remediate",
+  "source_candidate": {
+    "report_path": "artifacts/evaluations/runs/baseline-0027-attempt-001.json",
+    "report_bytes": 943912,
+    "report_sha256": "6ec1368c31d2f1a18a25a474ea98874ece035414e516dc7d87b32afc7bd4c64d",
+    "trace_path": "artifacts/evaluations/runs/baseline-0027-attempt-001.traces.jsonl",
+    "trace_bytes": 195309,
+    "trace_sha256": "72e19641a92221e94a03b79af5d48de1acd17cd1be56200b1f50f4e2b539b1fe",
+    "manifest_path": "artifacts/evaluations/runs/baseline-0027-attempt-001.manifest.json",
+    "manifest_bytes": 13687,
+    "manifest_sha256": "eff82128c034c7534ebf3c05fc7bec5cc4a04689d86f7304e40d0813b28d1523",
+    "baseline_disposition": "pass",
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "boolean_gates_passed": 119,
+    "boolean_gates_total": 119,
+    "trace_event_count": 261,
+    "trace_final_event_sha256": "7784f91350285dc65fab0dbf9c8fd1113f5d606b3847d6d3d63ae541b1f10975"
+  },
+  "post_candidate_gate": {
+    "validators_passed_before_stop": 16,
+    "validators_total": 31,
+    "failed_validator": "scripts/verify_adversarial_exposure_stage_outcome_split_coverage_contract.py",
+    "error": "candidate_latest_pointer_mismatch"
+  },
+  "cause": "The completed BASELINE-0026 exposure-stage contract accepted its own candidate or final report but had no fail-closed rule for a later manifest-bound passing checkpoint after latest.json advanced.",
+  "scope": "Validation and historical-pointer continuity only; the source candidate behavior, scenarios, terminal states, agent, retrieval, policy, approval, executor, API, MCP, and authority boundaries did not fail or change.",
+  "package_built": false,
+  "image_built": false,
+  "next_gate": "Add a successor rule requiring a later numeric checkpoint, current or exact companion manifest binding, three attempts per scenario, passing disposition, zero proposal and terminal attack success, and a valid anchored trace; prove corrupt manifest and trace rejection before package freeze."
+}

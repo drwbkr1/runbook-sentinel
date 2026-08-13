@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0027-post-package-validator-wrapper-failure-001",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T18:17:00Z",
+  "disposition": "remediate",
+  "phase": "post_package_regression",
+  "failure_class": "orchestration_environment",
+  "description": "The first side-effect-free validator wrapper omitted PYTHONPATH. Twenty-one validators passed, then verify_stale_payload_projection.py stopped at import with ModuleNotFoundError for runbook_sentinel.",
+  "passed_before_stop": 21,
+  "failed_command": "python scripts/verify_stale_payload_projection.py",
+  "error": "ModuleNotFoundError: No module named 'runbook_sentinel'",
+  "product_result": "unknown_from_failed_wrapper",
+  "recovery": {
+    "change": "Set PYTHONPATH to the exact repository src directory without changing source, evaluation, package, or authority.",
+    "side_effect_free_validators_passed": 31,
+    "side_effect_free_validators_total": 31,
+    "elapsed_seconds": 2.611,
+    "latest_sha256": "59e9e415df86e6653ae6a97f86a06cfe3520425d34f630cccf2c3b2ddabcdf63",
+    "selected_latest_exact": true,
+    "container_image_built": false
+  }
+}

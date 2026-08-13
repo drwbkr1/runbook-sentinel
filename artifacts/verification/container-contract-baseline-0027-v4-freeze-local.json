@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T20:24:10Z",
+  "status": "pass",
+  "disposition": "pass",
+  "phase": "v4_contract_frozen_before_implementation",
+  "public_v3_input_commit": "09f9e2c8e5ccda1f82c4d956ba830cc5d3b3e2e3",
+  "contract": {
+    "id": "container-runtime-v4",
+    "current_path": "eval/container-contract.json",
+    "versioned_path": "eval/container-contract-0027-v4.json",
+    "bytes": 11659,
+    "sha256": "ab822c1500ef09f0eff52759c7665536a5e9caa823f6c4ce2afa61614b5caacb",
+    "current_and_versioned_exact": true,
+    "static_validation": "pass",
+    "implementation_phase": "superseded_v3_implementation",
+    "required_implementation_exit": 1,
+    "required_implementation_exact_error": "v4 Dockerfile implementation is required"
+  },
+  "retained_failure": {
+    "path": "artifacts/verification/container-baseline-0027-v3-runtime-validation-failure-001.json",
+    "bytes": 3638,
+    "sha256": "ee7e53431a93431e295aea1c6fcca928b1963baefda29d00aeb8102d1496cf1f"
+  },
+  "source_gate": {
+    "path": "artifacts/verification/research-source-gate-baseline-0027-container-v4.json",
+    "bytes": 8605,
+    "sha256": "75d7ba7def6280dbca4748b1df1c36c536a277842c27dbf05dde8a9d711ac9a7",
+    "criteria_passed": 8,
+    "status": "ready",
+    "external_code_or_asset_imported": false
+  },
+  "bounded_correction": {
+    "remove_workdir_instruction": true,
+    "expected_runtime_workdir": "/",
+    "absolute_application_paths_retained": true,
+    "added_copy_layer_count": 2,
+    "local_repo_digest_content_must_equal_image_id": true,
+    "repo_digest_treated_as_publication_evidence": false,
+    "push_false": true,
+    "destination_absent": true,
+    "runtime_security_boundary_changed": false,
+    "product_behavior_changed": false
+  },
+  "gate": {
+    "focused_tests_passed": 2,
+    "side_effect_free_validators_passed": 31,
+    "side_effect_free_validators_total": 31,
+    "validator_seconds": 2.378,
+    "unit_tests_passed": 50,
+    "unit_tests_total": 50,
+    "unit_test_seconds": 91.192,
+    "old_manifest_expected_mismatches": [
+      "eval/container-contract.json",
+      "scripts/verify_container_contract.py"
+    ],
+    "diff_check_passed": true,
+    "milestone_validation": "pass"
+  },
+  "public_v3_bytes_preserved": {
+    "Dockerfile_sha256": "7743b710eddb79a23e6bed13f5bade1f640e7ffb5fb1d2c5cb43e82cf06bad0d",
+    "runtime_verifier_sha256": "d39a1cb16c133b8378e39c3c714c56e79a6432969b3b0c016bce4cdd98f0f3ec",
+    "v3_contract_sha256": "1f63fcb6707f129ecc803c05026308680ea9417a6b61c4fdb4d379737d9d6b67"
+  },
+  "not_run": [
+    "v4 Dockerfile implementation",
+    "v4 runtime verifier implementation",
+    "manifest renewal",
+    "archive rebuild",
+    "candidate evaluation",
+    "v4 image build",
+    "container runtime",
+    "container scan",
+    "clean clone"
+  ],
+  "publication": {
+    "image_archive_exported": false,
+    "registry_authenticated": false,
+    "image_pushed": false,
+    "image_published": false
+  },
+  "next_gate": "Commit and push this exact v4 preimplementation freeze before changing Dockerfile or scripts/verify_container_runtime.py."
+}

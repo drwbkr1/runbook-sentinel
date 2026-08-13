@@ -1,8 +1,12 @@
 # External source ledger
 
+Baseline-0027 preserves its first narrow BuildKit/Docker gate and adds validated successor `artifacts/verification/research-source-gate-baseline-0027-buildkit-reproducibility-v2.json` after `SOURCE_DATE_EPOCH` alone failed to make COPY layers deterministic. The successor binds exact official BuildKit and Docker Docs revisions and authorizes only project-authored use of the final-manifest epoch plus `type=image`, `rewrite-timestamp=true`, `store=true`, `unpack=false`, and `push=false` after the v3 contract is public. No external code, sample, configuration, package, executable, service, secret, image, data, or model is imported. No mutable dependency, authentication, purchase, network widening, archive destination, registry push, publication, or redistribution is authorized.
+
 ## Approved for baseline-0001
 
-No external runtime package, model, dataset, or third-party code is imported. The runtime uses Python 3.12 standard-library modules only. Project-authored synthetic scenarios are the only dataset.
+Accepted v0.0.26 imports no external runtime package, model, dataset, or third-party code. Its application runtime uses Python 3.12-or-newer standard-library modules only, and project-authored synthetic scenarios are the only dataset.
+
+Baseline-0027 conditionally adds one external container base around—not inside—the dependency-free application package. The exact Chainguard Free Python OCI index `sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5` passes the eight-criterion gate in `artifacts/verification/container-source-gate-baseline-0027-chainguard-python.json` for anonymous digest-bound local build and runtime verification. The admitted linux/amd64 manifest is `sha256:15e66fa35e0b07095bbc4f4f0522718b780944709026687485f4e712cc6d5ae0`; local metadata and a current scan identify Python 3.14.7, UID 65532, 54 packages, and zero observed critical/high/medium/low findings. The prior three official Python candidates remain excluded. This gate authorizes no mutable tag, authentication, purchase, build dependency, image export, registry push, publication, redistribution, secret, or real-infrastructure access; no Runbook Sentinel image exists yet.
 
 ## Approved specification use for baseline-0011 and baseline-0012
 

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T23:16:00Z",
+  "status": "pass",
+  "contract_id": "container-runtime-v7",
+  "contract": {
+    "current_path": "eval/container-contract.json",
+    "versioned_path": "eval/container-contract-0027-v7.json",
+    "bytes": 8658,
+    "sha256": "b4c078b1e2a836ddf23ab0644c9a1810bfe9e0fdf40997256396f3de439643c0",
+    "current_and_versioned_exact": true
+  },
+  "source_gate": {
+    "path": "artifacts/verification/research-source-gate-baseline-0027-container-v7-extraction.json",
+    "sha256": "cc860f90ae5b04718790ab9f6ced70751a5df0f2e30b88f9aa72d6599021dd29",
+    "criteria_passed": 16,
+    "criteria_total": 16,
+    "decision": "ready"
+  },
+  "decision_record": {
+    "path": "docs/adr/0022-stream-and-verify-tmpfs-artifacts-with-unprivileged-exec.md",
+    "sha256": "83a69ce0c5146bf68d4588c4ac1ac16d8fd195d57bc5d98b4609b1fcdb6e2b7f"
+  },
+  "independent_validator": {
+    "path": "scripts/verify_container_contract.py",
+    "bytes": 46805,
+    "sha256": "bb4feabe13639b1cb704719b8bf631d94540709a535b24c8f89aba40d62e37d6",
+    "preimplementation_status": "pass",
+    "preimplementation_phase": "frozen_v6_preimplementation",
+    "required_implementation_exit_code": 1,
+    "required_implementation_error_exact": "v7 tmpfs extraction implementation is required"
+  },
+  "v6_failure": {
+    "path": "artifacts/verification/container-baseline-0027-v6-tmpfs-extraction-failure-001.json",
+    "sha256": "ba8f8210cfece3b6657d62aebc9314fc8aa39ed94ac952cee58f0d28c8434f70",
+    "two_image_ids_equal": true,
+    "event_window_passed": true,
+    "runtime_security_passed": true,
+    "cli_help_passed": true,
+    "evaluation_exit_code": 0,
+    "artifact_extraction_passed": false
+  },
+  "implementation_changed": false,
+  "successor_image_built": false,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false,
+  "next_gate": "Commit and push the exact v6 failure, v7 source gate, contract, ADR, living-record delta, and independent preimplementation validator before changing extraction code."
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0027-post-package-regression-side-effect-001",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T18:15:57Z",
+  "disposition": "exclude",
+  "phase": "post_package_regression",
+  "failure_class": "orchestration_side_effect",
+  "description": "The aggregate verify_baseline.py command completed its designed evaluation-and-promotion tail after its validators and tests passed. That tail created a valid general regression run and replaced artifacts/evaluations/latest.json, but the release process had already selected the fail-fast final source/package attempt 002 pair for parity.",
+  "retained_outputs": [
+    {"path": "artifacts/evaluations/runs/baseline-0027-attempt-002.json", "bytes": 943915, "sha256": "b6a54d4fdd2b18e7310acaf051eb01d6bf7dfa7905e31915e0cfe300d26fbf00"},
+    {"path": "artifacts/evaluations/runs/baseline-0027-attempt-002.manifest.json", "bytes": 13795, "sha256": "cdc9ced520421f89b87ea04629bbce1b4a80e7f875b4366a6359c987a009f67a"},
+    {"path": "artifacts/evaluations/runs/baseline-0027-attempt-002.traces.jsonl", "bytes": 195317, "sha256": "494838cdbe5e127a9c31e8d7cc71216ee3a6aa88286915ab882b90f0c70c5199"}
+  ],
+  "product_result": "not_failed",
+  "selection_result": "not_selected",
+  "recovery": {
+    "latest_restored_from": "artifacts/evaluations/runs/baseline-0027-final-source-attempt-002.json",
+    "latest_sha256": "59e9e415df86e6653ae6a97f86a06cfe3520425d34f630cccf2c3b2ddabcdf63",
+    "exact": true,
+    "container_image_built": false
+  },
+  "next_action": "Use a side-effect-free validator list for the final selected-pointer regression."
+}

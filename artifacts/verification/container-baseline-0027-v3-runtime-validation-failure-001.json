@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T20:07:10Z",
+  "status": "fail",
+  "disposition": "remediate",
+  "phase": "v3_two_build_identity_pass_then_image_metadata_validation_fail",
+  "public_input_commit": "09f9e2c8e5ccda1f82c4d956ba830cc5d3b3e2e3",
+  "contract": {
+    "id": "container-runtime-v3",
+    "path": "eval/container-contract-0027-v3.json",
+    "sha256": "1f63fcb6707f129ecc803c05026308680ea9417a6b61c4fdb4d379737d9d6b67"
+  },
+  "evidence_directory": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v3-full-001",
+  "builds": [
+    {
+      "tag": "runbook-sentinel:baseline-0027-a-93c762cb28",
+      "log": "build-1.log",
+      "log_bytes": 1785,
+      "log_sha256": "3ddad53a5a6762398c341e8266de285e3efe08ff56587a28d41c5dda01505584",
+      "image_id": "sha256:ad9160e8976174c34d05671a7293389943ef260d3b14c2d7996689f9c9fdd1c1"
+    },
+    {
+      "tag": "runbook-sentinel:baseline-0027-b-93c762cb28",
+      "log": "build-2.log",
+      "log_bytes": 1727,
+      "log_sha256": "b87062c72aae5bbe47e8f138e63b99c72b5243e8b727d79fd5b3f76f12e5e4b1",
+      "image_id": "sha256:ad9160e8976174c34d05671a7293389943ef260d3b14c2d7996689f9c9fdd1c1"
+    }
+  ],
+  "passed_before_stop": {
+    "both_build_processes_exit_zero": true,
+    "both_builds_same_image_id": true,
+    "created_at_utc": "2026-08-12T17:42:57Z",
+    "source_date_epoch_exact": true,
+    "base_rootfs_prefix_exact": true,
+    "labels_exact": true,
+    "user_exact": true,
+    "workdir_exact_under_v3": true,
+    "entrypoint_exact": true,
+    "default_command_exact": true,
+    "payload_allowlist_exact": true,
+    "payload_uid_gid_exact": true,
+    "application_bytes": 590094,
+    "application_sha256": "101766dad8795d0c5d44bb488d7ff976a52d2fec0dfc3e5d8bf17623f366adb6",
+    "evaluation_bytes": 943929,
+    "evaluation_sha256": "79d4298258d1e05996218dbfbec5787675dffb3f8cfbb905aa97d21cd2741c65"
+  },
+  "failed_checks": {
+    "added_layer_count_exact": {
+      "expected": 2,
+      "observed": 3,
+      "base_layer_count": 11,
+      "candidate_layer_count": 14,
+      "diagnosis": "WORKDIR emitted canonical empty diff layer sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef after the two deterministic COPY layers."
+    },
+    "no_repo_digest": {
+      "expected": true,
+      "observed": false,
+      "repo_digest": "runbook-sentinel@sha256:ad9160e8976174c34d05671a7293389943ef260d3b14c2d7996689f9c9fdd1c1",
+      "repo_digest_content_equals_image_id": true,
+      "diagnosis": "The Docker 29.4.3 containerd image store assigns a content-addressed local digest to the type=image store=true result. Official Docker semantics and the exact build command distinguish this local identity from registry push or publication."
+    }
+  },
+  "local_docker_events": {
+    "scope": "local",
+    "actions": ["create", "tag", "create", "tag"],
+    "push_or_export_event_observed": false
+  },
+  "not_run": [
+    "container CLI",
+    "container evaluation",
+    "container MCP",
+    "container API approval executor replay state or telemetry",
+    "container dashboard render",
+    "container vulnerability scan",
+    "clean clone"
+  ],
+  "publication": {
+    "image_archive_exported": false,
+    "registry_authenticated": false,
+    "image_pushed": false,
+    "image_published": false
+  },
+  "recovery": "Freeze container-runtime-v4 before implementation: remove only WORKDIR, retain absolute paths and default root working directory, require exactly two COPY layers, and replace absence of local RepoDigest with exact local content identity plus unchanged push-false no-destination command evidence."
+}

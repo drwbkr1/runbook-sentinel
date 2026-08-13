@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-13T00:35:00Z",
+  "status": "pass",
+  "selected_file_count": 24,
+  "parsed_record_count": 538,
+  "parse_errors": [],
+  "credential_scan": {"unresolved_high_signal_hits": [], "persisted_secret_matches": 0, "excluded_definition_file": "eval/package-contract-0027.json"},
+  "model_artifacts": [],
+  "archive": {"path": "dist/runbook-sentinel-0.0.27.pyz", "bytes": 590546, "sha256": "44160d9fe77bb1171b63ee0767e79e57910fadc620c7508b3213b1cc79d20ff2", "entry_count": 41, "embedded_manifest_sha256": "aab70229426d3ce0f20e499ad398e63dd4876ce239eb505dfa5f262d30e23c25", "package_contract": "pass"},
+  "docker_context_payload_sha256": {"dist/runbook-sentinel-0.0.27.pyz": "44160d9fe77bb1171b63ee0767e79e57910fadc620c7508b3213b1cc79d20ff2", "artifacts/evaluations/latest.json": "2e39db4b62a8ea6ecd9e4b895bd1792544b8645dd7eb700dc6b11d026951093e"},
+  "claim_boundary": "This bounded scan classifies the selected endpoint-preserving v7 package, evaluation, real-surface, contract, and Docker-context evidence. It is not proof against every possible secret format or future file."
+}

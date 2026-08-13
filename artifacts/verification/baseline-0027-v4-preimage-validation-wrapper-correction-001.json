@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T21:17:00Z",
+  "status": "corrected",
+  "failed_wrappers": [
+    {
+      "failure": "The compact pre-image wrapper referenced nonexistent scripts/verify_trace_integrity.py twice. PowerShell continued to the remaining identity checks, so its final zero exit was not a clean aggregate result."
+    },
+    {
+      "failure": "The first corrected-script invocation set PYTHONPATH to the repository root rather than src and stopped at ModuleNotFoundError before verifying either trace."
+    }
+  ],
+  "failure_boundary": {
+    "product_or_evidence_bytes_changed": false
+  },
+  "correction": {
+    "command": "scripts/verify_evaluation_trace.py for each selected report and companion trace",
+    "source_trace_result": {
+      "valid": true,
+      "anchored": true,
+      "event_count": 261,
+      "final_event_sha256": "8bf50dd95a7f4843b68bb20f21dc95ea8b7cbf48f30421b74e1015f5df4582c9"
+    },
+    "package_trace_result": {
+      "valid": true,
+      "anchored": true,
+      "event_count": 261,
+      "final_event_sha256": "be6064bf8ea489339c76aa716c44d1a0ffbfff22222b28e83435d5f10f13cabe"
+    }
+  },
+  "disposition": "Retain the orchestration error and require both corrected trace commands to pass before committing the pre-image payload."
+}

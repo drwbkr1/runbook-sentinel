@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T18:56:53Z",
+  "disposition": "remediate",
+  "phase": "second_two_image_builds_with_source_date_epoch",
+  "public_input_commit": "9a14d5e533ad941bd3c2b15de00540c23ad789ca",
+  "contract_id": "container-runtime-v2",
+  "contract_sha256": "093c4c8167a8aed41770a1c8b100614334c60e431ec885d8cc4cc74bc4157df8",
+  "failure_class": "copy_layer_archive_timestamps_not_normalized",
+  "failure": "SOURCE_DATE_EPOCH normalized both image-config creation timestamps, but the independent image IDs and both COPY layer digests still differed.",
+  "build_input": {
+    "source_date_epoch": "1786556577",
+    "source_date_epoch_utc": "2026-08-12T17:42:57Z",
+    "dockerfile_unchanged": true,
+    "context_payload_hashes_unchanged": true,
+    "network": "none",
+    "provenance_attestation_exported": false,
+    "sbom_attestation_exported": false
+  },
+  "exact_base": {
+    "reference": "cgr.dev/chainguard/python@sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5",
+    "layer_count": 11
+  },
+  "builds": [
+    {
+      "image_id": "sha256:432f9d2274b1fc07c4bc819593f74dff276ec2bd3ad3fde1f04de2db5c7ea6a7",
+      "created_at_utc": "2026-08-12T17:42:57Z",
+      "log_path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-container-local-9a14d5e-20260812T184000Z/build-1.log",
+      "log_bytes": 1490,
+      "log_sha256": "b4ad6a4eecc5859be8bd21fb5ec7c2b88948913c00e43da99216ed8fed945d0b",
+      "added_layers": [
+        "sha256:b075f608fa2b5f5deb104ea058ddde32b13029375b664314962aa82398fbe2b6",
+        "sha256:f0cbf6ae6e349d7f88e1f3e8766e02f8d1fdbd7d45162ada8019f04ef10f92da",
+        "sha256:0119f5167dd9112f503547d5d2b772b7094c38de49b011ecc5343ade7f99ac70"
+      ]
+    },
+    {
+      "image_id": "sha256:62ac775a4000f0f13326c59cd81d0032812c3256f7a6b0a61ed80b55a54818a1",
+      "created_at_utc": "2026-08-12T17:42:57Z",
+      "log_path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-container-local-9a14d5e-20260812T184000Z/build-2.log",
+      "log_bytes": 1490,
+      "log_sha256": "84fa1987775773be867040e42b977bb2089ccb3f3cd14240c7cfefa8de97d4a4",
+      "added_layers": [
+        "sha256:b075f608fa2b5f5deb104ea058ddde32b13029375b664314962aa82398fbe2b6",
+        "sha256:8bac0b0a02b76f83088cbf1f853d54d77dc27917ab6702306a5cc91ed0b3eae4",
+        "sha256:2f33d645bac2171d9cf825453145e30c5e7f42e3115e01260eacb4f356cf7343"
+      ]
+    }
+  ],
+  "comparisons": {
+    "image_config_created_at_equal_and_frozen": true,
+    "base_layer_prefix_exact": true,
+    "candidate_added_layer_count_each": 3,
+    "workdir_layers_equal": true,
+    "copy_layer_digests_equal": false,
+    "independent_image_ids_equal": false
+  },
+  "not_run": [
+    "container runtime",
+    "CLI",
+    "evaluation",
+    "MCP",
+    "API",
+    "approval/executor",
+    "state",
+    "telemetry",
+    "dashboard",
+    "Scout scan",
+    "clean clone"
+  ],
+  "publication": {
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false
+  },
+  "bounded_successor": "Freeze a v3 contract before implementation. It must retain the two-payload-layer invariant, remove the directory-only WORKDIR layer by ordering WORKDIR after the two COPY directives, and require BuildKit's image-exporter rewrite-timestamp option in addition to SOURCE_DATE_EPOCH."
+}

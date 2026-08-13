@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-13T00:12:00Z",
+  "status": "retained_failure",
+  "phase": "post-remediation manifest inventory preview",
+  "preview_path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v7-phase-manifest-preview.json",
+  "preview_bytes": 14360,
+  "preview_sha256": "e743e37c22cdc746ebfae9bca87a19380e292976943fcecfb2f3191fd68dbdd0",
+  "failure": {
+    "error": "KeyError: tests/test_baseline.py",
+    "cause": "The ad hoc assertion assumed tests/test_baseline.py was in the established manifest allowlist. The 121-file allowlist intentionally contains no test paths; test identity is independently enforced by verify_container_contract.py."
+  },
+  "corrected_inventory": {
+    "predecessor_file_count": 121,
+    "successor_file_count": 121,
+    "added_paths": [],
+    "removed_paths": [],
+    "changed_paths": ["scripts/verify_container_runtime.py"],
+    "unexpected_changes": []
+  },
+  "authoritative_manifest_changed_by_failed_assertion": false,
+  "disposition": "corrected_before_authoritative_manifest_freeze"
+}

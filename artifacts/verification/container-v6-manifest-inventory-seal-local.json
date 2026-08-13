@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T22:39:01Z",
+  "status": "pass",
+  "public_implementation_commit": "8cf7669cf9b7f483643a820f87d09221a0fe4c48",
+  "inventory": {
+    "path": "scripts/freeze_manifest.py",
+    "bytes": 7110,
+    "sha256": "774f43a2e7b6e0e3a2dc60d49e81674b969a879517b5a59b7725351fdab3abaf",
+    "bounded_change": "add eval/container-contract-0027-v6.json exactly once"
+  },
+  "external_preview": {
+    "path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v6-manifest-preview.json",
+    "bytes": 14247,
+    "sha256": "18f8734ea41f1157eef5de0294b8b84c8de95ca2a12d85a82b7df3731fc45cbd",
+    "path_count": 120,
+    "unique_path_count": 120,
+    "v5_contract_count": 1,
+    "v6_contract_count": 1
+  },
+  "unchanged_before_public_inventory_seal": {
+    "authoritative_manifest_sha256": "812c05ef8cf4342997723ece11668dad033a41726028519b4ff667695da18a7a",
+    "authoritative_manifest_bytes": 14134,
+    "package_sha256": "b31acc48a597f105755524a2ddc99d38f29e5c3f2bc96b3ba0798043a43c82c6",
+    "package_bytes": 590320,
+    "selected_evaluation_pointer_unchanged": true,
+    "successor_image_event_count": 0
+  },
+  "image_built": false,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false,
+  "next_gate": "Commit and push the exact one-path inventory update before generating the authoritative 120-file manifest."
+}

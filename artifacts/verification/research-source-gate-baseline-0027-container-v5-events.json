@@ -1,0 +1,116 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0027-container-v5-official-docker-events-20260812",
+  "assessed_at": "2026-08-12T21:29:32Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal and contracts/milestone-0027.json",
+    "authorized_actions": [
+      "review and cite the exact official Docker event time, scope, filter, and JSONL semantics",
+      "freeze project-authored container-runtime-v5 around the measured integer-second event-window failure",
+      "update only the event capture and its independent tests after the v5 freeze is public",
+      "rerun local networkless container verification without archive export registry push or publication"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Use exact official Docker event specifications and the retained v4 failure to avoid dropping events recorded later within the integer second used as the query end. No external code, configuration, package, service, secret, image, data, or model is imported.",
+    "planned_actions": [
+      "use Unix seconds.nanoseconds event bounds",
+      "capture through one complete second after the final build returns",
+      "continue validating exact image ID, both unique tags, local scope, and create/tag-only actions",
+      "retain no-export, no-push, runtime-security, and clean-clone boundaries unchanged"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "docker-docs-events-c8c1ada-20260812",
+      "name": "Docker system events specification",
+      "locator": "https://github.com/docker/docs/blob/c8c1ada37a8a3c598d0f8744d66f2dfbb780c145/data/cli/engine/docker_system_events.yaml",
+      "revision": "c8c1ada37a8a3c598d0f8744d66f2dfbb780c145",
+      "blob_sha": "89eed4c996eb976b0272b5e038074337b7dc747e",
+      "rendered_locator": "https://docs.docker.com/reference/cli/docker/system/events/",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "docker/docs revision c8c1ada37a8a3c598d0f8744d66f2dfbb780c145 blob 89eed4c996eb976b0272b5e038074337b7dc747e", "observed_at": "2026-08-12T21:29:32Z", "note": "Exact official revision and event-command source blob resolved."}]
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://docs.docker.com/reference/cli/docker/system/events/", "observed_at": "2026-08-12T21:29:32Z", "note": "Official Docker CLI documentation for the installed event command."}]
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://docs.docker.com/reference/cli/docker/system/events/", "observed_at": "2026-08-12T21:29:32Z", "note": "Public read-only access needs no account, payment, secret, or terms acceptance."}]
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://github.com/docker/docs/blob/c8c1ada37a8a3c598d0f8744d66f2dfbb780c145/LICENSE", "observed_at": "2026-08-12T21:29:32Z", "note": "Apache License 2.0; no source text, sample, or artifact is copied."}]
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "docker/docs revision and source blob above", "note": "Publisher, repository, revision, blob, and rendered surface are exact."}]
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v4-container-20260812T2123Z", "note": "Official time semantics are checked against exact build logs and nanosecond Docker events for both tags."}]
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "Docker event time, scope, filter, and JSONL sections", "note": "Unix timestamps support an optional nanosecond fraction; events expose scope and may be formatted as JSON Lines. These are the exact semantics needed for a complete bounded event window."}]
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "contracts/milestone-0027.json and container-baseline-0027-v4-event-window-failure-001.json", "note": "The successor changes only local event time capture; exact tags, image identity, scopes, actions, no-push/no-export, and every runtime boundary remain unchanged."}]
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "freeze the exact v5 event-window contract before implementation",
+      "implement only nanosecond bounds and one-second completion grace",
+      "add fail-closed unit tests for excluded same-second events and remote or push events",
+      "rerun exact local and clean-clone verification"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "retain exact source identities, factual semantics, limitations, and local measurements",
+      "freeze and implement only the project-authored event-window correction",
+      "rerun exact local and clean-clone verification under unchanged security and publication boundaries"
+    ],
+    "requires_explicit_authorization": [
+      "import external code, sample, configuration, package, executable, service, image, data, or model",
+      "authenticate, purchase, accept terms, add a secret, widen runtime authority, export an image archive, push, publish, or redistribute a container image"
+    ]
+  },
+  "retained_tooling_observation": "The first exact-blob API path guessed data/engine-cli/docker_system_events.yaml and returned HTTP 404. The corrected read-only recursive tree lookup resolved data/cli/engine/docker_system_events.yaml at blob 89eed4c996eb976b0272b5e038074337b7dc747e; no project or external source file changed."
+}

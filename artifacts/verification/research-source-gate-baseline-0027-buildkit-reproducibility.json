@@ -1,0 +1,76 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0027-buildkit-reproducibility-20260812",
+  "assessed_at": "2026-08-12T18:34:38Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2 and contracts/milestone-0027.json",
+    "authorized_actions": [
+      "review and cite official BuildKit and Docker reproducible-build specifications",
+      "set BuildKit SOURCE_DATE_EPOCH to the frozen final-manifest timestamp in the caller environment of the unchanged project-authored container verifier",
+      "rerun local networkless container verification without export or publication"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Use official BuildKit and Docker specifications only to select the supported deterministic creation-timestamp input after two otherwise identical no-cache local builds produced different image IDs. No external code, sample, package, service, secret, image, or asset will be imported.",
+    "planned_actions": [
+      "review and cite official BuildKit and Docker reproducible-build specifications",
+      "set BuildKit SOURCE_DATE_EPOCH to the frozen final-manifest timestamp in the caller environment of the unchanged project-authored container verifier",
+      "rerun local networkless container verification without export or publication"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "buildkit-build-repro-master-20260812",
+      "name": "BuildKit build reproducibility specification",
+      "locator": "https://github.com/moby/buildkit/blob/master/docs/build-repro.md",
+      "criteria": [
+        {"id": "identity", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://github.com/moby/buildkit/blob/master/docs/build-repro.md", "observed_at": "2026-08-12T18:34:38Z", "note": "Primary BuildKit repository document named build-repro.md; live page identifies the SOURCE_DATE_EPOCH section."}], "note": "Exact primary specification page is identified; no file is acquired."},
+        {"id": "authority", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://github.com/moby/buildkit/blob/master/docs/build-repro.md", "observed_at": "2026-08-12T18:34:38Z", "note": "The document is maintained in the official public moby/buildkit repository for the builder used by Docker Buildx."}], "note": "Authority is limited to BuildKit reproducibility behavior."},
+        {"id": "access", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://github.com/moby/buildkit/blob/master/docs/build-repro.md", "observed_at": "2026-08-12T18:34:38Z", "note": "Publicly readable without account, authentication, payment, download, or terms acceptance."}], "note": "Only metadata and factual specification text are reviewed."},
+        {"id": "rights", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://github.com/moby/buildkit/blob/master/LICENSE", "observed_at": "2026-08-12T18:34:38Z", "note": "The official repository LICENSE is Apache License 2.0; no code or sample is copied."}], "note": "Use is limited to factual semantics, citation, and project-authored configuration."},
+        {"id": "provenance", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "official moby/buildkit repository document", "note": "Reviewed directly at the primary publisher repository with no acquired or transformed intermediary."}], "note": "No external artifact enters custody."},
+        {"id": "integrity", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "live HTTPS primary repository locator plus local Docker Buildx v0.33.0 behavior test", "note": "Project verification will prove the exact two-image result; no downloaded asset needs a checksum."}], "note": "Empirical local image identity remains the decisive evidence."},
+        {"id": "fitness", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "BuildKit SOURCE_DATE_EPOCH section", "note": "The document states that Buildx propagates SOURCE_DATE_EPOCH and that it sets OCI image-config and history creation timestamps, the exact measured source of variance."}], "note": "The project uses final-manifest epoch 1786556577 and rechecks image identity, layers, payload, and clean-clone reproduction."},
+        {"id": "privacy-security", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "contracts/milestone-0027.json", "note": "The input is a public frozen timestamp. It adds no secret, personal data, network widening, dependency, privilege, host mount, real infrastructure, export, or publication."}], "note": "All existing runtime and publication boundaries remain exact."}
+      ]
+    },
+    {
+      "source_id": "docker-reproducible-builds-guide-20260812",
+      "name": "Docker reproducible builds with GitHub Actions guide",
+      "locator": "https://docs.docker.com/build/ci/github-actions/reproducible-builds/",
+      "criteria": [
+        {"id": "identity", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://docs.docker.com/build/ci/github-actions/reproducible-builds/", "observed_at": "2026-08-12T18:34:38Z", "note": "Official Docker documentation page titled Reproducible builds with GitHub Actions."}], "note": "Exact current publisher page is identified."},
+        {"id": "authority", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://docs.docker.com/build/ci/github-actions/reproducible-builds/", "observed_at": "2026-08-12T18:34:38Z", "note": "docs.docker.com is Docker's primary product documentation for the installed Buildx workflow."}], "note": "Used as corroborating official guidance."},
+        {"id": "access", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://docs.docker.com/build/ci/github-actions/reproducible-builds/", "observed_at": "2026-08-12T18:34:38Z", "note": "Publicly readable without account, secret, payment, download, or terms acceptance."}], "note": "No external service is invoked."},
+        {"id": "rights", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://github.com/docker/docs/blob/main/LICENSE", "observed_at": "2026-08-12T18:34:38Z", "note": "The official docker/docs repository LICENSE is Apache License 2.0; no example or implementation code is copied."}], "note": "Only factual semantics and citation are retained."},
+        {"id": "provenance", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "official docs.docker.com page", "note": "Reviewed directly at the primary publisher page without acquired bytes or intermediary transformation."}], "note": "No external artifact enters custody."},
+        {"id": "integrity", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "live HTTPS primary publisher locator", "note": "The page is corroborative; the local two-build and clean-clone results independently verify the behavior."}], "note": "No downloaded asset requires a checksum."},
+        {"id": "fitness", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "Docker SOURCE_DATE_EPOCH guidance", "note": "The page states that SOURCE_DATE_EPOCH makes image index, config, and file metadata use the specified time and demonstrates a Git commit timestamp source."}], "note": "The already-frozen final-manifest time is a stable project-owned source."},
+        {"id": "privacy-security", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "BASELINE-0027 no-publication and networkless contract", "note": "The timestamp input is non-sensitive and does not change image access, runtime privilege, networking, secrets, authority, or publication."}], "note": "No privacy or security boundary is weakened."}
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "review and cite official BuildKit and Docker reproducible-build specifications",
+      "set BuildKit SOURCE_DATE_EPOCH to the frozen final-manifest timestamp in the caller environment of the unchanged project-authored container verifier",
+      "rerun local networkless container verification without export or publication"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "retain primary source identity, locators, factual semantics, and limitations",
+      "use final-manifest epoch 1786556577 in the project-authored local verifier",
+      "rerun exact local and clean-clone verification under the existing no-network and no-publication contract"
+    ],
+    "requires_explicit_authorization": [
+      "import external code, sample configuration, package, executable, service, image, data, or model",
+      "authenticate, purchase, accept terms, add a secret, widen network or runtime authority, export, push, publish, or redistribute a container image"
+    ]
+  }
+}

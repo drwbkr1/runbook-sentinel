@@ -1,0 +1,315 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0027",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "active_contract": "contracts/milestone-0027.json",
+    "verified_at_utc": "2026-08-13T01:05:00Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Make the explicitly required container surface real and independently verifiable with one immutable source-gated Python base, deterministic local builds, rootless fail-closed runtime restrictions, and containerized real-surface parity without changing the incident agent or publishing container image bytes.",
+    "allowed_paths": [
+      "C:/Projects/Active/runbook-sentinel",
+      "C:/Projects/Verification"
+    ],
+    "forbidden_work": [
+      "change any scenario, expected result, agent, model, retrieval, decision context, action inventory, policy, approval, authentication, executor, API, or MCP authority",
+      "use a mutable base tag, another digest, a shell, package installation, build secret, dependency, paid service, secret, model asset, or real operational evidence",
+      "run as root or privileged, add a capability, use a host namespace, device, writable host path mount, or external egress",
+      "authenticate to a registry or upload, publish, export, or redistribute the base or derived container image",
+      "change repository visibility, access, or ownership",
+      "rewrite or remove the three excluded Python candidates or any failed, stale, corrected, superseded, or unfavorable evidence",
+      "claim local synthetic container verification is production readiness, universal prompt-injection resistance, or perpetual CVE freedom"
+    ],
+    "reversible_actions": [
+      "create and update files on codex/baseline-0027-container-runtime",
+      "anonymously resolve or pull only the source-gated exact OCI digest",
+      "build run inspect scan stop and remove exact synthetic-only local containers, networks, volumes, and images",
+      "run deterministic source package container dashboard and clean-clone verification under C:/Projects",
+      "commit push review merge and publish the source and zipapp checkpoint after all release gates pass"
+    ],
+    "stop_conditions": [
+      "core thesis change or security-boundary weakening",
+      "the exact source gate becomes stale, contradicted, unsafe, unavailable, or requires authentication, payment, terms acceptance, or another digest",
+      "container verification requires root, privilege, added capability, host namespace, host device, writable host path, external egress, secret, dependency, or real infrastructure",
+      "source package container parity, immutable build identity, real surfaces, clean clone, public release, or public tag cannot be verified",
+      "container image publication or redistribution becomes necessary"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.26 release, refs, selected assets, downloaded bytes, rendered pages, and independent public-tag full-stack verification reconcile in artifacts/verification/public-tag-baseline-0026.json.",
+        "Fresh exact-tag source evaluation passes 57 scenarios, 171 attempts, 119 Boolean gates, separate metric families, and an anchored 261-event trace.",
+        "Docker client and server 29.4.3 are live. The previous three excluded Python base candidates remain retained.",
+        "The exact Chainguard Free Python digest passes all eight external-source criteria for anonymous digest-bound local build and runtime verification without image publication.",
+        "The competing retrieval-stage observability gap is measured and retained for a later cycle; it has no observed behavior failure."
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": [
+        "Two independent image builds and a clean-clone rebuild have the same immutable image ID, exact base-layer prefix, and two-file added-layer allowlist.",
+        "The container passes CLI, 57-case evaluation, exact trace, MCP, authenticated API, approval, executor, replay, state, anchored telemetry, and rendered-dashboard gates under the frozen runtime restrictions.",
+        "All existing source and zipapp gates remain exact, the selected source plus zipapp release is reviewed and public, and the public tag can reproduce and verify the local container without publishing image bytes."
+      ]
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Resume from verified public v0.0.26, run the accepted system, inspect traces and separated metrics, reconcile Docker availability, and compare the retained evaluation gap with the missing container surface.",
+      "depends_on": [],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": [
+        "artifacts/verification/orientation-baseline-0027.json",
+        "artifacts/verification/container-source-gate-baseline-0027-chainguard-python.json"
+      ],
+      "gates": {
+        "public_checkpoint_reconciled": "pass",
+        "fresh_source_evaluation_and_trace": "pass",
+        "separate_metrics_inspected": "pass",
+        "docker_live": "pass",
+        "exact_external_source_gate_ready": "pass",
+        "highest_leverage_weakness_selected": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "unsupported gh isLatest query",
+        "unsupported ConvertFrom-Json -Depth report probes",
+        "excluded null-coercing retrieval-stage cross-tab",
+        "three previously excluded official Python base images"
+      ],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze exact base identity, Dockerfile and build-context bytes, runtime restrictions, two-build identity, real surfaces, receipt schema, and no-publication boundary before implementation.",
+      "depends_on": ["UNIT-001"],
+      "action_class": "evidence_preservation",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": [
+        "eval/container-contract-0027.json (retained superseded v1)",
+        "eval/container-contract-0027-v2.json",
+        "eval/container-contract.json",
+        "scripts/verify_container_contract.py"
+      ],
+      "gates": {
+        "current_and_v2_contract_bytes_exact": "pass",
+        "source_gate_hash_and_ready_status_exact": "pass",
+        "dockerfile_absent_before_freeze": "pass",
+        "container_receipt_absent_before_implementation": "pass",
+        "preimplementation_validator": "pass",
+        "v1_network_plan_failure_retained": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "container-runtime-v1 proposed host loopback publication for an API that intentionally binds container-local loopback; widening the API, host networking, and a proxy were excluded. The public v1 contract and exact failure receipt remain retained, and v2 uses no network plus docker exec."
+      ],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement only the frozen digest-pinned container path, container verification harness, and required v0.0.27 package identity without changing product behavior or authority.",
+      "depends_on": ["UNIT-002"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "gates": {
+        "dockerfile_and_context_allowlist_exact": "pass",
+        "container_verifier_fail_closed": "pass",
+        "all_57_scenarios_and_terminal_states_unchanged": "pass",
+        "all_runtime_authority_boundaries_unchanged": "pass",
+        "v0_0_27_source_and_package_identity_exact": "pass",
+        "implementation_sealed_before_candidate_container_run": "pass",
+        "pre_reveal_manifest_complete_gate": "pass",
+        "package_contract_and_final_manifest_frozen_before_build": "pass",
+        "package_contract_and_final_manifest_complete_gate": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "The pre-manifest 47-test run passed 46 tests and failed only the new baseline-0027 checkpoint assertion because the evaluator correctly retained the still-public baseline-0026 manifest. No candidate evaluation or image ran; exact failure receipt retained.",
+        "Immutable source attempt 001 passed behavior and trace gates, but the post-candidate sweep stopped after 16 of 31 validators because the historical BASELINE-0026 exposure-stage validator rejected the legitimate baseline-0027 latest pointer. Exact failure receipt retained; package and image construction stayed closed."
+      ],
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Run all prior source and package gates plus the frozen two-build, container real-surface, scan, parity, and clean-clone checks.",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "gates": {
+        "immutable_source_candidate": "pass",
+        "all_prior_source_and_package_gates": "pass",
+        "container_runtime_v3_frozen_before_implementation": "pass",
+        "container_runtime_v4_frozen_before_implementation": "pass",
+        "container_runtime_v4_implemented_before_manifest_renewal": "pass",
+        "container_runtime_v4_manifest_frozen_before_archive_or_image": "pass",
+        "container_runtime_v5_frozen_before_event_window_implementation": "pass",
+        "container_runtime_v5_implemented_before_manifest_renewal": "pass",
+        "container_runtime_v5_manifest_inventory_sealed_before_renewal": "pass",
+        "container_runtime_v5_manifest_frozen_before_archive_or_image": "pass",
+        "container_runtime_v6_frozen_before_namespace_implementation": "pass",
+        "container_runtime_v6_implemented_before_manifest_renewal": "pass",
+        "container_runtime_v6_manifest_inventory_sealed_before_renewal": "pass",
+        "container_runtime_v6_manifest_frozen_before_archive_or_image": "pass",
+        "container_runtime_v7_frozen_before_tmpfs_extraction_implementation": "pass",
+        "container_runtime_v7_implemented_before_manifest_renewal": "pass",
+        "container_runtime_v7_manifest_inventory_sealed_before_renewal": "pass",
+        "container_runtime_v7_manifest_frozen_before_archive_or_image": "pass",
+        "two_image_builds_exact": "pass",
+        "container_cli_evaluation_mcp_api_state_telemetry_dashboard": "pass",
+        "container_security_contract": "pass",
+        "candidate_scan": "pass",
+        "clean_clone_source_package_and_container": "pass"
+      },
+      "retained_failures": [
+        "Final source/package evaluation attempt 001 is excluded after a non-terminating PowerShell Test-Path guard error allowed both outputs to run. A subsequent trace-verifier probe also omitted PYTHONPATH and stopped at import. All six outputs and the exact wrapper failure remain retained; no image was built.",
+        "The first source-real-surface wrapper set only RUNBOOK_SENTINEL_PYTHONPATH; the MCP verifier itself stopped at import because PYTHONPATH was absent. No MCP/API/native output or image was created; exact failure receipt retained.",
+        "The first parity-summary hash helper used unavailable System.Convert.ToHexString. Reports remained unchanged; the supported SHA256.Create/ComputeHash path proved exact parity and the diagnostic is retained.",
+        "The first post-package aggregate regression invocation ran its designed evaluation-and-promotion tail after all validators and tests passed, creating a valid but unselected baseline-0027-attempt-002 and replacing latest.json. The three output files are retained; latest.json was restored exactly to the selected fail-fast final source attempt before the side-effect-free validator sweep.",
+        "The first side-effect-free validator wrapper omitted PYTHONPATH and stopped after 21 passes when verify_stale_payload_projection.py could not import runbook_sentinel. The corrected unchanged sweep set the exact source path and passed all 31 validators while latest.json remained selected exactly.",
+        "The first two-image build stopped before runtime verification because BuildKit assigned different current creation timestamps, producing image IDs e231ceed and 63f64522. A correction receipt records that the exact base has eleven layers and the candidates add a directory-only WORKDIR layer plus two COPY layers; the original failure outcome remains correct. No runtime, MCP, API, scan, export, or publication followed.",
+        "The second two-image build supplied SOURCE_DATE_EPOCH 1786556577. Both configs received the exact frozen creation time, but both COPY layer digests and image IDs still differed; no later gate ran. Official BuildKit semantics and exact logs are retained.",
+        "Two process-valid type=image rewrite-timestamp probes produced the same local image ID and frozen creation time, but are excluded from release evidence because the unchanged v2 Dockerfile still adds three layers and the exporter settings were not frozen before the probes. Container-runtime-v3 is now locally frozen before implementation; it preserves exactly two payload layers, moves WORKDIR after both COPY directives, and binds the timestamp, exporter, builder compatibility, clean-process, and no-publication checks."
+        ,"The first v3 two-image run reproduced exact image ID ad9160e8... twice, then stopped before runtime because WORKDIR still emitted a canonical empty third layer and the exact Docker containerd store assigned a local content digest. Official Docker semantics, exact logs, and local-only events are retained. Container-runtime-v4 is frozen before implementation to remove only WORKDIR and verify local digest-to-ID equality without weakening push/export or runtime boundaries."
+        ,"The first v4 evaluation preflight omitted PYTHONPATH and stopped before either evaluation. A corrected fail-fast run produced selected passing source/package attempt 004; the import failure remains retained."
+        ,"The first v4 parity summary used nonexistent split_records instead of split_metrics after parity was already established. The reports remained unchanged and the corrected exact result is retained."
+        ,"The first bounded v4 artifact scan classified the package contract's literal private-key forbidden-pattern definition as credential material. The failed scan remains retained; the corrected receipt classifies only that definition and has zero unresolved hits."
+        ,"The first genuine v4 image reveal built exact image ID 2d3f89d... twice but stopped before runtime because integer-second --until excluded build B's tag later within the same second. Expanded read-only events prove both local tags and no push. V5 is frozen around nanosecond bounds plus a one-second completion grace before implementation."
+         ,"The first focused v5 suite retained one test-schema error after a v4 invariant test loaded the compact v5 contract. The corrected suite separates inherited v4 and v5 event-window mutations and passes five of five."
+         ,"The first side-effect-free v5 wrapper stopped on PowerShell native-stream handling. The direct subprocess run then reported only the expected three-file stale-manifest boundary; 31 other validators and all 53 tests pass with the selected report unchanged."
+         ,"The first genuine v5 runtime reveal built exact image ID 96655a01... twice and passed the nanosecond event window, then stopped before product execution because the verifier treated Docker's explicit IpcMode private as host sharing. Exact inspect evidence proves private IPC, empty PID/UTS/userns modes, and every other runtime boundary passing. The failure remains retained; v6 is frozen before the narrow namespace-semantic correction."
+         ,"The first genuine v6 runtime reveal built exact image ID 90b8b4a9... twice and passed local events, image validation, exact private namespaces, hardened runtime, CLI, and evaluation execution, then stopped because docker cp cannot read files from the /state tmpfs. Exact in-container sizes and hashes plus the reproduced copy failure remain retained; v7 is frozen before a bounded verified exec-stream extraction correction."
+         ,"The first focused v7 suite stopped on an assumed nonexistent temp_path test helper before exercising product code. The corrected suite, full 55-test regression, required-v7 validation, and real extraction probe pass. A post-success probe summary then reused PowerShell's reserved $Host variable; the extracted file identity and container cleanup were independently confirmed."
+         ,"The first v7 full verifier stopped before image construction because its prerequisite phase predicate still expected implemented_v6. The exact failure remains retained; the corrected predicate requires implemented_v7."
+         ,"The next v7 run built the exact image twice and passed runtime, CLI, evaluation, extraction, MCP, and API before host trace verification rejected renamed endpoint files. The exact failure remains retained; the correction preserves the endpoint basenames."
+         ,"The following v7 run passed every product surface and produced a zero-critical/high Docker Scout SARIF result, then a redundant Unicode scanner-version banner could not be decoded by the host locale. The exact failure remains retained; scanner identity now comes only from structured SARIF."
+         ,"A one-second foreground launcher stopped before creating an evidence directory, receipt, image, container, or verifier process. No product disposition was inferred; the same unused attempt identity then completed under captured background execution."
+      ],
+      "disposition": "pass",
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Audit, review, merge, release source plus zipapp only, and independently verify the public tag and reproducible local container path.",
+      "depends_on": ["UNIT-004"],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "in_progress",
+      "inputs": [
+        "verified source package container and clean-clone evidence",
+        "premerge audit and exact reviewed GitHub head",
+        "inherited director release authority"
+      ],
+      "outputs": [
+        "history-preserving reviewed merge",
+        "annotated v0.0.27 and selected public zipapp assets",
+        "public-tag source package and local container reproduction receipt"
+      ],
+      "gates": {
+        "premerge_release_audit_verified": "pending",
+        "exact_reviewed_head_merged_with_history_preserved": "pending",
+        "fresh_public_main_source_package_container_and_real_surfaces": "pending",
+        "final_release_audit_verified": "pending",
+        "public_refs_zipapp_assets_downloads_pages_reconciled": "pending",
+        "no_container_image_bytes_published": "pending",
+        "fresh_public_tag_source_package_and_local_container_reproduction": "pending"
+      },
+      "disposition": "pending",
+      "retained_failures": [],
+      "next_dependency": null
+    }
+  ],
+  "current_unit": "UNIT-005",
+  "next_action": "Reconcile the verified 43-of-43 container candidate, bind a premerge release audit to the exact public branch head, and open an exact-head GitHub review before merge or release.",
+  "path_efficiency": {
+    "max_consecutive_no_progress_units": 2,
+    "review_action_class": "project_control",
+    "review_human_gate": false
+  },
+  "verification": {
+    "changed_risks": [
+      "an external base can drift, carry unresolved rights, provenance, or vulnerabilities, or be replaced through a mutable tag",
+      "the build context can leak source history, secrets, model artifacts, runtime state, or unapproved files",
+      "container defaults can run as root or gain privilege, host access, external egress, writable state, or hidden authority",
+      "a passing source or zipapp test can hide a broken container CLI, evaluator, MCP, API, approval, executor, state, telemetry, or dashboard",
+      "container build metadata or context can make clean-clone image identity irreproducible",
+      "a directory-only WORKDIR layer or exporter-side unpack conflict can violate an apparently correct two-payload-layer and clean-process contract",
+      "release prose can overclaim a local image that was not published or a vulnerability observation that can become stale"
+    ],
+    "required_checks": [
+      "exact external source gate and immutable OCI index plus linux/amd64 manifest identity",
+      "independent contract validation and exact Dockerfile plus .dockerignore bytes",
+      "recursive preservation of all 57 scenarios, terminal states, evaluation gates, and authority boundaries",
+      "two independent local builds, exact base layer prefix, exact two-file added-layer allowlist, and identical image IDs",
+      "exact BuildKit compatibility, SOURCE_DATE_EPOCH, image exporter, frozen creation timestamp, and clean process exit checks",
+      "non-root read-only no-capability no-new-privileges synthetic runtime with no external egress, host path, secret, or real infrastructure",
+      "container CLI, full evaluation and trace, bounded MCP, authenticated API, approval, executor, replay, state, telemetry, and rendered dashboard",
+      "separate source package and container metrics, candidate security scan, structured artifact scan, clean clone, review, merge, release, and public-tag reproduction",
+      "retention of failed, stale, blocked, corrected, superseded, excluded, and unfavorable evidence"
+    ],
+    "completed_checks": [
+      "public v0.0.26 release reconciliation and fresh unchanged 57-case source evaluation",
+      "Docker 29.4.3 live-state reconciliation and competing metric-gap measurement",
+      "ready eight-criterion exact Chainguard source gate with previous failed candidates retained",
+      "frozen container-runtime-v1 contract and passing preimplementation validator",
+      "public implementation seal b521d16d91f5c8e198449ef17bb52e9f8d7490d5 and locally verified 115-file pre-reveal manifest with candidate and image results absent",
+      "public pre-reveal manifest seal 8c486c6d9e0bc26c03749c45e9e5b89c1c72770a after 47 tests and 31 standalone validators passed"
+      ,"public package-contract and final-manifest seal 22aeb0cfe3116521c93e1119d02ef600aa265086 after 48 tests and 31 standalone validators passed with archive and image results absent"
+      ,"two byte-identical contract-valid v0.0.27 zipapps, selected final source/package attempt 002 parity, bounded MCP, authenticated API/approval/executor/replay/state/telemetry, complete rendered dashboards, 48 tests, and a side-effect-free 31-validator sweep"
+      ,"public source/package payload bab9fc67b5633060d370f3151b09a7f88712b629, retained first image-identity failure at 9a14d5e533ad941bd3c2b15de00540c23ad789ca, exact eleven-layer base correction, SOURCE_DATE_EPOCH-only failure, successful but excluded rewrite-timestamp probes, and locally frozen container-runtime-v3 contract before implementation"
+      ,"public v3 contract, implementation, and renewed-manifest seals through 793fef5ab1cd3df6728f7a235c03c52eb76b2e3f; two exact 590094-byte archive builds; renewed source/package attempt 003 parity; bounded MCP; authenticated API approval, executor, replay, state, and telemetry; two complete rendered dashboards; 32 validators; and 49 tests"
+      ,"public v3 payload 09f9e2c8e5ccda1f82c4d956ba830cc5d3b3e2e3; retained v3 metadata-validation failure after two exact image IDs; valid eight-criterion Docker semantics gate; and locally frozen v4 contract before implementation"
+      ,"public v4 contract freeze c207ac25af883b38410e3f3604dd5ea68de382ee; exact bounded v4 implementation; 51 tests; 31 side-effect-free validators; required static validation; compilation; and live Docker, Buildx, BuildKit, and epoch preflight before manifest renewal or image build"
+      ,"public v4 implementation e000ece7b66b98cca96f4334f9d8b1b9bd85cf1d; renewed 118-file manifest 42b5fafa553b3bc0b0190368c83ca5d8978da7938f2adb8e9c7e8153cafd28b0; 51 tests; 32 validators; compilation; and predecessor archive retained with exact embedded-manifest mismatch before replacement build or image"
+      ,"public v4 manifest seal 8e501098bd2613f731e211a794b508c8ba2b0b26; two exact 590207-byte archives at 766a0157998ea40e08d7bb6ac6ebf370c2ecbeb9efbe54ecc947eb5ae19f55b7; source/package attempt 004 with all 119 Boolean gates and exact 261-event anchors; bounded MCP; both 110-check APIs; both 59-check native receipts; complete dashboards; corrected artifact scan; 32 validators; and 51 tests before any v4 image build"
+      ,"public v4 payload 56fe0c1ac13f5ab2ce375e50e8882d44bfe4c90e; retained wrapper-only timeout and existing-directory stops; exact two-build v4 image ID 2d3f89d5807513719d958ae2b6c6f65e1cf391ea47c66aa6f084d0766d9039ee; retained integer-second event-window failure before runtime; official eight-criterion Docker events source gate; and locally frozen v5 contract with required implementation failing closed"
+      ,"public v5 freeze 80afa4999535dca90764f16c651279512b2e6a8d; exact nanosecond event-window implementation; five focused tests; 53 full tests; 31 non-manifest side-effect-free validators; compilation; required implementation pass; exactly three expected stale-manifest identities; unchanged Dockerfile, package, selected evaluation, source, and image inputs; no successor image build"
+      ,"public v5 implementation 7a0a7c56219163be26f1e5d80baeaecd41f9c6ff; explicit 119-file manifest inventory preview includes the versioned v5 contract exactly once; authoritative manifest, archive, evaluation, and image remain unchanged before inventory seal"
+      ,"public manifest inventory seal aa55a9c833468982eaa84c29f6577ebcc1d84b1f; authoritative 119-file manifest 812c05ef8cf4342997723ece11668dad033a41726028519b4ff667695da18a7a; 53 tests; 31 validators; compilation; required v5 validation; selected evaluation pointer unchanged; predecessor archive retained with only embedded-manifest mismatch before replacement build or image"
+      ,"public v5 manifest seal 51249548294d2030ebd1f74941f67362d291d426; two exact 590320-byte archives at b31acc48a597f105755524a2ddc99d38f29e5c3f2bc96b3ba0798043a43c82c6; source/package attempt 005 with all 119 Boolean gates and exact 261-event anchors; bounded MCP; both 110-check APIs; both 59-check native receipts; complete dashboards; bounded artifact scan; 32 validators; and 53 tests before successor image build"
+      ,"public structured-scanner v7 package/evaluation input 428d12f57f01cecdf2e97e0a18746d9226eef9c1; exact 41-entry 590546-byte zipapp SHA-256 bf73aac861e1a2a8317069a058fa1774012ea5fdc00865e1bb582f0244cddaf8; source/package attempt 010 with 57 scenarios, 171 attempts, all 119 Boolean gates, exact 261-event anchors, real MCP/API/state/telemetry surfaces, complete dashboards, and zero unresolved structured-scan findings"
+      ,"two independent no-cache networkless builds and a fresh public-branch clean-clone build reproduce exact image ID sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee on Docker 29.4.3, Buildx 0.33.0-desktop.1, BuildKit 0.29.0, and driver docker"
+      ,"canonical container receipt fd1c6952c42acf2703e88c365852605c00f112039e9aba26216287463a439949 passes all 43 frozen checks, including rootless read-only no-capability no-new-privileges network-none runtime, CLI, evaluation, exact trace, MCP, authenticated API, approval, executor, replay, state, telemetry, rendered dashboard, verified tmpfs extraction, structured scanner, clean clone, and no image export or publication"
+      ,"post-container regression passes all 58 tests in 84.128 seconds plus exact manifest, package, source/package trace, and required-result container validators; public receipt commit 727c29e7ffebf718844f7648e859e29514de4862 matches local, tracking, and live remote refs"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "Public v0.0.26 remains the latest verified release. The v0.0.27 candidate is public on its branch through 727c29e7ffebf718844f7648e859e29514de4862. Source, zipapp, two local image builds, hardened container real surfaces, point-in-time structured scan, and a fresh public-branch clean-clone rebuild pass all 43 frozen checks at exact image ID sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee. No image was exported, pushed, or published; release review remains pending.",
+    "next_action": "Reconcile the candidate records, produce a premerge audit bound to the exact public head, and open an exact-head GitHub review before merge or release.",
+    "do_not_carry_forward": [
+      "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
+      "any container image export, registry authentication, push, publication, or redistribution",
+      "any change to scenarios, agent behavior, retrieval, policy, approval, executor, API, MCP, or authority",
+      "any rewrite or deletion of failed, stale, blocked, corrected, superseded, excluded, or unfavorable evidence",
+      "any production readiness, universal safety, or perpetual CVE-free claim",
+      "any claim of universal cross-BuildKit-version reproducibility beyond the exact verified builder and clean-clone evidence",
+      "the retained two-case retrieval-stage observability gap as if it had been fixed by container work"
+    ]
+  }
+}

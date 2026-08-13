@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0027-v5-source-package-real-surfaces-20260812T220600Z",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T22:06:00Z",
+  "status": "pass",
+  "disposition": "candidate_ready_for_public_v5_image_input_commit",
+  "public_manifest_input_commit": "51249548294d2030ebd1f74941f67362d291d426",
+  "manifest": {
+    "path": "eval/manifest.json",
+    "file_count": 119,
+    "bytes": 14134,
+    "sha256": "812c05ef8cf4342997723ece11668dad033a41726028519b4ff667695da18a7a"
+  },
+  "selected_archive": {
+    "path": "dist/runbook-sentinel-0.0.27.pyz",
+    "bytes": 590320,
+    "sha256": "b31acc48a597f105755524a2ddc99d38f29e5c3f2bc96b3ba0798043a43c82c6",
+    "checksum_bytes": 94,
+    "checksum_sha256": "90c8f8e0f925945814ec1c620195c23f938006e0c79d1a0df7547e372007ac1f",
+    "entry_count": 41,
+    "independent_build_root": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v5-package-20260812T2155Z",
+    "both_builds_exact": true,
+    "both_package_contract_verifications": "pass"
+  },
+  "selected_evaluations": {
+    "source_report": {"path": "artifacts/evaluations/runs/baseline-0027-final-source-attempt-005.json", "bytes": 943953, "sha256": "842012ee50203f0da8b5041816d51de6d45d30df660008d418543698ca81ba9f"},
+    "source_trace": {"path": "artifacts/evaluations/runs/baseline-0027-final-source-attempt-005.traces.jsonl", "bytes": 195325, "sha256": "72c45faa44c7beb61d137696fa3c1013879cdd1cc40cec14e7d20240e392ac4f", "event_count": 261, "final_event_sha256": "caf920f4f398177be9ba9194f3295d781bc5b7ac5807edf70b37134c13b0478a", "valid": true, "anchored": true},
+    "package_report": {"path": "artifacts/evaluations/runs/baseline-0027-final-package-attempt-005.json", "bytes": 943967, "sha256": "bd2a6cb618358b02fcb97ae9e88b5aeb1499bae4ce3d136e0d5015f9f597bf2f"},
+    "package_trace": {"path": "artifacts/evaluations/runs/baseline-0027-final-package-attempt-005.traces.jsonl", "bytes": 195332, "sha256": "0792a46d3b3b1b8b3b4210fea73b442d33262045601ed01bec1505b0c7e881a5", "event_count": 261, "final_event_sha256": "9bfc2213eeeeae8a61ef6ffe2db009d1bf779116ae7aff2a7edf442ed513e626", "valid": true, "anchored": true},
+    "latest_equals_selected_source": true,
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "boolean_gate_count": 119,
+    "false_boolean_gate_count": 0,
+    "tool_trajectory_exact": 1.0,
+    "terminal_state_exact": 1.0,
+    "repeated_trial_pass_power_3": 1.0,
+    "policy_compliance": 1.0,
+    "benign_utility": 1.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "model_calls": 0,
+    "estimated_external_api_cost_usd": 0.0,
+    "container_projection_sha256": "d08823b3ddda041f24567f70f11326661b749d63ddc07dbdd1d160836c7ca820",
+    "container_projection_exact": true
+  },
+  "source_real_surfaces": {
+    "mcp": {"path": "artifacts/verification/mcp-source-baseline-0027-v5.json", "bytes": 1179, "sha256": "27a3d21cbcf94f12244bef99d61fd2672f3f2f1de9373005d5aeedbfac448051", "tool_count": 3, "approval_or_execution_tool": false},
+    "api": {"path": "artifacts/verification/live-api-source-baseline-0027-v5.json", "bytes": 15858, "sha256": "71e062076135ec47c1c57660c4861f36eb4b5410b3b920eb035c5e5941cdebf5", "checks_passed": 110, "checks_total": 110},
+    "native": {"path": "artifacts/verification/native-source-baseline-0027-v5.json", "bytes": 6549, "sha256": "d301bbfebba44a772effef1601540f1f35ffca37866fa39a142e933e65c163bc", "checks_passed": 59, "checks_total": 59},
+    "dashboard": {"path": "artifacts/verification/dashboard-source-baseline-0027-v5.png", "bytes": 86757, "sha256": "1cf601763ae1be8aaf725644816754d7766185c1ffa4deb12ca90d3d450102cb", "dimensions": [1440, 1000], "visually_inspected_at_original_detail": true}
+  },
+  "package_real_surfaces": {
+    "mcp": {"path": "artifacts/verification/mcp-package-baseline-0027-v5.json", "bytes": 1179, "sha256": "cdc750290c51f866c79e5a667be719a4689d8925c1b93cc181c8301db35cdac7", "tool_count": 3, "approval_or_execution_tool": false},
+    "api": {"path": "artifacts/verification/live-api-package-baseline-0027-v5.json", "bytes": 15858, "sha256": "8667c453e91a3253b15dff8aae1e38cfd44af10914dbb91163f5b16b5d64704a", "checks_passed": 110, "checks_total": 110},
+    "native": {"path": "artifacts/verification/native-package-baseline-0027-v5.json", "bytes": 6549, "sha256": "b3c4f71dacaf9053fe63d7adc5431ceab5d91e7c5ea3d98e1c0d8b8493d2879a", "checks_passed": 59, "checks_total": 59},
+    "dashboard": {"path": "artifacts/verification/dashboard-package-baseline-0027-v5.png", "bytes": 86624, "sha256": "202c400c48cf1752264b0006fba77f18f495aba6fd213f95c07ea88e621d6d9b", "dimensions": [1440, 1000], "visually_inspected_at_original_detail": true}
+  },
+  "current_runtime_pointers": {
+    "latest_equals_source_report": true,
+    "native_equals_package_native": true,
+    "dashboard_equals_package_dashboard": true
+  },
+  "real_surface_checks": {
+    "agent_never_executes": true,
+    "approval_executor_replay_idempotency_state_and_telemetry_verified": true,
+    "operator_capability_absent_from_persisted_and_rendered_evidence": true,
+    "real_infrastructure_disconnected": true
+  },
+  "artifact_scan": {"path": "artifacts/verification/artifact-scan-baseline-0027-v5.json", "bytes": 1096, "sha256": "b032b471e41f88dca003b0156664b719a82ef4dd2252eec14c62b072194c1bcf", "status": "pass", "parse_error_count": 0, "unresolved_high_signal_hit_count": 0, "model_artifact_count": 0},
+  "post_surface_regression": {
+    "side_effect_free_validators": {"passed": 32, "total": 32, "elapsed_seconds": 32.965},
+    "unit_tests": {"passed": 53, "total": 53, "elapsed_seconds": 95.392}
+  },
+  "retained_diagnostics": [
+    "artifacts/verification/baseline-0027-v5-real-surface-help-probe-correction-001.json"
+  ],
+  "successor_image_built": false,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false,
+  "next_gate": "Commit and push this exact manifest-bound v5 source/package payload and real-surface evidence, then run the first v5 two-image container verification from that public commit."
+}

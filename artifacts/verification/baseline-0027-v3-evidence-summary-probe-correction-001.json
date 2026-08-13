@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T20:01:31Z",
+  "status": "corrected",
+  "disposition": "exclude",
+  "purpose": "Retain two process-valid but semantically invalid ad hoc summary probes without using either as candidate evidence.",
+  "probes": [
+    {
+      "id": "trace-verifier-single-argument-probe",
+      "result": "fail",
+      "cause": "The wrapper passed each trace path as the report argument and omitted the required trace argument.",
+      "exact_error": "verify_evaluation_trace.py: error: the following arguments are required: trace",
+      "corrected_command_shape": "python scripts/verify_evaluation_trace.py <report> <trace>",
+      "corrected_results": {
+        "source": {
+          "valid": true,
+          "anchored": true,
+          "event_count": 261,
+          "final_event_sha256": "4b762d2f2a30ed6c8573b81a32f93278ee06dc5efbcee4279ba20619bd07ed95"
+        },
+        "package": {
+          "valid": true,
+          "anchored": true,
+          "event_count": 261,
+          "final_event_sha256": "b47e38de513dffead1aeeb9e853d5c9d2223e99f0c6a544be6175fba62827c9c"
+        }
+      }
+    },
+    {
+      "id": "wrong-parity-family-probe",
+      "result": "false_mismatch",
+      "cause": "The ad hoc projection included latency, which is deliberately runtime-varying, and omitted the frozen coverage family.",
+      "incorrect_source_sha256": "f37660c111e0ffea20bec065ebe46fabd3befd72bbaf9c4217fd5424914e0ddb",
+      "incorrect_package_sha256": "893cc7c35e8ec3afc9211f0dcabe3b6aeb1e0a7c14c19cbba1727c34c3ec0dd7",
+      "corrected_method": "Import PARITY_METRIC_FAMILIES and metric_projection from scripts/verify_container_runtime.py.",
+      "corrected_source_sha256": "d08823b3ddda041f24567f70f11326661b749d63ddc07dbdd1d160836c7ca820",
+      "corrected_package_sha256": "d08823b3ddda041f24567f70f11326661b749d63ddc07dbdd1d160836c7ca820",
+      "corrected_exact": true,
+      "corrected_recursive_difference_count": 0
+    }
+  ],
+  "project_bytes_changed_by_probes": false,
+  "candidate_disposition_changed": false
+}

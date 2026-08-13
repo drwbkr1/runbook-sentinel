@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T22:42:50Z",
+  "status": "pass",
+  "public_inventory_commit": "d16c7037ac17861039ad4ec40c0ad53fab2acbdc",
+  "manifest": {
+    "path": "eval/manifest.json",
+    "frozen_at_utc": "2026-08-12T22:39:53Z",
+    "bytes": 14247,
+    "sha256": "dea71a9c9c324f551954a6195f75aeafc458b08a25e7952fce7da76d89d4d03c",
+    "path_count": 120,
+    "unique_path_count": 120,
+    "v6_contract_count": 1
+  },
+  "verification": {
+    "manifest_exact": true,
+    "required_v6_implementation": "pass; implemented_v6",
+    "compilation": "pass",
+    "full_tests": {"passed": 54, "total": 54, "elapsed_seconds": 109.006},
+    "applicable_validators": {"passed": 31, "total": 31, "elapsed_seconds": 4.7}
+  },
+  "predecessor_archive": {
+    "path": "dist/runbook-sentinel-0.0.27.pyz",
+    "bytes": 590320,
+    "sha256": "b31acc48a597f105755524a2ddc99d38f29e5c3f2bc96b3ba0798043a43c82c6",
+    "status": "superseded",
+    "exact_failure_count": 1,
+    "exact_failure": "archive content differs from source: runbook_sentinel/data/eval-manifest.json"
+  },
+  "unchanged_selected_evidence": {
+    "latest_sha256": "842012ee50203f0da8b5041816d51de6d45d30df660008d418543698ca81ba9f",
+    "selected_source_sha256": "842012ee50203f0da8b5041816d51de6d45d30df660008d418543698ca81ba9f",
+    "selected_package_sha256": "bd2a6cb618358b02fcb97ae9e88b5aeb1499bae4ce3d136e0d5015f9f597bf2f",
+    "latest_exact_to_selected_source": true
+  },
+  "replacement_archive_built": false,
+  "successor_image_event_count": 0,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false,
+  "next_gate": "Commit and push the authoritative v6 manifest seal before rebuilding the archive, regenerating manifest-bound evaluation evidence, or running another image."
+}

@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0027-v6-source-package-real-surfaces-20260812T225601Z",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T22:56:01Z",
+  "status": "pass",
+  "disposition": "candidate_ready_for_public_v6_image_input_commit",
+  "public_manifest_input_commit": "6520d1593bbe6775a4f6e1490b5444e542cfb189",
+  "manifest": {
+    "path": "eval/manifest.json",
+    "file_count": 120,
+    "bytes": 14247,
+    "sha256": "dea71a9c9c324f551954a6195f75aeafc458b08a25e7952fce7da76d89d4d03c"
+  },
+  "selected_archive": {
+    "path": "dist/runbook-sentinel-0.0.27.pyz",
+    "bytes": 590433,
+    "sha256": "9a352891ba353a374657fe819ee3d66ccc440a7d0c33d0c598d5a7d29dbadfaf",
+    "checksum_bytes": 94,
+    "checksum_sha256": "3cff99bb086d5f3c17afc5d1775a130b7103e8b2269de6ebccbc521ae7efe2be",
+    "entry_count": 41,
+    "independent_build_root": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v6-package-20260812T2244Z",
+    "both_builds_exact": true,
+    "both_package_contract_verifications": "pass",
+    "predecessor_custody": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v6-package-20260812T2244Z/predecessor-v5"
+  },
+  "selected_evaluations": {
+    "source_report": {"path": "artifacts/evaluations/runs/baseline-0027-final-source-attempt-006.json", "bytes": 944000, "sha256": "7585e288c53e594a5b12a4540ab85c99bd48fc50d8a97b9c3fc196fa9ad7b1b6"},
+    "source_trace": {"path": "artifacts/evaluations/runs/baseline-0027-final-source-attempt-006.traces.jsonl", "bytes": 195350, "sha256": "55b2222f993f6bfdba5897674c2264d478ee93b2a15907592c1a6c23fb4c487b", "event_count": 261, "final_event_sha256": "1fc5dfc9ba2e2e82a2f964ede7a28af89ea0863faae7556ccbede94058c36642", "valid": true, "anchored": true},
+    "package_report": {"path": "artifacts/evaluations/runs/baseline-0027-final-package-attempt-006.json", "bytes": 944015, "sha256": "9c2b4de8749af400798d50fe90fbfd57845381ed8523bef07b0cb349745602c5"},
+    "package_trace": {"path": "artifacts/evaluations/runs/baseline-0027-final-package-attempt-006.traces.jsonl", "bytes": 195356, "sha256": "fadf6b719780e8ced3dcb04450496ef730f297172dc1760e3af30ddc0c2aa02f", "event_count": 261, "final_event_sha256": "c2cfbcb506fbc2eb7eeed4c8257db5de21ad5a04ffe113a5ae1f68ba9c1e0232", "valid": true, "anchored": true},
+    "manifest_companions_exact": true,
+    "latest_equals_selected_source": true,
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "boolean_gate_count": 119,
+    "false_boolean_gate_count": 0,
+    "tool_trajectory_exact": 1.0,
+    "terminal_state_exact": 1.0,
+    "repeated_trial_pass_power_3": 1.0,
+    "policy_compliance": 1.0,
+    "benign_utility": 1.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "model_calls": 0,
+    "estimated_external_api_cost_usd": 0.0,
+    "source_latency_ms": {"diagnosis_median": 8.889, "diagnosis_p95": 21.301, "end_to_end_median": 74.624, "end_to_end_p95": 140.297},
+    "package_latency_ms": {"diagnosis_median": 9.084, "diagnosis_p95": 21.52, "end_to_end_median": 72.655, "end_to_end_p95": 139.574},
+    "container_projection_sha256": "d08823b3ddda041f24567f70f11326661b749d63ddc07dbdd1d160836c7ca820",
+    "container_projection_exact": true
+  },
+  "source_real_surfaces": {
+    "mcp": {"path": "artifacts/verification/mcp-source-baseline-0027-v6.json", "bytes": 1148, "sha256": "385833747072fa28f5b3e56319dab2d5e5352d453e32e5ba6ac54f040f224cc6", "tool_count": 3, "approval_or_execution_tool": false},
+    "api": {"path": "artifacts/verification/live-api-source-baseline-0027-v6.json", "bytes": 15615, "sha256": "b0f89710d166e377f56549fd2904c627a4544fcd2ca63033f439cc36f5e81e48", "checks_passed": 110, "checks_total": 110},
+    "native": {"path": "artifacts/verification/native-source-baseline-0027-v6.json", "bytes": 6546, "sha256": "cf913597695cbc759289be63018b25228933f111291d7e94b91d9cf5235a3733", "checks_passed": 59, "checks_total": 59},
+    "dashboard": {"path": "artifacts/verification/dashboard-source-baseline-0027-v6.png", "bytes": 86699, "sha256": "3826c7ec9df5e56a44da871bc1e952d46ac92ccad662d5bbcd96c116c71eba48", "dimensions": [1440, 1000], "visually_inspected_at_original_detail": true}
+  },
+  "package_real_surfaces": {
+    "mcp": {"path": "artifacts/verification/mcp-package-baseline-0027-v6.json", "bytes": 1148, "sha256": "30a86acc73750aa208c996caadf0d5be4448076bc0bb39da95bf8a491d617c8d", "tool_count": 3, "approval_or_execution_tool": false},
+    "api": {"path": "artifacts/verification/live-api-package-baseline-0027-v6.json", "bytes": 15615, "sha256": "6a019a788cdc42b0be3126072c678de9082b847abaea89b2141de00880f1fa89", "checks_passed": 110, "checks_total": 110},
+    "native": {"path": "artifacts/verification/native-package-baseline-0027-v6.json", "bytes": 6546, "sha256": "ac5e6e1e9af59adc02d6f2d8172d69027de876aa82c26ff07550c89d4e55a51f", "checks_passed": 59, "checks_total": 59},
+    "dashboard": {"path": "artifacts/verification/dashboard-package-baseline-0027-v6.png", "bytes": 86692, "sha256": "73c4315c16d278acfb6e8b2ba4c79f9b764fc3678f01b92bfc2cae81fc827d90", "dimensions": [1440, 1000], "visually_inspected_at_original_detail": true}
+  },
+  "current_runtime_pointers": {
+    "latest_equals_source_report": true,
+    "native_equals_package_native": true,
+    "dashboard_equals_package_dashboard": true
+  },
+  "real_surface_checks": {
+    "agent_never_executes": true,
+    "approval_executor_replay_idempotency_state_and_telemetry_verified": true,
+    "operator_capability_absent_from_persisted_and_rendered_evidence": true,
+    "real_infrastructure_disconnected": true
+  },
+  "artifact_scan": {"path": "artifacts/verification/artifact-scan-baseline-0027-v6.json", "status": "pass", "selected_file_count": 20, "parsed_record_count": 536, "parse_error_count": 0, "unresolved_high_signal_hit_count": 0, "model_artifact_count": 0},
+  "post_surface_regression": {
+    "side_effect_free_validators": {"passed": 32, "total": 32, "elapsed_seconds": 2.905},
+    "unit_tests": {"passed": 54, "total": 54, "elapsed_seconds": 85.884}
+  },
+  "retained_diagnostics": [
+    "artifacts/verification/container-v6-selected-archive-immutable-overwrite-failure-001.json",
+    "artifacts/verification/baseline-0027-v6-package-wrapper-and-summary-failures-001.json"
+  ],
+  "successor_image_built": false,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false,
+  "next_gate": "Commit and push this exact manifest-bound v6 source/package payload and real-surface evidence, then run the first v6 two-image container verification from that public commit."
+}

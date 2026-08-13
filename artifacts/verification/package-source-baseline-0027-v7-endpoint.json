@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0027-v7-endpoint-source-package-real-surfaces-20260813T003500Z",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-13T00:35:00Z",
+  "status": "pass",
+  "disposition": "candidate_ready_for_public_v7_endpoint_image_input_commit",
+  "public_manifest_input_commit": "36694a42b36017021c429c6a271c7aa16613fc35",
+  "manifest": {"path": "eval/manifest.json", "file_count": 121, "bytes": 14360, "sha256": "aab70229426d3ce0f20e499ad398e63dd4876ce239eb505dfa5f262d30e23c25"},
+  "selected_archive": {"path": "dist/runbook-sentinel-0.0.27.pyz", "bytes": 590546, "sha256": "44160d9fe77bb1171b63ee0767e79e57910fadc620c7508b3213b1cc79d20ff2", "checksum_bytes": 94, "checksum_sha256": "6f3db9744b75c7b5a209248e1244a10c6e2ece2d52cdd3d5e0541229eb906ef2", "entry_count": 41, "independent_build_root": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v7-endpoint-package-20260813T0030Z", "both_builds_exact": true, "both_package_contract_verifications": "pass", "predecessor_custody": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v7-endpoint-package-20260813T0030Z/predecessor-v7-phase"},
+  "selected_evaluations": {
+    "source_report": {"path": "artifacts/evaluations/runs/baseline-0027-final-source-attempt-009.json", "bytes": 943919, "sha256": "2e39db4b62a8ea6ecd9e4b895bd1792544b8645dd7eb700dc6b11d026951093e"},
+    "source_trace": {"path": "artifacts/evaluations/runs/baseline-0027-final-source-attempt-009.traces.jsonl", "bytes": 195313, "sha256": "9b7a1b9bb8f92cfa7bde29ec2989f7dff043a3709601ed246c1003ea9a6629ca", "event_count": 261, "final_event_sha256": "01b731e380beaa19ccc7711e1756bc3f855600bbbcfa4776f21fb837642ec242", "valid": true, "anchored": true},
+    "package_report": {"path": "artifacts/evaluations/runs/baseline-0027-final-package-attempt-009.json", "bytes": 943920, "sha256": "6918e737bdb3e230d550c7e72b5dc379c38267b4764fa1e8bb1f4882bc9994d9"},
+    "package_trace": {"path": "artifacts/evaluations/runs/baseline-0027-final-package-attempt-009.traces.jsonl", "bytes": 195306, "sha256": "e571ebe481462494c3ad946e4277f9c8d3b8e90529579e5f690b9353fb349758", "event_count": 261, "final_event_sha256": "8f691a13db80e1a46458df1a8016fd04865bde7a6d0d68ffe967c7a988904b28", "valid": true, "anchored": true},
+    "manifest_companions_exact": true, "latest_equals_selected_source": true, "scenario_count": 57, "attempt_count": 171, "boolean_gate_count": 119, "false_boolean_gate_count": 0, "tool_trajectory_exact": 1.0, "terminal_state_exact": 1.0, "repeated_trial_pass_power_3": 1.0, "policy_compliance": 1.0, "benign_utility": 1.0, "proposal_attack_success": 0.0, "terminal_attack_success": 0.0, "model_calls": 0, "estimated_external_api_cost_usd": 0.0,
+    "source_latency_ms": {"diagnosis_median": 5.164, "diagnosis_p95": 10.689, "end_to_end_median": 46.46, "end_to_end_p95": 66.94},
+    "package_latency_ms": {"diagnosis_median": 5.538, "diagnosis_p95": 11.333, "end_to_end_median": 47.906, "end_to_end_p95": 69.56},
+    "container_projection_sha256": "d08823b3ddda041f24567f70f11326661b749d63ddc07dbdd1d160836c7ca820", "container_projection_exact": true
+  },
+  "source_real_surfaces": {
+    "mcp": {"path": "artifacts/verification/mcp-source-baseline-0027-v7-endpoint.json", "bytes": 1176, "sha256": "4c42eb2058c0d4bbcc8422067e587ec6e2c9daebb3859d3782afc7b6c07a99d8", "tool_count": 3, "approval_or_execution_tool": false},
+    "api": {"path": "artifacts/verification/live-api-source-baseline-0027-v7-endpoint.json", "bytes": 15855, "sha256": "7360130fb542d46deb2c8b7003b8eec5ff5a36f237ec19fa8b13f8cd042827bb", "checks_passed": 110, "checks_total": 110},
+    "native": {"path": "artifacts/verification/native-source-baseline-0027-v7-endpoint.json", "bytes": 6546, "sha256": "005a37049746fe1272e77f7140f4ea024f5f786e335e9c233e89110d71d896c4", "checks_passed": 59, "checks_total": 59},
+    "dashboard": {"path": "artifacts/verification/dashboard-source-baseline-0027-v7-endpoint.png", "bytes": 86735, "sha256": "7aaebbecd56bad11f3d8dbf95ccbde96e82ea8d2dfc8c8115fe2e6c30d5ab170", "dimensions": [1440, 1000], "visually_inspected_at_original_detail": true}
+  },
+  "package_real_surfaces": {
+    "mcp": {"path": "artifacts/verification/mcp-package-baseline-0027-v7-endpoint.json", "bytes": 1176, "sha256": "d7e9451d6d398aab3b817d2fd5467c2b4f7f48f5d7d8a7732d7fc97235336d62", "tool_count": 3, "approval_or_execution_tool": false},
+    "api": {"path": "artifacts/verification/live-api-package-baseline-0027-v7-endpoint.json", "bytes": 15855, "sha256": "550562d5f6f0553354101674fbea69e42499af6d6d630699bc6aa99c919f9dc7", "checks_passed": 110, "checks_total": 110},
+    "native": {"path": "artifacts/verification/native-package-baseline-0027-v7-endpoint.json", "bytes": 6546, "sha256": "77781a3427ef8b9f5d47a00bd0aff116d67e8e33bd96d5796c1972d629324f52", "checks_passed": 59, "checks_total": 59},
+    "dashboard": {"path": "artifacts/verification/dashboard-package-baseline-0027-v7-endpoint.png", "bytes": 86870, "sha256": "ab58109b83862a0e3483edc8fdafd4f57f20806f1e4131532edff70b4bdf81af", "dimensions": [1440, 1000], "visually_inspected_at_original_detail": true}
+  },
+  "current_runtime_pointers": {"latest_equals_source_report": true, "native_equals_package_native": true, "dashboard_equals_package_dashboard": true},
+  "real_surface_checks": {"agent_never_executes": true, "approval_executor_replay_idempotency_state_and_telemetry_verified": true, "operator_capability_absent_from_persisted_and_rendered_evidence": true, "real_infrastructure_disconnected": true},
+  "artifact_scan": {"path": "artifacts/verification/artifact-scan-baseline-0027-v7-endpoint.json", "status": "pass", "selected_file_count": 24, "parsed_record_count": 538, "parse_error_count": 0, "unresolved_high_signal_hit_count": 0, "model_artifact_count": 0},
+  "post_surface_regression": {"side_effect_free_validators": {"passed": 31, "total": 31, "elapsed_seconds": 2.107}, "required_v7_implementation": "pass", "unit_tests": {"passed": 57, "total": 57, "elapsed_seconds": 82.811}},
+  "retained_diagnostics": ["artifacts/verification/container-baseline-0027-v7-prerequisite-phase-failure-001.json", "artifacts/verification/container-baseline-0027-v7-endpoint-trace-name-failure-001.json"],
+  "successor_image_built": false, "image_exported": false, "image_pushed": false, "image_published": false,
+  "next_gate": "Commit and push this exact endpoint-preserving v7 payload, then retry full two-image container verification in a new evidence directory."
+}

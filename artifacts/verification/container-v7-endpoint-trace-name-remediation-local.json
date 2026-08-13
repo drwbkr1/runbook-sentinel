@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-13T00:25:00Z",
+  "status": "pass",
+  "disposition": "implementation_sealed_before_manifest_renewal_or_image_retry",
+  "starting_public_commit": "3e18aa640b4c8e0f9baf98e8b8986ecc775a7c35",
+  "retained_failure": {"path": "artifacts/verification/container-baseline-0027-v7-endpoint-trace-name-failure-001.json", "bytes": 2086, "sha256": "34e12b3b363f8c7bfa6dbc8106aee849d3b1436baf7dfcbd309736363b6e7e58"},
+  "bounded_correction": {
+    "runtime_verifier": {"path": "scripts/verify_container_runtime.py", "bytes": 53847, "sha256": "1831a0db8683ed14b62e020a753cc1ee27408d43c26b52e8f2460f555d725702", "change": "preserve exact mcp-traces.jsonl and api-traces.jsonl basenames and their anchor basenames after verified tmpfs extraction"},
+    "tests": {"path": "tests/test_baseline.py", "bytes": 123950, "sha256": "69c9e25b5cd87031b8e5f53b86a66dfa182ecdc7a28ce76e9a801335d0f8df27", "change": "prove endpoint trace verification receives the basename bound by its anchor"}
+  },
+  "verification": {
+    "focused_tests": {"passed": 2, "total": 2},
+    "non_manifest_validators": {"passed": 30, "total": 30, "elapsed_seconds": 2.691},
+    "unit_tests": {"passed": 57, "total": 57, "elapsed_seconds": 90.049},
+    "container_contract_required_implementation": "pass",
+    "predecessor_manifest": {"status": "mismatch", "expected_stale_paths": ["scripts/verify_container_runtime.py"], "unexpected_stale_paths": []}
+  },
+  "security_boundary_change": false,
+  "product_behavior_change": false,
+  "successor_manifest_frozen": false,
+  "successor_archive_built": false,
+  "successor_evaluation_run": false,
+  "successor_image_built": false,
+  "next_gate": "Commit and push this exact bounded remediation before renewing the authoritative manifest."
+}

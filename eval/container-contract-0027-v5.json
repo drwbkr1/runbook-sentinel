@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "container-runtime-v5",
+  "checkpoint": "baseline-0027",
+  "contract_status": "frozen_after_v4_event_window_failure_before_v5_implementation",
+  "supersedes": {
+    "contract": "eval/container-contract-0027-v4.json",
+    "contract_id": "container-runtime-v4",
+    "contract_sha256": "ab822c1500ef09f0eff52759c7665536a5e9caa823f6c4ce2afa61614b5caacb",
+    "reason_receipt": "artifacts/verification/container-baseline-0027-v4-event-window-failure-001.json",
+    "reason_receipt_sha256": "674760339e9b975b61cd496b4430ee946fa483861d918fb85b7bdbdc8f57b9f1"
+  },
+  "source_checkpoint": {
+    "public_version": "0.0.26",
+    "public_v4_payload_commit": "56fe0c1ac13f5ab2ce375e50e8882d44bfe4c90e",
+    "v4_image_id": "sha256:2d3f89d5807513719d958ae2b6c6f65e1cf391ea47c66aa6f084d0766d9039ee",
+    "v4_build_count": 2,
+    "v4_image_ids_equal": true,
+    "v4_runtime_started": false
+  },
+  "inheritance": {
+    "contract": "eval/container-contract-0027-v4.json",
+    "contract_sha256": "ab822c1500ef09f0eff52759c7665536a5e9caa823f6c4ce2afa61614b5caacb",
+    "unchanged_surfaces": [
+      "base image identity and source gate",
+      "Dockerfile and Docker build context",
+      "BuildKit, exporter, timestamp, layer, and image identity requirements",
+      "57 scenarios, 171 attempts, 119 Boolean evaluation gates, and exact trace contract",
+      "CLI, MCP, API, approval, executor, replay, persisted state, telemetry, and dashboard",
+      "non-root, read-only, capability-free, no-new-privileges, network-none runtime",
+      "no secret, credential, model asset, real infrastructure, image export, registry push, or publication"
+    ]
+  },
+  "v5_source_gate": {
+    "path": "artifacts/verification/research-source-gate-baseline-0027-container-v5-events.json",
+    "sha256": "8a318d1f943937a44772dccc4176d689015062cd6929094deb4a2caf15c5ab87",
+    "status": "ready"
+  },
+  "event_capture_contract": {
+    "clock": "time.time_ns",
+    "timestamp_format": "Unix seconds.nanoseconds with exactly nine fractional digits",
+    "start_grace_nanoseconds": 1000000000,
+    "completion_grace_nanoseconds": 1000000000,
+    "query_filter": "type=image",
+    "format": "Docker JSON Lines",
+    "expected_tags": "both unique tags generated for the current verifier run",
+    "expected_image_id": "the exact shared ID returned by both independent builds",
+    "required_scope": "local",
+    "allowed_actions": ["create", "tag"],
+    "push_event_rejected": true,
+    "remote_scope_rejected": true,
+    "missing_tag_rejected": true,
+    "unrelated_image_events_ignored": true,
+    "claim_boundary": "The bounded future until value completes capture of the final event second; it does not weaken tag, image-ID, scope, action, exporter, or publication checks."
+  },
+  "preimplementation_identity": {
+    "runtime_verifier_path": "scripts/verify_container_runtime.py",
+    "runtime_verifier_v4_sha256": "ed71ad8cbe8b379598c3e9442ecef2312992bae588cb2251a074c0dd1bc22712",
+    "runtime_verifier_v4_bytes": 47255,
+    "tests_path": "tests/test_baseline.py",
+    "tests_v4_sha256": "67e0f54a9f3a70302595e04da0b01c8df9d8a5dbaab593c98441cf16f07a45db",
+    "tests_v4_bytes": 116173
+  },
+  "verification_contract": {
+    "receipt": "artifacts/verification/container-baseline-0027.json",
+    "required_checks": [
+      "source_gate_ready",
+      "base_index_digest_exact",
+      "base_platform_manifest_exact",
+      "dockerfile_contract_exact",
+      "dockerignore_contract_exact",
+      "package_contract_exact",
+      "evaluation_artifact_checkpoint_exact",
+      "build_one_pass",
+      "build_two_pass",
+      "buildkit_version_compatible",
+      "source_date_epoch_exact",
+      "image_exporter_contract_exact",
+      "image_created_at_frozen",
+      "build_processes_exit_zero_without_exporter_error",
+      "independent_image_ids_equal",
+      "local_image_content_digest_matches_id",
+      "base_rootfs_layers_exact_prefix",
+      "added_layer_count_exact",
+      "added_layer_payload_allowlist_exact",
+      "image_labels_exact",
+      "image_user_exact",
+      "image_workdir_exact",
+      "image_entrypoint_exact",
+      "image_default_command_exact",
+      "cli_help_pass",
+      "container_evaluation_pass",
+      "container_evaluation_57_scenarios_171_attempts",
+      "container_evaluation_trace_261_events_exact",
+      "container_source_package_metric_parity",
+      "container_mcp_protocol_and_three_tool_boundary_exact",
+      "container_api_approval_executor_replay_state_audit_pass",
+      "container_persisted_state_and_anchored_telemetry_pass",
+      "container_dashboard_http_exact_html_extracted_and_host_render_pass",
+      "runtime_user_nonroot",
+      "runtime_rootfs_read_only",
+      "runtime_capabilities_dropped",
+      "runtime_no_new_privileges",
+      "runtime_network_boundaries_exact",
+      "candidate_scan_no_critical_or_high",
+      "candidate_contains_no_secret_model_or_runtime_state",
+      "clean_clone_container_rebuild_image_id_exact",
+      "container_image_not_exported_or_published"
+    ]
+  },
+  "no_go_boundaries": [
+    "no event acceptance without both current unique tags bound to the exact shared image ID",
+    "no remote-scope image event or action outside create and tag",
+    "no mutable base tag, alternative digest, Dockerfile, context, exporter, layer, or payload change",
+    "no root, privilege, capability, host namespace, host device, host path, external egress, secret, model, or real infrastructure",
+    "no image export, registry authentication, upload, push, publication, or redistribution",
+    "no agent, retrieval, decision, policy, approval, executor, API, MCP, scenario, grader, or authority change",
+    "no production-readiness, universal-safety, cross-builder-universality, or perpetual-CVE-free claim"
+  ]
+}

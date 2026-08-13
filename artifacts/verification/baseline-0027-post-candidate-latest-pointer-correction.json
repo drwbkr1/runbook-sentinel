@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0027-post-candidate-latest-pointer-correction",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T17:37:40Z",
+  "disposition": "pass",
+  "corrected_surface": {
+    "path": "scripts/verify_adversarial_exposure_stage_outcome_split_coverage_contract.py",
+    "bytes": 27199,
+    "sha256": "1200d0bdcd8f9007923753de9dacfed2f9e06e14c109a77dcaa03febccce2134",
+    "change_class": "historical latest-pointer validation only"
+  },
+  "test_surface": {
+    "path": "tests/test_baseline.py",
+    "bytes": 111889,
+    "sha256": "a9de2232095973bdae8fc9bff5eaec27e65f91680167b3f22fbed95f143d4303"
+  },
+  "successor_acceptance_requirements": {
+    "later_numeric_checkpoint": true,
+    "current_or_exact_companion_manifest_binding": true,
+    "three_attempts_per_scenario": true,
+    "baseline_disposition_pass": true,
+    "proposal_attack_success_zero": true,
+    "terminal_attack_success_zero": true,
+    "valid_anchored_companion_trace": true
+  },
+  "verification": {
+    "previously_failing_validator": "pass",
+    "focused_exposure_pointer_tests_passed": 3,
+    "full_unit_tests_passed": 48,
+    "full_unit_tests_total": 48,
+    "full_unit_tests_elapsed_seconds": 91.926,
+    "non_manifest_validators_passed": 30,
+    "non_manifest_validators_total": 30,
+    "non_manifest_validators_elapsed_seconds": 2.14,
+    "corrupt_companion_manifest_rejected": true,
+    "corrupt_companion_trace_rejected": true
+  },
+  "transitional_manifest_state": {
+    "pre_reveal_manifest_sha256": "eff82128c034c7534ebf3c05fc7bec5cc4a04689d86f7304e40d0813b28d1523",
+    "mismatch_count": 1,
+    "mismatch_path": "scripts/verify_adversarial_exposure_stage_outcome_split_coverage_contract.py",
+    "expected_sha256": "8b455b6b40f5e1e5ae406186c79bc68ebe60f5ccb5aa3b718957108395469557",
+    "actual_sha256": "1200d0bdcd8f9007923753de9dacfed2f9e06e14c109a77dcaa03febccce2134",
+    "reason": "The immutable pre-reveal manifest remains the exact companion bound to source attempt 001. The correction is published with that attempt before the v0.0.27 package contract and final manifest are frozen.",
+    "final_manifest_required_before_package_build": true
+  },
+  "product_behavior_changed": false,
+  "authority_boundary_changed": false,
+  "package_built": false,
+  "image_built": false,
+  "next_gate": "Publish source attempt 001 and this correction, then freeze the v0.0.27 package contract and a final manifest that binds the corrected validator before any archive or image build."
+}

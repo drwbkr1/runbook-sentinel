@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T19:27:11Z",
+  "status": "pass",
+  "disposition": "pass",
+  "phase": "v3_contract_frozen_before_implementation",
+  "repository": "C:/Projects/Active/runbook-sentinel",
+  "branch": "codex/baseline-0027-container-runtime",
+  "public_predecessor_commit": "9a14d5e533ad941bd3c2b15de00540c23ad789ca",
+  "contracts": {
+    "current": "eval/container-contract.json",
+    "versioned": "eval/container-contract-0027-v3.json",
+    "byte_identical": true,
+    "sha256": "1f63fcb6707f129ecc803c05026308680ea9417a6b61c4fdb4d379737d9d6b67",
+    "retained_v2_sha256": "093c4c8167a8aed41770a1c8b100614334c60e431ec885d8cc4cc74bc4157df8",
+    "retained_v1_sha256": "6a2f0df63909852994c0436a308e6d89577e2d48293130134b85c1969f5507b0"
+  },
+  "retained_evidence": {
+    "first_failure": "artifacts/verification/container-baseline-0027-image-identity-failure-001.json",
+    "first_failure_correction": "artifacts/verification/container-baseline-0027-image-identity-diagnostic-correction-001.json",
+    "second_failure": "artifacts/verification/container-baseline-0027-source-date-epoch-failure-002.json",
+    "excluded_probes": "artifacts/verification/container-baseline-0027-rewrite-timestamp-probes-001.json",
+    "successor_source_gate": "artifacts/verification/research-source-gate-baseline-0027-buildkit-reproducibility-v2.json",
+    "successor_source_gate_sha256": "84368c0cf636e2afaca68e9ba47048f1b936af8205377e9de7604148c5abb1a2",
+    "source_date_epoch_manifest": "artifacts/evaluations/runs/baseline-0027-final-source-attempt-002.manifest.json",
+    "source_date_epoch_manifest_sha256": "cdc9ced520421f89b87ea04629bbce1b4a80e7f875b4366a6359c987a009f67a"
+  },
+  "static_validator": {
+    "default_exit_code": 0,
+    "default_status": "pass",
+    "implementation_phase": "superseded_v2_implementation",
+    "require_implementation_exit_code": 1,
+    "require_implementation_status": "fail",
+    "require_implementation_error": "v3 Dockerfile implementation is required"
+  },
+  "implementation_state": {
+    "dockerfile_changed_for_v3": false,
+    "runtime_verifier_changed_for_v3": false,
+    "final_manifest_renewed_for_v3": false,
+    "package_rebuilt_for_v3": false,
+    "candidate_image_built_under_v3": false,
+    "container_receipt_exists": false
+  },
+  "boundaries": {
+    "security_or_authority_weakened": false,
+    "external_code_data_model_or_image_imported": false,
+    "image_archive_exported": false,
+    "image_pushed": false,
+    "image_published": false,
+    "real_infrastructure_connected": false,
+    "universal_cross_version_reproducibility_claimed": false
+  },
+  "next_gate": "Commit and push this exact freeze before changing Dockerfile or scripts/verify_container_runtime.py."
+}

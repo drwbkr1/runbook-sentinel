@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T21:22:00Z",
+  "status": "stopped",
+  "failure": "The second v4 full-verifier wrapper pre-created the evidence directory, while the frozen verifier requires ownership of creating a nonexistent directory. It stopped at FileExistsError before Docker activity.",
+  "boundary": {
+    "container_verdict": "not reached",
+    "runbook_sentinel_container_created": false,
+    "runbook_sentinel_image_built": false,
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false
+  },
+  "next_gate": "Pass a unique nonexistent evidence directory to the unchanged frozen v4 verifier."
+}

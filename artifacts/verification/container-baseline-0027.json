@@ -1,0 +1,684 @@
+{
+  "api": {
+    "artifact_extractions": [
+      {
+        "bytes": 4205,
+        "command": [
+          "docker",
+          "exec",
+          "rs-b0027-fc598c1e7a",
+          "/usr/bin/python",
+          "-c",
+          "import hashlib,json,sys;source=sys.argv[1];limit=int(sys.argv[2]);data=open(source,'rb').read(limit+1);assert len(data)<=limit,'source exceeds frozen extraction limit';header={'source':source,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()};sys.stdout.buffer.write(json.dumps(header,sort_keys=True,separators=(',',':')).encode('utf-8')+b'\\n'+data)",
+          "/state/dashboard.html",
+          "4194304"
+        ],
+        "destination": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0027-v7-container-full-attempt-004-20260813T0100Z\\container-dashboard.html",
+        "exit_code": 0,
+        "sha256": "14c9f16a4b5c86bcf21bfc2a4373cc04c4bc18a6341e6d7fd55dc1d6b37c5b50",
+        "source": "/state/dashboard.html",
+        "stderr_empty": true,
+        "verified_before_and_after_write": true
+      },
+      {
+        "bytes": 65536,
+        "command": [
+          "docker",
+          "exec",
+          "rs-b0027-fc598c1e7a",
+          "/usr/bin/python",
+          "-c",
+          "import hashlib,json,sys;source=sys.argv[1];limit=int(sys.argv[2]);data=open(source,'rb').read(limit+1);assert len(data)<=limit,'source exceeds frozen extraction limit';header={'source':source,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()};sys.stdout.buffer.write(json.dumps(header,sort_keys=True,separators=(',',':')).encode('utf-8')+b'\\n'+data)",
+          "/state/api.db",
+          "4194304"
+        ],
+        "destination": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0027-v7-container-full-attempt-004-20260813T0100Z\\container-api.db",
+        "exit_code": 0,
+        "sha256": "43d16eef92181f44df70871fb3f48656c41e9e3ba11fbbc7fabbbb72f1dac383",
+        "source": "/state/api.db",
+        "stderr_empty": true,
+        "verified_before_and_after_write": true
+      },
+      {
+        "bytes": 3226,
+        "command": [
+          "docker",
+          "exec",
+          "rs-b0027-fc598c1e7a",
+          "/usr/bin/python",
+          "-c",
+          "import hashlib,json,sys;source=sys.argv[1];limit=int(sys.argv[2]);data=open(source,'rb').read(limit+1);assert len(data)<=limit,'source exceeds frozen extraction limit';header={'source':source,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()};sys.stdout.buffer.write(json.dumps(header,sort_keys=True,separators=(',',':')).encode('utf-8')+b'\\n'+data)",
+          "/state/api-traces.jsonl",
+          "4194304"
+        ],
+        "destination": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0027-v7-container-full-attempt-004-20260813T0100Z\\api-traces.jsonl",
+        "exit_code": 0,
+        "sha256": "73dc29a30283eb6048364970cc56c0faa29857e572d155c412b8f4bf650a9be8",
+        "source": "/state/api-traces.jsonl",
+        "stderr_empty": true,
+        "verified_before_and_after_write": true
+      },
+      {
+        "bytes": 285,
+        "command": [
+          "docker",
+          "exec",
+          "rs-b0027-fc598c1e7a",
+          "/usr/bin/python",
+          "-c",
+          "import hashlib,json,sys;source=sys.argv[1];limit=int(sys.argv[2]);data=open(source,'rb').read(limit+1);assert len(data)<=limit,'source exceeds frozen extraction limit';header={'source':source,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()};sys.stdout.buffer.write(json.dumps(header,sort_keys=True,separators=(',',':')).encode('utf-8')+b'\\n'+data)",
+          "/state/api-traces.jsonl.anchor.json",
+          "4194304"
+        ],
+        "destination": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0027-v7-container-full-attempt-004-20260813T0100Z\\api-traces.jsonl.anchor.json",
+        "exit_code": 0,
+        "sha256": "47a02fa6ae9bd2bae6b2f51d5453ea3a1a4955efa6d5118224271ed8991d893f",
+        "source": "/state/api-traces.jsonl.anchor.json",
+        "stderr_empty": true,
+        "verified_before_and_after_write": true
+      }
+    ],
+    "checks": {
+      "action_hash_bound": true,
+      "caller_actor_rejected": true,
+      "dashboard_csp_exact": true,
+      "dashboard_http_ok": true,
+      "dashboard_identity_exact": true,
+      "different_key_replay_rejected": true,
+      "evaluation_checkpoint_exact": true,
+      "evaluation_pass": true,
+      "execution_pass": true,
+      "fresh_evidence_retained": true,
+      "health_checkpoint_exact": true,
+      "invalid_ttl_no_incident_mutation": true,
+      "invalid_ttl_rejected": true,
+      "missing_cached_denied": true,
+      "missing_capability_rejected_before_body": true,
+      "same_key_idempotent": true,
+      "stale_payload_excluded": true,
+      "terminal_state_exact": true,
+      "valid_recovery_approval": true,
+      "wrong_cached_denied": true,
+      "wrong_capability_rejected": true
+    },
+    "evidence": {
+      "dashboard_bytes": 4205,
+      "dashboard_sha256": "14c9f16a4b5c86bcf21bfc2a4373cc04c4bc18a6341e6d7fd55dc1d6b37c5b50",
+      "decision_document_count": 4,
+      "decision_stale_document_count": 3,
+      "evaluation_attempt_count": 171,
+      "evaluation_scenario_count": 57,
+      "execute_status": 200,
+      "health": {
+        "checkpoint": "baseline-0027",
+        "status": "ok"
+      },
+      "incident_status": "mitigated",
+      "missing_cached_status": 409,
+      "proposal_action": "restart_worker",
+      "replay_status": 409,
+      "retrieved_document_count": 4,
+      "run_outcome": "propose_action",
+      "wrong_cached_status": 409
+    },
+    "status": "pass"
+  },
+  "api_trace": {
+    "anchor_sha256": "c46b4bbc0d8b491ff716f53039579640bc98b8e6bf6f3b3f74ec89f44f9b117b",
+    "anchored": true,
+    "errors": [],
+    "event_count": 5,
+    "final_event_sha256": "b712b6b74e89a197b98c5bae2ab8c6e80daf059f10ef1e6e45385801cae947ce",
+    "valid": true
+  },
+  "base_image": {
+    "id": "sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5",
+    "platform_manifest_digest": "sha256:15e66fa35e0b07095bbc4f4f0522718b780944709026687485f4e712cc6d5ae0",
+    "reference": "cgr.dev/chainguard/python@sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5"
+  },
+  "builder": {
+    "buildx_inspect_sha256": "57ebd0184a0be41b642262fe8266ada1a5082284cfb7dec549f62aa2ab4eec5a",
+    "buildx_version": "github.com/docker/buildx v0.33.0-desktop.1 7f91f038ac14cbf5c4b2a6b76470860814424da1",
+    "checks": {
+      "buildkit": true,
+      "docker_buildx": true,
+      "docker_desktop": true,
+      "docker_engine": true,
+      "driver": true
+    },
+    "docker_version_sha256": "a854874cfba526fdbef6ef182893ba24c15e20b7bc9eba82d4cb566ea48f627e",
+    "observed": {
+      "buildkit": "0.29.0",
+      "docker_buildx": "0.33.0-desktop.1",
+      "docker_desktop": "4.74.0",
+      "docker_engine": "29.4.3",
+      "driver": "docker"
+    }
+  },
+  "builds": [
+    {
+      "command": [
+        "docker",
+        "buildx",
+        "build",
+        "--no-cache",
+        "--network=none",
+        "--provenance=false",
+        "--sbom=false",
+        "--platform=linux/amd64",
+        "--output",
+        "type=image,name=runbook-sentinel:baseline-0027-a-fc598c1e7a,rewrite-timestamp=true,unpack=false,store=true,push=false",
+        "."
+      ],
+      "exit_code": 0,
+      "exporter_error": false,
+      "log_bytes": 1655,
+      "log_path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0027-v7-container-full-attempt-004-20260813T0100Z\\build-1.log",
+      "log_sha256": "18cec4f7aff0acfdbd4382ea373c8745c86f287d014c33136c6e6cf8270b201b",
+      "source_date_epoch": "1786556577"
+    },
+    {
+      "command": [
+        "docker",
+        "buildx",
+        "build",
+        "--no-cache",
+        "--network=none",
+        "--provenance=false",
+        "--sbom=false",
+        "--platform=linux/amd64",
+        "--output",
+        "type=image,name=runbook-sentinel:baseline-0027-b-fc598c1e7a,rewrite-timestamp=true,unpack=false,store=true,push=false",
+        "."
+      ],
+      "exit_code": 0,
+      "exporter_error": false,
+      "log_bytes": 1619,
+      "log_path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0027-v7-container-full-attempt-004-20260813T0100Z\\build-2.log",
+      "log_sha256": "2cfc6adad7ffe21b0f3f3c5126adbde61c48420ac398a1d53e39a93e28db10bd",
+      "source_date_epoch": "1786556577"
+    }
+  ],
+  "checkpoint": "baseline-0027",
+  "checks": {
+    "added_layer_count_exact": true,
+    "added_layer_payload_allowlist_exact": true,
+    "base_index_digest_exact": true,
+    "base_platform_manifest_exact": true,
+    "base_rootfs_layers_exact_prefix": true,
+    "build_one_pass": true,
+    "build_processes_exit_zero_without_exporter_error": true,
+    "build_two_pass": true,
+    "buildkit_version_compatible": true,
+    "candidate_contains_no_secret_model_or_runtime_state": true,
+    "candidate_scan_no_critical_or_high": true,
+    "clean_clone_container_rebuild_image_id_exact": true,
+    "cli_help_pass": true,
+    "container_api_approval_executor_replay_state_audit_pass": true,
+    "container_dashboard_http_exact_html_extracted_and_host_render_pass": true,
+    "container_evaluation_57_scenarios_171_attempts": true,
+    "container_evaluation_pass": true,
+    "container_evaluation_trace_261_events_exact": true,
+    "container_image_not_exported_or_published": true,
+    "container_mcp_protocol_and_three_tool_boundary_exact": true,
+    "container_persisted_state_and_anchored_telemetry_pass": true,
+    "container_source_package_metric_parity": true,
+    "container_tmpfs_artifact_extraction_verified": true,
+    "dockerfile_contract_exact": true,
+    "dockerignore_contract_exact": true,
+    "evaluation_artifact_checkpoint_exact": true,
+    "image_created_at_frozen": true,
+    "image_default_command_exact": true,
+    "image_entrypoint_exact": true,
+    "image_exporter_contract_exact": true,
+    "image_labels_exact": true,
+    "image_user_exact": true,
+    "image_workdir_exact": true,
+    "independent_image_ids_equal": true,
+    "local_image_content_digest_matches_id": true,
+    "package_contract_exact": true,
+    "runtime_capabilities_dropped": true,
+    "runtime_network_boundaries_exact": true,
+    "runtime_no_new_privileges": true,
+    "runtime_rootfs_read_only": true,
+    "runtime_user_nonroot": true,
+    "source_date_epoch_exact": true,
+    "source_gate_ready": true
+  },
+  "contract_sha256": "b4c078b1e2a836ddf23ab0644c9a1810bfe9e0fdf40997256396f3de439643c0",
+  "dashboard": {
+    "bytes": 86794,
+    "dimensions": [
+      1440,
+      1000
+    ],
+    "edge_exit_code": 0,
+    "path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0027-v7-container-full-attempt-004-20260813T0100Z\\container-dashboard.png",
+    "sha256": "6de048141932bdbf86040035259d578b4eeb9d70c0aa371b88d2fc1691eeeee0"
+  },
+  "database": {
+    "bytes": 65536,
+    "row_counts": {
+      "approvals": 2,
+      "audit_log": 5,
+      "idempotency": 1,
+      "incidents": 2,
+      "proposals": 2,
+      "runs": 2,
+      "sqlite_sequence": 1
+    },
+    "sha256": "43d16eef92181f44df70871fb3f48656c41e9e3ba11fbbc7fabbbb72f1dac383",
+    "tables": [
+      "approvals",
+      "audit_log",
+      "idempotency",
+      "incidents",
+      "proposals",
+      "runs",
+      "sqlite_sequence"
+    ]
+  },
+  "evaluation": {
+    "artifact_extractions": [
+      {
+        "bytes": 917067,
+        "command": [
+          "docker",
+          "exec",
+          "rs-b0027-fc598c1e7a",
+          "/usr/bin/python",
+          "-c",
+          "import hashlib,json,sys;source=sys.argv[1];limit=int(sys.argv[2]);data=open(source,'rb').read(limit+1);assert len(data)<=limit,'source exceeds frozen extraction limit';header={'source':source,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()};sys.stdout.buffer.write(json.dumps(header,sort_keys=True,separators=(',',':')).encode('utf-8')+b'\\n'+data)",
+          "/state/container-evaluation.json",
+          "4194304"
+        ],
+        "destination": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0027-v7-container-full-attempt-004-20260813T0100Z\\container-evaluation.json",
+        "exit_code": 0,
+        "sha256": "e818e5941d092f1973c2ff114369579a76e17e105e1ac56505d79b2ded6ea2c6",
+        "source": "/state/container-evaluation.json",
+        "stderr_empty": true,
+        "verified_before_and_after_write": true
+      },
+      {
+        "bytes": 195291,
+        "command": [
+          "docker",
+          "exec",
+          "rs-b0027-fc598c1e7a",
+          "/usr/bin/python",
+          "-c",
+          "import hashlib,json,sys;source=sys.argv[1];limit=int(sys.argv[2]);data=open(source,'rb').read(limit+1);assert len(data)<=limit,'source exceeds frozen extraction limit';header={'source':source,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()};sys.stdout.buffer.write(json.dumps(header,sort_keys=True,separators=(',',':')).encode('utf-8')+b'\\n'+data)",
+          "/state/container-evaluation.traces.jsonl",
+          "4194304"
+        ],
+        "destination": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0027-v7-container-full-attempt-004-20260813T0100Z\\container-evaluation.traces.jsonl",
+        "exit_code": 0,
+        "sha256": "e20b8cfda00044ded1eca8ee58f5ac08bc8cf7ea70d5457176f45b8bfbee0b81",
+        "source": "/state/container-evaluation.traces.jsonl",
+        "stderr_empty": true,
+        "verified_before_and_after_write": true
+      }
+    ],
+    "metric_projection_sha256": "d08823b3ddda041f24567f70f11326661b749d63ddc07dbdd1d160836c7ca820",
+    "report_bytes": 917067,
+    "report_sha256": "e818e5941d092f1973c2ff114369579a76e17e105e1ac56505d79b2ded6ea2c6",
+    "stdout_sha256": "c95d3c18f2a1bd326dd3741b8421ecdaabcd449cc625b6e1a0d2e677f6b41f1c",
+    "trace_bytes": 195291,
+    "trace_sha256": "e20b8cfda00044ded1eca8ee58f5ac08bc8cf7ea70d5457176f45b8bfbee0b81",
+    "trace_verification": {
+      "anchored": true,
+      "errors": [],
+      "event_count": 261,
+      "final_event_sha256": "3e5f0453a961a9176721c28710b3c1447a577fb1e199fd9c406e062d741d2ac0",
+      "valid": true
+    }
+  },
+  "image": {
+    "config_workdir": null,
+    "created_at_utc": [
+      "2026-08-12T17:42:57Z",
+      "2026-08-12T17:42:57Z"
+    ],
+    "independent_image_ids": [
+      "sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee",
+      "sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee"
+    ],
+    "repo_digests": [
+      "runbook-sentinel@sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee"
+    ],
+    "rootfs_layers": [
+      "sha256:e20422a64152e6202092f14cf2a51cf6d6da5c5e33ba0fb1e9408676446cf90a",
+      "sha256:018d3987342beb49eeb6d78bbbce6a566905b259f716afb9f88e4e945631282d",
+      "sha256:c595efa270d88247a93c29fd513c3c7a1870f8c3e7e4f060a6c69351fadf019c",
+      "sha256:a7613bad6cfd5f641d591e4dde7e145962bcba6b37a924d859fe0c4b2203bcd9",
+      "sha256:386bd609cc72f9cbcd2e5033df95dac3c012b25568b351ac43554988aecf6696",
+      "sha256:059bbf8e4d785433d8a519d7235bea25d32fec8d6e4907dfe78e47fdec38b6cc",
+      "sha256:22516be037ba95896becac2dc910ccce5ba84af6db35b9ae4cd21dacb1a4b6d4",
+      "sha256:7de63fdd037bf24ee5fed6036c8229cdeb2d8f4462a990b00316814fc2927557",
+      "sha256:fe2d79f38224db6597d1fb82f5753c2a42c091ed4920aa55f600419498c997bb",
+      "sha256:ad9c53da18ac772b2e236ccca4cd8423a19016893429a5de88d235b249d358d0",
+      "sha256:f466517c8afa7c59ebb03fed4606fdc8d14b8b7234c24243640cf346a2892caa",
+      "sha256:af9ebd0acbd18115c7f613a017a73e0f04568ed1158f8ffd40805b5fc770e89d",
+      "sha256:aa1bf50fb933b6ba8acf3c1e7af6501f8f7bcf8788c2aa10f921a50ca78837e3"
+    ],
+    "runtime_workdir": "/",
+    "tags": [
+      "runbook-sentinel:baseline-0027-a-fc598c1e7a",
+      "runbook-sentinel:baseline-0027-b-fc598c1e7a"
+    ]
+  },
+  "mcp": {
+    "approval_or_execution_tool_exposed": false,
+    "artifact_extractions": [
+      {
+        "bytes": 867,
+        "command": [
+          "docker",
+          "exec",
+          "rs-b0027-fc598c1e7a",
+          "/usr/bin/python",
+          "-c",
+          "import hashlib,json,sys;source=sys.argv[1];limit=int(sys.argv[2]);data=open(source,'rb').read(limit+1);assert len(data)<=limit,'source exceeds frozen extraction limit';header={'source':source,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()};sys.stdout.buffer.write(json.dumps(header,sort_keys=True,separators=(',',':')).encode('utf-8')+b'\\n'+data)",
+          "/state/mcp-traces.jsonl",
+          "4194304"
+        ],
+        "destination": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0027-v7-container-full-attempt-004-20260813T0100Z\\mcp-traces.jsonl",
+        "exit_code": 0,
+        "sha256": "ec3e21bf5349d4ad33a931819cfd39ac989ca168c18e6a4d94fe21246308c06e",
+        "source": "/state/mcp-traces.jsonl",
+        "stderr_empty": true,
+        "verified_before_and_after_write": true
+      },
+      {
+        "bytes": 285,
+        "command": [
+          "docker",
+          "exec",
+          "rs-b0027-fc598c1e7a",
+          "/usr/bin/python",
+          "-c",
+          "import hashlib,json,sys;source=sys.argv[1];limit=int(sys.argv[2]);data=open(source,'rb').read(limit+1);assert len(data)<=limit,'source exceeds frozen extraction limit';header={'source':source,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()};sys.stdout.buffer.write(json.dumps(header,sort_keys=True,separators=(',',':')).encode('utf-8')+b'\\n'+data)",
+          "/state/mcp-traces.jsonl.anchor.json",
+          "4194304"
+        ],
+        "destination": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0027-v7-container-full-attempt-004-20260813T0100Z\\mcp-traces.jsonl.anchor.json",
+        "exit_code": 0,
+        "sha256": "337594a519274f2796b9c752ac9b8236939279e0c0be5ad6c0f90c336301bd92",
+        "source": "/state/mcp-traces.jsonl.anchor.json",
+        "stderr_empty": true,
+        "verified_before_and_after_write": true
+      }
+    ],
+    "attack_excluded_from_decision": true,
+    "attack_retrieved": true,
+    "protocol": "2025-11-25",
+    "tool_names": [
+      "list_synthetic_scenarios",
+      "diagnose_synthetic_incident",
+      "get_synthetic_incident"
+    ],
+    "version": "0.0.27"
+  },
+  "mcp_trace": {
+    "anchor_sha256": "9ec45276b666f0edf37c5920482107d69be75cb626da91759eacc7cb1768450d",
+    "anchored": true,
+    "errors": [],
+    "event_count": 1,
+    "final_event_sha256": "44b82986b5501689f376b7fb03668e826956ee72c77b0b99fd3ebe14b36775a4",
+    "valid": true
+  },
+  "clean_clone": {
+    "clone_root": "C:/Projects/Verification/runbook-sentinel-baseline-0027-clean-428d12f-20260813T0057Z",
+    "remote": "https://github.com/drwbkr1/runbook-sentinel.git",
+    "branch": "codex/baseline-0027-container-runtime",
+    "commit": "428d12f57f01cecdf2e97e0a18746d9226eef9c1",
+    "public_remote_commit_exact": true,
+    "worktree_clean_before_and_after": true,
+    "git_object_alternates_present": false,
+    "tracked_file_count": 1054,
+    "receipt": {
+      "path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-clean-container-receipt-428d12f-20260813T0057Z.json",
+      "bytes": 8985,
+      "sha256": "9536176ceb09676f3324f97597a30f2dd49fb52e8930caedfdafc5255bba1b2c",
+      "status": "pass",
+      "exact": true
+    },
+    "build_log": {
+      "path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-clean-container-evidence-428d12f-20260813T0057Z/clean-build.log",
+      "bytes": 1551,
+      "sha256": "cf8758a93c1e25252c87763085156c8b0537ffe47f28159f16962c2317856826"
+    },
+    "stderr": {
+      "path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-clean-container-428d12f.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "expected_image_id": "sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee",
+    "rebuilt_image_id": "sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee",
+    "image_id_exact": true,
+    "created_at_utc": "2026-08-12T17:42:57Z",
+    "prerequisite_checks_all_true": true,
+    "image_validation_checks_all_true": true,
+    "local_event_checks_all_true": true,
+    "image_exported": false,
+    "image_pushed": false
+  },
+  "intermediate_local_receipt": {
+    "path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v7-container-full-attempt-004.stdout.log",
+    "status": "local-pass-clean-clone-pending",
+    "true_checks": 42,
+    "total_checks": 43,
+    "retained_unmodified": true
+  },
+  "next_gate": "Commit and publish this canonical 43-of-43 container receipt, then reconcile UNIT-004 and begin the release audit.",
+  "observed_at_utc": "2026-08-13T00:59:03.4506199Z",
+  "prerequisites": {
+    "checks": {
+      "container_contract": true,
+      "evaluation_checkpoint": true,
+      "manifest": true,
+      "package": true
+    },
+    "container_contract": {
+      "checkpoint": "baseline-0027",
+      "contract_id": "container-runtime-v7",
+      "contract_sha256": "b4c078b1e2a836ddf23ab0644c9a1810bfe9e0fdf40997256396f3de439643c0",
+      "errors": [],
+      "implementation_phase": "implemented_v7",
+      "receipt_state": "absent",
+      "status": "pass"
+    },
+    "evaluation_sha256": "57b041d8e941f1553fd2c3017ffad420bef5a5cc6b0e976236aeaf2793870312",
+    "manifest": {
+      "checkpoint": "baseline-0027",
+      "file_count": 121,
+      "status": "pass"
+    },
+    "package": {
+      "archive": "C:\\Projects\\Active\\runbook-sentinel\\dist\\runbook-sentinel-0.0.27.pyz",
+      "archive_bytes": 590546,
+      "archive_checked": true,
+      "archive_sha256": "bf73aac861e1a2a8317069a058fa1774012ea5fdc00865e1bb582f0244cddaf8",
+      "checkpoint": "baseline-0027",
+      "contract": "C:\\Projects\\Active\\runbook-sentinel\\eval\\package-contract-0027.json",
+      "contract_frozen_before_archive_build": true,
+      "contract_frozen_before_implementation": false,
+      "contract_sha256": "2eac29cedf0b422c0873629b7d3d682882ff403556059446ac232555479bf57e",
+      "contract_status": "frozen_before_archive_build",
+      "entry_count": 41,
+      "errors": [],
+      "status": "pass"
+    },
+    "package_sha256": "bf73aac861e1a2a8317069a058fa1774012ea5fdc00865e1bb582f0244cddaf8"
+  },
+  "publication": {
+    "image_exported": false,
+    "image_pushed": false,
+    "local_image_events": {
+      "checks": {
+        "actions_allowlisted": true,
+        "both_tags_observed": true,
+        "scope_local": true
+      },
+      "events": [
+        {
+          "Action": "create",
+          "Actor": {
+            "Attributes": {
+              "dev.chainguard.image.title": "python",
+              "dev.chainguard.package.main": "",
+              "dev.runbook-sentinel.base.digest": "sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5",
+              "name": "sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee",
+              "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
+              "org.opencontainers.image.created": "2026-08-09T04:38:19Z",
+              "org.opencontainers.image.description": "Research-informed synthetic SRE incident-agent preview",
+              "org.opencontainers.image.source": "https://github.com/drwbkr1/runbook-sentinel",
+              "org.opencontainers.image.title": "Runbook Sentinel",
+              "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/python/overview",
+              "org.opencontainers.image.vendor": "Chainguard",
+              "org.opencontainers.image.version": "0.0.27"
+            },
+            "ID": "sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee"
+          },
+          "Type": "image",
+          "scope": "local",
+          "time": 1786582461,
+          "timeNano": 1786582461012401786
+        },
+        {
+          "Action": "tag",
+          "Actor": {
+            "Attributes": {
+              "dev.chainguard.image.title": "python",
+              "dev.chainguard.package.main": "",
+              "dev.runbook-sentinel.base.digest": "sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5",
+              "name": "runbook-sentinel:baseline-0027-a-fc598c1e7a",
+              "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
+              "org.opencontainers.image.created": "2026-08-09T04:38:19Z",
+              "org.opencontainers.image.description": "Research-informed synthetic SRE incident-agent preview",
+              "org.opencontainers.image.source": "https://github.com/drwbkr1/runbook-sentinel",
+              "org.opencontainers.image.title": "Runbook Sentinel",
+              "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/python/overview",
+              "org.opencontainers.image.vendor": "Chainguard",
+              "org.opencontainers.image.version": "0.0.27"
+            },
+            "ID": "sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee"
+          },
+          "Type": "image",
+          "scope": "local",
+          "time": 1786582461,
+          "timeNano": 1786582461033576091
+        },
+        {
+          "Action": "create",
+          "Actor": {
+            "Attributes": {
+              "dev.chainguard.image.title": "python",
+              "dev.chainguard.package.main": "",
+              "dev.runbook-sentinel.base.digest": "sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5",
+              "name": "sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee",
+              "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
+              "org.opencontainers.image.created": "2026-08-09T04:38:19Z",
+              "org.opencontainers.image.description": "Research-informed synthetic SRE incident-agent preview",
+              "org.opencontainers.image.source": "https://github.com/drwbkr1/runbook-sentinel",
+              "org.opencontainers.image.title": "Runbook Sentinel",
+              "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/python/overview",
+              "org.opencontainers.image.vendor": "Chainguard",
+              "org.opencontainers.image.version": "0.0.27"
+            },
+            "ID": "sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee"
+          },
+          "Type": "image",
+          "scope": "local",
+          "time": 1786582463,
+          "timeNano": 1786582463033601690
+        },
+        {
+          "Action": "tag",
+          "Actor": {
+            "Attributes": {
+              "dev.chainguard.image.title": "python",
+              "dev.chainguard.package.main": "",
+              "dev.runbook-sentinel.base.digest": "sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5",
+              "name": "runbook-sentinel:baseline-0027-b-fc598c1e7a",
+              "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
+              "org.opencontainers.image.created": "2026-08-09T04:38:19Z",
+              "org.opencontainers.image.description": "Research-informed synthetic SRE incident-agent preview",
+              "org.opencontainers.image.source": "https://github.com/drwbkr1/runbook-sentinel",
+              "org.opencontainers.image.title": "Runbook Sentinel",
+              "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/python/overview",
+              "org.opencontainers.image.vendor": "Chainguard",
+              "org.opencontainers.image.version": "0.0.27"
+            },
+            "ID": "sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee"
+          },
+          "Type": "image",
+          "scope": "local",
+          "time": 1786582463,
+          "timeNano": 1786582463049475088
+        }
+      ]
+    }
+  },
+  "scan": {
+    "critical_high_findings": 0,
+    "sarif_bytes": 461,
+    "sarif_sha256": "7749b34be7a069559b10b1b9d53cc8897576fdd104071a9e0f907f9a301ee303",
+    "scanner": [
+      {
+        "full_name": "Docker Scout",
+        "name": "docker scout",
+        "version": "1.20.4"
+      }
+    ]
+  },
+  "schema_version": "1.0",
+  "secret_hits": [],
+  "security": {
+    "checks": {
+      "cap_drop_all": true,
+      "ipc_mode_private": true,
+      "network_none": true,
+      "no_binds": true,
+      "no_devices": true,
+      "no_host_namespaces": true,
+      "no_new_privileges": true,
+      "no_secrets_env": true,
+      "not_privileged": true,
+      "pid_mode_empty": true,
+      "read_only": true,
+      "user_nonroot": true,
+      "userns_mode_empty": true,
+      "uts_mode_empty": true
+    },
+    "host_config": {
+      "Binds": null,
+      "CapDrop": [
+        "ALL"
+      ],
+      "Devices": [],
+      "IpcMode": "private",
+      "NetworkMode": "none",
+      "PidMode": "",
+      "Privileged": false,
+      "ReadonlyRootfs": true,
+      "SecurityOpt": [
+        "no-new-privileges"
+      ],
+      "Tmpfs": {
+        "/state": "rw,noexec,nosuid,nodev,uid=65532,gid=65532,mode=0700",
+        "/tmp": "rw,noexec,nosuid,nodev,uid=65532,gid=65532,mode=0700"
+      },
+      "UTSMode": "",
+      "UsernsMode": ""
+    }
+  },
+  "source_date_epoch": {
+    "manifest_path": "artifacts/evaluations/runs/baseline-0027-final-source-attempt-002.manifest.json",
+    "manifest_sha256": "cdc9ced520421f89b87ea04629bbce1b4a80e7f875b4366a6359c987a009f67a",
+    "utc": "2026-08-12T17:42:57Z",
+    "value": "1786556577"
+  },
+  "source_gate_sha256": "effc86d7c30dcbc08cbc7c70eb1271208acea5c1af725cd55b1577019ed24d18",
+  "status": "pass"
+}

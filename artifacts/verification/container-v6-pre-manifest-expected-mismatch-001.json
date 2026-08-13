@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T22:35:00Z",
+  "status": "expected_transitional_mismatch",
+  "manifest_sha256": "812c05ef8cf4342997723ece11668dad033a41726028519b4ff667695da18a7a",
+  "mismatches": [
+    {
+      "path": "eval/container-contract.json",
+      "expected": "e71817e465dd8f25c183427389f7c1d1aaeefadbf318506e566e6eb0c842b30a",
+      "actual": "76ca2b7dad77710a1a98ba0227847fffdb926a4e7610d0e7beded2aa8f5b27ae"
+    },
+    {
+      "path": "scripts/verify_container_contract.py",
+      "expected": "257441ecb5d84bad7fd507837a226ae3e0a416f27066e2077a6078321f6826a1",
+      "actual": "17b7adf9c20f7657761fa32235b5bd9b67de71579e049123543f1823817fe419"
+    },
+    {
+      "path": "scripts/verify_container_runtime.py",
+      "expected": "1eca1d240f786891fc0412d4eb7b9c59b25cfab042e710169120d581fd0d1f06",
+      "actual": "83a77bfbfa4178d8b5f05c836771c29e840f9191daaef6d2f91870983b3dca6d"
+    }
+  ],
+  "unexpected_mismatch_count": 0,
+  "selected_evaluation_pointer_unchanged": true,
+  "image_built_after_v6_freeze": false,
+  "disposition": "expected after public v6 freeze and bounded implementation; renew the manifest only after the implementation seal is public"
+}

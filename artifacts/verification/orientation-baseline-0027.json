@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027-orientation",
+  "observed_at_utc": "2026-08-12T16:47:40.5257235Z",
+  "repository": {
+    "authoritative_root": "C:/Projects/Active/runbook-sentinel",
+    "one_drive_authoritative": false,
+    "branch": "codex/baseline-0027-container-runtime",
+    "starting_head": "d3c3ad23652ca1b7c69525dabd59cd90c9c77522",
+    "remote": "https://github.com/drwbkr1/runbook-sentinel.git",
+    "remote_main": "d3c3ad23652ca1b7c69525dabd59cd90c9c77522",
+    "visibility": "public",
+    "preexisting_untracked_paths": [
+      "artifacts/verification/native-baseline-0025.json",
+      "artifacts/verification/repro-build-0025-344b6d8/",
+      "artifacts/verification/repro-build-0025-dc9a2df/",
+      "artifacts/verification/repro-build-0025/"
+    ]
+  },
+  "verified_public_checkpoint": {
+    "version": "0.0.26",
+    "tag": "v0.0.26",
+    "tag_object": "2c8593ec5f77ab76e12da926336dfa06b97a67eb",
+    "peeled_release_commit": "74bf5cba93b0697e74163a335c3dbfcc4d5d7418",
+    "release_reconciliation_commit": "d3c3ad23652ca1b7c69525dabd59cd90c9c77522",
+    "release_url": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.26",
+    "release_latest_api_observation": "2026-08-12T16:36:00Z",
+    "release_draft": false,
+    "release_prerelease": false,
+    "public_receipt": {
+      "path": "artifacts/verification/public-tag-baseline-0026.json",
+      "bytes": 13831,
+      "sha256": "92bf005a334413623844e3362d7acb56cb359ff870e0e9632edca5089f9be7aa"
+    }
+  },
+  "fresh_cycle_run": {
+    "source_checkout": "C:/Projects/Verification/runbook-sentinel-v0.0.26-public-tag-20260811T215140Z",
+    "source_commit": "74bf5cba93b0697e74163a335c3dbfcc4d5d7418",
+    "post_run_changed_tracked_paths": [
+      "artifacts/verification/dashboard-baseline-0026.png",
+      "artifacts/verification/native-baseline-0026.json"
+    ],
+    "external_output_root": "C:/Projects/Verification/runbook-sentinel-v0.0.26-next-cycle-20260812T162913Z",
+    "report": {
+      "path": "C:/Projects/Verification/runbook-sentinel-v0.0.26-next-cycle-20260812T162913Z/baseline-0026-next-cycle-source-attempt-001.json",
+      "bytes": 943978,
+      "sha256": "8035665b3419f7703f58edb7319458bb464a1fd8e748eeb36c1e7d5e8a4f76eb",
+      "scenario_count": 57,
+      "attempt_count": 171,
+      "gate_property_count": 120,
+      "boolean_gate_count": 119,
+      "boolean_gate_true_count": 119,
+      "baseline_disposition": "pass"
+    },
+    "trace": {
+      "path": "C:/Projects/Verification/runbook-sentinel-v0.0.26-next-cycle-20260812T162913Z/baseline-0026-next-cycle-source-attempt-001.traces.jsonl",
+      "bytes": 195333,
+      "sha256": "c2706575d7bbab040a6e5ba98ee7c92dda0b98394f3ddaf22fba1a36e1ebe472",
+      "event_count": 261,
+      "final_event_sha256": "a692b57b98bf7ab9c59b8812393c0345dffb1bed58c290a13112f557a77f42a5",
+      "anchored_chain_valid": true
+    },
+    "separate_metrics": {
+      "retrieval_expected_evidence_recall_at_4": 1.0,
+      "generation_diagnosis_accuracy": 1.0,
+      "generation_outcome_accuracy": 1.0,
+      "tool_trajectory_exact": 1.0,
+      "policy_compliance": 1.0,
+      "terminal_state_exact": 1.0,
+      "benign_utility": 1.0,
+      "proposal_attack_success": 0.0,
+      "terminal_attack_success": 0.0,
+      "repeated_trial_pass_cubed": 1.0,
+      "median_latency_ms": 65.052,
+      "p95_latency_ms": 112.491,
+      "model_calls": 0,
+      "estimated_external_api_cost_usd": 0.0
+    }
+  },
+  "measured_evaluation_observability_gap": {
+    "description": "The v0.0.26 guidance_filtered stage conflates a hostile guidance document retrieved and then filtered with a declared hostile document never selected by retrieval.",
+    "adversarial_scenario_count": 39,
+    "refined_stage_split_counts": {
+      "guidance_not_retrieved": {"development": 1, "test": 1},
+      "guidance_retrieved_filtered": {"development": 10, "test": 10},
+      "inband_exposed": {"development": 4, "test": 4},
+      "non_instruction_adversarial": {"development": 4, "test": 5}
+    },
+    "observed_valid_stage_outcome_split_cells": 20,
+    "guidance_not_retrieved_scenarios": [
+      "dev-api-injection-coverage",
+      "test-api-diagnose-injection-coverage"
+    ],
+    "behavior_failure_observed": false,
+    "retained_next_candidate": "Add a distinct per-attempt hostile-guidance-retrieval metric and fail-closed four-stage outcome/split contract in a later cycle."
+  },
+  "container_surface_gap": {
+    "docker_client_version": "29.4.3",
+    "docker_server_version": "29.4.3",
+    "docker_desktop_version": "4.74.0",
+    "daemon_available": true,
+    "runbook_sentinel_container_built": false,
+    "runbook_sentinel_container_real_surfaces_verified": false,
+    "prior_deferred_gate": {
+      "path": "artifacts/verification/container-source-gate.json",
+      "bytes": 1690,
+      "sha256": "174eb0bcd3c7ca1b1ee9dcbd79de3b50a8f327845f96cac8948fc52994f8c72e",
+      "retained_candidate_dispositions": ["exclude", "exclude", "exclude"]
+    },
+    "new_exact_source_gate": {
+      "path": "artifacts/verification/container-source-gate-baseline-0027-chainguard-python.json",
+      "bytes": 11627,
+      "sha256": "effc86d7c30dcbc08cbc7c70eb1271208acea5c1af725cd55b1577019ed24d18",
+      "validator_status": "ready",
+      "required_criteria_passed": 8,
+      "stale_live_evidence_items": 0
+    },
+    "admitted_base": {
+      "reference": "cgr.dev/chainguard/python@sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5",
+      "platform": "linux/amd64",
+      "platform_manifest_digest": "sha256:15e66fa35e0b07095bbc4f4f0522718b780944709026687485f4e712cc6d5ae0",
+      "python": "3.14.7-r0",
+      "default_user": "65532",
+      "shell_present": false,
+      "package_manager_present": false,
+      "packages": 54,
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0
+    }
+  },
+  "selection": {
+    "highest_leverage_measurable_weakness": "Docker is now available, but the latest verified release has no admitted Runbook Sentinel image and no evidence for container build reproducibility, non-root runtime controls, or containerized CLI, evaluation, MCP, API, approval, executor, persisted state, telemetry, and dashboard surfaces.",
+    "bounded_improvement": "Add one digest-pinned, dependency-free, project-authored container path around the exact v0.0.27 zipapp and evaluation report, verify two identical local builds and all changed real surfaces under fail-closed runtime restrictions, and publish no container image bytes.",
+    "selected_checkpoint": "BASELINE-0027",
+    "frozen_contract": {
+      "path": "eval/container-contract-0027.json",
+      "sha256": "6a2f0df63909852994c0436a308e6d89577e2d48293130134b85c1969f5507b0"
+    },
+    "why_selected_over_metric_only_candidate": "The metric distinction is a retained truth-quality gap with no observed behavior failure. Container validation is an explicit goal surface that changed from unavailable to available and has no current product evidence at all.",
+    "changes_agent_behavior_or_authority": false,
+    "changes_core_thesis": false,
+    "publishes_or_redistributes_container_image": false
+  },
+  "retained_failed_or_excluded_probes": [
+    "The first GitHub release query requested unsupported gh field isLatest; the combined read wrapper stopped, and the supported releases/latest API then confirmed v0.0.26 exactly.",
+    "Two report-inspection probes used unsupported ConvertFrom-Json -Depth on this Windows PowerShell and stopped before producing evidence; corrected ConvertFrom-Json -InputObject parsing passed.",
+    "One corrected report-selection summary asked for nonexistent top-level summary, generation, and cost fields and miscounted direct scalar fields as arrays; the report's actual metrics.generation and metrics.cost structures were then read explicitly.",
+    "An earlier cross-tab probe had a PowerShell empty-pipe parser error and produced no result.",
+    "A syntactically corrected cross-tab used @($null), misclassified missing attack-ID fields, and is excluded. Explicit nonempty-string filtering produced the retained 39-case four-stage result.",
+    "The prior three official Python base candidates remain excluded with their original critical or high findings; the ready Chainguard gate supersedes none of that history.",
+    "The exact Chainguard digest passes a current digest and vulnerability gate, but Cosign signature verification was not performed because no reviewed Cosign executable is installed; no signature claim is made."
+  ]
+}

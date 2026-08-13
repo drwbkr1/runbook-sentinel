@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027-pre-manifest",
+  "observed_at_utc": "2026-08-12T17:15:00Z",
+  "status": "fail",
+  "disposition": "expected_precondition_failure",
+  "command": "python -m unittest discover -s tests -v",
+  "test_count": 47,
+  "pass_count": 46,
+  "failure_count": 1,
+  "error_count": 0,
+  "elapsed_seconds": 61.943,
+  "external_log": {
+    "path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-pre-manifest-tests.log",
+    "bytes": 18072,
+    "sha256": "153953f75bd5300867f3050833d0cc24d419bae970a22726dc589bea1d132993"
+  },
+  "failure": {
+    "test": "test_evaluation_reports_separate_metrics_and_passes_control_gates",
+    "expected_checkpoint": "baseline-0027",
+    "actual_checkpoint": "baseline-0026",
+    "cause": "The evaluator correctly reads checkpoint identity from the still-public v0.0.26 eval/manifest.json. The BASELINE-0027 pre-reveal manifest may be frozen only after the implementation seal is public."
+  },
+  "admitted_evidence": [
+    "All other 46 tests passed.",
+    "The exact Dockerfile and .dockerignore pass the frozen v2 contract.",
+    "All 57 scenario records, expected terminal states, and agent, retrieval, policy, approval, executor, and persistence files remain unchanged from the public v2 contract commit."
+  ],
+  "candidate_evaluation_ran": false,
+  "container_image_built": false,
+  "next_gate": "Publish the implementation seal, then freeze and publish a baseline-0027 pre-reveal manifest before rerunning all tests or any candidate evaluation."
+}

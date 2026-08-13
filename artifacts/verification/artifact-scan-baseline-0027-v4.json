@@ -1,0 +1,36 @@
+{
+  "archive_entry_count": 41,
+  "archive_forbidden_entries": [],
+  "checkpoint": "baseline-0027",
+  "claim_boundary": "This bounded scan classifies the selected BASELINE-0027 v4 source, package, evaluation, runtime-surface, and Docker-context evidence. It is not proof against every possible secret format or a future file.",
+  "credential_scan": {
+    "classified_definition_hits": [
+      {
+        "classification": "frozen package-contract forbidden-pattern definition, not credential material",
+        "line": 79,
+        "path": "eval/package-contract-0027.json",
+        "value": "-----BEGIN PRIVATE KEY-----"
+      }
+    ],
+    "persisted_secret_matches": 0,
+    "unresolved_high_signal_hits": []
+  },
+  "docker_context_payload_paths": [
+    "dist/runbook-sentinel-0.0.27.pyz",
+    "artifacts/evaluations/latest.json"
+  ],
+  "docker_context_payload_sha256": {
+    "artifacts/evaluations/latest.json": "0d568c73a3f6ce6bc515365b89e8961b7c658563eede1fae85b2ee3662cb1861",
+    "dist/runbook-sentinel-0.0.27.pyz": "766a0157998ea40e08d7bb6ac6ebf370c2ecbeb9efbe54ecc947eb5ae19f55b7"
+  },
+  "model_artifacts": [],
+  "observed_at_utc": "2026-08-12T21:08:42Z",
+  "parse_errors": [],
+  "parsed_record_count": 540,
+  "retained_scan_failures": [
+    "artifacts/verification/artifact-scan-baseline-0027-v4-false-positive-001.json"
+  ],
+  "schema_version": "1.0",
+  "selected_file_count": 24,
+  "status": "pass"
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T22:28:57Z",
+  "status": "pass",
+  "contract_id": "container-runtime-v6",
+  "contract": {
+    "current_path": "eval/container-contract.json",
+    "versioned_path": "eval/container-contract-0027-v6.json",
+    "bytes": 6758,
+    "sha256": "76ca2b7dad77710a1a98ba0227847fffdb926a4e7610d0e7beded2aa8f5b27ae",
+    "current_and_versioned_exact": true
+  },
+  "source_gate": {
+    "path": "artifacts/verification/research-source-gate-baseline-0027-container-v6-namespaces.json",
+    "sha256": "88a9448c8716c33bed7059ef5b60ef00cb3a466057fc9a8a6aec78824d2f4f07",
+    "criteria_passed": 8,
+    "criteria_total": 8,
+    "decision": "ready"
+  },
+  "decision_record": {
+    "path": "docs/adr/0021-require-explicit-private-container-namespaces.md",
+    "sha256": "aa0e7de8e48f14ff7f2cf9d3f6f92faba9bd6dff3291fb59582cc9204d9dc4bb"
+  },
+  "independent_validator": {
+    "path": "scripts/verify_container_contract.py",
+    "bytes": 37433,
+    "sha256": "17b7adf9c20f7657761fa32235b5bd9b67de71579e049123543f1823817fe419",
+    "preimplementation_status": "pass",
+    "preimplementation_phase": "frozen_v5_preimplementation",
+    "required_implementation_exit_code": 1,
+    "required_implementation_error_exact": "v6 namespace-mode implementation is required"
+  },
+  "v5_failure": {
+    "path": "artifacts/verification/container-baseline-0027-v5-runtime-security-failure-001.json",
+    "sha256": "b340fcc5526a73f5730e48fccedbf0dc29c20aca6a09f6c8e553470594e2a0cd",
+    "two_image_ids_equal": true,
+    "event_window_passed": true,
+    "product_runtime_started": false,
+    "observed_ipc_mode": "private"
+  },
+  "implementation_changed": false,
+  "successor_image_built": false,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false,
+  "next_gate": "Commit and push the exact v5 failure, v6 source gate, contract, ADR, and independent preimplementation validator before changing namespace validation."
+}

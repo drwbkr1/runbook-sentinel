@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T23:26:00Z",
+  "status": "pass",
+  "contract_id": "container-runtime-v7",
+  "contract_sha256": "b4c078b1e2a836ddf23ab0644c9a1810bfe9e0fdf40997256396f3de439643c0",
+  "implementation": {
+    "runtime_verifier": {
+      "path": "scripts/verify_container_runtime.py",
+      "bytes": 53927,
+      "sha256": "b3702055fdbae94e31b2598973236b181f242a300de532ee374ef50dbeae7a18"
+    },
+    "tests": {
+      "path": "tests/test_baseline.py",
+      "bytes": 121694,
+      "sha256": "d426caf9749b2c1ae129b180671fc5f01ffa3d118e7eaa0d6def32093146e371"
+    },
+    "contract_verifier": {
+      "path": "scripts/verify_container_contract.py",
+      "bytes": 46805,
+      "sha256": "bb4feabe13639b1cb704719b8bf631d94540709a535b24c8f89aba40d62e37d6"
+    }
+  },
+  "focused_verification": {
+    "tests_run": 3,
+    "failures": 0,
+    "errors": 0,
+    "contract_phase": "implemented_v7"
+  },
+  "full_regression": {
+    "tests_run": 55,
+    "failures": 0,
+    "errors": 0,
+    "elapsed_seconds": 85.422,
+    "compilation_passed": true,
+    "milestone_contract_valid": true
+  },
+  "side_effect_free_validators": {
+    "passed": 31,
+    "total": 31,
+    "elapsed_seconds": 2.605,
+    "selected_evaluation_pointer_unchanged": true,
+    "latest_bytes": 944000,
+    "latest_sha256": "7585e288c53e594a5b12a4540ab85c99bd48fc50d8a97b9c3fc196fa9ad7b1b6"
+  },
+  "pre_manifest_boundary": {
+    "status": "expected-mismatch",
+    "mismatch_count": 3,
+    "unexpected_mismatch_count": 0,
+    "paths": [
+      "eval/container-contract.json",
+      "scripts/verify_container_contract.py",
+      "scripts/verify_container_runtime.py"
+    ]
+  },
+  "real_docker_probe": {
+    "image": "runbook-sentinel:baseline-0027-a-059582a0c6",
+    "image_id": "sha256:90b8b4a9ac25bb1fc1632c1f0851430c1d833b912d77942b97b0328348079a44",
+    "source": "/state/container-evaluation.json",
+    "host_destination": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v7-extract-probe.json",
+    "bytes": 917050,
+    "sha256": "3f23d8c57ad52b5cfa4b30950a8ab040aa5d088d1c87b2c559968e5c125d0f94",
+    "exec_exit_code": 0,
+    "stderr_empty": true,
+    "verified_before_and_after_write": true,
+    "container_removed": true
+  },
+  "retained_corrections": [
+    "artifacts/verification/container-v7-focused-test-helper-failure-001.json",
+    "The post-success PowerShell probe summary reused the reserved $Host variable and failed after exact extraction; the host file identity and cleanup were independently rechecked.",
+    "The combined validator and manifest command exited one only because the predecessor manifest reported the exact three expected implementation identities as stale; all 31 non-manifest validators had already passed."
+  ],
+  "unchanged_boundaries": [
+    "Dockerfile and build context",
+    "image payload and identity inputs",
+    "non-root, read-only, capability-free, no-new-privileges, exact private namespaces, network-none, device-free, bind-free runtime",
+    "agent, retrieval, decision, policy, approval, executor, API, MCP, scenario, grader, and authority",
+    "no image export, registry push, publication, or redistribution"
+  ],
+  "successor_image_built": false,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false,
+  "next_gate": "Commit and push the exact v7 implementation before manifest inventory renewal or another image run."
+}

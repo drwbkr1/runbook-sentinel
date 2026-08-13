@@ -1,0 +1,191 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0027-buildkit-reproducibility-v2-20260812",
+  "assessed_at": "2026-08-12T19:10:08Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal and contracts/milestone-0027.json",
+    "authorized_actions": [
+      "review and cite exact official BuildKit and Docker exporter specifications",
+      "freeze project-authored SOURCE_DATE_EPOCH and image-exporter settings in container-runtime-v3",
+      "update the project-authored Dockerfile and verifier after the v3 contract is public",
+      "rerun local networkless container verification without archive export registry push or publication"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Use exact official BuildKit and Docker documentation revisions to define a deterministic local image build after SOURCE_DATE_EPOCH alone normalized config timestamps but not COPY layer timestamps. No external code, configuration, package, service, secret, image, data, or model is imported.",
+    "planned_actions": [
+      "review and cite exact official BuildKit and Docker exporter specifications",
+      "freeze project-authored SOURCE_DATE_EPOCH and image-exporter settings in container-runtime-v3",
+      "update the project-authored Dockerfile and verifier after the v3 contract is public",
+      "rerun local networkless container verification without archive export registry push or publication"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "buildkit-build-repro-30fe6a5-20260812",
+      "name": "BuildKit build reproducibility specification",
+      "locator": "https://github.com/moby/buildkit/blob/30fe6a5116cf8d595a4ffcc96f22464dcf04d1c4/docs/build-repro.md",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://github.com/moby/buildkit/blob/30fe6a5116cf8d595a4ffcc96f22464dcf04d1c4/docs/build-repro.md", "observed_at": "2026-08-12T19:10:08Z", "note": "Exact primary document at observed official master revision 30fe6a5116cf8d595a4ffcc96f22464dcf04d1c4."}],
+          "note": "Exact publisher, revision, path, and locator are frozen."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://github.com/moby/buildkit", "observed_at": "2026-08-12T19:10:08Z", "note": "Official moby/buildkit repository for the BuildKit component used by Docker Buildx."}],
+          "note": "Authority is limited to BuildKit reproducibility and exporter semantics."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://github.com/moby/buildkit/blob/30fe6a5116cf8d595a4ffcc96f22464dcf04d1c4/docs/build-repro.md", "observed_at": "2026-08-12T19:10:08Z", "note": "Publicly readable without account authentication payment or terms acceptance."}],
+          "note": "Factual review only."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://github.com/moby/buildkit/blob/30fe6a5116cf8d595a4ffcc96f22464dcf04d1c4/LICENSE", "observed_at": "2026-08-12T19:10:08Z", "note": "Official repository license is Apache License 2.0; no source or sample is copied."}],
+          "note": "Only factual semantics, source identity, and citation are retained."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "moby/buildkit revision 30fe6a5116cf8d595a4ffcc96f22464dcf04d1c4", "note": "Reviewed directly at the primary publisher revision with no acquired intermediary."}],
+          "note": "No external artifact enters project custody."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "Git revision 30fe6a5116cf8d595a4ffcc96f22464dcf04d1c4 plus container-baseline-0027-rewrite-timestamp-probes-001.json", "note": "The source revision is exact and local behavior is independently measured twice."}],
+          "note": "No downloaded asset needs a project checksum."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "SOURCE_DATE_EPOCH section", "note": "It specifies that Buildx propagates SOURCE_DATE_EPOCH to image config/history and that rewrite-timestamp=true applies it to files inside image layers; supported since BuildKit 0.13."}],
+          "note": "Installed BuildKit 0.29.0 exceeds the stated minimum and two local probes produced one exact ID."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "contracts/milestone-0027.json", "note": "Inputs are public specifications and a frozen project timestamp; no secret network privilege external asset or real infrastructure is added."}],
+          "note": "Existing no-publication and runtime boundaries remain exact."
+        }
+      ]
+    },
+    {
+      "source_id": "docker-image-exporter-c8c1ada-20260812",
+      "name": "Docker image and registry exporter specification",
+      "locator": "https://github.com/docker/docs/blob/c8c1ada37a8a3c598d0f8744d66f2dfbb780c145/content/manuals/build/exporters/image-registry.md",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://github.com/docker/docs/blob/c8c1ada37a8a3c598d0f8744d66f2dfbb780c145/content/manuals/build/exporters/image-registry.md", "observed_at": "2026-08-12T19:10:08Z", "note": "Exact primary Docker documentation source at observed official main revision c8c1ada37a8a3c598d0f8744d66f2dfbb780c145."}],
+          "note": "Exact publisher, revision, path, and locator are frozen."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://docs.docker.com/build/exporters/image-registry/", "observed_at": "2026-08-12T19:10:08Z", "note": "Official Docker product documentation for the installed Buildx workflow."}],
+          "note": "Authority is limited to image exporter options and storage behavior."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://docs.docker.com/build/exporters/image-registry/", "observed_at": "2026-08-12T19:10:08Z", "note": "Publicly readable without account authentication payment or terms acceptance."}],
+          "note": "No Docker service is invoked."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://github.com/docker/docs/blob/c8c1ada37a8a3c598d0f8744d66f2dfbb780c145/LICENSE", "observed_at": "2026-08-12T19:10:08Z", "note": "Official docker/docs repository license is Apache License 2.0; no source or sample is copied."}],
+          "note": "Only factual semantics, source identity, and citation are retained."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "docker/docs revision c8c1ada37a8a3c598d0f8744d66f2dfbb780c145", "note": "Reviewed directly at the primary publisher revision with no acquired intermediary."}],
+          "note": "No external artifact enters project custody."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "Git revision c8c1ada37a8a3c598d0f8744d66f2dfbb780c145 plus local exporter probes", "note": "The source revision is exact and the project verifies the configured exporter empirically."}],
+          "note": "No downloaded asset needs a project checksum."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "Image and registry exporters synopsis", "note": "The image exporter stores result images locally by default, push defaults false, and unpack is independently controllable; registry exporter differs by forcing push=true."}],
+          "note": "The project freezes type=image, store=true, unpack=false, push=false, and no destination archive."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "BASELINE-0027 no-publication boundary", "note": "The chosen exporter creates no tar destination and uses no registry authentication or push."}],
+          "note": "No privacy or security boundary is weakened."
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "review and cite exact official BuildKit and Docker exporter specifications",
+      "freeze project-authored SOURCE_DATE_EPOCH and image-exporter settings in container-runtime-v3",
+      "update the project-authored Dockerfile and verifier after the v3 contract is public",
+      "rerun local networkless container verification without archive export registry push or publication"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "retain exact primary source identity factual semantics limitations and local probe evidence",
+      "freeze and implement the project-authored local reproducibility correction",
+      "rerun exact local and clean-clone verification under existing network and publication boundaries"
+    ],
+    "requires_explicit_authorization": [
+      "import external code sample configuration package executable service image data or model",
+      "authenticate purchase accept terms add a secret widen runtime authority export push publish or redistribute a container image"
+    ]
+  }
+}

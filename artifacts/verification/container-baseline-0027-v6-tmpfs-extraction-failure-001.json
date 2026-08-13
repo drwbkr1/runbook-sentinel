@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T23:01:47Z",
+  "status": "fail",
+  "public_input_commit": "6245be0b9241d789347ac3bb7ebf869561aaa5f4",
+  "contract_id": "container-runtime-v6",
+  "contract_sha256": "76ca2b7dad77710a1a98ba0227847fffdb926a4e7610d0e7beded2aa8f5b27ae",
+  "evidence_directory": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v6-container-20260812T2300Z",
+  "image": {
+    "independent_image_ids": [
+      "sha256:90b8b4a9ac25bb1fc1632c1f0851430c1d833b912d77942b97b0328348079a44",
+      "sha256:90b8b4a9ac25bb1fc1632c1f0851430c1d833b912d77942b97b0328348079a44"
+    ],
+    "image_ids_equal": true,
+    "created_at_utc": "2026-08-12T17:42:57Z",
+    "repo_digest": "runbook-sentinel@sha256:90b8b4a9ac25bb1fc1632c1f0851430c1d833b912d77942b97b0328348079a44",
+    "local_content_digest_matches_image_id": true,
+    "tags": [
+      "runbook-sentinel:baseline-0027-a-059582a0c6",
+      "runbook-sentinel:baseline-0027-b-059582a0c6"
+    ],
+    "event_window_passed": true,
+    "event_scope": "local",
+    "event_actions": ["create", "tag"],
+    "push_event_observed": false
+  },
+  "build_logs": [
+    {
+      "path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v6-container-20260812T2300Z/build-1.log",
+      "bytes": 1605,
+      "sha256": "2e3692a670d5598873b1ac5a77a9d2c91e0e448b02563212d680d0ba144ccb60"
+    },
+    {
+      "path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v6-container-20260812T2300Z/build-2.log",
+      "bytes": 1519,
+      "sha256": "9dc2b5686f29451a505bcfb92b44abddd5984775b6ad6cab98f1621688ad2651"
+    }
+  ],
+  "passed_before_failure": {
+    "prerequisite_contracts": true,
+    "two_independent_builds": true,
+    "local_event_window": true,
+    "image_metadata_and_layers": true,
+    "runtime_security": true,
+    "cli_help": true,
+    "container_evaluation_exit_code": 0,
+    "container_evaluation_exec_id": "e14d4b3d836a33f4ef9e0dfb28d2c1fcb4a97cd97ab5bc3b7b9c2ff14ec6c899"
+  },
+  "failed_check": {
+    "id": "container_evaluation_artifact_extraction",
+    "source": "/state/container-evaluation.json",
+    "destination": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v6-container-20260812T2300Z/container-evaluation.json",
+    "command": [
+      "docker",
+      "cp",
+      "rs-b0027-059582a0c6:/state/container-evaluation.json",
+      "C:/Projects/Verification/runbook-sentinel-baseline-0027-v6-container-20260812T2300Z/container-evaluation.json"
+    ],
+    "error": "Could not find the file /state/container-evaluation.json in container rs-b0027-059582a0c6",
+    "classification": "docker cp cannot copy files from the container tmpfs mount even though the file exists and is readable inside the running container"
+  },
+  "bounded_diagnostic": {
+    "observed_at_utc": "2026-08-12T23:01:47Z",
+    "image": "runbook-sentinel:baseline-0027-a-059582a0c6",
+    "container": "rs-b0027-v6-copy-diag",
+    "runtime_flags_unchanged": true,
+    "evaluation_exit_code": 0,
+    "inside_container_files": [
+      {
+        "path": "/state/container-evaluation.json",
+        "bytes": 917043,
+        "sha256": "1c3d6aa6f42858baf7bfca5111dcdf9670aa1178d6fb0efa64188bacbcb054b1"
+      },
+      {
+        "path": "/state/container-evaluation.traces.jsonl",
+        "bytes": 195288,
+        "sha256": "aee2eb265267fee448f44a9f5c683d3cadeb8263052536b2b143ab877ddf85de"
+      }
+    ],
+    "docker_cp_reproduced_same_failure": true,
+    "container_removed": true,
+    "remaining_baseline_0027_containers": 0,
+    "finding": "The evaluation and trace existed as exact readable files in /state tmpfs. Extraction, not product execution or runtime security, failed."
+  },
+  "tooling_correction": {
+    "classification": "diagnostic wrapper only",
+    "first_wrapper_error": "Cannot overwrite variable Host because it is read-only or constant.",
+    "effect": "The first wrapper stopped before creating a diagnostic container. The corrected wrapper used a non-reserved variable name and produced the bounded diagnostic above."
+  },
+  "post_failure_reconciliation": {
+    "keeper_container_removed": true,
+    "diagnostic_container_removed": true,
+    "container_mcp_started": false,
+    "container_api_started": false,
+    "container_dashboard_started": false,
+    "container_scan_started": false,
+    "clean_clone_started": false,
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false
+  },
+  "disposition": "stopped_after_successful_container_evaluation_before_artifact_acceptance; preserve v6 outcome and freeze a successor tmpfs-extraction contract before implementation"
+}

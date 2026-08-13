@@ -1,0 +1,85 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0027-container-v7-official-docker-tmpfs-extraction-20260812",
+  "assessed_at": "2026-08-12T23:10:00Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal and contracts/milestone-0027.json",
+    "authorized_actions": [
+      "freeze the exact v7 tmpfs extraction contract before implementation",
+      "implement only allowlisted unprivileged docker exec byte streaming with independent metadata verification",
+      "add fail-closed tests for source, overwrite, size, stderr, length, digest, and command failures",
+      "rerun exact local and clean-clone verification"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Use official Docker CLI semantics and the retained v6 failure to extract exact project-owned synthetic files from /state tmpfs with an unprivileged docker exec byte stream. No external code, configuration, package, service, secret, image, data, or model is imported.",
+    "planned_actions": [
+      "freeze the exact v7 tmpfs extraction contract before implementation",
+      "implement only allowlisted unprivileged docker exec byte streaming with independent metadata verification",
+      "add fail-closed tests for source, overwrite, size, stderr, length, digest, and command failures",
+      "rerun exact local and clean-clone verification"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "docker-docs-container-cp-c8c1ada-20260812",
+      "name": "Docker container cp specification",
+      "locator": "https://github.com/docker/docs/blob/c8c1ada37a8a3c598d0f8744d66f2dfbb780c145/data/cli/engine/docker_container_cp.yaml",
+      "revision": "c8c1ada37a8a3c598d0f8744d66f2dfbb780c145",
+      "blob_sha": "5ff5b80eddbd2259c1e2518e50ab26e82e265293",
+      "rendered_locator": "https://docs.docker.com/reference/cli/docker/container/cp/",
+      "criteria": [
+        {"id": "identity", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "docker/docs revision c8c1ada37a8a3c598d0f8744d66f2dfbb780c145 blob 5ff5b80eddbd2259c1e2518e50ab26e82e265293", "observed_at": "2026-08-12T23:10:00Z", "note": "Exact official revision and container-cp source blob resolved."}], "note": "Exact Docker cp source identity is established."},
+        {"id": "authority", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://docs.docker.com/reference/cli/docker/container/cp/", "observed_at": "2026-08-12T23:10:00Z", "note": "Official Docker CLI documentation for the installed runtime."}], "note": "Docker is authoritative for its CLI behavior."},
+        {"id": "access", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "public Docker documentation", "observed_at": "2026-08-12T23:10:00Z", "note": "Public read-only access needs no account, payment, secret, or terms acceptance."}], "note": "Read-only documentation access is currently available."},
+        {"id": "rights", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://github.com/docker/docs/blob/c8c1ada37a8a3c598d0f8744d66f2dfbb780c145/LICENSE", "observed_at": "2026-08-12T23:10:00Z", "note": "Apache License 2.0; no source text, sample, or artifact is copied."}], "note": "The planned factual citation imports no external asset."},
+        {"id": "provenance", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "docker/docs revision and source blob above", "note": "Publisher, repository, revision, blob, and rendered surface are exact."}], "note": "Source custody is revision and blob bound."},
+        {"id": "integrity", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "artifacts/verification/container-baseline-0027-v6-tmpfs-extraction-failure-001.json", "note": "Official tmpfs limitation is checked against exact in-container file sizes and hashes plus the reproduced docker cp failure."}], "note": "The local failure evidence has exact identities."},
+        {"id": "fitness", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "Docker container cp corner cases", "note": "The specification explicitly excludes tmpfs and user-created mounts from docker cp and identifies docker exec as the recovery path."}], "note": "The source directly explains the observed failure and bounded recovery."},
+        {"id": "privacy-security", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "contracts/milestone-0027.json and retained v6 failure", "note": "The recovery preserves tmpfs, non-root, network-none, read-only, no-capability, no-new-privileges, no-bind, no-device, no-secret, and no-publication boundaries."}], "note": "No sensitive or externally controlled content is introduced."}
+      ]
+    },
+    {
+      "source_id": "docker-docs-container-exec-c8c1ada-20260812",
+      "name": "Docker container exec specification",
+      "locator": "https://github.com/docker/docs/blob/c8c1ada37a8a3c598d0f8744d66f2dfbb780c145/data/cli/engine/docker_container_exec.yaml",
+      "revision": "c8c1ada37a8a3c598d0f8744d66f2dfbb780c145",
+      "blob_sha": "fea80c9df6ed11fea196f6e9b7ab4cbec823412c",
+      "rendered_locator": "https://docs.docker.com/reference/cli/docker/container/exec/",
+      "criteria": [
+        {"id": "identity", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "docker/docs revision c8c1ada37a8a3c598d0f8744d66f2dfbb780c145 blob fea80c9df6ed11fea196f6e9b7ab4cbec823412c", "observed_at": "2026-08-12T23:10:00Z", "note": "Exact official revision and container-exec source blob resolved."}], "note": "Exact Docker exec source identity is established."},
+        {"id": "authority", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://docs.docker.com/reference/cli/docker/container/exec/", "observed_at": "2026-08-12T23:10:00Z", "note": "Official Docker CLI documentation for the installed runtime."}], "note": "Docker is authoritative for its CLI behavior."},
+        {"id": "access", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "public Docker documentation", "observed_at": "2026-08-12T23:10:00Z", "note": "Public read-only access needs no account, payment, secret, or terms acceptance."}], "note": "Read-only documentation access is currently available."},
+        {"id": "rights", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://github.com/docker/docs/blob/c8c1ada37a8a3c598d0f8744d66f2dfbb780c145/LICENSE", "observed_at": "2026-08-12T23:10:00Z", "note": "Apache License 2.0; no source text, sample, or artifact is copied."}], "note": "The planned factual citation imports no external asset."},
+        {"id": "provenance", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "docker/docs revision and source blob above", "note": "Publisher, repository, revision, blob, and rendered surface are exact."}], "note": "Source custody is revision and blob bound."},
+        {"id": "integrity", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "frozen v7 extraction contract", "note": "The project-authored recovery binds the executable, source allowlist, output channel, maximum size, and independent byte-length and SHA-256 comparison."}], "note": "The recovery has explicit integrity controls."},
+        {"id": "fitness", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "Docker container exec description and options", "note": "Exec runs an exact executable in a running container; the recovery does not use a shell, TTY, privilege, user override, environment override, or network."}], "note": "The source directly supports the exact bounded command path."},
+        {"id": "privacy-security", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "AGENTS.md and contracts/milestone-0027.json", "note": "Only project-owned synthetic evidence is streamed. No capability, credential, approval material, model output authority, host mount, external egress, or real infrastructure is introduced."}], "note": "The recovery does not widen product or runtime authority."}
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "freeze the exact v7 tmpfs extraction contract before implementation",
+      "implement only allowlisted unprivileged docker exec byte streaming with independent metadata verification",
+      "add fail-closed tests for source, overwrite, size, stderr, length, digest, and command failures",
+      "rerun exact local and clean-clone verification"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "retain exact source identities, factual semantics, limitations, and local measurements",
+      "freeze and implement only the project-authored tmpfs extraction correction",
+      "rerun exact local and clean-clone verification under unchanged security and publication boundaries"
+    ],
+    "requires_explicit_authorization": [
+      "import external code, sample, configuration, package, executable, service, image, data, or model",
+      "authenticate, purchase, accept terms, add a secret, widen runtime authority, export an image archive, push, publish, or redistribute a container image"
+    ]
+  }
+}

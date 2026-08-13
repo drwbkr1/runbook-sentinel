@@ -1,5 +1,14 @@
 # Evaluation contract
 
+## BASELINE-0027 container runtime contract
+
+- `container-runtime-v2` freezes one Chainguard Free Python OCI index, selected linux/amd64 manifest, exact Dockerfile and build-context lines, runtime controls, required real surfaces, and 36 receipt checks before any Dockerfile or image exists. Public v1 and its network-plan failure remain retained.
+- The candidate is a wrapper around the exact dependency-free v0.0.27 zipapp and accepted evaluation report. It may not change a scenario, expected result, agent, retrieval, model, policy, approval, executor, API, MCP, or authority boundary.
+- Two networkless independent builds must have one image ID, retain the exact base root-filesystem layer prefix, and add exactly the zipapp and evaluation JSON. Mutable tags, package installation, build secrets, source history, runtime state, model artifacts, image export, and registry push fail the contract.
+- Runtime gates require UID/GID 65532, read-only root filesystem, all capabilities dropped, no-new-privileges, no privileged mode, host namespace, device, host path, secret, or real connector. CLI, evaluation, MCP, and API use no network. `docker exec` verifies the actual API through container-local loopback; the exact returned dashboard HTML is extracted and rendered on the host.
+- The container must repeat the 57-case, 171-attempt evaluation and exact 261-event trace, expose only the bounded three-tool MCP surface, and pass the authenticated API, approval, executor, replay, persisted state, anchored telemetry, and rendered dashboard checks. Source, zipapp, and container metric families remain separate.
+- A current base or candidate vulnerability scan is observation-time evidence. Local synthetic verification does not establish production readiness, universal safety, image publication, or perpetual CVE freedom.
+
 ## BASELINE-0026 adversarial exposure-stage/outcome split coverage
 
 - `adversarial-exposure-stage-outcome-split-coverage-v1` separates hostile guidance excluded from decision context, hostile in-band status or telemetry that reaches decision context, and adversarial cases without instruction-bearing content. An ambiguous or inconsistent stage fails closed.

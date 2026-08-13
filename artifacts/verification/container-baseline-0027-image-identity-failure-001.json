@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T18:31:18Z",
+  "disposition": "remediate",
+  "phase": "first_two_image_builds",
+  "public_input_commit": "bab9fc67b5633060d370f3151b09a7f88712b629",
+  "failure_class": "non_deterministic_build_creation_metadata",
+  "failure": "Independent image IDs differ",
+  "builds": [
+    {
+      "image_id": "sha256:e231ceed5a91427466232f3b93bb2f01daf98b725ad7b70e238006e15d8dae74",
+      "created_at_utc": "2026-08-12T18:31:16.093762051Z",
+      "log_path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-container-local-bab9fc6-20260812T183000Z/build-1.log",
+      "log_bytes": 1523,
+      "log_sha256": "d76f0a41aa160ba75558c9fa6651ae99cb6b8faf6f48e178020692862f6aecd9",
+      "added_layers": [
+        "sha256:68509e2cf0e374ae5b4682cc47c4eb03cad2cf6f3979ace3ce2aef8bcb404f8c",
+        "sha256:bb45397ad98d6254ad34675ab4f0d8d55ced70ef7c0c1772b47a832429d411c3"
+      ]
+    },
+    {
+      "image_id": "sha256:63f6452277618e26962828916285873fa19e973003b4328fcdbcd3be29273986",
+      "created_at_utc": "2026-08-12T18:31:17.981161071Z",
+      "log_path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-container-local-bab9fc6-20260812T183000Z/build-2.log",
+      "log_bytes": 1495,
+      "log_sha256": "f15489c6ab849211126bfe56f5383a413570111d5d9115b7b310ac09d23da664",
+      "added_layers": [
+        "sha256:43b69f78c1e69d3510240dab1659aa1e5648ff089c41df2a420c12840682968d",
+        "sha256:c096c01cdf05ab4653dfbe9ac45cba05b3dfda77390c9c814a020467b0eac20f"
+      ]
+    }
+  ],
+  "comparisons": {
+    "base_layer_count": 12,
+    "base_layer_prefix_exact": true,
+    "added_layer_count_each": 2,
+    "added_layer_digests_equal": false,
+    "dockerfile_unchanged": true,
+    "context_payload_hashes_unchanged": true
+  },
+  "not_run": ["container runtime", "CLI", "evaluation", "MCP", "API", "approval/executor", "state", "telemetry", "dashboard", "Scout scan", "clean clone"],
+  "publication": {"image_exported": false, "image_pushed": false, "image_published": false},
+  "bounded_recovery": {
+    "source_gate": "artifacts/verification/research-source-gate-baseline-0027-buildkit-reproducibility.json",
+    "mechanism": "BuildKit special SOURCE_DATE_EPOCH caller environment input inherited by the unchanged verifier",
+    "value": "1786556577",
+    "value_source": "eval/manifest.json frozen_at_utc 2026-08-12T17:42:57Z",
+    "dockerfile_change": false,
+    "verifier_change": false,
+    "build_context_change": false,
+    "payload_change": false,
+    "dependency_change": false,
+    "authority_change": false
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-13T00:08:00Z",
+  "status": "pass",
+  "disposition": "implementation_sealed_before_manifest_renewal_or_image_retry",
+  "starting_public_commit": "5ef926fea89e2d58d84f811017735933df8911fe",
+  "retained_failure": {
+    "path": "artifacts/verification/container-baseline-0027-v7-prerequisite-phase-failure-001.json",
+    "bytes": 1703,
+    "sha256": "d2843a91d960b4009bd2bab649fdbf0f652e78f05ad2dd0e07a58a2824eed8a1"
+  },
+  "bounded_correction": {
+    "runtime_verifier": {
+      "path": "scripts/verify_container_runtime.py",
+      "bytes": 53927,
+      "sha256": "6e43a80bf433d112142fca33d5bd72d5f4e1292adf2eaa5d15b24358e354fbdb",
+      "change": "require the current implemented_v7 contract phase rather than stale implemented_v6 during full and clean-build prerequisite validation"
+    },
+    "tests": {
+      "path": "tests/test_baseline.py",
+      "bytes": 123090,
+      "sha256": "5e57c46112308efc673ff3a92f2fc5c9250275e9df57a4f80a8627f33cf63bb8",
+      "change": "prove implemented_v7 passes and stale implemented_v6 fails closed"
+    }
+  },
+  "verification": {
+    "focused_tests": {"passed": 2, "total": 2},
+    "non_manifest_validators": {"passed": 30, "total": 30, "elapsed_seconds": 5.120},
+    "unit_tests": {"passed": 56, "total": 56, "elapsed_seconds": 96.082},
+    "container_contract_required_implementation": "pass",
+    "predecessor_manifest": {
+      "status": "mismatch",
+      "expected_stale_paths": ["scripts/verify_container_runtime.py"],
+      "unexpected_stale_paths": []
+    }
+  },
+  "retained_test_harness_failure": "The first focused regression used unittest.mock without importing it and failed before production code; the exact failure is recorded in the retained prerequisite receipt.",
+  "successor_manifest_frozen": false,
+  "successor_archive_built": false,
+  "successor_evaluation_run": false,
+  "successor_image_built": false,
+  "next_gate": "Commit and push this exact bounded remediation before renewing the authoritative manifest."
+}

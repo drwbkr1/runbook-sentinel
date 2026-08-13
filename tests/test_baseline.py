@@ -3,11 +3,13 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import subprocess
 import secrets
 import sys
 import tempfile
 import threading
 import unittest
+from unittest import mock
 from datetime import datetime
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -71,6 +73,29 @@ from scripts.verify_adversarial_domain_outcome_split_coverage_contract import (
 from scripts.verify_adversarial_exposure_stage_outcome_split_coverage_contract import (
     valid_latest_report as valid_latest_exposure_report,
 )
+from scripts.verify_container_runtime import (
+    ALLOWED_TMPFS_EXTRACTION_SOURCES,
+    EVENT_WINDOW_GRACE_NANOSECONDS,
+    EXPECTED_BUILDER,
+    SOURCE_DATE_EPOCH,
+    SOURCE_DATE_EPOCH_UTC,
+    build_command,
+    decode_tmpfs_extraction_stream,
+    format_unix_nanoseconds,
+    local_content_digest_matches_image_id,
+    namespace_security_checks,
+    scan_image,
+    validate_prerequisites,
+    validate_tmpfs_extraction_process,
+    validate_local_image_events,
+    verify_endpoint_trace,
+)
+from scripts.verify_container_contract import (
+    EXPECTED_DOCKERFILE_LINES as EXPECTED_V4_DOCKERFILE_LINES,
+    EXPECTED_V3_DOCKERFILE_LINES,
+    validate_contract as validate_container_contract,
+    validate_v4_contract,
+)
 
 
 class BaselineTest(unittest.TestCase):
@@ -85,6 +110,289 @@ class BaselineTest(unittest.TestCase):
 
     def tearDown(self):
         self.temp.cleanup()
+
+    def test_container_v4_build_command_is_frozen_and_local_only(self):
+        tag = "runbook-sentinel:baseline-0027-test"
+        command = build_command(tag)
+        self.assertEqual(command[:3], ["docker", "buildx", "build"])
+        self.assertNotIn("--load", command)
+        self.assertNotIn("--push", command)
+        self.assertNotIn("--tag", command)
+        self.assertIn("--no-cache", command)
+        self.assertIn("--network=none", command)
+        self.assertIn("--provenance=false", command)
+        self.assertIn("--sbom=false", command)
+        self.assertEqual(
+            command[command.index("--output") + 1],
+            "type=image,name=runbook-sentinel:baseline-0027-test,"
+            "rewrite-timestamp=true,unpack=false,store=true,push=false",
+        )
+        self.assertEqual(SOURCE_DATE_EPOCH, "1786556577")
+        self.assertEqual(SOURCE_DATE_EPOCH_UTC, "2026-08-12T17:42:57Z")
+        self.assertEqual(EXPECTED_BUILDER["buildkit"], "0.29.0")
+
+    def test_container_v7_prerequisite_requires_current_implementation_phase(self):
+        contract = {
+            "status": "pass",
+            "implementation_phase": "implemented_v7",
+        }
+        manifest = {"status": "pass"}
+        package = {"status": "pass"}
+        evaluation = {
+            "checkpoint": "baseline-0027",
+            "gates": {"baseline_disposition": "pass"},
+        }
+
+        def completed(payload: dict) -> subprocess.CompletedProcess[str]:
+            return subprocess.CompletedProcess(
+                args=[],
+                returncode=0,
+                stdout=json.dumps(payload),
+                stderr="",
+            )
+
+        with mock.patch(
+            "scripts.verify_container_runtime.run",
+            side_effect=[completed(contract), completed(manifest), completed(package)],
+        ):
+            result = validate_prerequisites(evaluation)
+        self.assertTrue(result["checks"]["container_contract"])
+
+        contract["implementation_phase"] = "implemented_v6"
+        with mock.patch(
+            "scripts.verify_container_runtime.run",
+            side_effect=[completed(contract), completed(manifest), completed(package)],
+        ):
+            with self.assertRaisesRegex(AssertionError, '"container_contract": false'):
+                validate_prerequisites(evaluation)
+
+    def test_container_v4_contract_fails_closed_on_metadata_boundary_weakening(self):
+        contract_path = ROOT / "eval/container-contract-0027-v4.json"
+        raw = contract_path.read_bytes()
+        contract = json.loads(raw)
+        errors: list[str] = []
+        validate_v4_contract(contract, raw, errors)
+        self.assertEqual(errors, [])
+        self.assertNotIn("WORKDIR /opt/runbook-sentinel", EXPECTED_V4_DOCKERFILE_LINES)
+        self.assertIn("WORKDIR /opt/runbook-sentinel", EXPECTED_V3_DOCKERFILE_LINES)
+
+        workdir_mutation = copy.deepcopy(contract)
+        workdir_mutation["dockerfile_contract"]["expected_lines"].insert(
+            8, "WORKDIR /opt/runbook-sentinel"
+        )
+        errors = []
+        validate_v4_contract(workdir_mutation, raw, errors)
+        self.assertIn("Dockerfile contract lines mismatch", errors)
+
+        digest_mutation = copy.deepcopy(contract)
+        digest_mutation["build_contract"]["local_image_identity"][
+            "repo_digest_content_must_equal_image_id"
+        ] = False
+        errors = []
+        validate_v4_contract(digest_mutation, raw, errors)
+        self.assertIn("local image identity contract mismatch", errors)
+
+    def test_container_v5_contract_fails_closed_on_event_window_weakening(self):
+        contract_path = ROOT / "eval/container-contract.json"
+        raw = contract_path.read_bytes()
+        contract = json.loads(raw)
+        errors: list[str] = []
+        validate_container_contract(contract, raw, errors)
+        self.assertEqual(errors, [])
+
+        no_completion_grace = copy.deepcopy(contract)
+        no_completion_grace["event_capture_contract"]["completion_grace_nanoseconds"] = 0
+        errors = []
+        validate_container_contract(no_completion_grace, raw, errors)
+        self.assertIn("event capture contract mismatch", errors)
+
+        push_allowed = copy.deepcopy(contract)
+        push_allowed["event_capture_contract"]["push_event_rejected"] = False
+        errors = []
+        validate_container_contract(push_allowed, raw, errors)
+        self.assertIn("event capture contract mismatch", errors)
+
+    def test_container_v6_namespace_modes_fail_closed(self):
+        isolated = {
+            "PidMode": "",
+            "IpcMode": "private",
+            "UTSMode": "",
+            "UsernsMode": "",
+        }
+        self.assertTrue(all(namespace_security_checks(isolated).values()))
+
+        for key, value in (
+            ("PidMode", "host"),
+            ("PidMode", "container:other"),
+            ("IpcMode", ""),
+            ("IpcMode", "host"),
+            ("IpcMode", "shareable"),
+            ("IpcMode", "container:other"),
+            ("IpcMode", "unexpected"),
+            ("UTSMode", "host"),
+            ("UsernsMode", "host"),
+        ):
+            with self.subTest(key=key, value=value):
+                mutated = copy.deepcopy(isolated)
+                mutated[key] = value
+                result = namespace_security_checks(mutated)
+                self.assertFalse(result["no_host_namespaces"])
+
+    def test_container_v7_tmpfs_extraction_stream_fails_closed(self):
+        source = "/state/container-evaluation.json"
+        self.assertIn(source, ALLOWED_TMPFS_EXTRACTION_SOURCES)
+        payload = b'{"synthetic":true}\n'
+        header = {
+            "source": source,
+            "bytes": len(payload),
+            "sha256": hashlib.sha256(payload).hexdigest(),
+        }
+        stream = json.dumps(header, sort_keys=True, separators=(",", ":")).encode() + b"\n" + payload
+        decoded_header, decoded_payload = decode_tmpfs_extraction_stream(source, stream)
+        self.assertEqual(decoded_header, header)
+        self.assertEqual(decoded_payload, payload)
+
+        destination = Path(self.temp.name) / "extraction.json"
+        process = subprocess.CompletedProcess(
+            args=["docker", "exec"], returncode=0, stdout=stream, stderr=b""
+        )
+        self.assertEqual(
+            validate_tmpfs_extraction_process(source, destination, process),
+            (header, payload),
+        )
+        for invalid_source in ("/state/../etc/passwd", "/tmp/untrusted"):
+            with self.subTest(invalid_source=invalid_source):
+                with self.assertRaises(ValueError):
+                    validate_tmpfs_extraction_process(invalid_source, destination, process)
+        destination.write_bytes(b"existing")
+        with self.assertRaises(FileExistsError):
+            validate_tmpfs_extraction_process(source, destination, process)
+
+        failures = [
+            subprocess.CompletedProcess(["docker", "exec"], 1, b"", b"failed"),
+            subprocess.CompletedProcess(["docker", "exec"], 0, stream, b"warning"),
+        ]
+        for process in failures:
+            with self.subTest(returncode=process.returncode, stderr=process.stderr):
+                failure_destination = Path(self.temp.name) / f"process-failure-{process.returncode}-{len(process.stderr)}.json"
+                with self.assertRaises(RuntimeError):
+                    validate_tmpfs_extraction_process(source, failure_destination, process)
+
+        invalid_streams = [
+            b"no delimiter",
+            b"{}\n" + payload,
+            json.dumps({**header, "source": "/state/api.db"}, sort_keys=True).encode() + b"\n" + payload,
+            json.dumps({**header, "bytes": len(payload) + 1}, sort_keys=True).encode() + b"\n" + payload,
+            json.dumps({**header, "sha256": "0" * 64}, sort_keys=True).encode() + b"\n" + payload,
+            json.dumps({**header, "bytes": 4 * 1024 * 1024 + 1}, sort_keys=True).encode() + b"\n" + payload,
+        ]
+        for invalid in invalid_streams:
+            with self.subTest(stream=invalid[:80]):
+                with self.assertRaises(ValueError):
+                    decode_tmpfs_extraction_stream(source, invalid)
+
+    def test_container_v7_endpoint_trace_preserves_anchor_basename(self):
+        trace = Path(self.temp.name) / "mcp-traces.jsonl"
+        anchor = Path(str(trace) + ".anchor.json")
+        with mock.patch("scripts.verify_container_runtime.run") as execute:
+            execute.return_value = subprocess.CompletedProcess(
+                args=[],
+                returncode=0,
+                stdout=json.dumps({"valid": True, "anchored": True}),
+                stderr="",
+            )
+            self.assertEqual(
+                verify_endpoint_trace(trace, anchor),
+                {"valid": True, "anchored": True},
+            )
+        command = execute.call_args.args[0]
+        self.assertEqual(Path(command[-2]).name, "mcp-traces.jsonl")
+        self.assertEqual(Path(command[-1]).name, "mcp-traces.jsonl.anchor.json")
+
+    def test_container_scan_uses_structured_sarif_identity(self):
+        sarif = {
+            "runs": [
+                {
+                    "tool": {
+                        "driver": {
+                            "name": "docker scout",
+                            "fullName": "Docker Scout",
+                            "version": "1.20.4",
+                        }
+                    },
+                    "results": [],
+                }
+            ]
+        }
+        completed = subprocess.CompletedProcess(
+            args=[], returncode=0, stdout=json.dumps(sarif), stderr=""
+        )
+        with mock.patch("scripts.verify_container_runtime.run", return_value=completed) as execute:
+            result = scan_image("runbook-sentinel:test", Path(self.temp.name))
+        self.assertEqual(execute.call_count, 1)
+        self.assertEqual(
+            result["scanner"],
+            [{"name": "docker scout", "full_name": "Docker Scout", "version": "1.20.4"}],
+        )
+        self.assertEqual(result["critical_high_findings"], 0)
+
+    def test_container_v4_local_content_identity_and_events_fail_closed(self):
+        image_id = "sha256:" + "a" * 64
+        candidate = {
+            "Id": image_id,
+            "RepoDigests": [f"runbook-sentinel@{image_id}"],
+        }
+        self.assertTrue(local_content_digest_matches_image_id(candidate))
+        self.assertFalse(
+            local_content_digest_matches_image_id(
+                {"Id": image_id, "RepoDigests": ["runbook-sentinel@sha256:" + "b" * 64]}
+            )
+        )
+        self.assertFalse(local_content_digest_matches_image_id({"Id": image_id, "RepoDigests": []}))
+
+        tags = ["runbook-sentinel:baseline-0027-a-test", "runbook-sentinel:baseline-0027-b-test"]
+        events = [
+            {
+                "Action": "tag",
+                "Actor": {"ID": image_id, "Attributes": {"name": tag}},
+                "scope": "local",
+            }
+            for tag in tags
+        ]
+        self.assertTrue(all(validate_local_image_events(events, tags, image_id)["checks"].values()))
+        mutated = copy.deepcopy(events)
+        mutated[1]["scope"] = "remote"
+        with self.assertRaises(AssertionError):
+            validate_local_image_events(mutated, tags, image_id)
+        pushed = copy.deepcopy(events)
+        pushed.append(
+            {
+                "Action": "push",
+                "Actor": {
+                    "ID": image_id,
+                    "Attributes": {"name": "registry.example/runbook-sentinel:unexpected"},
+                },
+                "scope": "remote",
+            }
+        )
+        with self.assertRaises(AssertionError):
+            validate_local_image_events(pushed, tags, image_id)
+
+    def test_container_v5_event_time_bounds_are_nanosecond_complete(self):
+        self.assertEqual(EVENT_WINDOW_GRACE_NANOSECONDS, 1_000_000_000)
+        self.assertEqual(format_unix_nanoseconds(0), "0.000000000")
+        self.assertEqual(
+            format_unix_nanoseconds(1_786_569_915_162_754_846),
+            "1786569915.162754846",
+        )
+        self.assertEqual(
+            format_unix_nanoseconds(1_786_569_916_000_000_000),
+            "1786569916.000000000",
+        )
+        with self.assertRaises(ValueError):
+            format_unix_nanoseconds(-1)
+        with self.assertRaises(ValueError):
+            format_unix_nanoseconds(True)
 
     def test_latest_report_accepts_only_candidate_or_current_manifest_final(self):
         root = Path(self.temp.name)
@@ -229,6 +537,50 @@ class BaselineTest(unittest.TestCase):
         self.assertTrue(
             valid_latest_exposure_report(latest, candidate_sha256, root)
         )
+
+    def test_exposure_historical_latest_accepts_exact_passing_successor(self):
+        exposure_contract = json.loads(
+            (
+                ROOT
+                / "eval/adversarial-exposure-stage-outcome-split-coverage-contract.json"
+            ).read_text(encoding="utf-8")
+        )
+        self.assertTrue(
+            valid_latest_exposure_report(
+                ROOT / "artifacts/evaluations/latest.json",
+                exposure_contract["candidate_results"]["report_sha256"],
+                ROOT,
+            )
+        )
+
+        root = Path(self.temp.name)
+        manifest_path = root / "eval/manifest.json"
+        report_dir = root / "artifacts/evaluations/runs"
+        latest = root / "artifacts/evaluations/latest.json"
+        manifest_path.parent.mkdir(parents=True)
+        report_dir.mkdir(parents=True)
+        manifest_path.write_text(
+            '{"checkpoint":"baseline-0028"}\n', encoding="utf-8"
+        )
+        stem = "baseline-0027-attempt-001"
+        copied = {}
+        for suffix in (".json", ".manifest.json", ".traces.jsonl"):
+            source = ROOT / "artifacts/evaluations/runs" / f"{stem}{suffix}"
+            target = report_dir / f"{stem}{suffix}"
+            target.write_bytes(source.read_bytes())
+            copied[suffix] = target
+        latest.parent.mkdir(parents=True, exist_ok=True)
+        latest.write_bytes(copied[".json"].read_bytes())
+        self.assertTrue(valid_latest_exposure_report(latest, None, root))
+
+        manifest_bytes = copied[".manifest.json"].read_bytes()
+        copied[".manifest.json"].write_text("{}\n", encoding="utf-8")
+        self.assertFalse(valid_latest_exposure_report(latest, None, root))
+        copied[".manifest.json"].write_bytes(manifest_bytes)
+
+        with copied[".traces.jsonl"].open("ab") as handle:
+            handle.write(b"{}\n")
+        self.assertFalse(valid_latest_exposure_report(latest, None, root))
 
     def test_all_frozen_scenarios_match_exact_expected_outcome(self):
         expected = {
@@ -752,7 +1104,7 @@ class BaselineTest(unittest.TestCase):
         server = MCPServer(self.service)
         initialized = server.handle({"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
         self.assertEqual(initialized["result"]["protocolVersion"], "2025-11-25")
-        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.26")
+        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.27")
         listed = server.handle({"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         self.assertEqual({tool["name"] for tool in listed["result"]["tools"]}, names)
         called = server.handle(
@@ -974,7 +1326,7 @@ class BaselineTest(unittest.TestCase):
                 self.assertIn("Operator authentication", dashboard)
                 self.assertIn("frame-ancestors 'none'", response.headers["Content-Security-Policy"])
             with urlopen(f"http://127.0.0.1:{server.server_port}/health") as response:
-                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0026")
+                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0027")
             request = Request(
                 f"http://127.0.0.1:{server.server_port}/api/runs",
                 data=json.dumps({"scenario_id": "dev-bad-deployment"}).encode("utf-8"),
@@ -1179,7 +1531,7 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["coverage"]["missing_condition_split_pairs"], [])
         self.assertEqual(report["metrics"]["coverage"]["missing_adversarial_splits"], [])
         self.assertEqual(report["schema_version"], "3.2")
-        self.assertEqual(report["checkpoint"], "baseline-0026")
+        self.assertEqual(report["checkpoint"], "baseline-0027")
         self.assertEqual(report["metrics"]["proposal"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["development"]["tool_trajectory"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["test"]["tool_trajectory"]["exact_match"], 1.0)

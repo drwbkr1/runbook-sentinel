@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T20:59:42Z",
+  "status": "corrected",
+  "disposition": "pass",
+  "phase": "v4_source_package_attempt_004_parity_summary",
+  "failed_probe": {
+    "error": "KeyError: split_records",
+    "cause": "An ad hoc summary attempted to read a nonexistent top-level split_records key after the actual frozen projection equality assertion had already passed."
+  },
+  "corrected_schema": {
+    "top_level_keys": [
+      "attempt_count",
+      "checkpoint",
+      "gates",
+      "metrics",
+      "scenario_count",
+      "split_metrics"
+    ],
+    "split_key": "split_metrics"
+  },
+  "verified_result": {
+    "source_package_projection_exact": true,
+    "projection_sha256": "d08823b3ddda041f24567f70f11326661b749d63ddc07dbdd1d160836c7ca820",
+    "manifest_sha256": "42b5fafa553b3bc0b0190368c83ca5d8978da7938f2adb8e9c7e8153cafd28b0",
+    "metric_families": [
+      "cost",
+      "coverage",
+      "generation",
+      "policy",
+      "reliability",
+      "retrieval",
+      "security",
+      "terminal_state",
+      "tool_trajectory",
+      "utility"
+    ]
+  },
+  "project_bytes_changed_by_failed_probe": false,
+  "report_bytes_changed": false
+}

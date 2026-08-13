@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T20:45:09Z",
+  "status": "pass",
+  "disposition": "pass",
+  "phase": "v4_implementation_before_manifest_renewal_or_image_build",
+  "repository": "C:/Projects/Active/runbook-sentinel",
+  "branch": "codex/baseline-0027-container-runtime",
+  "public_contract_commit": "c207ac25af883b38410e3f3604dd5ea68de382ee",
+  "contract": {
+    "id": "container-runtime-v4",
+    "sha256": "ab822c1500ef09f0eff52759c7665536a5e9caa823f6c4ce2afa61614b5caacb",
+    "static_status": "pass",
+    "implementation_phase": "implemented_v4",
+    "receipt_state": "absent"
+  },
+  "implementation": {
+    "dockerfile_sha256": "2db4d99f90f261b1df3bda292e8e31f7fede1189954082d31f4abf0bb731f1e7",
+    "freeze_manifest_sha256": "1be53b668b108b65ba3abe53cc91af468806fd5eb2b5326435c140c28b1823b2",
+    "static_validator_sha256": "a0085b81f4d1db1210d20033099b154879b079531a2392dfeb42fd8fc9d08dea",
+    "runtime_verifier_sha256": "ed71ad8cbe8b379598c3e9442ecef2312992bae588cb2251a074c0dd1bc22712",
+    "focused_test_source_sha256": "67e0f54a9f3a70302595e04da0b01c8df9d8a5dbaab593c98441cf16f07a45db"
+  },
+  "pre_manifest_gate": {
+    "tests_passed": 51,
+    "test_seconds": 90.311,
+    "side_effect_free_validators_passed": 31,
+    "validator_seconds": 2.118,
+    "compilation_passed": true,
+    "diff_check_passed": true,
+    "old_manifest_expected_mismatches": [
+      "Dockerfile",
+      "eval/container-contract.json",
+      "scripts/verify_container_contract.py",
+      "scripts/verify_container_runtime.py"
+    ]
+  },
+  "live_builder_preflight": {
+    "docker_engine": "29.4.3",
+    "docker_desktop": "4.74.0",
+    "docker_buildx": "0.33.0-desktop.1",
+    "buildkit": "0.29.0",
+    "driver": "docker",
+    "all_contract_checks": true,
+    "docker_version_sha256": "a854874cfba526fdbef6ef182893ba24c15e20b7bc9eba82d4cb566ea48f627e",
+    "buildx_inspect_sha256": "b991dee9297a8967e6fe85852e8a4ca156f00fb0a4f9517f746784d4e21040e4",
+    "source_date_epoch": "1786556577",
+    "source_date_epoch_utc": "2026-08-12T17:42:57Z",
+    "source_date_epoch_manifest_sha256": "cdc9ced520421f89b87ea04629bbce1b4a80e7f875b4366a6359c987a009f67a",
+    "exporter": "type=image,rewrite-timestamp=true,unpack=false,store=true,push=false"
+  },
+  "preserved_inputs": {
+    "old_manifest_sha256": "0785d8611a5afa0e42c8931c075e21459b1c82361edf9b12dbfce1b319413238",
+    "selected_archive_sha256": "101766dad8795d0c5d44bb488d7ff976a52d2fec0dfc3e5d8bf17623f366adb6",
+    "selected_evaluation_sha256": "79d4298258d1e05996218dbfbec5787675dffb3f8cfbb905aa97d21cd2741c65"
+  },
+  "not_run": [
+    "manifest renewal",
+    "archive rebuild",
+    "candidate evaluation",
+    "container image build",
+    "container runtime",
+    "container scan",
+    "clean clone"
+  ],
+  "boundaries": {
+    "security_or_authority_weakened": false,
+    "real_infrastructure_connected": false,
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false
+  },
+  "next_gate": "Publish this exact v4 implementation seal, renew and publish the manifest, then rebuild and revalidate the complete source/package chain before any v4 image build."
+}

@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T22:36:19Z",
+  "status": "pass",
+  "contract": {
+    "id": "container-runtime-v6",
+    "sha256": "76ca2b7dad77710a1a98ba0227847fffdb926a4e7610d0e7beded2aa8f5b27ae",
+    "public_freeze_commit": "d6a2d8a525f580fac3faf3c7abf1bc6a43990184"
+  },
+  "implementation": {
+    "runtime_verifier": {
+      "path": "scripts/verify_container_runtime.py",
+      "bytes": 48310,
+      "sha256": "83a77bfbfa4178d8b5f05c836771c29e840f9191daaef6d2f91870983b3dca6d"
+    },
+    "contract_verifier": {
+      "path": "scripts/verify_container_contract.py",
+      "bytes": 37433,
+      "sha256": "17b7adf9c20f7657761fa32235b5bd9b67de71579e049123543f1823817fe419"
+    },
+    "tests": {
+      "path": "tests/test_baseline.py",
+      "bytes": 118779,
+      "sha256": "55b49e5f1910c441be42de2bab043e30cfdb9ed42d4179b7618db84e762e1209"
+    }
+  },
+  "bounded_delta": {
+    "pid_mode": "",
+    "ipc_mode": "private",
+    "uts_mode": "",
+    "userns_mode": "",
+    "rejects_host_shareable_container_linked_default_empty_and_unknown_ipc": true,
+    "all_other_runtime_and_publication_boundaries_unchanged": true
+  },
+  "verification": {
+    "compilation": "pass",
+    "required_implementation_contract": "pass; implemented_v6",
+    "focused_tests": {"passed": 3, "total": 3, "elapsed_seconds": 0.088},
+    "full_tests": {"passed": 54, "total": 54, "elapsed_seconds": 104.575},
+    "side_effect_free_validators_excluding_expected_stale_manifest": {"passed": 31, "total": 31, "elapsed_seconds": 4.134},
+    "selected_evaluation_pointer_unchanged": true,
+    "expected_pre_manifest_mismatch_count": 3,
+    "unexpected_pre_manifest_mismatch_count": 0
+  },
+  "real_metadata_probe": {
+    "status": "pass",
+    "image": "runbook-sentinel:baseline-0027-a-4932e00468",
+    "image_id": "sha256:96655a011b8ec8079fe23df988025fbb899575ae3b72ebbef30e92291cf0c5bf",
+    "builder": {
+      "docker_engine": "29.4.3",
+      "docker_desktop": "4.74.0",
+      "docker_buildx": "0.33.0-desktop.1",
+      "buildkit": "0.29.0",
+      "driver": "docker"
+    },
+    "security_checks_passed": 14,
+    "security_checks_total": 14,
+    "host_config": {
+      "PidMode": "",
+      "IpcMode": "private",
+      "UTSMode": "",
+      "UsernsMode": "",
+      "NetworkMode": "none",
+      "ReadonlyRootfs": true,
+      "Privileged": false,
+      "CapDrop": ["ALL"],
+      "SecurityOpt": ["no-new-privileges"],
+      "Binds": null,
+      "Devices": []
+    },
+    "container_removed": true
+  },
+  "unchanged_inputs": {
+    "selected_source_evaluation_sha256": "842012ee50203f0da8b5041816d51de6d45d30df660008d418543698ca81ba9f",
+    "selected_package_evaluation_sha256": "bd2a6cb618358b02fcb97ae9e88b5aeb1499bae4ce3d136e0d5015f9f597bf2f",
+    "package_sha256": "b31acc48a597f105755524a2ddc99d38f29e5c3f2bc96b3ba0798043a43c82c6",
+    "latest_exact_to_selected_source": true
+  },
+  "retained_failures": [
+    "artifacts/verification/container-v6-focused-test-placement-failure-001.json",
+    "artifacts/verification/container-v6-pre-manifest-expected-mismatch-001.json"
+  ],
+  "image_built_after_v6_freeze": false,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false,
+  "next_gate": "Commit and push the exact v6 implementation seal before renewing the manifest or rerunning an image."
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T21:52:00Z",
+  "status": "fail",
+  "archive": {
+    "path": "dist/runbook-sentinel-0.0.27.pyz",
+    "bytes": 590207,
+    "sha256": "766a0157998ea40e08d7bb6ac6ebf370c2ecbeb9efbe54ecc947eb5ae19f55b7",
+    "entry_count": 41
+  },
+  "package_contract_sha256": "2eac29cedf0b422c0873629b7d3d682882ff403556059446ac232555479bf57e",
+  "error": "archive content differs from source: runbook_sentinel/data/eval-manifest.json",
+  "authoritative_manifest": {
+    "path": "eval/manifest.json",
+    "file_count": 119,
+    "bytes": 14134,
+    "sha256": "812c05ef8cf4342997723ece11668dad033a41726028519b4ff667695da18a7a"
+  },
+  "disposition": "expected supersession after v5 manifest renewal; retain predecessor archive in public history and rebuild only after manifest seal is public"
+}

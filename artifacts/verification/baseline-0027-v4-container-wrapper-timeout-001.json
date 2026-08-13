@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-12T21:20:00Z",
+  "status": "stopped",
+  "failure": "The first v4 full-verifier shell call was configured with a one-second command timeout and was terminated by the shell before the verifier created its evidence directory.",
+  "boundary": {
+    "verifier_receipt_created": false,
+    "runbook_sentinel_container_present_after_stop": false,
+    "runbook_sentinel_image_present_after_stop": false,
+    "container_verdict": "not reached",
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false
+  },
+  "next_gate": "Rerun the unchanged frozen v4 full verifier from public input commit 56fe0c1ac13f5ab2ce375e50e8882d44bfe4c90e with a sufficient bounded timeout."
+}
