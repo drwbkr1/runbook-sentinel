@@ -1,0 +1,369 @@
+{
+  "schema_version": "1.0",
+  "release_id": "BASELINE-0027-FINAL",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal and contracts/milestone-0027.json UNIT-005",
+    "authorized_action_classes": [
+      "commit_final_audit",
+      "push_final_audit",
+      "commit_release_closure",
+      "push_release_closure",
+      "create_annotated_tag",
+      "publish_selected_release_assets",
+      "verify_public_release"
+    ],
+    "verified_at_utc": "2026-08-13T02:26:38Z",
+    "expires_at_utc": null
+  },
+  "risk_classes": [
+    "documentation",
+    "runtime",
+    "data",
+    "package",
+    "public",
+    "security",
+    "external"
+  ],
+  "candidate": {
+    "commit": "e86594ca0e2ab9b2deb063115121e97a50465d10",
+    "base_commit": "70d90e015b0ef0cadc8222c18113517de941d41d",
+    "audited_commit": "e86594ca0e2ab9b2deb063115121e97a50465d10",
+    "reviewed_product_head": "eb057438113573e1fdecd459b6843b7fd8902d01",
+    "merge_commit": "70d90e015b0ef0cadc8222c18113517de941d41d",
+    "merged_main_receipt_commit": "b1ca54995cd795b207717c3c8d39141ecfe2ebaa",
+    "reconciliation_commit": "e86594ca0e2ab9b2deb063115121e97a50465d10",
+    "product_receipt_commit": "727c29e7ffebf718844f7648e859e29514de4862",
+    "container_input_commit": "428d12f57f01cecdf2e97e0a18746d9226eef9c1",
+    "version": "0.0.27",
+    "tag": "v0.0.27",
+    "manifest_sha256": "5858b169fb05a83332ebe5ea1aaabd3fb1e57413998a6494ab76d244f6806b1e",
+    "package_contract_sha256": "2eac29cedf0b422c0873629b7d3d682882ff403556059446ac232555479bf57e",
+    "container_contract_sha256": "b4c078b1e2a836ddf23ab0644c9a1810bfe9e0fdf40997256396f3de439643c0",
+    "container_receipt_sha256": "fd1c6952c42acf2703e88c365852605c00f112039e9aba26216287463a439949",
+    "merged_main_receipt_sha256": "9d55c63b26ea0f7d76eb534d6084af6cc2f5b19d7ca18e1089d799b75e559397",
+    "image_id": "sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee",
+    "artifacts": [
+      {
+        "path": "dist/runbook-sentinel-0.0.27.pyz",
+        "bytes": 590546,
+        "sha256": "bf73aac861e1a2a8317069a058fa1774012ea5fdc00865e1bb582f0244cddaf8"
+      },
+      {
+        "path": "dist/runbook-sentinel-0.0.27.pyz.sha256",
+        "bytes": 94,
+        "sha256": "cb1ad91499cf6c81abab7bd2fd773ee5283c39e9bec59f38d86d352b2cfb79c8"
+      }
+    ]
+  },
+  "live_truth": {
+    "verified_at_utc": "2026-08-13T02:26:38Z",
+    "branch": "main",
+    "remote_commit": "e86594ca0e2ab9b2deb063115121e97a50465d10",
+    "repository_visibility": "PUBLIC",
+    "pull_request": {
+      "number": 25,
+      "url": "https://github.com/drwbkr1/runbook-sentinel/pull/25",
+      "state": "MERGED",
+      "reviewed_head": "eb057438113573e1fdecd459b6843b7fd8902d01",
+      "base": "d3c3ad23652ca1b7c69525dabd59cd90c9c77522",
+      "merge_commit": "70d90e015b0ef0cadc8222c18113517de941d41d",
+      "merged_at_utc": "2026-08-13T01:28:58Z",
+      "configured_checks": 0,
+      "reviews": 0
+    },
+    "merge_parents": [
+      "d3c3ad23652ca1b7c69525dabd59cd90c9c77522",
+      "eb057438113573e1fdecd459b6843b7fd8902d01"
+    ],
+    "merge_tree": "9201265bffbd64a64c387190276252801e64349d",
+    "reviewed_head_tree": "9201265bffbd64a64c387190276252801e64349d",
+    "latest_public_release": "v0.0.26",
+    "tag_target": "not_created",
+    "release": "not_created",
+    "container_publication": "not_created",
+    "deployment": null
+  },
+  "real_surface_matrix": {
+    "required": true,
+    "registry_ref": "contracts/milestone-0027.json#units/UNIT-004",
+    "evaluation_receipt_ref": "artifacts/verification/merged-main-baseline-0027.json",
+    "status": "verified",
+    "candidate_identity": "e86594ca0e2ab9b2deb063115121e97a50465d10",
+    "required_surface_ids": [
+      "source-evaluation",
+      "package-evaluation",
+      "source-mcp",
+      "package-mcp",
+      "source-api-approval-executor-state-telemetry",
+      "package-api-approval-executor-state-telemetry",
+      "source-dashboard",
+      "package-dashboard",
+      "selected-archive-reproduction",
+      "container-build-identity",
+      "container-runtime-security",
+      "container-cli-evaluation-mcp-api-state-telemetry",
+      "container-dashboard",
+      "container-tmpfs-extraction",
+      "container-point-in-time-scan",
+      "clean-clone-container-reproduction"
+    ],
+    "verified_surface_ids": [
+      "source-evaluation",
+      "package-evaluation",
+      "source-mcp",
+      "package-mcp",
+      "source-api-approval-executor-state-telemetry",
+      "package-api-approval-executor-state-telemetry",
+      "source-dashboard",
+      "package-dashboard",
+      "selected-archive-reproduction",
+      "container-build-identity",
+      "container-runtime-security",
+      "container-cli-evaluation-mcp-api-state-telemetry",
+      "container-dashboard",
+      "container-tmpfs-extraction",
+      "container-point-in-time-scan",
+      "clean-clone-container-reproduction"
+    ],
+    "reason": "Exact candidate e86594ca0e2ab9b2deb063115121e97a50465d10 contains the history-preserving reviewed merge, the candidate-bound public-main receipt, and only eight reconciled lifecycle records after that receipt. Fresh no-alternates public-main source, package, container, rendering, state, telemetry, scan, and clean-build evidence passes; the literal candidate passes compilation, 58 tests, manifest, package, milestone, and required-result container validators."
+  },
+  "checks": [
+    {
+      "id": "CHECK-001",
+      "category": "scope-and-history",
+      "required": true,
+      "status": "pass",
+      "method": "Compared the reviewed head, merge parents and trees, all post-merge commits, the exact tracked diff, local and remote main, and target release absence.",
+      "evidence": [
+        "PR #25 merged exact reviewed head eb057438113573e1fdecd459b6843b7fd8902d01",
+        "merge 70d90e015b0ef0cadc8222c18113517de941d41d has exact parents d3c3ad23652ca1b7c69525dabd59cd90c9c77522 and eb057438113573e1fdecd459b6843b7fd8902d01",
+        "reviewed and merged tree identities are both 9201265bffbd64a64c387190276252801e64349d",
+        "b1ca54995cd795b207717c3c8d39141ecfe2ebaa adds only the merged-main receipt; e86594ca0e2ab9b2deb063115121e97a50465d10 then changes only eight lifecycle records",
+        "local and remote main equal e86594ca0e2ab9b2deb063115121e97a50465d10 with no tracked worktree change before this audit file"
+      ],
+      "reason": "No scenario, expected state, agent, retrieval, policy, approval, executor, package contract, container contract, or authority byte changed after the reviewed merge."
+    },
+    {
+      "id": "CHECK-002",
+      "category": "contracts-and-data",
+      "required": true,
+      "status": "pass",
+      "method": "Validated the active milestone, frozen 121-file manifest, package contract, v7 container contract, selected artifacts, and exact 43-check result.",
+      "evidence": [
+        "the milestone validator accepts UNIT-005 in_progress under inherited authority with no error or warning",
+        "manifest SHA-256 is 5858b169fb05a83332ebe5ea1aaabd3fb1e57413998a6494ab76d244f6806b1e",
+        "package contract SHA-256 is 2eac29cedf0b422c0873629b7d3d682882ff403556059446ac232555479bf57e",
+        "container-runtime-v7 SHA-256 is b4c078b1e2a836ddf23ab0644c9a1810bfe9e0fdf40997256396f3de439643c0",
+        "the independent required-result validator accepts the 30088-byte 43-of-43 receipt at SHA-256 fd1c6952c42acf2703e88c365852605c00f112039e9aba26216287463a439949"
+      ],
+      "reason": "All frozen identities and deterministic boundaries remain exact."
+    },
+    {
+      "id": "CHECK-003",
+      "category": "evaluation",
+      "required": true,
+      "status": "pass",
+      "method": "Verified fresh public-main source and package evaluations, exact trace anchors, separate metric families, and normalized container parity.",
+      "evidence": [
+        "source and package each pass 57 scenarios, 171 attempts, and all 119 Boolean gates",
+        "source report and trace SHA-256 values are 25ec9d2c74a5c137ea94c37e3c09bd596b81dc86d105c831cde93f00a68d895e and 1c8b26d80dc77b029bb5d27808ece0ee8b35e5339747a2b97c6d1f869935ceb7",
+        "package report and trace SHA-256 values are 22c7b1ccaa40c94b36819f6ca0134f926ae1fdde061c837fce7843e8c3b63f86 and 1a24b2cbffb41377dbfab7bf902512edd2a5d14975a56e91658da595e202ac11",
+        "each trace has exactly 261 events and an independently verified final anchor",
+        "retrieval, generation, tool trajectory, policy, terminal state, utility, security, reliability, latency, cost, and coverage remain separate and normalize across source, package, and container at d08823b3ddda041f24567f70f11326661b749d63ddc07dbdd1d160836c7ca820",
+        "tool trajectory, terminal exactness, policy compliance, benign utility, and pass^3 are 1.0; proposal and terminal attack success, model calls, and estimated external API cost are zero"
+      ],
+      "reason": "The result is deterministic synthetic evidence and does not establish production reliability or universal prompt-injection resistance."
+    },
+    {
+      "id": "CHECK-004",
+      "category": "runtime-and-regression",
+      "required": true,
+      "status": "pass",
+      "method": "Ran compilation and the full current regression at the literal reconciled candidate, then reran the governing manifest, package, milestone, and container-result validators.",
+      "evidence": [
+        "compileall passes for source, scripts, and tests",
+        "all 58 tests pass in 89.478 seconds at e86594ca0e2ab9b2deb063115121e97a50465d10",
+        "the frozen manifest passes with 121 tracked files",
+        "the 41-entry selected package passes its exact contract",
+        "the implemented v7 validator accepts the exact required container result",
+        "the model remains credential-free and lacks approval material, arbitrary execution, and final execution authority"
+      ],
+      "reason": "The post-merge changes are bounded to verification and current lifecycle truth, while the exercised runtime remains the exact reviewed tree."
+    },
+    {
+      "id": "CHECK-005",
+      "category": "package-and-container-build",
+      "required": true,
+      "status": "pass",
+      "method": "Rebuilt and inspected the dependency-free zipapp, repeated selected-input image construction, and performed an independent no-alternates clean build.",
+      "evidence": [
+        "two 41-entry archives reproduce the selected 590546 bytes at SHA-256 bf73aac861e1a2a8317069a058fa1774012ea5fdc00865e1bb582f0244cddaf8",
+        "the 94-byte checksum file is SHA-256 cb1ad91499cf6c81abab7bd2fd773ee5283c39e9bec59f38d86d352b2cfb79c8",
+        "two full selected-input public-main builds and an independent clean build reproduce image ID sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee",
+        "the immutable base prefix, frozen timestamp, and exactly two allowed payload layers pass",
+        "the verified builder is Docker 29.4.3, Docker Desktop 4.74.0, Buildx 0.33.0-desktop.1, BuildKit 0.29.0, driver docker"
+      ],
+      "reason": "Image reproducibility is claimed only for the exact verified builder, inputs, and clean-clone evidence."
+    },
+    {
+      "id": "CHECK-006",
+      "category": "real-surfaces-and-rendering",
+      "required": true,
+      "status": "pass",
+      "method": "Exercised source, zipapp, and hardened container CLI, evaluation, MCP, API, approval, executor, replay, persistence, audit, telemetry, tmpfs extraction, and dashboard surfaces.",
+      "evidence": [
+        "source and package MCP use protocol 2025-11-25 and expose exactly three diagnostic/read tools with no approval or execution tool",
+        "source and package each pass 110 raw API checks and 59 independent authentication, approval, executor, replay, postcondition, SQLite, audit, and telemetry checks",
+        "container MCP remains three-tool and no-authority; authenticated API, approval broker, executor, replay, postconditions, persisted state, audit, and anchored telemetry pass",
+        "unprivileged tmpfs extraction is restricted to the frozen eight-file allowlist and verifies length plus SHA-256 before and after host write",
+        "complete original-detail 1440 by 1000 source, package, and container dashboards visibly preserve the never-executes promise, authenticated external operator, disconnected real infrastructure, stale payload exposure 0.0, and persisted synthetic incidents",
+        "source, package, and container dashboard SHA-256 values are 1c04ce5ee6a40a7a7ba5bac5ecb6af51a3aa964bf8fe68613e6f49803cfa195c, a2583fbe6f3ba4b7aeb949b75c05dda7e541b4ec79b387474073d0c02a35aabc, and daf05e454d11b7ebe7545cbc9de193a79ff76d174e21baecb8696dc7cd22578c"
+      ],
+      "reason": "These are real synthetic product surfaces, not a production deployment."
+    },
+    {
+      "id": "CHECK-007",
+      "category": "security-and-boundaries",
+      "required": true,
+      "status": "pass",
+      "method": "Reviewed deterministic authorization boundaries, runtime inspect state, structured evidence, selected payloads, point-in-time scanner output, and publication events.",
+      "evidence": [
+        "runtime is UID/GID 65532, read-only, network none, cap-drop ALL, no-new-privileges, private namespaces, and has no binds, devices, secrets, host paths, external egress, or real infrastructure",
+        "retrieved content remains untrusted; identity, capabilities, approvals, proposal hashes, expiry, idempotency, replay protection, executor authority, and postconditions remain outside the model",
+        "the bounded integrity sweep covers 1153 files, 746 JSON files, and 24535 records across 146 JSONL files with one exact historical exception, zero unexpected parse error, zero unresolved high-signal credential, and zero model artifact",
+        "Docker Scout 1.20.4 structured SARIF reports zero critical/high findings for the exact image at the observation time",
+        "no image export, registry authentication, push, publication, or redistribution occurred"
+      ],
+      "reason": "The scanner result is point-in-time evidence, not a perpetual CVE-free, production-security, or universal-safety claim."
+    },
+    {
+      "id": "CHECK-008",
+      "category": "research-and-rights",
+      "required": true,
+      "status": "pass",
+      "method": "Reconciled the existing research and source ledgers with the exact bounded container checkpoint and every externally controlled input.",
+      "evidence": [
+        "the official digest-pinned Chainguard image source passed the recorded identity, authority, rights, integrity, fitness, reproducibility, and security gate before use",
+        "official Docker and BuildKit specifications used for event, namespace, extraction, and reproducibility semantics remain recorded in the research ledger",
+        "the already-approved public v0.0.23 zipapp was used only to satisfy frozen predecessor identity and matched its published 500823-byte SHA-256 90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917",
+        "no external paper bytes, code, dataset, model, package dependency, paid service, credential, or other externally controlled asset was newly imported",
+        "Runbook Sentinel remains described as research-informed"
+      ],
+      "reason": "The checkpoint uses approved sources and project-authored deterministic synthetic evidence."
+    },
+    {
+      "id": "CHECK-009",
+      "category": "evidence-integrity",
+      "required": true,
+      "status": "pass",
+      "method": "Inspected retained failed, blocked, stale, corrected, superseded, excluded, diagnostic, and passing evidence without rewriting chronology.",
+      "evidence": [
+        "image identity, SOURCE_DATE_EPOCH, event-window, namespace, tmpfs extraction, endpoint preservation, and structured-scanner failures remain retained beside their bounded successors",
+        "the non-selected fresh-evaluation image is retained with the exact expected evaluation-payload layer difference",
+        "helper launch, alias collision, missing named argument, native-receipt custody, broad scan, and combined-wrapper observations remain explicitly classified",
+        "the known zero-byte BASELINE-0026 MCP failure remains the sole classified invalid JSON object",
+        "older failed, stale, superseded, stopped, and unpublished baselines remain preserved"
+      ],
+      "reason": "Unfavorable results remain inspectable and cannot be mistaken for the admitted candidate."
+    },
+    {
+      "id": "CHECK-010",
+      "category": "external-and-recovery",
+      "required": true,
+      "status": "pass",
+      "method": "Queried live public main, repository visibility, PR merge state, target refs, latest release metadata, selected local bytes, and the no-container-publication boundary immediately before authorization.",
+      "evidence": [
+        "public origin/main equals e86594ca0e2ab9b2deb063115121e97a50465d10",
+        "repository visibility remains PUBLIC as explicitly selected by the owner",
+        "PR #25 is merged at exact reviewed head eb057438113573e1fdecd459b6843b7fd8902d01 and merge 70d90e015b0ef0cadc8222c18113517de941d41d",
+        "v0.0.27 tag and GitHub release are absent, so publication cannot overwrite an existing version",
+        "v0.0.26 remains the latest verified public release and rollback point",
+        "no container image has been exported or published; the public release is limited to source, selected zipapp, and checksum"
+      ],
+      "reason": "The release can proceed without overwriting state, while v0.0.26 remains an immutable recovery point."
+    }
+  ],
+  "truth_surfaces": [
+    {
+      "path_or_uri": "C:/Projects/Verification/runbook-sentinel-baseline-0027-main-container-70d90e0-20260813T014849Z",
+      "expected_state": "clean public-main candidate at exact reconciled commit before this audit file",
+      "observed_state": "main and origin/main equal e86594ca0e2ab9b2deb063115121e97a50465d10; the only new worktree path is this final audit",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/pull/25",
+      "expected_state": "history-preserving merge of exact reviewed head",
+      "observed_state": "MERGED as 70d90e015b0ef0cadc8222c18113517de941d41d with exact reviewed head and identical tree",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/tree/main",
+      "expected_state": "public main at exact candidate",
+      "observed_state": "e86594ca0e2ab9b2deb063115121e97a50465d10",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "artifacts/verification/merged-main-baseline-0027.json",
+      "expected_state": "candidate-bound receipt for all required fresh public-main product surfaces",
+      "observed_state": "14749 bytes at SHA-256 9d55c63b26ea0f7d76eb534d6084af6cc2f5b19d7ca18e1089d799b75e559397 with status pass",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "dist/runbook-sentinel-0.0.27.pyz",
+      "expected_state": "selected 590546-byte archive at frozen digest",
+      "observed_state": "two rebuilds and exact contract validation match SHA-256 bf73aac861e1a2a8317069a058fa1774012ea5fdc00865e1bb582f0244cddaf8",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee",
+      "expected_state": "local-only selected container verification surface",
+      "observed_state": "three selected-input builds reproduce the image; no export, push, publication, or redistribution occurred",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/releases/latest",
+      "expected_state": "v0.0.26 remains latest before authorized publication",
+      "observed_state": "v0.0.26 is latest at 2026-08-13T02:26:38Z",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.27",
+      "expected_state": "absent before this audit authorizes publication",
+      "observed_state": "tag ref and release endpoint both return not found",
+      "status": "current"
+    }
+  ],
+  "retained_failures": [
+    "The public-main source clone initially stopped because the ignored public-v0.0.23 archive required by a frozen historical validator was absent. The already approved asset was restored only after exact 500823-byte and SHA-256 verification, then the unchanged gate passed.",
+    "Helper-script launch, PowerShell alias collision, and omitted named-archive argument observations stopped or produced no disposition; corrected unchanged invocations passed.",
+    "A full non-selected container run after source promotion consumed the fresh evaluation payload, produced a distinct internally exact image, and passed all runtime gates. The exact layer difference is retained and it is excluded from release identity.",
+    "Two initially mislabeled native receipt copies remain external and superseded by fresh independent 59-of-59 source and package inspectors.",
+    "The broad evidence sweep failed closed on the known zero-byte BASELINE-0026 MCP failure and scanner-definition literals; the bounded classified rerun passes.",
+    "A post-reconciliation combined wrapper returned no per-command evidence and received no product disposition; separated compilation, 58-test, manifest, package, milestone, and container-result checks pass."
+  ],
+  "limitations": [
+    "GitHub has no configured checks or required review for PR #25, so repository, clean-clone, direct product-surface, and public-state gates are authoritative.",
+    "All incident and evaluation evidence is deterministic and synthetic; it does not establish production reliability or universal prompt-injection resistance.",
+    "The deterministic control and zero external API cost do not establish learned-model quality or production economics.",
+    "Image reproducibility is bounded to the exact verified Docker, Buildx, BuildKit, driver, source inputs, and selected evaluation bytes.",
+    "Docker Scout evidence is point-in-time and does not establish perpetual vulnerability freedom.",
+    "No production identity, immutable external storage, external collector, signer, paid service, package registry, container registry, deployment, or real infrastructure is included.",
+    "The container image is a local verification surface and will not be exported, pushed, published, or redistributed.",
+    "The project remains research-informed and makes no production, universal-safety, or external-system-superiority claim."
+  ],
+  "decision": {
+    "reported_status": "verified",
+    "rationale": "The exact reviewed merge, immutable identities, frozen evaluations and anchors, reproducible package and local image, bounded MCP, authenticated API/approval/executor/state/telemetry surfaces, rendered dashboards, public-main and clean-build reproductions, retained failures, rights, security boundaries, recovery point, active milestone, and current external truth pass without unresolved discrepancy.",
+    "next_action": "Commit and push only this final audit, reverify its one-path public-main delta, commit and push the exact eight-path release closure, create and push annotated v0.0.27 at that exact closure, publish only the selected zipapp and checksum as a non-draft public GitHub release, then independently verify refs, metadata, assets, downloaded bytes, rendered repository/release/tag pages, and fresh public-tag source, package, and local-container reproduction before recording external closure on main.",
+    "authorized_next_actions": [
+      "commit_final_audit",
+      "push_final_audit",
+      "commit_release_closure",
+      "push_release_closure",
+      "create_annotated_tag",
+      "publish_selected_release_assets",
+      "verify_public_release"
+    ]
+  }
+}
