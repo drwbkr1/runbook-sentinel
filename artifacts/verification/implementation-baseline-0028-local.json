@@ -50,11 +50,24 @@
       "passed": 59,
       "failed": 0
     },
-    "source_validator_sweep": {
+    "source_validator_sweep_before_controlled_intake": {
       "passed": 23,
-      "excluded": 1,
-      "excluded_validator": "scripts/verify_adversarial_condition_outcome_split_coverage_contract.py",
-      "exclusion_reason": "Historical BASELINE-0024 validator requires absent untracked dist/runbook-sentinel-0.0.23.pyz at its exact old identity; current source checks pass and no historical package bytes were imported or reconstructed."
+      "unavailable": 1,
+      "unavailable_validator": "scripts/verify_adversarial_condition_outcome_split_coverage_contract.py",
+      "reason": "Historical BASELINE-0024 validator required an absent exact public v0.0.23 zipapp."
+    },
+    "controlled_historical_package_intake": {
+      "status": "pass",
+      "bytes": 500823,
+      "sha256": "90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917",
+      "zip_integrity": "pass",
+      "embedded_version": "0.0.23",
+      "embedded_checkpoint": "baseline-0023",
+      "contract": "artifacts/verification/intake-public-v0.0.23-package-baseline-0028.json"
+    },
+    "source_validator_sweep_after_controlled_intake": {
+      "passed": 24,
+      "failed": 0
     },
     "compileall": "pass",
     "diff_check": "pass",

@@ -6,6 +6,8 @@ dist/
 build/
 var/
 artifacts/runtime/
+artifacts/verification/.intake-staging/
+artifacts/verification/controlled-intake/**/.promotion-*.tmp
 .env
 .env.*
 !.env.example

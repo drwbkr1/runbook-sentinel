@@ -1,0 +1,83 @@
+{
+  "contract_version": "1.0",
+  "intake_id": "baseline-0028-historical-package-v0.0.23-001",
+  "created_at": "2026-08-13T03:57:57Z",
+  "collision_policy": "fail",
+  "promotion_mode": "atomic-no-replace",
+  "secret_policy": "references-only",
+  "custody_root": "artifacts/verification/controlled-intake/baseline-0028-historical-package-v0.0.23-001",
+  "staging_root": "artifacts/verification/.intake-staging/baseline-0028-historical-package-v0.0.23-001",
+  "assets": [
+    {
+      "asset_id": "public-v0.0.23-zipapp",
+      "source": {
+        "kind": "https",
+        "uri": "https://github.com/drwbkr1/runbook-sentinel/releases/download/v0.0.23/runbook-sentinel-0.0.23.pyz",
+        "authorization_ref": "Public Runbook Sentinel v0.0.23 release and active director goal public-verification authority",
+        "terms_ref": "Project-owned public release asset; repository license and release record",
+        "transport_exception_ref": null
+      },
+      "destination_relative_path": "runbook-sentinel-0.0.23.pyz",
+      "staging_relative_path": "public-v0.0.23-zipapp/runbook-sentinel-0.0.23.pyz.part",
+      "expected": {
+        "sha256": "90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917",
+        "size_bytes": 500823,
+        "unavailable_reason": null
+      },
+      "observed": {
+        "staged_sha256": "90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917",
+        "staged_size_bytes": 500823,
+        "promoted_sha256": "90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917",
+        "promoted_size_bytes": 500823
+      },
+      "state": "promoted",
+      "attempts": [
+        {
+          "attempt_id": "attempt-001",
+          "started_at": "2026-08-13T03:59:00Z",
+          "resume_offset": 0,
+          "remote_etag": "0x8DEF7396587CD23",
+          "remote_size_bytes": 500823,
+          "outcome": "succeeded",
+          "completed_at": "2026-08-13T04:00:00Z",
+          "error": null,
+          "structural_check": {
+            "zip_test": "pass",
+            "entry_count": 38,
+            "entry_names_unique": true,
+            "embedded_version": "0.0.23",
+            "embedded_checkpoint": "baseline-0023"
+          }
+        }
+      ],
+      "failure": null,
+      "superseded_by": null
+    }
+  ],
+  "extensions": {
+    "remote_preflight": {
+      "status": 200,
+      "content_length": 500823,
+      "etag": "0x8DEF7396587CD23",
+      "last_modified": "Mon, 10 Aug 2026 23:45:02 GMT",
+      "accept_ranges": "bytes",
+      "content_type": "application/octet-stream"
+    },
+    "purpose": "Temporarily restore an exact project-owned historical release prerequisite for a retained validator; never treat it as a baseline-0028 package candidate."
+    ,
+    "promotion": {
+      "promoted_at": "2026-08-13T04:02:00Z",
+      "method": "verified sibling copy followed by Windows native atomic no-replace hard-link creation",
+      "final_rehash_exact": true,
+      "verified_sibling_retained": true,
+      "retention_reason": "Command policy blocked deletion after promotion; retaining an identical hard link is safe and preserves custody evidence."
+    },
+    "retained_failures": [
+      "The first structural probe invoked the archive with --version, but this historical CLI requires a subcommand; exact ZIP integrity and embedded package-manifest inspection replaced that unsuitable probe.",
+      "The first verified-state contract update used a non-schema attempt status instead of outcome=succeeded; validation failed before promotion and the custody record was corrected.",
+      "The first all-in-one promotion command was rejected before execution by command policy.",
+      "System.IO.File.CreateHardLink was unavailable in this Windows PowerShell runtime; native New-Item -ItemType HardLink then performed the no-replace publication successfully.",
+      "Command policy blocked deletion of the verified sibling link after exact final rehash, so the identical sibling remains retained."
+    ]
+  }
+}

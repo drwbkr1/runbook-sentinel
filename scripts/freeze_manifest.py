@@ -63,6 +63,8 @@ FILES = [
     "eval/adversarial-exposure-stage-outcome-split-coverage-prechange.json",
     "eval/adversarial-retrieval-stage-outcome-split-coverage-contract.json",
     "eval/adversarial-retrieval-stage-outcome-split-coverage-prechange.json",
+    "artifacts/verification/intake-public-v0.0.23-package-baseline-0028.json",
+    "artifacts/verification/controlled-intake/baseline-0028-historical-package-v0.0.23-001/runbook-sentinel-0.0.23.pyz",
     "src/runbook_sentinel/__init__.py",
     "src/runbook_sentinel/__main__.py",
     "src/runbook_sentinel/data/scenarios.json",

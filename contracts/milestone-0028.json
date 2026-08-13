@@ -140,11 +140,11 @@
       "depends_on": ["UNIT-002"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": ["public implementation seal"],
       "outputs": ["immutable source report trace and candidate receipt"],
       "gates": {
-        "implementation_sealed_before_candidate": "pending",
+        "implementation_sealed_before_candidate": "pass",
         "twenty_cells_exact": "pending",
         "sixty_retrieved_filtered_and_six_never_retrieved_attempts_exact": "pending",
         "all_prior_gates_exact": "pending",
@@ -208,8 +208,8 @@
       "next_dependency": null
     }
   ],
-  "current_unit": null,
-  "next_action": "Commit and push the exact UNIT-002 implementation seal, verify the remote branch identity, then activate UNIT-003 and freeze the complete baseline-0028 candidate manifest before revealing an immutable evaluation.",
+  "current_unit": "UNIT-003",
+  "next_action": "Publish and remotely verify the controlled historical-package prerequisite plus manifest inventory, freeze and publish the exact baseline-0028 manifest, then reveal one immutable source candidate against that public manifest.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -240,8 +240,8 @@
     ]
   },
   "handoff": {
-    "current_checkpoint": "Verified public v0.0.27 remains immutable at audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e with public reconciliation commit 3e9a8a3b90059c99a81ab50678c6560aa7379a54. BASELINE-0028 has only orientation and preimplementation contract work in progress; no runtime or checkpoint code has changed.",
-    "next_action": "Publish and remotely verify the exact BASELINE-0028 preimplementation freeze, then activate UNIT-002 and implement only the frozen additive evaluator and reporting surface.",
+    "current_checkpoint": "Verified public v0.0.27 remains immutable at audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e. BASELINE-0028 preimplementation freeze 62e59a3f54c1cd7e9fe3865259c1d510a23750c3 and implementation seal 39d9e4ddec994fd9a05fb5d28396fd051ccce258 are public and remotely exact; no immutable baseline-0028 candidate has been revealed.",
+    "next_action": "Publish controlled custody of the exact public v0.0.23 historical-validator prerequisite and the manifest inventory, then freeze and publish the baseline-0028 manifest before revealing one immutable source candidate.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any replacement or reinterpretation of the existing three-stage metric",

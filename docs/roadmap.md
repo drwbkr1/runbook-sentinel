@@ -203,6 +203,7 @@ The fresh public v0.0.15 run passes all existing behavior and authority gates, b
 
 - [x] Run and inspect verified public v0.0.27; freeze the retrieval-stage truth gap before implementation.
 - [x] Implement the additive four-stage metric, fail-closed contract, focused probes, and explicit dashboard/API labels while preserving all scenarios and authority boundaries.
-- [ ] Publish the implementation seal, freeze the exact manifest, and reveal one immutable source candidate.
+- [x] Publish the implementation seal at `39d9e4ddec994fd9a05fb5d28396fd051ccce258`.
+- [ ] Publish controlled historical-validator custody and the expanded manifest inventory; freeze and publish the exact manifest; then reveal one immutable source candidate.
 - [ ] Verify package, MCP, API, state, telemetry, rendered dashboard, clean clone, and local-only container path.
 - [ ] Audit, review, merge, release v0.0.28 source plus zipapp, and verify the public tag without publishing container image bytes.
