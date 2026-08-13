@@ -1,5 +1,15 @@
 # Development log
 
+## 2026-08-13 BASELINE-0027 verified container and clean-clone closure
+
+- Published the manifest-bound structured-scanner source/package input at `428d12f57f01cecdf2e97e0a18746d9226eef9c1`. The selected 41-entry archive is 590,546 bytes at SHA-256 `bf73aac861e1a2a8317069a058fa1774012ea5fdc00865e1bb582f0244cddaf8`; source/package attempt 010 passes 57 scenarios, 171 attempts, all 119 Boolean gates, and exact 261-event anchors.
+- A one-second foreground launcher stopped before creating evidence, a receipt, an image, a container, or a verifier process. No product disposition was inferred. The same unused full-attempt identity then ran under captured background execution.
+- Two no-cache networkless builds reproduced exact image ID `sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee`. The hardened UID/GID 65532 container passed CLI, evaluation, exact trace, bounded three-tool MCP, authenticated API, approval, executor, replay, SQLite state, audit, anchored telemetry, verified tmpfs extraction, and dashboard gates before cleanup.
+- Original-detail inspection accepted the complete 1440 by 1000 container dashboard at SHA-256 `6de048141932bdbf86040035259d578b4eeb9d70c0aa371b88d2fc1691eeeee0`. Docker Scout 1.20.4 structured SARIF reports zero critical/high findings at that observation time; no perpetual claim is made.
+- A fresh HTTPS clone of exact public input `428d12f...`, with no object alternates, remained clean and reproduced exact image ID `4a29935f...`. Its 8,985-byte receipt is SHA-256 `9536176ceb09676f3324f97597a30f2dd49fb52e8930caedfdafc5255bba1b2c`; the clean build log is SHA-256 `cf8758a93c1e25252c87763085156c8b0537ffe47f28159f16962c2317856826`.
+- The canonical container receipt preserves the unmodified 42-of-43 intermediate output externally, hash-binds the clean-clone evidence, and passes all 43 frozen checks at 30,088 bytes and SHA-256 `fd1c6952c42acf2703e88c365852605c00f112039e9aba26216287463a439949`. The unchanged full suite passes all 58 tests in 84.128 seconds; manifest, package, source/package trace, and required-result container validators pass.
+- Published the canonical receipt at `727c29e7ffebf718844f7648e859e29514de4862`. Local, tracking, and live remote branch refs match. No verifier container remains, and no image was exported, pushed, or published. UNIT-004 is complete; UNIT-005 release audit and exact-head review are next.
+
 ## 2026-08-12 BASELINE-0027 v7 tmpfs-extraction freeze
 
 - Ran container-runtime-v6 from public input `6245be0b9241d789347ac3bb7ebf869561aaa5f4`. Both networkless no-cache builds produced exact local image ID `sha256:90b8b4a9ac25bb1fc1632c1f0851430c1d833b912d77942b97b0328348079a44`; local create/tag events, image metadata and layers, exact private namespaces, all hardened runtime checks, and CLI help passed.

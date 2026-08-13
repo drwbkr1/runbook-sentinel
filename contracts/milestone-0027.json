@@ -17,7 +17,7 @@
       "public_verification"
     ],
     "active_contract": "contracts/milestone-0027.json",
-    "verified_at_utc": "2026-08-12T16:47:40.5257235Z",
+    "verified_at_utc": "2026-08-13T01:05:00Z",
     "expires_at_utc": null
   },
   "scope": {
@@ -161,7 +161,7 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "gates": {
         "immutable_source_candidate": "pass",
         "all_prior_source_and_package_gates": "pass",
@@ -181,11 +181,11 @@
         "container_runtime_v7_implemented_before_manifest_renewal": "pass",
         "container_runtime_v7_manifest_inventory_sealed_before_renewal": "pass",
         "container_runtime_v7_manifest_frozen_before_archive_or_image": "pass",
-        "two_image_builds_exact": "pending",
-        "container_cli_evaluation_mcp_api_state_telemetry_dashboard": "pending",
-        "container_security_contract": "pending",
-        "candidate_scan": "pending",
-        "clean_clone_source_package_and_container": "pending"
+        "two_image_builds_exact": "pass",
+        "container_cli_evaluation_mcp_api_state_telemetry_dashboard": "pass",
+        "container_security_contract": "pass",
+        "candidate_scan": "pass",
+        "clean_clone_source_package_and_container": "pass"
       },
       "retained_failures": [
         "Final source/package evaluation attempt 001 is excluded after a non-terminating PowerShell Test-Path guard error allowed both outputs to run. A subsequent trace-verifier probe also omitted PYTHONPATH and stopped at import. All six outputs and the exact wrapper failure remain retained; no image was built.",
@@ -206,8 +206,12 @@
          ,"The first genuine v5 runtime reveal built exact image ID 96655a01... twice and passed the nanosecond event window, then stopped before product execution because the verifier treated Docker's explicit IpcMode private as host sharing. Exact inspect evidence proves private IPC, empty PID/UTS/userns modes, and every other runtime boundary passing. The failure remains retained; v6 is frozen before the narrow namespace-semantic correction."
          ,"The first genuine v6 runtime reveal built exact image ID 90b8b4a9... twice and passed local events, image validation, exact private namespaces, hardened runtime, CLI, and evaluation execution, then stopped because docker cp cannot read files from the /state tmpfs. Exact in-container sizes and hashes plus the reproduced copy failure remain retained; v7 is frozen before a bounded verified exec-stream extraction correction."
          ,"The first focused v7 suite stopped on an assumed nonexistent temp_path test helper before exercising product code. The corrected suite, full 55-test regression, required-v7 validation, and real extraction probe pass. A post-success probe summary then reused PowerShell's reserved $Host variable; the extracted file identity and container cleanup were independently confirmed."
+         ,"The first v7 full verifier stopped before image construction because its prerequisite phase predicate still expected implemented_v6. The exact failure remains retained; the corrected predicate requires implemented_v7."
+         ,"The next v7 run built the exact image twice and passed runtime, CLI, evaluation, extraction, MCP, and API before host trace verification rejected renamed endpoint files. The exact failure remains retained; the correction preserves the endpoint basenames."
+         ,"The following v7 run passed every product surface and produced a zero-critical/high Docker Scout SARIF result, then a redundant Unicode scanner-version banner could not be decoded by the host locale. The exact failure remains retained; scanner identity now comes only from structured SARIF."
+         ,"A one-second foreground launcher stopped before creating an evidence directory, receipt, image, container, or verifier process. No product disposition was inferred; the same unused attempt identity then completed under captured background execution."
       ],
-      "disposition": "pending",
+      "disposition": "pass",
       "next_dependency": "UNIT-005"
     },
     {
@@ -216,7 +220,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": [
         "verified source package container and clean-clone evidence",
         "premerge audit and exact reviewed GitHub head",
@@ -241,8 +245,8 @@
       "next_dependency": null
     }
   ],
-  "current_unit": "UNIT-004",
-  "next_action": "Commit and push the exact manifest-bound v6 archive, source/package attempt 006, real-surface evidence, scan, and package-source receipt before building another image.",
+  "current_unit": "UNIT-005",
+  "next_action": "Reconcile the verified 43-of-43 container candidate, bind a premerge release audit to the exact public branch head, and open an exact-head GitHub review before merge or release.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -289,11 +293,15 @@
       ,"public v5 implementation 7a0a7c56219163be26f1e5d80baeaecd41f9c6ff; explicit 119-file manifest inventory preview includes the versioned v5 contract exactly once; authoritative manifest, archive, evaluation, and image remain unchanged before inventory seal"
       ,"public manifest inventory seal aa55a9c833468982eaa84c29f6577ebcc1d84b1f; authoritative 119-file manifest 812c05ef8cf4342997723ece11668dad033a41726028519b4ff667695da18a7a; 53 tests; 31 validators; compilation; required v5 validation; selected evaluation pointer unchanged; predecessor archive retained with only embedded-manifest mismatch before replacement build or image"
       ,"public v5 manifest seal 51249548294d2030ebd1f74941f67362d291d426; two exact 590320-byte archives at b31acc48a597f105755524a2ddc99d38f29e5c3f2bc96b3ba0798043a43c82c6; source/package attempt 005 with all 119 Boolean gates and exact 261-event anchors; bounded MCP; both 110-check APIs; both 59-check native receipts; complete dashboards; bounded artifact scan; 32 validators; and 53 tests before successor image build"
+      ,"public structured-scanner v7 package/evaluation input 428d12f57f01cecdf2e97e0a18746d9226eef9c1; exact 41-entry 590546-byte zipapp SHA-256 bf73aac861e1a2a8317069a058fa1774012ea5fdc00865e1bb582f0244cddaf8; source/package attempt 010 with 57 scenarios, 171 attempts, all 119 Boolean gates, exact 261-event anchors, real MCP/API/state/telemetry surfaces, complete dashboards, and zero unresolved structured-scan findings"
+      ,"two independent no-cache networkless builds and a fresh public-branch clean-clone build reproduce exact image ID sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee on Docker 29.4.3, Buildx 0.33.0-desktop.1, BuildKit 0.29.0, and driver docker"
+      ,"canonical container receipt fd1c6952c42acf2703e88c365852605c00f112039e9aba26216287463a439949 passes all 43 frozen checks, including rootless read-only no-capability no-new-privileges network-none runtime, CLI, evaluation, exact trace, MCP, authenticated API, approval, executor, replay, state, telemetry, rendered dashboard, verified tmpfs extraction, structured scanner, clean clone, and no image export or publication"
+      ,"post-container regression passes all 58 tests in 84.128 seconds plus exact manifest, package, source/package trace, and required-result container validators; public receipt commit 727c29e7ffebf718844f7648e859e29514de4862 matches local, tracking, and live remote refs"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v0.0.26 remains the latest verified release. V6 payload 6245be0 and its 120-file manifest-bound package/evaluation evidence are public. Two independent v6 builds reproduce exact image ID 90b8b4a9...; event, image, namespace, hardened runtime, CLI, and evaluation execution pass, but artifact acceptance stops at Docker's documented inability to copy /state tmpfs. The exact failure and in-container identities remain retained; v7 is frozen before implementation and no passing complete container receipt exists.",
-    "next_action": "Commit and push the authoritative 121-file v7 manifest before archive/evaluation renewal or another image run.",
+    "current_checkpoint": "Public v0.0.26 remains the latest verified release. The v0.0.27 candidate is public on its branch through 727c29e7ffebf718844f7648e859e29514de4862. Source, zipapp, two local image builds, hardened container real surfaces, point-in-time structured scan, and a fresh public-branch clean-clone rebuild pass all 43 frozen checks at exact image ID sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee. No image was exported, pushed, or published; release review remains pending.",
+    "next_action": "Reconcile the candidate records, produce a premerge audit bound to the exact public head, and open an exact-head GitHub review before merge or release.",
     "do_not_carry_forward": [
       "any mutable tag, alternative base digest, root or privileged mode, added capability, host namespace, device, host path, external egress, dependency, secret, model asset, or real infrastructure",
       "any container image export, registry authentication, push, publication, or redistribution",

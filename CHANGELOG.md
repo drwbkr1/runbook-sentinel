@@ -2,6 +2,12 @@
 
 ## Unreleased - BASELINE-0027
 
+- Selected final source/package attempt 010 and a reproducible 590,546-byte zipapp at SHA-256 `bf73aac861e1a2a8317069a058fa1774012ea5fdc00865e1bb582f0244cddaf8`; all 57 scenarios, 171 attempts, 119 Boolean gates, and exact 261-event anchors pass.
+- Built the frozen image twice and independently from a fresh public-branch clone at exact image ID `sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee`.
+- Passed all 43 frozen container checks across hardened runtime, CLI, evaluation, MCP, authenticated API, approval, executor, replay, state, audit, telemetry, rendered dashboard, verified tmpfs extraction, structured point-in-time scanning, clean clone, and no-publication boundaries.
+- Retained v7 prerequisite-phase, endpoint-basename, and redundant scanner-banner decoding failures before the structured-SARIF correction; no unfavorable result was rewritten.
+- Published the canonical 43-of-43 receipt at `727c29e7ffebf718844f7648e859e29514de4862`; no image was exported, pushed, or published, and release review remains pending.
+
 - Retained the v6 tmpfs-extraction failure after exact two-build identity, local events, image validation, hardened runtime, CLI, and evaluation execution passed; an unchanged-runtime diagnostic proves the report and trace existed inside `/state` at exact identities while `docker cp` reproduced its documented tmpfs limitation.
 - Source-gated exact official Docker `cp` and `exec` semantics without importing external assets, then froze container-runtime-v7 before implementation around an eight-file allowlist, bounded unprivileged byte stream, no overwrite, and pre/post-write length plus SHA-256 verification.
 - Published the v7 freeze, implemented only the verified extraction path, passed 55 tests and required-contract validation, and proved the real path against the already-built hardened image without changing image inputs or publication boundaries.

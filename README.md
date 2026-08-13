@@ -4,6 +4,8 @@ Runbook Sentinel is a research-informed, retrieval-grounded SRE incident agent. 
 
 Release checkpoint `v0.0.26` is verified and published as the current public synthetic-only research preview. It separates filtered hostile guidance, in-band hostile evidence, and adversarial cases without instruction-bearing content; adds one exact project-authored development analog; and grades the eighteen observed-valid exposure-stage/outcome/split cells fail closed. All 57 cases pass three trials, all 56 prior scenario and terminal identities remain exact, stale payload exposure is zero, and proposal plus terminal attack success remain zero.
 
+Candidate `v0.0.27` adds a verified local container surface without changing agent behavior or authority. Source, zipapp, two deterministic local image builds, hardened container real surfaces, and a fresh public-branch clean-clone rebuild pass all 43 frozen checks at exact image ID `sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee`. The image is not exported, pushed, or published; `v0.0.26` remains the recoverable public release until review and release verification finish.
+
 PR `#24` merged exact reviewed head `48eb7669582b372ef2d0c8986374fa0823133f61` with history preserved as `2fac52759e0d3f6857491f40d1958f62a85e70b4`. Annotated tag object `2c8593ec5f77ab76e12da926336dfa06b97a67eb` peels to release closure `74bf5cba93b0697e74163a335c3dbfcc4d5d7418`. Selected public assets, downloaded bytes, live repository/release/tag pages, and a fresh public-tag clone repeat 31 validators, 47 tests, two independent archive rebuilds, source/package 171-attempt evaluations with exact 261-event anchors, bounded MCP, real API/approval/executor/state/telemetry, parsing, scans, and complete dashboards. Candidate `v0.0.11` remains rejected and unpublished. Synthetic eighteen-cell coverage is not universal prompt-injection resistance or production readiness.
 
 The bounded agent can diagnose, request evidence, propose an action, or abstain. It cannot execute actions. A deterministic approval broker, policy gate, and synthetic-only executor enforce authority outside the model.
@@ -16,7 +18,7 @@ Run all commands from the repository root with Python 3.12 or newer.
 
 ```powershell
 $env:PYTHONPATH = 'src'
-python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0026-manual.json
+python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0027-manual.json
 python -m unittest discover -s tests -v
 python -m runbook_sentinel serve --host 127.0.0.1 --port 8765
 ```
@@ -27,11 +29,11 @@ Build and verify the standard-library-only zipapp without installing a build bac
 
 ```powershell
 python scripts/build_zipapp.py
-python scripts/verify_package_contract.py --contract eval/package-contract-0026.json --archive dist/runbook-sentinel-0.0.26.pyz
-python dist/runbook-sentinel-0.0.26.pyz --help
+python scripts/verify_package_contract.py --contract eval/package-contract-0027.json --archive dist/runbook-sentinel-0.0.27.pyz
+python dist/runbook-sentinel-0.0.27.pyz --help
 ```
 
-The builder uses an exact 41-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. No package-registry or container claim is made.
+The builder uses an exact 41-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. The container is a digest-pinned local verification surface; no package-registry or container-image publication claim is made.
 
 The MCP server uses JSON-RPC over standard input/output:
 
@@ -52,7 +54,7 @@ Baseline 0004 adds an optional direct-loopback Ollama evaluation adapter. The me
 
 The repository never downloads a model or supplies tools, credentials, approvals, or execution authority. See `artifacts/verification/model-source-gate-baseline-0004.json`, `artifacts/evaluations/baseline-0004-comparison.json`, and ADR 0003 for the exact source gate, evidence, and decision.
 
-Container packaging remains deferred. Docker is currently off, and three previously reviewed official Python base candidates failed the source gate; see `artifacts/verification/container-source-gate.json`. The source workflow and independently verified dependency-free zipapp are the only candidate runtimes for this checkpoint.
+Container image publication remains out of scope. Docker is live for local verification, the earlier three official Python base candidates remain excluded, and one exact Chainguard digest is admitted only under the frozen local build/runtime contract. The dependency-free zipapp remains the only selected release artifact; see `artifacts/verification/container-baseline-0027.json` for the 43-of-43 local and clean-clone evidence.
 
 ## Security boundary
 

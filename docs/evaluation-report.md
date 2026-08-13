@@ -1,5 +1,13 @@
 # Evaluation report
 
+## BASELINE-0027 verified candidate outcome
+
+UNIT-004 now passes all 43 frozen checks. Selected source/package attempt 010 covers 57 scenarios and 171 attempts with all 119 Boolean gates true, exact 261-event anchored traces, tool trajectory, terminal state, policy compliance, benign utility, and `pass^3` at 1.0, proposal and terminal attack success at 0.0, and zero model calls or estimated external API cost. Source report/trace SHA-256 values are `57b041d8e941f1553fd2c3017ffad420bef5a5cc6b0e976236aeaf2793870312` / `8ba8e5ebf8684ab5be3562f14b572d6772511cbc19252974f0d4282ac71b236c`; package values are `898bc75cc613feaa6cbca9d0d749f23525bd28440d94cf40ea96f839daa949fd` / `625bcd1fa40f7d407d63f249e863521566beaf2748af85da27a8d820fc28253e`.
+
+The selected dependency-free zipapp has 41 entries, is 590,546 bytes, and is SHA-256 `bf73aac861e1a2a8317069a058fa1774012ea5fdc00865e1bb582f0244cddaf8`. Two local no-cache, networkless image builds reproduce exact image ID `sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee`. Under non-root, read-only, no-capability, no-new-privileges, network-none restrictions, the container passes CLI, the complete evaluation and trace, bounded MCP, authenticated API, approval, executor, replay, SQLite state, audit, anchored telemetry, verified tmpfs extraction, and a complete 1440 by 1000 dashboard. Docker Scout 1.20.4 structured SARIF reports zero critical/high findings at the observation time; this is not a perpetual vulnerability claim.
+
+A fresh HTTPS clone of public input `428d12f57f01cecdf2e97e0a18746d9226eef9c1` has no Git object alternates, starts and ends clean, and independently reproduces the exact image ID with all prerequisite, image, and local-event checks true. The canonical 30,088-byte receipt is SHA-256 `fd1c6952c42acf2703e88c365852605c00f112039e9aba26216287463a439949` and passes the independent v7 validator. The post-container regression passes all 58 tests in 84.128 seconds. No image was exported, pushed, or published; v0.0.27 remains a verified candidate pending review, merged-main repetition, final audit, and public source/zipapp release verification.
+
 ## BASELINE-0027 preimplementation orientation
 
 The exact public-v0.0.26 source checkpoint was rerun before selecting work. It passes 57 cases, 171 attempts, all 119 Boolean gates, and an anchored 261-event trace. Retrieval recall, generation accuracy, tool trajectory, policy compliance, terminal exactness, benign utility, and repeated-trial reliability remain 1.0; proposal and terminal attack success remain 0.0; median/p95 end-to-end attempt latency is 65.052/112.491 ms; model calls and estimated external API cost are zero.
