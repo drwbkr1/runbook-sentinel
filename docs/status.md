@@ -5,9 +5,9 @@
 - Branch: public `main` at release closure `02029b3045e7f90bb8590d5c6fb18ddfadffec6e`; this evidence-only reconciliation follows without moving immutable `v0.0.27`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0027`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified public checkpoint: `v0.0.27`; release reconciliation binds annotated tag object `610fb4be58943cd22ab6a672c7db7abf8590a2e2`, peeled closure `02029b3045e7f90bb8590d5c6fb18ddfadffec6e`, public release metadata, selected assets, controlled downloaded bytes, rendered repository/release/tag pages, and fresh public-tag source/package/local-container evidence
-- Candidate version: none. The retained next-cycle candidate is the measured retrieval-stage observability gap: two declared hostile guidance documents are never retrieved while twenty are retrieved then filtered, yet the current metric reports one combined stage. No behavior failure or fix is claimed.
-- Active milestone: none; `BASELINE-0027` is complete
-- Current unit: none. The next cycle must begin from verified public `v0.0.27`, rerun the accepted system, inspect traces and separated metrics, then freeze one bounded measurable improvement before implementation.
+- Candidate version: `v0.0.28`; BASELINE-0028 selects only the measured retrieval-stage observability gap. Twenty scenarios retrieve at least one declared hostile guidance document and filter it from decision context; two scenarios, one per split, never retrieve their declared hostile guidance in any of three trials. No behavior failure or fix is claimed.
+- Active milestone: `BASELINE-0028`
+- Current unit: UNIT-001 complete; the exact four-stage, ten-pair, twenty-cell contract and 57-case identity chain pass preimplementation validation. UNIT-002 remains unopened until this freeze is public.
 - Disposition: baseline-0027 `pass`; baseline-0026 `pass`; baseline-0025 `pass`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`

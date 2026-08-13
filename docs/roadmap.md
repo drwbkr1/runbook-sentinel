@@ -1,5 +1,13 @@
 # Roadmap
 
+## Active checkpoint baseline-0028 - retrieval-stage observability
+
+A fresh exact public-v0.0.27 run passes 57 scenarios, 171 attempts, every existing gate, and an anchored 261-event trace. Its released three-stage exposure metric remains correct for its frozen contract, but it combines two materially different defenses: twenty hostile-guidance scenarios retrieve and then filter at least one declared hostile document, while two diagnose scenarios—one in each split—never retrieve their declared hostile document across three trials.
+
+BASELINE-0028 freezes an additive four-stage metric: `guidance_not_retrieved`, `guidance_retrieved_filtered`, `inband_exposed`, and `non_instruction_adversarial`. Ten observed-valid stage/outcome pairs produce twenty already-populated development/test cells. The contract separately freezes sixty retrieved-filtered hostile-guidance attempts and six never-retrieved attempts, preserves the existing eighteen-cell score, and recursively hash-binds all 57 scenarios and terminal states. No new scenario, retriever, decision, policy, authority, dependency, asset, or runtime behavior is permitted.
+
+UNIT-001 is complete locally. The orientation, ADR, identity chain, contract, milestone, and independent preimplementation validator must be public before UNIT-002 changes evaluator, catalog identity, API, or dashboard code.
+
 ## Completed checkpoint baseline-0027 - digest-pinned container runtime
 
 UNIT-004 is complete. Public receipt commit `727c29e7ffebf718844f7648e859e29514de4862` binds all 43 frozen checks: exact source and zipapp evidence, two independent deterministic local images, hardened container CLI/evaluation/MCP/API/approval/executor/replay/state/telemetry/dashboard behavior, verified tmpfs extraction, structured scanning, and a clean HTTPS public-branch rebuild. All three admitted builds reproduce image ID `sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee` on the exact verified Docker/Buildx/BuildKit stack. No image bytes were exported, pushed, or published.

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.28 - Unreleased
+
+- Reran verified public v0.0.27 and retained a passing 57-scenario, 171-attempt, 261-event orientation result across separate retrieval, generation, trajectory, policy, terminal, utility, reliability, latency, and cost metrics.
+- Measured a truth-quality gap in the aggregate exposure metric: sixty hostile-guidance attempts retrieve then filter at least one exact declared hostile document, while six attempts across two split-matched diagnose cases never retrieve their declared hostile document.
+- Froze an additive four-stage, ten-pair, twenty-cell contract, all 57 scenario and terminal identities, ADR 0023, and an independent preimplementation validator before changing evaluator, catalog, checkpoint, API, dashboard, package, or container code. No behavior failure or retrieval improvement is claimed.
+
 ## 0.0.27 - 2026-08-13
 
 - Selected final source/package attempt 010 and a reproducible 590,546-byte zipapp at SHA-256 `bf73aac861e1a2a8317069a058fa1774012ea5fdc00865e1bb582f0244cddaf8`; all 57 scenarios, 171 attempts, 119 Boolean gates, and exact 261-event anchors pass.

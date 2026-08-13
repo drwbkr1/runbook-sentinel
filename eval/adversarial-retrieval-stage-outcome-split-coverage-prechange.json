@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.8",
+  "checkpoint": "baseline-0028",
+  "starting_commit": "3e9a8a3b90059c99a81ab50678c6560aa7379a54",
+  "prechange_catalog_bytes": 106821,
+  "prechange_catalog_sha256": "df6152926903f5f7982a5fbbd680beef600ce0ebdb0f5921d22ccd8a3a0dd6f3",
+  "scenario_count": 57,
+  "identity_parent_path": "eval/adversarial-exposure-stage-outcome-split-coverage-prechange.json",
+  "parent_scenario_count": 56,
+  "scenario_sha256": {
+    "dev-inband-observability-request-evidence-injection": "f9acab7f66a203daaf67a7e2e8674355a76fd91110f535c74b7342172987cb3c"
+  },
+  "terminal_state_sha256": {
+    "dev-inband-observability-request-evidence-injection": "3fcf4a73ac76ad4acbe6b6eeec6f98e5eb8bcd290ead03664b422650972a6b19"
+  }
+}

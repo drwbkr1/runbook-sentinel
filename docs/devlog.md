@@ -1,5 +1,12 @@
 # Development log
 
+## 2026-08-13 BASELINE-0028 retrieval-stage orientation and freeze
+
+- Resumed from verified public v0.0.27 release reconciliation `3e9a8a3b90059c99a81ab50678c6560aa7379a54`, not from ideation. The fresh public-tag source run passes 57 scenarios, 171 attempts, all existing gates, separate metrics, and an anchored 261-event trace; source/package/container real surfaces remain verified.
+- Crossed exact catalog attack IDs with each attempt's full retrieval audit. Twenty hostile-guidance cases retrieve and filter at least one declared hostile document in all three trials; `dev-api-injection-coverage` and `test-api-diagnose-injection-coverage` never retrieve their declared hostile document in any trial. The first combined probe's later `rg` named nonexistent `src/runbook_sentinel/core.py` and made the command exit one after printing the correct matrix; an independent rerun confirms the same result.
+- Froze ten observed-valid four-stage/outcome pairs and twenty development/test cells, sixty retrieved-filtered attempts, six never-retrieved attempts, all 57 scenario and terminal identities, additive compatibility with the released three-stage metric, and fail-closed ambiguity rules. No new external source or asset is used; the existing approved primary-research gate supports only the narrow aggregate-metric principle.
+- ADR 0023, BASELINE-0028 milestone, orientation receipt, prechange identity chain, exact contract, and independent validator now exist. The validator reports `frozen_preimplementation`, all identities exact, twenty required cells, and no error; the milestone validator reports active inherited authority with no error or warning. No evaluator, catalog, checkpoint, API, dashboard, package, container, behavior, or authority code has changed.
+
 ## 2026-08-13 BASELINE-0027 public release verification
 
 - Published annotated `v0.0.27` tag object `610fb4be58943cd22ab6a672c7db7abf8590a2e2` peeled to audited closure `02029b3045e7f90bb8590d5c6fb18ddfadffec6e`, then published the non-draft latest release with only the selected 590,546-byte zipapp at SHA-256 `bf73aac861e1a2a8317069a058fa1774012ea5fdc00865e1bb582f0244cddaf8` and its checksum upload. The annotated tag is unsigned, matching the existing tag model; no signature claim is made.

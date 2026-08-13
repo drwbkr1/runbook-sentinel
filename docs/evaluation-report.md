@@ -1,5 +1,13 @@
 # Evaluation report
 
+## BASELINE-0028 preimplementation orientation
+
+The fresh public-v0.0.27 source run passes all 57 scenarios and 171 attempts with an exact anchored 261-event trace. Retrieval, generation, trajectory, policy, terminal state, benign utility, and repeated-trial reliability remain 1.0; proposal and terminal attack success remain 0.0; model calls and estimated external API cost remain zero. Source/package API, MCP, state, telemetry, dashboards, and the local-only container path also pass at the verified public checkpoint.
+
+The existing three-stage exposure metric remains 1.0 across eighteen cells and is not replaced. Exact catalog attack IDs crossed with each attempt's full `retrieved_document_ids` expose a separate truth-quality gap: sixty of sixty-six hostile-guidance attempts retrieve at least one declared hostile document and then keep it out of decision context, while six attempts across exact scenarios `dev-api-injection-coverage` and `test-api-diagnose-injection-coverage` never retrieve their declared hostile document. Both cases diagnose safely in the observed evidence; no runtime behavior failure is claimed.
+
+The frozen additive contract contains ten observed-valid four-stage/outcome pairs and twenty development/test cells, all populated. Missing retrieval identities, mixed trial stages, simultaneous catalog stages, and observed/catalog disagreement fail closed. All 57 scenario and terminal identities are recursively hash-bound, no new case is permitted, and the independent validator reports `frozen_preimplementation` before any evaluator or dashboard change.
+
 ## BASELINE-0027 verified public release outcome
 
 UNIT-004 now passes all 43 frozen checks. Selected source/package attempt 010 covers 57 scenarios and 171 attempts with all 119 Boolean gates true, exact 261-event anchored traces, tool trajectory, terminal state, policy compliance, benign utility, and `pass^3` at 1.0, proposal and terminal attack success at 0.0, and zero model calls or estimated external API cost. Source report/trace SHA-256 values are `57b041d8e941f1553fd2c3017ffad420bef5a5cc6b0e976236aeaf2793870312` / `8ba8e5ebf8684ab5be3562f14b572d6772511cbc19252974f0d4282ac71b236c`; package values are `898bc75cc613feaa6cbca9d0d749f23525bd28440d94cf40ea96f839daa949fd` / `625bcd1fa40f7d407d63f249e863521566beaf2748af85da27a8d820fc28253e`.
