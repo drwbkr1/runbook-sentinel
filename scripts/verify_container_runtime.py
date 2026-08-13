@@ -982,8 +982,15 @@ def scan_image(tag: str, evidence_dir: Path) -> dict:
     findings = sum(len(item.get("results", [])) for item in sarif.get("runs", []))
     if findings != 0:
         raise AssertionError(f"Container scan has {findings} critical/high findings")
+    drivers = [item.get("tool", {}).get("driver", {}) for item in sarif.get("runs", [])]
+    scanner = [
+        {"name": driver.get("name"), "full_name": driver.get("fullName"), "version": driver.get("version")}
+        for driver in drivers
+    ]
+    if not scanner or any(item["name"] != "docker scout" or not item["version"] for item in scanner):
+        raise AssertionError("Container SARIF has no exact Docker Scout identity")
     return {
-        "scanner": run(["docker", "scout", "version"]).stdout.splitlines()[0:3],
+        "scanner": scanner,
         "critical_high_findings": findings,
         "sarif_bytes": sarif_path.stat().st_size,
         "sarif_sha256": sha256_file(sarif_path),

@@ -84,6 +84,7 @@ from scripts.verify_container_runtime import (
     format_unix_nanoseconds,
     local_content_digest_matches_image_id,
     namespace_security_checks,
+    scan_image,
     validate_prerequisites,
     validate_tmpfs_extraction_process,
     validate_local_image_events,
@@ -307,6 +308,33 @@ class BaselineTest(unittest.TestCase):
         command = execute.call_args.args[0]
         self.assertEqual(Path(command[-2]).name, "mcp-traces.jsonl")
         self.assertEqual(Path(command[-1]).name, "mcp-traces.jsonl.anchor.json")
+
+    def test_container_scan_uses_structured_sarif_identity(self):
+        sarif = {
+            "runs": [
+                {
+                    "tool": {
+                        "driver": {
+                            "name": "docker scout",
+                            "fullName": "Docker Scout",
+                            "version": "1.20.4",
+                        }
+                    },
+                    "results": [],
+                }
+            ]
+        }
+        completed = subprocess.CompletedProcess(
+            args=[], returncode=0, stdout=json.dumps(sarif), stderr=""
+        )
+        with mock.patch("scripts.verify_container_runtime.run", return_value=completed) as execute:
+            result = scan_image("runbook-sentinel:test", Path(self.temp.name))
+        self.assertEqual(execute.call_count, 1)
+        self.assertEqual(
+            result["scanner"],
+            [{"name": "docker scout", "full_name": "Docker Scout", "version": "1.20.4"}],
+        )
+        self.assertEqual(result["critical_high_findings"], 0)
 
     def test_container_v4_local_content_identity_and_events_fail_closed(self):
         image_id = "sha256:" + "a" * 64

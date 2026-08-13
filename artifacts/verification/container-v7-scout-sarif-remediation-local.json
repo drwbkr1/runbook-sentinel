@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-13T00:42:00Z",
+  "status": "pass",
+  "disposition": "implementation_sealed_before_manifest_renewal_or_image_retry",
+  "starting_public_commit": "da1f8c9a0ef0145ecd77a5976f8a6f65f541adea",
+  "retained_failure": {"path": "artifacts/verification/container-baseline-0027-v7-scout-version-decoding-failure-001.json", "bytes": 2501, "sha256": "7219e21080488a22dc7d7b2ff65af54a4b198c0bb8d8a90cdb9a75a0348d3167"},
+  "bounded_correction": {
+    "runtime_verifier": {"path": "scripts/verify_container_runtime.py", "bytes": 54228, "sha256": "fecf7160c14131ecaff592255cf4445d6ed100dc559218aeb3e01ecee16387c6", "change": "record Docker Scout identity from the exact parsed SARIF and remove the redundant locale-sensitive banner command"},
+    "tests": {"path": "tests/test_baseline.py", "bytes": 125016, "sha256": "af3c90b8e7a254ecd371636b836bddc1fab7504ee46786b9bc4501675fa8a95f", "change": "prove scanner identity and zero findings come from structured SARIF with only one scanner invocation"}
+  },
+  "verification": {"focused_tests": {"passed": 2, "total": 2}, "non_manifest_validators": {"passed": 30, "total": 30, "elapsed_seconds": 2.199}, "unit_tests": {"passed": 58, "total": 58, "elapsed_seconds": 95.610}, "container_contract_required_implementation": "pass", "predecessor_manifest": {"status": "mismatch", "expected_stale_paths": ["scripts/verify_container_runtime.py"], "unexpected_stale_paths": []}},
+  "security_boundary_change": false,
+  "vulnerability_result_change": false,
+  "product_behavior_change": false,
+  "successor_manifest_frozen": false,
+  "successor_image_built": false,
+  "next_gate": "Commit and push this exact bounded remediation before renewing the authoritative manifest."
+}

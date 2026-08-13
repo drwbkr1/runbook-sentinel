@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-13T00:34:56Z",
+  "status": "retained_failure",
+  "phase": "third public-input v7 full container verification",
+  "public_input_commit": "da1f8c9a0ef0145ecd77a5976f8a6f65f541adea",
+  "evidence_directory": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v7-container-full-attempt-003-20260813T0040Z",
+  "orchestration_guard_diagnostic": {
+    "error": "Test-Path variables were written without separating whitespace",
+    "impact": "PowerShell reported two non-terminating command-not-found errors; both target paths were absent and the Python verifier then created them normally."
+  },
+  "verified_before_failure": {
+    "independent_image_manifest": "sha256:5f52e44ecd4394827980ba44446b74fd7c11ffc917930830e722e5015c8970be",
+    "independent_image_config": "sha256:35f89dfd2a14a61b726a1f0dd6931074e38286973406cc5e962a1bbc4c8f0777",
+    "container_evaluation": {"scenario_count": 57, "attempt_count": 171, "boolean_gate_count": 119, "disposition": "pass", "trace_event_count": 261, "trace_valid": true, "trace_anchored": true},
+    "source_package_container_metric_parity": true,
+    "mcp_trace": {"valid": true, "anchored": true, "event_count": 1},
+    "api_trace": {"valid": true, "anchored": true, "event_count": 5},
+    "persisted_database": {"bytes": 65536, "sha256": "aa94260c9884e2988173e422bc63fccde08816872064aaf04296c35c229a4c12", "audit_rows": 5},
+    "dashboard": {"bytes": 87034, "sha256": "575bc5a2fdae2d6c2985b10c890d945068003071bf320b77061d672f0ca1bbd9", "dimensions": [1440, 1000], "visually_inspected_at_original_detail": true},
+    "scanner_sarif": {"bytes": 461, "sha256": "7749b34be7a069559b10b1b9d53cc8897576fdd104071a9e0f907f9a301ee303", "scanner_name": "docker scout", "scanner_version": "1.20.4", "critical_high_findings": 0}
+  },
+  "failure": {
+    "type": "locale_sensitive_scout_version_banner_decode",
+    "error": "UnicodeDecodeError decoding docker scout version with Windows CP-1252, followed by stdout None",
+    "cause": "A redundant presentation-only version command emits a Unicode banner; the already parsed SARIF contains authoritative scanner name and version metadata."
+  },
+  "container_removed": true,
+  "passing_receipt_created": false,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false,
+  "disposition": "record scanner identity from the exact successfully parsed SARIF and remove the redundant locale-sensitive banner parse"
+}
