@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-13T00:00:24Z",
+  "status": "retained_failure",
+  "phase": "first public-input v7 full container prerequisite validation",
+  "public_input_commit": "5ef926fea89e2d58d84f811017735933df8911fe",
+  "source_report": "artifacts/evaluations/runs/baseline-0027-final-source-attempt-007.json",
+  "package_report": "artifacts/evaluations/runs/baseline-0027-final-package-attempt-007.json",
+  "evidence_directory": "C:/Projects/Verification/runbook-sentinel-baseline-0027-v7-container-full-20260813T0002Z",
+  "failure": {
+    "type": "internal_prerequisite_phase_mismatch",
+    "container_contract_status": "pass",
+    "container_contract_id": "container-runtime-v7",
+    "reported_implementation_phase": "implemented_v7",
+    "runtime_wrapper_expected_phase": "implemented_v6",
+    "manifest_status": "pass",
+    "package_status": "pass",
+    "evaluation_checkpoint_status": "pass"
+  },
+  "image_build_started": false,
+  "container_started": false,
+  "runtime_surface_executed": false,
+  "receipt_created": false,
+  "evidence_directory_state": "created_empty_before_prerequisite_validation",
+  "remediation_test_failure": {
+    "status": "retained_failure",
+    "error": "AttributeError: module unittest has no attribute mock",
+    "cause": "The first regression test accessed unittest.mock without explicitly importing mock on this Python build; it failed before exercising the production predicate."
+  },
+  "disposition": "remediate the exact phase predicate, add a regression test, renew the authoritative manifest and package/evaluation payload, publish that successor input, then retry in a new evidence directory"
+}

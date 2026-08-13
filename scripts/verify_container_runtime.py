@@ -450,7 +450,7 @@ def validate_prerequisites(evaluation: dict) -> dict:
     package_validation = json.loads(package_result.stdout)
     checks = {
         "container_contract": contract_validation.get("status") == "pass"
-        and contract_validation.get("implementation_phase") == "implemented_v6",
+        and contract_validation.get("implementation_phase") == "implemented_v7",
         "manifest": manifest_validation.get("status") == "pass",
         "package": package_validation.get("status") == "pass",
         "evaluation_checkpoint": evaluation.get("checkpoint") == "baseline-0027"

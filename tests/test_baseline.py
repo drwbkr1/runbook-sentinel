@@ -9,6 +9,7 @@ import sys
 import tempfile
 import threading
 import unittest
+from unittest import mock
 from datetime import datetime
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -83,6 +84,7 @@ from scripts.verify_container_runtime import (
     format_unix_nanoseconds,
     local_content_digest_matches_image_id,
     namespace_security_checks,
+    validate_prerequisites,
     validate_tmpfs_extraction_process,
     validate_local_image_events,
 )
@@ -126,6 +128,41 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(SOURCE_DATE_EPOCH, "1786556577")
         self.assertEqual(SOURCE_DATE_EPOCH_UTC, "2026-08-12T17:42:57Z")
         self.assertEqual(EXPECTED_BUILDER["buildkit"], "0.29.0")
+
+    def test_container_v7_prerequisite_requires_current_implementation_phase(self):
+        contract = {
+            "status": "pass",
+            "implementation_phase": "implemented_v7",
+        }
+        manifest = {"status": "pass"}
+        package = {"status": "pass"}
+        evaluation = {
+            "checkpoint": "baseline-0027",
+            "gates": {"baseline_disposition": "pass"},
+        }
+
+        def completed(payload: dict) -> subprocess.CompletedProcess[str]:
+            return subprocess.CompletedProcess(
+                args=[],
+                returncode=0,
+                stdout=json.dumps(payload),
+                stderr="",
+            )
+
+        with mock.patch(
+            "scripts.verify_container_runtime.run",
+            side_effect=[completed(contract), completed(manifest), completed(package)],
+        ):
+            result = validate_prerequisites(evaluation)
+        self.assertTrue(result["checks"]["container_contract"])
+
+        contract["implementation_phase"] = "implemented_v6"
+        with mock.patch(
+            "scripts.verify_container_runtime.run",
+            side_effect=[completed(contract), completed(manifest), completed(package)],
+        ):
+            with self.assertRaisesRegex(AssertionError, '"container_contract": false'):
+                validate_prerequisites(evaluation)
 
     def test_container_v4_contract_fails_closed_on_metadata_boundary_weakening(self):
         contract_path = ROOT / "eval/container-contract-0027-v4.json"
