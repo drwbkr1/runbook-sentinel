@@ -6,7 +6,7 @@ A fresh exact public-v0.0.27 run passes 57 scenarios, 171 attempts, every existi
 
 BASELINE-0028 freezes an additive four-stage metric: `guidance_not_retrieved`, `guidance_retrieved_filtered`, `inband_exposed`, and `non_instruction_adversarial`. Ten observed-valid stage/outcome pairs produce twenty already-populated development/test cells. The contract separately freezes sixty retrieved-filtered hostile-guidance attempts and six never-retrieved attempts, preserves the existing eighteen-cell score, and recursively hash-binds all 57 scenarios and terminal states. No new scenario, retriever, decision, policy, authority, dependency, asset, or runtime behavior is permitted.
 
-UNIT-001 is complete locally. The orientation, ADR, identity chain, contract, milestone, and independent preimplementation validator must be public before UNIT-002 changes evaluator, catalog identity, API, or dashboard code.
+UNIT-001 through UNIT-003 are complete. The public pre-reveal manifest preceded immutable source attempt 001, which passes all 57 scenarios, 171 attempts, 126 Boolean gates, the exact twenty-cell split, sixty-versus-six hostile-guidance attempt counts, zero ambiguity, zero proposal/terminal attack success, and its anchored 261-event trace. UNIT-004 begins by freezing and publishing the package contract and final manifest before creating archive or container bytes.
 
 ## Completed checkpoint baseline-0027 - digest-pinned container runtime
 
@@ -204,6 +204,6 @@ The fresh public v0.0.15 run passes all existing behavior and authority gates, b
 - [x] Run and inspect verified public v0.0.27; freeze the retrieval-stage truth gap before implementation.
 - [x] Implement the additive four-stage metric, fail-closed contract, focused probes, and explicit dashboard/API labels while preserving all scenarios and authority boundaries.
 - [x] Publish the implementation seal at `39d9e4ddec994fd9a05fb5d28396fd051ccce258`.
-- [ ] Publish controlled historical-validator custody and the expanded manifest inventory; freeze and publish the exact manifest; then reveal one immutable source candidate.
+- [x] Publish controlled historical-validator custody and the expanded manifest inventory; freeze and publish the exact manifest; then reveal one immutable passing source candidate.
 - [ ] Verify package, MCP, API, state, telemetry, rendered dashboard, clean clone, and local-only container path.
 - [ ] Audit, review, merge, release v0.0.28 source plus zipapp, and verify the public tag without publishing container image bytes.

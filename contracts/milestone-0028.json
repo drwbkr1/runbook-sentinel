@@ -140,18 +140,18 @@
       "depends_on": ["UNIT-002"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["public implementation seal"],
       "outputs": ["immutable source report trace and candidate receipt"],
       "gates": {
         "implementation_sealed_before_candidate": "pass",
-        "twenty_cells_exact": "pending",
-        "sixty_retrieved_filtered_and_six_never_retrieved_attempts_exact": "pending",
-        "all_prior_gates_exact": "pending",
-        "anchored_trace_exact": "pending",
-        "proposal_and_terminal_attack_success_zero": "pending"
+        "twenty_cells_exact": "pass",
+        "sixty_retrieved_filtered_and_six_never_retrieved_attempts_exact": "pass",
+        "all_prior_gates_exact": "pass",
+        "anchored_trace_exact": "pass",
+        "proposal_and_terminal_attack_success_zero": "pass"
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [
         "UNIT-003 manifest regression attempt 001 ran 59 tests: 58 passed and test_evaluation_reports_separate_metrics_and_passes_control_gates failed only because its assertion expected baseline-0027 after the authoritative manifest correctly advanced to baseline-0028. Retained at artifacts/verification/baseline-0028-manifest-regression-failure-001.json; disposition remediate and renew manifest."
       ],
@@ -210,8 +210,8 @@
       "next_dependency": null
     }
   ],
-  "current_unit": "UNIT-003",
-  "next_action": "Publish and remotely verify the controlled historical-package prerequisite plus manifest inventory, freeze and publish the exact baseline-0028 manifest, then reveal one immutable source candidate against that public manifest.",
+  "current_unit": "UNIT-004",
+  "next_action": "Freeze and publish the exact v0.0.28 package contract plus final manifest before building archive or container bytes, then verify source/package/MCP/API/state/telemetry/dashboard/container/scan/clean-clone parity.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -238,12 +238,14 @@
       "verified public v0.0.27 public-release receipt 64f2bf6f2350240c2e6b4bedca231489b87b47f2e2d64a7702e4a0b4bc0d319b and reconciliation commit 3e9a8a3b90059c99a81ab50678c6560aa7379a54",
       "fresh public-tag source evaluation with 57 scenarios 171 attempts and exact 261-event anchor",
       "four refined stage split counts and twenty observed-valid cells measured directly from exact catalog attack IDs and per-attempt retrieved_document_ids"
-      ,"all 57 scenario and terminal identities hash-bound through the prechange chain; independent preimplementation validation passes with the successor runtime contract absent"
+      ,"all 57 scenario and terminal identities hash-bound through the prechange chain; independent preimplementation validation passes with the successor runtime contract absent",
+      "public pre-reveal manifest 5bbd08327b569aba4381f7ea7a0dd01e0c05fc07e0861dcd7e35788bee763a9a binds 127 exact paths before candidate reveal",
+      "immutable source attempt 001 passes 57 scenarios, 171 attempts, 126 Boolean gates, the exact twenty-cell split, sixty-versus-six attempt counts, zero ambiguity, zero proposal and terminal attack success, and an anchored 261-event trace"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Verified public v0.0.27 remains immutable at audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e. BASELINE-0028 preimplementation freeze 62e59a3f54c1cd7e9fe3865259c1d510a23750c3 and implementation seal 39d9e4ddec994fd9a05fb5d28396fd051ccce258 are public and remotely exact; no immutable baseline-0028 candidate has been revealed.",
-    "next_action": "Publish controlled custody of the exact public v0.0.23 historical-validator prerequisite and the manifest inventory, then freeze and publish the baseline-0028 manifest before revealing one immutable source candidate.",
+    "current_checkpoint": "Verified public v0.0.27 remains immutable at audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e. BASELINE-0028 preimplementation freeze 62e59a3f54c1cd7e9fe3865259c1d510a23750c3, implementation seal 39d9e4ddec994fd9a05fb5d28396fd051ccce258, and pre-reveal manifest seal 04c1a2c3bd150ae7051336106c35f84341e3e5c9 are public and remotely exact. Immutable source attempt 001 passes against that exact manifest; package and real-surface evidence remain absent.",
+    "next_action": "Freeze and publish the exact v0.0.28 package contract plus final manifest before building archive or container bytes, then execute UNIT-004 real-surface verification.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any replacement or reinterpretation of the existing three-stage metric",
