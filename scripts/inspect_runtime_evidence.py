@@ -26,14 +26,14 @@ def sha256(path: Path) -> str:
 
 
 def main() -> None:
-    database = ROOT / "var/live-api-baseline-0027.db"
-    trace = ROOT / "artifacts/runtime/live-api-baseline-0027-traces.jsonl"
+    database = ROOT / "var/live-api-baseline-0028.db"
+    trace = ROOT / "artifacts/runtime/live-api-baseline-0028-traces.jsonl"
     trace_anchor = live_trace_anchor_path(trace)
     evaluation = ROOT / "artifacts/evaluations/latest.json"
     manifest = ROOT / "eval/manifest.json"
-    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0027.png"
-    stdout_log = ROOT / "artifacts/runtime/live-api-baseline-0027-stdout.log"
-    stderr_log = ROOT / "artifacts/runtime/live-api-baseline-0027-stderr.log"
+    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0028.png"
+    stdout_log = ROOT / "artifacts/runtime/live-api-baseline-0028-stdout.log"
+    stderr_log = ROOT / "artifacts/runtime/live-api-baseline-0028-stderr.log"
     required = [
         database,
         trace,
@@ -152,6 +152,10 @@ def main() -> None:
         "evaluation_adversarial_condition_outcome_split_coverage": latest["metrics"]["coverage"]["adversarial_condition_outcome_split_coverage"] == 1.0,
         "evaluation_adversarial_domain_outcome_split_coverage": latest["metrics"]["coverage"]["adversarial_domain_outcome_split_coverage"] == 1.0,
         "evaluation_adversarial_exposure_stage_outcome_split_coverage": latest["metrics"]["coverage"]["adversarial_exposure_stage_outcome_split_coverage"] == 1.0,
+        "evaluation_adversarial_retrieval_stage_outcome_split_coverage": latest["metrics"]["coverage"]["adversarial_retrieval_stage_outcome_split_coverage"] == 1.0,
+        "evaluation_guidance_retrieved_filtered_attempts_exact": latest["metrics"]["coverage"]["guidance_retrieved_filtered_attempt_count"] == 60,
+        "evaluation_guidance_not_retrieved_attempts_exact": latest["metrics"]["coverage"]["guidance_not_retrieved_attempt_count"] == 6,
+        "evaluation_retrieval_stage_ambiguity_zero": latest["metrics"]["coverage"]["cross_trial_stage_ambiguity_count"] == 0,
         "evaluation_adversarial_split_coverage": latest["metrics"]["coverage"]["adversarial_split_coverage"] == 1.0,
         "evaluation_behavioral_relation_exact": latest["metrics"]["behavioral_relations"]["exact_match_rate"] == 1.0,
         "evaluation_retrieval_configuration_exact": latest["retrieval_configuration"] == "freshness-priority-lexical-v3",
@@ -220,6 +224,10 @@ def main() -> None:
             "adversarial_condition_outcome_split_coverage": latest["metrics"]["coverage"]["adversarial_condition_outcome_split_coverage"],
             "adversarial_domain_outcome_split_coverage": latest["metrics"]["coverage"]["adversarial_domain_outcome_split_coverage"],
             "adversarial_exposure_stage_outcome_split_coverage": latest["metrics"]["coverage"]["adversarial_exposure_stage_outcome_split_coverage"],
+            "adversarial_retrieval_stage_outcome_split_coverage": latest["metrics"]["coverage"]["adversarial_retrieval_stage_outcome_split_coverage"],
+            "guidance_retrieved_filtered_attempt_count": latest["metrics"]["coverage"]["guidance_retrieved_filtered_attempt_count"],
+            "guidance_not_retrieved_attempt_count": latest["metrics"]["coverage"]["guidance_not_retrieved_attempt_count"],
+            "retrieval_stage_ambiguity_count": latest["metrics"]["coverage"]["cross_trial_stage_ambiguity_count"],
             "adversarial_split_coverage": latest["metrics"]["coverage"]["adversarial_split_coverage"],
             "behavioral_relation_exact": latest["metrics"]["behavioral_relations"]["exact_match_rate"],
             "retrieval_configuration": latest["retrieval_configuration"],
@@ -254,7 +262,7 @@ def main() -> None:
         },
         "dashboard": {"sha256": sha256(screenshot), "width": width, "height": height},
     }
-    output = ROOT / "artifacts/verification/native-baseline-0027.json"
+    output = ROOT / "artifacts/verification/native-baseline-0028.json"
     output.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(receipt, indent=2, sort_keys=True))
     if receipt["status"] != "pass":

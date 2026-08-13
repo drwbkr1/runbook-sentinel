@@ -109,7 +109,7 @@
       "depends_on": ["UNIT-001"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "planned",
+      "status": "complete",
       "inputs": [
         "published preimplementation freeze",
         "exact 57-case identity chain",
@@ -122,14 +122,16 @@
         "v0.0.28 checkpoint identity"
       ],
       "gates": {
-        "freeze_public_before_implementation": "pending",
-        "existing_three_stage_metric_unchanged": "pending",
-        "all_57_scenarios_and_terminal_states_exact": "pending",
-        "mixed_missing_malformed_and_ambiguous_stages_fail_closed": "pending",
-        "no_agent_retrieval_policy_authority_or_dependency_change": "pending"
+        "freeze_public_before_implementation": "pass",
+        "existing_three_stage_metric_unchanged": "pass",
+        "all_57_scenarios_and_terminal_states_exact": "pass",
+        "mixed_missing_malformed_and_ambiguous_stages_fail_closed": "pass",
+        "no_agent_retrieval_policy_authority_or_dependency_change": "pass"
       },
-      "disposition": null,
-      "retained_failures": [],
+      "disposition": "pass",
+      "retained_failures": [
+        "UNIT-002 full regression attempt 001 ran 59 tests: 58 passed and test_stale_payload_contract_fails_closed_on_corruption failed because the stale-payload validator still required catalog schema 1.17 after the frozen contract-only increment to 1.18. Retained at artifacts/verification/baseline-0028-unit-002-regression-failure-001.json; disposition remediate."
+      ],
       "next_dependency": "UNIT-003"
     },
     {
@@ -207,7 +209,7 @@
     }
   ],
   "current_unit": null,
-  "next_action": "Commit and publish only the preimplementation orientation, identity chain, contract, ADR, milestone, living records, and independent fail-closed validator; verify the remote freeze before changing any evaluator, catalog, checkpoint identity, API, or dashboard code.",
+  "next_action": "Commit and push the exact UNIT-002 implementation seal, verify the remote branch identity, then activate UNIT-003 and freeze the complete baseline-0028 candidate manifest before revealing an immutable evaluation.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",

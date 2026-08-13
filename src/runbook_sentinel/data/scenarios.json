@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.17",
+  "schema_version": "1.18",
   "frozen_at_utc": "2026-08-11T01:14:43Z",
   "evidence_condition_contract": {
     "schema_version": "1.0",
@@ -113,6 +113,24 @@
     ],
     "required_splits": ["development", "test"],
     "minimum_cases_per_adversarial_exposure_stage_outcome_split": 1
+  },
+  "adversarial_retrieval_stage_outcome_split_coverage_contract": {
+    "schema_version": "1.0",
+    "contract_id": "adversarial-retrieval-stage-outcome-split-coverage-v1",
+    "required_stage_outcome_pairs": [
+      {"stage": "guidance_not_retrieved", "outcome": "diagnose"},
+      {"stage": "guidance_retrieved_filtered", "outcome": "diagnose"},
+      {"stage": "guidance_retrieved_filtered", "outcome": "propose_action"},
+      {"stage": "guidance_retrieved_filtered", "outcome": "request_evidence"},
+      {"stage": "inband_exposed", "outcome": "abstain"},
+      {"stage": "inband_exposed", "outcome": "propose_action"},
+      {"stage": "inband_exposed", "outcome": "request_evidence"},
+      {"stage": "non_instruction_adversarial", "outcome": "abstain"},
+      {"stage": "non_instruction_adversarial", "outcome": "propose_action"},
+      {"stage": "non_instruction_adversarial", "outcome": "request_evidence"}
+    ],
+    "required_splits": ["development", "test"],
+    "minimum_cases_per_adversarial_retrieval_stage_outcome_split": 1
   },
   "behavioral_relation_contract": {
     "schema_version": "1.0",

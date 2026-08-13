@@ -264,7 +264,7 @@ def main() -> None:
             errors.append("prechange_catalog_schema_mismatch")
         if prechange.get("prechange_catalog_sha256") != sha256(CATALOG_PATH):
             errors.append("prechange_catalog_sha256_mismatch")
-    elif catalog.get("schema_version") not in {"1.14", "1.15", "1.16", "1.17"}:
+    elif catalog.get("schema_version") not in {"1.14", "1.15", "1.16", "1.17", "1.18"}:
         errors.append("candidate_catalog_schema_mismatch")
 
     scenario_identities, terminal_identities = identity_chain(PRECHANGE_PATH)

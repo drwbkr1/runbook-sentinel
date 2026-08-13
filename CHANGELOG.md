@@ -2,6 +2,9 @@
 
 ## 0.0.28 - Unreleased
 
+- Implemented the frozen additive four-stage grader and fail-closed runtime contract without changing any of the 57 scenarios, terminal states, retrieval, agent, policy, service, or authority surfaces. The released three-stage metric remains intact.
+- Added exact report and gate fields for 20 of 20 stage/outcome/split cells, 60 hostile-guidance attempts retrieved then filtered, 6 never retrieved, and zero cross-trial stage ambiguity, plus explicit API/dashboard labels that do not misstate non-retrieval as filtering.
+- Preserved UNIT-002 regression attempt 001, where 58 of 59 tests passed and a stale validator rejected the permitted catalog schema increment; after updating current validators to schema 1.18, all 59 tests pass. The old v0.0.27 archive mismatch remains expected until the v0.0.28 package unit freezes and builds new bytes.
 - Reran verified public v0.0.27 and retained a passing 57-scenario, 171-attempt, 261-event orientation result across separate retrieval, generation, trajectory, policy, terminal, utility, reliability, latency, and cost metrics.
 - Measured a truth-quality gap in the aggregate exposure metric: sixty hostile-guidance attempts retrieve then filter at least one exact declared hostile document, while six attempts across two split-matched diagnose cases never retrieve their declared hostile document.
 - Froze an additive four-stage, ten-pair, twenty-cell contract, all 57 scenario and terminal identities, ADR 0023, and an independent preimplementation validator before changing evaluator, catalog, checkpoint, API, dashboard, package, or container code. No behavior failure or retrieval improvement is claimed.

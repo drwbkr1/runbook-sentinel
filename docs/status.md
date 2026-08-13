@@ -7,7 +7,7 @@
 - Latest verified public checkpoint: `v0.0.27`; release reconciliation binds annotated tag object `610fb4be58943cd22ab6a672c7db7abf8590a2e2`, peeled closure `02029b3045e7f90bb8590d5c6fb18ddfadffec6e`, public release metadata, selected assets, controlled downloaded bytes, rendered repository/release/tag pages, and fresh public-tag source/package/local-container evidence
 - Candidate version: `v0.0.28`; BASELINE-0028 selects only the measured retrieval-stage observability gap. Twenty scenarios retrieve at least one declared hostile guidance document and filter it from decision context; two scenarios, one per split, never retrieve their declared hostile guidance in any of three trials. No behavior failure or fix is claimed.
 - Active milestone: `BASELINE-0028`
-- Current unit: UNIT-001 complete; the exact four-stage, ten-pair, twenty-cell contract and 57-case identity chain pass preimplementation validation. UNIT-002 remains unopened until this freeze is public.
+- Current unit: UNIT-002 implementation complete locally and awaiting its public seal. The exact four-stage, ten-pair, twenty-cell metric reports 60 retrieved-then-filtered and 6 never-retrieved hostile-guidance attempts with zero cross-trial ambiguity; all 57 scenario and terminal identities remain exact and all 59 tests pass.
 - Disposition: baseline-0027 `pass`; baseline-0026 `pass`; baseline-0025 `pass`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -20,6 +20,13 @@
 - Local model source gate: refreshed and ready for the already installed, publisher-signed Ollama 0.32.6 executable and unchanged `llama3.2:3b` manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six content-addressed blobs pass exact SHA-256 and size checks. No download, update, copy, redistribution, remote call, model tool, secret, or real-infrastructure access is authorized.
 
 ## Verified evidence
+
+### BASELINE-0028 retrieval-stage implementation
+
+- Public freeze `62e59a3f54c1cd7e9fe3865259c1d510a23750c3` preceded every evaluator, catalog, identity, API, and dashboard change. The independent contract validator confirms all 57 scenarios and terminal states remain exact.
+- The additive metric reproduces the frozen 20-of-20 matrix: 22 hostile-guidance cases and 66 attempts divide into 20 cases/60 attempts retrieved then filtered and 2 cases/6 attempts never retrieved. Mixed trials, malformed retrieval audits, ambiguous catalog stages, and invalid contracts fail closed; the released 18-cell three-stage metric remains 1.0.
+- UNIT-002 regression attempt 001 is retained after 58 of 59 tests passed and the stale-payload validator rejected catalog schema 1.18. Current catalog validators were reconciled without changing behavior, and the full rerun passes 59 of 59 tests. Agent, retriever, policy, service, storage, and operator-authentication sources are byte-identical to the public freeze.
+- Source validation passes. The pre-existing v0.0.27 archive now correctly fails a historical package-identity check because source identity changed; it is not relabeled or reused. A fresh immutable evaluation and v0.0.28 package contract remain closed until this implementation is publicly sealed.
 
 ### BASELINE-0027 container runtime orientation and frozen contract
 

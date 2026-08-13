@@ -199,3 +199,10 @@ Expand to at least 48 frozen cases across the approved SRE topology, meet precom
 ## Completed checkpoint baseline-0016 - completed-evaluation trace integrity
 
 The fresh public v0.0.15 run passes all existing behavior and authority gates, but its persisted JSONL evidence has no sequence or hash continuity and its pass report does not bind the companion trace. A released-event mutation from verified to failed postconditions remains valid JSON and passes every current telemetry check. The frozen ten-case candidate passes content, sequence, predecessor, deletion, reordering, malformed-record, anchored-truncation, and exact-resume checks. Source and package pass `84+9+6+10+10`, bind their exact 150-event traces, and pass real MCP/API/executor/state/telemetry and dashboard gates. A no-local-object clean clone reproduces the exact selected archive and repeats the source, package, real-surface, parsing, scanning, and visual gates. PR `#14` merged the exact reviewed head with history preserved, and a fresh no-local-object public-main clone repeats the complete gate. Final audit, annotated tag, selected public assets, downloaded bytes, rendered pages, and a public-tag clone reconcile. Every product boundary remains unchanged; no signer, key, external collector, immutable-storage claim, RFC conformance claim, or hostile-writer claim is added. The next checkpoint remains intentionally unchosen until a fresh public v0.0.16 run exposes one measurable weakness.
+# Active checkpoint: BASELINE-0028
+
+- [x] Run and inspect verified public v0.0.27; freeze the retrieval-stage truth gap before implementation.
+- [x] Implement the additive four-stage metric, fail-closed contract, focused probes, and explicit dashboard/API labels while preserving all scenarios and authority boundaries.
+- [ ] Publish the implementation seal, freeze the exact manifest, and reveal one immutable source candidate.
+- [ ] Verify package, MCP, API, state, telemetry, rendered dashboard, clean clone, and local-only container path.
+- [ ] Audit, review, merge, release v0.0.28 source plus zipapp, and verify the public tag without publishing container image bytes.

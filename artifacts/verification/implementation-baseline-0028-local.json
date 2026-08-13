@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-002",
+  "status": "local-pass-public-seal-pending",
+  "preimplementation_freeze_commit": "62e59a3f54c1cd7e9fe3865259c1d510a23750c3",
+  "implementation": {
+    "metric": "adversarial-retrieval-stage-outcome-split-coverage-v1",
+    "additive": true,
+    "required_cells": 20,
+    "covered_cells": 20,
+    "development_coverage": 1.0,
+    "test_coverage": 1.0,
+    "hostile_guidance_case_count": 22,
+    "hostile_guidance_attempt_count": 66,
+    "guidance_retrieved_filtered_case_count": 20,
+    "guidance_retrieved_filtered_attempt_count": 60,
+    "guidance_not_retrieved_case_count": 2,
+    "guidance_not_retrieved_attempt_count": 6,
+    "cross_trial_stage_ambiguity_count": 0,
+    "legacy_three_stage_cell_count": 18,
+    "legacy_three_stage_coverage": 1.0
+  },
+  "identity": {
+    "scenario_count": 57,
+    "all_scenarios_exact": true,
+    "all_terminal_states_exact": true,
+    "agent_unchanged": true,
+    "retriever_unchanged": true,
+    "policy_unchanged": true,
+    "service_unchanged": true,
+    "storage_unchanged": true,
+    "operator_authentication_unchanged": true,
+    "dependency_count": 0
+  },
+  "verification": {
+    "focused_contract_validator": "pass",
+    "focused_metric_validator": "pass",
+    "malformed_retrieval_audit_fails_closed": true,
+    "mixed_trial_stage_fails_closed": true,
+    "ambiguous_catalog_stage_fails_closed": true,
+    "full_regression_attempt_001": {
+      "status": "retained_failure",
+      "passed": 58,
+      "failed": 1,
+      "evidence": "artifacts/verification/baseline-0028-unit-002-regression-failure-001.json"
+    },
+    "full_regression_attempt_002": {
+      "status": "pass",
+      "passed": 59,
+      "failed": 0
+    },
+    "source_validator_sweep": {
+      "passed": 23,
+      "excluded": 1,
+      "excluded_validator": "scripts/verify_adversarial_condition_outcome_split_coverage_contract.py",
+      "exclusion_reason": "Historical BASELINE-0024 validator requires absent untracked dist/runbook-sentinel-0.0.23.pyz at its exact old identity; current source checks pass and no historical package bytes were imported or reconstructed."
+    },
+    "compileall": "pass",
+    "diff_check": "pass",
+    "milestone_schema": "pass"
+  },
+  "package_boundary": {
+    "old_archive": "dist/runbook-sentinel-0.0.27.pyz",
+    "old_archive_reused_or_relabeled": false,
+    "new_archive_built": false,
+    "new_package_contract_frozen": false,
+    "reason": "Package and immutable evaluation verification begin only after the public implementation seal."
+  },
+  "external_actions": {
+    "new_source_accessed": false,
+    "new_asset_imported": false,
+    "secret_added": false,
+    "paid_service_added": false,
+    "real_infrastructure_contacted": false,
+    "container_image_exported_or_published": false
+  },
+  "next_gate": "Commit and push the exact implementation seal, verify the remote branch, then freeze the candidate manifest before running an immutable baseline-0028 evaluation."
+}

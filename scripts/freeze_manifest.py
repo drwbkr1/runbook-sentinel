@@ -61,6 +61,8 @@ FILES = [
     "eval/adversarial-domain-outcome-split-coverage-prechange.json",
     "eval/adversarial-exposure-stage-outcome-split-coverage-contract.json",
     "eval/adversarial-exposure-stage-outcome-split-coverage-prechange.json",
+    "eval/adversarial-retrieval-stage-outcome-split-coverage-contract.json",
+    "eval/adversarial-retrieval-stage-outcome-split-coverage-prechange.json",
     "src/runbook_sentinel/__init__.py",
     "src/runbook_sentinel/__main__.py",
     "src/runbook_sentinel/data/scenarios.json",
@@ -116,6 +118,8 @@ FILES = [
     "scripts/verify_adversarial_domain_outcome_split_coverage.py",
     "scripts/verify_adversarial_exposure_stage_outcome_split_coverage_contract.py",
     "scripts/verify_adversarial_exposure_stage_outcome_split_coverage.py",
+    "scripts/verify_adversarial_retrieval_stage_outcome_split_coverage_contract.py",
+    "scripts/verify_adversarial_retrieval_stage_outcome_split_coverage.py",
     "scripts/materialize_baseline_0025_catalog.py",
     "scripts/verify_behavioral_relations.py",
     "scripts/verify_retrieval_stress.py",
@@ -143,7 +147,7 @@ def sha256(path: Path) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--checkpoint", default="baseline-0027")
+    parser.add_argument("--checkpoint", default="baseline-0028")
     parser.add_argument("--frozen-at")
     parser.add_argument("--output", default="eval/manifest.json")
     args = parser.parse_args()

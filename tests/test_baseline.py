@@ -30,6 +30,7 @@ from runbook_sentinel.evaluation import (
     _adversarial_condition_outcome_split_coverage,
     _adversarial_domain_outcome_split_coverage,
     _adversarial_exposure_stage_outcome_split_coverage,
+    _adversarial_retrieval_stage_outcome_split_coverage,
     _adversarial_outcome_split_coverage,
     _adversarial_topology_split_coverage,
     _behavioral_relation_metrics,
@@ -1104,7 +1105,7 @@ class BaselineTest(unittest.TestCase):
         server = MCPServer(self.service)
         initialized = server.handle({"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
         self.assertEqual(initialized["result"]["protocolVersion"], "2025-11-25")
-        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.27")
+        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.28")
         listed = server.handle({"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         self.assertEqual({tool["name"] for tool in listed["result"]["tools"]}, names)
         called = server.handle(
@@ -1305,6 +1306,9 @@ class BaselineTest(unittest.TestCase):
                 self.assertIn("Runbook Sentinel", dashboard)
                 self.assertIn("authenticated external operator", dashboard)
                 self.assertNotIn("human approval", dashboard)
+                self.assertIn("Adversarial retrieval-stage/outcome split", dashboard)
+                self.assertIn("Hostile guidance retrieved then filtered", dashboard)
+                self.assertIn("Hostile guidance never retrieved", dashboard)
                 self.assertIn(f"Baseline {CHECKPOINT.removeprefix('baseline-')}", dashboard)
                 self.assertNotIn("Baseline 0010", dashboard)
                 self.assertNotIn("Baseline 0011", dashboard)
@@ -1326,7 +1330,7 @@ class BaselineTest(unittest.TestCase):
                 self.assertIn("Operator authentication", dashboard)
                 self.assertIn("frame-ancestors 'none'", response.headers["Content-Security-Policy"])
             with urlopen(f"http://127.0.0.1:{server.server_port}/health") as response:
-                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0027")
+                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0028")
             request = Request(
                 f"http://127.0.0.1:{server.server_port}/api/runs",
                 data=json.dumps({"scenario_id": "dev-bad-deployment"}).encode("utf-8"),
@@ -1392,6 +1396,13 @@ class BaselineTest(unittest.TestCase):
         self.assertTrue(report["gates"]["adversarial_exposure_stage_outcome_split_coverage_is_one"])
         self.assertTrue(report["gates"]["development_adversarial_exposure_stage_outcome_split_coverage_is_one"])
         self.assertTrue(report["gates"]["test_adversarial_exposure_stage_outcome_split_coverage_is_one"])
+        self.assertTrue(report["gates"]["adversarial_retrieval_stage_outcome_split_contract_valid"])
+        self.assertTrue(report["gates"]["adversarial_retrieval_stage_outcome_split_coverage_is_one"])
+        self.assertTrue(report["gates"]["development_adversarial_retrieval_stage_outcome_split_coverage_is_one"])
+        self.assertTrue(report["gates"]["test_adversarial_retrieval_stage_outcome_split_coverage_is_one"])
+        self.assertTrue(report["gates"]["guidance_retrieved_filtered_attempt_count_exact"])
+        self.assertTrue(report["gates"]["guidance_not_retrieved_attempt_count_exact"])
+        self.assertTrue(report["gates"]["retrieval_stage_cross_trial_ambiguity_is_zero"])
         self.assertTrue(report["gates"]["evidence_condition_contract_valid"])
         self.assertTrue(report["gates"]["evidence_condition_split_coverage_is_one"])
         self.assertTrue(report["gates"]["adversarial_split_coverage_is_one"])
@@ -1514,6 +1525,38 @@ class BaselineTest(unittest.TestCase):
             [],
         )
         self.assertEqual(
+            report["metrics"]["coverage"][
+                "adversarial_retrieval_stage_outcome_split_coverage"
+            ],
+            1.0,
+        )
+        self.assertEqual(
+            report["metrics"]["coverage"][
+                "split_adversarial_retrieval_stage_outcome_coverage"
+            ],
+            {"development": 1.0, "test": 1.0},
+        )
+        self.assertEqual(
+            report["metrics"]["coverage"][
+                "missing_adversarial_retrieval_stage_outcome_split_cells"
+            ],
+            [],
+        )
+        self.assertEqual(
+            report["metrics"]["coverage"][
+                "guidance_retrieved_filtered_attempt_count"
+            ],
+            60,
+        )
+        self.assertEqual(
+            report["metrics"]["coverage"]["guidance_not_retrieved_attempt_count"],
+            6,
+        )
+        self.assertEqual(
+            report["metrics"]["coverage"]["cross_trial_stage_ambiguity_count"],
+            0,
+        )
+        self.assertEqual(
             report["metrics"]["coverage"]["case_count_by_action_split"]["rollback_deployment"],
             {"development": 2, "test": 2},
         )
@@ -1530,7 +1573,7 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["coverage"]["adversarial_split_coverage"], 1.0)
         self.assertEqual(report["metrics"]["coverage"]["missing_condition_split_pairs"], [])
         self.assertEqual(report["metrics"]["coverage"]["missing_adversarial_splits"], [])
-        self.assertEqual(report["schema_version"], "3.2")
+        self.assertEqual(report["schema_version"], "3.3")
         self.assertEqual(report["checkpoint"], "baseline-0027")
         self.assertEqual(report["metrics"]["proposal"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["development"]["tool_trajectory"]["exact_match"], 1.0)
@@ -2506,6 +2549,122 @@ class BaselineTest(unittest.TestCase):
             "required_stage_outcome_pairs",
             invalid[
                 "adversarial_exposure_stage_outcome_split_contract_errors"
+            ],
+        )
+
+    def test_adversarial_retrieval_stage_outcome_split_coverage_fails_closed(self):
+        catalog = load_catalog()
+        contract = catalog[
+            "adversarial_retrieval_stage_outcome_split_coverage_contract"
+        ]
+        report = json.loads(
+            (
+                ROOT
+                / "artifacts/evaluations/runs/baseline-0027-final-source-attempt-010.json"
+            ).read_text(encoding="utf-8")
+        )
+        scenarios = catalog["scenarios"]
+        terminal = catalog["terminal_state_contract"]
+        cases = report["cases"]
+        valid = _adversarial_retrieval_stage_outcome_split_coverage(
+            scenarios, terminal, cases, contract
+        )
+        self.assertTrue(
+            valid["adversarial_retrieval_stage_outcome_split_contract_valid"]
+        )
+        self.assertEqual(
+            valid["adversarial_retrieval_stage_outcome_split_coverage"], 1.0
+        )
+        self.assertEqual(valid["guidance_retrieved_filtered_attempt_count"], 60)
+        self.assertEqual(valid["guidance_not_retrieved_attempt_count"], 6)
+        self.assertEqual(valid["cross_trial_stage_ambiguity_count"], 0)
+        self.assertEqual(
+            valid["guidance_not_retrieved_scenarios"],
+            [
+                "dev-api-injection-coverage",
+                "test-api-diagnose-injection-coverage",
+            ],
+        )
+
+        scenario_id = "dev-api-injection-coverage"
+        malformed_cases = copy.deepcopy(cases)
+        malformed = next(
+            case for case in malformed_cases if case["scenario_id"] == scenario_id
+        )
+        malformed["attempts"][0]["actual"].pop("retrieved_document_ids")
+        malformed_result = _adversarial_retrieval_stage_outcome_split_coverage(
+            scenarios, terminal, malformed_cases, contract
+        )
+        self.assertFalse(
+            malformed_result[
+                "adversarial_retrieval_stage_outcome_split_contract_valid"
+            ]
+        )
+        self.assertIn(
+            f"{scenario_id}:malformed_retrieval_audit",
+            malformed_result[
+                "adversarial_retrieval_stage_outcome_split_contract_errors"
+            ],
+        )
+
+        mixed_cases = copy.deepcopy(cases)
+        mixed = next(
+            case for case in mixed_cases if case["scenario_id"] == scenario_id
+        )
+        scenario = next(item for item in scenarios if item["id"] == scenario_id)
+        mixed["attempts"][0]["actual"]["retrieved_document_ids"].append(
+            scenario["attack_document_ids"][0]
+        )
+        mixed_result = _adversarial_retrieval_stage_outcome_split_coverage(
+            scenarios, terminal, mixed_cases, contract
+        )
+        self.assertFalse(
+            mixed_result[
+                "adversarial_retrieval_stage_outcome_split_contract_valid"
+            ]
+        )
+        self.assertEqual(mixed_result["cross_trial_stage_ambiguity_count"], 1)
+        self.assertIn(
+            f"{scenario_id}:mixed_retrieval_stage",
+            mixed_result[
+                "adversarial_retrieval_stage_outcome_split_contract_errors"
+            ],
+        )
+
+        ambiguous_scenarios = copy.deepcopy(scenarios)
+        ambiguous = next(
+            item for item in ambiguous_scenarios if item["id"] == scenario_id
+        )
+        ambiguous["inband_attack_document_ids"] = ["ambiguous-inband"]
+        ambiguous_result = _adversarial_retrieval_stage_outcome_split_coverage(
+            ambiguous_scenarios, terminal, cases, contract
+        )
+        self.assertFalse(
+            ambiguous_result[
+                "adversarial_retrieval_stage_outcome_split_contract_valid"
+            ]
+        )
+        self.assertIn(
+            f"{scenario_id}:ambiguous_attack_stage",
+            ambiguous_result[
+                "adversarial_retrieval_stage_outcome_split_contract_errors"
+            ],
+        )
+
+        invalid_contract = copy.deepcopy(contract)
+        invalid_contract["required_stage_outcome_pairs"] = invalid_contract[
+            "required_stage_outcome_pairs"
+        ][:-1]
+        invalid = _adversarial_retrieval_stage_outcome_split_coverage(
+            scenarios, terminal, cases, invalid_contract
+        )
+        self.assertFalse(
+            invalid["adversarial_retrieval_stage_outcome_split_contract_valid"]
+        )
+        self.assertIn(
+            "required_stage_outcome_pairs",
+            invalid[
+                "adversarial_retrieval_stage_outcome_split_contract_errors"
             ],
         )
 

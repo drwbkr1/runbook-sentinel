@@ -122,10 +122,6 @@ def main() -> None:
 
     if prechange.get("starting_commit") != "3e9a8a3b90059c99a81ab50678c6560aa7379a54":
         errors.append("starting_commit")
-    if prechange.get("prechange_catalog_bytes") != CATALOG_PATH.stat().st_size:
-        errors.append("catalog_bytes")
-    if prechange.get("prechange_catalog_sha256") != sha256(CATALOG_PATH):
-        errors.append("catalog_sha256")
     frozen_scenarios, frozen_terminals = identity_chain(PRECHANGE_PATH)
     scenarios = catalog.get("scenarios", [])
     scenarios_by_id = {scenario.get("id"): scenario for scenario in scenarios}
@@ -153,6 +149,23 @@ def main() -> None:
         errors.append("implementation_required")
     if not args.require_implementation and implemented:
         errors.append("preimplementation_contract_already_present")
+    if implemented:
+        expected_runtime_contract = {
+            "schema_version": "1.0",
+            "contract_id": "adversarial-retrieval-stage-outcome-split-coverage-v1",
+            "required_stage_outcome_pairs": expected_pairs,
+            "required_splits": ["development", "test"],
+            "minimum_cases_per_adversarial_retrieval_stage_outcome_split": 1,
+        }
+        if catalog.get("schema_version") != "1.18":
+            errors.append("implemented_catalog_schema")
+        if runtime_contract != expected_runtime_contract:
+            errors.append("runtime_contract")
+    else:
+        if prechange.get("prechange_catalog_bytes") != CATALOG_PATH.stat().st_size:
+            errors.append("catalog_bytes")
+        if prechange.get("prechange_catalog_sha256") != sha256(CATALOG_PATH):
+            errors.append("catalog_sha256")
 
     result = {
         "status": "pass" if not errors else "fail",
