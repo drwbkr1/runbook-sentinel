@@ -1,0 +1,281 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "verified_at_utc": "2026-08-13T02:03:13.596Z",
+  "status": "pass",
+  "merge": {
+    "commit": "70d90e015b0ef0cadc8222c18113517de941d41d",
+    "parents": [
+      "d3c3ad23652ca1b7c69525dabd59cd90c9c77522",
+      "eb057438113573e1fdecd459b6843b7fd8902d01"
+    ],
+    "reviewed_head": "eb057438113573e1fdecd459b6843b7fd8902d01",
+    "merge_tree_equals_reviewed_head_tree": true,
+    "pull_request": 25,
+    "merge_method": "history-preserving merge under expected-head lock",
+    "remote_main_exact": true
+  },
+  "public_main_clones": {
+    "source_package_real_surfaces": {
+      "path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-main-70d90e0-20260813T013302Z",
+      "commit": "70d90e015b0ef0cadc8222c18113517de941d41d",
+      "initial_worktree_clean": true,
+      "git_object_alternates_present": false,
+      "tracked_file_count": 1056,
+      "clone_mode": "git clone --no-local --single-branch --branch main from the public GitHub repository"
+    },
+    "selected_input_container_full": {
+      "path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-main-container-70d90e0-20260813T014849Z",
+      "commit": "70d90e015b0ef0cadc8222c18113517de941d41d",
+      "initial_and_final_worktree_clean": true,
+      "git_object_alternates_present": false,
+      "tracked_file_count": 1056,
+      "selected_evaluation_sha256": "57b041d8e941f1553fd2c3017ffad420bef5a5cc6b0e976236aeaf2793870312"
+    },
+    "selected_input_container_clean_build": {
+      "path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-main-cleanbuild-70d90e0-20260813T015014Z",
+      "commit": "70d90e015b0ef0cadc8222c18113517de941d41d",
+      "initial_and_final_worktree_clean": true,
+      "git_object_alternates_present": false,
+      "tracked_file_count": 1056
+    }
+  },
+  "source_gate": {
+    "manifest_sha256": "5858b169fb05a83332ebe5ea1aaabd3fb1e57413998a6494ab76d244f6806b1e",
+    "validators_passed": 31,
+    "tests_passed": 58,
+    "test_seconds": 90.855,
+    "evaluation_path": "artifacts/evaluations/runs/baseline-0027-attempt-003.json",
+    "evaluation_bytes": 943930,
+    "evaluation_sha256": "25ec9d2c74a5c137ea94c37e3c09bd596b81dc86d105c831cde93f00a68d895e",
+    "trace_path": "artifacts/evaluations/runs/baseline-0027-attempt-003.traces.jsonl",
+    "trace_bytes": 195317,
+    "trace_sha256": "1c8b26d80dc77b029bb5d27808ece0ee8b35e5339747a2b97c6d1f869935ceb7",
+    "trace_event_count": 261,
+    "trace_final_event_sha256": "942e6f872c87b29f1986f4a02f423977e7c35c7e2a74f7d5fcdcf60e354fe9a7",
+    "trace_anchor_independently_verified": true,
+    "scenario_count": 57,
+    "scenario_attempt_count": 171,
+    "boolean_gate_count": 119,
+    "all_boolean_gates_true": true,
+    "terminal_state_exact": 1.0,
+    "tool_trajectory_exact": 1.0,
+    "policy_compliance": 1.0,
+    "benign_utility": 1.0,
+    "repeated_trial_reliability": 1.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "latency_median_ms": 49.35,
+    "latency_p95_ms": 123.791,
+    "model_calls": 0,
+    "estimated_external_api_cost_usd": 0.0,
+    "disposition": "pass"
+  },
+  "package_gate": {
+    "package_contract_sha256": "2eac29cedf0b422c0873629b7d3d682882ff403556059446ac232555479bf57e",
+    "archive_bytes": 590546,
+    "archive_sha256": "bf73aac861e1a2a8317069a058fa1774012ea5fdc00865e1bb582f0244cddaf8",
+    "checksum_bytes": 94,
+    "checksum_sha256": "cb1ad91499cf6c81abab7bd2fd773ee5283c39e9bec59f38d86d352b2cfb79c8",
+    "independent_build_count": 2,
+    "independent_builds_match_selected_archive": true,
+    "entry_count": 41,
+    "runtime_dependencies": [],
+    "evaluation_path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-main-evidence-70d90e0-20260813T013302Z/baseline-0027-main-package-attempt-001.json",
+    "evaluation_bytes": 943915,
+    "evaluation_sha256": "22c7b1ccaa40c94b36819f6ca0134f926ae1fdde061c837fce7843e8c3b63f86",
+    "trace_bytes": 195306,
+    "trace_sha256": "1a24b2cbffb41377dbfab7bf902512edd2a5d14975a56e91658da595e202ac11",
+    "trace_event_count": 261,
+    "trace_final_event_sha256": "566329187d77d04c656716200dd4989245d95560cf20f5b84fafa4401e4f0f21",
+    "trace_anchor_independently_verified": true,
+    "scenario_count": 57,
+    "scenario_attempt_count": 171,
+    "boolean_gate_count": 119,
+    "all_boolean_gates_true": true,
+    "latency_median_ms": 46.254,
+    "latency_p95_ms": 66.95,
+    "disposition": "pass"
+  },
+  "source_package_container_parity": {
+    "all_frozen_metric_families_exact": true,
+    "metric_projection_sha256": "d08823b3ddda041f24567f70f11326661b749d63ddc07dbdd1d160836c7ca820",
+    "separate_metric_families": [
+      "retrieval",
+      "generation",
+      "tool_trajectory",
+      "policy",
+      "terminal_state",
+      "utility",
+      "security",
+      "reliability",
+      "latency",
+      "cost",
+      "coverage"
+    ]
+  },
+  "source_and_package_real_surfaces": {
+    "mcp_protocol": "2025-11-25",
+    "mcp_version": "0.0.27",
+    "mcp_tool_names": [
+      "list_synthetic_scenarios",
+      "diagnose_synthetic_incident",
+      "get_synthetic_incident"
+    ],
+    "mcp_approval_or_execution_tool_exposed": false,
+    "source_and_package_mcp_trace_chain_valid_and_anchored": true,
+    "source_and_package_stale_payload_characters": 0,
+    "source_mcp_receipt_sha256": "eb80c56ecffad4a081c6e9c74652c239b7564518c9cfddd6061819666e2f1950",
+    "package_mcp_receipt_sha256": "888f45344c1ed43425f11af8a42cd244a00024cb12d89a7787d5bb085ed7b6fa",
+    "source_live_api_receipt_sha256": "f3add019c29c752f8a5e096588081c835dedb85b5803432f370521d76810c40d",
+    "package_live_api_receipt_sha256": "afa6413aec93f422b4197b1ae30c0805f81e577f24bd057c738d2197deb228dd",
+    "source_and_package_api_check_count": 110,
+    "source_and_package_api_checks_all_true": true,
+    "source_native_receipt_sha256": "b8cca8b5aa4c94c7db43aaedaaead7c12eed0fc1eb8a7b839f06963b3a41143a",
+    "package_native_receipt_sha256": "61fb70b23903867406b95152ea4081428ef002453d0edea88995b013d818ca10",
+    "source_and_package_native_check_count": 59,
+    "source_and_package_native_checks_all_true": true,
+    "authentication_approval_executor_replay_postconditions_pass": true,
+    "sqlite_state_audit_and_anchored_telemetry_pass": true,
+    "authorization_before_body_parse": true,
+    "operator_identity_server_derived": true,
+    "cached_result_authorization": true,
+    "forbidden_authentication_material_absent": true
+  },
+  "rendered_dashboards": {
+    "dimensions": [1440, 1000],
+    "source_sha256": "1c04ce5ee6a40a7a7ba5bac5ecb6af51a3aa964bf8fe68613e6f49803cfa195c",
+    "source_bytes": 86783,
+    "package_sha256": "a2583fbe6f3ba4b7aeb949b75c05dda7e541b4ec79b387474073d0c02a35aabc",
+    "package_bytes": 86602,
+    "container_sha256": "daf05e454d11b7ebe7545cbc9de193a79ff76d174e21baecb8696dc7cd22578c",
+    "container_bytes": 86614,
+    "visual_inspection": "pass: all original-detail images are complete and visibly show Baseline 0027, evaluation pass, bounded never-executes promise, authenticated external operator, disconnected real infrastructure, stale payload exposure 0.0, and persisted synthetic incidents"
+  },
+  "container_gate": {
+    "contract_sha256": "b4c078b1e2a836ddf23ab0644c9a1810bfe9e0fdf40997256396f3de439643c0",
+    "full_receipt_path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-main-container-evidence-70d90e0-20260813T014849Z/local-receipt.json",
+    "full_receipt_bytes": 28355,
+    "full_receipt_sha256": "68d76d21fe79b404eec923e7c22076613e1349a260c499d58aa1d8670ae86272",
+    "clean_build_receipt_path": "C:/Projects/Verification/runbook-sentinel-baseline-0027-main-cleanbuild-evidence-70d90e0-20260813T015014Z/receipt.json",
+    "clean_build_receipt_bytes": 9019,
+    "clean_build_receipt_sha256": "918b4bcdcd6fa935369413c6152ee1b12fa589ea67f9803fd618a76b66f51481",
+    "image_id": "sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee",
+    "independent_selected_input_build_count": 3,
+    "all_selected_input_image_ids_exact": true,
+    "build_environment": {
+      "docker_engine": "29.4.3",
+      "docker_desktop": "4.74.0",
+      "docker_buildx": "0.33.0-desktop.1",
+      "buildkit": "0.29.0",
+      "driver": "docker"
+    },
+    "created_at_utc": "2026-08-12T17:42:57Z",
+    "source_date_epoch": "1786556577",
+    "base_index_digest": "sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5",
+    "base_platform_manifest_digest": "sha256:15e66fa35e0b07095bbc4f4f0522718b780944709026687485f4e712cc6d5ae0",
+    "two_added_payload_layers_exact": true,
+    "cli_help_pass": true,
+    "evaluation_57_scenarios_171_attempts": true,
+    "evaluation_trace_261_events_valid_and_anchored": true,
+    "container_report_sha256": "839d1f700f8e4d66ed737eab6f44fcfd68feeb5f728301b7c42e012e9f4116e4",
+    "container_trace_sha256": "4ea48c8a3e5f73adba63660d3478d43b91a864eb7657f2fc505f4847aafea0da",
+    "container_trace_final_event_sha256": "a6f959767e05b1c960f5babb79b594cb7f8e4081bd0b211e82d361de6e4fb7b6",
+    "mcp_three_tool_no_authority_boundary_exact": true,
+    "authenticated_api_approval_executor_replay_state_audit_pass": true,
+    "persisted_state_and_anchored_telemetry_pass": true,
+    "tmpfs_extraction_verified": true,
+    "runtime_security_checks_all_true": true,
+    "runtime_user": "65532:65532",
+    "runtime_rootfs_read_only": true,
+    "runtime_network": "none",
+    "runtime_cap_drop_all": true,
+    "runtime_no_new_privileges": true,
+    "runtime_private_namespaces": true,
+    "runtime_no_binds_devices_secrets_or_real_infrastructure": true,
+    "docker_scout": {
+      "version": "1.20.4",
+      "sarif_bytes": 461,
+      "sarif_sha256": "7749b34be7a069559b10b1b9d53cc8897576fdd104071a9e0f907f9a301ee303",
+      "critical_high_findings": 0,
+      "claim_boundary": "point-in-time evidence for the exact candidate, not perpetual vulnerability freedom"
+    },
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false,
+    "verifier_containers_remaining": 0,
+    "required_check_count": 43,
+    "required_checks_passed": 43,
+    "status": "pass"
+  },
+  "artifact_integrity": {
+    "scan_roots": 4,
+    "files_seen": 1153,
+    "json_files": 746,
+    "jsonl_files": 146,
+    "jsonl_records": 24535,
+    "expected_invalid_json": [
+      {
+        "path": "artifacts/verification/mcp-source-baseline-0026.json",
+        "bytes": 0,
+        "classification": "retained zero-byte BASELINE-0026 pre-import MCP failure"
+      }
+    ],
+    "unexpected_parse_errors": 0,
+    "broad_credential_pattern_file_count": 69,
+    "unresolved_high_signal_credential_matches": 0,
+    "model_artifact_count": 0,
+    "status": "pass"
+  },
+  "retained_observations": [
+    {
+      "stage": "historical predecessor bootstrap",
+      "result": "verified_dependency_restored",
+      "detail": "The public-main source clone intentionally excludes ignored historical dist files. The already approved public v0.0.23 archive was downloaded at 500823 bytes and SHA-256 90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917 before the unchanged historical validator passed."
+    },
+    {
+      "stage": "first source gate",
+      "result": "tooling_stop",
+      "detail": "A helper launch referenced a script that had not been created, so PowerShell printed its banner and stopped before product code or evaluation. The direct unchanged verifier then passed."
+    },
+    {
+      "stage": "source summary",
+      "result": "tooling_stop",
+      "detail": "The first SHA helper name collided case-insensitively with PowerShell's h history alias. It changed no evidence; the supported SHA256.Create and ComputeHash helper produced the selected identities."
+    },
+    {
+      "stage": "archive validation",
+      "result": "tooling_stop",
+      "detail": "Both independent archives were already built with the selected digest, but the first verifier invocation passed a positional archive path to a named-argument interface. The corrected --archive invocations passed both unchanged archives."
+    },
+    {
+      "stage": "fresh evaluation container probe",
+      "result": "pass_nonselected",
+      "detail": "A full container run after source verification intentionally consumed the freshly promoted evaluation rather than the selected release evaluation. It passed every runtime and product gate and reproduced image ID sha256:3f64310b... twice; the exact layer diff shows only the evaluation payload layer changed. It is retained but not selected for the release image identity."
+    },
+    {
+      "stage": "native receipt custody",
+      "result": "superseded_labeling",
+      "detail": "The first source and package native copies were tracked prior receipts because the independent inspector had not run. Those exact mislabeled copies remain in external evidence. Fresh independent inspectors then generated current 59-of-59 receipts bound to the actual source and package runtime state."
+    },
+    {
+      "stage": "artifact parsing and scan",
+      "result": "classified_rerun_pass",
+      "detail": "The first broad sweep failed closed on the exact retained zero-byte MCP failure and scanner-definition literals. The bounded rerun classified only those known definitions and expected invalid history, with no unexpected parse error, unresolved credential value, or model artifact."
+    },
+    {
+      "stage": "dashboard renderer",
+      "result": "pass_with_diagnostic",
+      "detail": "Headless Edge retained its known post-write task-provider diagnostic while producing complete source, package, and container PNGs. Dimensions, hashes, machine assertions, native evidence, and original-detail inspection pass."
+    }
+  ],
+  "limitations": [
+    "All incident and evaluation evidence is deterministic and synthetic; it does not establish production reliability or universal prompt-injection resistance.",
+    "The deterministic control and zero external API cost do not establish learned-model quality or production economics.",
+    "Image reproducibility is bounded to the exact verified Docker, Buildx, BuildKit, driver, source inputs, and selected evaluation bytes.",
+    "Docker Scout evidence is point-in-time and does not establish perpetual vulnerability freedom.",
+    "No production identity, immutable external storage, external collector, signer, paid service, package registry, container registry, deployment, or real infrastructure is included.",
+    "The container image is a local verification surface and was not exported, pushed, published, or redistributed."
+  ],
+  "next_gate": "Commit and push only this merged-main receipt, reconcile UNIT-005 and living release records, run the final release audit, and publish only the selected zipapp and checksum if the exact audited closure passes."
+}
