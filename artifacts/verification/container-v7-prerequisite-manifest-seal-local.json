@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0027",
+  "observed_at_utc": "2026-08-13T00:12:00Z",
+  "status": "pass",
+  "disposition": "authoritative_manifest_sealed_before_archive_rebuild_or_image_retry",
+  "implementation_public_commit": "7c517d1e48b6dcd06a1fe9f78ba87680b2f7acec",
+  "manifest": {
+    "path": "eval/manifest.json",
+    "file_count": 121,
+    "bytes": 14360,
+    "sha256": "e743e37c22cdc746ebfae9bca87a19380e292976943fcecfb2f3191fd68dbdd0",
+    "frozen_at_utc": "2026-08-13T00:12:00Z"
+  },
+  "predecessor_delta": {
+    "predecessor_sha256": "ec8d8b843e871c2d85ea98aae4c8136434a95dd0be02d3ea7ccdd2f3ffe1e537",
+    "added_paths": [],
+    "removed_paths": [],
+    "changed_paths": ["scripts/verify_container_runtime.py"],
+    "unexpected_changes": []
+  },
+  "checks": {
+    "manifest_verifier": "pass",
+    "container_contract_required_v7": "pass",
+    "runtime_verifier_sha256": "6e43a80bf433d112142fca33d5bd72d5f4e1292adf2eaa5d15b24358e354fbdb",
+    "package_still_predecessor": true,
+    "successor_evaluation_absent": true,
+    "successor_image_not_built": true
+  },
+  "retained_preview_failure": "artifacts/verification/container-v7-prerequisite-manifest-preview-assertion-failure-001.json",
+  "next_gate": "Commit and push this authoritative manifest before rebuilding the archive or running a successor evaluation or image."
+}
