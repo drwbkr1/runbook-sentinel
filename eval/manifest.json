@@ -93,7 +93,7 @@
     "scripts/verify_evaluation_trace.py": "2e14f5e1ab0e87910bb1ba25896e7fc0c9b91e49a750af3a82776bf8767352ef",
     "scripts/verify_evidence_conditions.py": "5fded70a781bbe161c1c0fa474b8403fafb9724445a40e9e0b4bb1f273e3f0c7",
     "scripts/verify_idempotency_authorization_contract.py": "ad502c58678cd3d5e74710add6babc6dce68d68c100383e9627e8164fa5385ec",
-    "scripts/verify_live_api.ps1": "540c1e366e06ab0890abb7f0e49057bfc9a39279868b3fa59ad5b8d69c5b8276",
+    "scripts/verify_live_api.ps1": "6810b0121e50a217f5da1e8722616dd9f9fb72acfe75c59687dfa83475662719",
     "scripts/verify_live_trace_anchor_contract.py": "8933be083b28e0b049960bf4b790857cf211cd889e1f92a9f593e2b01e7f52d6",
     "scripts/verify_mcp_stdio.py": "ac4320a8a887aeb61289b956a52c95b00018561aefc90bfb306bf95ab3486c89",
     "scripts/verify_model_comparison.py": "c17961a8796485315a34bded57fecf1d207a443522e10696d30bfb1fce5cdd6f",
@@ -131,6 +131,6 @@
     "src/runbook_sentinel/telemetry.py": "1e136b8642fc37f76bd803e720d5849123867fe8565426c8ce43ec5b21245815",
     "src/runbook_sentinel/trace_integrity_evaluation.py": "aab63e902297aa2c26734cbaef46b9106c07074696c5cf1d4cef2a1b70690d4a"
   },
-  "frozen_at_utc": "2026-08-13T04:48:00Z",
+  "frozen_at_utc": "2026-08-15T15:39:14Z",
   "schema_version": "1.0"
 }

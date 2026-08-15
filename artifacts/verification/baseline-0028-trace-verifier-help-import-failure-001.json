@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "status": "retained_failure",
+  "recorded_at_utc": "2026-08-15T15:27:00Z",
+  "operation": "evaluation-trace verifier help probe",
+  "command": "python scripts/verify_evaluation_trace.py --help",
+  "result": "the verifier imports project source before argparse and stopped with ModuleNotFoundError because PYTHONPATH was omitted",
+  "classification": "wrapper environment error before report or trace verification",
+  "disposition": "invoke the unchanged verifier with PYTHONPATH=src and exact report plus companion trace arguments"
+}

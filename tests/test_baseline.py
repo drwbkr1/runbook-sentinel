@@ -1359,6 +1359,18 @@ class BaselineTest(unittest.TestCase):
             create_server("0.0.0.0", 0, str(base / "unsafe.db"), str(base / "unsafe-traces.jsonl"), str(evaluation_path), capability)
         del capability
 
+    def test_live_api_verifier_requires_current_dashboard_checkpoint(self):
+        verifier = (ROOT / "scripts/verify_live_api.ps1").read_text(encoding="utf-8")
+        self.assertIn(
+            "dashboard_baseline_0028 = $dashboardResponse.Content.Contains('Baseline 0028')",
+            verifier,
+        )
+        self.assertIn(
+            "dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0028",
+            verifier,
+        )
+        self.assertNotIn("dashboard_baseline_0027 =", verifier)
+
     def test_evaluation_reports_separate_metrics_and_passes_control_gates(self):
         output = Path(self.temp.name) / "baseline.json"
         report = run_evaluation(output, trials=3)

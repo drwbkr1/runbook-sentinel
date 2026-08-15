@@ -179,7 +179,9 @@
       "retained_failures": [
         "UNIT-004 package-freeze focused-test attempt 001 passed two of three tests; the prerequisite fixture attempted to hash the intentionally absent v0.0.28 archive after mocked validator success. Retained at artifacts/verification/baseline-0028-package-freeze-focused-test-failure-001.json; the self-contained fixture now mocks immutable hashes and passes while package bytes remain absent.",
         "The first full-test wrapper misclassified unittest verbose stderr and the first validator inventory invoked the retrieval-stage contract in preimplementation mode. Both wrapper failures are retained; explicit subprocess execution passes 59 of 59 tests and all 34 current non-runtime validators.",
-        "The first container-runtime-v8 draft accidentally introduced historical WORKDIR content and reused current Dockerfile constants while checking v7. The validator failed closed before any archive or image build; the corrected exact-inheritance result and failure receipt are retained."
+        "The first container-runtime-v8 draft accidentally introduced historical WORKDIR content and reused current Dockerfile constants while checking v7. The validator failed closed before any archive or image build; the corrected exact-inheritance result and failure receipt are retained.",
+        "Final source attempt 001 used evidence-only-context-v2 instead of the sealed fresh-content-stale-metadata-context-v3 and correctly returned remediate on four stale-payload gates; attempt 002 corrected only the invocation and passed.",
+        "The first source API/dashboard verifier run passed 109 of 110 checks and rendered BASELINE 0028, but its manifest-bound verifier still required Baseline 0027. The stale verifier failure and old-manifest package are retained; a verifier-only correction and renewed public manifest must precede replacement package bytes."
       ],
       "next_dependency": "UNIT-005"
     },
@@ -215,7 +217,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Build two independent v0.0.28 zipapps from the exact public pre-build seal, require byte identity and package-contract verification, then verify source/package/MCP/API/state/telemetry/dashboard parity before any container image build.",
+  "next_action": "Publish the exact live-API verifier identity correction and renewed manifest with the superseded archive in controlled custody and no selected archive or image present, then rebuild and repeat source/package real-surface verification.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -246,11 +248,12 @@
       "public pre-reveal manifest 5bbd08327b569aba4381f7ea7a0dd01e0c05fc07e0861dcd7e35788bee763a9a binds 127 exact paths before candidate reveal",
       "immutable source attempt 001 passes 57 scenarios, 171 attempts, 126 Boolean gates, the exact twenty-cell split, sixty-versus-six attempt counts, zero ambiguity, zero proposal and terminal attack success, and an anchored 261-event trace"
       ,"exact v0.0.28 package and container-runtime-v8 contracts plus the 129-file final manifest passed 59 tests and 34 non-runtime validators before any archive or image build and are public at content seal bf5a01e7878914a18216f4c315be3a1762c8ff4b"
+      ,"the manifest-bound live-API verifier correction renews the 129-file manifest to f45f6f6270d6bca1ea11a250b4b5ce7e787d8ccc4f704e4535b99f72c18df50b and passes 60 tests plus 34 validators with selected archive and image absent"
     ]
   },
   "handoff": {
     "current_checkpoint": "Verified public v0.0.27 remains immutable at audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e. BASELINE-0028 preimplementation freeze 62e59a3f54c1cd7e9fe3865259c1d510a23750c3, implementation seal 39d9e4ddec994fd9a05fb5d28396fd051ccce258, pre-reveal manifest seal 04c1a2c3bd150ae7051336106c35f84341e3e5c9, source candidate 2b992bba676f30ab1ef0cc015ed8a812a2eba423, and pre-build content seal bf5a01e7878914a18216f4c315be3a1762c8ff4b are public and remotely exact. Immutable source attempt 001 passes; package and container results remain absent.",
-    "next_action": "Build and independently verify two exact v0.0.28 archives, then execute source/package real-surface verification before opening the container image gate.",
+    "next_action": "Renew and publish the manifest-bound API verifier correction before rebuilding the selected archive; then repeat source/package real surfaces before opening the container image gate.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any replacement or reinterpretation of the existing three-stage metric",
