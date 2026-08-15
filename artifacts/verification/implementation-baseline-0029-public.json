@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0029",
+  "recorded_at_utc": "2026-08-15T19:46:02.1115563Z",
+  "status": "pass",
+  "repository": "https://github.com/drwbkr1/runbook-sentinel",
+  "visibility": "public",
+  "branch": "codex/baseline-0029-retrieval-quality-observability",
+  "implementation_seal_commit": "80a8c945516ec926f7583402efe575b94f7fac4f",
+  "refs": {
+    "local_head": "80a8c945516ec926f7583402efe575b94f7fac4f",
+    "remote_tracking_head": "80a8c945516ec926f7583402efe575b94f7fac4f",
+    "ls_remote_head": "80a8c945516ec926f7583402efe575b94f7fac4f",
+    "github_api_head": "80a8c945516ec926f7583402efe575b94f7fac4f",
+    "all_exact": true
+  },
+  "critical_public_bytes": [
+    {
+      "path": "src/runbook_sentinel/retrieval_quality.py",
+      "bytes": 17045,
+      "sha256": "dbd230ed8274c686a99bc67551be1349cf76139a871c10718ff7ef79c95ac387",
+      "remote_exact": true
+    },
+    {
+      "path": "src/runbook_sentinel/evaluation.py",
+      "bytes": 179815,
+      "sha256": "2d93c112b4ad59ad9a7f3ff718bc105b5e066ed72e2342b02233c21a645b66c2",
+      "remote_exact": true
+    },
+    {
+      "path": "src/runbook_sentinel/api.py",
+      "bytes": 23951,
+      "sha256": "da27454aae477ca8222ca0f6d38d7053ce689573ca5fb9aa1ff87a23df547bc4",
+      "remote_exact": true
+    },
+    {
+      "path": "src/runbook_sentinel/data/scenarios.json",
+      "bytes": 108174,
+      "sha256": "f9e3fb24bf1cb74487796de0cd7c78b3594fa9fc46d1cacb957f755c0ca8a242",
+      "remote_exact": true
+    },
+    {
+      "path": "scripts/verify_retrieval_quality_observability_contract.py",
+      "bytes": 22709,
+      "sha256": "8fab02cd1a9a85f3cc6b9e30780b579ec9fbf88571e489fa24d1ce00f1bad55c",
+      "remote_exact": true
+    },
+    {
+      "path": "artifacts/verification/implementation-baseline-0029-local.json",
+      "bytes": 4207,
+      "sha256": "01e7146d7ab98a0ab0da15403a3602177c362d8d28e568b61c5dc09139db4d47",
+      "remote_exact": true
+    },
+    {
+      "path": "contracts/milestone-0029.json",
+      "bytes": 12408,
+      "sha256": "a5e027848b36119abe3344b1022293d5e765aea3cd53865c153ab7617e3fe21a",
+      "remote_exact": true
+    }
+  ],
+  "candidate_absence_at_publication": {
+    "baseline_0029_candidate_file_count": 0,
+    "v0_0_29_archive_exists": false,
+    "baseline_0029_image_count": 0
+  },
+  "retained_process_failure": {
+    "phase": "critical_public_byte_verification",
+    "result": "invalid_first_comparison",
+    "error": "System.Convert.ToHexString was unavailable; the wrapper produced null local and remote hashes and therefore could not support an exact comparison.",
+    "disposition": "excluded; rerun used SHA256.Create().ComputeHash(...) and BitConverter, and all seven public paths passed exact length and SHA-256 comparison"
+  },
+  "next_gate": "UNIT-003 may freeze and publish a new baseline-0029 manifest before revealing exactly one immutable source candidate."
+}

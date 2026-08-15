@@ -3,7 +3,8 @@
   "checkpoint": "baseline-0029",
   "unit": "UNIT-002",
   "recorded_at_utc": "2026-08-15T19:40:16.5745305Z",
-  "status": "local-pass-public-seal-pending",
+  "status": "public-pass",
+  "public_implementation_seal_commit": "80a8c945516ec926f7583402efe575b94f7fac4f",
   "public_preimplementation_seal_commit": "0118cd1a89415f24bb775a10e9f9b5f6be013b6e",
   "implementation": {
     "contract_id": "retrieval-quality-observability-v1",
