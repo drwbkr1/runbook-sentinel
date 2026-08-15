@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0029",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -173,7 +173,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "gates": {
         "premerge_release_truth_audit": "pass",
         "exact_reviewed_head_merged_with_history_preserved": "pass",
@@ -181,17 +181,23 @@
         "merged_main_receipt_public_and_exact": "pass",
         "final_release_truth_audit": "pass",
         "release_closure": "pass",
-        "annotated_tag_and_selected_assets": "pending",
-        "public_tag_complete_stack": "pending",
-        "external_reconciliation": "pending"
+        "annotated_tag_and_selected_assets": "pass",
+        "public_tag_complete_stack": "pass",
+        "external_reconciliation": "pass"
       },
-      "disposition": "pending",
-      "retained_failures": [],
+      "disposition": "pass",
+      "retained_failures": [
+        "Public-release intake retains a schema-invalid first attempt, host-safety rejections before temporary-file cleanup, an unsupported CLI version probe, and an early-closed help pipeline; exact corrected no-replace intake, checksum, ZIP, and CLI checks pass.",
+        "Public-page inspection retains one JavaScript parse failure caused by an unescaped Markdown backtick; the exact rerun and original-detail repository, release, and tag inspections pass.",
+        "The first public-tag validator wrapper omitted PYTHONPATH for two import-bearing validators and placed --require-implementation on the implementation verifier instead of its contract verifier; all three corrected invocations pass and the complete 35-validator inventory has no failure.",
+        "The public-tag full container receipt remains local-pass-clean-clone-pending with one false check because the exact clean rebuild runs in a separate no-alternates HTTPS clone; the separate passing receipt composes the canonical 45-of-45 result without rewriting the intermediate receipt.",
+        "Generated container evidence retains the inherited rs-b0027 ephemeral-name prefix and stale intermediate clean-clone wording; neither label affects checkpoint, image, runtime, security, or publication claims."
+      ],
       "next_dependency": null
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Commit and push these exact release-closure records, create annotated v0.0.29 at that exact commit, publish only the selected zipapp and checksum, then immediately reconcile every public surface and a fresh public-tag source package and local-container reproduction.",
+  "next_action": "Begin the next cycle from immutable public v0.0.29 by running the accepted system, inspecting traces and separated evaluation families, and selecting one highest-leverage measurable weakness before implementation.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -237,11 +243,13 @@
       ,"fresh public-main source package and container verification passes 71 tests 35 validators both 136-gate evaluations both real-surface stacks complete dashboards two full image builds and one no-alternates clean build at exact image b2062da4db7e6d31fea9ddc5eb7794ff2458d243c6e2e951264cf73f841d7be6"
       ,"merged-main receipt e14cd9d460484b68f0edd6bd81ee9b694d9ca4d4 is public and its two changed paths match anonymous raw byte lengths and SHA-256 values exactly"
       ,"living-record reconciliation commit 347bac688ceea78df1704b977155c3c22fd9200d is public; final audit-only commit 6186c3d95d5fcfa4c135c315805037ddee6e3fa2 evaluates verified with ten of ten checks all eighteen required surfaces active inherited authority and no error warning stale missing unknown or unrun result"
+      ,"release closure d90dbf36cad28e9738d5ca9c38f42967e557376d is the peeled target of annotated tag object 2f54a5cc180f9a79962c5ac56a416444a4be5a58; public non-draft latest v0.0.29 contains exactly the selected 645064-byte zipapp and 94-byte checksum"
+      ,"the 18936-byte artifacts/verification/public-tag-baseline-0029.json at SHA-256 df84d6a4af7dc2cbac3f55eb659651d98ce54da82affcc02412e370a8fd58a9f reconciles controlled anonymous downloads rendered repository release and tag pages 71 tests 35 validators three-way exact archive bytes source package and container 57-scenario 171-attempt evaluations bounded MCP both 131-check APIs and 72-check native surfaces three complete dashboards 45 composed container checks three exact image builds point-in-time scan parsing and no image publication"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0029 reviewed merge fresh public-main complete stack reconciled living records and final audit pass. Audit-only commit 6186c3d95d5fcfa4c135c315805037ddee6e3fa2 verifies all ten checks and eighteen surfaces without warning. No v0.0.29 tag release or image publication exists before this exact closure.",
-    "next_action": "Publish these exact closure records, create annotated v0.0.29 at that closure, publish only the selected zipapp and checksum, then independently verify public refs metadata assets downloads pages and a fresh public-tag source package and local-container stack before external reconciliation.",
+    "current_checkpoint": "BASELINE-0029 is complete. Public non-draft latest v0.0.29 is immutably bound through annotated tag object 2f54a5cc180f9a79962c5ac56a416444a4be5a58 to audited closure d90dbf36cad28e9738d5ca9c38f42967e557376d. Selected downloads, rendered public pages, and fresh no-alternates public-tag source, downloaded-package, MCP, API, state, telemetry, dashboards, scan, and local-container evidence reconcile; no container image bytes were exported pushed or published.",
+    "next_action": "Begin the next cycle from exact public v0.0.29. Run the system first, inspect traces and separated evaluation families, and freeze one highest-leverage measurable weakness before implementation.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any claim that non-expected records are semantically irrelevant or expected IDs exhaust relevance",
