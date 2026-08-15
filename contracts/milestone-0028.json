@@ -218,7 +218,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Publish and remotely verify the exact post-correction package/source payload, then run container-runtime-v8 and clean public-branch reproduction without exporting or publishing image bytes.",
+  "next_action": "Run container-runtime-v8 locally from public payload 9e585ed2298f712007078ba8025a679ba476eee6, then reproduce the exact image from a clean public-branch clone without export or publication.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -254,7 +254,7 @@
   },
   "handoff": {
     "current_checkpoint": "Verified public v0.0.27 remains immutable at audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e. BASELINE-0028 preimplementation freeze 62e59a3f54c1cd7e9fe3865259c1d510a23750c3, implementation seal 39d9e4ddec994fd9a05fb5d28396fd051ccce258, pre-reveal manifest seal 04c1a2c3bd150ae7051336106c35f84341e3e5c9, source candidate 2b992bba676f30ab1ef0cc015ed8a812a2eba423, and pre-build content seal bf5a01e7878914a18216f4c315be3a1762c8ff4b are public and remotely exact. Immutable source attempt 001 passes; package and container results remain absent.",
-    "next_action": "Publish the passing post-correction package/source payload, then execute container-runtime-v8 and clean public-branch reproduction without image export or publication.",
+    "next_action": "Execute container-runtime-v8 from public payload 9e585ed2298f712007078ba8025a679ba476eee6, then repeat the exact build from a clean public-branch clone without image export or publication.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any replacement or reinterpretation of the existing three-stage metric",

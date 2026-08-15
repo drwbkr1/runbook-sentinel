@@ -44,6 +44,7 @@
 - Public correction commit `97bd69f...` exactly reconciles local, remote-tracking, and live GitHub heads plus the renewed manifest, container verifier, and contract-validator blobs. Replacement package construction is authorized; container image construction remains closed until source/package real surfaces pass again.
 - The post-correction replacement package reproduces twice at 619,465 bytes and SHA-256 `c770fc21...`. Source/package attempt 004/003, bounded MCP, both 117-check APIs, both 63-check native inspections, and both complete original-detail dashboards pass with exact normalized behavior and no image. Post-surface regression, artifact scan, publication, and remote reconciliation remain before Docker.
 - The post-correction package/source payload now also passes 61/61 tests in 131.522 seconds, 34/34 validators, compilation, milestone validation, parsing, and bounded credential/model scans. No BASELINE-0028 image or container receipt exists. Exact public payload publication and remote reconciliation are the final pre-Docker gate.
+- Public payload `9e585ed...` and its package/source plus selected-evaluation blobs now reconcile exactly across local, tracking, and live GitHub state. Zero BASELINE-0028 images existed at that boundary. Frozen local-only container-runtime-v8 execution and clean public-branch reproduction are authorized; image export, push, and publication remain forbidden.
 
 ### BASELINE-0027 container runtime orientation and frozen contract
 
