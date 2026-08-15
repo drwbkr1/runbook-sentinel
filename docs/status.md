@@ -7,7 +7,7 @@
 - Latest verified public checkpoint: `v0.0.28`; release reconciliation binds annotated tag object `5026ecff0d2351a3231ea8d340e4b330a31cc52d`, peeled closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`, public release metadata, exactly two selected assets, anonymous downloaded bytes, rendered repository/release/tag pages, and fresh public-tag source/package/local-container evidence
 - Candidate version: none. BASELINE-0029 freezes a measurement-only retrieval-quality contract before implementation; no v0.0.29 identity, implementation, candidate report, package, image, or release exists.
 - Active milestone: `BASELINE-0029` retrieval-quality and attack-rank observability
-- Current unit: `UNIT-001` local orientation and preimplementation freeze; exact public publication remains pending
+- Current unit: `UNIT-002` bounded retrieval-quality implementation; the exact preimplementation freeze is public and no candidate result exists
 - Disposition: baseline-0028 `pass`; baseline-0027 `pass`; baseline-0026 `pass`; baseline-0025 `pass`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -28,6 +28,7 @@
 - RAGChecker v2 and the EACL 2024 RAGAs paper pass all sixteen required source criteria for citation and narrow diagnostic principles only. No external code, data, model, prompt, metric package, service, or paper bytes are imported.
 - The first exploratory attack-rank probe overcounted wrapped missing properties and the first split wrapper used invalid `-gt0` syntax. Both are retained as process-invalid and excluded. The corrected exact-ID result, source gate, identity chain, contract, and seven focused fail-closed tests pass locally. No evaluator or runtime source has changed; the public preimplementation freeze is next.
 - The complete local preimplementation gate passes all 68 tests in 88.759 seconds and all 35 side-effect-free validators. Two validator-wrapper defects are retained: unsupported `ProcessStartInfo.ArgumentList`, then missing `PYTHONPATH` for two source imports. The corrected wrapper passes without changing product state.
+- Public preimplementation commit `2ce5b814db09e9b4f66b47d7edc78a349ed9987a` is exact across local, tracking, `ls-remote`, GitHub API, and four critical raw files. The first `@{u}` probe failed only because the source clone's single-branch fetch refspec covered `main`; an exact branch-specific refspec corrected local tracking without changing public state. UNIT-002 may now implement only the frozen metric and must publish an implementation seal before any candidate reveal.
 
 ## Verified evidence
 

@@ -74,7 +74,7 @@
       "depends_on": [],
       "action_class": "evidence_preservation",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "outputs": [
         "artifacts/verification/orientation-baseline-0029.json",
         "artifacts/verification/research-source-gate-baseline-0029-retrieval-quality.json",
@@ -93,9 +93,9 @@
         "all_57_scenarios_and_terminal_states_hash_bound": "pass",
         "retrieval_quality_contract_frozen_before_implementation": "pass",
         "preimplementation_validator_pass": "pass",
-        "public_freeze_verified": "pending"
+        "public_freeze_verified": "pass"
       },
-      "disposition": "pending",
+      "disposition": "pass",
       "retained_failures": [
         "The first attack-rank probe counted wrapped missing JSON properties as one null item and was excluded before contract authoring.",
         "The first split summary used invalid PowerShell -gt0 syntax and stopped without output.",
@@ -110,8 +110,14 @@
       "depends_on": ["UNIT-001"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "planned",
-      "gates": {},
+      "status": "in_progress",
+      "gates": {
+        "freeze_public_before_implementation": "pass",
+        "runtime_contract_exact": "pending",
+        "frozen_measurement_exact": "pending",
+        "malformed_and_mixed_trials_fail_closed": "pending",
+        "all_prior_behavior_and_authority_exact": "pending"
+      },
       "disposition": "pending",
       "retained_failures": [],
       "next_dependency": "UNIT-003"
@@ -153,8 +159,8 @@
       "next_dependency": null
     }
   ],
-  "current_unit": "UNIT-001",
-  "next_action": "Validate the source gate, prechange identity, frozen metric contract, and public preimplementation freeze before changing evaluator or runtime code.",
+  "current_unit": "UNIT-002",
+  "next_action": "Implement only the public frozen retrieval-quality metric, focused fail-closed validation, real-surface reporting, and checkpoint identity; do not run a candidate before the implementation seal is public.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -183,12 +189,13 @@
       "corrected expected-evidence share extra-record and guidance/in-band rank measurements",
       "two-source primary-research metadata and content review with no asset import",
       "all 68 unit tests pass in 88.759 seconds including seven focused retrieval-quality fail-closed tests",
-      "all 35 side-effect-free validators pass with explicit current implementation mode for released contracts and preimplementation mode for BASELINE-0029"
+      "all 35 side-effect-free validators pass with explicit current implementation mode for released contracts and preimplementation mode for BASELINE-0029",
+      "public preimplementation freeze commit 2ce5b814db09e9b4f66b47d7edc78a349ed9987a is exact across local tracking ls-remote GitHub API and four critical raw public files"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0029 orientation is locally frozen from exact public v0.0.28. No implementation or candidate result exists.",
-    "next_action": "Pass all local preimplementation validators, publish the exact freeze, and remotely verify it before changing evaluator or runtime code.",
+    "current_checkpoint": "BASELINE-0029 preimplementation freeze is public at exact commit 2ce5b814db09e9b4f66b47d7edc78a349ed9987a. Source gate, recursive identities, contract, 68 tests, 35 validators, and critical public bytes pass. No implementation or candidate result exists.",
+    "next_action": "Implement only the frozen metric and its real-surface reporting, pass the complete gate, and publish an implementation seal before revealing any candidate result.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any claim that non-expected records are semantically irrelevant or expected IDs exhaust relevance",

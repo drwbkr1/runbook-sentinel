@@ -10,7 +10,7 @@ BASELINE-0029 freezes an additive deterministic retrieval-quality family before 
 
 Current primary research passed a narrow external-source gate for module-specific diagnostics, focused context, and useful-information/noise tradeoffs. All formulas, exact IDs, thresholds, graders, tests, and synthetic evidence remain project-authored; no external code, benchmark, dataset, model, prompt, service, or package is imported.
 
-UNIT-001 is locally frozen. The source gate, recursive 57-scenario and terminal identity chain, exact prechange measurements, independent contract validator, and seven focused fail-closed tests pass. No scenario, retriever, decision context, agent, model, policy, authority, dependency, runtime source, candidate result, package, or image changed. The next gate is exact commit, push, and remote verification of this preimplementation freeze before UNIT-002 may begin.
+UNIT-001 is complete. Public commit `2ce5b814db09e9b4f66b47d7edc78a349ed9987a` binds the source gate, recursive 57-scenario and terminal identity chain, exact prechange measurements, independent contract validator, seven focused fail-closed tests, and the 68-test/35-validator local seal. Local, tracking, `ls-remote`, GitHub API, and critical raw files are exact. No scenario, retriever, decision context, agent, model, policy, authority, dependency, runtime source, candidate result, package, or image changed. UNIT-002 may implement only the frozen metric, then must publish an implementation seal before candidate reveal.
 
 ## Completed checkpoint baseline-0028 - retrieval-stage observability
 
