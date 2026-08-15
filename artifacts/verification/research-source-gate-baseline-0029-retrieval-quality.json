@@ -1,0 +1,187 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0029-retrieval-quality-20260815",
+  "assessed_at": "2026-08-15T18:51:26Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal and contracts/milestone-0029.json",
+    "authorized_actions": [
+      "review and cite exact primary retrieval-evaluation research",
+      "freeze project-authored deterministic retrieval-quality metrics",
+      "implement and verify the frozen metrics without importing external code data or models"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Use current primary RAG evaluation research only for the narrow principles that retrieval and generation require separate diagnostic metrics, retrieved context should be focused as well as complete, and retrieval improvements can trade useful information for noise. Runbook Sentinel will implement project-authored exact-ID metrics over its frozen synthetic corpus. No external code, dataset, model, package, prompt, service, or paper bytes are imported.",
+    "planned_actions": [
+      "review and cite exact primary retrieval-evaluation research",
+      "freeze project-authored deterministic retrieval-quality metrics",
+      "implement and verify the frozen metrics without importing external code data or models"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "ragchecker-arxiv-2408-08067-v2",
+      "name": "RAGChecker: A Fine-grained Framework for Diagnosing Retrieval-Augmented Generation",
+      "locator": "https://arxiv.org/html/2408.08067v2",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://arxiv.org/html/2408.08067v2", "observed_at": "2026-08-15T18:51:26Z", "note": "Author-submitted arXiv version 2, revised 2024-08-17, DOI 10.48550/arXiv.2408.08067, with exact title and author list."}],
+          "note": "The exact primary paper version and locator are frozen."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://arxiv.org/abs/2408.08067v2", "observed_at": "2026-08-15T18:51:26Z", "note": "Primary paper from its authors; authority is limited to the reported framework, definitions, experiments, and limitations."}],
+          "note": "The paper is research evidence, not an operational standard or universal claim."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://arxiv.org/html/2408.08067v2", "observed_at": "2026-08-15T18:51:26Z", "note": "Publicly readable without authentication, payment, click-through acceptance, or API key."}],
+          "note": "Only browser-based review and citation are authorized."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://arxiv.org/html/2408.08067v2", "observed_at": "2026-08-15T18:51:26Z", "note": "The primary HTML identifies the paper license as CC BY 4.0; the project retains only citation, narrow paraphrase, and its own metric design."}],
+          "note": "No paper, code, benchmark, figure, prompt, or model artifact is copied or redistributed."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "arXiv:2408.08067v2", "note": "Reviewed directly at the author-submitted primary record with no acquired intermediary."}],
+          "note": "The source remains external; only its bibliographic identity and narrow findings enter the ledger."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "arXiv:2408.08067v2 and DOI 10.48550/arXiv.2408.08067", "note": "Versioned arXiv identifier and DOI bind the reviewed record; no downloaded bytes require local checksum custody."}],
+          "note": "The exact version is cited rather than a mutable project README or package."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "RAGChecker sections 3.3.2 and 4.4", "note": "The paper separates retriever and generator diagnostics, defines chunk-level context precision, and reports a useful-information versus noise tradeoff when changing retrieval context."}],
+          "note": "Runbook Sentinel adopts only the diagnostic decomposition and focused-context rationale. It does not import the claim extractor, judge model, metrics package, benchmark, or human-correlation claim."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "contracts/milestone-0029.json", "note": "A public paper is reviewed as text; no personal data, secrets, executable content, model invocation, external corpus, or real infrastructure enters the project."}],
+          "note": "Retrieved content remains untrusted and authority boundaries remain unchanged."
+        }
+      ]
+    },
+    {
+      "source_id": "ragas-eacl-2024",
+      "name": "RAGAs: Automated Evaluation of Retrieval Augmented Generation",
+      "locator": "https://aclanthology.org/2024.eacl-demo.16/",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://aclanthology.org/2024.eacl-demo.16/", "observed_at": "2026-08-15T18:51:26Z", "note": "ACL Anthology record 2024.eacl-demo.16, DOI 10.18653/v1/2024.eacl-demo.16, pages 150-158, EACL 2024."}],
+          "note": "Exact publisher record, venue, DOI, title, authors, and year are frozen."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://aclanthology.org/2024.eacl-demo.16/", "observed_at": "2026-08-15T18:51:26Z", "note": "Primary peer-reviewed conference paper published by the Association for Computational Linguistics."}],
+          "note": "Authority is limited to the paper's evaluation framing and reported method."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://aclanthology.org/2024.eacl-demo.16/", "observed_at": "2026-08-15T18:51:26Z", "note": "Publicly readable without authentication, payment, click-through acceptance, or API key."}],
+          "note": "Only browser-based review and citation are authorized."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [{"type": "live", "locator": "https://aclanthology.org/2024.eacl-demo.16/", "observed_at": "2026-08-15T18:51:26Z", "note": "The project uses bibliographic citation and narrow factual paraphrase only; no paper text, figure, prompt, code, dataset, or model asset is copied or redistributed."}],
+          "note": "Planned use does not require importing copyrighted content."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "ACL Anthology 2024.eacl-demo.16", "note": "Reviewed directly at the primary publisher record with no acquired intermediary."}],
+          "note": "Only source identity and narrow conclusions are retained."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "DOI 10.18653/v1/2024.eacl-demo.16", "note": "The DOI and immutable Anthology ID bind the reviewed paper; no downloaded bytes require local checksum custody."}],
+          "note": "The exact primary record is cited."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "RAGAs abstract and context-relevance section", "note": "The paper treats retrieval focus, generator faithfulness, and generation quality as separate dimensions and defines context relevance to penalize redundant context."}],
+          "note": "The project uses only this decomposition and redundancy rationale. It does not use RAGAs prompts, API calls, embeddings, code, or WikiEval data."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [{"type": "static", "locator": "contracts/milestone-0029.json", "note": "The project reads a public paper only; no external prompt, service, model, personal data, secret, or real infrastructure is used."}],
+          "note": "No execution or authority boundary changes."
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "review and cite exact primary retrieval-evaluation research",
+      "freeze project-authored deterministic retrieval-quality metrics",
+      "implement and verify the frozen metrics without importing external code data or models"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "retain exact source identities citations narrow paraphrases and limitations",
+      "freeze implement and verify project-authored exact-ID metrics on frozen synthetic evidence"
+    ],
+    "requires_explicit_authorization": [
+      "import external paper code prompt figure dataset model package service or benchmark bytes",
+      "authenticate purchase accept terms add a secret call a paid or remote model or interact with real infrastructure"
+    ]
+  }
+}

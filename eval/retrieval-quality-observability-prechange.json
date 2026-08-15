@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0029",
+  "starting_commit": "90900b60661f77377cb568c3750bb69f5eb0f857",
+  "prechange_catalog_bytes": 107865,
+  "prechange_catalog_sha256": "0351a460ddf8f522ce4995f3b2de49f01615f85a5fe14f693bc64d9802ec6f76",
+  "scenario_count": 57,
+  "identity_parent_path": "eval/adversarial-retrieval-stage-outcome-split-coverage-prechange.json",
+  "parent_scenario_count": 57,
+  "scenario_sha256": {},
+  "terminal_state_sha256": {},
+  "identity_rule": "No scenario or terminal-state change is permitted. The complete prior 57-case recursive identity chain must remain exact."
+}

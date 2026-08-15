@@ -1,5 +1,15 @@
 # Evaluation report
 
+## BASELINE-0029 preimplementation orientation
+
+The fresh public-tag v0.0.28 source run remains passing: 57 scenarios, 171 attempts, all 126 Boolean gates, and an exact anchored 261-event trace. Retrieval completeness, generation, tool trajectories, policy, terminal state, benign utility, attack success, repeated reliability, latency, and cost remain separate. Median/p95 end-to-end latency is 59.242/110.936 ms; the deterministic control makes zero model calls at zero estimated external API cost.
+
+The retrieval family does not yet measure returned-set focus or hostile-document rank. Exact frozen expected IDs are present in all 153 eligible attempts, but 87 attempts also return additional records, with mean expected-document share 0.683006535948. These additional records are not asserted to be semantically irrelevant. Expected document instances occupy rank 1 in 153 cases and rank 2 in 24 cases.
+
+Among 22 hostile-guidance cases, attempt-level first rank is not retrieved 6 times, rank 1 six times, rank 2 forty-five times, and rank 3-4 nine times. All 24 attempts across eight in-band cases place the declared hostile record at rank 1. Policy compliance is 1.0 and proposal/terminal attack success is 0.0 in every populated combined rank bucket; no behavior failure is claimed.
+
+The frozen BASELINE-0029 contract adds this information as independent observability before any retrieval configuration change. Its exact-ID semantics, split results, conditional safety, repeated-trial ambiguity, and fail-closed validation are project-authored. Primary research supports only the modular diagnostic and context-focus rationale; no LLM judge, external relevance labels, code, data, prompt, model, or package is used. Candidate results remain absent.
+
 ## BASELINE-0028 verified public release outcome
 
 Annotated tag object `5026ecff0d2351a3231ea8d340e4b330a31cc52d` peels to audited release closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`. GitHub reports public non-draft latest `v0.0.28`, published at `2026-08-15T17:54:29Z`, with only the selected 619,465-byte zipapp at SHA-256 `c770fc21ece71f3728d366575a9233100aeb5cbb40f5026be7814ae3c7977044` and its 94-byte checksum upload. Anonymous downloaded bytes, GitHub asset digests, and two independent tag-source rebuilds are exact. The rendered repository, release, and tag pages visibly bind the public project, version, closure, selected assets, synthetic-only scope, research-informed description, and no-image-publication limitation.

@@ -1,0 +1,201 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0029",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "active_contract": "contracts/milestone-0029.json",
+    "verified_at_utc": "2026-08-15T18:51:26Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Add fail-closed deterministic retrieval-quality and attack-rank observability so future retrieval configurations can be compared on completeness, focus, adversarial exposure, downstream safety, latency, and cost without changing current behavior or authority.",
+    "allowed_paths": [
+      "C:/Projects/Active/runbook-sentinel-baseline-0029",
+      "C:/Projects/Verification"
+    ],
+    "forbidden_work": [
+      "change any scenario expected result terminal state document retriever ranking decision context agent model prompt output schema policy approval executor API authority or MCP authority",
+      "call non-expected records irrelevant or treat expected IDs as exhaustive semantic relevance judgments",
+      "silently accept missing malformed duplicate unknown over-top-k or mixed-trial retrieval evidence",
+      "add a dependency paid service secret remote model call external asset or real-infrastructure connector",
+      "weaken any source package container security clean-clone review or public-release gate",
+      "claim improved retrieval behavior model utility production readiness or universal prompt-injection resistance"
+    ],
+    "reversible_actions": [
+      "create and update project-authored files on codex/baseline-0029-retrieval-quality-observability",
+      "run deterministic source package container dashboard and clean-clone verification under C:/Projects",
+      "version commit push review merge and release the exact verified source plus zipapp checkpoint after all gates pass"
+    ],
+    "stop_conditions": [
+      "core thesis change or security-boundary weakening",
+      "the metrics cannot be computed from frozen exact catalog and report identities without changing runtime behavior",
+      "any retriever decision-context scenario authority dependency secret paid service external asset or real infrastructure would need to change",
+      "source package container real surfaces clean clone release or public tag cannot be verified",
+      "container image publication or redistribution becomes necessary"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.28, its annotated tag, selected release assets, downloaded bytes, rendered pages, public-tag source/package/container runs, real surfaces, and external reconciliation are exact in artifacts/verification/public-tag-baseline-0028.json.",
+        "A fresh exact public-tag source evaluation passes 57 scenarios, 171 attempts, all 126 Boolean gates, and an anchored 261-event trace.",
+        "The existing recall metric is 1.0 but does not report expected-document share, extra-record burden, or declared attack-document rank.",
+        "Corrected exact-ID probes show 87 of 153 eligible attempts carry extra records and 96 of 117 declared attack-document instances are retrieved across multiple rank buckets without an observed safety failure.",
+        "Current primary research passed the eight-criterion external-source gate for citation and narrow diagnostic principles only."
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Resume from verified public v0.0.28, inspect fresh metrics and traces, gate current primary research, preserve failed probes, and freeze the exact retrieval-quality contract before implementation.",
+      "depends_on": [],
+      "action_class": "evidence_preservation",
+      "human_gate": false,
+      "status": "in_progress",
+      "outputs": [
+        "artifacts/verification/orientation-baseline-0029.json",
+        "artifacts/verification/research-source-gate-baseline-0029-retrieval-quality.json",
+        "artifacts/verification/baseline-0029-orientation-probe-failures-001.json",
+        "eval/retrieval-quality-observability-prechange.json",
+        "eval/retrieval-quality-observability-contract.json",
+        "scripts/verify_retrieval_quality_observability_contract.py",
+        "docs/adr/0024-measure-retrieval-focus-and-attack-rank-before-changing-retrieval.md"
+      ],
+      "gates": {
+        "public_checkpoint_reconciled": "pass",
+        "fresh_source_evaluation_and_trace": "pass",
+        "separate_metrics_and_trace_fields_inspected": "pass",
+        "highest_leverage_weakness_selected": "pass",
+        "research_source_gate_ready": "pass",
+        "all_57_scenarios_and_terminal_states_hash_bound": "pass",
+        "retrieval_quality_contract_frozen_before_implementation": "pass",
+        "preimplementation_validator_pass": "pass",
+        "public_freeze_verified": "pending"
+      },
+      "disposition": "pending",
+      "retained_failures": [
+        "The first attack-rank probe counted wrapped missing JSON properties as one null item and was excluded before contract authoring.",
+        "The first split summary used invalid PowerShell -gt0 syntax and stopped without output.",
+        "The first milestone validation guessed a nonexistent repository-local validator; the correct skill validator then rejected pending future-unit statuses. Both validation-only failures are retained and the statuses are corrected to planned.",
+        "The first full-validator wrapper used an unavailable ProcessStartInfo.ArgumentList property; its successor omitted PYTHONPATH and passed 33 of 35 before two import stops. The corrected exact-source wrapper passes all 35."
+      ],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Implement only the frozen additive retrieval-quality evaluator, contract validation, focused fail-closed tests, real-surface reporting, and checkpoint identity.",
+      "depends_on": ["UNIT-001"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "planned",
+      "gates": {},
+      "disposition": "pending",
+      "retained_failures": [],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Seal the implementation and reveal one immutable source candidate against frozen retrieval-quality, safety, compatibility, and trace gates.",
+      "depends_on": ["UNIT-002"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "planned",
+      "gates": {},
+      "disposition": "pending",
+      "retained_failures": [],
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Verify package, MCP, API, state, telemetry, dashboard, local container, scan, and clean-clone surfaces with exact retrieval-quality reporting.",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "planned",
+      "gates": {},
+      "disposition": "pending",
+      "retained_failures": [],
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Audit, review, merge, release source plus zipapp only, and independently verify the exact public tag including the local-only container path.",
+      "depends_on": ["UNIT-004"],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "planned",
+      "gates": {},
+      "disposition": "pending",
+      "retained_failures": [],
+      "next_dependency": null
+    }
+  ],
+  "current_unit": "UNIT-001",
+  "next_action": "Validate the source gate, prechange identity, frozen metric contract, and public preimplementation freeze before changing evaluator or runtime code.",
+  "path_efficiency": {
+    "max_consecutive_no_progress_units": 2,
+    "review_action_class": "project_control",
+    "review_human_gate": false
+  },
+  "verification": {
+    "changed_risks": [
+      "a completeness-only retrieval score can hide extra-record burden and adversarial exposure rank",
+      "expected IDs can be overclaimed as exhaustive relevance labels",
+      "missing duplicate unknown or mixed-trial retrieval identities can be normalized into favorable metrics",
+      "aggregate attack success can hide a rank-conditional weakness",
+      "source-only metric success can hide a stale API dashboard package or container surface"
+    ],
+    "required_checks": [
+      "exact public-tag source report trace and 57-case identity chain",
+      "independent recomputation of frozen focus and rank measurements",
+      "fail-closed malformed missing duplicate unknown over-top-k and mixed-trial tests",
+      "separate development held-out guidance in-band and conditional safety results",
+      "exact preservation of existing metrics scenarios terminal states and authority boundaries",
+      "source package MCP API state telemetry dashboard container scan clean clone review release and public-tag verification",
+      "retention of failed stale blocked corrected superseded excluded and unfavorable evidence"
+    ],
+    "completed_checks": [
+      "public v0.0.28 external reconciliation commit 90900b60661f77377cb568c3750bb69f5eb0f857 and receipt 575d5d18410b06b94b67def8fe27a76ef1d9a1abbb42a53a88c2f62240ecd229",
+      "fresh public-tag source evaluation with 57 scenarios 171 attempts and exact 261-event anchor",
+      "corrected expected-evidence share extra-record and guidance/in-band rank measurements",
+      "two-source primary-research metadata and content review with no asset import",
+      "all 68 unit tests pass in 88.759 seconds including seven focused retrieval-quality fail-closed tests",
+      "all 35 side-effect-free validators pass with explicit current implementation mode for released contracts and preimplementation mode for BASELINE-0029"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "BASELINE-0029 orientation is locally frozen from exact public v0.0.28. No implementation or candidate result exists.",
+    "next_action": "Pass all local preimplementation validators, publish the exact freeze, and remotely verify it before changing evaluator or runtime code.",
+    "do_not_carry_forward": [
+      "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
+      "any claim that non-expected records are semantically irrelevant or expected IDs exhaust relevance",
+      "any normalization of missing malformed duplicate unknown over-top-k or mixed-trial retrieval identities",
+      "any container image export registry authentication push publication or redistribution",
+      "any rewrite or deletion of failed stale blocked corrected superseded excluded or unfavorable evidence",
+      "any production model-utility universal-safety cross-builder or perpetual-CVE claim"
+    ]
+  }
+}

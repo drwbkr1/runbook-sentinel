@@ -2,22 +2,32 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: public `main` contains verified external reconciliation commit `8e41963dda38d15c5d504471bdbb0a3f4f59ba57`; immutable `v0.0.28` remains at release closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`
+- Branch: public `main` is exact at verified remote-truth reconciliation commit `90900b60661f77377cb568c3750bb69f5eb0f857`; immutable `v0.0.28` remains at release closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`; BASELINE-0029 is local on `codex/baseline-0029-retrieval-quality-observability`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0028`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified public checkpoint: `v0.0.28`; release reconciliation binds annotated tag object `5026ecff0d2351a3231ea8d340e4b330a31cc52d`, peeled closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`, public release metadata, exactly two selected assets, anonymous downloaded bytes, rendered repository/release/tag pages, and fresh public-tag source/package/local-container evidence
-- Candidate version: none. BASELINE-0028 is complete and no successor thesis, metric, scenario, behavior, or architecture change is frozen. BASELINE-0029 must begin from exact public v0.0.28 by running the accepted system and selecting one measurable weakness before implementation.
-- Active milestone: none; `BASELINE-0028` is complete and successor orientation is pending
-- Current unit: none. UNIT-005 passes release closure, annotated tag, selected zipapp/checksum publication, downloaded-byte/page verification, fresh public-tag full-stack reproduction, and no-image-publication gates.
+- Candidate version: none. BASELINE-0029 freezes a measurement-only retrieval-quality contract before implementation; no v0.0.29 identity, implementation, candidate report, package, image, or release exists.
+- Active milestone: `BASELINE-0029` retrieval-quality and attack-rank observability
+- Current unit: `UNIT-001` local orientation and preimplementation freeze; exact public publication remains pending
 - Disposition: baseline-0028 `pass`; baseline-0027 `pass`; baseline-0026 `pass`; baseline-0025 `pass`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: external reconciliation commit `8e41963dda38d15c5d504471bdbb0a3f4f59ba57` is exact across local, tracking, `ls-remote`, and GitHub API heads; immutable `v0.0.28` remains bound to closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`
+- GitHub `main`: remote-truth reconciliation commit `90900b60661f77377cb568c3750bb69f5eb0f857` is exact across local, tracking, `ls-remote`, and GitHub API heads; immutable `v0.0.28` remains bound to closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`
 - GitHub pull request: `#26` merged exact reviewed head `99ed8f96f55c994feff168252fcde0941054746b` with history preserved as `9aec054f8c97f04c36fc39685667e86c5e8d097e`; merge and reviewed trees are identical
 - GitHub release: public, non-draft latest `v0.0.28`, published at `2026-08-15T17:54:29Z`, with exactly the selected 619,465-byte `.pyz` and 94-byte `.sha256` upload assets; GitHub also renders its generated source archives
 - Docker: client and server 29.4.3, Buildx 0.33.0-desktop.1, and BuildKit 0.29.0 are live. The three earlier Python candidates remain excluded; the exact Chainguard Free Python index passes a narrow gate for anonymous local build and verification only. BASELINE-0028 repeatedly reproduces exact local image ID `9a62f5e1...`; retained failed and diagnostic images remain local. No Runbook Sentinel image has been exported, pushed, or published.
 - External runtime dependencies: none for accepted v0.0.28 zipapp; the verified local container path adds only the frozen digest-pinned base outside the application package. Optional local Ollama evaluation remains source-gated separately.
 - Local model source gate: refreshed and ready for the already installed, publisher-signed Ollama 0.32.6 executable and unchanged `llama3.2:3b` manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six content-addressed blobs pass exact SHA-256 and size checks. No download, update, copy, redistribution, remote call, model tool, secret, or real-infrastructure access is authorized.
+
+## BASELINE-0029 retrieval-quality orientation and local freeze
+
+- Fresh public-tag v0.0.28 source evidence passes 57 scenarios, 171 attempts, all 126 Boolean gates, and an exact anchored 261-event trace. Existing retrieval recall, generation, trajectory, policy, terminal, utility, security, reliability, latency, and cost families remain separately reported; no behavior failure is observed.
+- The general retrieval metric is completeness-only. Across 153 attempts with frozen expected evidence, every expected ID is retrieved, but 87 attempts carry additional records and the mean expected-document share is 0.683006535948. These extra records are not labeled semantically irrelevant.
+- Thirty cases declare exact guidance or in-band attack-document IDs. Across 90 attempts, 96 of 117 declared-document instances are retrieved. Guidance first-rank attempts split into 6 not retrieved, 6 at rank 1, 45 at rank 2, and 9 at ranks 3-4; all 24 in-band attempts place the declared hostile record at rank 1. Policy remains 1.0 and proposal/terminal attack success remains 0.0 in every populated rank bucket.
+- `retrieval-quality-observability-v1` freezes exact expected-evidence density, extra-record burden, expected rank, guidance rank, in-band rank, conditional safety, split, and repeated-trial-ambiguity measurements. Missing, malformed, duplicate, unknown, over-top-k, or mixed-trial retrieval evidence fails closed.
+- RAGChecker v2 and the EACL 2024 RAGAs paper pass all sixteen required source criteria for citation and narrow diagnostic principles only. No external code, data, model, prompt, metric package, service, or paper bytes are imported.
+- The first exploratory attack-rank probe overcounted wrapped missing properties and the first split wrapper used invalid `-gt0` syntax. Both are retained as process-invalid and excluded. The corrected exact-ID result, source gate, identity chain, contract, and seven focused fail-closed tests pass locally. No evaluator or runtime source has changed; the public preimplementation freeze is next.
+- The complete local preimplementation gate passes all 68 tests in 88.759 seconds and all 35 side-effect-free validators. Two validator-wrapper defects are retained: unsupported `ProcessStartInfo.ArgumentList`, then missing `PYTHONPATH` for two source imports. The corrected wrapper passes without changing product state.
 
 ## Verified evidence
 

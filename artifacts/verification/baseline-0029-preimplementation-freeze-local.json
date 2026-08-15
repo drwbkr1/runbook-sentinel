@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-preimplementation-freeze-local-20260815T185126Z",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-001",
+  "observed_at_utc": "2026-08-15T18:51:26Z",
+  "disposition": "pass",
+  "starting_public_checkpoint": {
+    "version": "0.0.28",
+    "main_commit": "90900b60661f77377cb568c3750bb69f5eb0f857",
+    "tag_object": "5026ecff0d2351a3231ea8d340e4b330a31cc52d",
+    "release_commit": "a93ad62e952421dfec2a80c396a3fb8b0e8e580a",
+    "public_receipt_sha256": "575d5d18410b06b94b67def8fe27a76ef1d9a1abbb42a53a88c2f62240ecd229"
+  },
+  "working_state": {
+    "worktree": "C:/Projects/Active/runbook-sentinel-baseline-0029",
+    "branch": "codex/baseline-0029-retrieval-quality-observability",
+    "starting_worktree_clean": true,
+    "one_drive_used": false,
+    "preexisting_authoritative_worktree_preserved": true
+  },
+  "selected_weakness": {
+    "existing_expected_evidence_recall_at_4": 1.0,
+    "eligible_expected_attempts": 153,
+    "attempts_with_extra_documents": 87,
+    "expected_document_share_mean": 0.683006535948,
+    "declared_attack_attempts": 90,
+    "declared_attack_document_instances": 117,
+    "retrieved_declared_attack_document_instances": 96,
+    "cross_trial_rank_bucket_ambiguity_count": 0,
+    "behavior_failure_observed": false,
+    "measurement_failure_observed": true
+  },
+  "frozen_scope": {
+    "contract_id": "retrieval-quality-observability-v1",
+    "metric_additive": true,
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "trace_event_count": 261,
+    "scenario_or_terminal_change": false,
+    "retriever_or_decision_context_change": false,
+    "agent_model_policy_or_authority_change": false,
+    "external_asset_import": false
+  },
+  "source_gate": {
+    "path": "artifacts/verification/research-source-gate-baseline-0029-retrieval-quality.json",
+    "status": "ready",
+    "source_count": 2,
+    "criteria_count": 16,
+    "live_evidence_count": 8,
+    "warnings": [],
+    "authorized_use": "citation and narrow diagnostic principles plus project-authored deterministic metrics only"
+  },
+  "validation": {
+    "source_gate_valid": true,
+    "source_gate_ready": true,
+    "milestone_valid": true,
+    "milestone_warnings": [],
+    "contract_validator_status": "pass",
+    "all_57_scenarios_exact": true,
+    "all_57_terminal_states_exact": true,
+    "focused_fail_closed_tests_passed": 7,
+    "full_tests_passed": 68,
+    "full_tests_total": 68,
+    "full_tests_elapsed_seconds": 88.759,
+    "side_effect_free_validators_passed": 35,
+    "side_effect_free_validators_total": 35,
+    "compileall": "pass",
+    "json_parse": "pass",
+    "git_diff_check": "pass"
+  },
+  "frozen_files": [
+    {"path": "docs/devlog.md", "bytes": 338734, "sha256": "4f374cf090c935d92f3f04fe94745a226ecb020b3c6ea2d21b989958a2257ba9"},
+    {"path": "docs/evaluation-report.md", "bytes": 144046, "sha256": "a087d28a08efa7174b2fed5970144c4512b535a35ec13afceca4e20264a89c27"},
+    {"path": "docs/research-ledger.md", "bytes": 22492, "sha256": "a769a93d79df16e1be87e3a3d5d7fa123955f02f499d6375980b742139d77c1e"},
+    {"path": "docs/roadmap.md", "bytes": 55888, "sha256": "99627e021e08bbb6c70fa839ef0893fc9f49709b69802a2868a285e060b8a702"},
+    {"path": "docs/source-ledger.md", "bytes": 5622, "sha256": "39b09660bf7357a4106c16c143a340ef692387ec87c86651165429041960df76"},
+    {"path": "docs/status.md", "bytes": 216060, "sha256": "c4a732ae93ef1a73d7c40120f09dadda33345aedc01f3653810bc45d3895c00a"},
+    {"path": "docs/threat-model.md", "bytes": 14447, "sha256": "3ccb042c21db6557841b334ebc0190e3db3cf9ca1a0371d003dc0a12c497df93"},
+    {"path": "artifacts/verification/baseline-0029-orientation-probe-failures-001.json", "bytes": 2559, "sha256": "754ebbd43bf1a757425c66a8b12ef2e4dd4e1fa9d6addc8eacce478248ea55da"},
+    {"path": "artifacts/verification/orientation-baseline-0029.json", "bytes": 7333, "sha256": "e094026340e2483a702f7aefab8bd5c91c3c907b56e93a28ab8d35dd4f748900"},
+    {"path": "artifacts/verification/research-source-gate-baseline-0029-retrieval-quality.json", "bytes": 10540, "sha256": "c269809d7ff3b1c8fc67a2eb17967fd178964a79eddbf5e5750f3247e350152b"},
+    {"path": "contracts/milestone-0029.json", "bytes": 11302, "sha256": "513d660127439d96a1951de8524fb096541ec15ccc48ec482415213716b34107"},
+    {"path": "docs/adr/0024-measure-retrieval-focus-and-attack-rank-before-changing-retrieval.md", "bytes": 3844, "sha256": "2263d6ac09a779eefe1be4bbffc75cf30f9bee72af3fe99e7f7203a6cc1381f9"},
+    {"path": "eval/retrieval-quality-observability-contract.json", "bytes": 9415, "sha256": "2b7da43d19babcf64607149b1d2208d318fe991ff71fd36df8e3140814a77d2a"},
+    {"path": "eval/retrieval-quality-observability-prechange.json", "bytes": 618, "sha256": "84dbd5a0eb8bee404c4f9a3eaacc6b0f3599787571531952414ed49d942ece25"},
+    {"path": "scripts/verify_retrieval_quality_observability_contract.py", "bytes": 22179, "sha256": "338d7e2f0b143309b77b3b72bcc708334f5db9347d19e938dc0b1d00afb6a3f6"},
+    {"path": "tests/test_retrieval_quality_observability_contract.py", "bytes": 6193, "sha256": "b0bd7efde44d8823038e31f18aa7d1c2c7d675b60f5d927842472c0af7fda630"}
+  ],
+  "candidate_absence": {
+    "runtime_source_changed": false,
+    "catalog_sha256": "0351a460ddf8f522ce4995f3b2de49f01615f85a5fe14f693bc64d9802ec6f76",
+    "baseline_0029_candidate_report_exists": false,
+    "v0_0_29_archive_exists": false,
+    "baseline_0029_image_tag_count": 0
+  },
+  "retained_failures": [
+    "attack-id null-array overcount probe",
+    "invalid -gt0 split probe",
+    "guessed nonexistent milestone validator",
+    "invalid pending future-unit statuses",
+    "unavailable ProcessStartInfo.ArgumentList validator wrapper",
+    "missing PYTHONPATH 33-of-35 validator wrapper"
+  ],
+  "seal_status": "local_preimplementation_freeze_pass_awaiting_public_commit",
+  "authorized_next_action": "Commit and push this exact preimplementation freeze, then verify the remote branch bytes before changing evaluator or runtime source."
+}

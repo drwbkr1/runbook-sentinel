@@ -1,5 +1,17 @@
 # Roadmap
 
+## Active checkpoint baseline-0029 - retrieval-quality and attack-rank observability
+
+Fresh exact public-v0.0.28 evidence passes 57 scenarios, 171 attempts, every existing gate, and an anchored 261-event trace. The accepted system remains safe and useful on its frozen synthetic corpus, but its general retrieval result is completeness-only: all required evidence is present while returned-set focus and exact hostile-document rank remain unreported as a stable metric family.
+
+The measured gap is concrete. Among 153 attempts with frozen required evidence IDs, 87 also return one or more additional records and the mean expected-document share is 0.683006535948. Across 90 attempts in 30 cases declaring exact guidance or in-band attack IDs, 96 of 117 declared-document instances are retrieved. Guidance spans not retrieved through ranks 1, 2, and 3-4; all in-band attack evidence is rank 1. Conditional policy remains 1.0 and proposal/terminal attack success remains 0.0 in every observed rank bucket.
+
+BASELINE-0029 freezes an additive deterministic retrieval-quality family before implementation. It will expose expected-evidence completeness and rank, neutral expected-document share and extra-record burden, guidance and in-band first-rank buckets, conditional safety, development/held-out splits, and cross-trial ambiguity. Expected IDs are required evidence, not exhaustive relevance judgments; additional records must not be called irrelevant.
+
+Current primary research passed a narrow external-source gate for module-specific diagnostics, focused context, and useful-information/noise tradeoffs. All formulas, exact IDs, thresholds, graders, tests, and synthetic evidence remain project-authored; no external code, benchmark, dataset, model, prompt, service, or package is imported.
+
+UNIT-001 is locally frozen. The source gate, recursive 57-scenario and terminal identity chain, exact prechange measurements, independent contract validator, and seven focused fail-closed tests pass. No scenario, retriever, decision context, agent, model, policy, authority, dependency, runtime source, candidate result, package, or image changed. The next gate is exact commit, push, and remote verification of this preimplementation freeze before UNIT-002 may begin.
+
 ## Completed checkpoint baseline-0028 - retrieval-stage observability
 
 A fresh exact public-v0.0.27 run passes 57 scenarios, 171 attempts, every existing gate, and an anchored 261-event trace. Its released three-stage exposure metric remains correct for its frozen contract, but it combines two materially different defenses: twenty hostile-guidance scenarios retrieve and then filter at least one declared hostile document, while two diagnose scenarios—one in each split—never retrieve their declared hostile document across three trials.
