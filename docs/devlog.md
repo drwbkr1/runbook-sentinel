@@ -1,5 +1,11 @@
 # Development log
 
+## 2026-08-15 BASELINE-0029 final release audit
+
+- Reconciled the verified merged-main candidate in exactly eight living/failure paths at `347bac688ceea78df1704b977155c3c22fd9200d`; all eight public paths match anonymous byte lengths and SHA-256 values. The complete 71-test pass, 35 project validators, milestone, JSON, diff, and real-surface evidence remain valid because the reconciliation changes only lifecycle and evidence records.
+- Published the sole-path 22,495-byte final audit at SHA-256 `efc068d0e59e3d18311c07149583861cfc9b79a4a4fa9e391286d7c76e1cc58c` as commit `6186c3d95d5fcfa4c135c315805037ddee6e3fa2`; anonymous public bytes are exact. The release-truth evaluator reports `verified` with ten of ten checks, all eighteen required real surfaces, active inherited authority, and no error, warning, stale, missing, unknown, or unrun surface.
+- A strict PowerShell wrapper treated GitHub CLI's expected no-checks stderr as an error; structured `statusCheckRollup` and `reviews` fields are both exact empty arrays. A redundant surface-matrix helper rejected the audit document without a separate profile after the applicable audit evaluator had already verified the embedded matrix. Both are retained as process-invalid. Public v0.0.28 remains latest; v0.0.29 tag and release remain absent. Exact closure, annotated tag, selected zipapp/checksum, downloaded-byte/page verification, and fresh public-tag reproduction are next.
+
 ## 2026-08-15 BASELINE-0029 retrieval-quality orientation and local freeze
 
 - Resumed from public v0.0.28 at remote-truth reconciliation commit `90900b60661f77377cb568c3750bb69f5eb0f857`. The fresh public-tag source report and anchored trace pass 57 scenarios, 171 attempts, all 126 Boolean gates, and 261 exact events. The pre-existing `C:/Projects/Active/runbook-sentinel` worktree is dirty and stale on the BASELINE-0027 branch, so it remains untouched; a clean active worktree was created at `C:/Projects/Active/runbook-sentinel-baseline-0029`.

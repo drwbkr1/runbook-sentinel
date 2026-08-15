@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.29 - unreleased
+## 0.0.29 - 2026-08-15
 
 - Implemented the frozen additive retrieval-quality family without changing any of the 57 scenarios, terminal states, retriever, decision context, agent, model, policy, authority, service, storage, dependency, or external-asset boundaries.
 - Added exact expected-document share, extra-document attempt rate, expected rank, guidance and in-band first-rank buckets, conditional policy and attack-success results, split results, repeated-trial ambiguity, independent fail-closed validation, and explicit API/dashboard projection. Expected IDs remain required evidence rather than exhaustive relevance labels; extra records are not called irrelevant.
@@ -20,6 +20,7 @@
 - Published and remotely reconciled the canonical container result at `e685bba4ff4e326f7d6d73cadd1cc90b364ca5d8`; all 13 anonymous raw changed paths match. UNIT-004 is complete and the governed premerge release-truth audit is next.
 - The governed premerge audit verified all ten checks and eighteen required surfaces without warning. PR `#27` then merged exact reviewed head `c1a2ab1f3b0e3f9c4decc19b92ee6662ae9f55eb` under expected-head lock as `c224e3680ceeab861bb9c096513fed2a4e77db25`; reviewed and merged trees are identical.
 - Fresh public-main verification passes 71 tests, all 35 project validators, two exact archive rebuilds, source/package 136-gate evaluations and anchored traces, bounded MCP, both 131-check APIs, both 72-check native inspections, complete dashboards, two full local image builds, one no-alternates clean build, and the exact point-in-time structured scan. Merged-main receipt `e14cd9d460484b68f0edd6bd81ee9b694d9ca4d4` is public and byte-exact. No v0.0.29 tag, release, deployment, image export, image push, or image publication exists; final release audit is next.
+- Reconciled merged-main living records at `347bac688ceea78df1704b977155c3c22fd9200d`, then published sole-path final audit `6186c3d95d5fcfa4c135c315805037ddee6e3fa2`. The release-truth evaluator reports `verified` across all ten checks and eighteen required surfaces with active inherited authority and no error, warning, stale, missing, unknown, or unrun state. Only annotated v0.0.29, the selected zipapp/checksum, and immediate public verification are authorized; the container image remains local-only.
 
 ## 0.0.28 - 2026-08-15
 

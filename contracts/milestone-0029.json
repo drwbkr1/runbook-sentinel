@@ -179,8 +179,8 @@
         "exact_reviewed_head_merged_with_history_preserved": "pass",
         "fresh_public_main_complete_stack": "pass",
         "merged_main_receipt_public_and_exact": "pass",
-        "final_release_truth_audit": "pending",
-        "release_closure": "pending",
+        "final_release_truth_audit": "pass",
+        "release_closure": "pass",
         "annotated_tag_and_selected_assets": "pending",
         "public_tag_complete_stack": "pending",
         "external_reconciliation": "pending"
@@ -191,7 +191,7 @@
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Run the final release-truth audit against exact public merged-main evidence e14cd9d460484b68f0edd6bd81ee9b694d9ca4d4, then create the release closure only if the audit verifies without a warning or unresolved surface.",
+  "next_action": "Commit and push these exact release-closure records, create annotated v0.0.29 at that exact commit, publish only the selected zipapp and checksum, then immediately reconcile every public surface and a fresh public-tag source package and local-container reproduction.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -236,11 +236,12 @@
       ,"PR 27 merged exact reviewed head c1a2ab1f3b0e3f9c4decc19b92ee6662ae9f55eb under expected-head lock as c224e3680ceeab861bb9c096513fed2a4e77db25 with reviewed and merged tree 1ba810931a37c7005f59b92a3040e6348e24ed0d exact"
       ,"fresh public-main source package and container verification passes 71 tests 35 validators both 136-gate evaluations both real-surface stacks complete dashboards two full image builds and one no-alternates clean build at exact image b2062da4db7e6d31fea9ddc5eb7794ff2458d243c6e2e951264cf73f841d7be6"
       ,"merged-main receipt e14cd9d460484b68f0edd6bd81ee9b694d9ca4d4 is public and its two changed paths match anonymous raw byte lengths and SHA-256 values exactly"
+      ,"living-record reconciliation commit 347bac688ceea78df1704b977155c3c22fd9200d is public; final audit-only commit 6186c3d95d5fcfa4c135c315805037ddee6e3fa2 evaluates verified with ten of ten checks all eighteen required surfaces active inherited authority and no error warning stale missing unknown or unrun result"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0029 reviewed head c1a2ab1f3b0e3f9c4decc19b92ee6662ae9f55eb is merged with identical tree as c224e3680ceeab861bb9c096513fed2a4e77db25. Fresh public-main source package real surfaces dashboards and three local image builds pass; merged-main receipt commit e14cd9d460484b68f0edd6bd81ee9b694d9ca4d4 is public and raw-byte exact. No v0.0.29 tag release or image publication exists.",
-    "next_action": "Run the final release-truth audit against exact public main; if verified, publish an exact release closure before creating the annotated tag and selected zipapp/checksum release.",
+    "current_checkpoint": "BASELINE-0029 reviewed merge fresh public-main complete stack reconciled living records and final audit pass. Audit-only commit 6186c3d95d5fcfa4c135c315805037ddee6e3fa2 verifies all ten checks and eighteen surfaces without warning. No v0.0.29 tag release or image publication exists before this exact closure.",
+    "next_action": "Publish these exact closure records, create annotated v0.0.29 at that closure, publish only the selected zipapp and checksum, then independently verify public refs metadata assets downloads pages and a fresh public-tag source package and local-container stack before external reconciliation.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any claim that non-expected records are semantically irrelevant or expected IDs exhaust relevance",
