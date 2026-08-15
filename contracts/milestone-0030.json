@@ -116,12 +116,15 @@
       "status": "in_progress",
       "gates": {
         "public_freeze_verified": "pass",
+        "phase_aware_harness_correction_public": "pending",
         "exact_four_path_projection": "pending",
         "all_prior_behavior_and_authority_exact": "pending",
         "implementation_seal_public": "pending"
       },
       "disposition": "pending",
-      "retained_failures": [],
+      "retained_failures": [
+        "The publicly frozen focused test always invoked preimplementation mode and would reject an exact implementation; a phase-aware validation-only successor must be public before runtime change."
+      ],
       "next_dependency": "UNIT-003"
     },
     {
@@ -162,7 +165,7 @@
     }
   ],
   "current_unit": "UNIT-002",
-  "next_action": "Publish the public-freeze reconciliation receipt, then change only eval/model-contract.json at the four frozen object paths, pass the implementation gate, and publish the implementation seal before any model call.",
+  "next_action": "Verify and publish the phase-aware focused-test correction, then change only eval/model-contract.json at the four frozen object paths, pass the implementation gate, and publish the implementation seal before any model call.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -201,11 +204,13 @@
       "exact added-line and untracked-content scan reports zero high-specificity credential hits and zero changed model artifacts"
       ,"local preimplementation freeze receipt binds every changed file and confirms candidate model contract report package archive and image absence before publication"
       ,"public preimplementation commit f82e301d984548d5354d8093e245c17fe0419a1f is exact across local tracking ls-remote GitHub ref API and all 18 changed Git blob identities and sizes"
+      ,"the post-freeze handoff identified a preimplementation-only focused test before runtime change; its bounded phase-aware correction is retained and must be public before implementation"
+      ,"the phase-aware harness correction passes five focused tests all 76 tests in 84.407 seconds and all 36 project validators while the active model contract remains v2"
     ]
   },
   "handoff": {
     "current_checkpoint": "BASELINE-0030 UNIT-001 is complete. Public commit f82e301d984548d5354d8093e245c17fe0419a1f freezes the one-field model-output experiment from exact v0.0.29 and is remote-tree exact on all 18 changed paths. eval/model-contract.json remains byte-identical to v2 and no baseline-0030 model call exists.",
-    "next_action": "Publish the reconciliation receipt, implement only the frozen pattern and identity metadata, pass the exact projection gate, and publish an implementation seal before any model call.",
+    "next_action": "Publish the phase-aware harness correction, then implement only the frozen pattern and identity metadata, pass the exact projection gate, and publish an implementation seal before any model call.",
     "do_not_carry_forward": [
       "any prompt model runtime parser-acceptance retrieval decision-context scenario terminal policy approval executor authority dependency secret external asset or real-infrastructure change",
       "any test-split tuning raw model-output retention or inference that syntactic validity equals diagnostic correctness",

@@ -10,6 +10,8 @@
 - `eval/model-contract.json` is still v2. No baseline-0030 model call, candidate report, package, archive, or image exists.
 - Published preimplementation commit `f82e301d984548d5354d8093e245c17fe0419a1f`. Local, tracking, `ls-remote`, and GitHub ref API identities match; the remote tree is `b7c6cac16073901a3e3ce1753fac85c1b17d5ef1`, and all 18 changed Git blob identities and sizes match local `ls-tree` exactly.
 - Retained one inconclusive all-path raw-byte wrapper that exceeded its yield without returning a usable session handle and one Git Trees API wrapper that received 404 because PowerShell interpreted `$treeSha?recursive` as one variable. The explicitly delimited successor passes 18 of 18. Publish the reconciliation receipt before the four-path implementation; model calls remain closed.
+- Before changing `eval/model-contract.json`, identified that the focused test always invoked preimplementation validation and would necessarily reject implementation presence. Froze a phase-aware test-only correction that derives mode from exact v2 equality and does not change the validator, target, runtime, security, or authority. The correction must be public before implementation.
+- The phase-aware correction passes five focused tests, the 76-test suite in 84.407 seconds, all 36 project validators, preimplementation validation, and diff checks. `eval/model-contract.json` remains exact v2; publish and verify this correction seal next.
 
 ## 2026-08-15 BASELINE-0029 public release reconciliation
 

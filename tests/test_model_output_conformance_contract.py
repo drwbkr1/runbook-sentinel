@@ -22,11 +22,16 @@ class ModelOutputConformanceContractTests(unittest.TestCase):
             (ROOT / "eval/model-contract-0018-v2.json").read_text(encoding="utf-8")
         )
 
-    def test_preimplementation_contract_passes(self) -> None:
-        result = verifier.validate(require_implementation=False)
+    def test_current_contract_phase_passes(self) -> None:
+        current = json.loads(verifier.MODEL_CONTRACT_PATH.read_text(encoding="utf-8"))
+        implemented = current != self.legacy
+        result = verifier.validate(require_implementation=implemented)
         self.assertEqual(result["status"], "pass")
         self.assertEqual(result["errors"], [])
-        self.assertEqual(result["implementation_phase"], "frozen_preimplementation")
+        self.assertEqual(
+            result["implementation_phase"],
+            "implemented" if implemented else "frozen_preimplementation",
+        )
 
     def test_target_changes_only_identity_metadata_and_diagnosis_pattern(self) -> None:
         target = verifier.target_contract(self.legacy, self.frozen)
