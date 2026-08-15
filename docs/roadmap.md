@@ -14,6 +14,8 @@ UNIT-001 is complete. Public commit `2ce5b814db09e9b4f66b47d7edc78a349ed9987a` b
 
 UNIT-002 is public and remotely exact at implementation seal `80a8c945516ec926f7583402efe575b94f7fac4f`. The runtime and independent implementations agree exactly on the frozen measurements, the complete 70-test suite passes, and real report/API/dashboard projections are wired without changing retrieval or authority. UNIT-003 may now freeze a new exact manifest, publish it, and only then reveal one immutable source candidate; package, container, and release work remain later gates.
 
+UNIT-003 has frozen a local 133-file manifest at SHA-256 `c970ce963aa5d2347ee2e8bd2a9d9551b2d92b798f023a7bffed3e1628a46912`. Manifest verification, all 35 side-effect-free validators, and all 70 tests pass with no candidate, package, or image present. The manifest must be committed, published, and byte-verified remotely before the one permitted source candidate runs.
+
 ## Completed checkpoint baseline-0028 - retrieval-stage observability
 
 A fresh exact public-v0.0.27 run passes 57 scenarios, 171 attempts, every existing gate, and an anchored 261-event trace. Its released three-stage exposure metric remains correct for its frozen contract, but it combines two materially different defenses: twenty hostile-guidance scenarios retrieve and then filter at least one declared hostile document, while two diagnose scenarios—one in each split—never retrieve their declared hostile document across three trials.

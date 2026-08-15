@@ -7,7 +7,7 @@
 - Latest verified public checkpoint: `v0.0.28`; release reconciliation binds annotated tag object `5026ecff0d2351a3231ea8d340e4b330a31cc52d`, peeled closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`, public release metadata, exactly two selected assets, anonymous downloaded bytes, rendered repository/release/tag pages, and fresh public-tag source/package/local-container evidence
 - Candidate version: source identity `v0.0.29` is implemented locally for the bounded metric checkpoint; no candidate report, manifest, package, image, or release exists.
 - Active milestone: `BASELINE-0029` retrieval-quality and attack-rank observability
-- Current unit: UNIT-003 manifest freeze and single immutable source-candidate reveal; the implementation seal is public and remotely exact, but no new manifest or candidate exists yet
+- Current unit: UNIT-003; the 133-file baseline-0029 manifest passes locally and awaits public publication before the single immutable source-candidate reveal
 - Disposition: baseline-0028 `pass`; baseline-0027 `pass`; baseline-0026 `pass`; baseline-0025 `pass`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -32,6 +32,7 @@
 - UNIT-002 now computes the frozen family independently inside the runtime report and exposes exact API/dashboard values. The implementation matches the independent verifier, rejects contract drift and malformed retrieval identities, and preserves every frozen scenario and terminal identity. Agent, retrieval, evidence selection, policy, service, storage, and operator-authentication sources remain byte-identical to public seal `0118cd1`.
 - The first complete implementation regression is retained: 68 of 70 tests passed while two explicit schema assertions still expected report 3.3 and catalog 1.18. Advancing those compatibility assertions and current catalog validators produces a 70-of-70 pass in 87.064 seconds. Thirty-four side-effect-free validators pass; only the immutable predecessor manifest correctly reports changed implementation hashes and will not be renewed before the public implementation seal.
 - Public implementation seal `80a8c945516ec926f7583402efe575b94f7fac4f` is exact across local, tracking, `ls-remote`, GitHub API, and seven critical public paths. The first raw-byte wrapper used an unavailable `Convert.ToHexString` method and produced null hashes; that comparison is excluded and retained. The corrected SHA-256 rerun passes. No baseline-0029 manifest, candidate, v0.0.29 archive, or image existed when the seal became public.
+- The pre-reveal manifest now binds 133 exact files at 16,019 bytes and SHA-256 `c970ce963aa5d2347ee2e8bd2a9d9551b2d92b798f023a7bffed3e1628a46912`. Exact manifest verification, all 35 side-effect-free validators, compilation, and all 70 tests pass. One display-only PowerShell recount printed an array of ones; the manifest verifier and corrected scalar recount both report 133. Candidate, archive, and image bytes remain absent until the manifest is public.
 
 ## Verified evidence
 

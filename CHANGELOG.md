@@ -6,6 +6,7 @@
 - Added exact expected-document share, extra-document attempt rate, expected rank, guidance and in-band first-rank buckets, conditional policy and attack-success results, split results, repeated-trial ambiguity, independent fail-closed validation, and explicit API/dashboard projection. Expected IDs remain required evidence rather than exhaustive relevance labels; extra records are not called irrelevant.
 - Retained all implementation-process failures, including the initial 68-of-70 schema-compatibility run. After advancing only explicit additive schema assertions and current validators, all 70 tests pass; 34 side-effect-free validators pass and the predecessor manifest correctly remains mismatched until the public implementation seal permits UNIT-003 to freeze new bytes.
 - Published and remotely reconciled the exact implementation seal at `80a8c945516ec926f7583402efe575b94f7fac4f` before any baseline-0029 manifest, candidate, v0.0.29 archive, or image existed. A first raw-byte hash wrapper is retained as invalid; the corrected seven-path public comparison passes.
+- Froze a 133-file pre-reveal manifest at SHA-256 `c970ce963aa5d2347ee2e8bd2a9d9551b2d92b798f023a7bffed3e1628a46912`; exact verification, 35 side-effect-free validators, and all 70 tests pass with candidate, package, and image bytes still absent. Publication and remote byte verification remain mandatory before candidate reveal.
 
 ## 0.0.28 - 2026-08-15
 

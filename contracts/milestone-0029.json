@@ -168,7 +168,7 @@
     }
   ],
   "current_unit": "UNIT-003",
-  "next_action": "Commit and publish the public implementation reconciliation, freeze and publish the exact baseline-0029 manifest, then reveal one immutable source candidate against that public manifest.",
+  "next_action": "Commit and publish the exact 133-file baseline-0029 manifest, verify its public bytes, then reveal one immutable source candidate against that public manifest.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -201,11 +201,12 @@
       "public preimplementation freeze commit 2ce5b814db09e9b4f66b47d7edc78a349ed9987a is exact across local tracking ls-remote GitHub API and four critical raw public files"
       ,"runtime and independent retrieval-quality computations are exact; all 70 tests and 34 substantive side-effect-free validators pass with the predecessor manifest intentionally deferred"
       ,"public implementation seal 80a8c945516ec926f7583402efe575b94f7fac4f is exact across local tracking ls-remote GitHub API and seven critical public paths before any candidate manifest report package or image existed"
+      ,"local pre-reveal manifest c970ce963aa5d2347ee2e8bd2a9d9551b2d92b798f023a7bffed3e1628a46912 binds 133 exact files and passes 35 validators plus 70 tests before candidate reveal"
     ]
   },
   "handoff": {
     "current_checkpoint": "BASELINE-0029 UNIT-002 implementation is public and remotely exact at 80a8c945516ec926f7583402efe575b94f7fac4f. All seven critical public paths reconcile, and no new manifest candidate package or image existed at publication.",
-    "next_action": "Publish the implementation reconciliation, then freeze and publish a new baseline-0029 manifest before revealing exactly one immutable source candidate.",
+    "next_action": "Publish and remotely verify the exact 133-file manifest, then reveal exactly one immutable source candidate.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any claim that non-expected records are semantically irrelevant or expected IDs exhaust relevance",

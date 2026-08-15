@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-003",
+  "recorded_at_utc": "2026-08-15T19:50:30.1331981Z",
+  "status": "local-pass-publication-pending",
+  "implementation_seal_commit": "80a8c945516ec926f7583402efe575b94f7fac4f",
+  "manifest": {
+    "path": "eval/manifest.json",
+    "bytes": 16019,
+    "sha256": "c970ce963aa5d2347ee2e8bd2a9d9551b2d92b798f023a7bffed3e1628a46912",
+    "frozen_at_utc": "2026-08-15T19:48:12Z",
+    "file_count": 133,
+    "checkpoint": "baseline-0029",
+    "verification": "pass"
+  },
+  "pre_reveal_verification": {
+    "full_tests": {
+      "status": "pass",
+      "passed": 70,
+      "failed": 0,
+      "elapsed_seconds": 84.912
+    },
+    "side_effect_free_validators": {
+      "status": "pass",
+      "passed": 35,
+      "failed": 0,
+      "excluded_runtime_scripts": [
+        "scripts/verify_baseline.py",
+        "scripts/verify_container_runtime.py",
+        "scripts/verify_evaluation_trace.py",
+        "scripts/verify_mcp_stdio.py"
+      ]
+    },
+    "retrieval_quality_implementation_only_validator": "pass",
+    "governed_milestone_contract": "pass",
+    "compileall": "pass",
+    "diff_check": "pass"
+  },
+  "retained_process_failure": {
+    "phase": "manifest_metadata_display",
+    "result": "invalid_display_only",
+    "error": "The first PowerShell wrapper called .Count directly on the PSObject property enumerator and printed an array of 133 ones instead of scalar file_count 133.",
+    "disposition": "excluded; scripts/verify_manifest.py independently reported file_count 133 and an explicitly materialized property-array recount returned 133 without changing manifest bytes"
+  },
+  "candidate_absence": {
+    "baseline_0029_candidate_file_count": 0,
+    "v0_0_29_archive_exists": false,
+    "baseline_0029_image_exists": false
+  },
+  "next_gate": "Commit and publish this exact manifest, remotely verify the manifest bytes, and only then run one immutable baseline-0029 source candidate."
+}
