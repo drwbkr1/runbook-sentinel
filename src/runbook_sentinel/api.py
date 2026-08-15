@@ -420,13 +420,13 @@ class SentinelHandler(BaseHTTPRequestHandler):
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Runbook Sentinel</title><style>
 :root {{ color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background:#08111f; color:#e8f0f7; }}
-body {{ margin:0; }} main {{ max-width:1260px; margin:auto; padding:18px 24px; }}
+body {{ margin:0; }} main {{ max-width:1260px; margin:auto; padding:8px 24px; }}
 .eyebrow {{ color:#75d7c6; letter-spacing:.12em; text-transform:uppercase; font-size:.78rem; }}
-h1 {{ font-size:clamp(2rem,6vw,4rem); line-height:1.05; margin:.2rem 0; }}
-.promise {{ color:#aebfd0; max-width:760px; font-size:1.05rem; line-height:1.4; }}
-.grid {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:10px; margin:16px 0; }}
-.card {{ background:#101d2d; border:1px solid #21354b; border-radius:14px; padding:12px; }}
-.value {{ font-size:1.5rem; line-height:1.3; color:#75d7c6; }} table {{ width:100%; border-collapse:collapse; }}
+h1 {{ font-size:clamp(2rem,6vw,3.5rem); line-height:1.05; margin:.15rem 0; }}
+.promise {{ color:#aebfd0; max-width:760px; font-size:1rem; line-height:1.3; margin:.5rem 0; }}
+.grid {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(165px,1fr)); gap:7px; margin:9px 0; }}
+.card {{ background:#101d2d; border:1px solid #21354b; border-radius:10px; padding:8px; }}
+.value {{ font-size:1.25rem; line-height:1.25; color:#75d7c6; }} table {{ width:100%; border-collapse:collapse; }}
 h2 {{ margin:.4rem 0; }} th,td {{ text-align:left; padding:8px 12px; border-bottom:1px solid #21354b; }} .boundary {{ color:#ffcf70; }}
 </style></head><body><main>
 <div class="eyebrow">Baseline {checkpoint_display} - synthetic SRE only</div><h1>Runbook Sentinel</h1>

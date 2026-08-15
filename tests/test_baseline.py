@@ -1382,6 +1382,10 @@ class BaselineTest(unittest.TestCase):
                 self.assertIn("Approval lifetime exact", dashboard)
                 self.assertIn("Cached result authorization", dashboard)
                 self.assertIn("Operator authentication", dashboard)
+                self.assertIn(
+                    "grid-template-columns:repeat(auto-fit,minmax(165px,1fr))",
+                    dashboard,
+                )
                 self.assertIn("frame-ancestors 'none'", response.headers["Content-Security-Policy"])
             with urlopen(f"http://127.0.0.1:{server.server_port}/health") as response:
                 self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0029")

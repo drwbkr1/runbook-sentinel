@@ -11,6 +11,9 @@
 - Revealed one immutable source candidate only after the public manifest seal. It passes 57 scenarios, 171 attempts, all 136 Boolean gates, exact independent retrieval-quality validation, and an anchored 261-event trace; report/trace SHA-256 are `a4dcd408…` / `96b3c309…`. Commit `0a8ad6f…` publishes and remotely reconciles the exact report, trace, manifest copy, receipt, and latest pointer before package or image construction.
 - Froze a 43-entry dependency-free v0.0.29 zipapp contract and inherited 45-check `container-runtime-v9`, adding only the project-authored retrieval-quality module and an exact container metric-projection check while preserving every v8 security and no-publication boundary. The final 135-file manifest is SHA-256 `7999bbac…`; all 71 tests and 35 project validators pass. Commit `9804ba8…` publishes and remotely reconciles ten critical pre-build paths with archive and image bytes absent.
 
+- Retained the first byte-identical 645,050-byte archive pair and every passing source/package evaluation, MCP, API, state, and telemetry receipt after original-detail review found the persisted-incident rows below the dashboard evidence frame. No container image was built from those superseded bytes.
+- Applied a presentation-only responsive-grid correction that preserves all 35 metrics and security boundaries while showing the complete persisted-state table. The renewed 135-file manifest is SHA-256 `083d18c06...`; 71 tests, 35 validators, and original-detail pre-freeze review pass with replacement archive and image bytes absent until the correction seal is public.
+
 ## 0.0.28 - 2026-08-15
 
 - Implemented the frozen additive four-stage grader and fail-closed runtime contract without changing any of the 57 scenarios, terminal states, retrieval, agent, policy, service, or authority surfaces. The released three-stage metric remains intact.

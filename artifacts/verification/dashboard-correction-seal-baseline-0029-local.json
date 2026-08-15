@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "dashboard-correction-seal-baseline-0029-local-20260815T205257Z",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T20:52:57Z",
+  "status": "pass_awaiting_publication",
+  "public_parent_commit": "093748c3fd779281f37545dd21d2bbaf95c8bf7d",
+  "failed_surface": {
+    "source_http_checks": "131/131",
+    "package_http_checks": "131/131",
+    "source_native_checks": "72/72",
+    "package_native_checks": "72/72",
+    "source_package_dashboard_byte_identity": true,
+    "dashboard_sha256": "9cfcc9bad834a7004320e5d7a1f6696ea4f75c7ae51784d15a11ecf942837696",
+    "visual_disposition": "superseded because the persisted-incident table was below the 1440 by 1000 evidence frame"
+  },
+  "bounded_correction": {
+    "source_path": "src/runbook_sentinel/api.py",
+    "source_bytes": 23965,
+    "source_sha256": "4371a79854ab104c4c49218a764e13dc58c6e8386561cb0e59364e508b6b49d0",
+    "scope": "dashboard spacing, grid density, card geometry, and value typography only",
+    "metrics_preserved": 35,
+    "responsive_auto_fit_preserved": true,
+    "security_boundary_changed": false,
+    "evaluation_behavior_changed": false
+  },
+  "prefreeze_visual_proof": {
+    "attempt_001": {
+      "path": "artifacts/verification/dashboard-baseline-0029-dashboard-correction-prefreeze.png",
+      "bytes": 111816,
+      "sha256": "57181819861d1b2017663f94b7eac3a8ad008ccb2f5b8789acf737696f28ce2c",
+      "status": "superseded_table_rows_below_frame"
+    },
+    "attempt_002": {
+      "path": "artifacts/verification/dashboard-baseline-0029-dashboard-correction-prefreeze-attempt-002.png",
+      "bytes": 101571,
+      "sha256": "e41c987f9c6589fb51dad3b72919a3c9f01cbebcb3eca4e53325bd1cf31f4ba8",
+      "http_receipt_sha256": "5c8535fb03719434bc5b5e82da279b9072ce61dfa878d46117a51296455d401c",
+      "http_checks": "131/131",
+      "visual_status": "pass: all metrics, both authority boundaries, table header, and both persisted incident rows are complete and legible"
+    }
+  },
+  "contracts": {
+    "package_contract_sha256": "18a1965b6c5c513b70613aa2ebe9b5dad03b59ef86a0f60ff3b9c7c1edfad92e",
+    "container_contract_sha256": "578ba95099df2b6816ac702dd2cfcfbecb78b8ee6e7849c2ef034e48db930642",
+    "contracts_changed": false
+  },
+  "renewed_manifest": {
+    "path": "eval/manifest.json",
+    "frozen_at_utc": "2026-08-15T20:46:32Z",
+    "file_count": 135,
+    "bytes": 16240,
+    "sha256": "083d18c06a776b3cbc9e030656a0dc758671ef856390fee3ff6a160e4be7aaef",
+    "exact_verification": "pass"
+  },
+  "validation": {
+    "focused_dashboard_test": "1/1 pass",
+    "pre_freeze_tests": "71/71 pass in 85.462 seconds",
+    "post_freeze_tests": "71/71 pass in 85.321 seconds",
+    "project_validators": "35/35 pass in 2.486 seconds; repeated 35/35 after latest-pointer restoration",
+    "candidate_retrieval_quality_and_trace": "pass",
+    "historical_final_source_and_package_traces": "both valid and anchored at 261 events",
+    "compileall": "pass",
+    "git_diff_check": "pass",
+    "governed_milestone": "valid active inherited authority; UNIT-004 in progress; no errors or warnings"
+  },
+  "pointer_and_absence": {
+    "latest_matches_immutable_source_candidate": true,
+    "latest_sha256": "a4dcd408c2eb9a73cbf50921466eac885917024fdfea075229c14fb20a32c9c2",
+    "corrected_archive_absent": true,
+    "corrected_checksum_absent": true,
+    "baseline_0029_image_count": 0,
+    "container_receipt_absent": true
+  },
+  "retained_process_evidence": [
+    "artifacts/verification/baseline-0029-dashboard-viewport-failure-001.json",
+    "artifacts/verification/baseline-0029-dashboard-density-prefreeze-failure-001.json",
+    "artifacts/verification/baseline-0029-dashboard-focused-selector-failures-001.json",
+    "artifacts/verification/baseline-0029-dashboard-full-suite-invocation-failure-001.json",
+    "artifacts/verification/baseline-0029-dashboard-correction-validator-mode-failure-001.json",
+    "artifacts/verification/baseline-0029-mcp-help-probe-observation-001.json",
+    "PowerShell identity display repeated the known empty-pipe parse failure; the assignment-first successor produced the exact identities in this receipt",
+    "The first Docker inventory filter matched all historical Runbook Sentinel images; the exact BASELINE-0029 tag filter returned zero",
+    "A final wrapper passed unsupported --source-only to the package validator and stopped at argument parsing; its supported no-archive invocation passed"
+  ],
+  "superseded_archive_custody": "C:/Projects/Verification/runbook-sentinel-baseline-0029-superseded-dashboard-attempt-001-20260815T2040Z",
+  "authorized_next_action": "Commit, push, and remotely verify this exact corrected source and renewed-manifest seal before rebuilding either archive or any container image."
+}

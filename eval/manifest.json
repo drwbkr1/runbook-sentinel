@@ -115,7 +115,7 @@
     "src/runbook_sentinel/__init__.py": "bd038ee13daa4ad60defc4f0e9b0ea9e21f5087ebb3bdb35c0f9cf447ff739fc",
     "src/runbook_sentinel/__main__.py": "eff3aef1ed0a4e55867dea88e940fc652ce7d3dee819930d58b48b4935b75f55",
     "src/runbook_sentinel/agent.py": "b04ac41d48708028733a31ff2d8b11a6f7f109a17f1f52f6f9ca273a171579e6",
-    "src/runbook_sentinel/api.py": "da27454aae477ca8222ca0f6d38d7053ce689573ca5fb9aa1ff87a23df547bc4",
+    "src/runbook_sentinel/api.py": "4371a79854ab104c4c49218a764e13dc58c6e8386561cb0e59364e508b6b49d0",
     "src/runbook_sentinel/approval_lifetime_evaluation.py": "59f39d5d94968c32b199e201a04d068339d221c189f82544ea66d82b7924430b",
     "src/runbook_sentinel/catalog.py": "85c4b98e252106b1ec056a76e99bb5390fc943d41a111459ca469f0acdc1113c",
     "src/runbook_sentinel/cli.py": "ee624df99be680ef9d29cc0548d78642d3cd226d7b68904b5c5acd36faa65640",
@@ -137,6 +137,6 @@
     "src/runbook_sentinel/telemetry.py": "1e136b8642fc37f76bd803e720d5849123867fe8565426c8ce43ec5b21245815",
     "src/runbook_sentinel/trace_integrity_evaluation.py": "aab63e902297aa2c26734cbaef46b9106c07074696c5cf1d4cef2a1b70690d4a"
   },
-  "frozen_at_utc": "2026-08-15T20:21:23Z",
+  "frozen_at_utc": "2026-08-15T20:46:32Z",
   "schema_version": "1.0"
 }

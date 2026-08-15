@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-dashboard-density-prefreeze-failure-001",
+  "checkpoint": "baseline-0029",
+  "observed_at_utc": "2026-08-15T20:44:00Z",
+  "status": "superseded_visual_failure",
+  "phase": "dashboard_density_correction_prefreeze",
+  "http_checks": "131/131",
+  "dashboard": {
+    "path": "artifacts/verification/dashboard-baseline-0029-dashboard-correction-prefreeze.png",
+    "bytes": 111816,
+    "sha256": "57181819861d1b2017663f94b7eac3a8ad008ccb2f5b8789acf737696f28ce2c",
+    "dimensions": [1440, 1000]
+  },
+  "visual_observation": "The first density correction made the Persisted incidents heading and table header visible, but the incident rows remained below the 1000-pixel frame.",
+  "bounded_successor": "Use seven 165-pixel-minimum auto-fit columns with smaller metric value typography and spacing so the same 35 metrics and complete persisted-state table fit the evidence frame."
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-dashboard-correction-validator-mode-failure-001",
+  "checkpoint": "baseline-0029",
+  "observed_at_utc": "2026-08-15T20:47:00Z",
+  "status": "retained_process_failure",
+  "phase": "dashboard_correction_manifest_seal",
+  "result": "33/35 validators passed in 2.575 seconds",
+  "failures": [
+    {
+      "validator": "verify_adversarial_retrieval_stage_outcome_split_coverage_contract.py",
+      "error": "preimplementation_contract_already_present",
+      "cause": "The wrapper omitted --require-implementation."
+    },
+    {
+      "validator": "verify_retrieval_quality_observability_contract.py",
+      "error": "reported_metric_missing",
+      "cause": "The wrapper used --require-implementation without --implementation-only, so the static sweep evaluated the frozen BASELINE-0028 prechange report."
+    }
+  ],
+  "correction": "Use --require-implementation for adversarial retrieval-stage coverage, --require-implementation --implementation-only for the retrieval-quality static validator, and validate the selected BASELINE-0029 report separately with --require-implementation --report.",
+  "product_failure_inferred": false
+}
