@@ -231,7 +231,7 @@
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Publish the exact external reconciliation receipt and living-record updates, verify their public bytes, then begin BASELINE-0029 from immutable public v0.0.28 by running the accepted system and selecting one measurable weakness before implementation.",
+  "next_action": "Begin BASELINE-0029 from immutable public v0.0.28 by running the accepted system, inspecting traces and separated evaluation families, and selecting one measurable weakness before implementation.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -271,11 +271,12 @@
       ,"living-record reconciliation commit 6a20e5a64780ca59bf18dde8b32304a30f5ad08b is public; final audit-only commit 447cab724ec7ad32a5c041883e7ea6c50c34d51b evaluates verified with ten of ten checks, all seventeen required real surfaces, active inherited authority, and no error warning stale missing unknown or unrun surface"
       ,"release closure a93ad62e952421dfec2a80c396a3fb8b0e8e580a is the peeled target of annotated tag object 5026ecff0d2351a3231ea8d340e4b330a31cc52d; public non-draft latest v0.0.28 contains exactly the selected 619465-byte zipapp and 94-byte checksum"
       ,"the 15494-byte artifacts/verification/public-tag-baseline-0028.json at SHA-256 575d5d18410b06b94b67def8fe27a76ef1d9a1abbb42a53a88c2f62240ecd229 reconciles anonymous downloads, rendered repository release and tag pages, 61 tests, 34 validators, three-way exact archive bytes, source package and container 57-scenario 171-attempt evaluations, bounded MCP, both 117-check APIs and 63-check native surfaces, three complete dashboards, 44 composed container checks, three exact image builds, point-in-time scan, parsing, and no image publication"
+      ,"external reconciliation commit 8e41963dda38d15c5d504471bdbb0a3f4f59ba57 is exact across local tracking ls-remote and GitHub API heads; all nine raw public paths match local lengths and SHA-256 values"
     ]
   },
   "handoff": {
     "current_checkpoint": "BASELINE-0028 is complete. Public non-draft latest v0.0.28 is immutably bound through annotated tag object 5026ecff0d2351a3231ea8d340e4b330a31cc52d to audited closure a93ad62e952421dfec2a80c396a3fb8b0e8e580a. Selected downloads, rendered public pages, and fresh no-alternates public-tag source, downloaded-package, MCP, API, state, telemetry, dashboards, scan, and local-container evidence reconcile; no container image bytes were exported pushed or published.",
-    "next_action": "Publish and remotely verify the external reconciliation commit, then begin BASELINE-0029 orientation from exact public v0.0.28. Run the system first, inspect traces and separated evaluation families, and freeze one highest-leverage measurable weakness before implementation.",
+    "next_action": "Begin BASELINE-0029 orientation from exact public v0.0.28. Run the system first, inspect traces and separated evaluation families, and freeze one highest-leverage measurable weakness before implementation.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any replacement or reinterpretation of the existing three-stage metric",
