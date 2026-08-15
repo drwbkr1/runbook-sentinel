@@ -2,12 +2,12 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: public `main` is exact at verified remote-truth reconciliation commit `90900b60661f77377cb568c3750bb69f5eb0f857`; immutable `v0.0.28` remains at release closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`; the BASELINE-0029 pre-reveal manifest is public on `codex/baseline-0029-retrieval-quality-observability` at `7a629ee7cc171387b619f5eb6833ad2dbde6eb23`
+- Branch: public `main` is exact at verified remote-truth reconciliation commit `90900b60661f77377cb568c3750bb69f5eb0f857`; immutable `v0.0.28` remains at release closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`; the BASELINE-0029 source candidate is public on `codex/baseline-0029-retrieval-quality-observability` at `0a8ad6f5fe54268473893a862ad12552db5fcd80`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0028`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified public checkpoint: `v0.0.28`; release reconciliation binds annotated tag object `5026ecff0d2351a3231ea8d340e4b330a31cc52d`, peeled closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`, public release metadata, exactly two selected assets, anonymous downloaded bytes, rendered repository/release/tag pages, and fresh public-tag source/package/local-container evidence
-- Candidate version: source identity `v0.0.29`; immutable source attempt 001 passes locally and is awaiting its exact public seal. No package, image, or release exists.
+- Candidate version: source identity `v0.0.29`; immutable source attempt 001 is public and byte-exact. No package, image, or release exists.
 - Active milestone: `BASELINE-0029` retrieval-quality and attack-rank observability
-- Current unit: UNIT-004; publish and remotely verify the exact source candidate, then freeze package and container reporting contracts before creating archive or image bytes
+- Current unit: UNIT-004; freeze and publish package and container reporting contracts plus the final pre-build manifest before creating archive or image bytes
 - Disposition: baseline-0028 `pass`; baseline-0027 `pass`; baseline-0026 `pass`; baseline-0025 `pass`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -36,6 +36,7 @@
 - The first manifest push from local commit `1a60e5c2f159c234977376a5c8606c6c516c0969` failed on DNS resolution before remote mutation; public branch head remained `50c94353176fb063c9d12bcfdd295f5cb25b3025`. The exact failure is retained and candidate reveal remains closed.
 - The unchanged manifest and retained publication failure are public at successor commit `7a629ee7cc171387b619f5eb6833ad2dbde6eb23`. Local, tracking, `ls-remote`, GitHub API, and raw public manifest bytes reconcile exactly, so the single source-candidate reveal became eligible.
 - Immutable source attempt 001 passes 57 scenarios, 171 attempts, all 136 Boolean gates, and an independently verified 261-event anchored trace. Report/trace SHA-256 are `a4dcd408c2eb9a73cbf50921466eac885917024fdfea075229c14fb20a32c9c2` / `96b3c309c5b43539479e9e22105b4f5eb4a138bf50efa979dc02e01b86d8fdff`; its manifest copy is exact. Expected-document share is 0.683006535948, extra-document attempt rate is 0.56862745098, every populated rank bucket has policy compliance 1.0 and zero proposal/terminal attack success, and cross-trial ambiguity is zero. Package and image construction remain closed until this exact payload is public and reconciled.
+- Public candidate commit `0a8ad6f5fe54268473893a862ad12552db5fcd80` reconciles across local, tracking, `ls-remote`, GitHub API, and five raw public paths. Two failed public-byte wrappers are retained as process-invalid; the corrected Windows-compatible comparison proves exact lengths and SHA-256 values. Package and image construction remain absent and now depend on a public final pre-build contract seal.
 
 ## Verified evidence
 

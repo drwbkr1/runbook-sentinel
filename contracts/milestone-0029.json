@@ -152,7 +152,7 @@
       "human_gate": false,
       "status": "in_progress",
       "gates": {
-        "source_candidate_public_and_exact": "pending",
+        "source_candidate_public_and_exact": "pass",
         "package_and_container_contracts_public_before_build": "pending",
         "source_package_metric_and_behavior_parity": "pending",
         "mcp_api_state_telemetry_dashboard_exact": "pending",
@@ -177,7 +177,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Commit and publish the exact passing source candidate, verify remote report trace and manifest bytes, then freeze and publish v0.0.29 package and container reporting contracts before building archive or image bytes.",
+  "next_action": "Freeze and publish exact v0.0.29 package and container reporting contracts plus the final pre-build manifest before constructing archive or image bytes.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -212,11 +212,12 @@
       ,"public implementation seal 80a8c945516ec926f7583402efe575b94f7fac4f is exact across local tracking ls-remote GitHub API and seven critical public paths before any candidate manifest report package or image existed"
       ,"local pre-reveal manifest c970ce963aa5d2347ee2e8bd2a9d9551b2d92b798f023a7bffed3e1628a46912 binds 133 exact files and passes 35 validators plus 70 tests before candidate reveal"
       ,"immutable baseline-0029 source attempt 001 passes 57 scenarios 171 attempts all 136 Boolean gates exact frozen retrieval-quality metrics and an anchored 261-event trace"
+      ,"public source-candidate seal 0a8ad6f5fe54268473893a862ad12552db5fcd80 is exact across local tracking ls-remote GitHub API and five public raw paths before package or image construction"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0029 implementation and pre-reveal manifest are public and exact. Immutable source attempt 001 passes 57 scenarios 171 attempts 136 Boolean gates the independent retrieval-quality contract and an anchored 261-event trace; package and image bytes remain absent.",
-    "next_action": "Publish and remotely verify the exact source candidate, then freeze package and container reporting contracts before constructing archive or image bytes.",
+    "current_checkpoint": "BASELINE-0029 implementation, pre-reveal manifest, and immutable source candidate are public and exact at 0a8ad6f5fe54268473893a862ad12552db5fcd80. Source attempt 001 passes 57 scenarios 171 attempts 136 Boolean gates the independent retrieval-quality contract and an anchored 261-event trace; package and image bytes remain absent.",
+    "next_action": "Freeze and publish package and container reporting contracts plus the final pre-build manifest before constructing archive or image bytes.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any claim that non-expected records are semantically irrelevant or expected IDs exhaust relevance",

@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T20:06:45Z",
+  "status": "pass",
+  "repository": "https://github.com/drwbkr1/runbook-sentinel",
+  "visibility": "public",
+  "branch": "codex/baseline-0029-retrieval-quality-observability",
+  "commit": "0a8ad6f5fe54268473893a862ad12552db5fcd80",
+  "refs": {
+    "local": "0a8ad6f5fe54268473893a862ad12552db5fcd80",
+    "remote_tracking": "0a8ad6f5fe54268473893a862ad12552db5fcd80",
+    "ls_remote": "0a8ad6f5fe54268473893a862ad12552db5fcd80",
+    "github_api": "0a8ad6f5fe54268473893a862ad12552db5fcd80",
+    "all_equal": true
+  },
+  "public_raw_paths": [
+    {
+      "path": "artifacts/evaluations/runs/baseline-0029-attempt-001.json",
+      "bytes": 953879,
+      "sha256": "a4dcd408c2eb9a73cbf50921466eac885917024fdfea075229c14fb20a32c9c2",
+      "exact": true
+    },
+    {
+      "path": "artifacts/evaluations/runs/baseline-0029-attempt-001.traces.jsonl",
+      "bytes": 195302,
+      "sha256": "96b3c309c5b43539479e9e22105b4f5eb4a138bf50efa979dc02e01b86d8fdff",
+      "exact": true
+    },
+    {
+      "path": "artifacts/evaluations/runs/baseline-0029-attempt-001.manifest.json",
+      "bytes": 16019,
+      "sha256": "c970ce963aa5d2347ee2e8bd2a9d9551b2d92b798f023a7bffed3e1628a46912",
+      "exact": true
+    },
+    {
+      "path": "artifacts/verification/candidate-baseline-0029-source.json",
+      "bytes": 3912,
+      "sha256": "95286f4f5aa069ecf32048e555dad831178b46ac420fa7be8cc1882a555127f1",
+      "exact": true
+    },
+    {
+      "path": "artifacts/evaluations/latest.json",
+      "bytes": 953879,
+      "sha256": "a4dcd408c2eb9a73cbf50921466eac885917024fdfea075229c14fb20a32c9c2",
+      "exact": true
+    }
+  ],
+  "retained_process_invalid_checks": [
+    {
+      "check": "raw public byte comparison with PowerShell generic SequenceEqual syntax",
+      "error": "Array index expression is missing or not valid",
+      "effect": "The wrapper failed during parsing before network access and made no mutation."
+    },
+    {
+      "check": "raw public byte comparison with unloaded System.Net.Http.HttpClient type",
+      "error": "Unable to find type System.Net.Http.HttpClient",
+      "effect": "The wrapper stopped before downloading any public path and made no mutation."
+    }
+  ],
+  "corrected_comparison": {
+    "transport": "Windows PowerShell System.Net.WebClient.DownloadData",
+    "identity": "exact byte length and SHA-256 equality",
+    "all_paths_exact": true
+  },
+  "boundaries": {
+    "package_constructed": false,
+    "container_image_constructed": false,
+    "container_image_exported": false,
+    "container_image_pushed": false,
+    "container_image_published": false,
+    "real_infrastructure_connected": false,
+    "external_asset_imported": false
+  },
+  "next_gate": "Freeze and publish exact v0.0.29 package and container reporting contracts plus the final pre-build manifest before constructing archive or image bytes."
+}
