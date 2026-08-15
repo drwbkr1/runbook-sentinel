@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-merged-main-public-byte-wrapper-failure-001",
+  "checkpoint": "baseline-0029",
+  "recorded_at_utc": "2026-08-15T22:12:00Z",
+  "status": "process-invalid",
+  "intent": "Download the two exact merged-main evidence paths anonymously and compare byte lengths and SHA-256 values.",
+  "failed_attempt": {
+    "client": "System.Net.WebClient.DownloadData",
+    "cache_busting_query": true,
+    "result": "HTTP 404 on the first path immediately after all Git refs and the GitHub commit API agreed on e14cd9d460484b68f0edd6bd81ee9b694d9ca4d4",
+    "bytes_compared": 0,
+    "result_promoted": false
+  },
+  "correction": {
+    "content_api_confirmed_both_paths": true,
+    "anonymous_client": "Invoke-WebRequest with Cache-Control no-cache",
+    "paths_verified": 2,
+    "merged_main_receipt_bytes": 11128,
+    "merged_main_receipt_sha256": "b327deceaf560046d776c2542f505ef091b7464d9688b6ce0078484edec548ca",
+    "preflight_failure_receipt_bytes": 1271,
+    "preflight_failure_receipt_sha256": "c5cff2d496745cc2d22c5764a2e40d4c80dc0aa053270ee5b473b24db0d5293c",
+    "all_public_bytes_exact": true
+  },
+  "effects": {
+    "repository_mutated_by_failed_attempt": false,
+    "release_state_changed": false,
+    "tag_or_release_created": false
+  },
+  "disposition": "retained and superseded by the exact content-API plus anonymous-byte verification"
+}

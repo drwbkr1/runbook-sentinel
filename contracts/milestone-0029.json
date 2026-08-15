@@ -174,14 +174,24 @@
       "action_class": "public_release",
       "human_gate": false,
       "status": "in_progress",
-      "gates": {},
+      "gates": {
+        "premerge_release_truth_audit": "pass",
+        "exact_reviewed_head_merged_with_history_preserved": "pass",
+        "fresh_public_main_complete_stack": "pass",
+        "merged_main_receipt_public_and_exact": "pass",
+        "final_release_truth_audit": "pending",
+        "release_closure": "pending",
+        "annotated_tag_and_selected_assets": "pending",
+        "public_tag_complete_stack": "pending",
+        "external_reconciliation": "pending"
+      },
       "disposition": "pending",
       "retained_failures": [],
       "next_dependency": null
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Run the governed premerge release-truth audit against the exact public UNIT-004 container checkpoint, then open and review the pull request only if the audit verifies without a release-blocking finding.",
+  "next_action": "Run the final release-truth audit against exact public merged-main evidence e14cd9d460484b68f0edd6bd81ee9b694d9ca4d4, then create the release closure only if the audit verifies without a warning or unresolved surface.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -222,11 +232,15 @@
       ,"public package-source payload d597a2973e913562a9a3dec2c91e061d44d8637a is exact across every Git head and 31 anonymous raw paths; two exact 645064-byte archives source-package evaluations bounded MCP both 131-check APIs both 72-check native inspections and complete dashboards pass"
       ,"canonical container receipt 1ad5e50384f6364d496251f0519943c42d7e046964f88a1700782ecdb8780760 passes all 45 checks; two local builds and one clean public-branch build reproduce image b2062da4db7e6d31fea9ddc5eb7794ff2458d243c6e2e951264cf73f841d7be6 with hardening exact metrics real surfaces accepted dashboard current scan and no image publication"
       ,"public container evidence commit e685bba4ff4e326f7d6d73cadd1cc90b364ca5d8 is exact across every Git head and all 13 anonymous raw changed paths"
+      ,"premerge release-truth audit 91491a2c57d910a4d0ef8a691f2cff577e876f688945c52cc9eb4b9376bbdf42 verified all 10 checks and 18 required surfaces with no error warning stale missing unknown or unrun result"
+      ,"PR 27 merged exact reviewed head c1a2ab1f3b0e3f9c4decc19b92ee6662ae9f55eb under expected-head lock as c224e3680ceeab861bb9c096513fed2a4e77db25 with reviewed and merged tree 1ba810931a37c7005f59b92a3040e6348e24ed0d exact"
+      ,"fresh public-main source package and container verification passes 71 tests 35 validators both 136-gate evaluations both real-surface stacks complete dashboards two full image builds and one no-alternates clean build at exact image b2062da4db7e6d31fea9ddc5eb7794ff2458d243c6e2e951264cf73f841d7be6"
+      ,"merged-main receipt e14cd9d460484b68f0edd6bd81ee9b694d9ca4d4 is public and its two changed paths match anonymous raw byte lengths and SHA-256 values exactly"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0029 UNIT-004 passes. Exact public package-source payload d597a2973e913562a9a3dec2c91e061d44d8637a and public canonical container evidence e685bba4ff4e326f7d6d73cadd1cc90b364ca5d8 reconcile; all 45 container checks pass at local image ID b2062da4db7e6d31fea9ddc5eb7794ff2458d243c6e2e951264cf73f841d7be6 with no image export push or publication.",
-    "next_action": "Run the governed premerge release-truth audit, then open and review the exact pull request only if verified.",
+    "current_checkpoint": "BASELINE-0029 reviewed head c1a2ab1f3b0e3f9c4decc19b92ee6662ae9f55eb is merged with identical tree as c224e3680ceeab861bb9c096513fed2a4e77db25. Fresh public-main source package real surfaces dashboards and three local image builds pass; merged-main receipt commit e14cd9d460484b68f0edd6bd81ee9b694d9ca4d4 is public and raw-byte exact. No v0.0.29 tag release or image publication exists.",
+    "next_action": "Run the final release-truth audit against exact public main; if verified, publish an exact release closure before creating the annotated tag and selected zipapp/checksum release.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any claim that non-expected records are semantically irrelevant or expected IDs exhaust relevance",

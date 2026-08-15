@@ -1,19 +1,19 @@
 # Current status
 
 - Project: Runbook Sentinel
-- Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: public `main` is exact at verified remote-truth reconciliation commit `90900b60661f77377cb568c3750bb69f5eb0f857`; immutable `v0.0.28` remains at release closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`; exact BASELINE-0029 canonical container evidence is public on `codex/baseline-0029-retrieval-quality-observability` at `e685bba4ff4e326f7d6d73cadd1cc90b364ca5d8`
+- Authoritative repository: public `https://github.com/drwbkr1/runbook-sentinel`; current exact local verification worktree is `C:\Projects\Verification\runbook-sentinel-baseline-0029-main-c224e36-20260815T2155Z`; the stale `C:\Projects\Active\runbook-sentinel` worktree remains untouched
+- Branch: public `main` is exact at merged-main evidence commit `e14cd9d460484b68f0edd6bd81ee9b694d9ca4d4`; immutable `v0.0.28` remains at release closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0028`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified public checkpoint: `v0.0.28`; release reconciliation binds annotated tag object `5026ecff0d2351a3231ea8d340e4b330a31cc52d`, peeled closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`, public release metadata, exactly two selected assets, anonymous downloaded bytes, rendered repository/release/tag pages, and fresh public-tag source/package/local-container evidence
-- Candidate version: source identity `v0.0.29`; public source, reproducible zipapp, source/package real surfaces, and canonical local-container evidence pass and are byte-exact. The image remains local-only; no tag or release exists.
+- Candidate version: source identity `v0.0.29`; exact reviewed source is merged, and fresh public-main source/package evaluations, real surfaces, dashboards, reproducible zipapp, and local-only container pass. No v0.0.29 tag or release exists.
 - Active milestone: `BASELINE-0029` retrieval-quality and attack-rank observability
-- Current unit: UNIT-005; run the governed premerge release-truth audit, then review and merge only the exact audited head
+- Current unit: UNIT-005; run the final release-truth audit against exact public merged-main evidence, then create the release closure only if every required surface remains verified
 - Disposition: baseline-0028 `pass`; baseline-0027 `pass`; baseline-0026 `pass`; baseline-0025 `pass`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
 - GitHub visibility: public, explicitly selected by the user on 2026-08-06
-- GitHub `main`: remote-truth reconciliation commit `90900b60661f77377cb568c3750bb69f5eb0f857` is exact across local, tracking, `ls-remote`, and GitHub API heads; immutable `v0.0.28` remains bound to closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`
-- GitHub pull request: `#26` merged exact reviewed head `99ed8f96f55c994feff168252fcde0941054746b` with history preserved as `9aec054f8c97f04c36fc39685667e86c5e8d097e`; merge and reviewed trees are identical
+- GitHub `main`: merged-main receipt commit `e14cd9d460484b68f0edd6bd81ee9b694d9ca4d4` is exact across local, tracking, `ls-remote`, GitHub API, and both anonymous raw changed paths; immutable `v0.0.28` remains bound to closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`
+- GitHub pull request: `#27` merged exact reviewed head `c1a2ab1f3b0e3f9c4decc19b92ee6662ae9f55eb` with history preserved as `c224e3680ceeab861bb9c096513fed2a4e77db25`; merge and reviewed trees are identical at `1ba810931a37c7005f59b92a3040e6348e24ed0d`
 - GitHub release: public, non-draft latest `v0.0.28`, published at `2026-08-15T17:54:29Z`, with exactly the selected 619,465-byte `.pyz` and 94-byte `.sha256` upload assets; GitHub also renders its generated source archives
 - Docker: client and server 29.4.3, Buildx 0.33.0-desktop.1, and BuildKit 0.29.0 are live. The three earlier Python candidates remain excluded; the exact Chainguard Free Python index passes a narrow gate for anonymous local build and verification only. Three admitted BASELINE-0029 builds reproduce exact local image ID `b2062da4...`; retained failed and diagnostic images remain local. No Runbook Sentinel image has been exported, pushed, or published.
 - External runtime dependencies: none for accepted v0.0.28 zipapp; the verified local container path adds only the frozen digest-pinned base outside the application package. Optional local Ollama evaluation remains source-gated separately.
