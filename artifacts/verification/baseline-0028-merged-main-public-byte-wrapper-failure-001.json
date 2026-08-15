@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0028-merged-main-public-byte-wrapper-failure-001",
+  "checkpoint": "baseline-0028",
+  "observed_at_utc": "2026-08-15T17:32:00Z",
+  "status": "process-invalid",
+  "disposition": "retain-and-supersede-with-supported-client",
+  "public_main_commit": "17e11ab22e9065231c0a9b801df9796ca40d7373",
+  "failed_wrapper": {
+    "client": "System.Net.Http.HttpClient",
+    "error": "Unable to find type [System.Net.Http.HttpClient] in Windows PowerShell.",
+    "public_bytes_observed": 0,
+    "public_sha256_observed": null
+  },
+  "unchanged_evidence": {
+    "local_head": "17e11ab22e9065231c0a9b801df9796ca40d7373",
+    "tracking_head": "17e11ab22e9065231c0a9b801df9796ca40d7373",
+    "live_remote_head": "17e11ab22e9065231c0a9b801df9796ca40d7373",
+    "local_receipt_bytes": 10164,
+    "local_receipt_sha256": "8ce34144e4f602fba522990b6b31969f49412a93ada292b828c52d94bbbc8129"
+  },
+  "corrected_verification": {
+    "client": "System.Net.WebClient",
+    "public_receipt_bytes": 10164,
+    "public_receipt_sha256": "8ce34144e4f602fba522990b6b31969f49412a93ada292b828c52d94bbbc8129",
+    "local_and_public_bytes_equal": true,
+    "status": "pass"
+  },
+  "inference_boundary": "The first wrapper produced no public-byte result and has no product or publication disposition."
+}

@@ -206,25 +206,28 @@
         "public-tag source package and local-container reproduction receipt"
       ],
       "gates": {
-        "premerge_release_audit_verified": "pending",
-        "exact_reviewed_head_merged_with_history_preserved": "pending",
-        "fresh_public_main_complete_stack": "pending",
+        "premerge_release_audit_verified": "pass",
+        "exact_reviewed_head_merged_with_history_preserved": "pass",
+        "fresh_public_main_complete_stack": "pass",
         "final_release_audit_verified": "pending",
         "public_refs_assets_downloads_pages_reconciled": "pending",
-        "no_container_image_bytes_published": "pending",
+        "no_container_image_bytes_published": "pass",
         "fresh_public_tag_complete_stack": "pending"
       },
       "disposition": null,
       "retained_failures": [
         "The first UNIT-005 transition-validation wrapper used stale --contract and --result option names; its corrected container call then guessed a nonexistent contract path. Each attempt stopped before changing evidence; the exact process-invalid receipt is retained and the authoritative current CLIs pass.",
         "The premerge composite validator passed both selected trace anchors, the archive contract, the required-result container contract, and compilation before guessing a nonexistent dist subpath inside independent build-D custody. The failed wrapper and corrected exact byte comparison are retained.",
-        "A premerge help probe passed --help to verify_baseline.py, which has no argument parser and ran its full workflow. The fresh passing evaluation is retained but excluded as process-invalid; latest.json is restored byte-exact to the predeclared final source attempt 004."
+        "A premerge help probe passed --help to verify_baseline.py, which has no argument parser and ran its full workflow. The fresh passing evaluation is retained but excluded as process-invalid; latest.json is restored byte-exact to the predeclared final source attempt 004.",
+        "Merged-main help probes passed --help to MCP and native inspection scripts without argument parsers; their results are retained as process-invalid. A PowerShell 2>&1 wrapper converted informational Edge stderr into NativeCommandError after the dashboard was written, and one diagnostic list command had an empty pipeline element; direct captures passed without changing product state.",
+        "The fresh merged-main full container repetition rebuilt the exact image twice and passed every product surface before Docker Scout requested interactive account authentication. No credential was requested, read, or introduced. The failed repetition remains excluded; the gate reuses the same-day canonical structured SARIF only because all fresh builds reproduce the exact content-addressed image, and retains the observation-time limitation.",
+        "The first public receipt byte-check wrapper used System.Net.Http.HttpClient, unavailable in Windows PowerShell, after local, tracking, and live remote refs already agreed. The supported WebClient repetition verified all 10,164 public bytes and SHA-256 exactly; the first wrapper has no product or publication disposition."
       ],
       "next_dependency": null
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Run the governed premerge release-truth audit against exact public head 9dc57f82e3fb3204853129a27246090c451d7739, then continue through exact review and release gates only on verified evidence.",
+  "next_action": "Publish and verify the living-record reconciliation over merged-main receipt commit 17e11ab22e9065231c0a9b801df9796ca40d7373, then run the final governed release-truth audit against the exact resulting public head before any v0.0.28 tag or asset publication.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -257,11 +260,15 @@
       ,"exact v0.0.28 package and container-runtime-v8 contracts plus the 129-file final manifest passed 59 tests and 34 non-runtime validators before any archive or image build and are public at content seal bf5a01e7878914a18216f4c315be3a1762c8ff4b"
       ,"the manifest-bound live-API verifier correction renews the 129-file manifest to f45f6f6270d6bca1ea11a250b4b5ce7e787d8ccc4f704e4535b99f72c18df50b and passes 60 tests plus 34 validators with selected archive and image absent",
       "public container receipt verifies exact canonical SHA-256 1e5923201b5710be2987e411f92d2a9cc0e12db0b41fbc5ac15a56235edc0e21, all 44 checks, three exact local image tags, clean-clone reproduction, public GitHub bytes, and no image export push or publication"
+      ,"premerge release-truth audit verifies exact candidate head 6696d9503c8fdeb61f0f5b0c3b5ea8db12e9cf95; audit-only reviewed head 99ed8f96f55c994feff168252fcde0941054746b adds only retained audit publication evidence"
+      ,"PR 26 merges exact reviewed head 99ed8f96f55c994feff168252fcde0941054746b with history preserved as 9aec054f8c97f04c36fc39685667e86c5e8d097e; reviewed and merged trees are identical"
+      ,"fresh no-local-object public-main verification passes 61 tests and 34 validators, reproduces the 42-entry 619465-byte archive twice at c770fc21ece71f3728d366575a9233100aeb5cbb40f5026be7814ae3c7977044, passes source and package 57-scenario 171-attempt evaluations with exact anchors, passes three-tool MCP plus both 117-check APIs and 63-check native surfaces, accepts three complete original-detail dashboards, and reproduces exact local image ID sha256:9a62f5e1daf61089ef6c9ceb71afd930c72ea60874bcec4eba78c4fc35467e2e without export push or publication"
+      ,"public merged-main receipt commit 17e11ab22e9065231c0a9b801df9796ca40d7373 exposes exact 10164-byte receipt SHA-256 8ce34144e4f602fba522990b6b31969f49412a93ada292b828c52d94bbbc8129"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Verified public v0.0.27 remains immutable at audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e. BASELINE-0028 UNIT-004 is complete: exact public branch head 9dc57f82e3fb3204853129a27246090c451d7739 exposes canonical 44-of-44 container receipt SHA-256 1e5923201b5710be2987e411f92d2a9cc0e12db0b41fbc5ac15a56235edc0e21; three local builds reproduce image ID sha256:9a62f5e1daf61089ef6c9ceb71afd930c72ea60874bcec4eba78c4fc35467e2e, and no image bytes were exported pushed or published.",
-    "next_action": "Run the governed premerge release-truth audit for UNIT-005 against the exact public branch head, then continue only through gates that verify exactly.",
+    "current_checkpoint": "Verified public v0.0.27 remains immutable at audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e. BASELINE-0028 premerge audit, PR 26, exact reviewed-head merge, and fresh public-main complete-stack verification now pass. Public receipt commit 17e11ab22e9065231c0a9b801df9796ca40d7373 exposes SHA-256 8ce34144e4f602fba522990b6b31969f49412a93ada292b828c52d94bbbc8129; no container image bytes were exported pushed or published.",
+    "next_action": "Publish and verify the living-record reconciliation, then run the final governed release-truth audit against that exact public head before any tag or release publication.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any replacement or reinterpretation of the existing three-stage metric",

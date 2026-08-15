@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0028-merged-main-container-scout-auth-failure-001",
+  "checkpoint": "baseline-0028",
+  "observed_at_utc": "2026-08-15T17:28:36.498Z",
+  "status": "blocked",
+  "disposition": "retain-and-exclude-as-complete-verifier-result",
+  "public_main_commit": "9aec054f8c97f04c36fc39685667e86c5e8d097e",
+  "failed_stage": "docker-scout-critical-high-sarif",
+  "exit_code": 1,
+  "error": {
+    "command": "docker scout cves --only-severity critical,high --format sarif runbook-sentinel:baseline-0028-a-9c7356c4dc",
+    "message": "Log in with your Docker ID or email address to use docker scout."
+  },
+  "credential_boundary": {
+    "credential_requested_from_user": false,
+    "credential_created_or_read": false,
+    "docker_login_attempted": false,
+    "paid_service_added": false,
+    "security_gate_replaced": false
+  },
+  "completed_before_stop": {
+    "two_no_cache_networkless_builds_completed": true,
+    "independent_image_id_exact": "sha256:9a62f5e1daf61089ef6c9ceb71afd930c72ea60874bcec4eba78c4fc35467e2e",
+    "hardened_runtime_probe_completed": true,
+    "cli_probe_completed": true,
+    "evaluation_completed": true,
+    "evaluation_scenarios": 57,
+    "evaluation_attempts": 171,
+    "evaluation_true_gates": 126,
+    "evaluation_false_gates": 0,
+    "evaluation_trace_events": 261,
+    "source_package_container_metric_parity_completed": true,
+    "mcp_probe_completed": true,
+    "authenticated_api_executor_replay_probe_completed": true,
+    "persisted_state_and_telemetry_probe_completed": true,
+    "dashboard_render_completed": true,
+    "dashboard_dimensions": [1440, 1000],
+    "candidate_secret_scan_completed": true
+  },
+  "partial_evidence": {
+    "container_evaluation_sha256": "c674dcea87fcd4a441bf6bf1a6810c4438fb324bd4d06733ca65d8e7f635c486",
+    "container_trace_sha256": "c2796c4a71fe088a2fed12d279112e334de0f98028c990ad60cc71ead43750fb",
+    "mcp_trace_sha256": "bd4c8b74b124154d34bc3cc15bff162c17eb516274c9cdffb589581e938968b7",
+    "mcp_trace_anchor_sha256": "1844a0c2128fc83fb64138790327ed560f794d1140018679d802ddde41d48d7c",
+    "api_database_sha256": "ab317274f34ec9b5e50d2e0ccaba197da60ca1d3afa4d132537513eef4a56f3b",
+    "api_trace_sha256": "3cecc9b865145bb5077515cd2b351dec02e18a44667b9ec9f60e248cb26260b8",
+    "api_trace_anchor_sha256": "68f09f7bc718be99445e7bc24d123c7d8733c4d00894acd2fab1e45ba697df87",
+    "dashboard_html_sha256": "fed59c125e2809a52aaafebf0d49c359cbc7bd1a80ac6319e2ca359a3adadb61",
+    "dashboard_png_sha256": "632bb352b67242eaa90b210802441c9c14693902fe2bd05ab43a5996fd3151f1",
+    "build_one_log_sha256": "dcb2aaa81d1315af641a5d83e61ac5c5ec26042acff6f54bad404dd55abfeeee",
+    "build_two_log_sha256": "c2a272aee5ecc94018eca68841fc6c496f0d2b4a185aa62f01a0b7a05650c6a4"
+  },
+  "inference_boundary": "Reaching the scan call proves all earlier fail-closed verifier stages completed, but this failed attempt is not a complete container verifier pass and does not itself satisfy the structured-scan gate."
+}
