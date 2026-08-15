@@ -1,0 +1,229 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0028-merged-main-complete-stack",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-005",
+  "observed_at_utc": "2026-08-15T17:30:00Z",
+  "status": "pass",
+  "repository": {
+    "url": "https://github.com/drwbkr1/runbook-sentinel",
+    "visibility": "public",
+    "branch": "main",
+    "head": "9aec054f8c97f04c36fc39685667e86c5e8d097e",
+    "live_remote_head": "9aec054f8c97f04c36fc39685667e86c5e8d097e",
+    "clone_transport": "https",
+    "clone_used_local_objects": false,
+    "object_alternates_present": false,
+    "tracked_file_count": 1162,
+    "started_clean": true,
+    "ended_clean": true
+  },
+  "review_and_merge": {
+    "pull_request": 26,
+    "base_before_merge": "3e9a8a3b90059c99a81ab50678c6560aa7379a54",
+    "exact_reviewed_head": "99ed8f96f55c994feff168252fcde0941054746b",
+    "merge_commit": "9aec054f8c97f04c36fc39685667e86c5e8d097e",
+    "merge_parents": [
+      "3e9a8a3b90059c99a81ab50678c6560aa7379a54",
+      "99ed8f96f55c994feff168252fcde0941054746b"
+    ],
+    "reviewed_tree": "bf29a57cb52314c44ea84bc31eee0d2b4901f4b0",
+    "merged_tree": "bf29a57cb52314c44ea84bc31eee0d2b4901f4b0",
+    "reviewed_and_merged_trees_equal": true,
+    "merged_at_utc": "2026-08-15T17:09:15Z"
+  },
+  "regression": {
+    "unit_tests": {
+      "command": "python -m unittest -v",
+      "passed": 61,
+      "failed": 0,
+      "duration_seconds": 101.515,
+      "status": "pass"
+    },
+    "validators": {
+      "project_validators_passed": 33,
+      "milestone_validator_passed": 1,
+      "total_passed": 34,
+      "failed": 0,
+      "status": "pass"
+    }
+  },
+  "package_reproduction": {
+    "build_count": 2,
+    "entry_count": 42,
+    "archive_bytes": 619465,
+    "archive_sha256": "c770fc21ece71f3728d366575a9233100aeb5cbb40f5026be7814ae3c7977044",
+    "checksum_bytes": 94,
+    "checksum_sha256": "6f9d0ed339781130a35ae17cfaacc72f59691a044fc412e2daefde4c56428b85",
+    "builds_byte_identical": true,
+    "package_contract_passed_for_each": true,
+    "repository_remained_clean": true
+  },
+  "evaluations": {
+    "source": {
+      "report_bytes": 948239,
+      "report_sha256": "96e56656177cafe1f625f3170f7b9e0ca90b747b66fe557e45f577dbb919d5d6",
+      "trace_bytes": 195320,
+      "trace_sha256": "6a793d32e4c0bbc1937d5b929c0c0c0e98fa0230601398640d192cfc2b3749f6",
+      "trace_final_event_sha256": "a925d3d0483e45049f0960ade981567267ee94f357a446393ee9a3ed3578ef7f"
+    },
+    "package": {
+      "report_bytes": 948240,
+      "report_sha256": "b1231d6437208dd3a3eb0ea060208731125b82fd3ce0c149702f7cec9cdc459d",
+      "trace_bytes": 195323,
+      "trace_sha256": "a80fb1bbdf978ab6d7268540a9957394c940521b2a8ef286583a0ae78c8607b9",
+      "trace_final_event_sha256": "9baa6d63deb2d7d47090e36e727d871a2ca4b551fe7649b4ecd5bb1d1057bdbb"
+    },
+    "companion_manifest_sha256": "996a9ca54fd13883bc72e2acd65c6a5df2e8398093af7ecbe229699e427c629d",
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "boolean_gates_true": 126,
+    "boolean_gates_false": 0,
+    "trace_event_count_each": 261,
+    "trace_chains_valid_and_anchored": true,
+    "adversarial_retrieval_stage_outcome_cells": 20,
+    "guidance_retrieved_then_filtered_attempts": 60,
+    "guidance_not_retrieved_attempts": 6,
+    "cross_trial_stage_ambiguity_count": 0,
+    "proposal_attack_success_rate": 0.0,
+    "terminal_attack_success_rate": 0.0,
+    "model_calls": 0,
+    "estimated_external_api_cost": 0.0,
+    "metric_projection_parity": true,
+    "status": "pass"
+  },
+  "real_surfaces": {
+    "source": {
+      "mcp_protocol": "2025-11-25",
+      "mcp_server_version": "0.0.28",
+      "mcp_tool_count": 3,
+      "mcp_authority_tool_count": 0,
+      "mcp_trace_valid_and_anchored": true,
+      "mcp_receipt_sha256": "5bfc377cda9028166b8b0441aa0e8082ffd882b910be32d58e445a7427e07c64",
+      "api_checks_passed": 117,
+      "api_checks_failed": 0,
+      "api_receipt_sha256": "5a7c99edc89ec98d676208d21521eaded03514682e951f1e2a579accbbe0c8c8",
+      "native_checks_passed": 63,
+      "native_checks_failed": 0,
+      "native_receipt_sha256": "6034ece8efe1905b6774b39832b79ea0b2e59606b8ddd5b12293d190bf3f0966",
+      "dashboard_sha256": "d38b7118c38ce0965d7156af2be98a3e87f116fb6e9f452fc4b9f3c81103c9e8"
+    },
+    "package": {
+      "mcp_protocol": "2025-11-25",
+      "mcp_server_version": "0.0.28",
+      "mcp_tool_count": 3,
+      "mcp_authority_tool_count": 0,
+      "mcp_trace_valid_and_anchored": true,
+      "mcp_receipt_sha256": "98dd2ecebaa23c47e57b39bdf1b333c929bac0b1c82fb701a01ce4ea52c064d3",
+      "api_checks_passed": 117,
+      "api_checks_failed": 0,
+      "api_receipt_sha256": "4e01ee1ad2b04edb733b495d1abad97aafa0543119bc58e602a873b82030e04f",
+      "native_checks_passed": 63,
+      "native_checks_failed": 0,
+      "native_receipt_sha256": "9d713e7b4190c1feaba3775a74acb4725afa2e8f7ef74deba8d0c80876b8560f",
+      "dashboard_sha256": "f0e9cda6b0e118276c80055f5adbad7e69c667999a737abc6e2e0f5056bc331a"
+    },
+    "api_checks_identical": true,
+    "native_checks_identical": true,
+    "mcp_semantics_identical": true,
+    "approval_executor_idempotency_replay_state_and_telemetry_pass": true,
+    "authorization_material_absent_from_persistence_traces_logs_and_dashboard": true,
+    "dashboards": {
+      "dimensions": [1440, 1000],
+      "source_original_detail_inspection": "pass",
+      "package_original_detail_inspection": "pass",
+      "baseline_identity_exact": true,
+      "retrieval_stage_metrics_exact": true,
+      "execution_boundary_exact": true,
+      "real_infrastructure_disconnected": true
+    },
+    "status": "pass"
+  },
+  "container": {
+    "contract_id": "container-runtime-v8",
+    "contract_sha256": "b15f418ea7b0b872ebb4f0d2df76b00a2f2cf9ce89901558d1156ce54bc74344",
+    "image_id": "sha256:9a62f5e1daf61089ef6c9ceb71afd930c72ea60874bcec4eba78c4fc35467e2e",
+    "canonical_receipt": {
+      "path": "artifacts/verification/container-baseline-0028.json",
+      "sha256": "1e5923201b5710be2987e411f92d2a9cc0e12db0b41fbc5ac15a56235edc0e21",
+      "observed_at_utc": "2026-08-15T16:29:52.606465Z",
+      "checks_true": 44,
+      "checks_false": 0,
+      "status": "pass"
+    },
+    "fresh_merged_main_full_attempt": {
+      "status": "blocked-at-repeat-scan-after-all-product-surfaces-passed",
+      "two_builds_image_id_exact": true,
+      "evaluation_scenarios": 57,
+      "evaluation_attempts": 171,
+      "evaluation_true_gates": 126,
+      "evaluation_false_gates": 0,
+      "trace_event_count": 261,
+      "metric_projection_parity": true,
+      "hardened_runtime_passed": true,
+      "mcp_passed": true,
+      "authenticated_api_executor_replay_passed": true,
+      "persisted_state_and_telemetry_passed": true,
+      "dashboard_rendered_and_visually_inspected": true,
+      "candidate_secret_scan_passed": true,
+      "repeat_scan_failure_receipt_sha256": "ce750cb6dd25a2580dd50ac3304eaf32c532e1093671678d477102d836f35e06"
+    },
+    "fresh_merged_main_clean_build": {
+      "receipt_sha256": "21db38221238c75b67fe260c37a1e522ef626217328b3e9c41e251be2d6de5fc",
+      "observed_at_utc": "2026-08-15T17:29:19.780394Z",
+      "image_id_exact": true,
+      "image_validation_checks_true": 10,
+      "image_exported": false,
+      "image_pushed": false,
+      "status": "pass"
+    },
+    "structured_scan": {
+      "evidence_reuse": "exact-content-addressed-image",
+      "scanner": "Docker Scout 1.20.4",
+      "sarif_sha256": "7749b34be7a069559b10b1b9d53cc8897576fdd104071a9e0f907f9a301ee303",
+      "sarif_bytes": 461,
+      "critical_high_findings": 0,
+      "source_receipt_observed_at_utc": "2026-08-15T16:29:52.606465Z",
+      "same_image_reproduced_after_scan": true,
+      "repeat_scan_completed": false,
+      "repeat_scan_blocker": "Docker Scout required interactive Docker account authentication",
+      "credential_or_secret_added": false,
+      "security_gate_replaced": false,
+      "claim_boundary": "This is observation-time evidence for the exact image, not a perpetual vulnerability claim."
+    },
+    "dashboard_sha256": "632bb352b67242eaa90b210802441c9c14693902fe2bd05ab43a5996fd3151f1",
+    "dashboard_original_detail_inspection": "pass",
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false,
+    "status": "pass-with-explicit-exact-object-scan-inheritance"
+  },
+  "retained_process_failures": [
+    "verify_mcp_stdio.py --help executed the MCP verifier because the script has no argument parser; its passing result is retained as process-invalid.",
+    "inspect_runtime_evidence.py --help executed the inspector and failed before API outputs existed; no product result was inferred.",
+    "One PowerShell 2>&1 API wrapper converted informational Edge stderr into NativeCommandError after the dashboard was written; the direct API verifier and ProcessStartInfo capture passed.",
+    "One diagnostic PowerShell list expression had an empty pipeline element and was corrected without changing project state.",
+    "The fresh full container repetition stopped only when Docker Scout requested interactive account authentication; the exact blocked attempt is retained and no credential was requested, read, or introduced."
+  ],
+  "claim_boundary": {
+    "research_informed": true,
+    "synthetic_sre_only": true,
+    "production_readiness_claimed": false,
+    "universal_prompt_injection_resistance_claimed": false,
+    "cross_builder_reproducibility_claimed": false,
+    "container_distribution_claimed": false
+  },
+  "gates": {
+    "exact_reviewed_head_merged_with_history_preserved": "pass",
+    "fresh_public_main_tests_and_validators": "pass",
+    "fresh_public_main_package_reproduction": "pass",
+    "fresh_public_main_source_and_package_evaluations": "pass",
+    "fresh_public_main_mcp_api_state_telemetry_and_dashboards": "pass",
+    "fresh_public_main_container_runtime_and_identity": "pass",
+    "exact_image_structured_scan_evidence": "pass",
+    "failed_and_blocked_attempts_preserved": "pass",
+    "no_container_image_bytes_published": "pass",
+    "fresh_public_main_complete_stack": "pass"
+  },
+  "next_gate": "Reconcile living records and run the final release-truth audit before creating v0.0.28 or publishing release assets."
+}
