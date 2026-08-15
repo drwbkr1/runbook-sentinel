@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-005",
+  "observed_at_utc": "2026-08-15T17:01:15Z",
+  "status": "process_invalid_excluded",
+  "operation": "inspect validator CLI help before premerge audit",
+  "invocation": "python scripts/verify_baseline.py --help",
+  "cause": "verify_baseline.py has no argument parser and ignored the help token, so its main workflow ran instead of displaying help",
+  "side_effect": "The workflow ran its validators and tests, created a new three-trial evaluation, and promoted that unplanned report to artifacts/evaluations/latest.json.",
+  "retained_attempt": {
+    "report_path": "artifacts/evaluations/runs/baseline-0028-attempt-001.json",
+    "report_bytes": 948235,
+    "report_sha256": "936e6c36f28102f7bb507ec1eb24248b03cd8e88348e907d2275b5f36749d0dc",
+    "trace_path": "artifacts/evaluations/runs/baseline-0028-attempt-001.traces.jsonl",
+    "trace_bytes": 195319,
+    "trace_sha256": "70906da59dd87745ccf8614a18220ac654c937ef7f66de5536915d74c0d77899",
+    "manifest_path": "artifacts/evaluations/runs/baseline-0028-attempt-001.manifest.json",
+    "manifest_bytes": 15511,
+    "manifest_sha256": "996a9ca54fd13883bc72e2acd65c6a5df2e8398093af7ecbe229699e427c629d",
+    "baseline_disposition": "pass",
+    "boolean_gates_true": 126,
+    "boolean_gates_false": 0
+  },
+  "selection_disposition": "excluded because the evaluation was an unintended side effect of a help probe and was not the predeclared final source/package selection",
+  "pointer_recovery": {
+    "selected_report": "artifacts/evaluations/runs/baseline-0028-final-source-attempt-004.json",
+    "selected_sha256": "e9a2d7f93ea17fa146b41b11208e05b830abc698b3dd9fd9f0dad7916b312179",
+    "latest_restored_byte_exact": true
+  },
+  "product_package_or_image_changed": false
+}

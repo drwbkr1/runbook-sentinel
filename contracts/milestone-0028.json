@@ -216,7 +216,9 @@
       },
       "disposition": null,
       "retained_failures": [
-        "The first UNIT-005 transition-validation wrapper used stale --contract and --result option names; its corrected container call then guessed a nonexistent contract path. Each attempt stopped before changing evidence; the exact process-invalid receipt is retained and the authoritative current CLIs pass."
+        "The first UNIT-005 transition-validation wrapper used stale --contract and --result option names; its corrected container call then guessed a nonexistent contract path. Each attempt stopped before changing evidence; the exact process-invalid receipt is retained and the authoritative current CLIs pass.",
+        "The premerge composite validator passed both selected trace anchors, the archive contract, the required-result container contract, and compilation before guessing a nonexistent dist subpath inside independent build-D custody. The failed wrapper and corrected exact byte comparison are retained.",
+        "A premerge help probe passed --help to verify_baseline.py, which has no argument parser and ran its full workflow. The fresh passing evaluation is retained but excluded as process-invalid; latest.json is restored byte-exact to the predeclared final source attempt 004."
       ],
       "next_dependency": null
     }

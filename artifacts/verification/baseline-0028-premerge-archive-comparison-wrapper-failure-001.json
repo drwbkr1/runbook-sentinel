@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-005",
+  "observed_at_utc": "2026-08-15T16:53:32Z",
+  "status": "process_invalid",
+  "operation": "premerge trace package container compile and independent-archive verification wrapper",
+  "passed_before_wrapper_failure": [
+    "selected source trace valid and anchored at 261 events",
+    "selected package trace valid and anchored at 261 events",
+    "selected 42-entry archive passes package-contract-0028",
+    "canonical 44-of-44 receipt passes container-runtime-v8 required-result validation",
+    "source scripts and tests compile"
+  ],
+  "failure": "Resolve-Path could not find C:/Projects/Verification/runbook-sentinel-baseline-0028-build-d-20260815T161635Z/dist/runbook-sentinel-0.0.28.pyz",
+  "cause": "The preserved independent archive is directly under the build-D custody root rather than its nonexistent dist subdirectory.",
+  "product_evidence_or_archive_changed": false,
+  "corrected_comparison": {
+    "selected_path": "dist/runbook-sentinel-0.0.28.pyz",
+    "independent_path": "C:/Projects/Verification/runbook-sentinel-baseline-0028-build-d-20260815T161635Z/runbook-sentinel-0.0.28.pyz",
+    "selected_sha256": "c770fc21ece71f3728d366575a9233100aeb5cbb40f5026be7814ae3c7977044",
+    "independent_sha256": "c770fc21ece71f3728d366575a9233100aeb5cbb40f5026be7814ae3c7977044",
+    "bytes": 619465,
+    "exact": true
+  },
+  "disposition": "retain the invalid composite invocation and use the exact corrected path for the premerge audit"
+}
