@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.28 - Unreleased
+## 0.0.28 - 2026-08-15
 
 - Implemented the frozen additive four-stage grader and fail-closed runtime contract without changing any of the 57 scenarios, terminal states, retrieval, agent, policy, service, or authority surfaces. The released three-stage metric remains intact.
 - Added exact report and gate fields for 20 of 20 stage/outcome/split cells, 60 hostile-guidance attempts retrieved then filtered, 6 never retrieved, and zero cross-trial stage ambiguity, plus explicit API/dashboard labels that do not misstate non-retrieval as filtering.
@@ -19,7 +19,7 @@
 - Verified the premerge release audit and merged PR `#26` exact reviewed head `99ed8f96f55c994feff168252fcde0941054746b` with history preserved as `9aec054f8c97f04c36fc39685667e86c5e8d097e`; reviewed and merged trees are identical.
 - From a fresh no-local-object public-main clone, passed 61 tests, 34 validators, two exact archive rebuilds, source/package 171-attempt evaluations and 261-event anchors, three-tool no-authority MCP, both 117-check APIs and 63-check native inspections, and complete source/package/container dashboards.
 - Reproduced exact local image ID `sha256:9a62f5e1daf61089ef6c9ceb71afd930c72ea60874bcec4eba78c4fc35467e2e` three more times. Retained a blocked repeat Docker Scout call that requested interactive account authentication; no credential was introduced, and the merged-main gate reuses only the same-day canonical observation-time SARIF for the identical content-addressed image.
-- Published merged-main receipt commit `17e11ab22e9065231c0a9b801df9796ca40d7373` with exact public receipt SHA-256 `8ce34144e4f602fba522990b6b31969f49412a93ada292b828c52d94bbbc8129`. Final release audit, tag, selected zipapp/checksum publication, and public-tag verification remain pending; no container image bytes were exported, pushed, or published.
+- Published merged-main receipt commit `17e11ab22e9065231c0a9b801df9796ca40d7373`, reconciled the living records at `6a20e5a64780ca59bf18dde8b32304a30f5ad08b`, and passed the warning-free final release audit at `447cab724ec7ad32a5c041883e7ea6c50c34d51b`. Annotated tag, selected zipapp/checksum publication, downloaded-byte and page verification, and fresh public-tag reproduction remain the publication gate; no container image bytes were exported, pushed, or published.
 - Reran verified public v0.0.27 and retained a passing 57-scenario, 171-attempt, 261-event orientation result across separate retrieval, generation, trajectory, policy, terminal, utility, reliability, latency, and cost metrics.
 - Measured a truth-quality gap in the aggregate exposure metric: sixty hostile-guidance attempts retrieve then filter at least one exact declared hostile document, while six attempts across two split-matched diagnose cases never retrieve their declared hostile document.
 - Froze an additive four-stage, ten-pair, twenty-cell contract, all 57 scenario and terminal identities, ADR 0023, and an independent preimplementation validator before changing evaluator, catalog, checkpoint, API, dashboard, package, or container code. No behavior failure or retrieval improvement is claimed.

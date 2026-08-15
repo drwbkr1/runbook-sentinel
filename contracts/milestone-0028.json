@@ -209,7 +209,7 @@
         "premerge_release_audit_verified": "pass",
         "exact_reviewed_head_merged_with_history_preserved": "pass",
         "fresh_public_main_complete_stack": "pass",
-        "final_release_audit_verified": "pending",
+        "final_release_audit_verified": "pass",
         "public_refs_assets_downloads_pages_reconciled": "pending",
         "no_container_image_bytes_published": "pass",
         "fresh_public_tag_complete_stack": "pending"
@@ -227,7 +227,7 @@
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Publish and verify the living-record reconciliation over merged-main receipt commit 17e11ab22e9065231c0a9b801df9796ca40d7373, then run the final governed release-truth audit against the exact resulting public head before any v0.0.28 tag or asset publication.",
+  "next_action": "Commit and push the exact release-closure records, create annotated v0.0.28 at that exact commit, publish only the selected zipapp and checksum, then immediately reconcile every public surface and a fresh public-tag source package and local-container reproduction.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -264,11 +264,12 @@
       ,"PR 26 merges exact reviewed head 99ed8f96f55c994feff168252fcde0941054746b with history preserved as 9aec054f8c97f04c36fc39685667e86c5e8d097e; reviewed and merged trees are identical"
       ,"fresh no-local-object public-main verification passes 61 tests and 34 validators, reproduces the 42-entry 619465-byte archive twice at c770fc21ece71f3728d366575a9233100aeb5cbb40f5026be7814ae3c7977044, passes source and package 57-scenario 171-attempt evaluations with exact anchors, passes three-tool MCP plus both 117-check APIs and 63-check native surfaces, accepts three complete original-detail dashboards, and reproduces exact local image ID sha256:9a62f5e1daf61089ef6c9ceb71afd930c72ea60874bcec4eba78c4fc35467e2e without export push or publication"
       ,"public merged-main receipt commit 17e11ab22e9065231c0a9b801df9796ca40d7373 exposes exact 10164-byte receipt SHA-256 8ce34144e4f602fba522990b6b31969f49412a93ada292b828c52d94bbbc8129"
+      ,"living-record reconciliation commit 6a20e5a64780ca59bf18dde8b32304a30f5ad08b is public; final audit-only commit 447cab724ec7ad32a5c041883e7ea6c50c34d51b evaluates verified with ten of ten checks, all seventeen required real surfaces, active inherited authority, and no error warning stale missing unknown or unrun surface"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Verified public v0.0.27 remains immutable at audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e. BASELINE-0028 premerge audit, PR 26, exact reviewed-head merge, and fresh public-main complete-stack verification now pass. Public receipt commit 17e11ab22e9065231c0a9b801df9796ca40d7373 exposes SHA-256 8ce34144e4f602fba522990b6b31969f49412a93ada292b828c52d94bbbc8129; no container image bytes were exported pushed or published.",
-    "next_action": "Publish and verify the living-record reconciliation, then run the final governed release-truth audit against that exact public head before any tag or release publication.",
+    "current_checkpoint": "Verified public v0.0.27 remains immutable at audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e. BASELINE-0028 premerge audit, PR 26, exact reviewed-head merge, fresh public-main complete-stack verification, and final audit now pass. Audit-only commit 447cab724ec7ad32a5c041883e7ea6c50c34d51b evaluates verified; no container image bytes were exported pushed or published.",
+    "next_action": "Commit and push only the audited release-closure records, publish annotated v0.0.28 with the selected zipapp and checksum, immediately verify every public surface and a fresh public-tag source package and local-container reproduction, and record the external receipt before selecting another improvement.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any replacement or reinterpretation of the existing three-stage metric",

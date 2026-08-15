@@ -1,5 +1,11 @@
 # Development log
 
+## 2026-08-15 BASELINE-0028 final release audit
+
+- Reconciled the verified public-main candidate in exactly nine living/failure records at `6a20e5a64780ca59bf18dde8b32304a30f5ad08b`; all 61 tests, 34 project/governing validators, milestone, JSON, compilation, and diff gates pass on the exact candidate content.
+- Wrote the sole-path 23,601-byte final audit at SHA-256 `8ee796280c0b52efb6e5cbd4c83f7d928197c9f71882a365c5233991116b4463`. The release-truth evaluator reports `verified` with ten of ten checks, all seventeen required real surfaces, active inherited authority, and no error, warning, stale, missing, unknown, or unrun surface.
+- Published audit-only commit `447cab724ec7ad32a5c041883e7ea6c50c34d51b`. Public v0.0.27 remains latest; v0.0.28 tag and release remain absent. Exact eight-record release closure, annotated tag, selected zipapp/checksum publication, downloaded-byte/page verification, and fresh public-tag source/package/local-container reproduction are next.
+
 ## 2026-08-15 BASELINE-0028 reviewed merge and public-main verification
 
 - Premerge release-truth audit verified the literal candidate with no warning. PR `#26` merged exact reviewed head `99ed8f96f55c994feff168252fcde0941054746b` under expected-head lock as `9aec054f8c97f04c36fc39685667e86c5e8d097e`; merge parents preserve the prior public base and reviewed head, and reviewed and merged trees are identical.
