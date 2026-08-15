@@ -218,7 +218,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Publish a renewed manifest-bound container verifier and validator correction with selected package and image absent, then rebuild and repeat package/source verification before any container image build.",
+  "next_action": "Build two replacement v0.0.28 packages from public container-verifier correction 97bd69fd3aa370de527091b4f9879fcaefab6ddd, then repeat source/package evaluation and real-surface verification before any container image build.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -254,7 +254,7 @@
   },
   "handoff": {
     "current_checkpoint": "Verified public v0.0.27 remains immutable at audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e. BASELINE-0028 preimplementation freeze 62e59a3f54c1cd7e9fe3865259c1d510a23750c3, implementation seal 39d9e4ddec994fd9a05fb5d28396fd051ccce258, pre-reveal manifest seal 04c1a2c3bd150ae7051336106c35f84341e3e5c9, source candidate 2b992bba676f30ab1ef0cc015ed8a812a2eba423, and pre-build content seal bf5a01e7878914a18216f4c315be3a1762c8ff4b are public and remotely exact. Immutable source attempt 001 passes; package and container results remain absent.",
-    "next_action": "Renew and publish the container verifier/validator identity correction before rebuilding package bytes; then repeat package/source gates before any image build.",
+    "next_action": "Build and independently verify two replacement packages from public correction 97bd69fd3aa370de527091b4f9879fcaefab6ddd, then repeat source/package gates before any image build.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any replacement or reinterpretation of the existing three-stage metric",
