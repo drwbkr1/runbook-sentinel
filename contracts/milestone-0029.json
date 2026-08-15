@@ -150,17 +150,21 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "gates": {
         "source_candidate_public_and_exact": "pass",
         "package_and_container_contracts_public_before_build": "pass",
-        "source_package_metric_and_behavior_parity": "pending",
-        "mcp_api_state_telemetry_dashboard_exact": "pending",
-        "local_container_and_scan_exact": "pending",
-        "clean_clone_exact": "pending"
+        "source_package_metric_and_behavior_parity": "pass",
+        "mcp_api_state_telemetry_dashboard_exact": "pass",
+        "local_container_and_scan_exact": "pass",
+        "clean_clone_exact": "pass"
       },
-      "disposition": "pending",
-      "retained_failures": [],
+      "disposition": "pass",
+      "retained_failures": [
+        "The first byte-identical archive pair passed machine gates but its dashboards placed the persisted incident rows below the fixed evidence frame; all bytes and receipts remain superseded and no image was built from them.",
+        "Package/source hash, verifier-path, validator-mode, trace-help, and retrieval-quality report-mode wrapper failures are retained as process-invalid; corrected invocations pass.",
+        "The generated full-container receipt retains a stale 43-check next-step sentence and inherited rs-b0027 ephemeral-name prefix; the canonical 45-check inventory is exact and neither label affects checkpoint, image, runtime, security, or publication claims."
+      ],
       "next_dependency": "UNIT-005"
     },
     {
@@ -169,15 +173,15 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "gates": {},
       "disposition": "pending",
       "retained_failures": [],
       "next_dependency": null
     }
   ],
-  "current_unit": "UNIT-004",
-  "next_action": "Build two independent v0.0.29 archives from public pre-build seal 9804ba864f2231c2d124a767f773049a3cccb481, then verify exact source/package evaluation, MCP, API, persisted-state, telemetry, and rendered-dashboard parity before any container image build.",
+  "current_unit": "UNIT-005",
+  "next_action": "Run the governed premerge release-truth audit against the exact public UNIT-004 container checkpoint, then open and review the pull request only if the audit verifies without a release-blocking finding.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -215,11 +219,14 @@
       ,"public source-candidate seal 0a8ad6f5fe54268473893a862ad12552db5fcd80 is exact across local tracking ls-remote GitHub API and five public raw paths before package or image construction"
       ,"local pre-build seal freezes a 43-entry dependency-free package contract container-runtime-v9 with 45 required checks and a 135-file manifest; 71 tests and 35 project validators pass with archive and image bytes absent"
       ,"public pre-build seal 9804ba864f2231c2d124a767f773049a3cccb481 is exact across local tracking ls-remote GitHub API and ten raw paths; remote and local archive receipt and image absence remain exact"
+      ,"public package-source payload d597a2973e913562a9a3dec2c91e061d44d8637a is exact across every Git head and 31 anonymous raw paths; two exact 645064-byte archives source-package evaluations bounded MCP both 131-check APIs both 72-check native inspections and complete dashboards pass"
+      ,"canonical container receipt 1ad5e50384f6364d496251f0519943c42d7e046964f88a1700782ecdb8780760 passes all 45 checks; two local builds and one clean public-branch build reproduce image b2062da4db7e6d31fea9ddc5eb7794ff2458d243c6e2e951264cf73f841d7be6 with hardening exact metrics real surfaces accepted dashboard current scan and no image publication"
+      ,"public container evidence commit e685bba4ff4e326f7d6d73cadd1cc90b364ca5d8 is exact across every Git head and all 13 anonymous raw changed paths"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0029 pre-build seal is public and exact at 9804ba864f2231c2d124a767f773049a3cccb481. The 43-entry package contract container-runtime-v9 135-file final manifest 71 tests and 35 project validators pass; archive and image bytes remain absent.",
-    "next_action": "Build two independent archives and verify source/package evaluations plus real surfaces before any container image build.",
+    "current_checkpoint": "BASELINE-0029 UNIT-004 passes. Exact public package-source payload d597a2973e913562a9a3dec2c91e061d44d8637a and public canonical container evidence e685bba4ff4e326f7d6d73cadd1cc90b364ca5d8 reconcile; all 45 container checks pass at local image ID b2062da4db7e6d31fea9ddc5eb7794ff2458d243c6e2e951264cf73f841d7be6 with no image export push or publication.",
+    "next_action": "Run the governed premerge release-truth audit, then open and review the exact pull request only if verified.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any claim that non-expected records are semantically irrelevant or expected IDs exhaust relevance",
