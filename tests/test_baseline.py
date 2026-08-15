@@ -1371,6 +1371,14 @@ class BaselineTest(unittest.TestCase):
         )
         self.assertNotIn("dashboard_baseline_0027 =", verifier)
 
+    def test_container_v8_verifier_requires_current_dashboard_checkpoint(self):
+        runtime = (ROOT / "scripts/verify_container_runtime.py").read_text(encoding="utf-8")
+        validator = (ROOT / "scripts/verify_container_contract.py").read_text(encoding="utf-8")
+        self.assertIn('b"Baseline 0028" in dashboard_raw', runtime)
+        self.assertNotIn('b"Baseline 0027" in dashboard_raw', runtime)
+        self.assertIn("'b\"Baseline 0027\" in dashboard_raw' not in runtime_text", validator)
+
+
     def test_evaluation_reports_separate_metrics_and_passes_control_gates(self):
         output = Path(self.temp.name) / "baseline.json"
         report = run_evaluation(output, trials=3)

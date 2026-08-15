@@ -882,8 +882,9 @@ def validate_v8_implementation(require: bool, errors: list[str]) -> str:
         'contract_validation.get("implementation_phase") == "implemented_v8"',
         '"container_retrieval_stage_metric_exact"',
         '"checkpoint": "baseline-0028"',
+        'b"Baseline 0028" in dashboard_raw',
     ]
-    v8_exact = all(marker in runtime_text for marker in markers) and all(
+    v8_exact = all(marker in runtime_text for marker in markers) and 'b"Baseline 0027" in dashboard_raw' not in runtime_text and all(
         marker in tests_text
         for marker in (
             "test_container_v8_prerequisite_requires_current_implementation_phase",

@@ -88,8 +88,8 @@
     "scripts/verify_approval_lifetime_contract.py": "0413edfcc7128898bac217be4fcb7500325a58fe024fc7d32ee855bfa1f4e6e5",
     "scripts/verify_baseline.py": "cb4591b0bdefed73480aaa90bebe76acc4c4df9e51e45ba22677f3dd54046161",
     "scripts/verify_behavioral_relations.py": "504cfa045505ea174ea9ccfe3a7130f0005e17f4c027c86b598335c766751c8a",
-    "scripts/verify_container_contract.py": "930acd226c975f1f6f0cf431d7ef811dd3ef7feefb643dce3858df72e4c9b21c",
-    "scripts/verify_container_runtime.py": "5b53cd7644e78ac144501ad12664fc92a0636887a18fb4908466f76aa51b02e3",
+    "scripts/verify_container_contract.py": "ca164ffb4258d7bb1d09fced050268599cbbc621cc28946ccf9c3653396a0e5b",
+    "scripts/verify_container_runtime.py": "b8f02f776db581bd0b4ade12025374cd53b55830ff793125d336dd0a7634896a",
     "scripts/verify_evaluation_trace.py": "2e14f5e1ab0e87910bb1ba25896e7fc0c9b91e49a750af3a82776bf8767352ef",
     "scripts/verify_evidence_conditions.py": "5fded70a781bbe161c1c0fa474b8403fafb9724445a40e9e0b4bb1f273e3f0c7",
     "scripts/verify_idempotency_authorization_contract.py": "ad502c58678cd3d5e74710add6babc6dce68d68c100383e9627e8164fa5385ec",
@@ -131,6 +131,6 @@
     "src/runbook_sentinel/telemetry.py": "1e136b8642fc37f76bd803e720d5849123867fe8565426c8ce43ec5b21245815",
     "src/runbook_sentinel/trace_integrity_evaluation.py": "aab63e902297aa2c26734cbaef46b9106c07074696c5cf1d4cef2a1b70690d4a"
   },
-  "frozen_at_utc": "2026-08-15T15:39:14Z",
+  "frozen_at_utc": "2026-08-15T16:12:05Z",
   "schema_version": "1.0"
 }

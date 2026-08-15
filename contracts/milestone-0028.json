@@ -181,7 +181,8 @@
         "The first full-test wrapper misclassified unittest verbose stderr and the first validator inventory invoked the retrieval-stage contract in preimplementation mode. Both wrapper failures are retained; explicit subprocess execution passes 59 of 59 tests and all 34 current non-runtime validators.",
         "The first container-runtime-v8 draft accidentally introduced historical WORKDIR content and reused current Dockerfile constants while checking v7. The validator failed closed before any archive or image build; the corrected exact-inheritance result and failure receipt are retained.",
         "Final source attempt 001 used evidence-only-context-v2 instead of the sealed fresh-content-stale-metadata-context-v3 and correctly returned remediate on four stale-payload gates; attempt 002 corrected only the invocation and passed.",
-        "The first source API/dashboard verifier run passed 116 of 117 checks and rendered BASELINE 0028, but its manifest-bound verifier still required Baseline 0027. The original public receipt's count-only 109/110 statement is retained and superseded by a static recount; the stale verifier failure and old-manifest package remain retained."
+        "The first source API/dashboard verifier run passed 116 of 117 checks and rendered BASELINE 0028, but its manifest-bound verifier still required Baseline 0027. The original public receipt's count-only 109/110 statement is retained and superseded by a static recount; the stale verifier failure and old-manifest package remain retained.",
+        "Static preflight before the first container image build found container-runtime-v8 still required the predecessor dashboard text and its contract validator did not reject that stale literal. No image was built. The package is retained as superseded; a bounded verifier/validator correction and renewed public manifest must precede replacement package bytes."
       ],
       "next_dependency": "UNIT-005"
     },
@@ -217,7 +218,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Run the frozen local-only container-runtime-v8 verifier from public package/source payload 8ccd96de8cef376f0750a031130de609abeb3725, then reproduce it from a clean public-branch clone without exporting or publishing image bytes.",
+  "next_action": "Publish a renewed manifest-bound container verifier and validator correction with selected package and image absent, then rebuild and repeat package/source verification before any container image build.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -253,7 +254,7 @@
   },
   "handoff": {
     "current_checkpoint": "Verified public v0.0.27 remains immutable at audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e. BASELINE-0028 preimplementation freeze 62e59a3f54c1cd7e9fe3865259c1d510a23750c3, implementation seal 39d9e4ddec994fd9a05fb5d28396fd051ccce258, pre-reveal manifest seal 04c1a2c3bd150ae7051336106c35f84341e3e5c9, source candidate 2b992bba676f30ab1ef0cc015ed8a812a2eba423, and pre-build content seal bf5a01e7878914a18216f4c315be3a1762c8ff4b are public and remotely exact. Immutable source attempt 001 passes; package and container results remain absent.",
-    "next_action": "Execute container-runtime-v8 from public payload 8ccd96de8cef376f0750a031130de609abeb3725 and repeat from a clean public-branch clone without exporting or publishing image bytes.",
+    "next_action": "Renew and publish the container verifier/validator identity correction before rebuilding package bytes; then repeat package/source gates before any image build.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any replacement or reinterpretation of the existing three-stage metric",

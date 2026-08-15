@@ -12,6 +12,8 @@ The first two archives and source/package evaluations passed, but the first sour
 
 The replacement package/source gate now passes: two exact 42-entry archives, exact normalized source/package behavior, bounded three-tool MCP, both 117-check APIs, both 63-check native inspections, and complete dashboards. The exact payload must be public and remotely reconciled before container-runtime-v8 may build any image; local image export and publication remain forbidden.
 
+Pre-image static inspection then stopped container-runtime-v8 because its dashboard assertion still named the predecessor checkpoint and its contract validator did not reject that stale literal. Preserve the passing package/source evidence as superseded, publish the bounded verifier/validator correction with archive and image absent, and repeat package/source verification before reopening Docker construction.
+
 ## Completed checkpoint baseline-0027 - digest-pinned container runtime
 
 UNIT-004 is complete. Public receipt commit `727c29e7ffebf718844f7648e859e29514de4862` binds all 43 frozen checks: exact source and zipapp evidence, two independent deterministic local images, hardened container CLI/evaluation/MCP/API/approval/executor/replay/state/telemetry/dashboard behavior, verified tmpfs extraction, structured scanning, and a clean HTTPS public-branch rebuild. All three admitted builds reproduce image ID `sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee` on the exact verified Docker/Buildx/BuildKit stack. No image bytes were exported, pushed, or published.

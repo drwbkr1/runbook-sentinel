@@ -221,7 +221,7 @@ result = {
         "evaluation_pass": evaluation["gates"]["baseline_disposition"] == "pass",
         "dashboard_http_ok": dashboard_status == 200,
         "dashboard_csp_exact": "frame-ancestors 'none'" in dashboard_headers.get("Content-Security-Policy", ""),
-        "dashboard_identity_exact": b"Baseline 0027" in dashboard_raw and b"authenticated external operator" in dashboard_raw and b"Real infrastructure" in dashboard_raw and b"disconnected" in dashboard_raw,
+        "dashboard_identity_exact": b"Baseline 0028" in dashboard_raw and b"authenticated external operator" in dashboard_raw and b"Real infrastructure" in dashboard_raw and b"disconnected" in dashboard_raw,
     },
     "evidence": {
         "health": health,
