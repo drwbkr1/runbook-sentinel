@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "package-source-baseline-0028-20260815T160125Z",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T16:01:25Z",
+  "status": "pass",
+  "public_input": {
+    "repository": "https://github.com/drwbkr1/runbook-sentinel",
+    "branch": "codex/baseline-0028-retrieval-stage-observability",
+    "commit": "ca031311aa332b9accc9a65bd3df3a46084b3453",
+    "manifest_sha256": "f45f6f6270d6bca1ea11a250b4b5ce7e787d8ccc4f704e4535b99f72c18df50b",
+    "package_contract_sha256": "774c826b1e2c608aeb5263ae0496f1ec1b007789a004997f3da21ca9e099983c"
+  },
+  "archive": {
+    "path": "dist/runbook-sentinel-0.0.28.pyz",
+    "bytes": 619465,
+    "sha256": "700f2b2781a2de0d4fa207e218f5863055e53e6b149ffab138d5d5227e662594",
+    "checksum_sha256": "c222c0bb9e8bd4fe33b2cf626d46ca849a003234f8db0057dbecdb139f32724a",
+    "entry_count": 42,
+    "runtime_dependencies": [],
+    "package_contract_status": "pass",
+    "independent_build_root": "C:/Projects/Verification/runbook-sentinel-baseline-0028-build-c-20260815T155103Z",
+    "independent_sha256": "700f2b2781a2de0d4fa207e218f5863055e53e6b149ffab138d5d5227e662594",
+    "independent_checksum_sha256": "c222c0bb9e8bd4fe33b2cf626d46ca849a003234f8db0057dbecdb139f32724a",
+    "byte_identity": true
+  },
+  "evaluation": {
+    "source_report": {"path": "artifacts/evaluations/runs/baseline-0028-final-source-attempt-003.json", "sha256": "611db972b6e05118e63a5af46ef2382f915295b079a651a6ff04af861a8113c1"},
+    "source_trace": {"path": "artifacts/evaluations/runs/baseline-0028-final-source-attempt-003.traces.jsonl", "sha256": "aa065c90c19b837edc3819738bf9d4314eef3d6a652f940ffcc5d82e9ba3daaa", "events": 261, "valid": true, "anchored": true},
+    "package_report": {"path": "artifacts/evaluations/runs/baseline-0028-final-package-attempt-002.json", "sha256": "99ef0f785a4344a9c49c533557848586d3b0c13b882bba525dd0abee0231d4f3"},
+    "package_trace": {"path": "artifacts/evaluations/runs/baseline-0028-final-package-attempt-002.traces.jsonl", "sha256": "c0f9c06a9e326a052846ff3aec8f1ddd186f83c1117f9cbc40c265ea02cf5d94", "events": 261, "valid": true, "anchored": true},
+    "latest_sha256": "611db972b6e05118e63a5af46ef2382f915295b079a651a6ff04af861a8113c1",
+    "configuration": {"agent": "deterministic-control-v2", "retriever": "freshness-priority-lexical-v3", "decision_context": "fresh-content-stale-metadata-context-v3"},
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "boolean_gates": {"true": 126, "false": 0},
+    "retrieval_stage_cells": {"covered": 20, "required": 20},
+    "guidance_retrieved_filtered_attempt_count": 60,
+    "guidance_not_retrieved_attempt_count": 6,
+    "cross_trial_stage_ambiguity_count": 0,
+    "proposal_attack_success_rate": 0.0,
+    "terminal_attack_success_rate": 0.0,
+    "source_package_cases_exact_without_latency": true,
+    "source_candidate_cases_exact_without_latency": true,
+    "source_package_split_metrics_exact_without_latency": true,
+    "retrieval_generation_trajectory_policy_terminal_utility_security_reliability_cost_exact": true
+  },
+  "mcp": {
+    "source_receipt_sha256": "4268956d941cb95e11267294671bced8cc381a638d1cd501b72f3b1c4686b035",
+    "package_receipt_sha256": "539eb7a9d35b3bfe109383a4736a24b55f30926a9c3ce88840a1eaa2dd33fd9a",
+    "semantic_projection_exact": true,
+    "tool_names": ["list_synthetic_scenarios", "diagnose_synthetic_incident", "get_synthetic_incident"],
+    "approval_or_execution_tool_exposed": false,
+    "both_trace_chains_valid_and_anchored": true
+  },
+  "api": {
+    "source_receipt_sha256": "aaf02fab943b980a83a0a9810fbed681b500a44c4d2534dab9919c1dc0c8d65b",
+    "package_receipt_sha256": "9db6906aba9723612639597edb51082f8f811ac1a5e2cb81fe847e15c3df5f6e",
+    "source_checks": "117/117",
+    "package_checks": "117/117",
+    "checks_exact": true,
+    "semantic_evidence_exact_without_nondeterministic_hashes": true,
+    "source_runtime_custody": "C:/Projects/Verification/runbook-sentinel-baseline-0028-source-api-selected-20260815T155735Z",
+    "package_runtime_custody": "C:/Projects/Verification/runbook-sentinel-baseline-0028-package-api-selected-20260815T155826Z"
+  },
+  "native_evidence": {
+    "source_receipt_sha256": "4f7007580b5a165aa005ecee18e77892c6128da22f4db60272df4f1bdd2980b7",
+    "package_receipt_sha256": "efefed9d50458cb827723af130ee938e92029ff52be97dae4f5cadb166da168c",
+    "source_checks": "63/63",
+    "package_checks": "63/63",
+    "checks_exact": true,
+    "evaluation_projection_exact": true
+  },
+  "dashboards": {
+    "source": {"path": "artifacts/verification/dashboard-source-baseline-0028.png", "sha256": "7edd3611a5fe29a80058f0cc1d5cb0018d2128c608354581676d578578559ac2", "dimensions": [1440, 1000]},
+    "package": {"path": "artifacts/verification/dashboard-package-baseline-0028.png", "sha256": "d0cebe18839abca6c4ad3d8511f97714dbd1559f14e1fa6b53ade789c9e839b6", "dimensions": [1440, 1000]},
+    "both_visually_inspected_at_original_detail": true,
+    "required_checkpoint_metrics_authority_and_disconnected_infrastructure_visible": true
+  },
+  "boundaries": {
+    "synthetic_only": true,
+    "model_has_credentials": false,
+    "model_has_approval_authority": false,
+    "model_has_execution_authority": false,
+    "real_infrastructure_connected": false,
+    "container_image_built": false,
+    "container_gate": "closed until this exact package/source payload passes post-surface gates and is public"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "phase": "package_source_pre_container",
+  "observed_at_utc": "2026-08-15T16:05:56Z",
+  "status": "pass",
+  "parsed": {
+    "json_files": 20,
+    "jsonl_events": 1305,
+    "png_signatures": 3,
+    "archive_entries": 42,
+    "duplicate_archive_entries": 0
+  },
+  "scan": {
+    "credential_signature_findings": [],
+    "external_model_artifacts": 0,
+    "archive_runtime_dependencies": [],
+    "raw_approval_token_field_in_selected_evaluation": false,
+    "operator_capability_in_selected_runtime_evidence": false
+  },
+  "contracts": {
+    "manifest": "pass",
+    "selected_package": "pass",
+    "independent_package": "pass",
+    "container_static_require_implementation": "pass"
+  },
+  "container_image_built": false
+}

@@ -167,13 +167,13 @@
       "inputs": ["passing immutable source candidate and final manifest"],
       "outputs": ["candidate and clean-clone real-surface receipts"],
       "gates": {
-        "source_package_metric_parity": "pending",
-        "api_dashboard_new_metric_exact": "pending",
-        "mcp_authority_unchanged": "pending",
-        "state_telemetry_and_trace_exact": "pending",
+      "source_package_metric_parity": "pass",
+      "api_dashboard_new_metric_exact": "pass",
+      "mcp_authority_unchanged": "pass",
+      "state_telemetry_and_trace_exact": "pass",
         "container_metric_parity_and_security_exact": "pending",
         "clean_clone_reproduction": "pending",
-        "artifact_parse_secret_model_scan": "pending"
+      "artifact_parse_secret_model_scan": "pass"
       },
       "disposition": null,
       "retained_failures": [
@@ -181,7 +181,7 @@
         "The first full-test wrapper misclassified unittest verbose stderr and the first validator inventory invoked the retrieval-stage contract in preimplementation mode. Both wrapper failures are retained; explicit subprocess execution passes 59 of 59 tests and all 34 current non-runtime validators.",
         "The first container-runtime-v8 draft accidentally introduced historical WORKDIR content and reused current Dockerfile constants while checking v7. The validator failed closed before any archive or image build; the corrected exact-inheritance result and failure receipt are retained.",
         "Final source attempt 001 used evidence-only-context-v2 instead of the sealed fresh-content-stale-metadata-context-v3 and correctly returned remediate on four stale-payload gates; attempt 002 corrected only the invocation and passed.",
-        "The first source API/dashboard verifier run passed 109 of 110 checks and rendered BASELINE 0028, but its manifest-bound verifier still required Baseline 0027. The stale verifier failure and old-manifest package are retained; a verifier-only correction and renewed public manifest must precede replacement package bytes."
+        "The first source API/dashboard verifier run passed 116 of 117 checks and rendered BASELINE 0028, but its manifest-bound verifier still required Baseline 0027. The original public receipt's count-only 109/110 statement is retained and superseded by a static recount; the stale verifier failure and old-manifest package remain retained."
       ],
       "next_dependency": "UNIT-005"
     },
@@ -217,7 +217,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Build two replacement v0.0.28 zipapps from public correction commit bf9e37eecbfa176328172f424ba2e17c1d0553c2, require byte identity and package-contract verification, then repeat source/package evaluation and real-surface verification before any container image build.",
+  "next_action": "Publish and remotely verify the exact passing package/source payload, then run the frozen local-only container-runtime-v8 verifier and clean public-branch reproduction without exporting or publishing image bytes.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -253,7 +253,7 @@
   },
   "handoff": {
     "current_checkpoint": "Verified public v0.0.27 remains immutable at audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e. BASELINE-0028 preimplementation freeze 62e59a3f54c1cd7e9fe3865259c1d510a23750c3, implementation seal 39d9e4ddec994fd9a05fb5d28396fd051ccce258, pre-reveal manifest seal 04c1a2c3bd150ae7051336106c35f84341e3e5c9, source candidate 2b992bba676f30ab1ef0cc015ed8a812a2eba423, and pre-build content seal bf5a01e7878914a18216f4c315be3a1762c8ff4b are public and remotely exact. Immutable source attempt 001 passes; package and container results remain absent.",
-    "next_action": "Build and independently verify two exact replacement archives from public correction commit bf9e37eecbfa176328172f424ba2e17c1d0553c2, then repeat source/package real surfaces before opening the container image gate.",
+    "next_action": "Publish the passing package/source payload, then execute container-runtime-v8 and clean public-branch reproduction without exporting or publishing image bytes.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any replacement or reinterpretation of the existing three-stage metric",

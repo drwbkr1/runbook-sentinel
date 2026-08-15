@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0028-package-source-gate-local-20260815T160556Z",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T16:05:56Z",
+  "status": "pass",
+  "public_input_commit": "ca031311aa332b9accc9a65bd3df3a46084b3453",
+  "package_source_receipt": {"path": "artifacts/verification/package-source-baseline-0028.json", "sha256": "d53949b8225b05a573767376ed7f18e957ed29da15d70539172a55d9d8d09e22"},
+  "latest_evaluation_sha256": "611db972b6e05118e63a5af46ef2382f915295b079a651a6ff04af861a8113c1",
+  "archive_sha256": "700f2b2781a2de0d4fa207e218f5863055e53e6b149ffab138d5d5227e662594",
+  "archive_bytes": 619465,
+  "archive_reproducible": true,
+  "unit_tests": {"passed": 60, "total": 60, "elapsed_seconds": 95.251},
+  "standalone_validators": {"passed": 34, "total": 34},
+  "package_contracts": {"selected": "pass", "independent": "pass"},
+  "compileall": "pass",
+  "milestone_validation": "pass",
+  "git_diff_check": "pass",
+  "artifact_scan": "pass",
+  "retained_corrections_and_wrappers": {
+    "check_count_correction_sha256": "c90d7d6f8bf599d0f9db5f68c3f4a6e461892db0c3c6e46ad770d62ab8a3a6c7",
+    "wrapper_observations_sha256": "8b1ab0ca29f629a9d5b0d3b761ebda5f5e416ca4bde460308aad25aa6f8aceb5"
+  },
+  "pre_publication_state": {
+    "branch": "codex/baseline-0028-retrieval-stage-observability",
+    "head": "ca031311aa332b9accc9a65bd3df3a46084b3453",
+    "baseline_0028_image_count": 0,
+    "container_receipt": "absent"
+  },
+  "authorized_next_action": "Commit, push, and remotely verify this exact package/source payload; only then run the frozen local-only container-runtime-v8 verifier."
+}
