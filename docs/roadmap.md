@@ -12,6 +12,8 @@ Current primary research passed a narrow external-source gate for module-specifi
 
 UNIT-001 is complete. Public commit `2ce5b814db09e9b4f66b47d7edc78a349ed9987a` binds the source gate, recursive 57-scenario and terminal identity chain, exact prechange measurements, independent contract validator, seven focused fail-closed tests, and the 68-test/35-validator local seal. Local, tracking, `ls-remote`, GitHub API, and critical raw files are exact. No scenario, retriever, decision context, agent, model, policy, authority, dependency, runtime source, candidate result, package, or image changed. UNIT-002 may implement only the frozen metric, then must publish an implementation seal before candidate reveal.
 
+UNIT-002 is complete locally. The runtime and independent implementations agree exactly on the frozen measurements, the complete 70-test suite passes, and real report/API/dashboard projections are wired without changing retrieval or authority. The implementation seal must now be committed, pushed, and verified publicly. Only then may UNIT-003 freeze a new exact manifest and reveal one immutable source candidate; package, container, and release work remain later gates.
+
 ## Completed checkpoint baseline-0028 - retrieval-stage observability
 
 A fresh exact public-v0.0.27 run passes 57 scenarios, 171 attempts, every existing gate, and an anchored 261-event trace. Its released three-stage exposure metric remains correct for its frozen contract, but it combines two materially different defenses: twenty hostile-guidance scenarios retrieve and then filter at least one declared hostile document, while two diagnose scenarios—one in each split—never retrieve their declared hostile document across three trials.

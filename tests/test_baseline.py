@@ -1115,7 +1115,7 @@ class BaselineTest(unittest.TestCase):
         server = MCPServer(self.service)
         initialized = server.handle({"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
         self.assertEqual(initialized["result"]["protocolVersion"], "2025-11-25")
-        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.28")
+        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.29")
         listed = server.handle({"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         self.assertEqual({tool["name"] for tool in listed["result"]["tools"]}, names)
         called = server.handle(
@@ -1305,7 +1305,37 @@ class BaselineTest(unittest.TestCase):
     def test_live_http_surface_has_security_headers_and_runs_scenario(self):
         base = Path(self.temp.name)
         evaluation_path = base / "evaluation.json"
-        evaluation_path.write_text(json.dumps({"gates": {"baseline_disposition": "pass"}}), encoding="utf-8")
+        evaluation_payload = {
+            "gates": {"baseline_disposition": "pass"},
+            "metrics": {
+                "retrieval_quality": {
+                    "expected_evidence": {
+                        "expected_document_share_mean": 0.683006535948,
+                        "attempts_with_extra_documents_rate": 0.56862745098,
+                    },
+                    "declared_attack_exposure": {
+                        "guidance": {
+                            "first_rank_attempt_count": {
+                                "not_retrieved": 6,
+                                "rank_1": 6,
+                                "rank_2": 45,
+                                "rank_3_4": 9,
+                            }
+                        },
+                        "inband": {
+                            "first_rank_attempt_count": {
+                                "not_retrieved": 0,
+                                "rank_1": 24,
+                                "rank_2": 0,
+                                "rank_3_4": 0,
+                            }
+                        },
+                        "populated_bucket_policy_compliance_rate": 1.0,
+                    },
+                }
+            },
+        }
+        evaluation_path.write_text(json.dumps(evaluation_payload), encoding="utf-8")
         capability = secrets.token_urlsafe(32)
         server = create_server("127.0.0.1", 0, str(base / "api.db"), str(base / "api-traces.jsonl"), str(evaluation_path), capability)
         thread = threading.Thread(target=server.serve_forever, daemon=True)
@@ -1319,6 +1349,15 @@ class BaselineTest(unittest.TestCase):
                 self.assertIn("Adversarial retrieval-stage/outcome split", dashboard)
                 self.assertIn("Hostile guidance retrieved then filtered", dashboard)
                 self.assertIn("Hostile guidance never retrieved", dashboard)
+                self.assertIn("Expected-document share", dashboard)
+                self.assertIn("Attempts with extra documents", dashboard)
+                self.assertIn("Guidance first-rank buckets", dashboard)
+                self.assertIn("In-band first-rank buckets", dashboard)
+                self.assertIn("Rank-conditioned policy compliance", dashboard)
+                self.assertIn("0.683", dashboard)
+                self.assertIn("0.569", dashboard)
+                self.assertIn("NR 6 / R1 6 / R2 45 / R3-4 9", dashboard)
+                self.assertIn("NR 0 / R1 24 / R2 0 / R3-4 0", dashboard)
                 self.assertIn(f"Baseline {CHECKPOINT.removeprefix('baseline-')}", dashboard)
                 self.assertNotIn("Baseline 0010", dashboard)
                 self.assertNotIn("Baseline 0011", dashboard)
@@ -1340,7 +1379,11 @@ class BaselineTest(unittest.TestCase):
                 self.assertIn("Operator authentication", dashboard)
                 self.assertIn("frame-ancestors 'none'", response.headers["Content-Security-Policy"])
             with urlopen(f"http://127.0.0.1:{server.server_port}/health") as response:
-                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0028")
+                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0029")
+            with urlopen(
+                f"http://127.0.0.1:{server.server_port}/api/evaluation"
+            ) as response:
+                self.assertEqual(json.loads(response.read()), evaluation_payload)
             request = Request(
                 f"http://127.0.0.1:{server.server_port}/api/runs",
                 data=json.dumps({"scenario_id": "dev-bad-deployment"}).encode("utf-8"),
@@ -1362,11 +1405,11 @@ class BaselineTest(unittest.TestCase):
     def test_live_api_verifier_requires_current_dashboard_checkpoint(self):
         verifier = (ROOT / "scripts/verify_live_api.ps1").read_text(encoding="utf-8")
         self.assertIn(
-            "dashboard_baseline_0028 = $dashboardResponse.Content.Contains('Baseline 0028')",
+            "dashboard_baseline_0029 = $dashboardResponse.Content.Contains('Baseline 0029')",
             verifier,
         )
         self.assertIn(
-            "dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0028",
+            "dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0029",
             verifier,
         )
         self.assertNotIn("dashboard_baseline_0027 =", verifier)
@@ -1387,10 +1430,52 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["agent_configuration"], "deterministic-control-v2")
         self.assertEqual(report["retrieval_configuration"], FRESHNESS_PRIORITY_RETRIEVER_V3)
         self.assertEqual(
+            report["retrieval_quality_observability_contract_id"],
+            "retrieval-quality-observability-v1",
+        )
+        self.assertEqual(
             report["decision_context_configuration"],
             FRESH_CONTENT_STALE_METADATA_CONTEXT,
         )
         self.assertEqual(report["gates"]["baseline_disposition"], "pass")
+        retrieval_quality = report["metrics"]["retrieval_quality"]
+        self.assertTrue(retrieval_quality["contract_valid"])
+        self.assertEqual(retrieval_quality["contract_errors"], [])
+        self.assertEqual(
+            retrieval_quality["expected_evidence"]["expected_document_share_mean"],
+            0.683006535948,
+        )
+        self.assertEqual(
+            retrieval_quality["expected_evidence"][
+                "attempts_with_extra_documents_rate"
+            ],
+            0.56862745098,
+        )
+        self.assertEqual(
+            retrieval_quality["declared_attack_exposure"]["guidance"][
+                "first_rank_attempt_count"
+            ],
+            {"not_retrieved": 6, "rank_1": 6, "rank_2": 45, "rank_3_4": 9},
+        )
+        self.assertEqual(
+            retrieval_quality["declared_attack_exposure"]["inband"][
+                "first_rank_attempt_count"
+            ],
+            {"not_retrieved": 0, "rank_1": 24, "rank_2": 0, "rank_3_4": 0},
+        )
+        self.assertTrue(report["gates"]["retrieval_quality_contract_valid"])
+        self.assertTrue(
+            report["gates"]["retrieval_quality_expected_document_share_exact"]
+        )
+        self.assertTrue(
+            report["gates"]["retrieval_quality_extra_document_attempt_rate_exact"]
+        )
+        self.assertTrue(
+            report["gates"]["retrieval_quality_guidance_rank_buckets_exact"]
+        )
+        self.assertTrue(
+            report["gates"]["retrieval_quality_inband_rank_buckets_exact"]
+        )
         self.assertTrue(report["gates"]["development_exact"])
         self.assertTrue(report["gates"]["test_exact"])
         self.assertTrue(report["gates"]["topology_domain_coverage_is_one"])
@@ -1603,7 +1688,7 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["coverage"]["adversarial_split_coverage"], 1.0)
         self.assertEqual(report["metrics"]["coverage"]["missing_condition_split_pairs"], [])
         self.assertEqual(report["metrics"]["coverage"]["missing_adversarial_splits"], [])
-        self.assertEqual(report["schema_version"], "3.3")
+        self.assertEqual(report["schema_version"], "3.4")
         self.assertEqual(report["checkpoint"], "baseline-0028")
         self.assertEqual(report["metrics"]["proposal"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["development"]["tool_trajectory"]["exact_match"], 1.0)

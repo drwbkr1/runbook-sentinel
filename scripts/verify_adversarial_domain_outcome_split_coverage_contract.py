@@ -435,7 +435,7 @@ def main() -> None:
         }:
             errors.append("candidate_results_present_before_implementation")
     else:
-        if catalog.get("schema_version") not in {"1.16", "1.17", "1.18"}:
+        if catalog.get("schema_version") not in {"1.16", "1.17", "1.18", "1.19"}:
             errors.append("candidate_catalog_schema_mismatch")
         if len(scenarios) < 56 or len(terminal_states) < 56:
             errors.append("candidate_catalog_count_mismatch")

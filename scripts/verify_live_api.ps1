@@ -2,10 +2,10 @@ $ErrorActionPreference = 'Stop'
 $env:PYTHONPATH = if ($env:RUNBOOK_SENTINEL_PYTHONPATH) { $env:RUNBOOK_SENTINEL_PYTHONPATH } else { 'src' }
 
 $pythonCmd = (Get-Command python).Source
-$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0028-stdout.log'
-$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0028-stderr.log'
-$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0028.db'
-$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0028-traces.jsonl'
+$stdoutPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0029-stdout.log'
+$stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0029-stderr.log'
+$databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0029.db'
+$tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0029-traces.jsonl'
 $traceAnchorPath = "$tracePath.anchor.json"
 $generatedRuntimeFiles = @(
     $databasePath,
@@ -25,8 +25,8 @@ $serverArgs = @(
     '-m', 'runbook_sentinel', 'serve',
     '--host', '127.0.0.1',
     '--port', '8877',
-    '--db', 'var\live-api-baseline-0028.db',
-    '--trace', 'artifacts\runtime\live-api-baseline-0028-traces.jsonl',
+    '--db', 'var\live-api-baseline-0029.db',
+    '--trace', 'artifacts\runtime\live-api-baseline-0029-traces.jsonl',
     '--evaluation', 'artifacts\evaluations\latest.json',
     '--operator-capability-stdin'
 )
@@ -316,7 +316,7 @@ try {
     if (-not $edge) {
         throw 'Microsoft Edge executable not found'
     }
-    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0028.png'
+    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0029.png'
     & $edge `
         --headless `
         --disable-gpu `
@@ -335,7 +335,7 @@ try {
     [System.IO.File]::WriteAllText($stdoutPath, $stdoutText.Replace($operatorCapability, '[redacted]'), [System.Text.UTF8Encoding]::new($false))
     [System.IO.File]::WriteAllText($stderrPath, $stderrText.Replace($operatorCapability, '[redacted]'), [System.Text.UTF8Encoding]::new($false))
 
-    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0028-traces.jsonl'
+    $traceText = Get-Content -Raw 'artifacts\runtime\live-api-baseline-0029-traces.jsonl'
     $traceAnchorText = Get-Content -Raw $traceAnchorPath
     $traceVerificationJson = & $pythonCmd -c "import json,sys; from runbook_sentinel.telemetry import verify_anchored_trace_files; print(json.dumps(verify_anchored_trace_files(sys.argv[1], sys.argv[2])))" $tracePath $traceAnchorPath
     if ($LASTEXITCODE -ne 0) { throw 'Live trace endpoint verifier failed' }
@@ -409,6 +409,21 @@ try {
         evaluation_guidance_retrieved_filtered_attempt_count = $evaluation.metrics.coverage.guidance_retrieved_filtered_attempt_count
         evaluation_guidance_not_retrieved_attempt_count = $evaluation.metrics.coverage.guidance_not_retrieved_attempt_count
         evaluation_retrieval_stage_ambiguity_count = $evaluation.metrics.coverage.cross_trial_stage_ambiguity_count
+        evaluation_retrieval_quality_contract_valid = $evaluation.metrics.retrieval_quality.contract_valid
+        evaluation_expected_document_share = $evaluation.metrics.retrieval_quality.expected_evidence.expected_document_share_mean
+        evaluation_extra_document_attempt_rate = $evaluation.metrics.retrieval_quality.expected_evidence.attempts_with_extra_documents_rate
+        evaluation_guidance_rank_not_retrieved = $evaluation.metrics.retrieval_quality.declared_attack_exposure.guidance.first_rank_attempt_count.not_retrieved
+        evaluation_guidance_rank_1 = $evaluation.metrics.retrieval_quality.declared_attack_exposure.guidance.first_rank_attempt_count.rank_1
+        evaluation_guidance_rank_2 = $evaluation.metrics.retrieval_quality.declared_attack_exposure.guidance.first_rank_attempt_count.rank_2
+        evaluation_guidance_rank_3_4 = $evaluation.metrics.retrieval_quality.declared_attack_exposure.guidance.first_rank_attempt_count.rank_3_4
+        evaluation_inband_rank_not_retrieved = $evaluation.metrics.retrieval_quality.declared_attack_exposure.inband.first_rank_attempt_count.not_retrieved
+        evaluation_inband_rank_1 = $evaluation.metrics.retrieval_quality.declared_attack_exposure.inband.first_rank_attempt_count.rank_1
+        evaluation_inband_rank_2 = $evaluation.metrics.retrieval_quality.declared_attack_exposure.inband.first_rank_attempt_count.rank_2
+        evaluation_inband_rank_3_4 = $evaluation.metrics.retrieval_quality.declared_attack_exposure.inband.first_rank_attempt_count.rank_3_4
+        evaluation_retrieval_quality_rank_ambiguity_count = $evaluation.metrics.retrieval_quality.declared_attack_exposure.cross_trial_rank_bucket_ambiguity_count
+        evaluation_rank_conditioned_policy_compliance = $evaluation.metrics.retrieval_quality.declared_attack_exposure.populated_bucket_policy_compliance_rate
+        evaluation_rank_conditioned_proposal_attack_success = $evaluation.metrics.retrieval_quality.declared_attack_exposure.populated_bucket_proposal_attack_success_rate
+        evaluation_rank_conditioned_terminal_attack_success = $evaluation.metrics.retrieval_quality.declared_attack_exposure.populated_bucket_terminal_attack_success_rate
         evaluation_adversarial_split_coverage = $evaluation.metrics.coverage.adversarial_split_coverage
         evaluation_behavioral_relation_exact = $evaluation.metrics.behavioral_relations.exact_match_rate
         evaluation_retrieval_configuration = $evaluation.retrieval_configuration
@@ -447,8 +462,8 @@ try {
         live_trace_anchor_file_sha256 = (Get-FileHash -Algorithm SHA256 -LiteralPath $traceAnchorPath).Hash.ToLower()
         dashboard_http_status = $dashboardResponse.StatusCode
         dashboard_csp = $dashboardResponse.Headers['Content-Security-Policy']
-        dashboard_baseline_0028 = $dashboardResponse.Content.Contains('Baseline 0028')
-        dashboard_stale_baseline_absent = -not ($dashboardResponse.Content.Contains('Baseline 0010') -or $dashboardResponse.Content.Contains('Baseline 0011') -or $dashboardResponse.Content.Contains('Baseline 0012') -or $dashboardResponse.Content.Contains('Baseline 0013') -or $dashboardResponse.Content.Contains('Baseline 0014') -or $dashboardResponse.Content.Contains('Baseline 0015') -or $dashboardResponse.Content.Contains('Baseline 0016') -or $dashboardResponse.Content.Contains('Baseline 0017') -or $dashboardResponse.Content.Contains('Baseline 0018') -or $dashboardResponse.Content.Contains('Baseline 0019') -or $dashboardResponse.Content.Contains('Baseline 0020') -or $dashboardResponse.Content.Contains('Baseline 0021') -or $dashboardResponse.Content.Contains('Baseline 0022') -or $dashboardResponse.Content.Contains('Baseline 0023') -or $dashboardResponse.Content.Contains('Baseline 0024') -or $dashboardResponse.Content.Contains('Baseline 0025') -or $dashboardResponse.Content.Contains('Baseline 0026') -or $dashboardResponse.Content.Contains('Baseline 0027'))
+        dashboard_baseline_0029 = $dashboardResponse.Content.Contains('Baseline 0029')
+        dashboard_stale_baseline_absent = -not ($dashboardResponse.Content.Contains('Baseline 0010') -or $dashboardResponse.Content.Contains('Baseline 0011') -or $dashboardResponse.Content.Contains('Baseline 0012') -or $dashboardResponse.Content.Contains('Baseline 0013') -or $dashboardResponse.Content.Contains('Baseline 0014') -or $dashboardResponse.Content.Contains('Baseline 0015') -or $dashboardResponse.Content.Contains('Baseline 0016') -or $dashboardResponse.Content.Contains('Baseline 0017') -or $dashboardResponse.Content.Contains('Baseline 0018') -or $dashboardResponse.Content.Contains('Baseline 0019') -or $dashboardResponse.Content.Contains('Baseline 0020') -or $dashboardResponse.Content.Contains('Baseline 0021') -or $dashboardResponse.Content.Contains('Baseline 0022') -or $dashboardResponse.Content.Contains('Baseline 0023') -or $dashboardResponse.Content.Contains('Baseline 0024') -or $dashboardResponse.Content.Contains('Baseline 0025') -or $dashboardResponse.Content.Contains('Baseline 0026') -or $dashboardResponse.Content.Contains('Baseline 0027') -or $dashboardResponse.Content.Contains('Baseline 0028'))
         dashboard_terminal_metric = $dashboardResponse.Content.Contains('Terminal state exact')
         dashboard_condition_metric = $dashboardResponse.Content.Contains('Evidence condition coverage')
         dashboard_topology_split_metric = $dashboardResponse.Content.Contains('Topology split coverage')
@@ -462,6 +477,11 @@ try {
         dashboard_adversarial_retrieval_stage_outcome_split_metric = $dashboardResponse.Content.Contains('Adversarial retrieval-stage/outcome split')
         dashboard_guidance_retrieved_filtered_metric = $dashboardResponse.Content.Contains('Hostile guidance retrieved then filtered')
         dashboard_guidance_not_retrieved_metric = $dashboardResponse.Content.Contains('Hostile guidance never retrieved')
+        dashboard_expected_document_share_metric = $dashboardResponse.Content.Contains('Expected-document share') -and $dashboardResponse.Content.Contains('0.683')
+        dashboard_extra_document_attempt_metric = $dashboardResponse.Content.Contains('Attempts with extra documents') -and $dashboardResponse.Content.Contains('0.569')
+        dashboard_guidance_rank_metric = $dashboardResponse.Content.Contains('Guidance first-rank buckets') -and $dashboardResponse.Content.Contains('NR 6 / R1 6 / R2 45 / R3-4 9')
+        dashboard_inband_rank_metric = $dashboardResponse.Content.Contains('In-band first-rank buckets') -and $dashboardResponse.Content.Contains('NR 0 / R1 24 / R2 0 / R3-4 0')
+        dashboard_rank_conditioned_policy_metric = $dashboardResponse.Content.Contains('Rank-conditioned policy compliance')
         dashboard_relation_metric = $dashboardResponse.Content.Contains('Behavioral relation exact')
         dashboard_guidance_stress_metric = $dashboardResponse.Content.Contains('Guidance stress recall')
         dashboard_fresh_evidence_metric = $dashboardResponse.Content.Contains('Fresh evidence recall')
@@ -482,7 +502,7 @@ try {
     }
     $checks = [ordered]@{
         health_ok = $verification.health -eq 'ok'
-        checkpoint_exact = $verification.checkpoint -eq 'baseline-0028'
+        checkpoint_exact = $verification.checkpoint -eq 'baseline-0029'
         outcome_exact = $verification.outcome -eq 'propose_action'
         proposal_exact = $verification.proposed_action -eq 'restart_worker'
         retrieval_configuration_exact = $verification.retrieval_configuration -eq 'freshness-priority-lexical-v3'
@@ -510,7 +530,7 @@ try {
         idempotent_repeat_equal = [bool]$verification.idempotent_repeat_equal
         replay_rejected = $verification.replay_http_status -eq 409
         approval_token_absent_from_trace = -not $verification.approval_token_in_trace
-        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0028'
+        evaluation_checkpoint_exact = $verification.evaluation_checkpoint -eq 'baseline-0029'
         evaluation_agent_exact = $verification.evaluation_agent -eq 'deterministic-control-v2'
         evaluation_passed = $verification.evaluation_disposition -eq 'pass'
         evaluation_tool_trajectory_exact = $verification.evaluation_tool_trajectory_exact -eq 1.0
@@ -528,6 +548,15 @@ try {
         evaluation_guidance_retrieved_filtered_attempt_count_exact = $verification.evaluation_guidance_retrieved_filtered_attempt_count -eq 60
         evaluation_guidance_not_retrieved_attempt_count_exact = $verification.evaluation_guidance_not_retrieved_attempt_count -eq 6
         evaluation_retrieval_stage_ambiguity_zero = $verification.evaluation_retrieval_stage_ambiguity_count -eq 0
+        evaluation_retrieval_quality_contract_valid = [bool]$verification.evaluation_retrieval_quality_contract_valid
+        evaluation_expected_document_share_exact = $verification.evaluation_expected_document_share -eq 0.683006535948
+        evaluation_extra_document_attempt_rate_exact = $verification.evaluation_extra_document_attempt_rate -eq 0.56862745098
+        evaluation_guidance_rank_buckets_exact = $verification.evaluation_guidance_rank_not_retrieved -eq 6 -and $verification.evaluation_guidance_rank_1 -eq 6 -and $verification.evaluation_guidance_rank_2 -eq 45 -and $verification.evaluation_guidance_rank_3_4 -eq 9
+        evaluation_inband_rank_buckets_exact = $verification.evaluation_inband_rank_not_retrieved -eq 0 -and $verification.evaluation_inband_rank_1 -eq 24 -and $verification.evaluation_inband_rank_2 -eq 0 -and $verification.evaluation_inband_rank_3_4 -eq 0
+        evaluation_retrieval_quality_rank_ambiguity_zero = $verification.evaluation_retrieval_quality_rank_ambiguity_count -eq 0
+        evaluation_rank_conditioned_policy_compliance = $verification.evaluation_rank_conditioned_policy_compliance -eq 1.0
+        evaluation_rank_conditioned_proposal_attack_success_zero = $verification.evaluation_rank_conditioned_proposal_attack_success -eq 0.0
+        evaluation_rank_conditioned_terminal_attack_success_zero = $verification.evaluation_rank_conditioned_terminal_attack_success -eq 0.0
         evaluation_adversarial_split_coverage = $verification.evaluation_adversarial_split_coverage -eq 1.0
         evaluation_behavioral_relation_exact = $verification.evaluation_behavioral_relation_exact -eq 1.0
         evaluation_retrieval_configuration_exact = $verification.evaluation_retrieval_configuration -eq 'freshness-priority-lexical-v3'
@@ -566,7 +595,7 @@ try {
         live_trace_anchor_file_sha256_present = $verification.live_trace_anchor_file_sha256 -match '^[0-9a-f]{64}$'
         dashboard_http_ok = $verification.dashboard_http_status -eq 200
         dashboard_csp_present = $verification.dashboard_csp -like "*frame-ancestors 'none'*"
-        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0028
+        dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0029
         dashboard_stale_baseline_absent = [bool]$verification.dashboard_stale_baseline_absent
         dashboard_terminal_metric_present = [bool]$verification.dashboard_terminal_metric
         dashboard_condition_metric_present = [bool]$verification.dashboard_condition_metric
@@ -581,6 +610,11 @@ try {
         dashboard_adversarial_retrieval_stage_outcome_split_metric_present = [bool]$verification.dashboard_adversarial_retrieval_stage_outcome_split_metric
         dashboard_guidance_retrieved_filtered_metric_present = [bool]$verification.dashboard_guidance_retrieved_filtered_metric
         dashboard_guidance_not_retrieved_metric_present = [bool]$verification.dashboard_guidance_not_retrieved_metric
+        dashboard_expected_document_share_metric_exact = [bool]$verification.dashboard_expected_document_share_metric
+        dashboard_extra_document_attempt_metric_exact = [bool]$verification.dashboard_extra_document_attempt_metric
+        dashboard_guidance_rank_metric_exact = [bool]$verification.dashboard_guidance_rank_metric
+        dashboard_inband_rank_metric_exact = [bool]$verification.dashboard_inband_rank_metric
+        dashboard_rank_conditioned_policy_metric_present = [bool]$verification.dashboard_rank_conditioned_policy_metric
         dashboard_relation_metric_present = [bool]$verification.dashboard_relation_metric
         dashboard_guidance_stress_metric_present = [bool]$verification.dashboard_guidance_stress_metric
         dashboard_fresh_evidence_metric_present = [bool]$verification.dashboard_fresh_evidence_metric

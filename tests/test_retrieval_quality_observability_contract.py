@@ -9,8 +9,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
+sys.path.insert(0, str(ROOT / "src"))
 
 import verify_retrieval_quality_observability_contract as verifier  # noqa: E402
+from runbook_sentinel.retrieval_quality import retrieval_quality_metrics  # noqa: E402
 
 
 class RetrievalQualityObservabilityContractTests(unittest.TestCase):
@@ -80,6 +82,31 @@ class RetrievalQualityObservabilityContractTests(unittest.TestCase):
                 },
             },
         )
+
+    def test_runtime_evaluator_is_independently_exact(self) -> None:
+        independent, errors = self.compute()
+        self.assertEqual(errors, [])
+        runtime = retrieval_quality_metrics(
+            copy.deepcopy(self.catalog["scenarios"]),
+            copy.deepcopy(self.report["cases"]),
+            copy.deepcopy(
+                self.catalog["retrieval_quality_observability_contract"]
+            ),
+        )
+        self.assertEqual(runtime, independent)
+
+    def test_runtime_evaluator_rejects_contract_drift(self) -> None:
+        runtime_contract = copy.deepcopy(
+            self.catalog["retrieval_quality_observability_contract"]
+        )
+        runtime_contract["retrieval_top_k"] = 5
+        runtime = retrieval_quality_metrics(
+            copy.deepcopy(self.catalog["scenarios"]),
+            copy.deepcopy(self.report["cases"]),
+            runtime_contract,
+        )
+        self.assertFalse(runtime["contract_valid"])
+        self.assertIn("runtime_contract", runtime["contract_errors"])
 
     def test_duplicate_retrieval_identity_fails_closed(self) -> None:
         report = copy.deepcopy(self.report)

@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.18",
+  "schema_version": "1.19",
   "frozen_at_utc": "2026-08-11T01:14:43Z",
   "evidence_condition_contract": {
     "schema_version": "1.0",
@@ -902,6 +902,14 @@
         }
       }
     }
+  },
+  "retrieval_quality_observability_contract": {
+    "schema_version": "1.0",
+    "contract_id": "retrieval-quality-observability-v1",
+    "required_splits": ["development", "test"],
+    "trials_per_case": 3,
+    "retrieval_top_k": 4,
+    "rank_buckets": ["not_retrieved", "rank_1", "rank_2", "rank_3_4"]
   },
   "scenarios": [
     {

@@ -157,7 +157,7 @@ def main() -> None:
             "required_splits": ["development", "test"],
             "minimum_cases_per_adversarial_retrieval_stage_outcome_split": 1,
         }
-        if catalog.get("schema_version") != "1.18":
+        if catalog.get("schema_version") != "1.19":
             errors.append("implemented_catalog_schema")
         if runtime_contract != expected_runtime_contract:
             errors.append("runtime_contract")

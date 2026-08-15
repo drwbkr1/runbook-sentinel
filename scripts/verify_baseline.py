@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ENV = os.environ.copy()
 ENV["PYTHONPATH"] = os.environ.get("RUNBOOK_SENTINEL_PYTHONPATH", str(ROOT / "src"))
-CHECKPOINT = "baseline-0028"
+CHECKPOINT = "baseline-0029"
 
 
 def run(command: list[str]) -> None:
@@ -40,6 +40,14 @@ def main() -> None:
     run([sys.executable, "scripts/verify_adversarial_exposure_stage_outcome_split_coverage.py"])
     run([sys.executable, "scripts/verify_adversarial_retrieval_stage_outcome_split_coverage_contract.py", "--require-implementation"])
     run([sys.executable, "scripts/verify_adversarial_retrieval_stage_outcome_split_coverage.py"])
+    run(
+        [
+            sys.executable,
+            "scripts/verify_retrieval_quality_observability_contract.py",
+            "--require-implementation",
+            "--implementation-only",
+        ]
+    )
     run([sys.executable, "scripts/verify_behavioral_relations.py"])
     run([sys.executable, "scripts/verify_retrieval_stress.py"])
     run([sys.executable, "scripts/verify_stale_evidence_stress.py"])
@@ -69,6 +77,15 @@ def main() -> None:
     report = json.loads(output.read_text(encoding="utf-8"))
     if report["gates"]["baseline_disposition"] != "pass":
         raise SystemExit(f"Evaluation retained at {output}; baseline did not pass")
+    run(
+        [
+            sys.executable,
+            "scripts/verify_retrieval_quality_observability_contract.py",
+            "--require-implementation",
+            "--report",
+            str(output.relative_to(ROOT)),
+        ]
+    )
     run(
         [
             sys.executable,

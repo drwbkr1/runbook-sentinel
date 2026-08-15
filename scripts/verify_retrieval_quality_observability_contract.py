@@ -365,6 +365,7 @@ def compute_quality(catalog: dict[str, Any], report: dict[str, Any]) -> tuple[di
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--require-implementation", action="store_true")
+    parser.add_argument("--implementation-only", action="store_true")
     parser.add_argument("--report", type=Path)
     args = parser.parse_args()
 
@@ -372,6 +373,11 @@ def main() -> None:
     prechange = json.loads(PRECHANGE_PATH.read_text(encoding="utf-8"))
     catalog = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
     errors: list[str] = []
+
+    if args.implementation_only and not args.require_implementation:
+        errors.append("implementation_only_requires_implementation")
+    if args.implementation_only and args.report:
+        errors.append("implementation_only_forbids_report")
 
     if contract.get("schema_version") != "1.0":
         errors.append("contract_schema")
@@ -456,19 +462,25 @@ def main() -> None:
         errors.append("frozen_measurement")
 
     reported_metric = report.get("metrics", {}).get("retrieval_quality")
-    if args.require_implementation:
+    if args.require_implementation and not args.implementation_only:
         if not isinstance(reported_metric, dict):
             errors.append("reported_metric_missing")
         elif reported_metric != computed:
             errors.append("reported_metric_mismatch")
-    elif reported_metric is not None:
+    elif not args.implementation_only and reported_metric is not None:
         errors.append("preimplementation_metric_already_present")
 
     result = {
         "status": "pass" if not errors else "fail",
         "checkpoint": contract.get("checkpoint"),
         "contract_id": contract.get("contract_id"),
-        "implementation_phase": "implemented" if implemented else "frozen_preimplementation",
+        "implementation_phase": (
+            "implemented_unexecuted"
+            if implemented and args.implementation_only
+            else "implemented"
+            if implemented
+            else "frozen_preimplementation"
+        ),
         "report_path": str(report_path),
         "scenario_count": len(scenarios),
         "attempt_count": report.get("attempt_count"),

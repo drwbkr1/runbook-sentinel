@@ -10,6 +10,12 @@ Among 22 hostile-guidance cases, attempt-level first rank is not retrieved 6 tim
 
 The frozen BASELINE-0029 contract adds this information as independent observability before any retrieval configuration change. Its exact-ID semantics, split results, conditional safety, repeated-trial ambiguity, and fail-closed validation are project-authored. Primary research supports only the modular diagnostic and context-focus rationale; no LLM judge, external relevance labels, code, data, prompt, model, or package is used. Candidate results remain absent.
 
+## BASELINE-0029 implementation result
+
+The additive runtime evaluator reproduces the frozen measurement exactly and remains independently checked: expected-document share 0.683006535948; extra-document attempt rate 0.56862745098; guidance first-rank attempt buckets 6 not retrieved, 6 rank 1, 45 rank 2, and 9 ranks 3-4; in-band buckets 24 rank 1 and zero elsewhere; zero repeated-trial rank ambiguity; policy compliance 1.0 and proposal/terminal attack success 0.0 in every populated combined rank bucket. The API returns the complete metric family, and the dashboard renders its focus, rank, and conditional-policy values without calling extra records irrelevant.
+
+The runtime and independent computations are exact, focused corruption probes fail closed, and all 70 tests pass after retaining an initial 68-of-70 compatibility run. All substantive side-effect-free validators pass. A new manifest, immutable candidate, package, container, and release remain deliberately absent until the exact implementation seal is public.
+
 ## BASELINE-0028 verified public release outcome
 
 Annotated tag object `5026ecff0d2351a3231ea8d340e4b330a31cc52d` peels to audited release closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`. GitHub reports public non-draft latest `v0.0.28`, published at `2026-08-15T17:54:29Z`, with only the selected 619,465-byte zipapp at SHA-256 `c770fc21ece71f3728d366575a9233100aeb5cbb40f5026be7814ae3c7977044` and its 94-byte checksum upload. Anonymous downloaded bytes, GitHub asset digests, and two independent tag-source rebuilds are exact. The rendered repository, release, and tag pages visibly bind the public project, version, closure, selected assets, synthetic-only scope, research-informed description, and no-image-publication limitation.

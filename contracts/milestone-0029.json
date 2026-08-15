@@ -110,16 +110,18 @@
       "depends_on": ["UNIT-001"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "gates": {
         "freeze_public_before_implementation": "pass",
-        "runtime_contract_exact": "pending",
-        "frozen_measurement_exact": "pending",
-        "malformed_and_mixed_trials_fail_closed": "pending",
-        "all_prior_behavior_and_authority_exact": "pending"
+        "runtime_contract_exact": "pass",
+        "frozen_measurement_exact": "pass",
+        "malformed_and_mixed_trials_fail_closed": "pass",
+        "all_prior_behavior_and_authority_exact": "pass"
       },
-      "disposition": "pending",
-      "retained_failures": [],
+      "disposition": "pass",
+      "retained_failures": [
+        "Five implementation-process failures and superseded checks are retained in artifacts/verification/baseline-0029-implementation-probe-failures-001.json, including the initial 68-of-70 compatibility run and the expected predecessor-manifest mismatch."
+      ],
       "next_dependency": "UNIT-003"
     },
     {
@@ -159,8 +161,8 @@
       "next_dependency": null
     }
   ],
-  "current_unit": "UNIT-002",
-  "next_action": "Implement only the public frozen retrieval-quality metric, focused fail-closed validation, real-surface reporting, and checkpoint identity; do not run a candidate before the implementation seal is public.",
+  "current_unit": null,
+  "next_action": "Commit and push the exact UNIT-002 implementation seal, verify the public branch and critical raw bytes, then activate UNIT-003 and freeze a new baseline-0029 manifest before revealing one immutable source candidate.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -191,11 +193,12 @@
       "all 68 unit tests pass in 88.759 seconds including seven focused retrieval-quality fail-closed tests",
       "all 35 side-effect-free validators pass with explicit current implementation mode for released contracts and preimplementation mode for BASELINE-0029",
       "public preimplementation freeze commit 2ce5b814db09e9b4f66b47d7edc78a349ed9987a is exact across local tracking ls-remote GitHub API and four critical raw public files"
+      ,"runtime and independent retrieval-quality computations are exact; all 70 tests and 34 substantive side-effect-free validators pass with the predecessor manifest intentionally deferred"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0029 preimplementation freeze is public at exact commit 2ce5b814db09e9b4f66b47d7edc78a349ed9987a. Source gate, recursive identities, contract, 68 tests, 35 validators, and critical public bytes pass. No implementation or candidate result exists.",
-    "next_action": "Implement only the frozen metric and its real-surface reporting, pass the complete gate, and publish an implementation seal before revealing any candidate result.",
+    "current_checkpoint": "BASELINE-0029 UNIT-002 implementation passes locally: the frozen additive metric, independent fail-closed validator, API/dashboard projection, all 57 identities, 70 tests, and 34 substantive validators are exact. No new manifest or candidate result exists.",
+    "next_action": "Publish and remotely verify the exact implementation seal, then freeze and publish a new baseline-0029 manifest before revealing one immutable candidate.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any claim that non-expected records are semantically irrelevant or expected IDs exhaust relevance",

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.29 - unreleased
+
+- Implemented the frozen additive retrieval-quality family without changing any of the 57 scenarios, terminal states, retriever, decision context, agent, model, policy, authority, service, storage, dependency, or external-asset boundaries.
+- Added exact expected-document share, extra-document attempt rate, expected rank, guidance and in-band first-rank buckets, conditional policy and attack-success results, split results, repeated-trial ambiguity, independent fail-closed validation, and explicit API/dashboard projection. Expected IDs remain required evidence rather than exhaustive relevance labels; extra records are not called irrelevant.
+- Retained all implementation-process failures, including the initial 68-of-70 schema-compatibility run. After advancing only explicit additive schema assertions and current validators, all 70 tests pass; 34 side-effect-free validators pass and the predecessor manifest correctly remains mismatched until the public implementation seal permits UNIT-003 to freeze new bytes.
+
 ## 0.0.28 - 2026-08-15
 
 - Implemented the frozen additive four-stage grader and fail-closed runtime contract without changing any of the 57 scenarios, terminal states, retrieval, agent, policy, service, or authority surfaces. The released three-stage metric remains intact.
