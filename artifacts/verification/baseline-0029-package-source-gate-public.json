@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-package-source-gate-public-20260815T212816Z",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T21:28:16Z",
+  "status": "pass",
+  "repository": "https://github.com/drwbkr1/runbook-sentinel",
+  "visibility": "PUBLIC",
+  "branch": "codex/baseline-0029-retrieval-quality-observability",
+  "payload_commit": "d597a2973e913562a9a3dec2c91e061d44d8637a",
+  "heads": {
+    "local": "d597a2973e913562a9a3dec2c91e061d44d8637a",
+    "remote_tracking": "d597a2973e913562a9a3dec2c91e061d44d8637a",
+    "ls_remote": "d597a2973e913562a9a3dec2c91e061d44d8637a",
+    "live_github": "d597a2973e913562a9a3dec2c91e061d44d8637a",
+    "exact": true
+  },
+  "anonymous_raw_verification": {
+    "changed_path_count": 31,
+    "verified": 31,
+    "failed": 0,
+    "length_and_sha256_exact": true,
+    "paths": [
+      "CHANGELOG.md",
+      "artifacts/evaluations/latest.json",
+      "artifacts/evaluations/runs/baseline-0029-final-package-attempt-002.json",
+      "artifacts/evaluations/runs/baseline-0029-final-package-attempt-002.manifest.json",
+      "artifacts/evaluations/runs/baseline-0029-final-package-attempt-002.traces.jsonl",
+      "artifacts/evaluations/runs/baseline-0029-final-source-attempt-002.json",
+      "artifacts/evaluations/runs/baseline-0029-final-source-attempt-002.manifest.json",
+      "artifacts/evaluations/runs/baseline-0029-final-source-attempt-002.traces.jsonl",
+      "artifacts/verification/artifact-scan-baseline-0029-package-phase.json",
+      "artifacts/verification/baseline-0029-final-validator-wrapper-failure-001.json",
+      "artifacts/verification/baseline-0029-package-source-gate-local.json",
+      "artifacts/verification/baseline-0029-package-source-hash-wrapper-failure-001.json",
+      "artifacts/verification/baseline-0029-package-verifier-path-failures-001.json",
+      "artifacts/verification/baseline-0029-retrieval-quality-report-mode-failure-001.json",
+      "artifacts/verification/baseline-0029-trace-verifier-help-failure-001.json",
+      "artifacts/verification/dashboard-package-baseline-0029.png",
+      "artifacts/verification/dashboard-source-baseline-0029.png",
+      "artifacts/verification/live-api-baseline-0029-package.json",
+      "artifacts/verification/live-api-baseline-0029-source.json",
+      "artifacts/verification/mcp-baseline-0029-package.json",
+      "artifacts/verification/mcp-baseline-0029-source.json",
+      "artifacts/verification/native-baseline-0029-package.json",
+      "artifacts/verification/native-baseline-0029-source.json",
+      "artifacts/verification/package-source-baseline-0029.json",
+      "dist/runbook-sentinel-0.0.29.pyz",
+      "dist/runbook-sentinel-0.0.29.pyz.sha256",
+      "docs/devlog.md",
+      "docs/evaluation-report.md",
+      "docs/roadmap.md",
+      "docs/status.md",
+      "docs/version-history.md"
+    ]
+  },
+  "public_evidence": {
+    "package_source": {"path": "artifacts/verification/package-source-baseline-0029.json", "bytes": 7960, "sha256": "a7b29aea1c1f41e8ee2da6979b1c4a597ae40cf63b32cae08641cf5fb7bf9534", "git_blob": "9b9a85dcaeb567b46eb095bcb385fa4994a960ee"},
+    "local_gate": {"path": "artifacts/verification/baseline-0029-package-source-gate-local.json", "bytes": 3295, "sha256": "7e98c4ea7ca9b36d6aed97102b010a7d27f2cbfe1449cde909bdd94701ab4c4a", "git_blob": "7add68d6c3a569b5c01b97d56e03e36b18de5970"},
+    "latest_evaluation": {"path": "artifacts/evaluations/latest.json", "bytes": 953878, "sha256": "4fd2aff6ecd12992b2491d5e24574c04a5bb51eea9cfa7cf03aed8d639d1b036", "git_blob": "53f451410e73da5c604af7204fde2a23c848d862"},
+    "archive": {"path": "dist/runbook-sentinel-0.0.29.pyz", "bytes": 645064, "sha256": "d1417c22711a09b24c7a7bdf0fa36b18ac446320087eab4493f1cbd63725090b", "git_blob": "391554861c3017ee10600cab2215ef6053e77871"},
+    "checksum": {"path": "dist/runbook-sentinel-0.0.29.pyz.sha256", "bytes": 94, "sha256": "ecf652faebdc45528a65dd1d6463ed3b3c2ffb36f476a4860773cd1fce3549f0", "git_blob": "de0508c7ecbcb21c4f294e6ae40a95491e9228e6"},
+    "source_dashboard": {"path": "artifacts/verification/dashboard-source-baseline-0029.png", "bytes": 101441, "sha256": "621314b28f352e11953c1a383279e343d2e730e7011a9f11c90d377a963f7146", "git_blob": "33d2186198397b6000502504a6fb4081f3b4ae10"},
+    "package_dashboard": {"path": "artifacts/verification/dashboard-package-baseline-0029.png", "bytes": 101707, "sha256": "d80a6d2de0147d835e2616744b295eef5ea45b4fd326e25a36cde66fa8cc96ae", "git_blob": "1f13299dce0fd3e3886a1a5fd43da854312ea138"},
+    "remote_blobs_exact": true
+  },
+  "pre_container_state": {
+    "baseline_0029_image_count": 0,
+    "container_receipt": "absent",
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false
+  },
+  "release_state": {
+    "tag_created": false,
+    "release_created": false,
+    "release_assets_published": false
+  },
+  "authorized_next_action": "Run the frozen local-only container-runtime-v9 verifier from this exact public payload, then reproduce it from a clean public-branch clone. Image export, push, and publication remain forbidden."
+}
