@@ -13,6 +13,7 @@
 
 - Retained the first byte-identical 645,050-byte archive pair and every passing source/package evaluation, MCP, API, state, and telemetry receipt after original-detail review found the persisted-incident rows below the dashboard evidence frame. No container image was built from those superseded bytes.
 - Applied a presentation-only responsive-grid correction that preserves all 35 metrics and security boundaries while showing the complete persisted-state table. The renewed 135-file manifest is SHA-256 `083d18c06...`; 71 tests, 35 validators, and original-detail pre-freeze review pass with replacement archive and image bytes absent until the correction seal is public.
+- Published and remotely reconciled the correction seal at `a22a5aa39715e97279aa8eae90b6fcf3bb229a16`; eight anonymous raw paths match and no replacement archive or BASELINE-0029 image existed at the seal.
 
 ## 0.0.28 - 2026-08-15
 
