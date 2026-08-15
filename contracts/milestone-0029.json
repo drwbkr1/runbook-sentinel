@@ -130,15 +130,15 @@
       "depends_on": ["UNIT-002"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "gates": {
         "implementation_public_before_manifest_and_candidate": "pass",
-        "manifest_public_before_candidate": "pending",
-        "candidate_reported_metric_independently_exact": "pending",
-        "candidate_all_prior_gates_pass": "pending",
-        "candidate_trace_exact": "pending"
+        "manifest_public_before_candidate": "pass",
+        "candidate_reported_metric_independently_exact": "pass",
+        "candidate_all_prior_gates_pass": "pass",
+        "candidate_trace_exact": "pass"
       },
-      "disposition": "pending",
+      "disposition": "pass",
       "retained_failures": [
         "The first manifest push from local commit 1a60e5c2f159c234977376a5c8606c6c516c0969 failed before remote mutation because github.com DNS resolution failed; retained at artifacts/verification/baseline-0029-manifest-publication-failure-001.json."
       ],
@@ -150,8 +150,15 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
-      "gates": {},
+      "status": "in_progress",
+      "gates": {
+        "source_candidate_public_and_exact": "pending",
+        "package_and_container_contracts_public_before_build": "pending",
+        "source_package_metric_and_behavior_parity": "pending",
+        "mcp_api_state_telemetry_dashboard_exact": "pending",
+        "local_container_and_scan_exact": "pending",
+        "clean_clone_exact": "pending"
+      },
       "disposition": "pending",
       "retained_failures": [],
       "next_dependency": "UNIT-005"
@@ -169,8 +176,8 @@
       "next_dependency": null
     }
   ],
-  "current_unit": "UNIT-003",
-  "next_action": "Commit and publish the exact 133-file baseline-0029 manifest, verify its public bytes, then reveal one immutable source candidate against that public manifest.",
+  "current_unit": "UNIT-004",
+  "next_action": "Commit and publish the exact passing source candidate, verify remote report trace and manifest bytes, then freeze and publish v0.0.29 package and container reporting contracts before building archive or image bytes.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -204,11 +211,12 @@
       ,"runtime and independent retrieval-quality computations are exact; all 70 tests and 34 substantive side-effect-free validators pass with the predecessor manifest intentionally deferred"
       ,"public implementation seal 80a8c945516ec926f7583402efe575b94f7fac4f is exact across local tracking ls-remote GitHub API and seven critical public paths before any candidate manifest report package or image existed"
       ,"local pre-reveal manifest c970ce963aa5d2347ee2e8bd2a9d9551b2d92b798f023a7bffed3e1628a46912 binds 133 exact files and passes 35 validators plus 70 tests before candidate reveal"
+      ,"immutable baseline-0029 source attempt 001 passes 57 scenarios 171 attempts all 136 Boolean gates exact frozen retrieval-quality metrics and an anchored 261-event trace"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0029 UNIT-002 implementation is public and remotely exact at 80a8c945516ec926f7583402efe575b94f7fac4f. All seven critical public paths reconcile, and no new manifest candidate package or image existed at publication.",
-    "next_action": "Publish and remotely verify the exact 133-file manifest, then reveal exactly one immutable source candidate.",
+    "current_checkpoint": "BASELINE-0029 implementation and pre-reveal manifest are public and exact. Immutable source attempt 001 passes 57 scenarios 171 attempts 136 Boolean gates the independent retrieval-quality contract and an anchored 261-event trace; package and image bytes remain absent.",
+    "next_action": "Publish and remotely verify the exact source candidate, then freeze package and container reporting contracts before constructing archive or image bytes.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any claim that non-expected records are semantically irrelevant or expected IDs exhaust relevance",
