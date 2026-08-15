@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T16:36:00Z",
+  "status": "retained_publication_failure",
+  "operation": "push canonical container evidence commit",
+  "local_commit": "1dbc9e117837b0833ef9f6c871b9b7a4ec187bcf",
+  "error": "fatal: unable to access 'https://github.com/drwbkr1/runbook-sentinel.git/': Could not resolve host: github.com",
+  "classification": "transient DNS resolution failure before verified remote mutation",
+  "local_commit_and_evidence_intact": true,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false,
+  "disposition": "retain and retry the unchanged branch push under existing release authority"
+}
