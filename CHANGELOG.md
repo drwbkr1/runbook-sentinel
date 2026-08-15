@@ -5,6 +5,7 @@
 - Oriented from exact public v0.0.29 and froze a one-field local-model output-contract experiment targeting the retained 67-of-84 `diagnosis_code_invalid` failure class.
 - Preserved the v2 contract byte-exact, added a project-authored v3 target that changes only schema identity metadata and the existing parser pattern, plus an independent validator, five focused tests, ADR 0025, source gate, milestone, threat-model delta, evaluation plan, and retained process-invalid attempts.
 - No runtime behavior, parser acceptance, prompt, model, retrieval, scenario, terminal state, policy, approval, executor, tool, credential, secret, dependency, external asset, package, archive, image, or release changed. The deterministic control remains the default and no baseline-0030 model result exists before public freeze.
+- Published and remotely reconciled the exact preimplementation freeze at `f82e301d984548d5354d8093e245c17fe0419a1f`; all refs and all 18 changed remote tree entries match. Two unsuccessful read-only verification wrappers are retained, and the corrected tree comparison passes.
 
 ## 0.0.29 - 2026-08-15
 

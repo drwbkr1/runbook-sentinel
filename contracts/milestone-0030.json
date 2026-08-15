@@ -76,7 +76,7 @@
       "depends_on": [],
       "action_class": "evidence_preservation",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "outputs": [
         "artifacts/verification/orientation-baseline-0030.json",
         "artifacts/verification/research-source-gate-baseline-0030-model-output-conformance.json",
@@ -96,9 +96,9 @@
         "legacy_contract_preserved_exact": "pass",
         "one_field_target_frozen_before_implementation": "pass",
         "preimplementation_validator_pass": "pass",
-        "public_freeze_verified": "pending"
+        "public_freeze_verified": "pass"
       },
-      "disposition": "pending",
+      "disposition": "pass",
       "retained_failures": [
         "The first PowerShell identity wrapper failed before output because of an empty pipeline element; the corrected explicit-array wrapper produced the admitted hashes.",
         "The first external-source-gate validation rejected semantically equivalent but non-exact approved action labels; exact inherited and planned labels replaced them without changing scope.",
@@ -113,8 +113,13 @@
       "depends_on": ["UNIT-001"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "planned",
-      "gates": {},
+      "status": "in_progress",
+      "gates": {
+        "public_freeze_verified": "pass",
+        "exact_four_path_projection": "pending",
+        "all_prior_behavior_and_authority_exact": "pending",
+        "implementation_seal_public": "pending"
+      },
       "disposition": "pending",
       "retained_failures": [],
       "next_dependency": "UNIT-003"
@@ -156,8 +161,8 @@
       "next_dependency": null
     }
   ],
-  "current_unit": "UNIT-001",
-  "next_action": "Pass the full local preimplementation gate, publish the exact freeze, and remotely verify it before changing eval/model-contract.json or making any model call.",
+  "current_unit": "UNIT-002",
+  "next_action": "Publish the public-freeze reconciliation receipt, then change only eval/model-contract.json at the four frozen object paths, pass the implementation gate, and publish the implementation seal before any model call.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -195,11 +200,12 @@
       "compilation passes; 889 nonempty JSON files and 149 JSONL files with 26865 records parse; one known zero-byte evidence item and fourteen retained BOM-bearing files are reported; git diff check passes",
       "exact added-line and untracked-content scan reports zero high-specificity credential hits and zero changed model artifacts"
       ,"local preimplementation freeze receipt binds every changed file and confirms candidate model contract report package archive and image absence before publication"
+      ,"public preimplementation commit f82e301d984548d5354d8093e245c17fe0419a1f is exact across local tracking ls-remote GitHub ref API and all 18 changed Git blob identities and sizes"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0030 orientation and the one-field model-output conformance experiment are locally frozen from exact public v0.0.29. eval/model-contract.json remains byte-identical to v2 and no baseline-0030 model call exists.",
-    "next_action": "Pass local preimplementation validation, publish and remotely verify the freeze, then implement only the frozen pattern and contract identity metadata.",
+    "current_checkpoint": "BASELINE-0030 UNIT-001 is complete. Public commit f82e301d984548d5354d8093e245c17fe0419a1f freezes the one-field model-output experiment from exact v0.0.29 and is remote-tree exact on all 18 changed paths. eval/model-contract.json remains byte-identical to v2 and no baseline-0030 model call exists.",
+    "next_action": "Publish the reconciliation receipt, implement only the frozen pattern and identity metadata, pass the exact projection gate, and publish an implementation seal before any model call.",
     "do_not_carry_forward": [
       "any prompt model runtime parser-acceptance retrieval decision-context scenario terminal policy approval executor authority dependency secret external asset or real-infrastructure change",
       "any test-split tuning raw model-output retention or inference that syntactic validity equals diagnostic correctness",

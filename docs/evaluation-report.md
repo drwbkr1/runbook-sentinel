@@ -10,6 +10,8 @@ The new contract isolates one declared-schema mismatch. V2 specifies a 1-to-80-c
 
 No candidate result exists. The conformance validator, source gate, governed milestone, all 76 tests, and all 36 side-effect-free validators pass in preimplementation mode. After public freeze and implementation seal, v2 and v3 must each run the same 57 frozen scenarios for three trials. Retrieval, generation, trajectory, policy, utility, attack success, pass-three reliability, latency, and cost remain separate. The test split is held out from tuning, raw output is not retained, and syntactic validity alone cannot satisfy the selection rule.
 
+The exact preimplementation freeze is public at `f82e301d984548d5354d8093e245c17fe0419a1f`; its tree and all 18 changed blob identities and sizes reconcile. The active model contract at that commit is still v2, and no BASELINE-0030 model output exists. One bounded tree-comparison successor passes after retaining an inconclusive raw-byte wrapper and a 404 caused by an undelimited PowerShell variable.
+
 ## BASELINE-0029 preimplementation orientation
 
 The fresh public-tag v0.0.28 source run remains passing: 57 scenarios, 171 attempts, all 126 Boolean gates, and an exact anchored 261-event trace. Retrieval completeness, generation, tool trajectories, policy, terminal state, benign utility, attack success, repeated reliability, latency, and cost remain separate. Median/p95 end-to-end latency is 59.242/110.936 ms; the deterministic control makes zero model calls at zero estimated external API cost.
