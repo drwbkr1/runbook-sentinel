@@ -14,7 +14,7 @@ The replacement package/source gate now passes: two exact 42-entry archives, exa
 
 Pre-image static inspection then stopped container-runtime-v8 because its dashboard assertion still named the predecessor checkpoint and its contract validator did not reject that stale literal. Preserve the passing package/source evidence as superseded, publish the bounded verifier/validator correction with archive and image absent, and repeat package/source verification before reopening Docker construction.
 
-The corrected container gate now passes all 44 checks. Two full local builds plus a clean public-branch clone reproduce exact image ID `9a62f5e1...` with hardened runtime, exact source/package/container metrics, bounded real surfaces, structured scan, and no image export or publication. Publish and remotely reconcile the canonical receipt, then close UNIT-004 and enter the release audit.
+UNIT-004 is complete at verified public branch head `9dc57f82...`. The corrected container gate passes all 44 checks; two full local builds plus a clean public-branch clone reproduce exact image ID `9a62f5e1...` with hardened runtime, exact source/package/container metrics, bounded real surfaces, structured scan, and no image export or publication. UNIT-005 begins with the governed premerge release-truth audit.
 
 ## Completed checkpoint baseline-0027 - digest-pinned container runtime
 
@@ -213,5 +213,5 @@ The fresh public v0.0.15 run passes all existing behavior and authority gates, b
 - [x] Implement the additive four-stage metric, fail-closed contract, focused probes, and explicit dashboard/API labels while preserving all scenarios and authority boundaries.
 - [x] Publish the implementation seal at `39d9e4ddec994fd9a05fb5d28396fd051ccce258`.
 - [x] Publish controlled historical-validator custody and the expanded manifest inventory; freeze and publish the exact manifest; then reveal one immutable passing source candidate.
-- [ ] Verify package, MCP, API, state, telemetry, rendered dashboard, clean clone, and local-only container path.
+- [x] Verify package, MCP, API, state, telemetry, rendered dashboard, clean clone, and local-only container path.
 - [ ] Audit, review, merge, release v0.0.28 source plus zipapp, and verify the public tag without publishing container image bytes.

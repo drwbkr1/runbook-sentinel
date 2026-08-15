@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-005",
+  "observed_at_utc": "2026-08-15T16:41:00Z",
+  "status": "process_invalid",
+  "operation": "validate UNIT-004 closure and UNIT-005 transition",
+  "failures": [
+    {
+      "tool": "run-controlled-milestone validate_milestone.py",
+      "invalid_argument": "--contract",
+      "error": "unrecognized arguments: --contract"
+    },
+    {
+      "tool": "scripts/verify_container_contract.py",
+      "invalid_argument": "--result",
+      "error": "unrecognized arguments: --result artifacts/verification/container-baseline-0028.json"
+    },
+    {
+      "tool": "scripts/verify_container_contract.py",
+      "invalid_path": "eval/container-runtime-v8.json",
+      "error": "FileNotFoundError: eval/container-runtime-v8.json",
+      "authoritative_path": "eval/container-contract-0028-v8.json"
+    }
+  ],
+  "evidence_read_or_mutated": false,
+  "product_or_container_changed": false,
+  "disposition": "retain and rerun with the milestone contract as a positional argument and the authoritative eval/container-contract-0028-v8.json contract plus canonical result supplied through --receipt"
+}

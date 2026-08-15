@@ -163,7 +163,7 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["passing immutable source candidate and final manifest"],
       "outputs": ["candidate and clean-clone real-surface receipts"],
       "gates": {
@@ -175,7 +175,7 @@
       "clean_clone_reproduction": "pass",
       "artifact_parse_secret_model_scan": "pass"
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [
         "UNIT-004 package-freeze focused-test attempt 001 passed two of three tests; the prerequisite fixture attempted to hash the intentionally absent v0.0.28 archive after mocked validator success. Retained at artifacts/verification/baseline-0028-package-freeze-focused-test-failure-001.json; the self-contained fixture now mocks immutable hashes and passes while package bytes remain absent.",
         "The first full-test wrapper misclassified unittest verbose stderr and the first validator inventory invoked the retrieval-stage contract in preimplementation mode. Both wrapper failures are retained; explicit subprocess execution passes 59 of 59 tests and all 34 current non-runtime validators.",
@@ -183,7 +183,8 @@
         "Final source attempt 001 used evidence-only-context-v2 instead of the sealed fresh-content-stale-metadata-context-v3 and correctly returned remediate on four stale-payload gates; attempt 002 corrected only the invocation and passed.",
         "The first source API/dashboard verifier run passed 116 of 117 checks and rendered BASELINE 0028, but its manifest-bound verifier still required Baseline 0027. The original public receipt's count-only 109/110 statement is retained and superseded by a static recount; the stale verifier failure and old-manifest package remain retained.",
         "Static preflight before the first container image build found container-runtime-v8 still required the predecessor dashboard text and its contract validator did not reject that stale literal. No image was built. The package is retained as superseded; a bounded verifier/validator correction and renewed public manifest must precede replacement package bytes.",
-        "The first uncommitted canonical-receipt composition wrapper rounded four Docker event nanosecond integers through JavaScript number conversion. Exact values were restored from the generated full receipt and verified before commit; no product or image bytes changed."
+        "The first uncommitted canonical-receipt composition wrapper rounded four Docker event nanosecond integers through JavaScript number conversion. Exact values were restored from the generated full receipt and verified before commit; no product or image bytes changed.",
+        "The first canonical-evidence push failed before verified remote mutation because github.com did not resolve. The exact failure is retained; the unchanged commit and its failure receipt were subsequently published and remotely verified."
       ],
       "next_dependency": "UNIT-005"
     },
@@ -193,7 +194,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": [
         "verified candidate and clean-clone evidence",
         "premerge audit and exact reviewed GitHub head",
@@ -214,12 +215,14 @@
         "fresh_public_tag_complete_stack": "pending"
       },
       "disposition": null,
-      "retained_failures": [],
+      "retained_failures": [
+        "The first UNIT-005 transition-validation wrapper used stale --contract and --result option names; its corrected container call then guessed a nonexistent contract path. Each attempt stopped before changing evidence; the exact process-invalid receipt is retained and the authoritative current CLIs pass."
+      ],
       "next_dependency": null
     }
   ],
-  "current_unit": "UNIT-004",
-  "next_action": "Publish and remotely verify the canonical 44-of-44 local-only container receipt, then complete UNIT-004 and begin the governed release audit for UNIT-005.",
+  "current_unit": "UNIT-005",
+  "next_action": "Run the governed premerge release-truth audit against exact public head 9dc57f82e3fb3204853129a27246090c451d7739, then continue through exact review and release gates only on verified evidence.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -250,12 +253,13 @@
       "public pre-reveal manifest 5bbd08327b569aba4381f7ea7a0dd01e0c05fc07e0861dcd7e35788bee763a9a binds 127 exact paths before candidate reveal",
       "immutable source attempt 001 passes 57 scenarios, 171 attempts, 126 Boolean gates, the exact twenty-cell split, sixty-versus-six attempt counts, zero ambiguity, zero proposal and terminal attack success, and an anchored 261-event trace"
       ,"exact v0.0.28 package and container-runtime-v8 contracts plus the 129-file final manifest passed 59 tests and 34 non-runtime validators before any archive or image build and are public at content seal bf5a01e7878914a18216f4c315be3a1762c8ff4b"
-      ,"the manifest-bound live-API verifier correction renews the 129-file manifest to f45f6f6270d6bca1ea11a250b4b5ce7e787d8ccc4f704e4535b99f72c18df50b and passes 60 tests plus 34 validators with selected archive and image absent"
+      ,"the manifest-bound live-API verifier correction renews the 129-file manifest to f45f6f6270d6bca1ea11a250b4b5ce7e787d8ccc4f704e4535b99f72c18df50b and passes 60 tests plus 34 validators with selected archive and image absent",
+      "public container receipt verifies exact canonical SHA-256 1e5923201b5710be2987e411f92d2a9cc0e12db0b41fbc5ac15a56235edc0e21, all 44 checks, three exact local image tags, clean-clone reproduction, public GitHub bytes, and no image export push or publication"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Verified public v0.0.27 remains immutable at audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e. BASELINE-0028 preimplementation freeze 62e59a3f54c1cd7e9fe3865259c1d510a23750c3, implementation seal 39d9e4ddec994fd9a05fb5d28396fd051ccce258, pre-reveal manifest seal 04c1a2c3bd150ae7051336106c35f84341e3e5c9, source candidate 2b992bba676f30ab1ef0cc015ed8a812a2eba423, and pre-build content seal bf5a01e7878914a18216f4c315be3a1762c8ff4b are public and remotely exact. Immutable source attempt 001 passes; package and container results remain absent.",
-    "next_action": "Publish and remotely verify the canonical 44-of-44 local-only container receipt before closing UNIT-004 and opening the release audit.",
+    "current_checkpoint": "Verified public v0.0.27 remains immutable at audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e. BASELINE-0028 UNIT-004 is complete: exact public branch head 9dc57f82e3fb3204853129a27246090c451d7739 exposes canonical 44-of-44 container receipt SHA-256 1e5923201b5710be2987e411f92d2a9cc0e12db0b41fbc5ac15a56235edc0e21; three local builds reproduce image ID sha256:9a62f5e1daf61089ef6c9ceb71afd930c72ea60874bcec4eba78c4fc35467e2e, and no image bytes were exported pushed or published.",
+    "next_action": "Run the governed premerge release-truth audit for UNIT-005 against the exact public branch head, then continue only through gates that verify exactly.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any replacement or reinterpretation of the existing three-stage metric",
