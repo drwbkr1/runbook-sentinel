@@ -1,0 +1,77 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0030-model-output-conformance-20260815",
+  "assessed_at": "2026-08-15T23:17:10Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal and contracts/milestone-0030.json",
+    "authorized_actions": [
+      "review and cite exact official JSON Schema and Ollama specifications",
+      "freeze a project-authored one-field schema-conformance experiment",
+      "run the already installed source-gated local runtime after the public preimplementation seal"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Use official specifications only for the narrow facts that JSON Schema Draft 2020-12 defines pattern as a string assertion and Ollama 0.32.6 accepts a JSON Schema object in the local chat format field. No source, code, package, model, prompt, dataset, service, or documentation bytes are imported.",
+    "planned_actions": [
+      "review and cite exact official JSON Schema and Ollama specifications",
+      "freeze a project-authored one-field schema-conformance experiment",
+      "run the already installed source-gated local runtime after the public preimplementation seal"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "json-schema-draft-2020-12-validation",
+      "name": "JSON Schema Validation: A Vocabulary for Structural Validation of JSON",
+      "locator": "https://json-schema.org/draft/2020-12/json-schema-validation",
+      "criteria": [
+        {"id": "identity", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://json-schema.org/draft/2020-12", "observed_at": "2026-08-15T23:17:10Z", "note": "Official Draft 2020-12 landing page identifies publication on 2022-06-16, authors, core, validation, and metaschema records."}], "note": "The exact dated dialect and validation record are frozen."},
+        {"id": "authority", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://json-schema.org/draft/2020-12/json-schema-validation", "observed_at": "2026-08-15T23:17:10Z", "note": "The official JSON Schema domain publishes the validation vocabulary from the named specification editors."}], "note": "Authority is limited to JSON Schema keyword semantics."},
+        {"id": "access", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://json-schema.org/draft/2020-12/json-schema-validation", "observed_at": "2026-08-15T23:17:10Z", "note": "Publicly readable without authentication, payment, API key, or click-through acceptance."}], "note": "Browser review and citation only."},
+        {"id": "rights", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://json-schema.org/draft/2020-12", "observed_at": "2026-08-15T23:17:10Z", "note": "The project retains only the public locator, bibliographic facts, and narrow paraphrase; no specification text or asset is copied into the product."}], "note": "The planned use requires no external asset import or redistribution."},
+        {"id": "provenance", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "https://json-schema.org/draft/2020-12/json-schema-validation", "note": "Reviewed directly at the official source without an intermediary."}], "note": "Source remains external."},
+        {"id": "integrity", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "https://json-schema.org/draft/2020-12/schema", "note": "The dated specification and metaschema URIs bind the reviewed dialect; no downloaded bytes require checksum custody."}], "note": "The dated URI avoids mutable tutorial guidance."},
+        {"id": "fitness", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "validation sections 4.3, 6.1, and 6.3.3", "note": "The validation vocabulary treats assertions as instance constraints and defines pattern for string instances using regular-expression semantics."}], "note": "This supports only expressing the already-existing parser syntax constraint in the declared schema."},
+        {"id": "privacy-security", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "contracts/milestone-0030.json", "note": "No executable content, personal data, secret, external corpus, remote model call, or real infrastructure is introduced."}], "note": "External model output remains untrusted and parser enforcement remains outside the model."}
+      ]
+    },
+    {
+      "source_id": "ollama-v0.32.6-structured-outputs",
+      "name": "Ollama v0.32.6 structured outputs documentation",
+      "locator": "https://github.com/ollama/ollama/blob/v0.32.6/docs/capabilities/structured-outputs.mdx",
+      "criteria": [
+        {"id": "identity", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://github.com/ollama/ollama/releases/tag/v0.32.6", "observed_at": "2026-08-15T23:17:10Z", "note": "Official non-draft non-prerelease v0.32.6 release published 2026-08-04T18:49:20Z at commit c82ebbd5bfb9ec7d94d3894e9023db0fb224ff50."}], "note": "The exact installed runtime version is bound."},
+        {"id": "authority", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://github.com/ollama/ollama/releases/tag/v0.32.6", "observed_at": "2026-08-15T23:17:10Z", "note": "Official ollama/ollama repository release commit is GitHub verified."}], "note": "Authority is limited to Ollama API behavior and documentation."},
+        {"id": "access", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://github.com/ollama/ollama/blob/v0.32.6/docs/capabilities/structured-outputs.mdx", "observed_at": "2026-08-15T23:17:10Z", "note": "Publicly readable without authentication, payment, API key, or click-through acceptance."}], "note": "Review and citation only."},
+        {"id": "rights", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://github.com/ollama/ollama/blob/v0.32.6/LICENSE", "observed_at": "2026-08-15T23:17:10Z", "note": "The tagged repository publishes the MIT License. No Ollama source or documentation bytes are copied into Runbook Sentinel."}], "note": "The installed runtime remains externally sourced and separately source-gated; this checkpoint imports nothing."},
+        {"id": "provenance", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "ollama/ollama v0.32.6 commit c82ebbd5bfb9ec7d94d3894e9023db0fb224ff50", "note": "Reviewed at the exact official tag matching the installed runtime."}], "note": "No mutable main-branch claim is needed."},
+        {"id": "integrity", "required": true, "requires_live": true, "status": "pass", "evidence": [{"type": "live", "locator": "https://github.com/ollama/ollama/commit/c82ebbd5bfb9ec7d94d3894e9023db0fb224ff50", "observed_at": "2026-08-15T23:17:10Z", "note": "git ls-remote, the release API, and the commit API agree on the exact verified v0.32.6 commit."}], "note": "Exact tag identity is recorded without cloning or downloading source."},
+        {"id": "fitness", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "tagged structured-outputs documentation lines describing format", "note": "The official tagged documentation says to provide a JSON Schema in the local chat format field and recommends temperature zero for more deterministic completions."}], "note": "This establishes API feasibility only. The frozen local experiment must determine whether the installed runtime/model honors the added pattern and improves measured results."},
+        {"id": "privacy-security", "required": true, "requires_live": false, "status": "pass", "evidence": [{"type": "static", "locator": "eval/model-output-conformance-contract.json", "note": "Only the already installed loopback runtime and exact source-gated model may be called after the public freeze; tools are false, no credential is supplied, raw output is not retained, and no real infrastructure is in scope."}], "note": "The model remains untrusted and possesses no execution or approval authority."}
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "review and cite exact official JSON Schema and Ollama specifications",
+      "freeze a project-authored one-field schema-conformance experiment",
+      "run the already installed source-gated local runtime after the public preimplementation seal"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "retain source identity citations narrow paraphrases limitations and local experimental evidence",
+      "change only the frozen model contract field and required identity metadata",
+      "run the installed local runtime on frozen synthetic scenarios"
+    ],
+    "requires_explicit_authorization": [
+      "download update copy redistribute or replace the runtime or model",
+      "import external code data prompt package model or documentation bytes",
+      "authenticate purchase add a secret call a paid or remote model or interact with real infrastructure"
+    ]
+  }
+}

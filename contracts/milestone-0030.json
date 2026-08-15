@@ -1,0 +1,212 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0030",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "active_contract": "contracts/milestone-0030.json",
+    "verified_at_utc": "2026-08-15T23:17:10Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Align the declared local-model diagnosis-code schema with the unchanged fail-closed parser, then measure whether the one-field contract change is a Pareto improvement without changing the deterministic default or any authority boundary.",
+    "allowed_paths": [
+      "C:/Projects/Active/runbook-sentinel-baseline-0030",
+      "C:/Projects/Verification"
+    ],
+    "forbidden_work": [
+      "change the system prompt user template model runtime generation options parser acceptance retrieval decision context scenario terminal state policy approval executor API or MCP authority",
+      "add a tool credential secret paid service remote model call dependency external asset or real-infrastructure connector",
+      "use the held-out test split to tune the candidate",
+      "retain raw generated model content or treat model output as authority",
+      "silently replace or delete the unfavorable baseline-0018 result or any failed blocked stale excluded or superseded evidence",
+      "promote the local model to the product default without every frozen deterministic-default gate",
+      "claim production readiness universal prompt-injection resistance or stronger than research-informed status"
+    ],
+    "reversible_actions": [
+      "create and update project-authored files on codex/baseline-0030-model-output-contract-conformance",
+      "run the already installed source-gated Ollama runtime and llama3.2:3b model over frozen synthetic scenarios after the public freeze",
+      "run deterministic source package container dashboard and clean-clone verification under C:/Projects",
+      "version commit push review merge and release the exact verified source plus zipapp checkpoint after all gates pass"
+    ],
+    "stop_conditions": [
+      "core thesis change or security-boundary weakening",
+      "the experiment requires changing parser acceptance model bytes runtime prompt policy authority or held-out scenarios",
+      "a dependency secret paid service external asset remote model or real infrastructure becomes necessary",
+      "source package container real surfaces clean clone release or public tag cannot be verified",
+      "container image publication or redistribution becomes necessary"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.29, its annotated tag, selected release assets, downloaded bytes, rendered pages, public-tag source/package/container runs, real surfaces, and external reconciliation are exact in artifacts/verification/public-tag-baseline-0029.json.",
+        "The accepted source run passes 57 scenarios, 171 attempts, all 136 Boolean gates, and an anchored 261-event trace.",
+        "The frozen baseline-0018 local-model comparison records 67 diagnosis_code_invalid failures among 84 attempts, while the declared schema omits the parser's exact diagnosis identifier pattern.",
+        "The installed loopback runtime remains Ollama 0.32.6 with unchanged source-gated llama3.2:3b manifest a80c4f17acd5; no download update import or remote call occurred during orientation.",
+        "Official JSON Schema and exact-tag Ollama sources passed the eight-criterion external-source gate for citation and narrow experimental feasibility only."
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Reconcile public v0.0.29, inspect the current system and retained local-model evidence, gate official specifications, and publish an exact preimplementation freeze.",
+      "depends_on": [],
+      "action_class": "evidence_preservation",
+      "human_gate": false,
+      "status": "in_progress",
+      "outputs": [
+        "artifacts/verification/orientation-baseline-0030.json",
+        "artifacts/verification/research-source-gate-baseline-0030-model-output-conformance.json",
+        "artifacts/verification/baseline-0030-orientation-probe-failures-001.json",
+        "eval/model-contract-0018-v2.json",
+        "eval/model-output-conformance-contract.json",
+        "scripts/verify_model_output_conformance_contract.py",
+        "tests/test_model_output_conformance_contract.py",
+        "docs/adr/0025-align-the-declared-diagnosis-pattern-before-retuning.md"
+      ],
+      "gates": {
+        "public_checkpoint_reconciled": "pass",
+        "accepted_system_run_and_trace_inspected": "pass",
+        "separate_metric_families_inspected": "pass",
+        "highest_leverage_weakness_selected": "pass",
+        "research_source_gate_ready": "pass",
+        "legacy_contract_preserved_exact": "pass",
+        "one_field_target_frozen_before_implementation": "pass",
+        "preimplementation_validator_pass": "pass",
+        "public_freeze_verified": "pending"
+      },
+      "disposition": "pending",
+      "retained_failures": [
+        "The first PowerShell identity wrapper failed before output because of an empty pipeline element; the corrected explicit-array wrapper produced the admitted hashes.",
+        "The first external-source-gate validation rejected semantically equivalent but non-exact approved action labels; exact inherited and planned labels replaced them without changing scope.",
+        "Two repository JSON parse wrappers stopped on retained UTF-8 BOM evidence and the intentional zero-byte baseline-0026 MCP evidence item; the corrected parser reports those conditions and validates every nonempty document.",
+        "Two broad secret scans matched only historical scanner definitions or an unchanged devlog sentence; the corrected added-line and untracked-content scan has zero high-specificity hits."
+      ],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Implement only the frozen diagnosis-code pattern and contract identity metadata, then seal the exact implementation before model calls.",
+      "depends_on": ["UNIT-001"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "planned",
+      "gates": {},
+      "disposition": "pending",
+      "retained_failures": [],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Run same-scenario legacy and candidate local-model comparisons, preserve all results, and select or exclude by the frozen Pareto rule.",
+      "depends_on": ["UNIT-002"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "planned",
+      "gates": {},
+      "disposition": "pending",
+      "retained_failures": [],
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Verify the selected source, package, bounded MCP, authenticated API, approval and executor, persisted state, telemetry, rendered dashboard, local container, scan, and clean clone.",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "planned",
+      "gates": {},
+      "disposition": "pending",
+      "retained_failures": [],
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Audit, review, merge, release source plus zipapp only, and independently reconcile the public tag and selected assets.",
+      "depends_on": ["UNIT-004"],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "planned",
+      "gates": {},
+      "disposition": "pending",
+      "retained_failures": [],
+      "next_dependency": null
+    }
+  ],
+  "current_unit": "UNIT-001",
+  "next_action": "Pass the full local preimplementation gate, publish the exact freeze, and remotely verify it before changing eval/model-contract.json or making any model call.",
+  "path_efficiency": {
+    "max_consecutive_no_progress_units": 2,
+    "review_action_class": "project_control",
+    "review_human_gate": false
+  },
+  "verification": {
+    "changed_risks": [
+      "a declared schema broader than its external parser creates avoidable fail-closed model output",
+      "schema-constrained syntax can be misrepresented as correct diagnosis or useful behavior",
+      "held-out results can leak into tuning or be hidden by aggregate parsing gains",
+      "a local model experiment can accidentally gain tools credentials approval material or execution authority",
+      "source-only success can hide stale API MCP state telemetry dashboard package or container behavior"
+    ],
+    "required_checks": [
+      "exact public v0.0.29 receipt and accepted 57-case source run identity",
+      "exact v2 archive current parser model runtime prompt options catalog and authority identities",
+      "one-field v3 target with explicit metadata-only identity changes",
+      "same-scenario three-trial legacy and candidate reports with raw output digest only",
+      "separate development and held-out retrieval generation trajectory policy utility attack reliability latency and cost evidence",
+      "exact deterministic default and no tool credential approval or executor authority change",
+      "source package MCP API approval executor state telemetry dashboard container scan clean clone review release and public-tag verification",
+      "retention of all failed stale blocked corrected superseded excluded and unfavorable evidence"
+    ],
+      "completed_checks": [
+      "public v0.0.29 external reconciliation commit cc07fa2a0790a49b04b4352a004deb913bb12a60 and receipt df84d6a4af7dc2cbac3f55eb659651d98ce54da82affcc02412e370a8fd58a9f",
+      "accepted baseline-0029 source evaluation with 57 scenarios 171 attempts all 136 Boolean gates and exact 261-event trace",
+      "frozen baseline-0018 comparison identity and exact 67-of-84 diagnosis-code failure observation",
+      "current local Ollama 0.32.6 CLI and loopback API identity with unchanged installed llama3.2:3b manifest",
+      "two-source official specification metadata and content review with no asset import",
+      "external-source gate validates ready with two sources sixteen criteria nine fresh live evidence items and no warning error blocker or pending live check",
+      "model-output conformance validator passes in frozen-preimplementation mode with the exact four-path target change set",
+      "all 76 tests pass in 87.931 seconds including five focused conformance tests",
+      "all 36 side-effect-free project validators pass under exact current implementation modes",
+      "governed milestone validation reports active inherited authority with no error or warning",
+      "compilation passes; 889 nonempty JSON files and 149 JSONL files with 26865 records parse; one known zero-byte evidence item and fourteen retained BOM-bearing files are reported; git diff check passes",
+      "exact added-line and untracked-content scan reports zero high-specificity credential hits and zero changed model artifacts"
+      ,"local preimplementation freeze receipt binds every changed file and confirms candidate model contract report package archive and image absence before publication"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "BASELINE-0030 orientation and the one-field model-output conformance experiment are locally frozen from exact public v0.0.29. eval/model-contract.json remains byte-identical to v2 and no baseline-0030 model call exists.",
+    "next_action": "Pass local preimplementation validation, publish and remotely verify the freeze, then implement only the frozen pattern and contract identity metadata.",
+    "do_not_carry_forward": [
+      "any prompt model runtime parser-acceptance retrieval decision-context scenario terminal policy approval executor authority dependency secret external asset or real-infrastructure change",
+      "any test-split tuning raw model-output retention or inference that syntactic validity equals diagnostic correctness",
+      "any model tool credential approval token final execution authority or deterministic-default promotion",
+      "any container image export registry authentication push publication or redistribution",
+      "any rewrite or deletion of failed stale blocked corrected superseded excluded or unfavorable evidence",
+      "any production model-utility universal-safety or perpetual-CVE claim"
+    ]
+  }
+}

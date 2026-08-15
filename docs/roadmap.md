@@ -1,5 +1,15 @@
 # Roadmap
 
+## Active checkpoint baseline-0030 - model-output diagnosis-pattern conformance
+
+Exact public v0.0.29 remains the verified starting point. The deterministic control passes all 57 scenarios and 136 Boolean gates, but the retained optional local-model comparison is unusable: only 9 of 84 outputs parse and 67 fail the external diagnosis identifier rule. The declared schema permits a much broader diagnosis string than the parser accepts.
+
+BASELINE-0030 freezes one bounded correction before implementation: add `^[a-z][a-z0-9_]{0,79}$` to the `diagnosis_code` JSON Schema supplied to the unchanged installed Ollama 0.32.6 and `llama3.2:3b`. Only schema, checkpoint, and contract identity metadata may change. The prompt, generation options, runtime, model bytes, parser acceptance, retrieval, evidence projection, scenarios, terminal states, policy, tools, approval, executor, and authority remain exact.
+
+UNIT-001's focused validator, source gate, milestone, all 76 tests, all 36 side-effect-free project validators, compilation, parsing, diff, exact changed-content scans, and local freeze receipt pass. Public commit and remote byte verification remain before `eval/model-contract.json` changes or any model call occurs. UNIT-002 then implements only the frozen projection and publishes an implementation seal. UNIT-003 compares v2 and v3 on the same 57 scenarios and three trials, reports every metric family separately, and selects or excludes by the frozen Pareto rule. The deterministic control remains the product default. Real surfaces, package, local-only container, audit, review, release, and public-tag reconciliation remain later units.
+
+The checkpoint will stop rather than widen parser acceptance, tune on the held-out split, add model tools or credentials, change the model/runtime/prompt, import an external asset, or infer useful behavior from syntactic validity. Unfavorable and failed evidence remains append-only.
+
 ## Completed checkpoint baseline-0029 - retrieval-quality and attack-rank observability
 
 Fresh exact public-v0.0.28 evidence passes 57 scenarios, 171 attempts, every existing gate, and an anchored 261-event trace. The accepted system remains safe and useful on its frozen synthetic corpus, but its general retrieval result is completeness-only: all required evidence is present while returned-set focus and exact hostile-document rank remain unreported as a stable metric family.

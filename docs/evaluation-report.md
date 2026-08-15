@@ -1,5 +1,15 @@
 # Evaluation report
 
+## BASELINE-0030 preimplementation orientation
+
+Public v0.0.29 remains exact. Its accepted deterministic source run passes 57 scenarios, 171 attempts, all 136 Boolean gates, and an anchored 261-event trace. The current product default therefore has no observed regression in retrieval, generation, tool trajectory, policy, terminal state, utility, attack success, repeated reliability, latency, or cost.
+
+The optional local model remains excluded. Its frozen baseline-0018 result has 9 valid and 75 schema-invalid outputs across 84 attempts. The dominant rejection is 67 `diagnosis_code_invalid`; 7 proposal-argument and 1 out-of-context evidence failure remain separate. Structured parsing is 0.1071428571, diagnosis accuracy and benign utility are 0, pass-three reliability is 0, and median latency is 10,173.578 ms. Policy compliance is 1.0 and proposal/terminal attack success is 0 only under fail-closed external enforcement with no accepted proposal.
+
+The new contract isolates one declared-schema mismatch. V2 specifies a 1-to-80-character string, while the parser requires `^[a-z][a-z0-9_]{0,79}$`. V3 will add only that pattern and identity metadata. The expected static change set is exactly `checkpoint`, `contract_id`, `schema_version`, and `output_schema.properties.diagnosis_code.pattern`.
+
+No candidate result exists. The conformance validator, source gate, governed milestone, all 76 tests, and all 36 side-effect-free validators pass in preimplementation mode. After public freeze and implementation seal, v2 and v3 must each run the same 57 frozen scenarios for three trials. Retrieval, generation, trajectory, policy, utility, attack success, pass-three reliability, latency, and cost remain separate. The test split is held out from tuning, raw output is not retained, and syntactic validity alone cannot satisfy the selection rule.
+
 ## BASELINE-0029 preimplementation orientation
 
 The fresh public-tag v0.0.28 source run remains passing: 57 scenarios, 171 attempts, all 126 Boolean gates, and an exact anchored 261-event trace. Retrieval completeness, generation, tool trajectories, policy, terminal state, benign utility, attack success, repeated reliability, latency, and cost remain separate. Median/p95 end-to-end latency is 59.242/110.936 ms; the deterministic control makes zero model calls at zero estimated external API cost.

@@ -1,13 +1,13 @@
 # Current status
 
 - Project: Runbook Sentinel
-- Authoritative repository: public `https://github.com/drwbkr1/runbook-sentinel`; current exact local verification worktree is `C:\Projects\Verification\runbook-sentinel-baseline-0029-main-c224e36-20260815T2155Z`; the stale `C:\Projects\Active\runbook-sentinel` worktree remains untouched
-- Branch: public `main` carries the BASELINE-0029 external reconciliation; immutable `v0.0.29` remains at release closure `d90dbf36cad28e9738d5ca9c38f42967e557376d`
+- Authoritative repository: public `https://github.com/drwbkr1/runbook-sentinel`; current exact active worktree is `C:\Projects\Active\runbook-sentinel-baseline-0030`; no OneDrive path is authoritative
+- Branch: `codex/baseline-0030-model-output-contract-conformance` starts exactly from reconciled public `main` commit `cc07fa2a0790a49b04b4352a004deb913bb12a60`; immutable `v0.0.29` remains at release closure `d90dbf36cad28e9738d5ca9c38f42967e557376d`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0029`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified public checkpoint: `v0.0.29`; release reconciliation binds annotated tag object `2f54a5cc180f9a79962c5ac56a416444a4be5a58`, peeled closure `d90dbf36cad28e9738d5ca9c38f42967e557376d`, public release metadata, exactly two selected assets, anonymous downloaded bytes, rendered repository/release/tag pages, and fresh public-tag source/package/local-container evidence
-- Candidate version: none; the next checkpoint is intentionally unfrozen until a fresh public-v0.0.29 run and trace inspection identify one highest-leverage measurable weakness
-- Active milestone: none; `BASELINE-0029` retrieval-quality and attack-rank observability is complete
-- Current unit: none; the next cycle must orient from verified public v0.0.29 before defining a milestone or implementation
+- Candidate version: none; BASELINE-0030 is a preimplementation contract freeze and does not yet authorize a version change
+- Active milestone: `BASELINE-0030` model-output diagnosis-pattern conformance under `contracts/milestone-0030.json`
+- Current unit: `UNIT-001`; local preimplementation validation and public freeze remain before any model-contract change or model call
 - Disposition: baseline-0029 `pass`; baseline-0028 `pass`; baseline-0027 `pass`; baseline-0026 `pass`; baseline-0025 `pass`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -18,6 +18,17 @@
 - Docker: client and server 29.4.3, Buildx 0.33.0-desktop.1, and BuildKit 0.29.0 are live. The three earlier Python candidates remain excluded; the exact Chainguard Free Python index passes a narrow gate for anonymous local build and verification only. Three admitted BASELINE-0029 builds reproduce exact local image ID `b2062da4...`; retained failed and diagnostic images remain local. No Runbook Sentinel image has been exported, pushed, or published.
 - External runtime dependencies: none for accepted v0.0.29 zipapp; the verified local container path adds only the frozen digest-pinned base outside the application package. Optional local Ollama evaluation remains source-gated separately.
 - Local model source gate: refreshed and ready for the already installed, publisher-signed Ollama 0.32.6 executable and unchanged `llama3.2:3b` manifest SHA-256 `a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72`; all six content-addressed blobs pass exact SHA-256 and size checks. No download, update, copy, redistribution, remote call, model tool, secret, or real-infrastructure access is authorized.
+
+## BASELINE-0030 model-output conformance orientation and local freeze
+
+- Exact public v0.0.29 remains the starting checkpoint. Its accepted source report passes 57 scenarios, 171 attempts, all 136 Boolean gates, and an anchored 261-event trace; retrieval, generation, trajectory, policy, utility, attack, reliability, latency, and cost remain separate.
+- The retained baseline-0018 local-model comparison is the highest-leverage measured weakness: only 9 of 84 outputs parse; 75 fail closed, including 67 `diagnosis_code_invalid`, 7 `proposal_arguments_invalid`, and 1 `evidence_id_out_of_context`. Benign utility and pass-three reliability are zero. Policy is 1.0 and attack success is zero only because external enforcement rejects the unusable output.
+- The declared v2 schema permits any string from 1 through 80 characters for `diagnosis_code`, while the unchanged external parser requires `^[a-z][a-z0-9_]{0,79}$`. `model-output-static-schema-conformance-v1` freezes one change: add that exact pattern to the supplied schema and advance only contract identity metadata.
+- The v2 contract is preserved byte-exact at `eval/model-contract-0018-v2.json`. The runtime contract at `eval/model-contract.json`, parser, agent, policy, prompt, options, model manifest, retrieval, decision context, 57 scenarios, terminal states, tools, credentials, approval, executor, and authority remain unchanged before the public freeze.
+- Official JSON Schema Draft 2020-12 and exact-tag Ollama v0.32.6 sources pass all sixteen gate criteria for citation and experimental feasibility only. No external bytes or service are imported. Documentation does not establish local model fitness; the same-scenario three-trial comparison must do so.
+- The frozen comparison will run legacy v2 and candidate v3 over the same 57 scenarios and three trials, retain raw output only by digest and stable failure code, report all metric families separately, and keep `deterministic-control-v2` as the product default. Held-out test results may not tune the candidate.
+- Eight process-invalid orientation attempts are retained: two PowerShell empty-pipeline parser failures, a source-gate action-label identity failure, two repository JSON wrappers that did not initially account for retained BOM and zero-byte evidence, two overly broad secret scans that matched historical scanner text, and a PowerShell Boolean wrapper that misread a successful quiet Git check. Exact corrected successors pass without product-state change.
+- The conformance validator, five focused tests, all 76 tests in 87.931 seconds, all 36 side-effect-free project validators, source gate, governed milestone, compilation, 889 nonempty JSON files, 149 JSONL files with 26,865 records, diff check, and exact changed-content credential/model scan pass locally. One known zero-byte evidence item and fourteen retained BOM-bearing files are reported rather than rewritten. The local freeze receipt binds every changed path and proves candidate model-contract, report, package, archive, and image absence; commit, push, and public-byte reconciliation remain before implementation.
 
 ## BASELINE-0029 retrieval-quality orientation and local freeze
 

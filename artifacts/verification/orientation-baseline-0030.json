@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030-orientation",
+  "observed_at_utc": "2026-08-15T23:17:10Z",
+  "repository": {
+    "authoritative_root": "C:/Projects/Active/runbook-sentinel-baseline-0030",
+    "one_drive_authoritative": false,
+    "branch": "codex/baseline-0030-model-output-contract-conformance",
+    "starting_head": "cc07fa2a0790a49b04b4352a004deb913bb12a60",
+    "remote": "https://github.com/drwbkr1/runbook-sentinel.git",
+    "remote_main": "cc07fa2a0790a49b04b4352a004deb913bb12a60",
+    "visibility": "public",
+    "starting_worktree_clean": true
+  },
+  "verified_public_checkpoint": {
+    "version": "0.0.29",
+    "tag": "v0.0.29",
+    "tag_object": "2f54a5cc180f9a79962c5ac56a416444a4be5a58",
+    "peeled_release_commit": "d90dbf36cad28e9738d5ca9c38f42967e557376d",
+    "release_reconciliation_commit": "cc07fa2a0790a49b04b4352a004deb913bb12a60",
+    "release_url": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.29",
+    "public_receipt": {
+      "path": "artifacts/verification/public-tag-baseline-0029.json",
+      "bytes": 18936,
+      "sha256": "df84d6a4af7dc2cbac3f55eb659651d98ce54da82affcc02412e370a8fd58a9f"
+    }
+  },
+  "fresh_cycle_run": {
+    "report": {
+      "path": "artifacts/evaluations/runs/baseline-0029-final-source-attempt-002.json",
+      "bytes": 953878,
+      "sha256": "4fd2aff6ecd12992b2491d5e24574c04a5bb51eea9cfa7cf03aed8d639d1b036",
+      "scenario_count": 57,
+      "attempt_count": 171,
+      "boolean_gate_count": 136,
+      "all_boolean_gates_pass": true
+    },
+    "trace": {
+      "path": "artifacts/evaluations/runs/baseline-0029-final-source-attempt-002.traces.jsonl",
+      "bytes": 195296,
+      "sha256": "1a784cad4a47ad94c9f9926925fd22dde3dc5ca7a6a4694a6851024027ab2ad5",
+      "event_count": 261,
+      "anchored_chain_valid": true
+    },
+    "separate_families_inspected": [
+      "retrieval",
+      "generation",
+      "tool trajectory",
+      "policy compliance",
+      "benign utility",
+      "proposal attack success",
+      "terminal attack success",
+      "repeated-trial reliability",
+      "latency",
+      "cost"
+    ]
+  },
+  "local_compute": {
+    "runtime": "ollama",
+    "runtime_version_cli": "0.32.6",
+    "runtime_version_api": "0.32.6",
+    "endpoint": "http://127.0.0.1:11434",
+    "endpoint_loopback_only": true,
+    "model": "llama3.2:3b",
+    "model_manifest_sha256": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "installed_size": "2.0 GB",
+    "other_installed_model_excluded": "bge-m3:latest",
+    "download_update_or_import_performed": false
+  },
+  "measured_weakness": {
+    "description": "The local-model JSON Schema declares diagnosis_code only as a 1-to-80-character string, while the unchanged external parser requires ^[a-z][a-z0-9_]{0,79}$. In the sole frozen candidate comparison, 67 of 84 outputs fail on this exact parser rule, dominating 75 schema-invalid results.",
+    "legacy_attempt_count": 84,
+    "legacy_valid_count": 9,
+    "legacy_diagnosis_code_invalid_count": 67,
+    "legacy_proposal_arguments_invalid_count": 7,
+    "legacy_evidence_id_out_of_context_count": 1,
+    "legacy_structured_parse_success_rate": 0.10714285714285714,
+    "legacy_benign_utility": 0.0,
+    "legacy_pass_3": 0.0,
+    "legacy_policy_compliance": 1.0,
+    "legacy_proposal_attack_success": 0.0,
+    "legacy_terminal_attack_success": 0.0,
+    "security_interpretation": "The candidate fails closed and has no authority; its zero attack success is not a utility or stochastic-safety success."
+  },
+  "selection": {
+    "highest_leverage_measurable_weakness": "The declared model-output schema materially disagrees with the first external parser gate and causes the dominant measured local-model failure class.",
+    "bounded_improvement": "Add exactly the existing parser diagnosis identifier pattern to the schema supplied to the unchanged local model, then compare legacy and candidate contracts on the same frozen 57 scenarios and three trials.",
+    "selected_checkpoint": "BASELINE-0030",
+    "frozen_contract": "eval/model-output-conformance-contract.json",
+    "changes_parser_acceptance_or_authority": false,
+    "changes_prompt_retrieval_policy_or_model": false,
+    "adds_external_asset_dependency_secret_or_service": false
+  },
+  "research_basis": {
+    "source_gate": "artifacts/verification/research-source-gate-baseline-0030-model-output-conformance.json",
+    "principles": [
+      "pattern is a JSON Schema string assertion",
+      "Ollama accepts a JSON Schema object in the local chat format field",
+      "runtime and model fitness must be established experimentally rather than inferred from documentation"
+    ]
+  },
+  "retained_observations": [
+    "A PowerShell evidence wrapper failed before output because an array-producing foreach block was piped with an empty element; the corrected wrapper produced exact hashes.",
+    "The frozen improvement does not address proposal arguments or context-dependent evidence membership; those remain separately measured failures and external checks.",
+    "The deterministic control remains the product default unless a later evidence-backed selection satisfies every frozen gate."
+  ]
+}

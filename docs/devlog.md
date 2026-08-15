@@ -1,5 +1,14 @@
 # Development log
 
+## 2026-08-15 BASELINE-0030 model-output conformance orientation and local freeze
+
+- Resumed from reconciled public `main` commit `cc07fa2a0790a49b04b4352a004deb913bb12a60` in clean `C:/Projects/Active/runbook-sentinel-baseline-0030`; no OneDrive path is authoritative.
+- Inspected the accepted 57-scenario deterministic run and 261-event trace, then selected the retained local-model interface mismatch: 67 of 84 attempts fail `diagnosis_code_invalid` because the schema omits the parser's lowercase bounded-identifier pattern.
+- Verified live local compute without downloading or updating anything: Ollama CLI and loopback API both report 0.32.6; installed `llama3.2:3b` remains at manifest `a80c4f17acd5...`. `bge-m3` is installed but excluded from this checkpoint.
+- Reviewed official JSON Schema Draft 2020-12 and exact-tag Ollama v0.32.6 documentation under the external-source gate. All sixteen criteria pass after retaining an initial exact-action-label validation failure. No external source, package, model, prompt, data, service, or documentation bytes were imported.
+- Preserved v2 byte-exact, froze a one-field v3 projection, added an independent validator, five focused tests, ADR 0025, milestone 0030, threat/evaluation/research records, and six process-invalid attempts. The validator, source gate, governed milestone, all 76 tests in 87.931 seconds, all 36 side-effect-free project validators, compilation, 889 nonempty JSON files, 149 JSONL files with 26,865 records, diff check, and exact changed-content credential/model scan pass. The known zero-byte and fourteen BOM-bearing historical evidence files are reported, not rewritten. The local receipt binds every changed path and candidate absence; public freeze is next.
+- `eval/model-contract.json` is still v2. No baseline-0030 model call, candidate report, package, archive, or image exists.
+
 ## 2026-08-15 BASELINE-0029 public release reconciliation
 
 - Published release closure `d90dbf36cad28e9738d5ca9c38f42967e557376d`, annotated tag object `2f54a5cc180f9a79962c5ac56a416444a4be5a58`, and public non-draft latest `v0.0.29`. The release uploads only the selected 645,064-byte zipapp at SHA-256 `d1417c22711a09b24c7a7bdf0fa36b18ac446320087eab4493f1cbd63725090b` and its 94-byte checksum; generated source archives remain GitHub-rendered, not project-uploaded assets.
