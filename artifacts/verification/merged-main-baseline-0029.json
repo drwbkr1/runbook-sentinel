@@ -1,0 +1,254 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-merged-main-complete-stack",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-005",
+  "observed_at_utc": "2026-08-15T22:07:32Z",
+  "status": "pass",
+  "repository": {
+    "url": "https://github.com/drwbkr1/runbook-sentinel",
+    "visibility": "public",
+    "branch": "main",
+    "head": "c224e3680ceeab861bb9c096513fed2a4e77db25",
+    "live_remote_head": "c224e3680ceeab861bb9c096513fed2a4e77db25",
+    "clone_transport": "https",
+    "clone_used_local_objects": false,
+    "object_alternates_present": false,
+    "tracked_file_count": 1254,
+    "started_clean": true,
+    "verification_changes_classified_as_evidence_only": true
+  },
+  "review_and_merge": {
+    "pull_request": 27,
+    "pull_request_url": "https://github.com/drwbkr1/runbook-sentinel/pull/27",
+    "base_before_merge": "90900b60661f77377cb568c3750bb69f5eb0f857",
+    "exact_reviewed_head": "c1a2ab1f3b0e3f9c4decc19b92ee6662ae9f55eb",
+    "merge_commit": "c224e3680ceeab861bb9c096513fed2a4e77db25",
+    "merge_parents": [
+      "90900b60661f77377cb568c3750bb69f5eb0f857",
+      "c1a2ab1f3b0e3f9c4decc19b92ee6662ae9f55eb"
+    ],
+    "reviewed_tree": "1ba810931a37c7005f59b92a3040e6348e24ed0d",
+    "merged_tree": "1ba810931a37c7005f59b92a3040e6348e24ed0d",
+    "reviewed_and_merged_trees_equal": true,
+    "merged_at_utc": "2026-08-15T21:54:27Z"
+  },
+  "regression": {
+    "unit_tests": {
+      "command": "python -m unittest discover -s tests",
+      "passed": 71,
+      "failed": 0,
+      "duration_seconds": 82.567,
+      "earlier_public_main_pass_duration_seconds": 89.738,
+      "status": "pass"
+    },
+    "validators": {
+      "project_validators_passed": 35,
+      "governed_milestone_validator_passed": 1,
+      "failed": 0,
+      "status": "pass"
+    }
+  },
+  "package_reproduction": {
+    "build_count": 2,
+    "entry_count": 43,
+    "archive_bytes": 645064,
+    "archive_sha256": "d1417c22711a09b24c7a7bdf0fa36b18ac446320087eab4493f1cbd63725090b",
+    "checksum_bytes": 94,
+    "checksum_sha256": "ecf652faebdc45528a65dd1d6463ed3b3c2ffb36f476a4860773cd1fce3549f0",
+    "builds_byte_identical": true,
+    "selected_archive_exact": true,
+    "package_contract_passed_for_each": true,
+    "status": "pass"
+  },
+  "evaluations": {
+    "source": {
+      "report_bytes": 953869,
+      "report_sha256": "82699b2062ef74b7aeebe9996afc9e3994f6df389c838dbbfd4548f83ec06e04",
+      "trace_bytes": 195287,
+      "trace_sha256": "ba077dc31521fc5d895e8323d88d8ab31ab73c10d44d55b6c6cb67c46432a8a2",
+      "trace_final_event_sha256": "5830c8e086a6400751980be7fcdb13a521718f0bc714495d2efac798278517a5"
+    },
+    "package": {
+      "report_bytes": 953903,
+      "report_sha256": "1dbf93c7087b0098ba8536ac5bbb4524938c1a16caad6e9bb30eebb14e19f4c8",
+      "trace_bytes": 195313,
+      "trace_sha256": "1c7c3384d2bff31737740250fd059ab9ce82d036e7d8dfa334f2ee467e606d78",
+      "trace_final_event_sha256": "5b75c665921883f194c318067580417560459ffae58c5ada6ee5f8169ae541e6"
+    },
+    "companion_manifest_sha256": "083d18c06a776b3cbc9e030656a0dc758671ef856390fee3ff6a160e4be7aaef",
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "boolean_gates_true": 136,
+    "boolean_gates_false": 0,
+    "trace_event_count_each": 261,
+    "trace_chains_valid_and_anchored": true,
+    "expected_document_share_mean": 0.683006535948,
+    "attempts_with_extra_documents_rate": 0.56862745098,
+    "all_expected_retrieved_rate": 1.0,
+    "guidance_first_rank_attempts": {
+      "not_retrieved": 6,
+      "rank_1": 6,
+      "rank_2": 45,
+      "rank_3_4": 9
+    },
+    "inband_first_rank_attempts": {
+      "not_retrieved": 0,
+      "rank_1": 24,
+      "rank_2": 0,
+      "rank_3_4": 0
+    },
+    "cross_trial_rank_bucket_ambiguity_count": 0,
+    "rank_conditioned_policy_compliance_rate": 1.0,
+    "rank_conditioned_proposal_attack_success_rate": 0.0,
+    "rank_conditioned_terminal_attack_success_rate": 0.0,
+    "metric_projection_sha256": "f70c67684285a5fa2af47ccb74bfa3ec7646474db60b5fe0849e956f71d6c44f",
+    "metric_projection_parity": true,
+    "retrieval_generation_trajectory_policy_utility_attack_reliability_latency_and_cost_separate": true,
+    "model_calls": 0,
+    "estimated_external_api_cost": 0.0,
+    "status": "pass"
+  },
+  "real_surfaces": {
+    "source": {
+      "mcp_protocol": "2025-11-25",
+      "mcp_server_version": "0.0.29",
+      "mcp_tool_count": 3,
+      "mcp_authority_tool_count": 0,
+      "mcp_trace_valid_and_anchored": true,
+      "mcp_receipt_sha256": "17162f049e6c8bc805cebda3ec869030d7d6670810b212e21adf9cbf67a02ff5",
+      "api_checks_passed": 131,
+      "api_checks_failed": 0,
+      "api_receipt_sha256": "2c3da757251746142a43aa64dcddc87eced5e9f95e4ee28476fccba72a23fea7",
+      "native_checks_passed": 72,
+      "native_checks_failed": 0,
+      "native_receipt_sha256": "1b137c3e6f5106c66a020288e04c697afb715dbb68f20b0e8b39706a1a07453f",
+      "dashboard_sha256": "5dba187f761ce916b725b477c9c69c0756e94db0006445411661ae52279a3f8a"
+    },
+    "package": {
+      "mcp_protocol": "2025-11-25",
+      "mcp_server_version": "0.0.29",
+      "mcp_tool_count": 3,
+      "mcp_authority_tool_count": 0,
+      "mcp_trace_valid_and_anchored": true,
+      "mcp_receipt_sha256": "721a31bb1d975ba3b4a56a413316c81a85472d785d1fcc46696811626fc924a1",
+      "api_checks_passed": 131,
+      "api_checks_failed": 0,
+      "api_receipt_sha256": "90e0da6ccd7bf6f04521501ffc6978ba5bce2441917d1fdcec6ffce3783640f2",
+      "native_checks_passed": 72,
+      "native_checks_failed": 0,
+      "native_receipt_sha256": "20dfd0f9a642817ce2add19ccbd94b58c9a5a6756241fe3f3c30ad34fc6ba36f",
+      "dashboard_sha256": "e7263df733c0d1a5fb7b40f0e043ca897a4e75f4bd16568803be9895c709ba58"
+    },
+    "api_checks_identical": true,
+    "native_checks_identical": true,
+    "mcp_semantics_identical": true,
+    "approval_executor_idempotency_replay_state_and_telemetry_pass": true,
+    "authorization_material_absent_from_persistence_traces_logs_and_dashboard": true,
+    "dashboards": {
+      "dimensions": [1440, 1000],
+      "source_original_detail_inspection": "pass",
+      "package_original_detail_inspection": "pass",
+      "metric_card_count": 35,
+      "persisted_incident_rows_visible": 2,
+      "baseline_identity_exact": true,
+      "execution_boundary_exact": true,
+      "real_infrastructure_disconnected": true
+    },
+    "status": "pass"
+  },
+  "artifact_integrity": {
+    "json_files_valid": 893,
+    "expected_invalid_json": [
+      {
+        "path": "artifacts/verification/mcp-source-baseline-0026.json",
+        "bytes": 0,
+        "classification": "previously retained exact process failure"
+      }
+    ],
+    "unclassified_json_errors": 0,
+    "jsonl_files": 153,
+    "jsonl_records_valid": 27394,
+    "jsonl_errors": 0,
+    "high_specificity_secret_matches_classified_as_scanner_definitions_or_historical_records": true,
+    "unclassified_credential_or_secret_hits": 0,
+    "model_artifacts": 0,
+    "status": "pass"
+  },
+  "container": {
+    "contract_id": "container-runtime-v9",
+    "contract_sha256": "578ba95099df2b6816ac702dd2cfcfbecb78b8ee6e7849c2ef034e48db930642",
+    "image_id": "sha256:b2062da4db7e6d31fea9ddc5eb7794ff2458d243c6e2e951264cf73f841d7be6",
+    "canonical_candidate_receipt": {
+      "path": "artifacts/verification/container-baseline-0029.json",
+      "sha256": "1ad5e50384f6364d496251f0519943c42d7e046964f88a1700782ecdb8780760",
+      "checks_true": 45,
+      "checks_false": 0,
+      "status": "pass"
+    },
+    "fresh_merged_main_full": {
+      "path": "artifacts/verification/container-baseline-0029-public-main-local.json",
+      "sha256": "7d6d4d6f03d4238120738d3d5c3edc880ae26e7868dea79be406db49e2a80a62",
+      "observed_at_utc": "2026-08-15T22:04:43.929361Z",
+      "two_builds_image_id_exact": true,
+      "all_product_and_security_checks_except_separate_clean_clone_composition": true,
+      "status": "pass-clean-clone-composed-separately"
+    },
+    "fresh_no_alternates_public_main_clean_build": {
+      "path": "artifacts/verification/clean-container-baseline-0029-public-main-local.json",
+      "sha256": "1b898d9e2be0b4cfedf8a618242f158d2186c8839a7693fb3b32fd3c9ed19a24",
+      "observed_at_utc": "2026-08-15T22:05:43.228270Z",
+      "source_head": "c224e3680ceeab861bb9c096513fed2a4e77db25",
+      "object_alternates_present": false,
+      "image_id_exact": true,
+      "status": "pass"
+    },
+    "fresh_composed_checks_true": 45,
+    "fresh_composed_checks_false": 0,
+    "structured_scan": {
+      "scanner": "Docker Scout 1.20.4",
+      "sarif_sha256": "7749b34be7a069559b10b1b9d53cc8897576fdd104071a9e0f907f9a301ee303",
+      "sarif_bytes": 461,
+      "critical_high_findings": 0,
+      "claim_boundary": "Observation-time evidence for the exact content-addressed image, not a perpetual vulnerability claim."
+    },
+    "dashboard_sha256": "95c23eab0b7f84d7349d592b2229ec9864de4e8258fbded71fb3c628a8ba13b3",
+    "dashboard_original_detail_inspection": "pass",
+    "surviving_verifier_containers": 0,
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false,
+    "status": "pass"
+  },
+  "retained_process_failures": [
+    "A read-only selected-pointer preflight omitted the frozen final- filename segment and stopped before Docker was queried; its exact correction proves the pointer hash unchanged.",
+    "verify_mcp_stdio.py --help executed the source MCP verifier because the script has no argument parser; no help result was inferred and the later explicit source/package runs are selected.",
+    "After all 35 project validators passed, a governed-contract wrapper guessed validate_milestone_contract.py instead of the installed validate_milestone.py helper; the missing-file result is process-invalid and its exact supported successor is selected.",
+    "Generated container evidence retains the inherited rs-b0027 ephemeral-name prefix and stale intermediate clean-clone wording; the canonical and freshly composed inventories are exactly 45 checks with no false result."
+  ],
+  "claim_boundary": {
+    "research_informed": true,
+    "synthetic_sre_only": true,
+    "production_readiness_claimed": false,
+    "universal_prompt_injection_resistance_claimed": false,
+    "cross_builder_reproducibility_claimed": false,
+    "container_distribution_claimed": false
+  },
+  "gates": {
+    "exact_reviewed_head_merged_with_history_preserved": "pass",
+    "fresh_public_main_tests_and_validators": "pass",
+    "fresh_public_main_package_reproduction": "pass",
+    "fresh_public_main_source_and_package_evaluations": "pass",
+    "fresh_public_main_mcp_api_state_telemetry_and_dashboards": "pass",
+    "fresh_public_main_container_runtime_scan_and_identity": "pass",
+    "failed_and_blocked_attempts_preserved": "pass",
+    "no_container_image_bytes_published": "pass",
+    "fresh_public_main_complete_stack": "pass"
+  },
+  "release_state": {
+    "latest_release": "v0.0.28",
+    "v0.0.29_tag_exists": false,
+    "v0.0.29_release_exists": false
+  },
+  "next_gate": "Publish this merged-main receipt, run the final release-truth audit, and create no v0.0.29 tag or release unless the exact audited closure remains verifiable."
+}

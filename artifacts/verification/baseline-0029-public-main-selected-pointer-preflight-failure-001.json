@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-public-main-selected-pointer-preflight-failure-001",
+  "checkpoint": "baseline-0029",
+  "recorded_at_utc": "2026-08-15T22:07:32Z",
+  "status": "process-invalid",
+  "intent": "Confirm that the selected evaluation pointer remained byte-exact before opening Docker verification.",
+  "command_error": "Resolve-Path could not find artifacts/evaluations/runs/baseline-0029-source-attempt-002.json.",
+  "cause": "The read-only preflight omitted the frozen 'final-' filename segment used by the selected attempt.",
+  "effects": {
+    "latest_pointer_sha256_printed_before_stop": "4fd2aff6ecd12992b2491d5e24574c04a5bb51eea9cfa7cf03aed8d639d1b036",
+    "repository_mutated": false,
+    "docker_queried": false,
+    "image_built": false,
+    "result_promoted": false
+  },
+  "correction": {
+    "resolved_path": "artifacts/evaluations/runs/baseline-0029-final-source-attempt-002.json",
+    "resolved_sha256": "4fd2aff6ecd12992b2491d5e24574c04a5bb51eea9cfa7cf03aed8d639d1b036",
+    "latest_pointer_sha256": "4fd2aff6ecd12992b2491d5e24574c04a5bb51eea9cfa7cf03aed8d639d1b036",
+    "exact": true
+  },
+  "disposition": "retained and superseded by the exact-path preflight; no product or release claim depends on this attempt"
+}
