@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0028-live-api-verifier-correction-seal-public-20260815T154912Z",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T15:49:12Z",
+  "status": "pass",
+  "repository": "https://github.com/drwbkr1/runbook-sentinel",
+  "visibility": "PUBLIC",
+  "branch": "codex/baseline-0028-retrieval-stage-observability",
+  "public_correction_commit": "bf9e37eecbfa176328172f424ba2e17c1d0553c2",
+  "heads": {
+    "local": "bf9e37eecbfa176328172f424ba2e17c1d0553c2",
+    "remote_tracking": "bf9e37eecbfa176328172f424ba2e17c1d0553c2",
+    "live_github": "bf9e37eecbfa176328172f424ba2e17c1d0553c2",
+    "exact": true
+  },
+  "frozen_public_inputs": {
+    "manifest_path": "eval/manifest.json",
+    "manifest_sha256": "f45f6f6270d6bca1ea11a250b4b5ce7e787d8ccc4f704e4535b99f72c18df50b",
+    "manifest_git_blob": "1d25c78ff081d853ff6d3cf8f9ecfc617f1900cb",
+    "verifier_path": "scripts/verify_live_api.ps1",
+    "verifier_sha256": "6810b0121e50a217f5da1e8722616dd9f9fb72acfe75c59687dfa83475662719",
+    "verifier_git_blob": "ebc7e7a288bcb1b481890c89f864159985c13824",
+    "focused_test_sha256": "a7cf7807ab530a35d81996465b07420b413a8279dda5a1c1154744b9e7b1ed73",
+    "remote_manifest_blob_exact": true,
+    "remote_verifier_blob_exact": true
+  },
+  "evidence": {
+    "local_correction_seal_sha256": "12f42dd458b502a2dc158b037c8d2d38c2261b42f57341cbff9b08403a1b0f1c",
+    "retained_failure_receipt_sha256": "4a8daf6d753c77fd4583d2a70e925db6912a2df7ebccd3e6e389ffa70e73512b",
+    "retained_dashboard_sha256": "ad41039091ea66522b64797221a931086ebc9cf472cb06bd22c14c922db7be36",
+    "unit_tests": "60/60 pass",
+    "standalone_validators": "34/34 pass",
+    "selected_archive_at_publication": "absent",
+    "selected_checksum_at_publication": "absent",
+    "baseline_0028_image_count_at_publication": 0
+  },
+  "authorized_next_action": "Build two replacement v0.0.28 zipapps from this exact public correction seal, require byte identity and package-contract verification, then repeat source/package evaluation and real-surface verification before any container image build."
+}

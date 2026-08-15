@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0028-container-correction-package-source-gate-public-20260815T162724Z",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T16:27:24Z",
+  "status": "pass",
+  "repository": "https://github.com/drwbkr1/runbook-sentinel",
+  "visibility": "PUBLIC",
+  "branch": "codex/baseline-0028-retrieval-stage-observability",
+  "payload_commit": "9e585ed2298f712007078ba8025a679ba476eee6",
+  "heads_exact": true,
+  "package_source": {"sha256": "92fd8fbccd49ec7413e53ebe144511ef898fa9602502c2608fb3943d1173a5ae", "git_blob": "5716cb6f1cfa586696759af0225b778c2a3ee113", "remote_exact": true},
+  "latest_evaluation": {"sha256": "e9a2d7f93ea17fa146b41b11208e05b830abc698b3dd9fd9f0dad7916b312179", "git_blob": "ceca3a7f6341480e844a49c5a5c36aa4477f770d", "remote_exact": true},
+  "local_archive": {"sha256": "c770fc21ece71f3728d366575a9233100aeb5cbb40f5026be7814ae3c7977044", "published": false},
+  "pre_container_state": {"baseline_0028_image_count": 0, "container_receipt": "absent", "image_exported": false, "image_pushed": false, "image_published": false},
+  "authorized_next_action": "Run container-runtime-v8 locally from this exact public payload and reproduce the exact image from a clean public-branch clone."
+}

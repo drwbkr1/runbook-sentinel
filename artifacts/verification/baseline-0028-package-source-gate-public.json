@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0028-package-source-gate-public-20260815T160836Z",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T16:08:36Z",
+  "status": "pass",
+  "repository": "https://github.com/drwbkr1/runbook-sentinel",
+  "visibility": "PUBLIC",
+  "branch": "codex/baseline-0028-retrieval-stage-observability",
+  "payload_commit": "8ccd96de8cef376f0750a031130de609abeb3725",
+  "heads": {
+    "local": "8ccd96de8cef376f0750a031130de609abeb3725",
+    "remote_tracking": "8ccd96de8cef376f0750a031130de609abeb3725",
+    "live_github": "8ccd96de8cef376f0750a031130de609abeb3725",
+    "exact": true
+  },
+  "public_evidence": {
+    "package_source_path": "artifacts/verification/package-source-baseline-0028.json",
+    "package_source_sha256": "d53949b8225b05a573767376ed7f18e957ed29da15d70539172a55d9d8d09e22",
+    "package_source_git_blob": "02c5b0e811bb8871f7a100fead26215dce913ad0",
+    "latest_evaluation_sha256": "611db972b6e05118e63a5af46ef2382f915295b079a651a6ff04af861a8113c1",
+    "latest_evaluation_git_blob": "49b2a6bace50318658f6bb15b8668cbfc2720287",
+    "remote_blobs_exact": true
+  },
+  "local_selected_archive": {
+    "path": "dist/runbook-sentinel-0.0.28.pyz",
+    "sha256": "700f2b2781a2de0d4fa207e218f5863055e53e6b149ffab138d5d5227e662594",
+    "published": false
+  },
+  "pre_container_state": {
+    "baseline_0028_image_count": 0,
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false
+  },
+  "authorized_next_action": "Run the frozen container-runtime-v8 verifier from this exact public payload, then reproduce it from a clean public-branch clone."
+}

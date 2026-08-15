@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0028-container-v8-dashboard-correction-seal-public-20260815T161533Z",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T16:15:33Z",
+  "status": "pass",
+  "repository": "https://github.com/drwbkr1/runbook-sentinel",
+  "visibility": "PUBLIC",
+  "branch": "codex/baseline-0028-retrieval-stage-observability",
+  "public_correction_commit": "97bd69fd3aa370de527091b4f9879fcaefab6ddd",
+  "heads_exact": true,
+  "public_inputs": {
+    "manifest_sha256": "996a9ca54fd13883bc72e2acd65c6a5df2e8398093af7ecbe229699e427c629d",
+    "manifest_git_blob": "26bc917912141f643889db65f3ef6d7f391568dd",
+    "container_runtime_verifier_sha256": "b8f02f776db581bd0b4ade12025374cd53b55830ff793125d336dd0a7634896a",
+    "container_runtime_verifier_git_blob": "fd17bdda205aa719abf937346f2754d72dcc6300",
+    "container_contract_validator_sha256": "ca164ffb4258d7bb1d09fced050268599cbbc621cc28946ccf9c3653396a0e5b",
+    "container_contract_validator_git_blob": "2da83e9cc6b499ef3d3d7e6f3af91ffe603cdf2f",
+    "remote_blobs_exact": true
+  },
+  "local_seal_sha256": "def201cd94a4f2abdfd41b29c473d82a494467ee85798f52a3511f6782520407",
+  "prebuild_absence": {"selected_archive": true, "selected_checksum": true, "container_receipt": true, "baseline_0028_image_count": 0},
+  "authorized_next_action": "Build two replacement packages from this exact public seal and repeat source/package real-surface verification before any container image build."
+}

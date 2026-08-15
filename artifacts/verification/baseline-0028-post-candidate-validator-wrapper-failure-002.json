@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-003",
+  "status": "retained_failure",
+  "attempt": 2,
+  "observed_at_utc": "2026-08-13T04:29:00Z",
+  "operation": "post-candidate source-validator wrapper",
+  "result": "PowerShell converted unittest verbose stderr from verify_baseline.py into NativeCommandError after fifteen direct validators passed",
+  "classification": "wrapper stream-handling failure, not a test assertion or product failure",
+  "disposition": "superseded by a Python subprocess wrapper that records actual child exit codes"
+}

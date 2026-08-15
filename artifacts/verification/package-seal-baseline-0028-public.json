@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0028-package-seal-public-20260815T152429Z",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T15:24:29Z",
+  "disposition": "pass",
+  "repository": {
+    "url": "https://github.com/drwbkr1/runbook-sentinel",
+    "visibility": "PUBLIC",
+    "is_private": false
+  },
+  "public_branch": {
+    "name": "codex/baseline-0028-retrieval-stage-observability",
+    "content_seal_commit": "bf5a01e7878914a18216f4c315be3a1762c8ff4b",
+    "local_head": "bf5a01e7878914a18216f4c315be3a1762c8ff4b",
+    "remote_tracking_head": "bf5a01e7878914a18216f4c315be3a1762c8ff4b",
+    "live_remote_head": "bf5a01e7878914a18216f4c315be3a1762c8ff4b",
+    "exact_match": true,
+    "initial_post_push_remote_tracking_head": "2b992bba676f30ab1ef0cc015ed8a812a2eba423",
+    "initial_live_remote_head": "bf5a01e7878914a18216f4c315be3a1762c8ff4b",
+    "tracking_discrepancy_classification": "local remote-tracking ref was stale because origin fetch refspec tracks only main; exact branch refspec fetch corrected local tracking without changing public state"
+  },
+  "final_manifest": {
+    "path": "eval/manifest.json",
+    "sha256": "846f9ae732aee6fbb4dc9ea13fe7e11f95eaafff2309e36128a22045a94783df",
+    "git_blob": "e9926894bf94c3404ee36d64c8912786b6d2bf6e",
+    "file_count": 129,
+    "exact_verification": "pass"
+  },
+  "package_contract": {
+    "current_path": "eval/package-contract.json",
+    "versioned_path": "eval/package-contract-0028.json",
+    "sha256": "774c826b1e2c608aeb5263ae0496f1ec1b007789a004997f3da21ca9e099983c",
+    "current_git_blob": "f80d176bc3bdafef91877ac9b7924181366692e5",
+    "versioned_git_blob": "f80d176bc3bdafef91877ac9b7924181366692e5",
+    "entry_count": 42,
+    "exact_match": true,
+    "static_validation": "pass"
+  },
+  "container_contract": {
+    "current_path": "eval/container-contract.json",
+    "versioned_path": "eval/container-contract-0028-v8.json",
+    "contract_id": "container-runtime-v8",
+    "sha256": "b15f418ea7b0b872ebb4f0d2df76b00a2f2cf9ce89901558d1156ce54bc74344",
+    "current_git_blob": "d58b2c6d7f7d3c1848a72e3fc4f4bfd6aebf9082",
+    "versioned_git_blob": "d58b2c6d7f7d3c1848a72e3fc4f4bfd6aebf9082",
+    "required_check_count": 44,
+    "exact_match": true,
+    "static_validation": "pass"
+  },
+  "preserved_local_seal": {
+    "path": "artifacts/verification/package-seal-baseline-0028-local.json",
+    "git_blob": "3bbb74b33cd4411e26ed662c5702da4aa1694c82",
+    "historical_state": "complete_gate_pass_awaiting_public_commit"
+  },
+  "preserved_failure_blobs": {
+    "container_v8_contract_draft": "0249fbde64c1a7abcc512a125a7e10842bd0e11c",
+    "package_freeze_focused_test": "e25e789177faf72e64dd331f6f460c16053068f0",
+    "package_freeze_test_wrapper": "4916904194440f6e1e9c542ed01e55d89899e0d8",
+    "package_freeze_validator_wrapper": "68c3b6f40e9f61baf6940c7860ec80382729f701",
+    "package_freeze_test_log": "d5d80dec2972a843261639cb275876a12a8b0483"
+  },
+  "complete_gate": {
+    "unit_tests_passed": 59,
+    "unit_tests_total": 59,
+    "standalone_validators_passed": 34,
+    "standalone_validators_total": 34,
+    "compileall": "pass",
+    "git_diff_check": "pass"
+  },
+  "pre_build_absence": {
+    "package_archive": "absent",
+    "package_checksum": "absent",
+    "container_runtime_receipt": "absent",
+    "runbook_sentinel_container_image_count": 0
+  },
+  "seal_status": "public_verified",
+  "authorized_next_action": "Build two independent v0.0.28 zipapps, require byte identity and exact contract verification, then run source and package evaluation plus real-surface gates before any container image build."
+}

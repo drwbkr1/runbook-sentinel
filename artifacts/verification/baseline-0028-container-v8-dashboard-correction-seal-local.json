@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0028-container-v8-dashboard-correction-seal-local-20260815T161420Z",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T16:14:20Z",
+  "status": "pass",
+  "disposition": "container_verifier_correction_ready_for_publication",
+  "public_parent_commit": "e7103499ae447df9a49ce422b1948dad184f6aa4",
+  "bounded_change": {
+    "runtime_product_source_changed": false,
+    "retriever_changed": false,
+    "decision_context_changed": false,
+    "agent_policy_or_authority_changed": false,
+    "scenario_or_terminal_state_changed": false,
+    "dependency_or_external_asset_changed": false,
+    "container_runtime_verifier_sha256": "b8f02f776db581bd0b4ade12025374cd53b55830ff793125d336dd0a7634896a",
+    "container_contract_validator_sha256": "ca164ffb4258d7bb1d09fced050268599cbbc621cc28946ccf9c3653396a0e5b",
+    "focused_test_sha256": "83996815299ef19b576aedbafb3467813cf7eb618e584888eb782da4dbaf0d67"
+  },
+  "retained_stop": {
+    "path": "artifacts/verification/baseline-0028-container-v8-dashboard-identity-prebuild-stop-001.json",
+    "sha256": "d126e18e3c9ac808fd57fa28f15077496a57868547af28e453c7053ebf2d84a7",
+    "image_built": false
+  },
+  "renewed_manifest": {
+    "path": "eval/manifest.json",
+    "frozen_at_utc": "2026-08-15T16:12:05Z",
+    "file_count": 129,
+    "bytes": 15511,
+    "sha256": "996a9ca54fd13883bc72e2acd65c6a5df2e8398093af7ecbe229699e427c629d",
+    "exact_verification": "pass"
+  },
+  "gate": {
+    "focused_tests": "2/2",
+    "unit_tests": "61/61",
+    "unit_tests_elapsed_seconds": 91.009,
+    "standalone_validators": "34/34",
+    "container_contract_static_validation": "pass",
+    "package_contract_static_validation": "pass",
+    "compileall": "pass",
+    "milestone_validation": "pass",
+    "git_diff_check": "pass"
+  },
+  "mutable_latest_pointer": {
+    "restored_to_immutable_source_candidate": true,
+    "sha256": "4fb4b38e90a9a3094dbfdf63b3b15950b25030723176e543265136257e9cb79e"
+  },
+  "pre_publication_absence": {
+    "selected_archive": "absent",
+    "selected_checksum": "absent",
+    "container_runtime_receipt": "absent",
+    "baseline_0028_image_count": 0
+  },
+  "authorized_next_action": "Commit, push, and remotely verify this exact correction and renewed manifest before rebuilding package or image bytes."
+}

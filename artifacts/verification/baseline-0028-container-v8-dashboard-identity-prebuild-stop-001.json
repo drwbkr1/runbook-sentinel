@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T16:10:40Z",
+  "status": "retained_prebuild_stop",
+  "public_parent_commit": "e7103499ae447df9a49ce422b1948dad184f6aa4",
+  "operation": "static preflight immediately before first container-runtime-v8 build",
+  "finding": {
+    "path": "scripts/verify_container_runtime.py",
+    "line_identity": "dashboard_identity_exact",
+    "incorrect_required_text": "Baseline 0027",
+    "correct_runtime_checkpoint": "baseline-0028",
+    "container_contract_validator_previously_rejected_stale_identity": false,
+    "classification": "manifest-bound verifier and validator identity defect; no container product result exists"
+  },
+  "prebuild_state": {
+    "baseline_0028_image_count": 0,
+    "container_receipt_present": false,
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false
+  },
+  "superseded_package": {
+    "archive_sha256": "700f2b2781a2de0d4fa207e218f5863055e53e6b149ffab138d5d5227e662594",
+    "checksum_sha256": "c222c0bb9e8bd4fe33b2cf626d46ca849a003234f8db0057dbecdb139f32724a",
+    "custody": "C:/Projects/Verification/runbook-sentinel-baseline-0028-superseded-pre-container-package-20260815T161040Z",
+    "source_package_gate_status": "pass",
+    "release_selection": "superseded because the manifest-bound container verifier must be corrected and republished before any image build"
+  },
+  "bounded_correction": "Require Baseline 0028 in the container dashboard verifier, make the container-contract validator reject the predecessor literal, add one focused regression test, renew the manifest with selected archive and image absent, then rebuild and repeat the package/source gate before container construction."
+}

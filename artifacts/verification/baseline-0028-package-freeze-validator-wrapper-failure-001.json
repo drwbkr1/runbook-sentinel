@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "status": "retained_failure",
+  "observed_at_utc": "2026-08-13T04:53:00Z",
+  "operation": "pre-build validator inventory",
+  "result": "thirteen validators passed before the retrieval-stage contract validator correctly rejected default preimplementation mode because implementation is present",
+  "classification": "wrapper invocation-mode error, not a contract failure",
+  "disposition": "superseded by explicit --require-implementation; all 34 current non-runtime validators pass"
+}

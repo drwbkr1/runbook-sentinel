@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-003",
+  "status": "retained_failure",
+  "attempt": 1,
+  "observed_at_utc": "2026-08-13T04:26:00Z",
+  "operation": "post-candidate source-validator wrapper",
+  "result": "outer timeout after 60 seconds with no disposition",
+  "classification": "orchestration timeout; no validator failure was observed and no candidate file was changed",
+  "disposition": "superseded by bounded per-validator execution with explicit subprocess exits"
+}

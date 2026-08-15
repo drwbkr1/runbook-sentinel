@@ -1,5 +1,21 @@
 # Roadmap
 
+## Active checkpoint baseline-0028 - retrieval-stage observability
+
+A fresh exact public-v0.0.27 run passes 57 scenarios, 171 attempts, every existing gate, and an anchored 261-event trace. Its released three-stage exposure metric remains correct for its frozen contract, but it combines two materially different defenses: twenty hostile-guidance scenarios retrieve and then filter at least one declared hostile document, while two diagnose scenarios—one in each split—never retrieve their declared hostile document across three trials.
+
+BASELINE-0028 freezes an additive four-stage metric: `guidance_not_retrieved`, `guidance_retrieved_filtered`, `inband_exposed`, and `non_instruction_adversarial`. Ten observed-valid stage/outcome pairs produce twenty already-populated development/test cells. The contract separately freezes sixty retrieved-filtered hostile-guidance attempts and six never-retrieved attempts, preserves the existing eighteen-cell score, and recursively hash-binds all 57 scenarios and terminal states. No new scenario, retriever, decision, policy, authority, dependency, asset, or runtime behavior is permitted.
+
+UNIT-001 through UNIT-003 are complete. The public pre-reveal manifest preceded immutable source attempt 001, which passes all 57 scenarios, 171 attempts, 126 Boolean gates, the exact twenty-cell split, sixty-versus-six hostile-guidance attempt counts, zero ambiguity, zero proposal/terminal attack success, and its anchored 261-event trace. UNIT-004 has published the exact package contract, inherited container-runtime-v8 contract, 129-file final manifest, retained failures, and passing pre-build gate at content seal `bf5a01e...`. Two independent v0.0.28 archives and exact source/package parity are next; no container image may be built first.
+
+The first two archives and source/package evaluations passed, but the first source API run exposed one stale manifest-bound verifier literal after 116 of 117 checks and a visibly correct BASELINE 0028 dashboard. The original public receipt's count-only 109/110 statement is retained and corrected by static recount. Those archive and evaluation bytes remain retained but superseded. The bounded successor corrects only the verifier identity, adds one focused test, renews and publishes the manifest with no selected archive or image present, then repeats the package and real-surface gate.
+
+The replacement package/source gate now passes: two exact 42-entry archives, exact normalized source/package behavior, bounded three-tool MCP, both 117-check APIs, both 63-check native inspections, and complete dashboards. The exact payload must be public and remotely reconciled before container-runtime-v8 may build any image; local image export and publication remain forbidden.
+
+Pre-image static inspection then stopped container-runtime-v8 because its dashboard assertion still named the predecessor checkpoint and its contract validator did not reject that stale literal. Preserve the passing package/source evidence as superseded, publish the bounded verifier/validator correction with archive and image absent, and repeat package/source verification before reopening Docker construction.
+
+UNIT-004 is complete at verified public branch head `9dc57f82...`. The corrected container gate passes all 44 checks; two full local builds plus a clean public-branch clone reproduce exact image ID `9a62f5e1...` with hardened runtime, exact source/package/container metrics, bounded real surfaces, structured scan, and no image export or publication. UNIT-005 begins with the governed premerge release-truth audit.
+
 ## Completed checkpoint baseline-0027 - digest-pinned container runtime
 
 UNIT-004 is complete. Public receipt commit `727c29e7ffebf718844f7648e859e29514de4862` binds all 43 frozen checks: exact source and zipapp evidence, two independent deterministic local images, hardened container CLI/evaluation/MCP/API/approval/executor/replay/state/telemetry/dashboard behavior, verified tmpfs extraction, structured scanning, and a clean HTTPS public-branch rebuild. All three admitted builds reproduce image ID `sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee` on the exact verified Docker/Buildx/BuildKit stack. No image bytes were exported, pushed, or published.
@@ -191,3 +207,11 @@ Expand to at least 48 frozen cases across the approved SRE topology, meet precom
 ## Completed checkpoint baseline-0016 - completed-evaluation trace integrity
 
 The fresh public v0.0.15 run passes all existing behavior and authority gates, but its persisted JSONL evidence has no sequence or hash continuity and its pass report does not bind the companion trace. A released-event mutation from verified to failed postconditions remains valid JSON and passes every current telemetry check. The frozen ten-case candidate passes content, sequence, predecessor, deletion, reordering, malformed-record, anchored-truncation, and exact-resume checks. Source and package pass `84+9+6+10+10`, bind their exact 150-event traces, and pass real MCP/API/executor/state/telemetry and dashboard gates. A no-local-object clean clone reproduces the exact selected archive and repeats the source, package, real-surface, parsing, scanning, and visual gates. PR `#14` merged the exact reviewed head with history preserved, and a fresh no-local-object public-main clone repeats the complete gate. Final audit, annotated tag, selected public assets, downloaded bytes, rendered pages, and a public-tag clone reconcile. Every product boundary remains unchanged; no signer, key, external collector, immutable-storage claim, RFC conformance claim, or hostile-writer claim is added. The next checkpoint remains intentionally unchosen until a fresh public v0.0.16 run exposes one measurable weakness.
+# Active checkpoint: BASELINE-0028
+
+- [x] Run and inspect verified public v0.0.27; freeze the retrieval-stage truth gap before implementation.
+- [x] Implement the additive four-stage metric, fail-closed contract, focused probes, and explicit dashboard/API labels while preserving all scenarios and authority boundaries.
+- [x] Publish the implementation seal at `39d9e4ddec994fd9a05fb5d28396fd051ccce258`.
+- [x] Publish controlled historical-validator custody and the expanded manifest inventory; freeze and publish the exact manifest; then reveal one immutable passing source candidate.
+- [x] Verify package, MCP, API, state, telemetry, rendered dashboard, clean clone, and local-only container path.
+- [ ] Audit, review, merge, release v0.0.28 source plus zipapp, and verify the public tag without publishing container image bytes.

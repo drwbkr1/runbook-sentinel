@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0028-live-api-verifier-correction-seal-local-20260815T154156Z",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T15:41:56Z",
+  "status": "pass",
+  "disposition": "verifier_correction_ready_for_publication",
+  "public_parent_commit": "67130c1184f02875d33961a90d36047c047bf07d",
+  "bounded_change": {
+    "runtime_product_source_changed": false,
+    "retriever_changed": false,
+    "decision_context_changed": false,
+    "agent_policy_or_authority_changed": false,
+    "scenario_or_terminal_state_changed": false,
+    "dependency_or_external_asset_changed": false,
+    "verifier_path": "scripts/verify_live_api.ps1",
+    "verifier_bytes": 42264,
+    "verifier_sha256": "6810b0121e50a217f5da1e8722616dd9f9fb72acfe75c59687dfa83475662719",
+    "focused_test_path": "tests/test_baseline.py",
+    "focused_test_sha256": "a7cf7807ab530a35d81996465b07420b413a8279dda5a1c1154744b9e7b1ed73"
+  },
+  "retained_failure": {
+    "path": "artifacts/verification/baseline-0028-live-api-verifier-identity-failure-001.json",
+    "sha256_before_correction_seal_receipt_update": "38e797dda6b3c5570d9466bf781a728f0bbc245a9f0115de00fd94de89481072",
+    "dashboard_path": "artifacts/verification/dashboard-baseline-0028-source-verifier-failure-001.png",
+    "dashboard_sha256": "ad41039091ea66522b64797221a931086ebc9cf472cb06bd22c14c922db7be36",
+    "false_check": "dashboard_baseline_exact",
+    "all_other_109_checks_passed": true
+  },
+  "superseded_package_custody": {
+    "root": "C:/Projects/Verification/runbook-sentinel-baseline-0028-superseded-package-20260815T153623Z",
+    "archive_sha256": "b404565a511f753e64b31ed69f283a2aceb18d9ea94cebc355651742122efed2",
+    "checksum_sha256": "95c43206d8e19a8d9eedd6f6aca7fe8e98cc29712ce584f5823a708576be6dde",
+    "independent_second_build_root": "C:/Projects/Verification/runbook-sentinel-baseline-0028-build-b-20260815T1525Z",
+    "both_old_manifest_archives_exact": true,
+    "selected_archive_present": false
+  },
+  "renewed_manifest": {
+    "path": "eval/manifest.json",
+    "frozen_at_utc": "2026-08-15T15:39:14Z",
+    "file_count": 129,
+    "bytes": 15511,
+    "sha256": "f45f6f6270d6bca1ea11a250b4b5ce7e787d8ccc4f704e4535b99f72c18df50b",
+    "verifier_sha256": "6810b0121e50a217f5da1e8722616dd9f9fb72acfe75c59687dfa83475662719",
+    "exact_verification": "pass"
+  },
+  "renewed_gate": {
+    "focused_tests_passed": 2,
+    "focused_tests_total": 2,
+    "unit_tests_passed": 60,
+    "unit_tests_total": 60,
+    "unit_tests_elapsed_seconds": 102.962,
+    "standalone_validators_passed": 34,
+    "standalone_validators_total": 34,
+    "package_contract_static_validation": "pass",
+    "container_contract_static_validation": "pass",
+    "compileall": "pass",
+    "git_diff_check": "pass"
+  },
+  "mutable_latest_pointer": {
+    "restored_to_immutable_source_candidate": true,
+    "sha256": "4fb4b38e90a9a3094dbfdf63b3b15950b25030723176e543265136257e9cb79e"
+  },
+  "pre_publication_absence": {
+    "selected_archive": "absent",
+    "selected_checksum": "absent",
+    "container_runtime_receipt": "absent",
+    "baseline_0028_local_image_count": 0
+  },
+  "seal_status": "complete_gate_pass_awaiting_public_commit",
+  "authorized_next_action": "Commit, push, and remotely verify this exact verifier correction and renewed manifest before building replacement archive or image bytes."
+}

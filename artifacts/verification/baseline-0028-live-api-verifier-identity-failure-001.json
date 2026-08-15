@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "status": "retained_failure",
+  "observed_at_utc": "2026-08-15T15:36:23Z",
+  "operation": "first BASELINE-0028 source HTTP, approval, executor, persistence, telemetry, and rendered-dashboard verification",
+  "result": {
+    "check_count": 110,
+    "passing_check_count": 109,
+    "false_checks": ["dashboard_baseline_exact"],
+    "runtime_checkpoint": "baseline-0028",
+    "rendered_dashboard_visible_checkpoint": "BASELINE 0028",
+    "dashboard_visually_inspected_at_original_detail": true,
+    "dashboard_path": "artifacts/verification/dashboard-baseline-0028-source-verifier-failure-001.png",
+    "dashboard_bytes": 93764,
+    "dashboard_sha256": "ad41039091ea66522b64797221a931086ebc9cf472cb06bd22c14c922db7be36",
+    "database_sha256": "033ecf52d6b90541cdf342262a4a21f65bb9506498c3a9a2d7bbba156b61e040",
+    "database_path": "C:/Projects/Verification/runbook-sentinel-baseline-0028-superseded-package-20260815T153623Z/source-api-verifier-failure-001/baseline-0028-source-verifier-failure-001.db",
+    "trace_sha256": "7258bea8067c54bf2da32f386fcf78c7e02687eadb1d4664f6e2011c1f01b92b",
+    "trace_path": "C:/Projects/Verification/runbook-sentinel-baseline-0028-superseded-package-20260815T153623Z/source-api-verifier-failure-001/baseline-0028-source-verifier-failure-001.traces.jsonl",
+    "trace_anchor_file_sha256": "33c89f01698beca8497a5f70eb5dd7a18fb1925a73a21eec2e6f3830398f56d9",
+    "trace_anchor_path": "C:/Projects/Verification/runbook-sentinel-baseline-0028-superseded-package-20260815T153623Z/source-api-verifier-failure-001/baseline-0028-source-verifier-failure-001.traces.jsonl.anchor.json",
+    "stdout_sha256": "b7e9b5a5734849f8b50a43f9c9e1a19e9cb0355e6979ba607f1bcfcad737c8c2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "cause": "scripts/verify_live_api.ps1 still assigned dashboard_baseline_0027 from Contains('Baseline 0027') and used that stale field for dashboard_baseline_exact even though every runtime and rendered identity correctly reported BASELINE 0028",
+  "classification": "manifest-bound verifier identity defect; product HTTP, authorization, approval, executor, idempotency, replay, persistence, telemetry, evaluation, dashboard content, redaction, and security checks passed",
+  "superseded_package": {
+    "archive_bytes": 619465,
+    "archive_sha256": "b404565a511f753e64b31ed69f283a2aceb18d9ea94cebc355651742122efed2",
+    "archive_custody": "C:/Projects/Verification/runbook-sentinel-baseline-0028-superseded-package-20260815T153623Z/runbook-sentinel-0.0.28.pyz",
+    "checksum_sha256": "95c43206d8e19a8d9eedd6f6aca7fe8e98cc29712ce584f5823a708576be6dde",
+    "source_report_sha256": "fab943b5ec676b3720b958b580cbd3edc0428910959fc6ff4f648588eb686ad0",
+    "package_report_sha256": "0919dea2a21971c560010ae60f86a486ae26e543efa50818184c02f12dfeda68",
+    "manifest_sha256": "846f9ae732aee6fbb4dc9ea13fe7e11f95eaafff2309e36128a22045a94783df",
+    "package_contract_status": "pass",
+    "source_package_evaluation_status": "pass",
+    "release_selection": "superseded because the manifest-bound real-surface verifier must be corrected and the manifest/package rebuilt before release"
+  },
+  "disposition": "retain all attempts and exact archive bytes, correct only the stale verifier identity plus a focused test, renew and publish the manifest with archive and image absent, then rebuild and repeat source/package surfaces",
+    "retained_wrapper_observations": [
+        "A post-renewal inspection printed the current verifier hash, then queried tests/test_baseline.py in the manifest even though tests are intentionally outside the 129-file evaluation manifest. Exact manifest verification still passed; no product or evidence result was inferred from the KeyError.",
+        "A renewed standalone-validator wrapper omitted PYTHONPATH=src and stopped at verify_stale_payload_projection.py with ModuleNotFoundError after the preceding validators passed. No product result was inferred; the unchanged gate was repeated with the sealed source import path."
+    ],
+  "package_image_built": false,
+  "container_image_built": false
+}

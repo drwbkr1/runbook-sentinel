@@ -30,6 +30,7 @@ from runbook_sentinel.evaluation import (
     _adversarial_condition_outcome_split_coverage,
     _adversarial_domain_outcome_split_coverage,
     _adversarial_exposure_stage_outcome_split_coverage,
+    _adversarial_retrieval_stage_outcome_split_coverage,
     _adversarial_outcome_split_coverage,
     _adversarial_topology_split_coverage,
     _behavioral_relation_metrics,
@@ -112,7 +113,7 @@ class BaselineTest(unittest.TestCase):
         self.temp.cleanup()
 
     def test_container_v4_build_command_is_frozen_and_local_only(self):
-        tag = "runbook-sentinel:baseline-0027-test"
+        tag = "runbook-sentinel:baseline-0028-test"
         command = build_command(tag)
         self.assertEqual(command[:3], ["docker", "buildx", "build"])
         self.assertNotIn("--load", command)
@@ -124,22 +125,22 @@ class BaselineTest(unittest.TestCase):
         self.assertIn("--sbom=false", command)
         self.assertEqual(
             command[command.index("--output") + 1],
-            "type=image,name=runbook-sentinel:baseline-0027-test,"
+            "type=image,name=runbook-sentinel:baseline-0028-test,"
             "rewrite-timestamp=true,unpack=false,store=true,push=false",
         )
-        self.assertEqual(SOURCE_DATE_EPOCH, "1786556577")
-        self.assertEqual(SOURCE_DATE_EPOCH_UTC, "2026-08-12T17:42:57Z")
+        self.assertEqual(SOURCE_DATE_EPOCH, "1786594080")
+        self.assertEqual(SOURCE_DATE_EPOCH_UTC, "2026-08-13T04:08:00Z")
         self.assertEqual(EXPECTED_BUILDER["buildkit"], "0.29.0")
 
-    def test_container_v7_prerequisite_requires_current_implementation_phase(self):
+    def test_container_v8_prerequisite_requires_current_implementation_phase(self):
         contract = {
             "status": "pass",
-            "implementation_phase": "implemented_v7",
+            "implementation_phase": "implemented_v8",
         }
         manifest = {"status": "pass"}
         package = {"status": "pass"}
         evaluation = {
-            "checkpoint": "baseline-0027",
+            "checkpoint": "baseline-0028",
             "gates": {"baseline_disposition": "pass"},
         }
 
@@ -154,14 +155,20 @@ class BaselineTest(unittest.TestCase):
         with mock.patch(
             "scripts.verify_container_runtime.run",
             side_effect=[completed(contract), completed(manifest), completed(package)],
+        ), mock.patch(
+            "scripts.verify_container_runtime.sha256_file",
+            return_value="0" * 64,
         ):
             result = validate_prerequisites(evaluation)
         self.assertTrue(result["checks"]["container_contract"])
 
-        contract["implementation_phase"] = "implemented_v6"
+        contract["implementation_phase"] = "implemented_v7"
         with mock.patch(
             "scripts.verify_container_runtime.run",
             side_effect=[completed(contract), completed(manifest), completed(package)],
+        ), mock.patch(
+            "scripts.verify_container_runtime.sha256_file",
+            return_value="0" * 64,
         ):
             with self.assertRaisesRegex(AssertionError, '"container_contract": false'):
                 validate_prerequisites(evaluation)
@@ -199,6 +206,10 @@ class BaselineTest(unittest.TestCase):
         errors: list[str] = []
         validate_container_contract(contract, raw, errors)
         self.assertEqual(errors, [])
+        self.assertIn(
+            "container_retrieval_stage_metric_exact",
+            contract["verification_contract"]["required_checks"],
+        )
 
         no_completion_grace = copy.deepcopy(contract)
         no_completion_grace["event_capture_contract"]["completion_grace_nanoseconds"] = 0
@@ -350,7 +361,7 @@ class BaselineTest(unittest.TestCase):
         )
         self.assertFalse(local_content_digest_matches_image_id({"Id": image_id, "RepoDigests": []}))
 
-        tags = ["runbook-sentinel:baseline-0027-a-test", "runbook-sentinel:baseline-0027-b-test"]
+        tags = ["runbook-sentinel:baseline-0028-a-test", "runbook-sentinel:baseline-0028-b-test"]
         events = [
             {
                 "Action": "tag",
@@ -1104,7 +1115,7 @@ class BaselineTest(unittest.TestCase):
         server = MCPServer(self.service)
         initialized = server.handle({"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
         self.assertEqual(initialized["result"]["protocolVersion"], "2025-11-25")
-        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.27")
+        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.28")
         listed = server.handle({"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         self.assertEqual({tool["name"] for tool in listed["result"]["tools"]}, names)
         called = server.handle(
@@ -1305,6 +1316,9 @@ class BaselineTest(unittest.TestCase):
                 self.assertIn("Runbook Sentinel", dashboard)
                 self.assertIn("authenticated external operator", dashboard)
                 self.assertNotIn("human approval", dashboard)
+                self.assertIn("Adversarial retrieval-stage/outcome split", dashboard)
+                self.assertIn("Hostile guidance retrieved then filtered", dashboard)
+                self.assertIn("Hostile guidance never retrieved", dashboard)
                 self.assertIn(f"Baseline {CHECKPOINT.removeprefix('baseline-')}", dashboard)
                 self.assertNotIn("Baseline 0010", dashboard)
                 self.assertNotIn("Baseline 0011", dashboard)
@@ -1326,7 +1340,7 @@ class BaselineTest(unittest.TestCase):
                 self.assertIn("Operator authentication", dashboard)
                 self.assertIn("frame-ancestors 'none'", response.headers["Content-Security-Policy"])
             with urlopen(f"http://127.0.0.1:{server.server_port}/health") as response:
-                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0027")
+                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0028")
             request = Request(
                 f"http://127.0.0.1:{server.server_port}/api/runs",
                 data=json.dumps({"scenario_id": "dev-bad-deployment"}).encode("utf-8"),
@@ -1344,6 +1358,26 @@ class BaselineTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             create_server("0.0.0.0", 0, str(base / "unsafe.db"), str(base / "unsafe-traces.jsonl"), str(evaluation_path), capability)
         del capability
+
+    def test_live_api_verifier_requires_current_dashboard_checkpoint(self):
+        verifier = (ROOT / "scripts/verify_live_api.ps1").read_text(encoding="utf-8")
+        self.assertIn(
+            "dashboard_baseline_0028 = $dashboardResponse.Content.Contains('Baseline 0028')",
+            verifier,
+        )
+        self.assertIn(
+            "dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0028",
+            verifier,
+        )
+        self.assertNotIn("dashboard_baseline_0027 =", verifier)
+
+    def test_container_v8_verifier_requires_current_dashboard_checkpoint(self):
+        runtime = (ROOT / "scripts/verify_container_runtime.py").read_text(encoding="utf-8")
+        validator = (ROOT / "scripts/verify_container_contract.py").read_text(encoding="utf-8")
+        self.assertIn('b"Baseline 0028" in dashboard_raw', runtime)
+        self.assertNotIn('b"Baseline 0027" in dashboard_raw', runtime)
+        self.assertIn("'b\"Baseline 0027\" in dashboard_raw' not in runtime_text", validator)
+
 
     def test_evaluation_reports_separate_metrics_and_passes_control_gates(self):
         output = Path(self.temp.name) / "baseline.json"
@@ -1392,6 +1426,13 @@ class BaselineTest(unittest.TestCase):
         self.assertTrue(report["gates"]["adversarial_exposure_stage_outcome_split_coverage_is_one"])
         self.assertTrue(report["gates"]["development_adversarial_exposure_stage_outcome_split_coverage_is_one"])
         self.assertTrue(report["gates"]["test_adversarial_exposure_stage_outcome_split_coverage_is_one"])
+        self.assertTrue(report["gates"]["adversarial_retrieval_stage_outcome_split_contract_valid"])
+        self.assertTrue(report["gates"]["adversarial_retrieval_stage_outcome_split_coverage_is_one"])
+        self.assertTrue(report["gates"]["development_adversarial_retrieval_stage_outcome_split_coverage_is_one"])
+        self.assertTrue(report["gates"]["test_adversarial_retrieval_stage_outcome_split_coverage_is_one"])
+        self.assertTrue(report["gates"]["guidance_retrieved_filtered_attempt_count_exact"])
+        self.assertTrue(report["gates"]["guidance_not_retrieved_attempt_count_exact"])
+        self.assertTrue(report["gates"]["retrieval_stage_cross_trial_ambiguity_is_zero"])
         self.assertTrue(report["gates"]["evidence_condition_contract_valid"])
         self.assertTrue(report["gates"]["evidence_condition_split_coverage_is_one"])
         self.assertTrue(report["gates"]["adversarial_split_coverage_is_one"])
@@ -1514,6 +1555,38 @@ class BaselineTest(unittest.TestCase):
             [],
         )
         self.assertEqual(
+            report["metrics"]["coverage"][
+                "adversarial_retrieval_stage_outcome_split_coverage"
+            ],
+            1.0,
+        )
+        self.assertEqual(
+            report["metrics"]["coverage"][
+                "split_adversarial_retrieval_stage_outcome_coverage"
+            ],
+            {"development": 1.0, "test": 1.0},
+        )
+        self.assertEqual(
+            report["metrics"]["coverage"][
+                "missing_adversarial_retrieval_stage_outcome_split_cells"
+            ],
+            [],
+        )
+        self.assertEqual(
+            report["metrics"]["coverage"][
+                "guidance_retrieved_filtered_attempt_count"
+            ],
+            60,
+        )
+        self.assertEqual(
+            report["metrics"]["coverage"]["guidance_not_retrieved_attempt_count"],
+            6,
+        )
+        self.assertEqual(
+            report["metrics"]["coverage"]["cross_trial_stage_ambiguity_count"],
+            0,
+        )
+        self.assertEqual(
             report["metrics"]["coverage"]["case_count_by_action_split"]["rollback_deployment"],
             {"development": 2, "test": 2},
         )
@@ -1530,8 +1603,8 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["coverage"]["adversarial_split_coverage"], 1.0)
         self.assertEqual(report["metrics"]["coverage"]["missing_condition_split_pairs"], [])
         self.assertEqual(report["metrics"]["coverage"]["missing_adversarial_splits"], [])
-        self.assertEqual(report["schema_version"], "3.2")
-        self.assertEqual(report["checkpoint"], "baseline-0027")
+        self.assertEqual(report["schema_version"], "3.3")
+        self.assertEqual(report["checkpoint"], "baseline-0028")
         self.assertEqual(report["metrics"]["proposal"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["development"]["tool_trajectory"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["test"]["tool_trajectory"]["exact_match"], 1.0)
@@ -2506,6 +2579,122 @@ class BaselineTest(unittest.TestCase):
             "required_stage_outcome_pairs",
             invalid[
                 "adversarial_exposure_stage_outcome_split_contract_errors"
+            ],
+        )
+
+    def test_adversarial_retrieval_stage_outcome_split_coverage_fails_closed(self):
+        catalog = load_catalog()
+        contract = catalog[
+            "adversarial_retrieval_stage_outcome_split_coverage_contract"
+        ]
+        report = json.loads(
+            (
+                ROOT
+                / "artifacts/evaluations/runs/baseline-0027-final-source-attempt-010.json"
+            ).read_text(encoding="utf-8")
+        )
+        scenarios = catalog["scenarios"]
+        terminal = catalog["terminal_state_contract"]
+        cases = report["cases"]
+        valid = _adversarial_retrieval_stage_outcome_split_coverage(
+            scenarios, terminal, cases, contract
+        )
+        self.assertTrue(
+            valid["adversarial_retrieval_stage_outcome_split_contract_valid"]
+        )
+        self.assertEqual(
+            valid["adversarial_retrieval_stage_outcome_split_coverage"], 1.0
+        )
+        self.assertEqual(valid["guidance_retrieved_filtered_attempt_count"], 60)
+        self.assertEqual(valid["guidance_not_retrieved_attempt_count"], 6)
+        self.assertEqual(valid["cross_trial_stage_ambiguity_count"], 0)
+        self.assertEqual(
+            valid["guidance_not_retrieved_scenarios"],
+            [
+                "dev-api-injection-coverage",
+                "test-api-diagnose-injection-coverage",
+            ],
+        )
+
+        scenario_id = "dev-api-injection-coverage"
+        malformed_cases = copy.deepcopy(cases)
+        malformed = next(
+            case for case in malformed_cases if case["scenario_id"] == scenario_id
+        )
+        malformed["attempts"][0]["actual"].pop("retrieved_document_ids")
+        malformed_result = _adversarial_retrieval_stage_outcome_split_coverage(
+            scenarios, terminal, malformed_cases, contract
+        )
+        self.assertFalse(
+            malformed_result[
+                "adversarial_retrieval_stage_outcome_split_contract_valid"
+            ]
+        )
+        self.assertIn(
+            f"{scenario_id}:malformed_retrieval_audit",
+            malformed_result[
+                "adversarial_retrieval_stage_outcome_split_contract_errors"
+            ],
+        )
+
+        mixed_cases = copy.deepcopy(cases)
+        mixed = next(
+            case for case in mixed_cases if case["scenario_id"] == scenario_id
+        )
+        scenario = next(item for item in scenarios if item["id"] == scenario_id)
+        mixed["attempts"][0]["actual"]["retrieved_document_ids"].append(
+            scenario["attack_document_ids"][0]
+        )
+        mixed_result = _adversarial_retrieval_stage_outcome_split_coverage(
+            scenarios, terminal, mixed_cases, contract
+        )
+        self.assertFalse(
+            mixed_result[
+                "adversarial_retrieval_stage_outcome_split_contract_valid"
+            ]
+        )
+        self.assertEqual(mixed_result["cross_trial_stage_ambiguity_count"], 1)
+        self.assertIn(
+            f"{scenario_id}:mixed_retrieval_stage",
+            mixed_result[
+                "adversarial_retrieval_stage_outcome_split_contract_errors"
+            ],
+        )
+
+        ambiguous_scenarios = copy.deepcopy(scenarios)
+        ambiguous = next(
+            item for item in ambiguous_scenarios if item["id"] == scenario_id
+        )
+        ambiguous["inband_attack_document_ids"] = ["ambiguous-inband"]
+        ambiguous_result = _adversarial_retrieval_stage_outcome_split_coverage(
+            ambiguous_scenarios, terminal, cases, contract
+        )
+        self.assertFalse(
+            ambiguous_result[
+                "adversarial_retrieval_stage_outcome_split_contract_valid"
+            ]
+        )
+        self.assertIn(
+            f"{scenario_id}:ambiguous_attack_stage",
+            ambiguous_result[
+                "adversarial_retrieval_stage_outcome_split_contract_errors"
+            ],
+        )
+
+        invalid_contract = copy.deepcopy(contract)
+        invalid_contract["required_stage_outcome_pairs"] = invalid_contract[
+            "required_stage_outcome_pairs"
+        ][:-1]
+        invalid = _adversarial_retrieval_stage_outcome_split_coverage(
+            scenarios, terminal, cases, invalid_contract
+        )
+        self.assertFalse(
+            invalid["adversarial_retrieval_stage_outcome_split_contract_valid"]
+        )
+        self.assertIn(
+            "required_stage_outcome_pairs",
+            invalid[
+                "adversarial_retrieval_stage_outcome_split_contract_errors"
             ],
         )
 

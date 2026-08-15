@@ -22,7 +22,7 @@ def main() -> None:
     prechange = json.loads(PRECHANGE_PATH.read_text(encoding="utf-8"))
     errors: list[str] = []
 
-    if catalog.get("schema_version") != "1.17":
+    if catalog.get("schema_version") != "1.18":
         errors.append("catalog_schema_mismatch")
     runtime_contract = catalog.get("topology_split_coverage_contract")
     frozen_coverage = contract.get("coverage_contract", {})

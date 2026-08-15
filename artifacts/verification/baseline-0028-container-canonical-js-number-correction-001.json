@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T16:33:23Z",
+  "status": "corrected_before_publication",
+  "operation": "compose canonical container receipt from generated full and clean-build receipts",
+  "failure": "A JavaScript JSON parse/stringify wrapper rounded four Docker event timeNano integers before the canonical receipt was committed.",
+  "rounded_values": [1786811340119743700, 1786811340134051000, 1786811343469854500, 1786811343481288200],
+  "authoritative_values_restored": [1786811340119743853, 1786811340134051168, 1786811343469854531, 1786811343481288167],
+  "authoritative_local_receipt_sha256": "49906ab5f7e262828d592216fcc8a1e5e82108ef50168a804d837cfccd8a33d7",
+  "corrected_canonical_receipt_sha256": "1e5923201b5710be2987e411f92d2a9cc0e12db0b41fbc5ac15a56235edc0e21",
+  "verification": {
+    "all_event_nanoseconds_exact_to_generated_receipt": true,
+    "container_contract_status": "pass",
+    "frozen_checks": "44/44",
+    "product_or_image_bytes_changed": false,
+    "public_or_committed_incorrect_receipt_existed": false
+  }
+}

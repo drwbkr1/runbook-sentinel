@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "surface": "source",
+  "observed_at_utc": "2026-08-15T15:55:53Z",
+  "status": "pass",
+  "selected": false,
+  "reason": "Retained first corrected passing source run before complete verifier JSON capture.",
+  "api_checks": {"passed": 117, "total": 117},
+  "native_checks": {"passed": 63, "total": 63},
+  "dashboard": {
+    "path": "artifacts/verification/dashboard-source-baseline-0028-attempt-001.png",
+    "bytes": 94147,
+    "sha256": "c62d28fc6d9e91ec1d9d7293593fbe2f67d22e9f50c58c949609fe5435350b70",
+    "width": 1440,
+    "height": 1000,
+    "visually_inspected_at_original_detail": false
+  },
+  "runtime_custody": {
+    "root": "C:/Projects/Verification/runbook-sentinel-baseline-0028-source-api-pass-attempt-001-20260815T155553Z",
+    "database": {"bytes": 65536, "sha256": "97241357bd40e3463ecfdee48809177d8e7e64a9474a98c0b574669a1958e738"},
+    "trace": {"bytes": 3227, "sha256": "3ab9153acc29ebf141e4400d710d72eeb37036edb3e41eb77e8740d4977ffd15"},
+    "trace_anchor": {"bytes": 304, "sha256": "ce5bc4918bc6e10214ccd5ccebaa7b8fd48aec8abaff81091df7784ff3cc6557"},
+    "stdout": {"bytes": 63, "sha256": "b7e9b5a5734849f8b50a43f9c9e1a19e9cb0355e6979ba607f1bcfcad737c8c2"},
+    "stderr": {"bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}
+  },
+  "disposition": "passing retained attempt; repeat unchanged source surface once to persist the complete verifier and native-inspection JSON"
+}

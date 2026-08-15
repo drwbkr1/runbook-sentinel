@@ -68,7 +68,7 @@ def main() -> None:
     runtime_contract = catalog.get(
         "adversarial_condition_outcome_split_coverage_contract"
     )
-    if catalog.get("schema_version") != "1.17":
+    if catalog.get("schema_version") != "1.18":
         errors.append("catalog_schema_mismatch")
     if runtime_contract != expected_runtime_contract:
         errors.append("runtime_contract_mismatch")

@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "status": "retained_failure",
+  "recorded_at_utc": "2026-08-15T15:27:00Z",
+  "operation": "selected zipapp exploratory global version probe",
+  "command": "python dist/runbook-sentinel-0.0.28.pyz --version",
+  "result": "argparse exited nonzero because the CLI requires one of run, approve, execute, evaluate, serve, or mcp and does not declare a global --version option",
+  "classification": "unsupported exploratory probe, not a package-contract or declared-surface failure",
+  "disposition": "use the declared evaluation, MCP initialization, and HTTP health surfaces for exact version and checkpoint identity; package --help and both frozen package-contract validations pass"
+}

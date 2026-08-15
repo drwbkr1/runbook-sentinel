@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "phase": "container_correction_package_source_pre_container",
+  "observed_at_utc": "2026-08-15T16:26:00Z",
+  "status": "pass",
+  "json_files_parsed": 12,
+  "jsonl_events_parsed": 522,
+  "png_signatures_valid": 2,
+  "archive_entries": 42,
+  "duplicate_archive_entries": 0,
+  "credential_signature_findings": [],
+  "external_model_artifacts": 0,
+  "manifest": "pass",
+  "package_contract": "pass",
+  "container_contract": "pass",
+  "container_image_built": false
+}

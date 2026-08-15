@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "status": "retained_wrapper_failures",
+  "observed_at_utc": "2026-08-15T15:59:00Z",
+  "observations": [
+    {
+      "operation": "post-promotion metric summary",
+      "failure": "queried guidance_retrieved_filtered_attempt_count under metrics.retrieval instead of metrics.coverage",
+      "product_or_evidence_mutation": "latest.json had already been copied exactly from the passing source report and remained exact"
+    },
+    {
+      "operation": "inspect_runtime_evidence.py help probe",
+      "failure": "omitted PYTHONPATH and stopped at ModuleNotFoundError before argument handling",
+      "product_or_evidence_mutation": "none"
+    },
+    {
+      "operation": "selected source runtime custody wrapper",
+      "failure": "PowerShell parser rejected an inline command expression before executing any move",
+      "product_or_evidence_mutation": "none; the simplified exact move succeeded afterward"
+    },
+    {
+      "operation": "package-source receipt metadata query",
+      "failure": "used nonexistent eval/container-runtime-v8-contract.json instead of eval/container-contract-0028-v8.json",
+      "product_or_evidence_mutation": "none; the corrected read-only query found the frozen contract"
+    },
+    {
+      "operation": "milestone unit inspection",
+      "failure": "queried unit_id even though the governing milestone schema uses id",
+      "product_or_evidence_mutation": "none; the corrected read-only query returned UNIT-004 and UNIT-005"
+    }
+  ],
+  "selected_results": "Unchanged source and package evaluations, MCP, APIs, native evidence, and dashboards pass their exact gates."
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-003",
+  "status": "retained_failure",
+  "attempt": 1,
+  "manifest_sha256": "e1f6c0f16a969caa3bb4c6381d50f0eb55e88028a8e0af78c7df724660518fc9",
+  "test_command": "python -m unittest discover -s tests -v",
+  "result": {
+    "tests_run": 59,
+    "passed": 58,
+    "failed": 1,
+    "failed_test": "test_evaluation_reports_separate_metrics_and_passes_control_gates",
+    "failure": "Expected baseline-0027 but the newly frozen manifest correctly emitted baseline-0028."
+  },
+  "classification": "test identity lag after authoritative manifest checkpoint transition; no evaluation, safety, scenario, runtime, or authority gate failure",
+  "disposition": "remediate",
+  "retention_rule": "The failed manifest and test attempt remain part of checkpoint history; a renewed manifest is required after correcting the bound test."
+}

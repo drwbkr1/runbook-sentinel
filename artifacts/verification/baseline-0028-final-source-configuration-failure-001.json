@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "status": "retained_failure",
+  "attempt": 1,
+  "recorded_at_utc": "2026-08-15T15:29:00Z",
+  "operation": "final source evaluation against the public 129-file manifest",
+  "invocation": {
+    "agent_configuration": "deterministic-control-v2",
+    "retrieval_configuration": "freshness-priority-lexical-v3",
+    "decision_context_configuration": "evidence-only-context-v2"
+  },
+  "sealed_candidate_configuration": {
+    "agent_configuration": "deterministic-control-v2",
+    "retrieval_configuration": "freshness-priority-lexical-v3",
+    "decision_context_configuration": "fresh-content-stale-metadata-context-v3"
+  },
+  "result": {
+    "disposition": "remediate",
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "false_boolean_gates": [
+      "development_stale_payload_projection_exact",
+      "stale_payload_exposure_is_zero",
+      "stale_payload_metadata_projection_is_one",
+      "test_stale_payload_projection_exact"
+    ],
+    "report_path": "artifacts/evaluations/runs/baseline-0028-final-source-attempt-001.json",
+    "report_bytes": 950293,
+    "report_sha256": "a86cac5898fd27ab3a585e4f33064bf83b31bdd18e5881f556eaf0da84f03169",
+    "trace_path": "artifacts/evaluations/runs/baseline-0028-final-source-attempt-001.traces.jsonl",
+    "trace_bytes": 192828,
+    "trace_sha256": "4e146ed6fe92918e925e13b49cdf52ece86972346ff5dc4dc76a00f111922c05",
+    "manifest_path": "artifacts/evaluations/runs/baseline-0028-final-source-attempt-001.manifest.json",
+    "manifest_bytes": 15511,
+    "manifest_sha256": "846f9ae732aee6fbb4dc9ea13fe7e11f95eaafff2309e36128a22045a94783df"
+  },
+  "classification": "operator invocation mismatch: retrieval matched the sealed candidate, but the decision-context configuration did not; the four stale-payload boundary gates correctly failed",
+  "disposition": "retain attempt 001 and rerun as immutable attempt 002 with the exact sealed decision-context configuration; do not run package evaluation or build an image from this result",
+  "package_evaluation_ran": false,
+  "image_built": false
+}

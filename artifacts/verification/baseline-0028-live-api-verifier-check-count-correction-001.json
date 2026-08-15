@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "status": "correction",
+  "observed_at_utc": "2026-08-15T15:59:00Z",
+  "corrects_count_only": [
+    "artifacts/verification/baseline-0028-live-api-verifier-identity-failure-001.json",
+    "artifacts/verification/baseline-0028-live-api-verifier-correction-seal-local.json"
+  ],
+  "original_statement": {"passing": 109, "total": 110},
+  "corrected_statement": {"passing": 116, "total": 117},
+  "evidence": {
+    "predecessor_commit": "67130c1184f02875d33961a90d36047c047bf07d",
+    "predecessor_verifier_check_entries": 117,
+    "corrected_verifier_check_entries": 117,
+    "verifier_diff_changes_check_count": false,
+    "false_checks": ["dashboard_baseline_exact"],
+    "false_check_count": 1,
+    "failure_classification_unchanged": true,
+    "dashboard_identity_and_visual_result_unchanged": true
+  },
+  "history_policy": "The already public receipts remain byte-preserved. This correction supersedes only their manually entered total and passing counts; it does not replace or soften the failed verifier result."
+}

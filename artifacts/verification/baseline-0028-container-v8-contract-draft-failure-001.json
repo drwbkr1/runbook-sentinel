@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "status": "retained_failure",
+  "attempt": 1,
+  "observed_at_utc": "2026-08-13T04:46:00Z",
+  "operation": "container-runtime-v8 contract draft validation",
+  "result": "The independent validator failed closed because the draft v8 contract added a WORKDIR instruction that was absent from released container-runtime-v7 and reused current Dockerfile constants while validating historical v7 bytes.",
+  "classification": "agent-authored contract-draft inheritance defect; no archive or image existed and no runtime, security, or product evidence was promoted",
+  "disposition": "remediate by inheriting the exact released no-WORKDIR sequence and separating historical v7 constants from current v8 constants",
+  "recovery_verified": {
+    "current_contract_sha256": "b15f418ea7b0b872ebb4f0d2df76b00a2f2cf9ce89901558d1156ce54bc74344",
+    "contract_id": "container-runtime-v8",
+    "implementation_phase": "implemented_v8",
+    "validator_status": "pass",
+    "archive_created": false,
+    "image_built": false
+  }
+}

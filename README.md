@@ -18,7 +18,7 @@ Run all commands from the repository root with Python 3.12 or newer.
 
 ```powershell
 $env:PYTHONPATH = 'src'
-python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0027-manual.json
+python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0028-manual.json
 python -m unittest discover -s tests -v
 python -m runbook_sentinel serve --host 127.0.0.1 --port 8765
 ```
@@ -29,8 +29,8 @@ Build and verify the standard-library-only zipapp without installing a build bac
 
 ```powershell
 python scripts/build_zipapp.py
-python scripts/verify_package_contract.py --contract eval/package-contract-0027.json --archive dist/runbook-sentinel-0.0.27.pyz
-python dist/runbook-sentinel-0.0.27.pyz --help
+python scripts/verify_package_contract.py --contract eval/package-contract-0028.json --archive dist/runbook-sentinel-0.0.28.pyz
+python dist/runbook-sentinel-0.0.28.pyz --help
 ```
 
 The builder uses an exact 41-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. The container is a digest-pinned local verification surface; no package-registry or container-image publication claim is made.

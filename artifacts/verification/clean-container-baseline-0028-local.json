@@ -1,0 +1,208 @@
+{
+  "build": {
+    "command": [
+      "docker",
+      "buildx",
+      "build",
+      "--no-cache",
+      "--network=none",
+      "--provenance=false",
+      "--sbom=false",
+      "--platform=linux/amd64",
+      "--output",
+      "type=image,name=runbook-sentinel:baseline-0028-clean-08d2512c07,rewrite-timestamp=true,unpack=false,store=true,push=false",
+      "."
+    ],
+    "exit_code": 0,
+    "exporter_error": false,
+    "log_bytes": 1605,
+    "log_path": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0028-clean-container-evidence-20260815T163050Z\\clean-build.log",
+    "log_sha256": "550156e4aaca8cce03afcc89f52c6b1860f297afce41e84e897e1b5703bc38c4",
+    "source_date_epoch": "1786594080"
+  },
+  "builder": {
+    "buildx_inspect_sha256": "d219af5fda69ce0b42266c982ac3d9c5be69e44d8dcfbfa5b965efbfc6051f44",
+    "buildx_version": "github.com/docker/buildx v0.33.0-desktop.1 7f91f038ac14cbf5c4b2a6b76470860814424da1",
+    "checks": {
+      "buildkit": true,
+      "docker_buildx": true,
+      "docker_desktop": true,
+      "docker_engine": true,
+      "driver": true
+    },
+    "docker_version_sha256": "a854874cfba526fdbef6ef182893ba24c15e20b7bc9eba82d4cb566ea48f627e",
+    "observed": {
+      "buildkit": "0.29.0",
+      "docker_buildx": "0.33.0-desktop.1",
+      "docker_desktop": "4.74.0",
+      "docker_engine": "29.4.3",
+      "driver": "docker"
+    }
+  },
+  "checkpoint": "baseline-0028",
+  "created_at_frozen": true,
+  "created_at_utc": "2026-08-13T04:08:00Z",
+  "exact": true,
+  "expected_image_id": "sha256:9a62f5e1daf61089ef6c9ceb71afd930c72ea60874bcec4eba78c4fc35467e2e",
+  "image_id": "sha256:9a62f5e1daf61089ef6c9ceb71afd930c72ea60874bcec4eba78c4fc35467e2e",
+  "image_validation": {
+    "checks": {
+      "added_layer_count": true,
+      "base_rootfs_prefix": true,
+      "cmd": true,
+      "created_at_frozen": true,
+      "entrypoint": true,
+      "labels": true,
+      "local_content_digest": true,
+      "payload_allowlist": true,
+      "user": true,
+      "workdir": true
+    },
+    "config_workdir": null,
+    "filesystem": [
+      {
+        "bytes": 948230,
+        "gid": 65532,
+        "path": "/opt/runbook-sentinel/evaluation.json",
+        "sha256": "e9a2d7f93ea17fa146b41b11208e05b830abc698b3dd9fd9f0dad7916b312179",
+        "uid": 65532
+      },
+      {
+        "bytes": 619465,
+        "gid": 65532,
+        "path": "/opt/runbook-sentinel/runbook-sentinel.pyz",
+        "sha256": "c770fc21ece71f3728d366575a9233100aeb5cbb40f5026be7814ae3c7977044",
+        "uid": 65532
+      }
+    ],
+    "repo_digests": [
+      "runbook-sentinel@sha256:9a62f5e1daf61089ef6c9ceb71afd930c72ea60874bcec4eba78c4fc35467e2e"
+    ],
+    "rootfs_layers": [
+      "sha256:e20422a64152e6202092f14cf2a51cf6d6da5c5e33ba0fb1e9408676446cf90a",
+      "sha256:018d3987342beb49eeb6d78bbbce6a566905b259f716afb9f88e4e945631282d",
+      "sha256:c595efa270d88247a93c29fd513c3c7a1870f8c3e7e4f060a6c69351fadf019c",
+      "sha256:a7613bad6cfd5f641d591e4dde7e145962bcba6b37a924d859fe0c4b2203bcd9",
+      "sha256:386bd609cc72f9cbcd2e5033df95dac3c012b25568b351ac43554988aecf6696",
+      "sha256:059bbf8e4d785433d8a519d7235bea25d32fec8d6e4907dfe78e47fdec38b6cc",
+      "sha256:22516be037ba95896becac2dc910ccce5ba84af6db35b9ae4cd21dacb1a4b6d4",
+      "sha256:7de63fdd037bf24ee5fed6036c8229cdeb2d8f4462a990b00316814fc2927557",
+      "sha256:fe2d79f38224db6597d1fb82f5753c2a42c091ed4920aa55f600419498c997bb",
+      "sha256:ad9c53da18ac772b2e236ccca4cd8423a19016893429a5de88d235b249d358d0",
+      "sha256:f466517c8afa7c59ebb03fed4606fdc8d14b8b7234c24243640cf346a2892caa",
+      "sha256:9e517fbb91d253db80eb8ec7681cf1cffe69b1aa4605fb8a506aae733371ba22",
+      "sha256:728854b1b88516a408deff9df7122a703514a5868291b1f164524274ace3ed1a"
+    ],
+    "runtime_workdir": "/"
+  },
+  "observed_at_utc": "2026-08-15T16:31:11.492725Z",
+  "prerequisites": {
+    "checks": {
+      "container_contract": true,
+      "evaluation_checkpoint": true,
+      "manifest": true,
+      "package": true
+    },
+    "container_contract": {
+      "checkpoint": "baseline-0028",
+      "contract_id": "container-runtime-v8",
+      "contract_sha256": "b15f418ea7b0b872ebb4f0d2df76b00a2f2cf9ce89901558d1156ce54bc74344",
+      "errors": [],
+      "implementation_phase": "implemented_v8",
+      "receipt_state": "absent",
+      "status": "pass"
+    },
+    "evaluation_sha256": "e9a2d7f93ea17fa146b41b11208e05b830abc698b3dd9fd9f0dad7916b312179",
+    "manifest": {
+      "checkpoint": "baseline-0028",
+      "file_count": 129,
+      "status": "pass"
+    },
+    "package": {
+      "archive": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0028-clean-20260815T163050Z\\dist\\runbook-sentinel-0.0.28.pyz",
+      "archive_bytes": 619465,
+      "archive_checked": true,
+      "archive_sha256": "c770fc21ece71f3728d366575a9233100aeb5cbb40f5026be7814ae3c7977044",
+      "checkpoint": "baseline-0028",
+      "contract": "C:\\Projects\\Verification\\runbook-sentinel-baseline-0028-clean-20260815T163050Z\\eval\\package-contract-0028.json",
+      "contract_frozen_before_archive_build": true,
+      "contract_frozen_before_implementation": false,
+      "contract_sha256": "774c826b1e2c608aeb5263ae0496f1ec1b007789a004997f3da21ca9e099983c",
+      "contract_status": "frozen_before_archive_build",
+      "entry_count": 42,
+      "errors": [],
+      "status": "pass"
+    },
+    "package_sha256": "c770fc21ece71f3728d366575a9233100aeb5cbb40f5026be7814ae3c7977044"
+  },
+  "publication": {
+    "image_exported": false,
+    "image_pushed": false,
+    "local_image_events": {
+      "checks": {
+        "actions_allowlisted": true,
+        "both_tags_observed": true,
+        "scope_local": true
+      },
+      "events": [
+        {
+          "Action": "create",
+          "Actor": {
+            "Attributes": {
+              "dev.chainguard.image.title": "python",
+              "dev.chainguard.package.main": "",
+              "dev.runbook-sentinel.base.digest": "sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5",
+              "name": "sha256:9a62f5e1daf61089ef6c9ceb71afd930c72ea60874bcec4eba78c4fc35467e2e",
+              "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
+              "org.opencontainers.image.created": "2026-08-09T04:38:19Z",
+              "org.opencontainers.image.description": "Research-informed synthetic SRE incident-agent preview",
+              "org.opencontainers.image.source": "https://github.com/drwbkr1/runbook-sentinel",
+              "org.opencontainers.image.title": "Runbook Sentinel",
+              "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/python/overview",
+              "org.opencontainers.image.vendor": "Chainguard",
+              "org.opencontainers.image.version": "0.0.28"
+            },
+            "ID": "sha256:9a62f5e1daf61089ef6c9ceb71afd930c72ea60874bcec4eba78c4fc35467e2e"
+          },
+          "Type": "image",
+          "scope": "local",
+          "time": 1786811467,
+          "timeNano": 1786811467866314709
+        },
+        {
+          "Action": "tag",
+          "Actor": {
+            "Attributes": {
+              "dev.chainguard.image.title": "python",
+              "dev.chainguard.package.main": "",
+              "dev.runbook-sentinel.base.digest": "sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5",
+              "name": "runbook-sentinel:baseline-0028-clean-08d2512c07",
+              "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
+              "org.opencontainers.image.created": "2026-08-09T04:38:19Z",
+              "org.opencontainers.image.description": "Research-informed synthetic SRE incident-agent preview",
+              "org.opencontainers.image.source": "https://github.com/drwbkr1/runbook-sentinel",
+              "org.opencontainers.image.title": "Runbook Sentinel",
+              "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/python/overview",
+              "org.opencontainers.image.vendor": "Chainguard",
+              "org.opencontainers.image.version": "0.0.28"
+            },
+            "ID": "sha256:9a62f5e1daf61089ef6c9ceb71afd930c72ea60874bcec4eba78c4fc35467e2e"
+          },
+          "Type": "image",
+          "scope": "local",
+          "time": 1786811467,
+          "timeNano": 1786811467889605089
+        }
+      ]
+    }
+  },
+  "schema_version": "1.0",
+  "source_date_epoch": {
+    "manifest_path": "artifacts/evaluations/runs/baseline-0028-source-attempt-001.manifest.json",
+    "manifest_sha256": "5bbd08327b569aba4381f7ea7a0dd01e0c05fc07e0861dcd7e35788bee763a9a",
+    "utc": "2026-08-13T04:08:00Z",
+    "value": "1786594080"
+  },
+  "status": "pass",
+  "tag": "runbook-sentinel:baseline-0028-clean-08d2512c07"
+}

@@ -1,0 +1,275 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0028",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "active_contract": "contracts/milestone-0028.json",
+    "verified_at_utc": "2026-08-13T03:20:00Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Separate hostile guidance that retrieval never selects from hostile guidance retrieved then filtered, using one additive fail-closed four-stage metric and real-surface reporting without changing any scenario, retrieval, incident-agent behavior, or authority boundary.",
+    "allowed_paths": [
+      "C:/Projects/Active/runbook-sentinel",
+      "C:/Projects/Verification"
+    ],
+    "forbidden_work": [
+      "change any scenario, expected result, terminal state, document, retriever, ranking, decision context, agent, model, prompt, or output schema",
+      "replace or reinterpret the released three-stage exposure metric; the successor must be additive",
+      "count guidance never retrieved as post-retrieval filtering success",
+      "silently accept mixed trial stages, malformed retrieval identities, or ambiguous catalog stages",
+      "add or change an action, capability, policy, approval, authentication, executor, API authority, or MCP authority",
+      "add a dependency, paid service, secret, model asset, externally controlled asset, or real-infrastructure connector",
+      "weaken any source, package, container, security, clean-clone, review, or public-release gate",
+      "claim the new metric improves retrieval behavior or proves production readiness or universal prompt-injection resistance"
+    ],
+    "reversible_actions": [
+      "create and update project-authored files on codex/baseline-0028-retrieval-stage-observability",
+      "run deterministic source package container dashboard and clean-clone verification under C:/Projects",
+      "version commit push review merge and release the exact verified source plus zipapp checkpoint after all gates pass"
+    ],
+    "stop_conditions": [
+      "core thesis change or security-boundary weakening",
+      "the metric cannot be computed from already-retained exact retrieval identities without changing runtime behavior",
+      "any scenario, terminal state, retriever, decision context, action, authority, dependency, secret, paid service, external asset, or real infrastructure would need to change",
+      "source package container real surfaces clean clone release or public tag cannot be verified",
+      "container image publication or redistribution becomes necessary"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Verified public v0.0.27 release, selected zipapp/checksum, downloads, rendered pages, public-tag source/package/container, MCP, API, state, telemetry, dashboard, and scan evidence reconcile in artifacts/verification/public-tag-baseline-0027.json.",
+        "A fresh exact public-tag source evaluation passes 57 scenarios, 171 attempts, separate metric families, and an anchored 261-event trace.",
+        "The existing three-stage exposure metric passes its frozen eighteen-cell contract and remains immutable for compatibility.",
+        "Exact attempt retrieval identities separate sixty retrieved-filtered hostile-guidance attempts from six never-retrieved attempts, with one never-retrieved diagnose case in each split and no observed behavior failure.",
+        "The four-stage project-authored matrix contains ten observed-valid stage/outcome pairs and twenty populated split cells without adding a scenario."
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": [
+        "The additive four-stage metric and per-attempt retrieval counts fail closed on ambiguity and are exact on all frozen development and held-out cases.",
+        "All 57 prior scenario and terminal identities, all incident-agent behavior, the three-stage metric, and every authority boundary remain exact.",
+        "Source, zipapp, MCP, API, persisted state, telemetry, dashboard, local container, clean clone, review, release, downloads, rendered pages, and public tag verify the same distinction without publishing container image bytes."
+      ]
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Resume from verified public v0.0.27, run the accepted system, inspect traces and separated metrics, and freeze the exact retrieval-stage observability weakness before implementation.",
+      "depends_on": [],
+      "action_class": "evidence_preservation",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": [
+        "artifacts/verification/orientation-baseline-0028.json",
+        "eval/adversarial-retrieval-stage-outcome-split-coverage-prechange.json",
+        "eval/adversarial-retrieval-stage-outcome-split-coverage-contract.json",
+        "scripts/verify_adversarial_retrieval_stage_outcome_split_coverage_contract.py",
+        "docs/adr/0023-separate-guidance-retrieval-from-filtering.md"
+      ],
+      "gates": {
+        "public_checkpoint_reconciled": "pass",
+        "fresh_source_evaluation_and_trace": "pass",
+        "separate_metrics_and_real_surfaces_inspected": "pass",
+        "highest_leverage_weakness_selected": "pass",
+        "all_57_scenarios_and_terminal_states_hash_bound": "pass",
+        "four_stage_twenty_cell_contract_frozen_before_implementation": "pass",
+        "preimplementation_validator_pass": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "A refined-stage probe produced the correct matrix but its combined command exited one after a later rg named nonexistent src/runbook_sentinel/core.py. The matrix was independently rerun and no product state changed."
+      ],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Implement only the frozen additive four-stage evaluator, contract validation, focused fail-closed tests, and required checkpoint identity without changing cases or runtime behavior.",
+      "depends_on": ["UNIT-001"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "published preimplementation freeze",
+        "exact 57-case identity chain",
+        "frozen twenty-cell matrix and sixty-versus-six attempt counts"
+      ],
+      "outputs": [
+        "additive evaluator and gates",
+        "exact runtime catalog contract",
+        "focused fail-closed tests",
+        "v0.0.28 checkpoint identity"
+      ],
+      "gates": {
+        "freeze_public_before_implementation": "pass",
+        "existing_three_stage_metric_unchanged": "pass",
+        "all_57_scenarios_and_terminal_states_exact": "pass",
+        "mixed_missing_malformed_and_ambiguous_stages_fail_closed": "pass",
+        "no_agent_retrieval_policy_authority_or_dependency_change": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "UNIT-002 full regression attempt 001 ran 59 tests: 58 passed and test_stale_payload_contract_fails_closed_on_corruption failed because the stale-payload validator still required catalog schema 1.17 after the frozen contract-only increment to 1.18. Retained at artifacts/verification/baseline-0028-unit-002-regression-failure-001.json; disposition remediate."
+      ],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Seal the implementation and reveal one immutable source candidate against the frozen metric, trace, safety, compatibility, and full-regression gates.",
+      "depends_on": ["UNIT-002"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["public implementation seal"],
+      "outputs": ["immutable source report trace and candidate receipt"],
+      "gates": {
+        "implementation_sealed_before_candidate": "pass",
+        "twenty_cells_exact": "pass",
+        "sixty_retrieved_filtered_and_six_never_retrieved_attempts_exact": "pass",
+        "all_prior_gates_exact": "pass",
+        "anchored_trace_exact": "pass",
+        "proposal_and_terminal_attack_success_zero": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "UNIT-003 manifest regression attempt 001 ran 59 tests: 58 passed and test_evaluation_reports_separate_metrics_and_passes_control_gates failed only because its assertion expected baseline-0027 after the authoritative manifest correctly advanced to baseline-0028. Retained at artifacts/verification/baseline-0028-manifest-regression-failure-001.json; disposition remediate and renew manifest."
+      ],
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Verify the package, MCP, API, state, telemetry, dashboard, local container, scan, and clean-clone surfaces with the additive metric visible and exact.",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["passing immutable source candidate and final manifest"],
+      "outputs": ["candidate and clean-clone real-surface receipts"],
+      "gates": {
+      "source_package_metric_parity": "pass",
+      "api_dashboard_new_metric_exact": "pass",
+      "mcp_authority_unchanged": "pass",
+      "state_telemetry_and_trace_exact": "pass",
+      "container_metric_parity_and_security_exact": "pass",
+      "clean_clone_reproduction": "pass",
+      "artifact_parse_secret_model_scan": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "UNIT-004 package-freeze focused-test attempt 001 passed two of three tests; the prerequisite fixture attempted to hash the intentionally absent v0.0.28 archive after mocked validator success. Retained at artifacts/verification/baseline-0028-package-freeze-focused-test-failure-001.json; the self-contained fixture now mocks immutable hashes and passes while package bytes remain absent.",
+        "The first full-test wrapper misclassified unittest verbose stderr and the first validator inventory invoked the retrieval-stage contract in preimplementation mode. Both wrapper failures are retained; explicit subprocess execution passes 59 of 59 tests and all 34 current non-runtime validators.",
+        "The first container-runtime-v8 draft accidentally introduced historical WORKDIR content and reused current Dockerfile constants while checking v7. The validator failed closed before any archive or image build; the corrected exact-inheritance result and failure receipt are retained.",
+        "Final source attempt 001 used evidence-only-context-v2 instead of the sealed fresh-content-stale-metadata-context-v3 and correctly returned remediate on four stale-payload gates; attempt 002 corrected only the invocation and passed.",
+        "The first source API/dashboard verifier run passed 116 of 117 checks and rendered BASELINE 0028, but its manifest-bound verifier still required Baseline 0027. The original public receipt's count-only 109/110 statement is retained and superseded by a static recount; the stale verifier failure and old-manifest package remain retained.",
+        "Static preflight before the first container image build found container-runtime-v8 still required the predecessor dashboard text and its contract validator did not reject that stale literal. No image was built. The package is retained as superseded; a bounded verifier/validator correction and renewed public manifest must precede replacement package bytes.",
+        "The first uncommitted canonical-receipt composition wrapper rounded four Docker event nanosecond integers through JavaScript number conversion. Exact values were restored from the generated full receipt and verified before commit; no product or image bytes changed.",
+        "The first canonical-evidence push failed before verified remote mutation because github.com did not resolve. The exact failure is retained; the unchanged commit and its failure receipt were subsequently published and remotely verified."
+      ],
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Audit, review, merge, release source plus zipapp only, and independently verify the exact public tag including the local-only container path.",
+      "depends_on": ["UNIT-004"],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "in_progress",
+      "inputs": [
+        "verified candidate and clean-clone evidence",
+        "premerge audit and exact reviewed GitHub head",
+        "inherited director release authority"
+      ],
+      "outputs": [
+        "history-preserving reviewed merge",
+        "annotated v0.0.28 and selected public zipapp assets",
+        "public-tag source package and local-container reproduction receipt"
+      ],
+      "gates": {
+        "premerge_release_audit_verified": "pending",
+        "exact_reviewed_head_merged_with_history_preserved": "pending",
+        "fresh_public_main_complete_stack": "pending",
+        "final_release_audit_verified": "pending",
+        "public_refs_assets_downloads_pages_reconciled": "pending",
+        "no_container_image_bytes_published": "pending",
+        "fresh_public_tag_complete_stack": "pending"
+      },
+      "disposition": null,
+      "retained_failures": [
+        "The first UNIT-005 transition-validation wrapper used stale --contract and --result option names; its corrected container call then guessed a nonexistent contract path. Each attempt stopped before changing evidence; the exact process-invalid receipt is retained and the authoritative current CLIs pass.",
+        "The premerge composite validator passed both selected trace anchors, the archive contract, the required-result container contract, and compilation before guessing a nonexistent dist subpath inside independent build-D custody. The failed wrapper and corrected exact byte comparison are retained.",
+        "A premerge help probe passed --help to verify_baseline.py, which has no argument parser and ran its full workflow. The fresh passing evaluation is retained but excluded as process-invalid; latest.json is restored byte-exact to the predeclared final source attempt 004."
+      ],
+      "next_dependency": null
+    }
+  ],
+  "current_unit": "UNIT-005",
+  "next_action": "Run the governed premerge release-truth audit against exact public head 9dc57f82e3fb3204853129a27246090c451d7739, then continue through exact review and release gates only on verified evidence.",
+  "path_efficiency": {
+    "max_consecutive_no_progress_units": 2,
+    "review_action_class": "project_control",
+    "review_human_gate": false
+  },
+  "verification": {
+    "changed_risks": [
+      "an aggregate metric can mislabel retrieval avoidance as post-retrieval filtering success",
+      "multiple declared hostile documents can make all-versus-any retrieval semantics ambiguous",
+      "mixed trials or missing retrieval identities can be normalized into a favorable stage",
+      "adding a metric can accidentally replace historical evidence or change agent behavior",
+      "source-only metric success can hide a stale API dashboard package or container surface"
+    ],
+    "required_checks": [
+      "exact public-tag source report trace and 57-case identity chain",
+      "frozen ten-pair twenty-cell four-stage matrix and sixty-versus-six per-attempt counts",
+      "independent preimplementation and implementation validation",
+      "fail-closed mixed missing malformed and ambiguous stage tests",
+      "exact preservation of the released three-stage metric all cases terminal states and authority boundaries",
+      "source package MCP API state telemetry dashboard container scan clean clone review release and public-tag verification",
+      "retention of failed stale blocked corrected superseded excluded and unfavorable evidence"
+    ],
+    "completed_checks": [
+      "verified public v0.0.27 public-release receipt 64f2bf6f2350240c2e6b4bedca231489b87b47f2e2d64a7702e4a0b4bc0d319b and reconciliation commit 3e9a8a3b90059c99a81ab50678c6560aa7379a54",
+      "fresh public-tag source evaluation with 57 scenarios 171 attempts and exact 261-event anchor",
+      "four refined stage split counts and twenty observed-valid cells measured directly from exact catalog attack IDs and per-attempt retrieved_document_ids"
+      ,"all 57 scenario and terminal identities hash-bound through the prechange chain; independent preimplementation validation passes with the successor runtime contract absent",
+      "public pre-reveal manifest 5bbd08327b569aba4381f7ea7a0dd01e0c05fc07e0861dcd7e35788bee763a9a binds 127 exact paths before candidate reveal",
+      "immutable source attempt 001 passes 57 scenarios, 171 attempts, 126 Boolean gates, the exact twenty-cell split, sixty-versus-six attempt counts, zero ambiguity, zero proposal and terminal attack success, and an anchored 261-event trace"
+      ,"exact v0.0.28 package and container-runtime-v8 contracts plus the 129-file final manifest passed 59 tests and 34 non-runtime validators before any archive or image build and are public at content seal bf5a01e7878914a18216f4c315be3a1762c8ff4b"
+      ,"the manifest-bound live-API verifier correction renews the 129-file manifest to f45f6f6270d6bca1ea11a250b4b5ce7e787d8ccc4f704e4535b99f72c18df50b and passes 60 tests plus 34 validators with selected archive and image absent",
+      "public container receipt verifies exact canonical SHA-256 1e5923201b5710be2987e411f92d2a9cc0e12db0b41fbc5ac15a56235edc0e21, all 44 checks, three exact local image tags, clean-clone reproduction, public GitHub bytes, and no image export push or publication"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "Verified public v0.0.27 remains immutable at audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e. BASELINE-0028 UNIT-004 is complete: exact public branch head 9dc57f82e3fb3204853129a27246090c451d7739 exposes canonical 44-of-44 container receipt SHA-256 1e5923201b5710be2987e411f92d2a9cc0e12db0b41fbc5ac15a56235edc0e21; three local builds reproduce image ID sha256:9a62f5e1daf61089ef6c9ceb71afd930c72ea60874bcec4eba78c4fc35467e2e, and no image bytes were exported pushed or published.",
+    "next_action": "Run the governed premerge release-truth audit for UNIT-005 against the exact public branch head, then continue only through gates that verify exactly.",
+    "do_not_carry_forward": [
+      "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
+      "any replacement or reinterpretation of the existing three-stage metric",
+      "any claim that guidance_not_retrieved proves filtering success or that the new metric improves behavior",
+      "any normalization of mixed missing malformed or ambiguous retrieval stages",
+      "any container image export registry authentication push publication or redistribution",
+      "any rewrite or deletion of failed stale blocked corrected superseded excluded or unfavorable evidence",
+      "any production universal-safety cross-builder or perpetual-CVE claim"
+    ]
+  }
+}

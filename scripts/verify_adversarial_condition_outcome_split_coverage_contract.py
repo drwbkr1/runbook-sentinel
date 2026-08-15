@@ -14,6 +14,12 @@ MEASUREMENT_PATH = (
     ROOT
     / "artifacts/verification/adversarial-condition-outcome-split-gap-baseline-0024.json"
 )
+CONTROLLED_HISTORICAL_PACKAGE_PATH = (
+    ROOT
+    / "artifacts/verification/controlled-intake/"
+    "baseline-0028-historical-package-v0.0.23-001/"
+    "runbook-sentinel-0.0.23.pyz"
+)
 STARTING_COMMIT = "c29c20394ea39289def2dddd95b5ae8413a8fe93"
 CASE_IDS = [
     "test-conflicting-deployment-evidence-inband-injection",
@@ -256,7 +262,7 @@ def main() -> None:
     package_record = measurement.get("package_evaluation", {})
     if package_record.get("archive_path") != "dist/runbook-sentinel-0.0.23.pyz":
         errors.append("package_archive_path_mismatch")
-    archive = ROOT / str(package_record.get("archive_path", ""))
+    archive = CONTROLLED_HISTORICAL_PACKAGE_PATH
     if (
         not archive.is_file()
         or archive.stat().st_size != 500823
@@ -375,7 +381,7 @@ def main() -> None:
             errors.append("prechange_catalog_schema_mismatch")
         if sha256(CATALOG_PATH) != prechange.get("prechange_catalog_sha256"):
             errors.append("prechange_catalog_sha256_mismatch")
-    elif catalog.get("schema_version") not in {"1.15", "1.16", "1.17"}:
+    elif catalog.get("schema_version") not in {"1.15", "1.16", "1.17", "1.18"}:
         errors.append("candidate_catalog_schema_mismatch")
 
     frozen_scenarios, frozen_terminal_states = identity_chain(PRECHANGE_PATH)

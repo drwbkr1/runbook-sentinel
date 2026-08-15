@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-002",
+  "status": "retained_failure",
+  "attempt": 1,
+  "test_command": "python -m unittest discover -s tests -v",
+  "result": {
+    "tests_run": 59,
+    "passed": 58,
+    "failed": 1,
+    "failed_test": "test_stale_payload_contract_fails_closed_on_corruption",
+    "failure": "scripts/verify_stale_payload_projection.py rejected the permitted catalog schema increment from 1.17 to 1.18"
+  },
+  "classification": "compatibility-validator identity lag; no incident-agent, retrieval, policy, authority, or scenario behavior failure",
+  "disposition": "remediate",
+  "retention_rule": "This failed attempt remains part of checkpoint history after correction."
+}
