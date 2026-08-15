@@ -153,7 +153,7 @@
       "status": "in_progress",
       "gates": {
         "source_candidate_public_and_exact": "pass",
-        "package_and_container_contracts_public_before_build": "pending",
+        "package_and_container_contracts_public_before_build": "pass",
         "source_package_metric_and_behavior_parity": "pending",
         "mcp_api_state_telemetry_dashboard_exact": "pending",
         "local_container_and_scan_exact": "pending",
@@ -177,7 +177,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Commit and publish the exact v0.0.29 package contract, container-runtime-v9 contract, 135-file final manifest, retained failures, and local pre-build seal; verify their public bytes before constructing archive or image bytes.",
+  "next_action": "Build two independent v0.0.29 archives from public pre-build seal 9804ba864f2231c2d124a767f773049a3cccb481, then verify exact source/package evaluation, MCP, API, persisted-state, telemetry, and rendered-dashboard parity before any container image build.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -214,11 +214,12 @@
       ,"immutable baseline-0029 source attempt 001 passes 57 scenarios 171 attempts all 136 Boolean gates exact frozen retrieval-quality metrics and an anchored 261-event trace"
       ,"public source-candidate seal 0a8ad6f5fe54268473893a862ad12552db5fcd80 is exact across local tracking ls-remote GitHub API and five public raw paths before package or image construction"
       ,"local pre-build seal freezes a 43-entry dependency-free package contract container-runtime-v9 with 45 required checks and a 135-file manifest; 71 tests and 35 project validators pass with archive and image bytes absent"
+      ,"public pre-build seal 9804ba864f2231c2d124a767f773049a3cccb481 is exact across local tracking ls-remote GitHub API and ten raw paths; remote and local archive receipt and image absence remain exact"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0029 source candidate is public and exact. The local pre-build seal passes for the 43-entry package contract container-runtime-v9 135-file final manifest 71 tests and 35 project validators; archive and image bytes remain absent.",
-    "next_action": "Publish and remotely verify the exact pre-build seal before constructing archive or image bytes.",
+    "current_checkpoint": "BASELINE-0029 pre-build seal is public and exact at 9804ba864f2231c2d124a767f773049a3cccb481. The 43-entry package contract container-runtime-v9 135-file final manifest 71 tests and 35 project validators pass; archive and image bytes remain absent.",
+    "next_action": "Build two independent archives and verify source/package evaluations plus real surfaces before any container image build.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any claim that non-expected records are semantically irrelevant or expected IDs exhaust relevance",

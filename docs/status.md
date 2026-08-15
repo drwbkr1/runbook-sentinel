@@ -2,12 +2,12 @@
 
 - Project: Runbook Sentinel
 - Authoritative repository: `C:\Projects\Active\runbook-sentinel`
-- Branch: public `main` is exact at verified remote-truth reconciliation commit `90900b60661f77377cb568c3750bb69f5eb0f857`; immutable `v0.0.28` remains at release closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`; the BASELINE-0029 candidate reconciliation is public on `codex/baseline-0029-retrieval-quality-observability` at `e6362f2`, with the final pre-build seal passing locally
+- Branch: public `main` is exact at verified remote-truth reconciliation commit `90900b60661f77377cb568c3750bb69f5eb0f857`; immutable `v0.0.28` remains at release closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`; the BASELINE-0029 final pre-build seal is public on `codex/baseline-0029-retrieval-quality-observability` at `9804ba864f2231c2d124a767f773049a3cccb481`
 - Completed milestones: `BASELINE-0001` through `BASELINE-0010` and `BASELINE-0012` through `BASELINE-0028`; `BASELINE-0011` is stopped and unpublished with its failed evidence retained
 - Latest verified public checkpoint: `v0.0.28`; release reconciliation binds annotated tag object `5026ecff0d2351a3231ea8d340e4b330a31cc52d`, peeled closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`, public release metadata, exactly two selected assets, anonymous downloaded bytes, rendered repository/release/tag pages, and fresh public-tag source/package/local-container evidence
-- Candidate version: source identity `v0.0.29`; immutable source attempt 001 is public and byte-exact, and the local package/container/final-manifest gate passes. No package, image, or release exists.
+- Candidate version: source identity `v0.0.29`; immutable source attempt 001 and the package/container/final-manifest contracts are public and byte-exact. No package, image, or release exists.
 - Active milestone: `BASELINE-0029` retrieval-quality and attack-rank observability
-- Current unit: UNIT-004; publish and remotely verify the exact final pre-build seal before creating archive or image bytes
+- Current unit: UNIT-004; build two independent archives and verify source/package behavior plus real surfaces before any container image build
 - Disposition: baseline-0028 `pass`; baseline-0027 `pass`; baseline-0026 `pass`; baseline-0025 `pass`; baseline-0024 `pass`; baseline-0023 `pass`; baseline-0022 `pass`; baseline-0021 `pass`; baseline-0020 `pass`; baseline-0019 `pass`; baseline-0018 `pass`; baseline-0017 `pass`; baseline-0016 `pass`; baseline-0015 `pass`; baseline-0014 `pass`; baseline-0013 `pass`; baseline-0012 `pass`; v0.0.11 `stop` and unpublished
 - GitHub target owner: `drwbkr1`
 - GitHub repository: `https://github.com/drwbkr1/runbook-sentinel`
@@ -39,6 +39,7 @@
 - Public candidate commit `0a8ad6f5fe54268473893a862ad12552db5fcd80` reconciles across local, tracking, `ls-remote`, GitHub API, and five raw public paths. Two failed public-byte wrappers are retained as process-invalid; the corrected Windows-compatible comparison proves exact lengths and SHA-256 values. Package and image construction remain absent and now depend on a public final pre-build contract seal.
 - The v0.0.29 package contract freezes 43 dependency-free entries at SHA-256 `18a1965b6c5c513b70613aa2ebe9b5dad03b59ef86a0f60ff3b9c7c1edfad92e`, adding only `retrieval_quality.py` to the released archive inventory. `container-runtime-v9` inherits the exact v8 base, hardening, extraction, event, clean-clone, scan, and no-publication boundaries and adds an exact retrieval-quality projection check for 45 total checks; contract SHA-256 is `578ba95099df2b6816ac702dd2cfcfbecb78b8ee6e7849c2ef034e48db930642`.
 - The final 135-file manifest is 16,240 bytes at SHA-256 `7999bbac9813f26ab6ad14947974fb8717e52d3db9c2ec47191ee96ab1c03ddd`, frozen at `2026-08-15T20:21:23Z`. It passes exact verification, all 35 project validators, governed milestone validation, compilation, candidate metric/trace checks, and a 71-of-71 post-freeze suite in 85.870 seconds. Docker remains available, but no v0.0.29 archive, checksum, container receipt, or BASELINE-0029 image exists before publication.
+- Public pre-build commit `9804ba864f2231c2d124a767f773049a3cccb481` reconciles across local, tracking, `ls-remote`, GitHub API, and ten critical raw paths. The public tree contains no v0.0.29 archive, checksum, or container receipt, and the local Docker store contains no BASELINE-0029 image. Two archive builds are now open; Docker construction remains closed until source/package real surfaces pass and that payload is public.
 
 ## Verified evidence
 

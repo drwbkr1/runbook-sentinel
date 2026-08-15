@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-package-seal-public-20260815T202905Z",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T20:29:05Z",
+  "status": "pass",
+  "repository": "https://github.com/drwbkr1/runbook-sentinel",
+  "visibility": "public",
+  "branch": "codex/baseline-0029-retrieval-quality-observability",
+  "commit": "9804ba864f2231c2d124a767f773049a3cccb481",
+  "refs": {
+    "local": "9804ba864f2231c2d124a767f773049a3cccb481",
+    "remote_tracking": "9804ba864f2231c2d124a767f773049a3cccb481",
+    "ls_remote": "9804ba864f2231c2d124a767f773049a3cccb481",
+    "github_api": "9804ba864f2231c2d124a767f773049a3cccb481",
+    "all_equal": true
+  },
+  "public_raw_paths": [
+    {"path": "eval/manifest.json", "bytes": 16240, "sha256": "7999bbac9813f26ab6ad14947974fb8717e52d3db9c2ec47191ee96ab1c03ddd", "exact": true},
+    {"path": "eval/package-contract.json", "bytes": 16765, "sha256": "18a1965b6c5c513b70613aa2ebe9b5dad03b59ef86a0f60ff3b9c7c1edfad92e", "exact": true},
+    {"path": "eval/package-contract-0029.json", "bytes": 16765, "sha256": "18a1965b6c5c513b70613aa2ebe9b5dad03b59ef86a0f60ff3b9c7c1edfad92e", "exact": true},
+    {"path": "eval/container-contract.json", "bytes": 11395, "sha256": "578ba95099df2b6816ac702dd2cfcfbecb78b8ee6e7849c2ef034e48db930642", "exact": true},
+    {"path": "eval/container-contract-0029-v9.json", "bytes": 11395, "sha256": "578ba95099df2b6816ac702dd2cfcfbecb78b8ee6e7849c2ef034e48db930642", "exact": true},
+    {"path": "Dockerfile", "bytes": 811, "sha256": "f680bd182e592c98ad5e9c8981219120c6c6cbc7c1dddf039983330ed1607225", "exact": true},
+    {"path": ".dockerignore", "bytes": 115, "sha256": "adba53cbb63d0ae80ce229ee8749507657fb8501e7b2a18b4a4fe8836e28e8d4", "exact": true},
+    {"path": "scripts/verify_container_runtime.py", "bytes": 56228, "sha256": "6587ade308d4291854bba2ff01776b4626d1f2936ac789d751b79a0dfe2517d9", "exact": true},
+    {"path": "scripts/verify_container_contract.py", "bytes": 62422, "sha256": "01e17095d74c50d6602687d8dbf803b653721fecfbd78cc926ce31a5dc4de3a7", "exact": true},
+    {"path": "artifacts/verification/package-seal-baseline-0029-local.json", "bytes": 3408, "sha256": "7f707a44a9aa60bf2227c1f648c30b01378e480d48e29f1e66bbc1dddb41a013", "exact": true}
+  ],
+  "pre_build_absence": {
+    "public_package_archive": true,
+    "public_package_checksum": true,
+    "public_container_receipt": true,
+    "local_package_archive": true,
+    "local_package_checksum": true,
+    "local_container_receipt": true,
+    "local_baseline_0029_image": true
+  },
+  "authorized_next_action": "Build two independent v0.0.29 archives from this exact public seal, verify byte identity and source/package behavior plus real surfaces, and keep container construction closed until that payload is itself public and exact."
+}

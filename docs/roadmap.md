@@ -16,7 +16,7 @@ UNIT-002 is public and remotely exact at implementation seal `80a8c945516ec926f7
 
 UNIT-003 is complete. The 133-file manifest at SHA-256 `c970ce963aa5d2347ee2e8bd2a9d9551b2d92b798f023a7bffed3e1628a46912` is public and remotely exact at `7a629ee7cc171387b619f5eb6833ad2dbde6eb23`. The one permitted source candidate then passed 57 scenarios, 171 attempts, all 136 Boolean gates, the independent retrieval-quality contract, and an anchored 261-event trace. Its exact report, trace, manifest copy, receipt, and latest pointer are public and remotely reconciled at `0a8ad6f5fe54268473893a862ad12552db5fcd80`.
 
-UNIT-004 now has a passing local pre-build seal: a 43-entry dependency-free package contract, inherited 45-check `container-runtime-v9`, and a 135-file final manifest. All 71 tests, 35 project validators, the governed milestone validator, candidate metric/trace checks, compilation, and absence gates pass. These exact bytes must be public and remotely reconciled before either archive or image construction; source/package, MCP, API, state, telemetry, dashboard, container, scan, and clean-clone evidence remain later gates.
+UNIT-004 pre-build seal is public and remotely exact at `9804ba864f2231c2d124a767f773049a3cccb481`: a 43-entry dependency-free package contract, inherited 45-check `container-runtime-v9`, and a 135-file final manifest. All 71 tests, 35 project validators, the governed milestone validator, candidate metric/trace checks, compilation, and absence gates pass. Two independent archive builds and exact source/package evaluation, MCP, API, state, telemetry, and dashboard parity are next; container construction remains closed until that payload is public and exact.
 
 ## Completed checkpoint baseline-0028 - retrieval-stage observability
 
