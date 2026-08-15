@@ -215,7 +215,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Freeze and publish the exact v0.0.28 package contract plus final manifest before building archive or container bytes, then verify source/package/MCP/API/state/telemetry/dashboard/container/scan/clean-clone parity.",
+  "next_action": "Build two independent v0.0.28 zipapps from the exact public pre-build seal, require byte identity and package-contract verification, then verify source/package/MCP/API/state/telemetry/dashboard parity before any container image build.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -245,11 +245,12 @@
       ,"all 57 scenario and terminal identities hash-bound through the prechange chain; independent preimplementation validation passes with the successor runtime contract absent",
       "public pre-reveal manifest 5bbd08327b569aba4381f7ea7a0dd01e0c05fc07e0861dcd7e35788bee763a9a binds 127 exact paths before candidate reveal",
       "immutable source attempt 001 passes 57 scenarios, 171 attempts, 126 Boolean gates, the exact twenty-cell split, sixty-versus-six attempt counts, zero ambiguity, zero proposal and terminal attack success, and an anchored 261-event trace"
+      ,"exact v0.0.28 package and container-runtime-v8 contracts plus the 129-file final manifest passed 59 tests and 34 non-runtime validators before any archive or image build and are public at content seal bf5a01e7878914a18216f4c315be3a1762c8ff4b"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Verified public v0.0.27 remains immutable at audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e. BASELINE-0028 preimplementation freeze 62e59a3f54c1cd7e9fe3865259c1d510a23750c3, implementation seal 39d9e4ddec994fd9a05fb5d28396fd051ccce258, and pre-reveal manifest seal 04c1a2c3bd150ae7051336106c35f84341e3e5c9 are public and remotely exact. Immutable source attempt 001 passes against that exact manifest; package and real-surface evidence remain absent.",
-    "next_action": "Freeze and publish the exact v0.0.28 package contract plus final manifest before building archive or container bytes, then execute UNIT-004 real-surface verification.",
+    "current_checkpoint": "Verified public v0.0.27 remains immutable at audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e. BASELINE-0028 preimplementation freeze 62e59a3f54c1cd7e9fe3865259c1d510a23750c3, implementation seal 39d9e4ddec994fd9a05fb5d28396fd051ccce258, pre-reveal manifest seal 04c1a2c3bd150ae7051336106c35f84341e3e5c9, source candidate 2b992bba676f30ab1ef0cc015ed8a812a2eba423, and pre-build content seal bf5a01e7878914a18216f4c315be3a1762c8ff4b are public and remotely exact. Immutable source attempt 001 passes; package and container results remain absent.",
+    "next_action": "Build and independently verify two exact v0.0.28 archives, then execute source/package real-surface verification before opening the container image gate.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any replacement or reinterpretation of the existing three-stage metric",
