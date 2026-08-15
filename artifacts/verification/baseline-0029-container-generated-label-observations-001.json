@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-container-generated-label-observations-001",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T21:36:22Z",
+  "status": "non_blocking_observation",
+  "component_receipt": {
+    "path": "artifacts/verification/container-baseline-0029-local.json",
+    "sha256": "030d8a012bcef9bf00ed85fc3791c877d72efc066bbd200375a1a7d90beb8c5e"
+  },
+  "observations": [
+    {
+      "field": "next_gate",
+      "observed": "The generated intermediate sentence says all 43 checks true while the v9 inventory contains 45 checks.",
+      "classification": "stale intermediate instruction text"
+    },
+    {
+      "field": "ephemeral_container_name",
+      "observed": "Runtime extraction commands retain the inherited rs-b0027 temporary-name prefix.",
+      "classification": "stale local diagnostic label"
+    }
+  ],
+  "impact": {
+    "canonical_check_inventory_exact": true,
+    "canonical_check_count": 45,
+    "canonical_false_check_count": 0,
+    "checkpoint_fields_exact": true,
+    "image_identity_affected": false,
+    "runtime_security_affected": false,
+    "evaluation_or_real_surface_affected": false,
+    "publication_boundary_affected": false
+  },
+  "reconciliation": {
+    "canonical_receipt": "artifacts/verification/container-baseline-0029.json",
+    "canonical_next_gate_uses_no_stale_count": true,
+    "canonical_public_input_exact": true,
+    "selected_for_claims": false,
+    "recommended_follow_up": "Treat both inherited diagnostic labels as a bounded verifier-maintenance candidate in a later cycle; do not expand this retrieval-observability checkpoint or rewrite the retained intermediate receipt."
+  }
+}
