@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0028-container-correction-package-source-gate-local-20260815T162600Z",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T16:26:00Z",
+  "status": "pass",
+  "public_input_commit": "8277865ce274e42029c498f132e0029b1a16ebc9",
+  "package_source_receipt": {"path": "artifacts/verification/package-source-baseline-0028-container-correction.json", "sha256": "92fd8fbccd49ec7413e53ebe144511ef898fa9602502c2608fb3943d1173a5ae"},
+  "latest_evaluation_sha256": "e9a2d7f93ea17fa146b41b11208e05b830abc698b3dd9fd9f0dad7916b312179",
+  "archive": {"bytes": 619465, "sha256": "c770fc21ece71f3728d366575a9233100aeb5cbb40f5026be7814ae3c7977044", "reproducible": true},
+  "unit_tests": {"passed": 61, "total": 61, "elapsed_seconds": 131.522},
+  "standalone_validators": {"passed": 34, "total": 34},
+  "artifact_scan": "pass",
+  "compileall": "pass",
+  "milestone_validation": "pass",
+  "git_diff_check": "pass",
+  "pre_publication_state": {"head": "8277865ce274e42029c498f132e0029b1a16ebc9", "baseline_0028_image_count": 0, "container_receipt": "absent"},
+  "authorized_next_action": "Commit, push, and remotely verify this exact post-correction package/source payload before any container image build."
+}
