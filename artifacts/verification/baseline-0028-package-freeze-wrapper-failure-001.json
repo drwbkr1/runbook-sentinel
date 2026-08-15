@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "status": "retained_failure",
+  "observed_at_utc": "2026-08-13T04:49:00Z",
+  "operation": "full pre-build unittest wrapper",
+  "result": "PowerShell converted unittest verbose stderr into NativeCommandError before a trustworthy aggregate disposition",
+  "classification": "wrapper stream-handling failure, not a test failure",
+  "disposition": "superseded by explicit subprocess execution; 59 of 59 tests passed in 145.033 seconds"
+}

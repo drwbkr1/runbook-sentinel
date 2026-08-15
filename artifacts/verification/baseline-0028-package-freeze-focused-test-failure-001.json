@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-004",
+  "status": "retained_failure",
+  "attempt": 1,
+  "observed_at_utc": "2026-08-13T04:43:00Z",
+  "command": "python -m unittest tests.test_baseline.BaselineTest.test_container_v8_prerequisite_requires_current_implementation_phase tests.test_baseline.BaselineTest.test_container_v5_contract_fails_closed_on_event_window_weakening tests.test_baseline.BaselineTest.test_container_v4_build_command_is_frozen_and_local_only",
+  "result": {
+    "tests_run": 3,
+    "passed": 2,
+    "errors": 1,
+    "error": "The prerequisite unit attempted to hash dist/runbook-sentinel-0.0.28.pyz after mocked validator success even though the pre-build contract intentionally forbids creating that archive before publication."
+  },
+  "classification": "test fixture depended on historical v0.0.27 archive presence; no contract, runtime, security, or product failure",
+  "disposition": "remediate the unit to mock immutable hash outputs as well as validator subprocesses; keep v0.0.28 package bytes absent"
+}

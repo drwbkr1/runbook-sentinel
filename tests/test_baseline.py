@@ -113,7 +113,7 @@ class BaselineTest(unittest.TestCase):
         self.temp.cleanup()
 
     def test_container_v4_build_command_is_frozen_and_local_only(self):
-        tag = "runbook-sentinel:baseline-0027-test"
+        tag = "runbook-sentinel:baseline-0028-test"
         command = build_command(tag)
         self.assertEqual(command[:3], ["docker", "buildx", "build"])
         self.assertNotIn("--load", command)
@@ -125,22 +125,22 @@ class BaselineTest(unittest.TestCase):
         self.assertIn("--sbom=false", command)
         self.assertEqual(
             command[command.index("--output") + 1],
-            "type=image,name=runbook-sentinel:baseline-0027-test,"
+            "type=image,name=runbook-sentinel:baseline-0028-test,"
             "rewrite-timestamp=true,unpack=false,store=true,push=false",
         )
-        self.assertEqual(SOURCE_DATE_EPOCH, "1786556577")
-        self.assertEqual(SOURCE_DATE_EPOCH_UTC, "2026-08-12T17:42:57Z")
+        self.assertEqual(SOURCE_DATE_EPOCH, "1786594080")
+        self.assertEqual(SOURCE_DATE_EPOCH_UTC, "2026-08-13T04:08:00Z")
         self.assertEqual(EXPECTED_BUILDER["buildkit"], "0.29.0")
 
-    def test_container_v7_prerequisite_requires_current_implementation_phase(self):
+    def test_container_v8_prerequisite_requires_current_implementation_phase(self):
         contract = {
             "status": "pass",
-            "implementation_phase": "implemented_v7",
+            "implementation_phase": "implemented_v8",
         }
         manifest = {"status": "pass"}
         package = {"status": "pass"}
         evaluation = {
-            "checkpoint": "baseline-0027",
+            "checkpoint": "baseline-0028",
             "gates": {"baseline_disposition": "pass"},
         }
 
@@ -155,14 +155,20 @@ class BaselineTest(unittest.TestCase):
         with mock.patch(
             "scripts.verify_container_runtime.run",
             side_effect=[completed(contract), completed(manifest), completed(package)],
+        ), mock.patch(
+            "scripts.verify_container_runtime.sha256_file",
+            return_value="0" * 64,
         ):
             result = validate_prerequisites(evaluation)
         self.assertTrue(result["checks"]["container_contract"])
 
-        contract["implementation_phase"] = "implemented_v6"
+        contract["implementation_phase"] = "implemented_v7"
         with mock.patch(
             "scripts.verify_container_runtime.run",
             side_effect=[completed(contract), completed(manifest), completed(package)],
+        ), mock.patch(
+            "scripts.verify_container_runtime.sha256_file",
+            return_value="0" * 64,
         ):
             with self.assertRaisesRegex(AssertionError, '"container_contract": false'):
                 validate_prerequisites(evaluation)
@@ -200,6 +206,10 @@ class BaselineTest(unittest.TestCase):
         errors: list[str] = []
         validate_container_contract(contract, raw, errors)
         self.assertEqual(errors, [])
+        self.assertIn(
+            "container_retrieval_stage_metric_exact",
+            contract["verification_contract"]["required_checks"],
+        )
 
         no_completion_grace = copy.deepcopy(contract)
         no_completion_grace["event_capture_contract"]["completion_grace_nanoseconds"] = 0
@@ -351,7 +361,7 @@ class BaselineTest(unittest.TestCase):
         )
         self.assertFalse(local_content_digest_matches_image_id({"Id": image_id, "RepoDigests": []}))
 
-        tags = ["runbook-sentinel:baseline-0027-a-test", "runbook-sentinel:baseline-0027-b-test"]
+        tags = ["runbook-sentinel:baseline-0028-a-test", "runbook-sentinel:baseline-0028-b-test"]
         events = [
             {
                 "Action": "tag",

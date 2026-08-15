@@ -163,7 +163,7 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": ["passing immutable source candidate and final manifest"],
       "outputs": ["candidate and clean-clone real-surface receipts"],
       "gates": {
@@ -176,7 +176,11 @@
         "artifact_parse_secret_model_scan": "pending"
       },
       "disposition": null,
-      "retained_failures": [],
+      "retained_failures": [
+        "UNIT-004 package-freeze focused-test attempt 001 passed two of three tests; the prerequisite fixture attempted to hash the intentionally absent v0.0.28 archive after mocked validator success. Retained at artifacts/verification/baseline-0028-package-freeze-focused-test-failure-001.json; the self-contained fixture now mocks immutable hashes and passes while package bytes remain absent.",
+        "The first full-test wrapper misclassified unittest verbose stderr and the first validator inventory invoked the retrieval-stage contract in preimplementation mode. Both wrapper failures are retained; explicit subprocess execution passes 59 of 59 tests and all 34 current non-runtime validators.",
+        "The first container-runtime-v8 draft accidentally introduced historical WORKDIR content and reused current Dockerfile constants while checking v7. The validator failed closed before any archive or image build; the corrected exact-inheritance result and failure receipt are retained."
+      ],
       "next_dependency": "UNIT-005"
     },
     {
