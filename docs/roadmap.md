@@ -1,6 +1,6 @@
 # Roadmap
 
-## Active checkpoint baseline-0028 - retrieval-stage observability
+## Completed checkpoint baseline-0028 - retrieval-stage observability
 
 A fresh exact public-v0.0.27 run passes 57 scenarios, 171 attempts, every existing gate, and an anchored 261-event trace. Its released three-stage exposure metric remains correct for its frozen contract, but it combines two materially different defenses: twenty hostile-guidance scenarios retrieve and then filter at least one declared hostile document, while two diagnose scenarios—one in each split—never retrieve their declared hostile document across three trials.
 
@@ -17,6 +17,10 @@ Pre-image static inspection then stopped container-runtime-v8 because its dashbo
 UNIT-004 is complete at verified public branch head `9dc57f82...`. The corrected container gate passes all 44 checks; two full local builds plus a clean public-branch clone reproduce exact image ID `9a62f5e1...` with hardened runtime, exact source/package/container metrics, bounded real surfaces, structured scan, and no image export or publication. UNIT-005 begins with the governed premerge release-truth audit.
 
 The premerge audit verifies, and PR `#26` merges exact reviewed head `99ed8f96...` with history preserved as `9aec054f...`; reviewed and merged trees are identical. A fresh public-main clone passes 61 tests, 34 validators, two exact archive builds, source/package evaluations and anchors, bounded MCP, both 117-check APIs and 63-check native inspections, and three complete dashboards. Fresh container builds reproduce exact image ID `9a62f5e1...`; every runtime surface passes before a repeat Docker Scout call stops on missing interactive account authentication. The failed repetition is retained without requesting a credential. Same-day canonical structured SARIF remains admissible only for that exact content-addressed image and only as observation-time evidence. Public receipt `17e11ab...` binds the complete merged-main gate; final audit-only commit `447cab7...` verifies all ten checks and seventeen real surfaces. The smallest remaining path is exact release closure, annotated tag, selected zipapp/checksum publication, and independent public download/page/tag plus fresh public-tag source/package/local-container reproduction.
+
+UNIT-005 is complete. Annotated tag object `5026ecff0d2351a3231ea8d340e4b330a31cc52d` peels to audited release closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`; the public non-draft latest release contains only the selected zipapp and checksum uploads. Anonymous downloaded bytes, rendered repository/release/tag pages, and fresh no-alternates public-tag source, downloaded-package, MCP, both 117-check APIs, both 63-check state/telemetry inspections, parsing, scans, and complete dashboards reconcile. Two full tag-source image builds plus one independent clean build reproduce exact image ID `9a62f5e1...`; all 44 composed local-container checks pass. No image was exported, pushed, published, or redistributed.
+
+The next checkpoint is not yet frozen. BASELINE-0029 must begin by running exact public v0.0.28, inspecting its traces and separated evaluation families, and selecting one highest-leverage measurable weakness. No successor scenario, behavior, metric, dependency, architecture, or authority change is implied by completing BASELINE-0028.
 
 ## Completed checkpoint baseline-0027 - digest-pinned container runtime
 

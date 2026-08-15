@@ -1,0 +1,304 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "version": "0.0.28",
+  "status": "pass",
+  "disposition": "pass",
+  "observed_at_utc": "2026-08-15T18:18:39.6141322Z",
+  "repository": {
+    "url": "https://github.com/drwbkr1/runbook-sentinel",
+    "visibility": "PUBLIC",
+    "default_branch": "main",
+    "release_closure_commit": "a93ad62e952421dfec2a80c396a3fb8b0e8e580a",
+    "remote_main_at_external_verification": "a93ad62e952421dfec2a80c396a3fb8b0e8e580a",
+    "post_release_main_policy": "main may advance only through evidence and living-record reconciliation while v0.0.28 remains immutably bound to the release closure"
+  },
+  "tag": {
+    "name": "v0.0.28",
+    "annotated_tag_object": "5026ecff0d2351a3231ea8d340e4b330a31cc52d",
+    "peeled_commit": "a93ad62e952421dfec2a80c396a3fb8b0e8e580a",
+    "remote_ref_verified": true,
+    "signature_status": "unsigned",
+    "signature_claim": "none"
+  },
+  "release": {
+    "id": 371118563,
+    "url": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.28",
+    "name": "Runbook Sentinel v0.0.28",
+    "published_at_utc": "2026-08-15T17:54:29Z",
+    "draft": false,
+    "prerelease": false,
+    "latest": true,
+    "immutable": false,
+    "target_commitish": "main",
+    "asset_count": 2,
+    "assets": [
+      {
+        "id": 515927078,
+        "name": "runbook-sentinel-0.0.28.pyz",
+        "url": "https://github.com/drwbkr1/runbook-sentinel/releases/download/v0.0.28/runbook-sentinel-0.0.28.pyz",
+        "state": "uploaded",
+        "content_type": "application/x-zip-compressed",
+        "bytes": 619465,
+        "github_digest": "sha256:c770fc21ece71f3728d366575a9233100aeb5cbb40f5026be7814ae3c7977044",
+        "download_count_at_verification": 1
+      },
+      {
+        "id": 515927081,
+        "name": "runbook-sentinel-0.0.28.pyz.sha256",
+        "url": "https://github.com/drwbkr1/runbook-sentinel/releases/download/v0.0.28/runbook-sentinel-0.0.28.pyz.sha256",
+        "state": "uploaded",
+        "content_type": "application/octet-stream",
+        "bytes": 94,
+        "github_digest": "sha256:6f9d0ed339781130a35ae17cfaacc72f59691a044fc412e2daefde4c56428b85",
+        "download_count_at_verification": 1
+      }
+    ]
+  },
+  "download_verification": {
+    "path": "C:/Projects/Verification/runbook-sentinel-v0.0.28-public-20260815T175500Z",
+    "method": "anonymous HTTPS download with no authenticated GitHub session",
+    "archive_bytes": 619465,
+    "archive_sha256": "c770fc21ece71f3728d366575a9233100aeb5cbb40f5026be7814ae3c7977044",
+    "checksum_bytes": 94,
+    "checksum_sha256": "6f9d0ed339781130a35ae17cfaacc72f59691a044fc412e2daefde4c56428b85",
+    "checksum_value": "c770fc21ece71f3728d366575a9233100aeb5cbb40f5026be7814ae3c7977044",
+    "zip_entry_count": 42,
+    "runtime_dependency_count": 0,
+    "entrypoint_present": true,
+    "downloaded_cli_help": "pass",
+    "selected_bytes_exact": true
+  },
+  "rendered_public_pages": {
+    "method": "live anonymous in-app browser inspection of repository, release, and tag pages plus exact GitHub API metadata",
+    "repository": {
+      "url": "https://github.com/drwbkr1/runbook-sentinel",
+      "title": "GitHub - drwbkr1/runbook-sentinel: Research-informed deterministic SRE incident-agent safety and reliability testbed",
+      "public_visibility_present": true,
+      "release_closure_commit_visible": true,
+      "latest_release_v0_0_28_visible": true,
+      "screenshot_bytes": 99328,
+      "screenshot_sha256": "7f63c7ea308f6fe49315d0eb41d3b33983946d93f02439e20b1bc68e6d3f0244"
+    },
+    "release": {
+      "url": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.28",
+      "title": "Release Runbook Sentinel v0.0.28 · drwbkr1/runbook-sentinel · GitHub",
+      "latest_present": true,
+      "synthetic_and_research_informed_limits_present": true,
+      "selected_asset_names_digests_and_sizes_present": true,
+      "source_archives_classified_as_github_generated": true,
+      "screenshot_bytes": 164997,
+      "screenshot_sha256": "5dc263692adad20773a1ccf9cbc9d05770256093cbbcf70c85766f64b0c782d9"
+    },
+    "tag": {
+      "url": "https://github.com/drwbkr1/runbook-sentinel/tree/v0.0.28",
+      "title": "GitHub - drwbkr1/runbook-sentinel at v0.0.28 · GitHub",
+      "tag_present": true,
+      "closure_commit_visible": true,
+      "version_present": true,
+      "screenshot_bytes": 99538,
+      "screenshot_sha256": "6a2c76c06bd34348f39a7940fe717180e55ff247d6a83f12bb4c193be8e55118"
+    },
+    "status": "pass"
+  },
+  "public_tag_verification": {
+    "source_clone": {
+      "mode": "git clone --no-local --single-branch --branch v0.0.28 over HTTPS",
+      "path": "C:/Projects/Verification/runbook-sentinel-v0.0.28-public-tag-20260815T140002Z",
+      "commit": "a93ad62e952421dfec2a80c396a3fb8b0e8e580a",
+      "annotated_tag_object": "5026ecff0d2351a3231ea8d340e4b330a31cc52d",
+      "initially_clean": true,
+      "object_alternates_present": false,
+      "tracked_file_count": 1166,
+      "post_surface_changes": [
+        "untracked generated artifacts/verification/dashboard-baseline-0028.png",
+        "untracked generated artifacts/verification/native-baseline-0028.json"
+      ],
+      "tagged_source_or_input_changed": false
+    },
+    "regression": {
+      "test_count": 61,
+      "test_status": "pass",
+      "test_seconds": 96.947,
+      "validator_count": 34,
+      "validator_status": "pass",
+      "selected_evaluation_pointer_changed": false
+    },
+    "archive": {
+      "downloaded_sha256": "c770fc21ece71f3728d366575a9233100aeb5cbb40f5026be7814ae3c7977044",
+      "first_rebuild_sha256": "c770fc21ece71f3728d366575a9233100aeb5cbb40f5026be7814ae3c7977044",
+      "second_rebuild_sha256": "c770fc21ece71f3728d366575a9233100aeb5cbb40f5026be7814ae3c7977044",
+      "bytes": 619465,
+      "entry_count": 42,
+      "runtime_dependency_count": 0,
+      "three_way_byte_identical": true,
+      "package_contract_status": "pass"
+    },
+    "source_evaluation": {
+      "report_bytes": 948247,
+      "report_sha256": "ee731c838b5f91b0eece835af2e3f79dbd889c532c847eb0829f83128e981fc2",
+      "trace_bytes": 195332,
+      "trace_sha256": "1be75588c1119d61c5180d1cb67eb0c3cd298d3f5333681092124896bcdda19b",
+      "trace_event_count": 261,
+      "trace_final_event_sha256": "2dea3ff525e535b0f91496e35fee444b46b29751a78a2220497475bd0d83cae2",
+      "scenario_count": 57,
+      "attempt_count": 171,
+      "boolean_gates_true": 126,
+      "boolean_gates_false": 0,
+      "latency_median_ms": 59.242,
+      "latency_p95_ms": 110.936,
+      "disposition": "pass"
+    },
+    "package_evaluation": {
+      "runtime": "controlled anonymous download of the selected public zipapp",
+      "report_bytes": 948249,
+      "report_sha256": "334ca341fd2281694916e985befb5f7c0c66934aca42fef3f33f98fb613ebf35",
+      "trace_bytes": 195330,
+      "trace_sha256": "dc726f0ac19d4f688774d8469af7a8d091f5926583bc8025580e15a64462c55b",
+      "trace_event_count": 261,
+      "trace_final_event_sha256": "42635a881cac2ac11978413443e02156857f044375089735e6bf8f1fc4aed8b3",
+      "scenario_count": 57,
+      "attempt_count": 171,
+      "boolean_gates_true": 126,
+      "boolean_gates_false": 0,
+      "latency_median_ms": 62.255,
+      "latency_p95_ms": 113.539,
+      "disposition": "pass"
+    },
+    "evaluation_summary": {
+      "adversarial_retrieval_stage_outcome_cells": 20,
+      "guidance_retrieved_then_filtered_attempts": 60,
+      "guidance_not_retrieved_attempts": 6,
+      "cross_trial_stage_ambiguity_count": 0,
+      "proposal_attack_success": 0.0,
+      "terminal_attack_success": 0.0,
+      "repeated_trial_reliability": 1.0,
+      "model_calls": 0,
+      "estimated_external_api_cost_usd": 0.0,
+      "source_package_metric_parity": true
+    },
+    "source_real_surfaces": {
+      "api_check_count": 117,
+      "api_status": "pass",
+      "api_receipt_sha256": "4f9867a399968a53c523c209b9c8fb47a8a3477a38d3e6b3015a6ca8656a360e",
+      "native_check_count": 63,
+      "native_status": "pass",
+      "native_receipt_sha256": "b5268af2271490932395f652324f5339d7e9d10d52cb8b4bc6acd78bdc60df26",
+      "mcp_protocol": "2025-11-25",
+      "mcp_version": "0.0.28",
+      "mcp_tool_count": 3,
+      "mcp_approval_or_execution_tool_exposed": false,
+      "mcp_trace_valid_and_anchored": true,
+      "mcp_receipt_sha256": "1d1bf164bb56f65aea260e009206a1ada6c69ad006de00204d93d3bdf9f227ff"
+    },
+    "package_real_surfaces": {
+      "api_check_count": 117,
+      "api_status": "pass",
+      "api_receipt_sha256": "512ee1286afc6f22f693c90c183af44f460314d348bf83cc89278fa8050b666c",
+      "native_check_count": 63,
+      "native_status": "pass",
+      "native_receipt_sha256": "629806e56ffb6299555314b428ca932353bada60fdf11b09b4e6c808326b89d6",
+      "mcp_protocol": "2025-11-25",
+      "mcp_version": "0.0.28",
+      "mcp_tool_count": 3,
+      "mcp_approval_or_execution_tool_exposed": false,
+      "mcp_trace_valid_and_anchored": true,
+      "mcp_receipt_sha256": "b0b9eb2ea5722aea37fcb51dcdca63e3e7927dc600563636509f18a81ba37339"
+    },
+    "rendered_dashboards": {
+      "dimensions": [1440, 1000],
+      "source_bytes": 94119,
+      "source_sha256": "e459e8542a3f51aa99ba1163a3dbc9e2448223c4e09bc51b87c1f9e4cd51aced",
+      "package_bytes": 93820,
+      "package_sha256": "d118f995b890e2e4fa92e803f68e7246e3496ed73bb798d0d8e7881a7a3cfc34",
+      "container_bytes": 94013,
+      "container_sha256": "a37bcd06529de5ca9ef0932ee396bdf01ca943cc0f8bee79bdfab8eb43d69c17",
+      "visual_inspection": "pass: all three complete original-detail dashboards show Baseline 0028, synthetic SRE only, the never-executes agent boundary, 60 retrieved-filtered attempts, 6 never-retrieved attempts, authenticated external operator, disconnected real infrastructure, evaluation pass, and persisted incidents"
+    },
+    "container_reproduction": {
+      "full_clone_path": "C:/Projects/Verification/runbook-sentinel-v0.0.28-public-tag-container-20260815T140002Z",
+      "clean_clone_path": "C:/Projects/Verification/runbook-sentinel-v0.0.28-public-tag-cleanbuild-20260815T140002Z",
+      "both_clones_clean": true,
+      "object_alternates_present": false,
+      "verified_stack": {
+        "docker_engine": "29.4.3",
+        "docker_buildx": "0.33.0-desktop.1",
+        "buildkit": "0.29.0",
+        "driver": "docker",
+        "platform": "linux/amd64"
+      },
+      "full_receipt_bytes": 28298,
+      "full_receipt_sha256": "603e46cb6d5370924dcd0838c57da65e5ad848e0796281c8a85ea9ddf74709c8",
+      "full_receipt_status": "local-pass-clean-clone-pending",
+      "full_receipt_checks_passed": 43,
+      "clean_build_receipt_bytes": 8988,
+      "clean_build_receipt_sha256": "1afd84ccbe4c083704d5ed45a7a2a36b67cab822c004467ddda7bc05cb720292",
+      "clean_build_status": "pass",
+      "composed_frozen_check_count": 44,
+      "composed_frozen_checks_passed": 44,
+      "selected_image_id": "sha256:9a62f5e1daf61089ef6c9ceb71afd930c72ea60874bcec4eba78c4fc35467e2e",
+      "full_build_image_ids": [
+        "sha256:9a62f5e1daf61089ef6c9ceb71afd930c72ea60874bcec4eba78c4fc35467e2e",
+        "sha256:9a62f5e1daf61089ef6c9ceb71afd930c72ea60874bcec4eba78c4fc35467e2e"
+      ],
+      "clean_build_image_id": "sha256:9a62f5e1daf61089ef6c9ceb71afd930c72ea60874bcec4eba78c4fc35467e2e",
+      "container_evaluation_report_sha256": "589ad94f54ee7ff6aa66456b1b6fefd31e94646c9eecfd81bc1b1602e76ffa39",
+      "container_evaluation_trace_sha256": "a7c4859e4d4d733c709db19f5ce6df8bb8f4c0dbd050ef16ef8c1733a6a4dde9",
+      "container_evaluation_trace_event_count": 261,
+      "container_evaluation_trace_final_event_sha256": "30a70d6b49be3a8058c9fc5e98520e856de1c612407ad65cbdb966dd7e3777c5",
+      "container_api_status": "pass",
+      "container_mcp_protocol": "2025-11-25",
+      "container_mcp_tool_count": 3,
+      "container_mcp_approval_or_execution_tool_exposed": false,
+      "runtime_restrictions": "non-root, read-only rootfs, network none, all capabilities dropped, no-new-privileges, private IPC, no host namespace, bind, device, secret, or real infrastructure",
+      "scanner": "Docker Scout 1.20.4",
+      "structured_sarif_sha256": "7749b34be7a069559b10b1b9d53cc8897576fdd104071a9e0f907f9a301ee303",
+      "critical_high_findings_at_observation_time": 0,
+      "secret_hits": [],
+      "reproducibility_claim": "exact only on the verified Docker, Buildx, BuildKit, driver, platform, source, and clean-clone paths"
+    },
+    "artifact_parsing": {
+      "all_files": 1213,
+      "valid_json_files": 811,
+      "jsonl_files": 146,
+      "jsonl_records": 25567,
+      "expected_invalid_files": 1,
+      "expected_invalid_classification": "exact retained zero-byte BASELINE-0026 MCP harness output",
+      "unclassified_parse_errors": 0
+    },
+    "security_scan": {
+      "container_critical_high_findings_at_observation_time": 0,
+      "container_secret_hits": 0,
+      "high_specificity_repository_secret_hits": 0,
+      "unclassified_repository_parse_errors": 0,
+      "model_artifact_count": 0
+    }
+  },
+  "retained_process_failures": [
+    "The first release metadata query requested unsupported gh release view field isLatest and stopped before creating the controlled download directory; the supported API plus release-list queries prove latest status.",
+    "The first browser bootstrap timed out without interacting with GitHub, and the next complete browser documentation response exceeded the outer display budget; the persistent session was inspected, the documentation was read in bounded chunks, and the anonymous rendered pages then passed.",
+    "A first PowerShell rev-parse expression allowed brace parsing to corrupt two diagnostic arguments; quoted tag peeling immediately proved the exact annotated tag object and closure without repository mutation.",
+    "The first test command used python -m unittest -v and discovered zero tests. The explicit discovery command ran all 61 tests and passed in 96.947 seconds.",
+    "The first validator sweep guessed nonexistent eval/container-runtime-v8.json after earlier validators had passed. The authoritative eval/container-contract-0028-v8.json rerun passed all 34 validators.",
+    "The first evaluation-trace verifier invocation omitted PYTHONPATH and stopped at import. The unchanged explicit source-path repetitions validated both 261-event anchored traces.",
+    "The merged-main Docker Scout authentication stop remains retained. The fresh public-tag full verifier completed Docker Scout 1.20.4 structured scanning successfully for the same exact image without requesting, reading, or introducing a credential."
+  ],
+  "boundaries": {
+    "synthetic_only": true,
+    "research_informed": true,
+    "model_has_credentials": false,
+    "model_has_approval_authority": false,
+    "model_has_execution_authority": false,
+    "mcp_has_approval_or_execution_authority": false,
+    "real_infrastructure_connected": false,
+    "container_image_exported": false,
+    "container_image_pushed": false,
+    "container_image_published": false,
+    "container_reproducibility_verified_on_exact_local_stack": true,
+    "cross_builder_reproducibility_claimed": false,
+    "production_readiness_claimed": false,
+    "universal_prompt_injection_resistance_claimed": false,
+    "perpetual_vulnerability_freedom_claimed": false
+  },
+  "next_gate": "Publish this external reconciliation receipt and the exact living-record updates on main, verify their public bytes, then begin the next cycle from immutable public v0.0.28 by rerunning the system and selecting one measured weakness."
+}

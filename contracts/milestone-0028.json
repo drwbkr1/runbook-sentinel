@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0028",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -65,7 +65,7 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
+      "status": "pass",
       "evidence": [
         "The additive four-stage metric and per-attempt retrieval counts fail closed on ambiguity and are exact on all frozen development and held-out cases.",
         "All 57 prior scenario and terminal identities, all incident-agent behavior, the three-stage metric, and every authority boundary remain exact.",
@@ -194,7 +194,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": [
         "verified candidate and clean-clone evidence",
         "premerge audit and exact reviewed GitHub head",
@@ -210,24 +210,28 @@
         "exact_reviewed_head_merged_with_history_preserved": "pass",
         "fresh_public_main_complete_stack": "pass",
         "final_release_audit_verified": "pass",
-        "public_refs_assets_downloads_pages_reconciled": "pending",
+        "public_refs_assets_downloads_pages_reconciled": "pass",
         "no_container_image_bytes_published": "pass",
-        "fresh_public_tag_complete_stack": "pending"
+        "fresh_public_tag_complete_stack": "pass"
       },
-      "disposition": null,
+      "disposition": "pass",
       "retained_failures": [
         "The first UNIT-005 transition-validation wrapper used stale --contract and --result option names; its corrected container call then guessed a nonexistent contract path. Each attempt stopped before changing evidence; the exact process-invalid receipt is retained and the authoritative current CLIs pass.",
         "The premerge composite validator passed both selected trace anchors, the archive contract, the required-result container contract, and compilation before guessing a nonexistent dist subpath inside independent build-D custody. The failed wrapper and corrected exact byte comparison are retained.",
         "A premerge help probe passed --help to verify_baseline.py, which has no argument parser and ran its full workflow. The fresh passing evaluation is retained but excluded as process-invalid; latest.json is restored byte-exact to the predeclared final source attempt 004.",
         "Merged-main help probes passed --help to MCP and native inspection scripts without argument parsers; their results are retained as process-invalid. A PowerShell 2>&1 wrapper converted informational Edge stderr into NativeCommandError after the dashboard was written, and one diagnostic list command had an empty pipeline element; direct captures passed without changing product state.",
         "The fresh merged-main full container repetition rebuilt the exact image twice and passed every product surface before Docker Scout requested interactive account authentication. No credential was requested, read, or introduced. The failed repetition remains excluded; the gate reuses the same-day canonical structured SARIF only because all fresh builds reproduce the exact content-addressed image, and retains the observation-time limitation.",
-        "The first public receipt byte-check wrapper used System.Net.Http.HttpClient, unavailable in Windows PowerShell, after local, tracking, and live remote refs already agreed. The supported WebClient repetition verified all 10,164 public bytes and SHA-256 exactly; the first wrapper has no product or publication disposition."
+        "The first public receipt byte-check wrapper used System.Net.Http.HttpClient, unavailable in Windows PowerShell, after local, tracking, and live remote refs already agreed. The supported WebClient repetition verified all 10,164 public bytes and SHA-256 exactly; the first wrapper has no product or publication disposition.",
+        "The first release metadata query requested an unsupported isLatest field and stopped before download custody existed. The supported release API plus release-list query passed; anonymous downloads then matched both selected GitHub digests exactly.",
+        "The first browser bootstrap timed out without GitHub interaction and the next complete documentation response exceeded the outer display budget. The persistent session was inspected, the documentation was read in bounded chunks, and the anonymous repository, release, and tag pages then passed rendered inspection.",
+        "Public-tag verification retained four process-invalid wrappers: unquoted PowerShell tag peeling, a zero-test unittest invocation without discovery, a guessed nonexistent container-contract path, and a trace verifier without PYTHONPATH. Quoted peeling, explicit discovery, the authoritative contract path, and explicit source-path trace verification all passed without changing tagged source.",
+        "The source verification clone generated only two untracked dashboard/native evidence outputs after its clean checkout; both were copied to external custody. Tagged source, evaluation, package, and container inputs remained exact."
       ],
       "next_dependency": null
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Commit and push the exact release-closure records, create annotated v0.0.28 at that exact commit, publish only the selected zipapp and checksum, then immediately reconcile every public surface and a fresh public-tag source package and local-container reproduction.",
+  "next_action": "Publish the exact external reconciliation receipt and living-record updates, verify their public bytes, then begin BASELINE-0029 from immutable public v0.0.28 by running the accepted system and selecting one measurable weakness before implementation.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -265,11 +269,13 @@
       ,"fresh no-local-object public-main verification passes 61 tests and 34 validators, reproduces the 42-entry 619465-byte archive twice at c770fc21ece71f3728d366575a9233100aeb5cbb40f5026be7814ae3c7977044, passes source and package 57-scenario 171-attempt evaluations with exact anchors, passes three-tool MCP plus both 117-check APIs and 63-check native surfaces, accepts three complete original-detail dashboards, and reproduces exact local image ID sha256:9a62f5e1daf61089ef6c9ceb71afd930c72ea60874bcec4eba78c4fc35467e2e without export push or publication"
       ,"public merged-main receipt commit 17e11ab22e9065231c0a9b801df9796ca40d7373 exposes exact 10164-byte receipt SHA-256 8ce34144e4f602fba522990b6b31969f49412a93ada292b828c52d94bbbc8129"
       ,"living-record reconciliation commit 6a20e5a64780ca59bf18dde8b32304a30f5ad08b is public; final audit-only commit 447cab724ec7ad32a5c041883e7ea6c50c34d51b evaluates verified with ten of ten checks, all seventeen required real surfaces, active inherited authority, and no error warning stale missing unknown or unrun surface"
+      ,"release closure a93ad62e952421dfec2a80c396a3fb8b0e8e580a is the peeled target of annotated tag object 5026ecff0d2351a3231ea8d340e4b330a31cc52d; public non-draft latest v0.0.28 contains exactly the selected 619465-byte zipapp and 94-byte checksum"
+      ,"the 15494-byte artifacts/verification/public-tag-baseline-0028.json at SHA-256 575d5d18410b06b94b67def8fe27a76ef1d9a1abbb42a53a88c2f62240ecd229 reconciles anonymous downloads, rendered repository release and tag pages, 61 tests, 34 validators, three-way exact archive bytes, source package and container 57-scenario 171-attempt evaluations, bounded MCP, both 117-check APIs and 63-check native surfaces, three complete dashboards, 44 composed container checks, three exact image builds, point-in-time scan, parsing, and no image publication"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Verified public v0.0.27 remains immutable at audited closure 02029b3045e7f90bb8590d5c6fb18ddfadffec6e. BASELINE-0028 premerge audit, PR 26, exact reviewed-head merge, fresh public-main complete-stack verification, and final audit now pass. Audit-only commit 447cab724ec7ad32a5c041883e7ea6c50c34d51b evaluates verified; no container image bytes were exported pushed or published.",
-    "next_action": "Commit and push only the audited release-closure records, publish annotated v0.0.28 with the selected zipapp and checksum, immediately verify every public surface and a fresh public-tag source package and local-container reproduction, and record the external receipt before selecting another improvement.",
+    "current_checkpoint": "BASELINE-0028 is complete. Public non-draft latest v0.0.28 is immutably bound through annotated tag object 5026ecff0d2351a3231ea8d340e4b330a31cc52d to audited closure a93ad62e952421dfec2a80c396a3fb8b0e8e580a. Selected downloads, rendered public pages, and fresh no-alternates public-tag source, downloaded-package, MCP, API, state, telemetry, dashboards, scan, and local-container evidence reconcile; no container image bytes were exported pushed or published.",
+    "next_action": "Publish and remotely verify the external reconciliation commit, then begin BASELINE-0029 orientation from exact public v0.0.28. Run the system first, inspect traces and separated evaluation families, and freeze one highest-leverage measurable weakness before implementation.",
     "do_not_carry_forward": [
       "any scenario terminal retriever decision-context agent model policy authority dependency secret external asset or real-infrastructure change",
       "any replacement or reinterpretation of the existing three-stage metric",
