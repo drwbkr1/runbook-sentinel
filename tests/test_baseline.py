@@ -85,6 +85,7 @@ from scripts.verify_container_runtime import (
     format_unix_nanoseconds,
     local_content_digest_matches_image_id,
     namespace_security_checks,
+    retrieval_quality_metric_exact,
     scan_image,
     validate_prerequisites,
     validate_tmpfs_extraction_process,
@@ -113,7 +114,7 @@ class BaselineTest(unittest.TestCase):
         self.temp.cleanup()
 
     def test_container_v4_build_command_is_frozen_and_local_only(self):
-        tag = "runbook-sentinel:baseline-0028-test"
+        tag = "runbook-sentinel:baseline-0029-test"
         command = build_command(tag)
         self.assertEqual(command[:3], ["docker", "buildx", "build"])
         self.assertNotIn("--load", command)
@@ -125,22 +126,22 @@ class BaselineTest(unittest.TestCase):
         self.assertIn("--sbom=false", command)
         self.assertEqual(
             command[command.index("--output") + 1],
-            "type=image,name=runbook-sentinel:baseline-0028-test,"
+            "type=image,name=runbook-sentinel:baseline-0029-test,"
             "rewrite-timestamp=true,unpack=false,store=true,push=false",
         )
-        self.assertEqual(SOURCE_DATE_EPOCH, "1786594080")
-        self.assertEqual(SOURCE_DATE_EPOCH_UTC, "2026-08-13T04:08:00Z")
+        self.assertEqual(SOURCE_DATE_EPOCH, "1786823292")
+        self.assertEqual(SOURCE_DATE_EPOCH_UTC, "2026-08-15T19:48:12Z")
         self.assertEqual(EXPECTED_BUILDER["buildkit"], "0.29.0")
 
-    def test_container_v8_prerequisite_requires_current_implementation_phase(self):
+    def test_container_v9_prerequisite_requires_current_implementation_phase(self):
         contract = {
             "status": "pass",
-            "implementation_phase": "implemented_v8",
+            "implementation_phase": "implemented_v9",
         }
         manifest = {"status": "pass"}
         package = {"status": "pass"}
         evaluation = {
-            "checkpoint": "baseline-0028",
+            "checkpoint": "baseline-0029",
             "gates": {"baseline_disposition": "pass"},
         }
 
@@ -162,7 +163,7 @@ class BaselineTest(unittest.TestCase):
             result = validate_prerequisites(evaluation)
         self.assertTrue(result["checks"]["container_contract"])
 
-        contract["implementation_phase"] = "implemented_v7"
+        contract["implementation_phase"] = "implemented_v8"
         with mock.patch(
             "scripts.verify_container_runtime.run",
             side_effect=[completed(contract), completed(manifest), completed(package)],
@@ -208,6 +209,10 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(errors, [])
         self.assertIn(
             "container_retrieval_stage_metric_exact",
+            contract["verification_contract"]["required_checks"],
+        )
+        self.assertIn(
+            "container_retrieval_quality_metric_exact",
             contract["verification_contract"]["required_checks"],
         )
 
@@ -361,7 +366,7 @@ class BaselineTest(unittest.TestCase):
         )
         self.assertFalse(local_content_digest_matches_image_id({"Id": image_id, "RepoDigests": []}))
 
-        tags = ["runbook-sentinel:baseline-0028-a-test", "runbook-sentinel:baseline-0028-b-test"]
+        tags = ["runbook-sentinel:baseline-0029-a-test", "runbook-sentinel:baseline-0029-b-test"]
         events = [
             {
                 "Action": "tag",
@@ -1414,12 +1419,25 @@ class BaselineTest(unittest.TestCase):
         )
         self.assertNotIn("dashboard_baseline_0027 =", verifier)
 
-    def test_container_v8_verifier_requires_current_dashboard_checkpoint(self):
+    def test_container_v9_verifier_requires_current_dashboard_checkpoint(self):
         runtime = (ROOT / "scripts/verify_container_runtime.py").read_text(encoding="utf-8")
         validator = (ROOT / "scripts/verify_container_contract.py").read_text(encoding="utf-8")
-        self.assertIn('b"Baseline 0028" in dashboard_raw', runtime)
-        self.assertNotIn('b"Baseline 0027" in dashboard_raw', runtime)
-        self.assertIn("'b\"Baseline 0027\" in dashboard_raw' not in runtime_text", validator)
+        self.assertIn('b"Baseline 0029" in dashboard_raw', runtime)
+        self.assertNotIn('b"Baseline 0028" in dashboard_raw', runtime)
+        self.assertIn("'b\"Baseline 0028\" in dashboard_raw' not in runtime_text", validator)
+
+    def test_container_v9_retrieval_quality_projection_fails_closed(self):
+        report = json.loads(
+            (
+                ROOT
+                / "artifacts/evaluations/runs/baseline-0029-attempt-001.json"
+            ).read_text(encoding="utf-8")
+        )
+        self.assertTrue(retrieval_quality_metric_exact(report))
+        report["metrics"]["retrieval_quality"]["expected_evidence"][
+            "expected_document_share_mean"
+        ] = 1.0
+        self.assertFalse(retrieval_quality_metric_exact(report))
 
 
     def test_evaluation_reports_separate_metrics_and_passes_control_gates(self):

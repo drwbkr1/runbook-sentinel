@@ -9,6 +9,7 @@
 - Froze a 133-file pre-reveal manifest at SHA-256 `c970ce963aa5d2347ee2e8bd2a9d9551b2d92b798f023a7bffed3e1628a46912`; exact verification, 35 side-effect-free validators, and all 70 tests passed with candidate, package, and image bytes absent. The unchanged manifest and retained first publication failure are public and remotely exact at successor commit `7a629ee7cc171387b619f5eb6833ad2dbde6eb23`.
 - Retained the first manifest-publication failure: local commit `1a60e5c…` could not resolve `github.com`, the public branch remained unchanged at `50c9435…`, manifest bytes were not changed, and candidate reveal stayed closed.
 - Revealed one immutable source candidate only after the public manifest seal. It passes 57 scenarios, 171 attempts, all 136 Boolean gates, exact independent retrieval-quality validation, and an anchored 261-event trace; report/trace SHA-256 are `a4dcd408…` / `96b3c309…`. Commit `0a8ad6f…` publishes and remotely reconciles the exact report, trace, manifest copy, receipt, and latest pointer before package or image construction.
+- Froze a 43-entry dependency-free v0.0.29 zipapp contract and inherited 45-check `container-runtime-v9`, adding only the project-authored retrieval-quality module and an exact container metric-projection check while preserving every v8 security and no-publication boundary. The final 135-file manifest is SHA-256 `7999bbac…`; all 71 tests and 35 project validators pass with archive and image bytes absent pending the public pre-build seal.
 
 ## 0.0.28 - 2026-08-15
 
