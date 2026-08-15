@@ -14,6 +14,8 @@ The replacement package/source gate now passes: two exact 42-entry archives, exa
 
 Pre-image static inspection then stopped container-runtime-v8 because its dashboard assertion still named the predecessor checkpoint and its contract validator did not reject that stale literal. Preserve the passing package/source evidence as superseded, publish the bounded verifier/validator correction with archive and image absent, and repeat package/source verification before reopening Docker construction.
 
+The corrected container gate now passes all 44 checks. Two full local builds plus a clean public-branch clone reproduce exact image ID `9a62f5e1...` with hardened runtime, exact source/package/container metrics, bounded real surfaces, structured scan, and no image export or publication. Publish and remotely reconcile the canonical receipt, then close UNIT-004 and enter the release audit.
+
 ## Completed checkpoint baseline-0027 - digest-pinned container runtime
 
 UNIT-004 is complete. Public receipt commit `727c29e7ffebf718844f7648e859e29514de4862` binds all 43 frozen checks: exact source and zipapp evidence, two independent deterministic local images, hardened container CLI/evaluation/MCP/API/approval/executor/replay/state/telemetry/dashboard behavior, verified tmpfs extraction, structured scanning, and a clean HTTPS public-branch rebuild. All three admitted builds reproduce image ID `sha256:4a29935f0b2db110d6dfad8617aea821529feb7fd6ba9e8ad70f2ab6563d84ee` on the exact verified Docker/Buildx/BuildKit stack. No image bytes were exported, pushed, or published.

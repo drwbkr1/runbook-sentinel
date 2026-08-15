@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "phase": "canonical_local_container",
+  "observed_at_utc": "2026-08-15T16:33:23Z",
+  "status": "pass",
+  "json_files_parsed": 4,
+  "png_signatures_valid": 1,
+  "credential_signature_findings": [],
+  "external_model_artifacts": 0,
+  "canonical_receipt_sha256": "1e5923201b5710be2987e411f92d2a9cc0e12db0b41fbc5ac15a56235edc0e21",
+  "dashboard_sha256": "573ac6109e9868933d6cc0bf0dc27038a4054f1d4590d1d719415f4ffffc3c49",
+  "scanner_sarif_sha256": "7749b34be7a069559b10b1b9d53cc8897576fdd104071a9e0f907f9a301ee303",
+  "critical_high_findings": 0,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false
+}
