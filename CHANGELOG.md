@@ -14,6 +14,7 @@
 - Retained the first byte-identical 645,050-byte archive pair and every passing source/package evaluation, MCP, API, state, and telemetry receipt after original-detail review found the persisted-incident rows below the dashboard evidence frame. No container image was built from those superseded bytes.
 - Applied a presentation-only responsive-grid correction that preserves all 35 metrics and security boundaries while showing the complete persisted-state table. The renewed 135-file manifest is SHA-256 `083d18c06...`; 71 tests, 35 validators, and original-detail pre-freeze review pass with replacement archive and image bytes absent until the correction seal is public.
 - Published and remotely reconciled the correction seal at `a22a5aa39715e97279aa8eae90b6fcf3bb229a16`; eight anonymous raw paths match and no replacement archive or BASELINE-0029 image existed at the seal.
+- Built two exact replacement 43-entry zipapps at 645,064 bytes and SHA-256 `d1417c22711a09b24c7a7bdf0fa36b18ac446320087eab4493f1cbd63725090b`. Fresh source/package attempt 002 each passes 57 scenarios, 171 attempts, all 136 Boolean gates, anchored 261-event traces, bounded three-tool MCP, 131/131 API checks, 72/72 native checks, and complete original-detail dashboards. The post-surface 71-test, 35-validator, parsing, scan, package, trace, compilation, diff, and milestone gates pass. No BASELINE-0029 image exists; the exact payload must be public before local container verification.
 
 ## 0.0.28 - 2026-08-15
 

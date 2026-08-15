@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-package-source-hash-wrapper-failure-001",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T21:14:27Z",
+  "status": "process_invalid",
+  "operation": "read-only selected-payload hash inventory",
+  "failure": "The wrapper guessed contracts/package-baseline-0029.json and contracts/container-runtime-v9.json; both paths were absent, so those two rows were invalid.",
+  "impact": "none; the wrapper performed no writes, every existing-file hash before and after the bad rows was valid, and no product, evaluation, package, or Docker state changed",
+  "correction": {
+    "package_contract_path": "eval/package-contract-0029.json",
+    "package_contract_sha256": "18a1965b6c5c513b70613aa2ebe9b5dad03b59ef86a0f60ff3b9c7c1edfad92e",
+    "container_contract_path": "eval/container-contract-0029-v9.json",
+    "container_contract_sha256": "578ba95099df2b6816ac702dd2cfcfbecb78b8ee6e7849c2ef034e48db930642"
+  },
+  "selected_for_claims": false
+}

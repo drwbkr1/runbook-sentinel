@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-package-source-gate-local-20260815T212617Z",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T21:26:17Z",
+  "status": "pass",
+  "public_input_commit": "f8717acd212fff0505605123b3a581998683285f",
+  "manifest_sha256": "083d18c06a776b3cbc9e030656a0dc758671ef856390fee3ff6a160e4be7aaef",
+  "package_source_receipt": {
+    "path": "artifacts/verification/package-source-baseline-0029.json",
+    "sha256": "a7b29aea1c1f41e8ee2da6979b1c4a597ae40cf63b32cae08641cf5fb7bf9534"
+  },
+  "artifact_scan": {
+    "path": "artifacts/verification/artifact-scan-baseline-0029-package-phase.json",
+    "sha256": "33ebc23a2df076522e9adb618b59ba43bd036d23fee4a1c38ec06359202da94a",
+    "status": "pass"
+  },
+  "latest_evaluation_sha256": "4fd2aff6ecd12992b2491d5e24574c04a5bb51eea9cfa7cf03aed8d639d1b036",
+  "source_evaluation_sha256": "4fd2aff6ecd12992b2491d5e24574c04a5bb51eea9cfa7cf03aed8d639d1b036",
+  "package_evaluation_sha256": "74f8cbff1128c7da8df80c03a09cabc2729fd1f7a4a2a6c085bbc337c08ba57b",
+  "archive_sha256": "d1417c22711a09b24c7a7bdf0fa36b18ac446320087eab4493f1cbd63725090b",
+  "archive_bytes": 645064,
+  "archive_entries": 43,
+  "archive_reproducible": true,
+  "unit_tests": {"passed": 71, "total": 71, "elapsed_seconds": 83.486},
+  "standalone_validators": {"passed": 35, "total": 35, "elapsed_seconds": 3.674},
+  "source_and_package_trace_validation": "pass",
+  "source_and_package_real_surfaces": "pass",
+  "dashboard_original_detail_review": "pass",
+  "package_contracts": {"selected": "pass", "independent": "pass"},
+  "compileall": "pass",
+  "milestone_validation": "pass",
+  "git_diff_check": "pass",
+  "retained_process_invalid_evidence": {
+    "hash_wrapper_path": "artifacts/verification/baseline-0029-package-source-hash-wrapper-failure-001.json",
+    "hash_wrapper_sha256": "b27479350a1c691ab35db35402d364b5ef470df08cfbf3b03a7c14c5e66d8528",
+    "package_verifier_path_failures_path": "artifacts/verification/baseline-0029-package-verifier-path-failures-001.json",
+    "package_verifier_path_failures_sha256": "7df073ed4176c2f6c3927a1f8e7f4b42f53400846e315f438fe6bc043cc6c41f",
+    "validator_wrapper_failure_path": "artifacts/verification/baseline-0029-final-validator-wrapper-failure-001.json",
+    "validator_wrapper_failure_sha256": "f50ee67ebba2f1ca43b8a2846a3f94cb10ce53d2812b456cc2f6d3b4457c30e7",
+    "trace_verifier_help_failure_path": "artifacts/verification/baseline-0029-trace-verifier-help-failure-001.json",
+    "trace_verifier_help_failure_sha256": "3ae2e6a06397e45f3279cc5643bf804eeb7cd579e081d8a98308cc993e15f9f3",
+    "retrieval_quality_report_mode_failure_path": "artifacts/verification/baseline-0029-retrieval-quality-report-mode-failure-001.json",
+    "retrieval_quality_report_mode_failure_sha256": "1e5f81750a9de1bf74a0933222269eff4130b3b073ca24a5b91c06af927f980b"
+  },
+  "pre_publication_state": {
+    "branch": "codex/baseline-0029-retrieval-quality-observability",
+    "head": "f8717acd212fff0505605123b3a581998683285f",
+    "baseline_0029_image_count": 0,
+    "container_receipt": "absent"
+  },
+  "authorized_next_action": "Commit, push, and remotely verify this exact package/source payload; only then run the frozen local-only container-runtime-v9 verifier."
+}

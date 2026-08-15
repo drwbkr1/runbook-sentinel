@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-trace-verifier-help-failure-001",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T21:24:00Z",
+  "status": "process_invalid",
+  "operation": "read-only trace verifier help probe",
+  "command": "python scripts/verify_evaluation_trace.py --help",
+  "failure": "ModuleNotFoundError: No module named 'runbook_sentinel'",
+  "cause": "The verifier imports project code before argparse and the probe shell did not set the repository source path.",
+  "impact": "none; the command stopped at import and performed no writes or trace validation",
+  "correction": {
+    "source_path": "src",
+    "help_status": "pass",
+    "required_arguments": ["report", "trace"]
+  },
+  "selected_for_claims": false
+}

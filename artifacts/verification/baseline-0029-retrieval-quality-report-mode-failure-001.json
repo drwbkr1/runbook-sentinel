@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-retrieval-quality-report-mode-failure-001",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T21:25:00Z",
+  "status": "process_invalid",
+  "operation": "read-only selected-report retrieval-quality validation",
+  "failed_command_mode": "--require-implementation --implementation-only --report",
+  "reported_error": "implementation_only_forbids_report",
+  "impact": "none; the validator failed closed before selecting a report result and performed no writes",
+  "correction": {
+    "source_report_mode": "--require-implementation --report",
+    "source_report_status": "pass",
+    "package_report_mode": "--require-implementation --report",
+    "package_report_status": "pass",
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "contract_errors": []
+  },
+  "selected_for_claims": false
+}
