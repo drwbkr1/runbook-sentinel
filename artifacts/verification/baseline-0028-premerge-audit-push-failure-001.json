@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0028",
+  "unit": "UNIT-005",
+  "observed_at_utc": "2026-08-15T17:06:30Z",
+  "status": "retained_publication_failure",
+  "operation": "push verified premerge release-truth audit",
+  "local_audit_commit": "fdbe0af501a876e904b08a6a8b343a4be4189276",
+  "audited_candidate": "6696d9503c8fdeb61f0f5b0c3b5ea8db12e9cf95",
+  "audit_delta_exact": [
+    "artifacts/verification/release-audit-baseline-0028-premerge.json"
+  ],
+  "error": "fatal: unable to access 'https://github.com/drwbkr1/runbook-sentinel.git/': Could not resolve host: github.com",
+  "classification": "transient DNS resolution failure before verified remote mutation",
+  "remote_tracking_after_failure": "6696d9503c8fdeb61f0f5b0c3b5ea8db12e9cf95",
+  "github_api_head_after_failure": "6696d9503c8fdeb61f0f5b0c3b5ea8db12e9cf95",
+  "remote_unchanged": true,
+  "audit_commit_and_evidence_intact": true,
+  "tag_created": false,
+  "release_created": false,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false,
+  "disposition": "retain and retry the unchanged audit plus this failure receipt under existing UNIT-005 authority"
+}
