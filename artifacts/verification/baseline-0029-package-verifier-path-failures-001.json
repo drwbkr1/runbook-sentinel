@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-package-verifier-path-failures-001",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T21:18:00Z",
+  "status": "process_invalid",
+  "operation": "read-only package contract verification",
+  "failed_invocations": [
+    {
+      "command": "python scripts/verify_package.py --archive dist/runbook-sentinel-0.0.29.pyz --contract eval/package-contract-0029.json",
+      "failure": "scripts/verify_package.py does not exist"
+    },
+    {
+      "command": "python scripts/verify_package_contract_0029.py --help",
+      "failure": "scripts/verify_package_contract_0029.py does not exist"
+    }
+  ],
+  "impact": "none; both commands stopped before reading an archive and performed no writes",
+  "correction": {
+    "verifier": "scripts/verify_package_contract.py",
+    "selected_archive_status": "pass",
+    "independent_archive_status": "pass",
+    "archive_bytes": 645064,
+    "archive_sha256": "d1417c22711a09b24c7a7bdf0fa36b18ac446320087eab4493f1cbd63725090b",
+    "entry_count": 43,
+    "contract_sha256": "18a1965b6c5c513b70613aa2ebe9b5dad03b59ef86a0f60ff3b9c7c1edfad92e"
+  },
+  "selected_for_claims": false
+}

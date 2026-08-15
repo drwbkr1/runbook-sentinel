@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-dashboard-full-suite-invocation-failure-001",
+  "checkpoint": "baseline-0029",
+  "observed_at_utc": "2026-08-15T20:45:00Z",
+  "status": "retained_process_failure",
+  "phase": "dashboard_density_correction_pre_freeze",
+  "command": "python -m unittest",
+  "result": "0 tests discovered; exit 1",
+  "cause": "This repository requires explicit discovery from the tests directory.",
+  "corrected_command": "python -m unittest discover -s tests",
+  "corrected_result": "71/71 pass in 85.462 seconds"
+}

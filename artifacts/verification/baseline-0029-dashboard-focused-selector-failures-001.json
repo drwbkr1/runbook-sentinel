@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-dashboard-focused-selector-failures-001",
+  "checkpoint": "baseline-0029",
+  "observed_at_utc": "2026-08-15T20:42:00Z",
+  "status": "retained_process_failures",
+  "phase": "dashboard_density_correction",
+  "failures": [
+    {
+      "selector": "tests.test_baseline.BaselineTests.test_api_dashboard",
+      "result": "loader_error",
+      "cause": "The test class is BaselineTest, not BaselineTests."
+    },
+    {
+      "selector": "tests.test_baseline.BaselineTest.test_api_dashboard",
+      "result": "loader_error",
+      "cause": "The dashboard assertions live in test_live_http_surface_has_security_headers_and_runs_scenario."
+    }
+  ],
+  "corrected_selector": "tests.test_baseline.BaselineTest.test_live_http_surface_has_security_headers_and_runs_scenario",
+  "corrected_result": "1/1 pass",
+  "product_code_exercised_by_failed_selectors": false
+}

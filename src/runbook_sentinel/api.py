@@ -14,7 +14,7 @@ from .service import DEFAULT_APPROVAL_TTL_SECONDS, RunbookSentinel
 from .telemetry import live_trace_anchor_path
 
 
-CHECKPOINT = "baseline-0028"
+CHECKPOINT = "baseline-0029"
 
 
 class SentinelHTTPServer(ThreadingHTTPServer):
@@ -208,6 +208,26 @@ class SentinelHandler(BaseHTTPRequestHandler):
         guidance_not_retrieved_attempt_count = metrics.get("coverage", {}).get(
             "guidance_not_retrieved_attempt_count"
         )
+        retrieval_quality = metrics.get("retrieval_quality", {})
+        expected_document_share = retrieval_quality.get("expected_evidence", {}).get(
+            "expected_document_share_mean"
+        )
+        extra_document_attempt_rate = retrieval_quality.get(
+            "expected_evidence", {}
+        ).get("attempts_with_extra_documents_rate")
+        guidance_rank_buckets = (
+            retrieval_quality.get("declared_attack_exposure", {})
+            .get("guidance", {})
+            .get("first_rank_attempt_count")
+        )
+        inband_rank_buckets = (
+            retrieval_quality.get("declared_attack_exposure", {})
+            .get("inband", {})
+            .get("first_rank_attempt_count")
+        )
+        conditional_policy_compliance = retrieval_quality.get(
+            "declared_attack_exposure", {}
+        ).get("populated_bucket_policy_compliance_rate")
         relation_exact = metrics.get("behavioral_relations", {}).get("exact_match_rate")
         stress_recall = metrics.get("retrieval_stress", {}).get(
             "expected_project_evidence_recall_at_4"
@@ -311,6 +331,36 @@ class SentinelHandler(BaseHTTPRequestHandler):
             and not isinstance(guidance_not_retrieved_attempt_count, bool)
             else "not run"
         )
+        expected_document_share_display = (
+            f"{expected_document_share:.3f}"
+            if isinstance(expected_document_share, (int, float))
+            else "not run"
+        )
+        extra_document_attempt_rate_display = (
+            f"{extra_document_attempt_rate:.3f}"
+            if isinstance(extra_document_attempt_rate, (int, float))
+            else "not run"
+        )
+
+        def rank_bucket_display(value: object) -> str:
+            if not isinstance(value, dict) or any(
+                not isinstance(value.get(bucket), int)
+                or isinstance(value.get(bucket), bool)
+                for bucket in ("not_retrieved", "rank_1", "rank_2", "rank_3_4")
+            ):
+                return "not run"
+            return (
+                f"NR {value['not_retrieved']} / R1 {value['rank_1']} / "
+                f"R2 {value['rank_2']} / R3-4 {value['rank_3_4']}"
+            )
+
+        guidance_rank_display = rank_bucket_display(guidance_rank_buckets)
+        inband_rank_display = rank_bucket_display(inband_rank_buckets)
+        conditional_policy_display = (
+            f"{conditional_policy_compliance:.1f}"
+            if isinstance(conditional_policy_compliance, (int, float))
+            else "not run"
+        )
         relation_display = (
             f"{relation_exact:.1f}"
             if isinstance(relation_exact, (int, float))
@@ -370,13 +420,13 @@ class SentinelHandler(BaseHTTPRequestHandler):
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Runbook Sentinel</title><style>
 :root {{ color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background:#08111f; color:#e8f0f7; }}
-body {{ margin:0; }} main {{ max-width:1260px; margin:auto; padding:18px 24px; }}
+body {{ margin:0; }} main {{ max-width:1260px; margin:auto; padding:8px 24px; }}
 .eyebrow {{ color:#75d7c6; letter-spacing:.12em; text-transform:uppercase; font-size:.78rem; }}
-h1 {{ font-size:clamp(2rem,6vw,4rem); line-height:1.05; margin:.2rem 0; }}
-.promise {{ color:#aebfd0; max-width:760px; font-size:1.05rem; line-height:1.4; }}
-.grid {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:10px; margin:16px 0; }}
-.card {{ background:#101d2d; border:1px solid #21354b; border-radius:14px; padding:12px; }}
-.value {{ font-size:1.5rem; line-height:1.3; color:#75d7c6; }} table {{ width:100%; border-collapse:collapse; }}
+h1 {{ font-size:clamp(2rem,6vw,3.5rem); line-height:1.05; margin:.15rem 0; }}
+.promise {{ color:#aebfd0; max-width:760px; font-size:1rem; line-height:1.3; margin:.5rem 0; }}
+.grid {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(165px,1fr)); gap:7px; margin:9px 0; }}
+.card {{ background:#101d2d; border:1px solid #21354b; border-radius:10px; padding:8px; }}
+.value {{ font-size:1.25rem; line-height:1.25; color:#75d7c6; }} table {{ width:100%; border-collapse:collapse; }}
 h2 {{ margin:.4rem 0; }} th,td {{ text-align:left; padding:8px 12px; border-bottom:1px solid #21354b; }} .boundary {{ color:#ffcf70; }}
 </style></head><body><main>
 <div class="eyebrow">Baseline {checkpoint_display} - synthetic SRE only</div><h1>Runbook Sentinel</h1>
@@ -400,6 +450,11 @@ h2 {{ margin:.4rem 0; }} th,td {{ text-align:left; padding:8px 12px; border-bott
 <div class="card"><div>Adversarial retrieval-stage/outcome split</div><div class="value">{adversarial_retrieval_stage_outcome_split_display}</div></div>
 <div class="card"><div>Hostile guidance retrieved then filtered</div><div class="value">{guidance_retrieved_filtered_attempt_display} attempts</div></div>
 <div class="card"><div>Hostile guidance never retrieved</div><div class="value">{guidance_not_retrieved_attempt_display} attempts</div></div>
+<div class="card"><div>Expected-document share</div><div class="value">{expected_document_share_display}</div></div>
+<div class="card"><div>Attempts with extra documents</div><div class="value">{extra_document_attempt_rate_display}</div></div>
+<div class="card"><div>Guidance first-rank buckets</div><div class="value">{guidance_rank_display}</div></div>
+<div class="card"><div>In-band first-rank buckets</div><div class="value">{inband_rank_display}</div></div>
+<div class="card"><div>Rank-conditioned policy compliance</div><div class="value">{conditional_policy_display}</div></div>
 <div class="card"><div>Behavioral relation exact</div><div class="value">{relation_display}</div></div>
 <div class="card"><div>Guidance stress recall</div><div class="value">{stress_display}</div></div>
 <div class="card"><div>Fresh evidence recall</div><div class="value">{fresh_evidence_display}</div></div>

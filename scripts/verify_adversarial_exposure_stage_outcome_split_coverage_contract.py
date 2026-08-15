@@ -315,7 +315,7 @@ def validate(root: Path = ROOT) -> dict:
             errors.append("terminal_identity_set_mismatch")
         if len(scenarios) != (57 if implemented else 56):
             errors.append("catalog_scenario_count_mismatch")
-        if catalog.get("schema_version") != ("1.18" if implemented else "1.16"):
+        if catalog.get("schema_version") != ("1.19" if implemented else "1.16"):
             errors.append("catalog_schema_mismatch")
         pointer = catalog.get("adversarial_exposure_stage_outcome_split_coverage_contract")
         expected_runtime_contract = {

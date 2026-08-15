@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0029-orientation",
+  "observed_at_utc": "2026-08-15T18:51:26Z",
+  "repository": {
+    "authoritative_root": "C:/Projects/Active/runbook-sentinel",
+    "working_worktree": "C:/Projects/Active/runbook-sentinel-baseline-0029",
+    "one_drive_authoritative": false,
+    "branch": "codex/baseline-0029-retrieval-quality-observability",
+    "starting_head": "90900b60661f77377cb568c3750bb69f5eb0f857",
+    "remote": "https://github.com/drwbkr1/runbook-sentinel.git",
+    "remote_main": "90900b60661f77377cb568c3750bb69f5eb0f857",
+    "visibility": "public",
+    "starting_worktree_clean": true,
+    "preexisting_authoritative_worktree_dirty": true,
+    "preexisting_authoritative_worktree_preserved": true
+  },
+  "verified_public_checkpoint": {
+    "version": "0.0.28",
+    "tag": "v0.0.28",
+    "tag_object": "5026ecff0d2351a3231ea8d340e4b330a31cc52d",
+    "peeled_release_commit": "a93ad62e952421dfec2a80c396a3fb8b0e8e580a",
+    "release_reconciliation_commit": "90900b60661f77377cb568c3750bb69f5eb0f857",
+    "release_url": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.28",
+    "release_draft": false,
+    "release_prerelease": false,
+    "public_receipt": {
+      "path": "artifacts/verification/public-tag-baseline-0028.json",
+      "bytes": 15494,
+      "sha256": "575d5d18410b06b94b67def8fe27a76ef1d9a1abbb42a53a88c2f62240ecd229"
+    }
+  },
+  "fresh_cycle_run": {
+    "source_checkout": "C:/Projects/Verification/runbook-sentinel-v0.0.28-public-tag-20260815T140002Z",
+    "source_commit": "a93ad62e952421dfec2a80c396a3fb8b0e8e580a",
+    "source_tag": "v0.0.28",
+    "object_alternates_present": false,
+    "external_output_root": "C:/Projects/Verification/runbook-sentinel-v0.0.28-public-tag-evidence-20260815T140002Z",
+    "report": {
+      "path": "source.json",
+      "bytes": 948247,
+      "sha256": "ee731c838b5f91b0eece835af2e3f79dbd889c532c847eb0829f83128e981fc2",
+      "scenario_count": 57,
+      "attempt_count": 171,
+      "baseline_disposition": "pass"
+    },
+    "trace": {
+      "path": "source.traces.jsonl",
+      "bytes": 195332,
+      "sha256": "1be75588c1119d61c5180d1cb67eb0c3cd298d3f5333681092124896bcdda19b",
+      "event_count": 261,
+      "final_event_sha256": "2dea3ff525e535b0f91496e35fee444b46b29751a78a2220497475bd0d83cae2",
+      "anchored_chain_valid": true,
+      "event_counts": {"sentinel.run": 171, "sentinel.approval": 45, "sentinel.execute": 45},
+      "retrieved_document_count_distribution": {"1": 57, "2": 90, "3": 12, "4": 12},
+      "decision_document_count_distribution": {"0": 6, "1": 129, "2": 30, "4": 6},
+      "stale_payload_nonzero_event_count": 0
+    },
+    "separate_metrics": {
+      "retrieval_expected_evidence_recall_at_4": 1.0,
+      "generation_diagnosis_accuracy": 1.0,
+      "generation_outcome_accuracy": 1.0,
+      "tool_trajectory_exact": 1.0,
+      "policy_compliance": 1.0,
+      "terminal_state_exact": 1.0,
+      "benign_utility": 1.0,
+      "proposal_attack_success": 0.0,
+      "terminal_attack_success": 0.0,
+      "repeated_trial_pass_cubed": 1.0,
+      "median_latency_ms": 59.242,
+      "p95_latency_ms": 110.936,
+      "model_calls": 0,
+      "estimated_external_api_cost_usd": 0.0
+    }
+  },
+  "measured_weakness": {
+    "description": "The only general retrieval score is an all-required-IDs-present rate named recall-at-4. It does not report how concentrated the returned set is around frozen required evidence or where declared hostile documents rank, so retrieval configurations cannot be compared on useful-evidence density and adversarial exposure without ad hoc probes.",
+    "expected_evidence": {
+      "eligible_case_count": 51,
+      "eligible_attempt_count": 153,
+      "empty_expected_case_count": 6,
+      "expected_document_instance_count": 177,
+      "expected_document_rank_distribution": {"1": 153, "2": 24, "3": 0, "4": 0},
+      "all_expected_retrieved_rate": 1.0,
+      "expected_document_share_mean": 0.683006535948,
+      "retrieved_document_count_on_eligible_attempts": 300,
+      "extra_document_count": 123,
+      "attempts_with_extra_documents": 87,
+      "attempts_with_extra_documents_rate": 0.56862745098
+    },
+    "attack_rank": {
+      "declared_attack_case_count": 30,
+      "declared_attack_attempt_count": 90,
+      "declared_attack_document_instances": 117,
+      "retrieved_declared_attack_document_instances": 96,
+      "declared_attack_document_retrieval_rate": 0.820512820513,
+      "guidance_case_count": 22,
+      "guidance_attempt_count": 66,
+      "guidance_first_rank_attempts": {"not_retrieved": 6, "rank_1": 6, "rank_2": 45, "rank_3_4": 9},
+      "inband_case_count": 8,
+      "inband_attempt_count": 24,
+      "inband_first_rank_attempts": {"rank_1": 24},
+      "policy_compliance_by_observed_rank_bucket": 1.0,
+      "proposal_attack_success_by_observed_rank_bucket": 0.0,
+      "terminal_attack_success_by_observed_rank_bucket": 0.0,
+      "cross_trial_rank_bucket_ambiguity_count": 0
+    },
+    "behavior_failure_observed": false,
+    "measurement_failure_observed": true
+  },
+  "selection": {
+    "highest_leverage_measurable_weakness": "Runbook Sentinel cannot make evidence-based Pareto comparisons between retrieval configurations because recall remains perfect while extra-record burden and hostile-document rank are unreported.",
+    "bounded_improvement": "Add an independent fail-closed retrieval-quality family that reports exact required-evidence density, extra-record burden, expected-evidence rank distribution, and guidance/in-band attack-document rank buckets with conditional safety outcomes on frozen development and held-out splits.",
+    "selected_checkpoint": "BASELINE-0029",
+    "frozen_contract": "eval/retrieval-quality-observability-contract.json",
+    "new_scenarios": 0,
+    "changes_agent_behavior_or_authority": false,
+    "changes_retrieval_or_decision_context": false,
+    "changes_core_thesis": false,
+    "adds_external_asset_dependency_secret_or_service": false
+  },
+  "research_basis": {
+    "source_gate": "artifacts/verification/research-source-gate-baseline-0029-retrieval-quality.json",
+    "principles": [
+      "evaluate retriever and generator modules separately",
+      "measure focused context as well as completeness",
+      "expose useful-information versus noise tradeoffs before changing retrieval"
+    ],
+    "adaptation": "All labels, exact-ID calculations, thresholds, graders, and synthetic evidence remain project-authored and deterministic; no LLM judge or external benchmark is used."
+  },
+  "retained_observations": [
+    "The first attack-rank probe overcounted missing JSON properties because of PowerShell array wrapping; its result is excluded and retained in artifacts/verification/baseline-0029-orientation-probe-failures-001.json.",
+    "The first split wrapper used invalid -gt0 syntax and stopped before producing a result; the corrected explicit comparison is admitted.",
+    "Expected retrieval IDs are frozen required evidence, not exhaustive semantic relevance labels. The metric is named expected-document share rather than context precision and must not call every other record irrelevant.",
+    "This checkpoint improves measurement only. It does not claim a retrieval defect, model utility, production readiness, or universal prompt-injection resistance."
+  ]
+}

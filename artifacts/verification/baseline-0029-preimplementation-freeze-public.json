@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-preimplementation-freeze-public-20260815T190500Z",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-001",
+  "observed_at_utc": "2026-08-15T19:05:00Z",
+  "disposition": "pass",
+  "repository": {
+    "remote": "https://github.com/drwbkr1/runbook-sentinel.git",
+    "visibility": "public",
+    "branch": "codex/baseline-0029-retrieval-quality-observability",
+    "public_commit": "2ce5b814db09e9b4f66b47d7edc78a349ed9987a",
+    "local_head": "2ce5b814db09e9b4f66b47d7edc78a349ed9987a",
+    "tracking_head": "2ce5b814db09e9b4f66b47d7edc78a349ed9987a",
+    "ls_remote_head": "2ce5b814db09e9b4f66b47d7edc78a349ed9987a",
+    "github_api_head": "2ce5b814db09e9b4f66b47d7edc78a349ed9987a",
+    "all_heads_exact": true,
+    "worktree_clean_after_push": true
+  },
+  "raw_public_files": [
+    {
+      "path": "eval/retrieval-quality-observability-contract.json",
+      "bytes": 9415,
+      "sha256": "2b7da43d19babcf64607149b1d2208d318fe991ff71fd36df8e3140814a77d2a",
+      "local_and_public_exact": true
+    },
+    {
+      "path": "artifacts/verification/baseline-0029-preimplementation-freeze-local.json",
+      "bytes": 5982,
+      "sha256": "31b7fb0d8d9f6e3225bbf6e8ea569ade73c49c1948b0e50ea1d0954a7c74b86c",
+      "local_and_public_exact": true
+    },
+    {
+      "path": "contracts/milestone-0029.json",
+      "bytes": 11302,
+      "sha256": "513d660127439d96a1951de8524fb096541ec15ccc48ec482415213716b34107",
+      "local_and_public_exact": true
+    },
+    {
+      "path": "scripts/verify_retrieval_quality_observability_contract.py",
+      "bytes": 22179,
+      "sha256": "338d7e2f0b143309b77b3b72bcc708334f5db9347d19e938dc0b1d00afb6a3f6",
+      "local_and_public_exact": true
+    }
+  ],
+  "gate_state": {
+    "source_gate_ready": true,
+    "contract_validator_pass": true,
+    "scenario_and_terminal_identity_exact": true,
+    "tests_passed": 68,
+    "validators_passed": 35,
+    "runtime_source_changed": false,
+    "candidate_report_exists": false,
+    "v0_0_29_archive_exists": false,
+    "baseline_0029_image_exists": false,
+    "implementation_authorized": true
+  },
+  "retained_remote_verification_failure": {
+    "classification": "local single-branch fetch-refspec omission",
+    "description": "The first post-push verifier proved ls-remote, GitHub API, visibility, and raw bytes exact but git rev-parse @{u} failed because the source clone fetched only main. Fetching the exact branch created its remote-tracking ref, but Git still rejected upstream shorthand until that branch-specific refspec was added.",
+    "public_state_affected": false,
+    "correction": "Added only the exact branch fetch refspec to local repository configuration, fetched, and verified local, tracking, ls-remote, and upstream identity exact."
+  },
+  "authorized_next_action": "Begin UNIT-002 and implement only the public frozen retrieval-quality observability contract."
+}

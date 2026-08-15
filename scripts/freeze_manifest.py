@@ -21,6 +21,7 @@ FILES = [
     "eval/container-contract-0027-v6.json",
     "eval/container-contract-0027-v7.json",
     "eval/container-contract-0028-v8.json",
+    "eval/container-contract-0029-v9.json",
     "eval/model-contract.json",
     "eval/model-output-failure-contract.json",
     "eval/package-contract.json",
@@ -41,6 +42,7 @@ FILES = [
     "eval/package-contract-0026.json",
     "eval/package-contract-0027.json",
     "eval/package-contract-0028.json",
+    "eval/package-contract-0029.json",
     "eval/approval-lifetime-contract.json",
     "eval/idempotency-authorization-contract.json",
     "eval/operator-authentication-contract.json",
@@ -65,6 +67,8 @@ FILES = [
     "eval/adversarial-exposure-stage-outcome-split-coverage-prechange.json",
     "eval/adversarial-retrieval-stage-outcome-split-coverage-contract.json",
     "eval/adversarial-retrieval-stage-outcome-split-coverage-prechange.json",
+    "eval/retrieval-quality-observability-contract.json",
+    "eval/retrieval-quality-observability-prechange.json",
     "artifacts/verification/intake-public-v0.0.23-package-baseline-0028.json",
     "artifacts/verification/controlled-intake/baseline-0028-historical-package-v0.0.23-001/runbook-sentinel-0.0.23.pyz",
     "src/runbook_sentinel/__init__.py",
@@ -74,6 +78,7 @@ FILES = [
     "src/runbook_sentinel/cli.py",
     "src/runbook_sentinel/errors.py",
     "src/runbook_sentinel/retrieval.py",
+    "src/runbook_sentinel/retrieval_quality.py",
     "src/runbook_sentinel/evidence.py",
     "src/runbook_sentinel/agent.py",
     "src/runbook_sentinel/model_adapter.py",
@@ -124,6 +129,7 @@ FILES = [
     "scripts/verify_adversarial_exposure_stage_outcome_split_coverage.py",
     "scripts/verify_adversarial_retrieval_stage_outcome_split_coverage_contract.py",
     "scripts/verify_adversarial_retrieval_stage_outcome_split_coverage.py",
+    "scripts/verify_retrieval_quality_observability_contract.py",
     "scripts/materialize_baseline_0025_catalog.py",
     "scripts/verify_behavioral_relations.py",
     "scripts/verify_retrieval_stress.py",
@@ -151,7 +157,7 @@ def sha256(path: Path) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--checkpoint", default="baseline-0028")
+    parser.add_argument("--checkpoint", default="baseline-0029")
     parser.add_argument("--frozen-at")
     parser.add_argument("--output", default="eval/manifest.json")
     args = parser.parse_args()

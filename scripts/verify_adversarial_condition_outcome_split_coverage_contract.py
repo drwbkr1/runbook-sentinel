@@ -381,7 +381,7 @@ def main() -> None:
             errors.append("prechange_catalog_schema_mismatch")
         if sha256(CATALOG_PATH) != prechange.get("prechange_catalog_sha256"):
             errors.append("prechange_catalog_sha256_mismatch")
-    elif catalog.get("schema_version") not in {"1.15", "1.16", "1.17", "1.18"}:
+    elif catalog.get("schema_version") not in {"1.15", "1.16", "1.17", "1.18", "1.19"}:
         errors.append("candidate_catalog_schema_mismatch")
 
     frozen_scenarios, frozen_terminal_states = identity_chain(PRECHANGE_PATH)

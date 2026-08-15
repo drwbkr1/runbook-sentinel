@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-004",
+  "phase": "package_source_pre_container",
+  "observed_at_utc": "2026-08-15T21:14:27Z",
+  "status": "pass",
+  "scope": {
+    "json_files": [
+      "artifacts/evaluations/latest.json",
+      "artifacts/evaluations/runs/baseline-0029-final-source-attempt-002.json",
+      "artifacts/evaluations/runs/baseline-0029-final-source-attempt-002.manifest.json",
+      "artifacts/evaluations/runs/baseline-0029-final-package-attempt-002.json",
+      "artifacts/evaluations/runs/baseline-0029-final-package-attempt-002.manifest.json",
+      "artifacts/verification/mcp-baseline-0029-source.json",
+      "artifacts/verification/mcp-baseline-0029-package.json",
+      "artifacts/verification/live-api-baseline-0029-source.json",
+      "artifacts/verification/live-api-baseline-0029-package.json",
+      "artifacts/verification/native-baseline-0029-source.json",
+      "artifacts/verification/native-baseline-0029-package.json"
+    ],
+    "jsonl_files": [
+      "artifacts/evaluations/runs/baseline-0029-final-source-attempt-002.traces.jsonl",
+      "artifacts/evaluations/runs/baseline-0029-final-package-attempt-002.traces.jsonl"
+    ],
+    "png_files": [
+      "artifacts/verification/dashboard-source-baseline-0029.png",
+      "artifacts/verification/dashboard-package-baseline-0029.png"
+    ],
+    "archive": "dist/runbook-sentinel-0.0.29.pyz"
+  },
+  "parsed": {
+    "json_files": 11,
+    "json_parse_errors": 0,
+    "jsonl_files": 2,
+    "jsonl_records": 522,
+    "jsonl_parse_errors": 0,
+    "png_signatures": 2,
+    "archive_entries": 43,
+    "duplicate_archive_entries": 0,
+    "archive_zip_test_error": null
+  },
+  "scan": {
+    "credential_signature_findings": [],
+    "external_model_artifacts": 0,
+    "archive_runtime_dependencies": [],
+    "raw_approval_token_field_in_selected_evaluation": false,
+    "operator_capability_in_selected_runtime_evidence": false
+  },
+  "contracts": {
+    "manifest": "pass",
+    "selected_package": "pass",
+    "independent_package": "pass",
+    "container_static_require_implementation": "pass"
+  },
+  "container_image_built": false,
+  "baseline_0029_image_matches": 0
+}

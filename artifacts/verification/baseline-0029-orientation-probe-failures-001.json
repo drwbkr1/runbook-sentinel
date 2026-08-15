@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0029-orientation",
+  "observed_at_utc": "2026-08-15T18:51:26Z",
+  "disposition": "process-invalid",
+  "failures": [
+    {
+      "id": "attack-id-null-array-overcount",
+      "description": "The first exploratory PowerShell probe wrapped missing attack-document properties before filtering null values. Windows PowerShell counted those wrapped nulls as one element, incorrectly classifying all 57 scenarios as declaring attack documents and understating the combined retrieval rate.",
+      "effect": "The result was excluded before any contract or project file was written.",
+      "correction": "The admitted probe keeps only non-empty string IDs before counting or ranking. It yields 30 declared-attack scenarios, 90 attempts, 117 declared document instances, and 96 retrieved document instances."
+    },
+    {
+      "id": "split-probe-invalid-where-object-token",
+      "description": "The first split-summary wrapper used the invalid compact token -gt0, so Where-Object stopped with ParameterNotFound before producing a result.",
+      "effect": "No project or evidence state changed.",
+      "correction": "The explicit -gt 0 rerun produced the admitted development and held-out split measurements."
+    },
+    {
+      "id": "milestone-validator-path-and-status-correction",
+      "description": "The first milestone validation probe guessed a nonexistent repository-local scripts/verify_milestone_contract.py. The correct skill validator then rejected pending as a unit status for UNIT-002 through UNIT-005.",
+      "effect": "Both attempts were validation-only and changed no product state.",
+      "correction": "The governed skill validator is invoked from its exact installed path and future units use the contract-valid planned status."
+    },
+    {
+      "id": "validator-inventory-wrapper-corrections",
+      "description": "The first validator inventory wrapper used ProcessStartInfo.ArgumentList, unavailable in Windows PowerShell's runtime. Its successor ran 33 of 35 validators but omitted PYTHONPATH, so the model-comparison and stale-payload validators stopped on source-package imports.",
+      "effect": "Both wrappers were side-effect-free and neither reported a product or contract failure.",
+      "correction": "The admitted wrapper uses quoted Arguments, sets PYTHONPATH to the exact source tree, and passes all 35 side-effect-free validators."
+    }
+  ],
+  "preservation_rule": "These unfavorable orientation-process results remain recorded and are not evaluation evidence."
+}

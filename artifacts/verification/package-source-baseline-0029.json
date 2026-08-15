@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "package-source-baseline-0029-20260815T211427Z",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T21:14:27Z",
+  "status": "pass",
+  "public_input": {
+    "repository": "https://github.com/drwbkr1/runbook-sentinel",
+    "branch": "codex/baseline-0029-retrieval-quality-observability",
+    "commit": "f8717acd212fff0505605123b3a581998683285f",
+    "correction_commit": "a22a5aa39715e97279aa8eae90b6fcf3bb229a16",
+    "manifest_sha256": "083d18c06a776b3cbc9e030656a0dc758671ef856390fee3ff6a160e4be7aaef",
+    "package_contract_sha256": "18a1965b6c5c513b70613aa2ebe9b5dad03b59ef86a0f60ff3b9c7c1edfad92e",
+    "container_contract_sha256": "578ba95099df2b6816ac702dd2cfcfbecb78b8ee6e7849c2ef034e48db930642"
+  },
+  "archive": {
+    "path": "dist/runbook-sentinel-0.0.29.pyz",
+    "bytes": 645064,
+    "sha256": "d1417c22711a09b24c7a7bdf0fa36b18ac446320087eab4493f1cbd63725090b",
+    "checksum_bytes": 94,
+    "checksum_sha256": "ecf652faebdc45528a65dd1d6463ed3b3c2ffb36f476a4860773cd1fce3549f0",
+    "entry_count": 43,
+    "duplicate_entries": 0,
+    "zip_test_error": null,
+    "runtime_dependencies": [],
+    "package_contract_status": "pass",
+    "independent_build_root": "C:/Projects/Verification/runbook-sentinel-baseline-0029-build-c-20260815T2102Z",
+    "independent_bytes": 645064,
+    "independent_sha256": "d1417c22711a09b24c7a7bdf0fa36b18ac446320087eab4493f1cbd63725090b",
+    "independent_checksum_sha256": "ecf652faebdc45528a65dd1d6463ed3b3c2ffb36f476a4860773cd1fce3549f0",
+    "byte_identity": true
+  },
+  "evaluation": {
+    "source_report": {
+      "path": "artifacts/evaluations/runs/baseline-0029-final-source-attempt-002.json",
+      "bytes": 953878,
+      "sha256": "4fd2aff6ecd12992b2491d5e24574c04a5bb51eea9cfa7cf03aed8d639d1b036"
+    },
+    "source_trace": {
+      "path": "artifacts/evaluations/runs/baseline-0029-final-source-attempt-002.traces.jsonl",
+      "bytes": 195296,
+      "sha256": "1a784cad4a47ad94c9f9926925fd22dde3dc5ca7a6a4694a6851024027ab2ad5",
+      "events": 261,
+      "final_event_sha256": "16c34f953fd50ea1e902951f6d5fc9c841f7f59cd7a9fd7eb3a0ccf0b13fc5dd",
+      "valid": true,
+      "anchored": true
+    },
+    "package_report": {
+      "path": "artifacts/evaluations/runs/baseline-0029-final-package-attempt-002.json",
+      "bytes": 953887,
+      "sha256": "74f8cbff1128c7da8df80c03a09cabc2729fd1f7a4a2a6c085bbc337c08ba57b"
+    },
+    "package_trace": {
+      "path": "artifacts/evaluations/runs/baseline-0029-final-package-attempt-002.traces.jsonl",
+      "bytes": 195303,
+      "sha256": "fe6f6c1840a865383d0affff2019ff0e5714cf691cb3f5becf91ce03756d6b84",
+      "events": 261,
+      "final_event_sha256": "acfa19ec836c69b67c4190b0840a712538cdb86c394907d0b06d7a36eb9b4abd",
+      "valid": true,
+      "anchored": true
+    },
+    "companion_manifest_sha256": "083d18c06a776b3cbc9e030656a0dc758671ef856390fee3ff6a160e4be7aaef",
+    "latest_sha256": "4fd2aff6ecd12992b2491d5e24574c04a5bb51eea9cfa7cf03aed8d639d1b036",
+    "configuration": {
+      "agent": "deterministic-control-v2",
+      "retriever": "freshness-priority-lexical-v3",
+      "decision_context": "fresh-content-stale-metadata-context-v3"
+    },
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "boolean_gates": {"true": 136, "false": 0},
+    "retrieval_quality": {
+      "expected_document_share_mean": 0.683006535948,
+      "attempts_with_extra_documents_rate": 0.56862745098,
+      "guidance_first_rank_attempt_count": {"not_retrieved": 6, "rank_1": 6, "rank_2": 45, "rank_3_4": 9},
+      "inband_first_rank_attempt_count": {"not_retrieved": 0, "rank_1": 24, "rank_2": 0, "rank_3_4": 0},
+      "cross_trial_rank_bucket_ambiguity_count": 0,
+      "populated_bucket_policy_compliance_rate": 1.0,
+      "populated_bucket_proposal_attack_success_rate": 0.0,
+      "populated_bucket_terminal_attack_success_rate": 0.0
+    },
+    "source_package_cases_exact_without_latency_and_diagnosis_latency": true,
+    "source_package_split_metrics_exact_without_latency": true,
+    "source_package_gates_exact": true,
+    "source_package_retrieval_quality_exact": true,
+    "retrieval_generation_trajectory_policy_terminal_utility_security_reliability_cost_separately_reported": true
+  },
+  "mcp": {
+    "source_receipt": {"path": "artifacts/verification/mcp-baseline-0029-source.json", "bytes": 1148, "sha256": "84fa72bbdb7a2a8228cf0307da9843d3fc49d747df44e3b78c0932fdcc8b8555"},
+    "package_receipt": {"path": "artifacts/verification/mcp-baseline-0029-package.json", "bytes": 1148, "sha256": "96c607c8390a4c63d928c962d3740a21ca046b9f381977dd9fd5fb545c7a0c4c"},
+    "semantic_projection_exact_except_per_run_trace_hashes": true,
+    "protocol_version": "2025-11-25",
+    "tool_names": ["list_synthetic_scenarios", "diagnose_synthetic_incident", "get_synthetic_incident"],
+    "approval_or_execution_tool_exposed": false,
+    "attack_document_in_decision_context": false,
+    "both_trace_chains_valid_and_anchored": true
+  },
+  "api": {
+    "source_receipt": {"path": "artifacts/verification/live-api-baseline-0029-source.json", "bytes": 19431, "sha256": "44479ded521e8da80818ed9c7605049512028730ad1d4a7ec458f8c5375163d6"},
+    "package_receipt": {"path": "artifacts/verification/live-api-baseline-0029-package.json", "bytes": 19431, "sha256": "e8dde5d23f7858e7e4de684e102372c545c13b2e50a2e477deddfa1022aff222"},
+    "source_checks": "131/131",
+    "package_checks": "131/131",
+    "checks_exact": true,
+    "semantic_evidence_exact_except_per_launch_trace_hashes": true,
+    "source_runtime_custody": "C:/Projects/Verification/runbook-sentinel-baseline-0029-source-api-selected-20260815T2105Z",
+    "package_runtime_custody": "C:/Projects/Verification/runbook-sentinel-baseline-0029-package-api-selected-20260815T2106Z"
+  },
+  "native_evidence": {
+    "source_receipt": {"path": "artifacts/verification/native-baseline-0029-source.json", "bytes": 12476, "sha256": "aa8b49da62974df74bd069ea91e91848f4aa37cdcd72c3416e0ff0b7a0d87b95"},
+    "package_receipt": {"path": "artifacts/verification/native-baseline-0029-package.json", "bytes": 12476, "sha256": "267f6dd9f75195e7e643c3537cc2df82b207bb84c6c1935d45e4c4a07f129431"},
+    "source_checks": "72/72",
+    "package_checks": "72/72",
+    "checks_exact": true,
+    "evaluation_projection_exact": true,
+    "launch_specific_operator_database_telemetry_hashes_observed_separately": true
+  },
+  "dashboards": {
+    "source": {"path": "artifacts/verification/dashboard-source-baseline-0029.png", "bytes": 101441, "sha256": "621314b28f352e11953c1a383279e343d2e730e7011a9f11c90d377a963f7146", "dimensions": [1440, 1000]},
+    "package": {"path": "artifacts/verification/dashboard-package-baseline-0029.png", "bytes": 101707, "sha256": "d80a6d2de0147d835e2616744b295eef5ea45b4fd326e25a36cde66fa8cc96ae", "dimensions": [1440, 1000]},
+    "both_visually_inspected_at_original_detail": true,
+    "all_35_metrics_visible": true,
+    "authorization_and_execution_boundaries_visible": true,
+    "persisted_incident_header_and_two_rows_visible": true,
+    "real_infrastructure_disconnected_visible": true
+  },
+  "post_surface_gates": {
+    "unit_tests": {"passed": 71, "total": 71, "elapsed_seconds": 88.427},
+    "standalone_validators": {"passed": 35, "total": 35, "elapsed_seconds": 3.731},
+    "source_trace_validation": "pass",
+    "package_trace_validation": "pass",
+    "source_package_contract_validation": "pass",
+    "compileall": "pass",
+    "milestone_validation": "pass",
+    "git_diff_check": "pass",
+    "artifact_scan": "pass"
+  },
+  "boundaries": {
+    "synthetic_only": true,
+    "model_has_credentials": false,
+    "model_has_approval_authority": false,
+    "model_has_execution_authority": false,
+    "real_infrastructure_connected": false,
+    "container_image_built": false,
+    "container_gate": "closed until this exact package/source payload is committed, pushed, and independently reconciled from public bytes"
+  }
+}

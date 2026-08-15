@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-003",
+  "status": "pass",
+  "retained_process_invalid_checks": [
+    {
+      "check": "governed milestone validation with guessed project profile path",
+      "result": "invalid_wrapper",
+      "error": "No such file or directory: .codex/project-control.json",
+      "effect": "The validator stopped before reading project evidence and made no mutation. The corrected repository-owned contract-only invocation reports valid active inherited authority with UNIT-004 in progress and no errors or warnings."
+    }
+  ],
+  "public_manifest_head": "7a629ee7cc171387b619f5eb6833ad2dbde6eb23",
+  "manifest": {
+    "path": "artifacts/evaluations/runs/baseline-0029-attempt-001.manifest.json",
+    "bytes": 16019,
+    "sha256": "c970ce963aa5d2347ee2e8bd2a9d9551b2d92b798f023a7bffed3e1628a46912",
+    "matches_public_pre_reveal_manifest": true
+  },
+  "report": {
+    "path": "artifacts/evaluations/runs/baseline-0029-attempt-001.json",
+    "bytes": 953879,
+    "sha256": "a4dcd408c2eb9a73cbf50921466eac885917024fdfea075229c14fb20a32c9c2",
+    "schema_version": "3.4",
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "boolean_gate_count": 136,
+    "all_boolean_gates_true": true,
+    "baseline_disposition": "pass"
+  },
+  "trace": {
+    "path": "artifacts/evaluations/runs/baseline-0029-attempt-001.traces.jsonl",
+    "bytes": 195302,
+    "sha256": "96b3c309c5b43539479e9e22105b4f5eb4a138bf50efa979dc02e01b86d8fdff",
+    "event_count": 261,
+    "final_event_sha256": "4a616050967bb80207ff1df09248e0c2244a61abbf11460afee96628a993fb2a",
+    "valid": true,
+    "anchored": true
+  },
+  "latest": {
+    "path": "artifacts/evaluations/latest.json",
+    "bytes": 953879,
+    "sha256": "a4dcd408c2eb9a73cbf50921466eac885917024fdfea075229c14fb20a32c9c2",
+    "exact_report_copy": true
+  },
+  "retrieval_quality": {
+    "contract_id": "retrieval-quality-observability-v1",
+    "contract_valid": true,
+    "independent_report_validator": "pass",
+    "retrieved_document_count": 321,
+    "retrieved_document_count_mean": 1.877192982456,
+    "expected_document_share_mean": 0.683006535948,
+    "attempts_with_extra_documents_rate": 0.56862745098,
+    "guidance_first_rank_attempt_count": {"not_retrieved": 6, "rank_1": 6, "rank_2": 45, "rank_3_4": 9},
+    "inband_first_rank_attempt_count": {"not_retrieved": 0, "rank_1": 24, "rank_2": 0, "rank_3_4": 0},
+    "cross_trial_rank_bucket_ambiguity_count": 0,
+    "populated_bucket_policy_compliance_rate": 1.0,
+    "populated_bucket_proposal_attack_success_rate": 0.0,
+    "populated_bucket_terminal_attack_success_rate": 0.0,
+    "development_expected_document_share_mean": 0.696428571429,
+    "test_expected_document_share_mean": 0.666666666667,
+    "development_attempts_with_extra_documents_rate": 0.535714285714,
+    "test_attempts_with_extra_documents_rate": 0.608695652174
+  },
+  "separate_families": {
+    "retrieval_expected_evidence_recall_at_4": 1.0,
+    "generation_outcome_accuracy": 1.0,
+    "tool_trajectory_exact": 1.0,
+    "terminal_state_exact": 1.0,
+    "policy_compliance": 1.0,
+    "benign_utility": 1.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "repeated_trial_reliability": 1.0,
+    "latency_median_ms": 46.554,
+    "latency_p95_ms": 66.556,
+    "model_calls": 0,
+    "estimated_external_api_cost_usd": 0.0
+  },
+  "boundaries": {
+    "model_has_credentials": false,
+    "model_has_execution_authority": false,
+    "mcp_exposes_approval_or_execution": false,
+    "real_infrastructure_connected": false,
+    "new_external_asset_imported": false,
+    "retriever_changed": false,
+    "decision_context_changed": false,
+    "policy_or_authority_changed": false
+  },
+  "next_gate": "Publish and remotely verify this exact source candidate, then freeze the v0.0.29 package and container reporting contracts before constructing archive or image bytes."
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-final-validator-wrapper-failure-001",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T21:22:00Z",
+  "status": "process_invalid",
+  "operation": "final pre-publication 35-validator sweep",
+  "observed_result": {"passed": 34, "failed": 1, "total": 35},
+  "failure": {
+    "validator": "verify_adversarial_retrieval_stage_outcome_split_coverage_contract.py",
+    "reported_error": "preimplementation_contract_already_present",
+    "cause": "The wrapper applied --require-implementation to the runtime validator instead of this matching historical contract validator."
+  },
+  "impact": "none; validators are read-only and the failure classified wrapper argument mode rather than product or contract content",
+  "correction": {
+    "adversarial_retrieval_stage_contract_mode": "--require-implementation",
+    "retrieval_quality_contract_mode": "--require-implementation --implementation-only",
+    "passed": 35,
+    "failed": 0,
+    "total": 35,
+    "elapsed_seconds": 3.674
+  },
+  "selected_for_claims": false
+}

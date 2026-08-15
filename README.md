@@ -8,6 +8,8 @@ Release checkpoint `v0.0.27` is verified and published as the current public syn
 
 Release checkpoint `v0.0.28` is verified and published as the current public synthetic-only research preview. It adds only fail-closed reporting that distinguishes 60 hostile-guidance attempts retrieved then filtered from 6 attempts where the declared hostile document was never retrieved; no retrieval behavior or authority changes. PR `#26` merged exact reviewed head `99ed8f96f55c994feff168252fcde0941054746b` with history preserved as `9aec054f8c97f04c36fc39685667e86c5e8d097e`; annotated tag object `5026ecff0d2351a3231ea8d340e4b330a31cc52d` peels to audited release closure `a93ad62e952421dfec2a80c396a3fb8b0e8e580a`. Selected public zipapp/checksum bytes, rendered repository/release/tag pages, and fresh no-alternates public-tag source, downloaded-package, MCP, API, state, telemetry, dashboards, scan, and local-container paths reconcile; external receipt commit `8e41963dda38d15c5d504471bdbb0a3f4f59ba57` publishes the exact result. Three tag-source builds reproduce exact local image ID `sha256:9a62f5e1daf61089ef6c9ceb71afd930c72ea60874bcec4eba78c4fc35467e2e` on the verified Docker/Buildx/BuildKit stack. The image was not exported, pushed, or published; this is not a cross-builder, production-readiness, universal-safety, or perpetual-vulnerability claim.
 
+Candidate checkpoint `v0.0.29` adds deterministic returned-set focus, extra-record burden, hostile-document rank, conditional safety, split, and repeated-trial ambiguity reporting without changing retrieval or authority. Its immutable source candidate and exact 43-entry package contract, 45-check local-container contract, and 135-file pre-build manifest are public at `9804ba864f2231c2d124a767f773049a3cccb481`; archive and image bytes were absent at that seal.
+
 PR `#24` merged exact reviewed head `48eb7669582b372ef2d0c8986374fa0823133f61` with history preserved as `2fac52759e0d3f6857491f40d1958f62a85e70b4`. Annotated tag object `2c8593ec5f77ab76e12da926336dfa06b97a67eb` peels to release closure `74bf5cba93b0697e74163a335c3dbfcc4d5d7418`. Selected public assets, downloaded bytes, live repository/release/tag pages, and a fresh public-tag clone repeat 31 validators, 47 tests, two independent archive rebuilds, source/package 171-attempt evaluations with exact 261-event anchors, bounded MCP, real API/approval/executor/state/telemetry, parsing, scans, and complete dashboards. Candidate `v0.0.11` remains rejected and unpublished. Synthetic eighteen-cell coverage is not universal prompt-injection resistance or production readiness.
 
 The bounded agent can diagnose, request evidence, propose an action, or abstain. It cannot execute actions. A deterministic approval broker, policy gate, and synthetic-only executor enforce authority outside the model.
@@ -20,7 +22,7 @@ Run all commands from the repository root with Python 3.12 or newer.
 
 ```powershell
 $env:PYTHONPATH = 'src'
-python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0028-manual.json
+python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0029-manual.json
 python -m unittest discover -s tests -v
 python -m runbook_sentinel serve --host 127.0.0.1 --port 8765
 ```
@@ -31,11 +33,11 @@ Build and verify the standard-library-only zipapp without installing a build bac
 
 ```powershell
 python scripts/build_zipapp.py
-python scripts/verify_package_contract.py --contract eval/package-contract-0028.json --archive dist/runbook-sentinel-0.0.28.pyz
-python dist/runbook-sentinel-0.0.28.pyz --help
+python scripts/verify_package_contract.py --contract eval/package-contract-0029.json --archive dist/runbook-sentinel-0.0.29.pyz
+python dist/runbook-sentinel-0.0.29.pyz --help
 ```
 
-The builder uses an exact 41-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. The container is a digest-pinned local verification surface; no package-registry or container-image publication claim is made.
+The v0.0.29 builder uses an exact 43-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. The container is a digest-pinned local verification surface; no package-registry or container-image publication claim is made.
 
 The MCP server uses JSON-RPC over standard input/output:
 

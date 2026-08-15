@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-mcp-help-probe-observation-001",
+  "checkpoint": "baseline-0029",
+  "observed_at_utc": "2026-08-15T20:36:09Z",
+  "status": "retained_observation",
+  "phase": "source_package_real_surface_preflight",
+  "operation": "python scripts/verify_mcp_stdio.py --help",
+  "observation": "The verifier has no argument parser, so the apparent help probe executed one complete source MCP verification and printed a passing summary instead of help text.",
+  "impact": "No authoritative source, contract, manifest, evaluation, or package bytes changed. Git-ignored synthetic MCP state and trace files were generated and then replaced by the selected source and package MCP runs.",
+  "correction": "Run the verifier with explicit source and package child PYTHONPATH selectors and preserve each selected summary under a distinct receipt name.",
+  "superseded_source_receipt": "artifacts/verification/mcp-baseline-0029-source-superseded-attempt-001.json",
+  "superseded_package_receipt": "artifacts/verification/mcp-baseline-0029-package-superseded-attempt-001.json"
+}

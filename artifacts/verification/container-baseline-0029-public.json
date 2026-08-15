@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "container-baseline-0029-public-20260815T214135Z",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T21:41:35Z",
+  "status": "pass",
+  "repository": "https://github.com/drwbkr1/runbook-sentinel",
+  "visibility": "PUBLIC",
+  "branch": "codex/baseline-0029-retrieval-quality-observability",
+  "canonical_evidence_commit": "e685bba4ff4e326f7d6d73cadd1cc90b364ca5d8",
+  "verified_branch_head": "e685bba4ff4e326f7d6d73cadd1cc90b364ca5d8",
+  "heads": {
+    "local": "e685bba4ff4e326f7d6d73cadd1cc90b364ca5d8",
+    "remote_tracking": "e685bba4ff4e326f7d6d73cadd1cc90b364ca5d8",
+    "ls_remote": "e685bba4ff4e326f7d6d73cadd1cc90b364ca5d8",
+    "github_api": "e685bba4ff4e326f7d6d73cadd1cc90b364ca5d8",
+    "exact": true
+  },
+  "anonymous_raw_verification": {
+    "changed_path_count": 13,
+    "verified": 13,
+    "failed": 0,
+    "length_and_sha256_exact": true
+  },
+  "canonical_receipt": {
+    "path": "artifacts/verification/container-baseline-0029.json",
+    "bytes": 29890,
+    "sha256": "1ad5e50384f6364d496251f0519943c42d7e046964f88a1700782ecdb8780760",
+    "git_blob": "fa8c708d177643113a1a2da40a391010dfe7fe4e",
+    "remote_bytes_exact": true,
+    "checks_passed": 45,
+    "checks_total": 45
+  },
+  "container_contract_sha256": "578ba95099df2b6816ac702dd2cfcfbecb78b8ee6e7849c2ef034e48db930642",
+  "source_gate_sha256": "effc86d7c30dcbc08cbc7c70eb1271208acea5c1af725cd55b1577019ed24d18",
+  "image": {
+    "image_id": "sha256:b2062da4db7e6d31fea9ddc5eb7794ff2458d243c6e2e951264cf73f841d7be6",
+    "local_tags": [
+      "runbook-sentinel:baseline-0029-a-414b84f23e",
+      "runbook-sentinel:baseline-0029-b-414b84f23e",
+      "runbook-sentinel:baseline-0029-clean-4c8755c67f"
+    ],
+    "all_tags_exact": true,
+    "exported": false,
+    "pushed": false,
+    "published": false
+  },
+  "rendered_dashboard": {
+    "path": "artifacts/verification/dashboard-container-baseline-0029.png",
+    "bytes": 101731,
+    "sha256": "9c33e760c65be5b542effd3ee5f83768430e40924079277673f84c4d36d6e0c0",
+    "git_blob": "644f5624d7913cb15b0119f58aebc045383def1a",
+    "original_detail_accepted": true
+  },
+  "structured_scan": {
+    "path": "artifacts/verification/container-scout-critical-high-baseline-0029.sarif.json",
+    "sha256": "7749b34be7a069559b10b1b9d53cc8897576fdd104071a9e0f907f9a301ee303",
+    "critical_findings": 0,
+    "high_findings": 0,
+    "observation_time_only": true
+  },
+  "retained_observations": {
+    "path": "artifacts/verification/baseline-0029-container-generated-label-observations-001.json",
+    "sha256": "66af6c4298e6135f35581a768d823aa30e8917d97c56a717f9822d912e9e280e",
+    "canonical_claims_affected": false
+  },
+  "unit_disposition": "pass",
+  "authorized_next_action": "Begin UNIT-005 with the governed premerge release-truth audit; continue to exact review, history-preserving merge, public-main verification, final audit, source-plus-zipapp release, and public-tag verification only if every gate passes."
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-package-seal-local-20260815T202520Z",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T20:25:20Z",
+  "disposition": "pass",
+  "source_candidate": {
+    "public_commit": "0a8ad6f5fe54268473893a862ad12552db5fcd80",
+    "public_raw_bytes_exact": true,
+    "report_path": "artifacts/evaluations/runs/baseline-0029-attempt-001.json",
+    "report_bytes": 953879,
+    "report_sha256": "a4dcd408c2eb9a73cbf50921466eac885917024fdfea075229c14fb20a32c9c2",
+    "trace_path": "artifacts/evaluations/runs/baseline-0029-attempt-001.traces.jsonl",
+    "trace_bytes": 195302,
+    "trace_sha256": "96b3c309c5b43539479e9e22105b4f5eb4a138bf50efa979dc02e01b86d8fdff",
+    "pre_reveal_manifest_sha256": "c970ce963aa5d2347ee2e8bd2a9d9551b2d92b798f023a7bffed3e1628a46912"
+  },
+  "package_contract": {
+    "current_path": "eval/package-contract.json",
+    "versioned_path": "eval/package-contract-0029.json",
+    "bytes": 16765,
+    "sha256": "18a1965b6c5c513b70613aa2ebe9b5dad03b59ef86a0f60ff3b9c7c1edfad92e",
+    "current_and_versioned_exact": true,
+    "entry_count": 43,
+    "runtime_dependencies": [],
+    "static_validation": "pass"
+  },
+  "container_contract": {
+    "current_path": "eval/container-contract.json",
+    "versioned_path": "eval/container-contract-0029-v9.json",
+    "contract_id": "container-runtime-v9",
+    "bytes": 11395,
+    "sha256": "578ba95099df2b6816ac702dd2cfcfbecb78b8ee6e7849c2ef034e48db930642",
+    "current_and_versioned_exact": true,
+    "required_check_count": 45,
+    "implementation_phase": "implemented_v9",
+    "runtime_receipt_state": "absent",
+    "static_validation": "pass"
+  },
+  "final_manifest": {
+    "path": "eval/manifest.json",
+    "frozen_at_utc": "2026-08-15T20:21:23Z",
+    "file_count": 135,
+    "bytes": 16240,
+    "sha256": "7999bbac9813f26ab6ad14947974fb8717e52d3db9c2ec47191ee96ab1c03ddd",
+    "exact_verification": "pass"
+  },
+  "complete_gate": {
+    "pre_freeze_unit_tests": {"passed": 71, "total": 71, "elapsed_seconds": 87.552},
+    "post_freeze_unit_tests": {"passed": 71, "total": 71, "elapsed_seconds": 85.870},
+    "project_validators": {"passed": 35, "total": 35, "elapsed_seconds": 2.413},
+    "governed_milestone_validator": "pass with active inherited authority and no errors or warnings",
+    "candidate_retrieval_quality_validator": "pass",
+    "candidate_trace_validator": "pass",
+    "compileall": "pass",
+    "git_diff_check": "pass",
+    "archive_created": false,
+    "image_built": false
+  },
+  "pre_build_absence": {
+    "package_archive": "absent",
+    "package_checksum": "absent",
+    "container_runtime_receipt": "absent",
+    "runbook_sentinel_container_image": "absent"
+  },
+  "docker_observation": {
+    "daemon_available": true,
+    "docker_client_version": "29.4.3",
+    "docker_engine_version": "29.4.3",
+    "docker_desktop_version": "4.74.0",
+    "buildx_version": "0.33.0-desktop.1",
+    "claim_scope": "environment availability only; no BASELINE-0029 image was built"
+  },
+  "retained_failures": [
+    "artifacts/verification/baseline-0029-package-freeze-process-failures-001.json"
+  ],
+  "seal_status": "complete_gate_pass_awaiting_public_commit",
+  "authorized_next_action": "Commit and push this exact package contract, container contract, final manifest, retained evidence, and local seal before constructing any archive or image."
+}

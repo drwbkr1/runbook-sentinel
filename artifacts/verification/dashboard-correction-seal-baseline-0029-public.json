@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "dashboard-correction-seal-baseline-0029-public-20260815T210125Z",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-15T21:01:25Z",
+  "status": "pass",
+  "repository": "https://github.com/drwbkr1/runbook-sentinel",
+  "visibility": "public",
+  "branch": "codex/baseline-0029-retrieval-quality-observability",
+  "seal_commit": "a22a5aa39715e97279aa8eae90b6fcf3bb229a16",
+  "identity": {
+    "local_head": "a22a5aa39715e97279aa8eae90b6fcf3bb229a16",
+    "tracking_head": "a22a5aa39715e97279aa8eae90b6fcf3bb229a16",
+    "ls_remote_head": "a22a5aa39715e97279aa8eae90b6fcf3bb229a16",
+    "github_git_ref": "a22a5aa39715e97279aa8eae90b6fcf3bb229a16",
+    "all_exact": true
+  },
+  "raw_public_paths": [
+    {"path": "eval/manifest.json", "bytes": 16240, "sha256": "083d18c06a776b3cbc9e030656a0dc758671ef856390fee3ff6a160e4be7aaef", "exact": true},
+    {"path": "src/runbook_sentinel/api.py", "bytes": 23965, "sha256": "4371a79854ab104c4c49218a764e13dc58c6e8386561cb0e59364e508b6b49d0", "exact": true},
+    {"path": "tests/test_baseline.py", "bytes": 137524, "sha256": "b493d78edeebf1c1e83975917e5b25fef50d5f0c3b9d8bdc0dcd5261595621d3", "exact": true},
+    {"path": "artifacts/verification/dashboard-baseline-0029-dashboard-correction-prefreeze-attempt-002.png", "bytes": 101571, "sha256": "e41c987f9c6589fb51dad3b72919a3c9f01cbebcb3eca4e53325bd1cf31f4ba8", "exact": true},
+    {"path": "artifacts/verification/dashboard-correction-seal-baseline-0029-local.json", "bytes": 4807, "sha256": "acda5e0cb2632c248ae6fdbc568d9f62ff92d9d16452d6de039af2732bb6493b", "exact": true},
+    {"path": "artifacts/verification/baseline-0029-dashboard-viewport-failure-001.json", "bytes": 1832, "sha256": "f7d1c2a1ec2ff4807dbb75c4e40bb8b0c504353eb16d28cfe3941002dd97e972", "exact": true},
+    {"path": "docs/status.md", "bytes": 222509, "sha256": "baa5fbab886b43068a855c8712a73c16794a8f24111d97ccb9295b63e78609b5", "exact": true},
+    {"path": "docs/roadmap.md", "bytes": 57793, "sha256": "ff22547e76942d7d8a9069a04367363a3bf61dabf763885224b4a1752a4dc48b", "exact": true}
+  ],
+  "all_raw_paths_exact": true,
+  "public_absence_at_seal": {
+    "replacement_archive": true,
+    "replacement_checksum": true,
+    "container_receipt": true
+  },
+  "local_absence_at_seal": {
+    "replacement_archive": true,
+    "replacement_checksum": true,
+    "baseline_0029_image_count": 0
+  },
+  "retained_external_wrapper_failure": {
+    "operation": "anonymous GitHub repository and slash-bearing branch API plus raw-byte wrapper",
+    "result": "HTTP 403 on the branch API before any raw-byte download",
+    "effect": "ls-remote had already matched; no repository or local state changed",
+    "correction": "Use authenticated gh repository and git-ref APIs for metadata, then anonymous raw.githubusercontent.com downloads for exact byte comparison"
+  },
+  "authorized_next_action": "Build two replacement archives from this exact public correction seal, require byte identity and package-contract verification, then repeat fresh source/package evaluations and every real-surface gate before Docker construction."
+}

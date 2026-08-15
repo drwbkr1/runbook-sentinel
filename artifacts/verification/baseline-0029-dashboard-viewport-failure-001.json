@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0029-dashboard-viewport-failure-001",
+  "checkpoint": "baseline-0029",
+  "observed_at_utc": "2026-08-15T20:40:00Z",
+  "status": "superseded_visual_failure",
+  "phase": "final_manifest_source_package_real_surfaces",
+  "machine_results": {
+    "source_http_checks": "131/131",
+    "package_http_checks": "131/131",
+    "source_native_checks": "72/72",
+    "package_native_checks": "72/72",
+    "source_package_dashboard_byte_identity": true,
+    "dashboard_sha256": "9cfcc9bad834a7004320e5d7a1f6696ea4f75c7ae51784d15a11ecf942837696",
+    "dashboard_dimensions": [1440, 1000]
+  },
+  "visual_result": "fail",
+  "visual_observation": "Original-detail inspection shows the Persisted incidents heading at the bottom of the 1440 by 1000 frame, but the table header and incident rows are below the captured viewport and therefore not visibly verifiable.",
+  "cause": "The five-column metric grid expanded to seven rows after retrieval-quality cards were added.",
+  "bounded_correction": "Use a six-column-capable 185-pixel minimum grid with slightly smaller gaps, padding, and top-level vertical spacing while preserving every metric, boundary label, table field, and responsive auto-fit behavior.",
+  "superseded_archive": {
+    "sha256": "8ea2b7f4cc9d7262d9b289030e60572933ac2d9be2e3082ed356e2f156f08e8e",
+    "custody": "C:/Projects/Verification/runbook-sentinel-baseline-0029-superseded-dashboard-attempt-001-20260815T2040Z"
+  },
+  "security_boundary_changed": false,
+  "evaluation_result_changed": false,
+  "container_image_built": false,
+  "next_gate": "Prove the corrected source dashboard at original detail, renew the package and manifest seals, publish and remotely verify those exact bytes, then rebuild and repeat the full source/package gate before Docker construction."
+}

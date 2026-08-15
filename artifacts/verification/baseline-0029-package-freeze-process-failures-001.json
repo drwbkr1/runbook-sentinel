@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-004",
+  "status": "retained_process_failures",
+  "failures": [
+    {
+      "operation": "pre-contract file-identity display wrapper",
+      "error": "PowerShell reported an empty pipe element after a foreach expression",
+      "effect": "The wrapper failed during parsing before reading identities or changing files. The corrected assignment-first wrapper produced the exact v8 verifier, test, contract-verifier, and receipt identities used by the frozen v9 contract."
+    },
+    {
+      "operation": "focused container contract test selection",
+      "error": "The selector named nonexistent test_container_v5_contract_fails_closed_on_metadata_boundary_weakening",
+      "effect": "Four other focused tests passed and one loader error was retained. The corrected exact selector test_container_v5_contract_fails_closed_on_event_window_weakening passed without a source change."
+    },
+    {
+      "operation": "Docker environment version display",
+      "error": "Docker Go-template index syntax treated Version as an undefined function",
+      "effect": "All product, contract, manifest, candidate, and milestone checks had already passed. The corrected JSON-formatted Docker version call reports client/server 29.4.3, Docker Desktop 4.74.0, and Buildx 0.33.0-desktop.1 without building an image."
+    }
+  ],
+  "disposition": "process-invalid only; corrected checks pass and no unfavorable product result was rewritten"
+}

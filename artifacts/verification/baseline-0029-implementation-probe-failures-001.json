@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0029",
+  "recorded_at_utc": "2026-08-15T19:24:51.7643353Z",
+  "status": "retained",
+  "failures": [
+    {
+      "sequence": 1,
+      "phase": "focused_test_selection",
+      "command": "$env:PYTHONPATH='src'; python -m unittest tests.test_retrieval_quality_observability_contract tests.test_baseline.BaselineTests.test_live_http_surface_has_security_headers_and_runs_scenario -v",
+      "result": "failed",
+      "error": "AttributeError: module 'tests.test_baseline' has no attribute 'BaselineTests'. Did you mean: 'BaselineTest'?",
+      "classification": "test selector error; no product or test assertion executed for the named dashboard test",
+      "disposition": "superseded by the exact selector tests.test_baseline.BaselineTest.test_live_http_surface_has_security_headers_and_runs_scenario, which passed"
+    },
+    {
+      "sequence": 2,
+      "phase": "timestamp_capture",
+      "command": "Get-Date -AsUTC -Format o",
+      "result": "failed",
+      "error": "A parameter cannot be found that matches parameter name 'AsUTC'.",
+      "classification": "local PowerShell version does not expose Get-Date -AsUTC",
+      "disposition": "superseded by (Get-Date).ToUniversalTime().ToString('o'), which succeeded"
+    },
+    {
+      "sequence": 3,
+      "phase": "complete_source_test_suite",
+      "command": "$env:PYTHONPATH='src'; python -m unittest discover -s tests -v",
+      "result": "failed",
+      "summary": "70 tests ran; 68 passed and 2 failed",
+      "errors": [
+        "test_evaluation_reports_separate_metrics_and_passes_control_gates expected report schema 3.3 after the additive report schema advanced to 3.4",
+        "test_stale_payload_contract_fails_closed_on_corruption called a validator still pinned to catalog schema 1.18 after the additive catalog schema advanced to 1.19"
+      ],
+      "classification": "compatibility assertions not yet advanced for the frozen additive schemas; no retrieval behavior, scenario, terminal-state, policy, or authority regression",
+      "disposition": "retained; corrected by advancing exact schema assertions and every current catalog validator while preserving their substantive validation rules"
+    },
+    {
+      "sequence": 4,
+      "phase": "side_effect_free_validator_sweep",
+      "result": "expected_pre_manifest_failure",
+      "summary": "34 of 35 validators passed; verify_manifest.py reported only exact source hashes changed by UNIT-002",
+      "classification": "the BASELINE-0028 manifest must not be relabeled or silently rewritten during UNIT-002",
+      "disposition": "retained and excluded from the implementation pass; UNIT-003 may freeze and publish a new baseline-0029 manifest only after the implementation seal is public"
+    },
+    {
+      "sequence": 5,
+      "phase": "unchanged_boundary_probe",
+      "result": "failed",
+      "error": "PowerShell parser rejected a parenthesized git invocation containing a semicolon while constructing the boundary-identity table",
+      "classification": "read-only wrapper syntax error; no product or repository state changed",
+      "disposition": "superseded by an explicit statement-block wrapper; all seven bounded agent, retrieval, evidence, policy, service, storage, and operator-authentication files are byte-identical to public freeze 0118cd1"
+    }
+  ]
+}

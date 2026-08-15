@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0029",
+  "unit": "UNIT-002",
+  "recorded_at_utc": "2026-08-15T19:40:16.5745305Z",
+  "status": "public-pass",
+  "public_implementation_seal_commit": "80a8c945516ec926f7583402efe575b94f7fac4f",
+  "public_preimplementation_seal_commit": "0118cd1a89415f24bb775a10e9f9b5f6be013b6e",
+  "implementation": {
+    "contract_id": "retrieval-quality-observability-v1",
+    "additive": true,
+    "catalog_schema_version": "1.19",
+    "report_schema_version": "3.4",
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "expected_document_share_mean": 0.683006535948,
+    "attempts_with_extra_documents_rate": 0.56862745098,
+    "guidance_first_rank_attempt_count": {
+      "not_retrieved": 6,
+      "rank_1": 6,
+      "rank_2": 45,
+      "rank_3_4": 9
+    },
+    "inband_first_rank_attempt_count": {
+      "not_retrieved": 0,
+      "rank_1": 24,
+      "rank_2": 0,
+      "rank_3_4": 0
+    },
+    "cross_trial_rank_bucket_ambiguity_count": 0,
+    "populated_bucket_policy_compliance_rate": 1.0,
+    "populated_bucket_proposal_attack_success_rate": 0.0,
+    "populated_bucket_terminal_attack_success_rate": 0.0
+  },
+  "source_identity": {
+    "src/runbook_sentinel/retrieval_quality.py": {
+      "bytes": 17045,
+      "sha256": "dbd230ed8274c686a99bc67551be1349cf76139a871c10718ff7ef79c95ac387"
+    },
+    "src/runbook_sentinel/evaluation.py": {
+      "bytes": 179815,
+      "sha256": "2d93c112b4ad59ad9a7f3ff718bc105b5e066ed72e2342b02233c21a645b66c2"
+    },
+    "src/runbook_sentinel/api.py": {
+      "bytes": 23951,
+      "sha256": "da27454aae477ca8222ca0f6d38d7053ce689573ca5fb9aa1ff87a23df547bc4"
+    },
+    "src/runbook_sentinel/data/scenarios.json": {
+      "bytes": 108174,
+      "sha256": "f9e3fb24bf1cb74487796de0cd7c78b3594fa9fc46d1cacb957f755c0ca8a242"
+    },
+    "scripts/verify_retrieval_quality_observability_contract.py": {
+      "bytes": 22709,
+      "sha256": "8fab02cd1a9a85f3cc6b9e30780b579ec9fbf88571e489fa24d1ce00f1bad55c"
+    }
+  },
+  "unchanged_boundaries": {
+    "all_57_scenarios_and_terminal_states_exact": true,
+    "agent_source_exact": true,
+    "retriever_source_exact": true,
+    "evidence_boundary_source_exact": true,
+    "policy_source_exact": true,
+    "service_source_exact": true,
+    "storage_source_exact": true,
+    "operator_authentication_source_exact": true,
+    "dependency_count": 0,
+    "new_external_asset_count": 0,
+    "retrieval_behavior_changed": false,
+    "decision_context_changed": false,
+    "model_or_prompt_changed": false,
+    "authority_changed": false
+  },
+  "verification": {
+    "independent_runtime_metric_equality": "pass",
+    "implementation_only_contract_validator": "pass",
+    "malformed_duplicate_unknown_over_top_k_and_mixed_trial_inputs_fail_closed": true,
+    "focused_dashboard_and_api_projection": "pass",
+    "full_regression_attempt_001": {
+      "status": "retained_failure",
+      "passed": 68,
+      "failed": 2,
+      "evidence": "artifacts/verification/baseline-0029-implementation-probe-failures-001.json"
+    },
+    "full_regression_attempt_002": {
+      "status": "pass",
+      "passed": 70,
+      "failed": 0,
+      "elapsed_seconds": 87.064
+    },
+    "side_effect_free_validator_sweep": {
+      "passed": 34,
+      "expected_exclusion": "scripts/verify_manifest.py",
+      "reason": "The immutable predecessor manifest correctly reports UNIT-002 source changes; UNIT-003 remains closed until this implementation seal is public."
+    },
+    "compileall": "pass"
+  },
+  "candidate_boundary": {
+    "new_manifest_built": false,
+    "candidate_evaluation_run": false,
+    "v0.0.29_archive_built": false,
+    "baseline_0029_image_built": false,
+    "reason": "Manifest freeze and candidate reveal begin only after the public implementation seal."
+  },
+  "external_actions": {
+    "new_source_accessed": false,
+    "new_asset_imported": false,
+    "secret_added": false,
+    "paid_service_added": false,
+    "real_infrastructure_contacted": false,
+    "container_image_exported_or_published": false
+  },
+  "next_gate": "Commit and push the exact UNIT-002 implementation seal, verify public branch identity and critical raw bytes, then activate UNIT-003 and freeze a new baseline-0029 manifest before revealing one immutable source candidate."
+}
