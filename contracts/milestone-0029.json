@@ -139,7 +139,9 @@
         "candidate_trace_exact": "pending"
       },
       "disposition": "pending",
-      "retained_failures": [],
+      "retained_failures": [
+        "The first manifest push from local commit 1a60e5c2f159c234977376a5c8606c6c516c0969 failed before remote mutation because github.com DNS resolution failed; retained at artifacts/verification/baseline-0029-manifest-publication-failure-001.json."
+      ],
       "next_dependency": "UNIT-004"
     },
     {

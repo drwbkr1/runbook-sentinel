@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0029",
+  "recorded_at_utc": "2026-08-15T19:52:00.1774915Z",
+  "status": "retained_failure",
+  "phase": "pre-reveal manifest publication",
+  "local_commit": "1a60e5c2f159c234977376a5c8606c6c516c0969",
+  "command": "git push origin codex/baseline-0029-retrieval-quality-observability",
+  "error": "fatal: unable to access 'https://github.com/drwbkr1/runbook-sentinel.git/': Could not resolve host: github.com",
+  "remote_head_after_failure": "50c94353176fb063c9d12bcfdd295f5cb25b3025",
+  "remote_mutation_verified": false,
+  "manifest": {
+    "bytes": 16019,
+    "sha256": "c970ce963aa5d2347ee2e8bd2a9d9551b2d92b798f023a7bffed3e1628a46912",
+    "changed_after_failure": false
+  },
+  "candidate_revealed": false,
+  "disposition": "Retry publication only after committing this failure record; do not reveal a candidate until the successor public head and manifest bytes are exact."
+}
