@@ -165,8 +165,9 @@
         "package_source_payload_public_exact": "pass",
         "mcp_api_approval_executor_state_telemetry_exact": "pass",
         "dashboard_render_verified": "pass",
-        "local_container_and_scan_exact": "pending",
-        "clean_clone_exact": "pending"
+        "local_container_and_scan_exact": "pass",
+        "clean_clone_exact": "pass",
+        "canonical_container_result_public_exact": "pending"
       },
       "disposition": "pending",
       "retained_failures": [
@@ -178,7 +179,12 @@
         "The first post-surface repository parser used an unavailable System.Text.Json type and invalidly reported every nonempty artifact as a parser error. The corrected ConvertFrom-Json audit parses the complete repository without content error while retaining the one known historical zero-byte item.",
         "A broad final credential scan read unchanged lines inside modified files and classified a historical documented private-key scanner literal as material. Its first corrected successor later encountered the artifact-scan receipt quoting that same classification. The final added-line plus complete-untracked scope classifies only the two evidence receipts and has zero unresolved credential findings.",
         "The first staging wrapper was rejected before process creation because it used shell redirection to compare staged binary bytes. The index remained empty; the successor uses redirection-free Git blob identities.",
-        "The first combined status-and-push wrapper misparsed an unquoted Git tree revision after local commit 35a0f18f8e9cf54a56cec0eded620397a98f992f and stopped before push. The public branch remained at 4e1d8384d5f73f9d4c554529fca76e2205809438."
+        "The first combined status-and-push wrapper misparsed an unquoted Git tree revision after local commit 35a0f18f8e9cf54a56cec0eded620397a98f992f and stopped before push. The public branch remained at 4e1d8384d5f73f9d4c554529fca76e2205809438.",
+        "The first public package/source reconciliation-receipt wrapper omitted spaces in two PowerShell foreach statements and stopped at parse. The unchanged successor proved public commit dc5e72594b7919dbd75bf4d66f35615551ace900 exact across four refs and all nine changed paths.",
+        "The generated full container component receipt preserves stale non-authoritative next-gate text naming 43 checks. The frozen contract and canonical composition independently validate 46 of 46 checks; no component byte was rewritten.",
+        "The first post-container validator wrapper applied the implementation flag to a shortened nonexistent filename. The actual adversarial retrieval-stage contract correctly failed closed in preimplementation mode; the corrected complete inventory passes 37 of 37.",
+        "A --help orientation call to scripts/verify_baseline.py started a duplicate deterministic evaluation because that script has no argument parser. It was stopped after a complete trace but before report, anchor, or promotion; its manifest and trace are retained and classified invalid, and latest.json remained byte-exact.",
+        "The first core identity wrapper guessed a nonexistent clean-build tag after its preceding checks passed, and the first bounded credential scan omitted ripgrep -e for a leading-dash expression. Corrected successors verify all three live image tags and report zero high-specificity credential findings."
       ],
       "next_dependency": "UNIT-005"
     },
@@ -196,7 +202,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Publish and remotely reconcile the package/source public-gate receipt and living-record update. Then run the frozen local-only container-runtime-v10 workflow without image export, push, publication, or redistribution.",
+  "next_action": "Commit, push, and independently verify the exact canonical container-runtime-v10 evidence and living records. Keep UNIT-004 in progress until every changed public Git object is exact, then begin UNIT-005 premerge release audit.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -271,11 +277,17 @@
       ,"the invalid package-source preflight validator-wrapper parser-wrapper broad credential-scan staging-wrapper and pre-push-wrapper attempts are retained and excluded from positive evidence; no container image was built"
       ,"public package/source payload commit 27e9bb1a8467d2cc601ba5d10ba8e629b896e3fe and tree d9f3415568850314caeeaa89656b98197c734dd3 are exact across local explicit tracking live ls-remote GitHub ref API public visibility and all 28 changed Git tree entries"
       ,"the first public package/source verification retained a stale local tracking ref while all live public views and 28 entries were already exact; an explicit branch fetch reconciled local reference state without changing product bytes"
+      ,"public reconciliation receipt commit dc5e72594b7919dbd75bf4d66f35615551ace900 is exact across four refs and all nine changed entries and opens the frozen local-only container-runtime-v10 gate"
+      ,"two full local builds and one exact public-clean-clone build reproduce image ID sha256:793cc009835350972ac30215cbdad2fb73f3802d47982d3bfddbd49af633fea3; the clone starts clean at dc5e72594b7919dbd75bf4d66f35615551ace900 with no object alternates"
+      ,"canonical container-runtime-v10 validates 46 of 46 checks including exact source/package metric projections model-contract selection bounded MCP authenticated API approval and executor state telemetry hardening scan and clean-clone identity"
+      ,"the container evaluation passes 57 scenarios 171 attempts all 136 Boolean gates and an independently verified anchored 261-event trace; its complete 1440 by 1000 dashboard passes original-detail review"
+      ,"Docker Scout structured SARIF contains zero critical or high findings; bounded scans find zero high-specificity credentials raw approval tokens or repository model artifacts; no image was exported pushed published or redistributed"
+      ,"the post-container gate passes 80 tests in 141.559 seconds all 37 phase-correct validators in 10.036 seconds archive and three trace validators the 143-file manifest governed milestone compilation diff checks 946 nonempty JSON documents and 28519 JSONL records"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0030 UNIT-004 has an exact public package/source payload at 27e9bb1a8467d2cc601ba5d10ba8e629b896e3fe. All four refs, public visibility, and 28 changed entries reconcile; three 646081-byte archive copies are exact at SHA-256 b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf; fresh source/package evaluations, traces, bounded MCP, authenticated API, approval and executor, persisted state, telemetry, dashboards, tests, validators, parsing, and scans pass. No v0.0.30 container image exists.",
-    "next_action": "Publish and verify the public-gate receipt and living records, then run container-runtime-v10 locally under its frozen no-export no-push no-publication contract.",
+    "current_checkpoint": "BASELINE-0030 UNIT-004 has an exact public package/source gate at dc5e72594b7919dbd75bf4d66f35615551ace900 and a complete local container-runtime-v10 result. Two full builds and one no-alternates public-clean-clone build reproduce image ID sha256:793cc009835350972ac30215cbdad2fb73f3802d47982d3bfddbd49af633fea3; all 46 checks, the 57-scenario and 171-attempt evaluation, anchored 261-event trace, bounded MCP, authenticated API, approval and executor, persisted state, telemetry, hardening, zero-finding critical/high scan, and complete rendered dashboard pass. No image was exported, pushed, published, or redistributed.",
+    "next_action": "Commit, push, and independently verify the canonical container receipt, component receipts, structured scan, dashboard, classified artifacts, and living records. Keep UNIT-004 in progress until every changed public Git object is exact, then begin UNIT-005 premerge release audit.",
     "do_not_carry_forward": [
       "any prompt model runtime parser-acceptance retrieval decision-context scenario terminal policy approval executor authority dependency secret external asset or real-infrastructure change",
       "any test-split tuning raw model-output retention or inference that syntactic validity equals diagnostic correctness",

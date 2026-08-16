@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-004",
+  "observed_through_utc": "2026-08-16T04:38:59Z",
+  "status": "retained_process_observations",
+  "observations": [
+    {
+      "sequence": 1,
+      "classification": "read-only public reconciliation wrapper syntax failure",
+      "observation": "The first verification of reconciliation commit dc5e72594b7919dbd75bf4d66f35615551ace900 omitted required spaces in two PowerShell foreach statements and stopped at parse before reading public state.",
+      "mutation": "none",
+      "correction": "The unchanged successor wrapper used valid foreach syntax and proved four-ref identity, a clean worktree, and all nine reconciliation paths exact."
+    },
+    {
+      "sequence": 2,
+      "classification": "preserved non-authoritative component next-gate text",
+      "observation": "The generated full-phase component receipt says the canonical receipt should have all 43 checks true, while frozen container-runtime-v10 declares 46 required checks.",
+      "mutation": "none; the component receipt is preserved byte-exact",
+      "correction": "The canonical composition reports and validates 46 of 46 checks. No verifier, contract check, runtime result, or security boundary was changed."
+    },
+    {
+      "sequence": 3,
+      "classification": "phase-aware validator wrapper filename mismatch",
+      "observation": "The first post-container 37-validator wrapper applied --require-implementation to a shortened adversarial retrieval contract filename that is not present. The actual verify_adversarial_retrieval_stage_outcome_split_coverage_contract.py therefore ran without its phase flag and correctly failed closed with preimplementation_contract_already_present; the other 36 validators passed.",
+      "mutation": "none",
+      "correction": "The unchanged successor wrapper applies --require-implementation to the exact filename and reruns the complete 37-validator inventory."
+    },
+    {
+      "sequence": 4,
+      "classification": "interrupted duplicate baseline evaluation",
+      "observation": "A read-only orientation call supplied --help to scripts/verify_baseline.py, which does not implement argument parsing. The script completed its embedded validators and a second 80-of-80 test run, then began a new deterministic baseline-0030 attempt-002 evaluation. It was interrupted after writing the exact 143-file manifest copy and a complete 261-event trace but before writing a report, anchor, or promotion.",
+      "mutation": "retained artifacts/evaluations/runs/baseline-0030-attempt-002.manifest.json at 17202 bytes and SHA-256 bc98beca62ba13968ecfa5f8c79800c24c94a3298b3ae31270465ec7ed61ce96, plus baseline-0030-attempt-002.traces.jsonl at 195416 bytes and SHA-256 7445ed2fb084c1aa94138a4c85bbe9c5bfdd6f67c64031fdbd74eee5936544fe",
+      "correction": "The incomplete attempt is classified invalid and cannot support any gate. artifacts/evaluations/latest.json remained byte-unchanged at the accepted source report SHA-256 caf016718aefd9bb0400b8671e836d71ba057537fa547ec18a6a0df2685b0c74."
+    },
+    {
+      "sequence": 5,
+      "classification": "live image identity wrapper tag mismatch",
+      "observation": "The first artifact-level core wrapper verified the archive, three evaluation traces, manifest, milestone, compilation, diff, and two local image tags, then guessed nonexistent clean tag baseline-0030-clean-2dde7fee7a and stopped at Docker inspect.",
+      "mutation": "none",
+      "correction": "The clean-build receipt and live daemon identify baseline-0030-clean-73f8a48475. The corrected tail checks that exact tag and all three live tags against the frozen image ID."
+    },
+    {
+      "sequence": 6,
+      "classification": "credential scan argument parsing failure",
+      "observation": "The first bounded untracked-file credential scan passed a search expression beginning with five dashes as a positional expression, and ripgrep rejected it as an unrecognized flag before scanning content.",
+      "mutation": "none",
+      "correction": "The unchanged successor uses ripgrep's explicit -e expression argument and retains the same bounded high-specificity pattern and file scope."
+    }
+  ],
+  "product_effect": "none",
+  "release_effect": "Both observations are excluded from positive evidence. The canonical receipt and independent contract validator are authoritative for the 46-check result."
+}
