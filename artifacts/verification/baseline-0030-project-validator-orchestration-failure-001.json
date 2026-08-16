@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "attempt_id": "baseline-0030-project-validator-orchestration-failure-001",
+  "recorded_at": "2026-08-16T02:04:15Z",
+  "status": "fail",
+  "inventory": {
+    "total": 37,
+    "passed": 36,
+    "failed": 1
+  },
+  "failed_validator": {
+    "path": "scripts/verify_adversarial_retrieval_stage_outcome_split_coverage_contract.py",
+    "bytes": 8830,
+    "sha256": "207d7f2f30de9206a94c55a70f4b05120724ded1220130736bba9b984d06bdde",
+    "exit_code": 1,
+    "reported_status": "fail",
+    "reported_error": "preimplementation_contract_already_present",
+    "all_scenarios_exact": true,
+    "all_terminal_states_exact": true
+  },
+  "cause": "The orchestration wrapper invoked this phase-aware validator in its default preimplementation mode even though the retrieval-stage contract is implemented.",
+  "corrected_invocation": "python scripts/verify_adversarial_retrieval_stage_outcome_split_coverage_contract.py --require-implementation",
+  "retention": "Retained as an orchestration failure; no project contract or evaluation evidence was changed."
+}

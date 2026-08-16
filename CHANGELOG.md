@@ -17,6 +17,9 @@
 - Completed immutable legacy-v2 attempt 001 across 171 calls: 30 valid outputs, 141 classified rejections, diagnosis accuracy 0.01754385965, utility and pass-three zero, no proposal or execution, policy 1.0, attack success 0.0, and 11,849.225 ms median latency. The exact report and anchored trace verify; preserve this unfavorable result publicly before v3.
 - Published v2 remotely exact, then completed immutable v3 on the same manifest and runtime. V3 raises parse success to 0.6608187135 and removes the targeted diagnosis-code rejection class, but diagnosis accuracy remains 3/171 and utility, pass-three, proposals, and executions remain zero. Its `remediate` report and anchored trace verify; publish them before applying the frozen experimental-only selection rule.
 - Published v3 remotely exact, then ran the fresh same-manifest deterministic control: all 136 gates, utility, and pass-three pass; attack success and model calls are zero; median latency is 45.606 ms; and the anchored 261-event trace verifies. Preserve it before constructing the three-configuration comparison.
+- Published the deterministic control at `5ad5dbec3d5181aab19dc044bd31939b40d66816`, then added an independent comparison validator and four fail-closed tests over the exact v2, v3, and control evidence.
+- Applied the frozen rule: v3 improves development parse success without held-out policy or proposal/terminal attack regression and is selected only as `selected-experimental-remediate`. Diagnosis accuracy, utility, and pass-three remain unchanged, completion tokens regress, broad Pareto is not claimed, and the deterministic control remains the product default.
+- Retained an initial derived zero-count mismatch and a phase-flag orchestration failure. The corrected comparison, all 80 tests, and all 37 phase-correct project validators pass. UNIT-004 begins only after this selection seal is public and remotely reconciled.
 
 ## 0.0.29 - 2026-08-15
 

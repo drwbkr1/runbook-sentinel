@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-003",
+  "recorded_at_utc": "2026-08-16T02:05:40Z",
+  "status": "pass-publication-pending",
+  "frozen_contract": {
+    "path": "eval/model-output-conformance-contract.json",
+    "contract_id": "model-output-static-schema-conformance-v1",
+    "manifest_sha256": "882c552e9c712bed298c2a6e7ca2bb5206f28d40102cbe05efaba2eee6560b8f",
+    "scenario_count": 57,
+    "trials_per_case": 3,
+    "attempt_count_per_configuration": 171
+  },
+  "comparison": {
+    "path": "artifacts/evaluations/baseline-0030-model-contract-comparison.json",
+    "bytes": 8209,
+    "sha256": "1a28361b04b2640d38abc45378e0f9be48fb84ba827be2d7255eff9a1db4cf25",
+    "configuration_count": 3,
+    "exact_scenario_and_trial_identity": true,
+    "frozen_bounded_selection_rule": "pass",
+    "broad_multi_metric_pareto_claimed": false
+  },
+  "selection": {
+    "product_default": "deterministic-control-v2",
+    "product_default_changed": false,
+    "selected_optional_model_contract": "ollama-loopback-structured-sre-v3-diagnosis-pattern",
+    "optional_model_disposition": "selected-experimental-remediate",
+    "legacy_model_contract": "ollama-loopback-structured-sre-v2",
+    "legacy_result_retained": true,
+    "research_informed_only": true
+  },
+  "bounded_rule_evidence": {
+    "development_parse_improved": true,
+    "development_parse_delta": 0.5053763440860215,
+    "held_out_policy_non_regression": true,
+    "held_out_proposal_attack_non_regression": true,
+    "held_out_terminal_attack_non_regression": true,
+    "diagnosis_accuracy_delta": 0.0,
+    "benign_utility_delta": 0.0,
+    "pass_3_delta": 0.0,
+    "completion_token_delta": 584,
+    "local_hardware_and_energy_cost_estimated": false
+  },
+  "authority": {
+    "accepted_model_proposals": 0,
+    "model_execution_attempts": 0,
+    "model_executions": 0,
+    "raw_model_output_retained": false,
+    "model_tools_credentials_approvals_or_execution_authority": false,
+    "retrieval_policy_approval_executor_or_authority_changed": false
+  },
+  "verification": {
+    "comparison_validator": {
+      "path": "scripts/verify_model_output_conformance_result.py",
+      "bytes": 12076,
+      "sha256": "cd06ceb51164f55d4d3710b8bc4befde4e2edc959f60f891c34d695109e0ed92",
+      "status": "pass"
+    },
+    "focused_tests": {
+      "path": "tests/test_model_output_conformance_result.py",
+      "bytes": 1980,
+      "sha256": "38685be2ea16044cde0bfb0faf32ff8356a5257f741f109ea662fbc97d23f7e3",
+      "passed": 4,
+      "failed": 0
+    },
+    "full_tests": {
+      "passed": 80,
+      "failed": 0,
+      "elapsed_seconds": 83.820
+    },
+    "side_effect_free_project_validators": {
+      "passed": 37,
+      "failed": 0
+    },
+    "python_compile": "pass",
+    "git_diff_check": "pass"
+  },
+  "retained_failures": [
+    {
+      "path": "artifacts/verification/baseline-0030-model-comparison-validation-failure-001.json",
+      "bytes": 1473,
+      "sha256": "8a227f59e196ba83b3a1c3926ab231aad2a16dd71ae2b58ff33a0932b9ba421c"
+    },
+    {
+      "path": "artifacts/verification/baseline-0030-project-validator-orchestration-failure-001.json",
+      "bytes": 1108,
+      "sha256": "f5f56d43b8d9c34c5149be6672997c19f1fdc097db1cb85e0110fc7ea3c5ff05"
+    }
+  ],
+  "claim_boundary": "V3 is selected only as the better optional experimental output contract under the frozen rule. The evidence does not show useful diagnosis, repeated-trial reliability, production readiness, universal prompt-injection resistance, or a broad multi-metric Pareto improvement.",
+  "next_gate": "Publish and remotely verify this exact selection evidence before freezing the UNIT-004 package, final-manifest, real-surface, and local-container contract."
+}

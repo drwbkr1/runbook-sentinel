@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "attempt_id": "baseline-0030-model-comparison-validation-failure-001",
+  "recorded_at": "2026-08-16T02:01:11Z",
+  "status": "fail",
+  "command": "python scripts/verify_model_output_conformance_result.py",
+  "comparison_artifact": {
+    "path": "artifacts/evaluations/baseline-0030-model-contract-comparison.json",
+    "bytes": 8246,
+    "sha256": "28f053af7ffc4abb27d78640cfbee916bbfac0b7ef4b7d68b52fd5f2b4e9deca"
+  },
+  "validator": {
+    "path": "scripts/verify_model_output_conformance_result.py",
+    "bytes": 12076,
+    "sha256": "cd06ceb51164f55d4d3710b8bc4befde4e2edc959f60f891c34d695109e0ed92"
+  },
+  "result": {
+    "configuration_count": 3,
+    "errors": [
+      "candidate_v3 failure_code_counts mismatch"
+    ]
+  },
+  "focused_tests": {
+    "command": "python -m unittest tests.test_model_output_conformance_result -v",
+    "ran": 4,
+    "passed": 3,
+    "failed": 1,
+    "failure": "test_current_three_configuration_comparison_passes"
+  },
+  "cause": "The derived candidate_v3 failure_code_counts map included diagnosis_code_invalid with a zero value, while the immutable report projects only observed nonzero error codes.",
+  "correction_scope": "Remove only the synthetic zero-valued map entry from the derived comparison artifact. Do not alter the frozen model report, trace, contract, or selection rule.",
+  "superseded": true,
+  "retention": "Retained as unfavorable validation evidence."
+}

@@ -42,6 +42,14 @@ The frozen comparison names three configurations, so a fresh deterministic contr
 
 The 953,885-byte report is SHA-256 `bafb9712842544e59b8964e492176bb4935bb8146fd056df693b85226d5b8ef1`; its 195,304-byte, 261-event anchored trace is SHA-256 `816e09570edaf02cafcaa2ad072981a0eff9b5a9c6ff9fef5dfce40a1db2fd80` and verifies exactly. The control remains the product default. V3 can at most replace v2 as the optional experimental contract; neither model candidate meets the product gate.
 
+## BASELINE-0030 bounded model-contract selection
+
+The independent comparison validator binds all three immutable reports and traces to manifest SHA-256 `882c552e...` and confirms exact scenario and trial identity. Under the frozen rule, v3 improves development structured parsing from 0.2150537634 to 0.7204301075 while held-out policy stays 1.0 and held-out proposal and terminal attack success stay 0.0. The bounded selection rule therefore passes, and `ollama-loopback-structured-sre-v3-diagnosis-pattern` replaces v2 only as the optional experimental contract.
+
+This is not a broad Pareto improvement. Diagnosis accuracy remains 0.01754385965, benign utility and pass-three reliability remain zero, and completion tokens increase by 584. There are no accepted proposals, execution attempts, or actions. V3 disposition is `selected-experimental-remediate`; `deterministic-control-v2` remains the product default and is over 233 times faster by observed median latency. Local hardware and energy cost are not estimated, and no production-readiness or universal prompt-injection-resistance claim is supported.
+
+The corrected 8,209-byte comparison artifact is SHA-256 `1a28361b04b2640d38abc45378e0f9be48fb84ba827be2d7255eff9a1db4cf25`. Its validator, four focused tests, all 80 tests in 83.820 seconds, and all 37 phase-correct project validators pass. The first comparison validation rejected a synthetic zero-valued error-map entry, and the first full-validator wrapper omitted an implementation-phase flag; both failures are retained, and no frozen report, trace, contract, runtime, or authority boundary changed.
+
 ## BASELINE-0029 preimplementation orientation
 
 The fresh public-tag v0.0.28 source run remains passing: 57 scenarios, 171 attempts, all 126 Boolean gates, and an exact anchored 261-event trace. Retrieval completeness, generation, tool trajectories, policy, terminal state, benign utility, attack success, repeated reliability, latency, and cost remain separate. Median/p95 end-to-end latency is 59.242/110.936 ms; the deterministic control makes zero model calls at zero estimated external API cost.

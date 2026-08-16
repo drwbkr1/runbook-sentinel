@@ -27,3 +27,9 @@ The deterministic control remains the product default. The v3 contract can repla
 - Proposal-argument and out-of-context evidence failures remain retained and out of scope for this one-field checkpoint.
 - External enforcement remains fail closed, the model retains no tool or credential access, and no model output carries approval or execution authority.
 - The result may be unfavorable. Failure, no improvement, or runtime non-support will be preserved and the candidate excluded.
+
+## Outcome
+
+The exact same-manifest comparison satisfies the frozen bounded rule. V3 raises development structured parsing from 0.2150537634 to 0.7204301075 without held-out policy or proposal/terminal attack regression, so it replaces v2 only as the optional experimental contract.
+
+The result does not support promotion to product default or a broad Pareto claim. Diagnosis accuracy remains 3/171, benign utility and pass-three remain zero, and completion tokens increase by 584. V3 is recorded as `selected-experimental-remediate`; `deterministic-control-v2` remains the product default.

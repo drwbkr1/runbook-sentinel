@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-003",
+  "recorded_at_utc": "2026-08-16T02:11:10Z",
+  "status": "pass-publication-pending",
+  "branch": "codex/baseline-0030-model-output-contract-conformance",
+  "precommit_parent": "5ad5dbec3d5181aab19dc044bd31939b40d66816",
+  "selection": {
+    "product_default": "deterministic-control-v2",
+    "selected_optional_model_contract": "ollama-loopback-structured-sre-v3-diagnosis-pattern",
+    "optional_model_disposition": "selected-experimental-remediate",
+    "broad_multi_metric_pareto_claimed": false,
+    "production_readiness_claimed": false,
+    "research_informed_only": true
+  },
+  "verification": {
+    "comparison_validator": "pass",
+    "focused_tests": "4/4 pass",
+    "full_tests": "80/80 pass in 83.820 seconds",
+    "phase_correct_side_effect_free_project_validators": "37/37 pass",
+    "governed_milestone": "valid with UNIT-004 active and no warning",
+    "external_source_gate": "ready with 16/16 criteria and no warning",
+    "python_compile": "pass",
+    "git_diff_check": "pass",
+    "tracked_high_specificity_credential_hits": 0,
+    "untracked_high_specificity_credential_hits": 0,
+    "changed_model_artifact_hits": 0
+  },
+  "candidate_paths": [
+    {"path": "CHANGELOG.md", "bytes": 75227, "sha256": "48c78ad5d4fa70c46e4aabffde336c85d96544037f1324368bb3a65a60de24e1"},
+    {"path": "artifacts/evaluations/baseline-0030-model-contract-comparison.json", "bytes": 8209, "sha256": "1a28361b04b2640d38abc45378e0f9be48fb84ba827be2d7255eff9a1db4cf25"},
+    {"path": "artifacts/verification/baseline-0030-model-comparison-validation-failure-001.json", "bytes": 1473, "sha256": "8a227f59e196ba83b3a1c3926ab231aad2a16dd71ae2b58ff33a0932b9ba421c"},
+    {"path": "artifacts/verification/baseline-0030-model-contract-selection-local.json", "bytes": 3727, "sha256": "c175ef3e97268b2c560be1b8ff532edcb6fbec35f6cc08b77cb03095c84bb4ee"},
+    {"path": "artifacts/verification/baseline-0030-project-validator-orchestration-failure-001.json", "bytes": 1108, "sha256": "f5f56d43b8d9c34c5149be6672997c19f1fdc097db1cb85e0110fc7ea3c5ff05"},
+    {"path": "contracts/milestone-0030.json", "bytes": 18981, "sha256": "8d494e40cb35c9361819a9afcce3b5869c3c87501bd3884246c4579867fe98c3"},
+    {"path": "docs/adr/0025-align-the-declared-diagnosis-pattern-before-retuning.md", "bytes": 3617, "sha256": "e6772d32b5790b5cefad727c9faf4e1555a0d96b427d5cd915f6fe78c8fb8a55"},
+    {"path": "docs/devlog.md", "bytes": 366734, "sha256": "8bbe3fe35211ebbc1feb3805ef1da7603544ff842fa2cd3df2770bd019070f52"},
+    {"path": "docs/evaluation-report.md", "bytes": 167208, "sha256": "9bb987cbfdabd6177972ad71ed1201c6cf97f8a7ba5f3b2ee3eba9e12a8b5a79"},
+    {"path": "docs/research-ledger.md", "bytes": 23883, "sha256": "e6c1cb804d935a76314e1ca4253fa4f233b483b72a813f5171f1b12368543622"},
+    {"path": "docs/roadmap.md", "bytes": 64458, "sha256": "3bc9d9772c65d84251c79b60191e7ac5fd723b49dbd1beed88c852a0384910ae"},
+    {"path": "docs/status.md", "bytes": 237362, "sha256": "eef40dd5793036c27543595f06c2be62e7890e6d44727c6e1981ad38be5b412c"},
+    {"path": "docs/threat-model.md", "bytes": 15565, "sha256": "3009557a6c6491f450c705c237adb3eb73ca5448cb981fb7e3c46b96ce8cdda6"},
+    {"path": "docs/version-history.md", "bytes": 23537, "sha256": "489b8afc27d3ed07aba61d5d4628494b607bbe1efa0b3070163dc13ec85a6d90"},
+    {"path": "scripts/verify_model_output_conformance_result.py", "bytes": 12076, "sha256": "cd06ceb51164f55d4d3710b8bc4befde4e2edc959f60f891c34d695109e0ed92"},
+    {"path": "tests/test_model_output_conformance_result.py", "bytes": 1980, "sha256": "38685be2ea16044cde0bfb0faf32ff8356a5257f741f109ea662fbc97d23f7e3"}
+  ],
+  "artifact_absence": {
+    "v0_0_30_zipapp": true,
+    "v0_0_30_checksum": true,
+    "baseline_0030_container_receipt": true,
+    "baseline_0030_container_image": true
+  },
+  "retained_process_failure": "The first read-only candidate-byte inventory wrapper placed a foreach statement directly before a pipeline and failed with PowerShell EmptyPipeElement before producing output. The explicit-record-array successor produced the exact inventory above; no project file changed during the failed wrapper.",
+  "next_gate": "Commit and push this exact selection seal, reconcile branch and remote tree bytes, then freeze UNIT-004 before creating package or container artifacts."
+}
