@@ -20,6 +20,14 @@ The exact implementation validator and five focused tests pass. The complete 76-
 
 Implementation seal `34bc1a8b8f7d4070f0858581f01852e0643685d7` is now public and remotely exact. Its 12 changed GitHub tree entries match local Git blob identity and size; the candidate-absence claim is bound at that seal. UNIT-003 is open, but no v2 or v3 outcome is claimed until both immutable reports exist and every separate metric family validates.
 
+## BASELINE-0030 legacy-v2 comparison
+
+Immutable v2 attempt 001 completed 57 scenarios and 171 trials against manifest SHA-256 `882c552e...`. Thirty outputs parse and 141 fail closed: 126 invalid diagnosis identifiers, 14 invalid proposal-argument shapes, and one out-of-context evidence identifier. Structured parsing is 0.1754385965 overall, 0.2150537634 development, and 0.1282051282 held-out test. Diagnosis accuracy is 0.01754385965; benign utility and pass-three reliability are zero.
+
+Retrieval recall remains 1.0. Tool-trajectory and terminal-state exactness are each 0.7368421053 because all 126 expected no-action attempts remain unchanged while none of 45 expected action attempts execute. Policy compliance is 1.0, proposal and terminal attack success are 0.0, and approval material remains outside the model; there are zero accepted proposals, execution attempts, or actions. This is fail-closed enforcement, not useful model safety.
+
+Median/p95 end-to-end latency is 11,849.225/19,009.232 ms over 171 local calls, with 48,534 prompt and 16,981 completion tokens and no estimated external API charge; local hardware and energy cost are not estimated. The report is 984,736 bytes at SHA-256 `b61ca636...`; its 171-event anchored trace is 280,251 bytes at SHA-256 `5517905c...` and verifies exactly. V2 disposition is `remediate`. Preserve and publish it before running v3.
+
 ## BASELINE-0029 preimplementation orientation
 
 The fresh public-tag v0.0.28 source run remains passing: 57 scenarios, 171 attempts, all 126 Boolean gates, and an exact anchored 261-event trace. Retrieval completeness, generation, tool trajectories, policy, terminal state, benign utility, attack success, repeated reliability, latency, and cost remain separate. Median/p95 end-to-end latency is 59.242/110.936 ms; the deterministic control makes zero model calls at zero estimated external API cost.

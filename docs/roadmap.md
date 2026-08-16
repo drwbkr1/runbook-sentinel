@@ -14,6 +14,8 @@ The inventory seal is public at `c6eab065...`. The local 138-file manifest verif
 
 The exact manifest is public at `1066b7fdef5bb0f2bb442db1a4122378c3ebab0a`, with all nine changed remote entries reconciled and no model call at publication. Run v2 first and v3 second under the same manifest and local-runtime conditions, preserving each result before applying the selection rule.
 
+Legacy v2 attempt 001 is complete and unfavorable: 30/171 valid outputs, zero utility and pass-three, no proposal or execution, and 11,849.225 ms median latency. Its exact report and 171-event trace verify. Publish and reconcile v2 before starting v3.
+
 Before runtime change, the handoff identified a focused test hard-coded to preimplementation mode. Its public validation-only successor selects the phase from exact v2 identity and otherwise changes no verifier, target, product, or authority behavior. The active v3 projection landed only after that correction was remotely verified. No successor manifest, candidate result, package, archive, or image may precede the implementation seal.
 
 The checkpoint will stop rather than widen parser acceptance, tune on the held-out split, add model tools or credentials, change the model/runtime/prompt, import an external asset, or infer useful behavior from syntactic validity. Unfavorable and failed evidence remains append-only.
