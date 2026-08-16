@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-16T03:22:29Z",
+  "status": "retained_process_failure",
+  "classification": "read-only parser runtime incompatibility",
+  "observation": "The first post-surface repository artifact parser attempted to use System.Text.Json.JsonDocument, which is unavailable in the installed Windows PowerShell runtime. It therefore reported a type-resolution error for every nonempty JSON document and JSONL record.",
+  "mutation": "none; the wrapper only read files",
+  "valid_content_conclusion": "unknown from this failed attempt",
+  "correction": "Repeat the complete JSON and JSONL audit with ConvertFrom-Json, while separately retaining the repository's one known historical zero-byte JSON evidence item and counting UTF-8 BOM documents.",
+  "positive_evidence_use": "none",
+  "product_effect": "none",
+  "release_effect": "The invalid parser run is excluded from positive evidence. A corrected full parse must pass before the package/source gate can close."
+}

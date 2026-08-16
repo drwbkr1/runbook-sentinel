@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-16T04:00:33Z",
+  "status": "retained_process_failure",
+  "classification": "staging wrapper blocked before process creation",
+  "observation": "The first package/source staging wrapper included shell redirection to materialize the staged binary archive for a SHA-256 comparison. The execution policy rejected the complete wrapper before PowerShell started.",
+  "mutation": "none; git diff --cached remained empty",
+  "correction": "Stage the exact payload, then compare the archive's worktree Git blob identity from git hash-object with its staged index identity from git rev-parse without redirecting binary content.",
+  "positive_evidence_use": "none",
+  "product_effect": "none",
+  "release_effect": "The rejected wrapper is excluded from positive evidence. Staging and staged-payload verification must complete before commit."
+}

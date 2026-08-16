@@ -26,6 +26,11 @@
 - Retained the initial 130-of-131 source API failure caused by the stale baseline-0029 `latest.json` pointer and eight package-freeze process failures. The recovery promoted only the exact passing frozen evaluation and reran the unchanged verifier; no security boundary was weakened and no unfavorable evidence was rewritten.
 - The local pre-build seal passes with 80 tests and all 37 phase-correct validators. No v0.0.30 archive, checksum, container receipt, or image exists; publication and remote reconciliation are mandatory before build.
 - Published and remotely reconciled pre-build commit `dda0c347c108a78ac0afe279f09bc074c73579e9`, tree `d5b70d325cc221f10beb4542273856ce7459caeb`; all four ref views and all 42 changed remote entries are exact. Retained the first wrapper's stale local tracking ref and corrected it with an explicit branch fetch. Two archive builds may begin; the container gate remains closed until the package/source payload passes and is public.
+- Built two independent and one canonical dependency-free 43-entry zipapp; all reproduce 646,081 bytes at SHA-256 `b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf`.
+- Fresh source/package runs each pass 57 scenarios, 171 attempts, all 136 Boolean gates, and anchored 261-event traces. The complete reports are semantically exact and become byte-identical at normalized SHA-256 `51b921ce...` after replacing only the 17 frozen per-launch leaf keys.
+- Reverified both three-tool no-authority MCP paths, both 131-check authenticated API/approval/executor paths, both 72-check native state/telemetry paths, and both complete dashboards. Retained the invalid parallel preflight and known successful-renderer diagnostics.
+- Passed the post-surface 80-test, 37-validator, package, trace, manifest, milestone, compilation, full artifact-parse, PNG, credential/model, and diff gates. Retained and corrected one validator import-path wrapper, one unavailable-parser wrapper, and one over-broad credential scan with a documented test-literal false positive. No container image exists; public package/source reconciliation is required before Docker opens.
+- Retained one staging wrapper rejected before process creation because of binary shell redirection; the redirection-free successor verifies staged Git blob identity before commit.
 
 ## 0.0.29 - 2026-08-15
 
