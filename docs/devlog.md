@@ -16,6 +16,8 @@
 - Applied only the frozen schema version, checkpoint, contract ID, and `diagnosis_code.pattern` projection. The implementation validator reports target object SHA-256 `4cd479f...` exactly, and five focused tests pass. The serialized active contract is 4,712 bytes at SHA-256 `8718971a...`.
 - All 76 tests pass in 87.015 seconds. All 35 applicable non-manifest project validators pass. The immutable predecessor manifest reports only `eval/model-contract.json` stale from `b5ed65a...` to `8718971...`; this is expected fail-closed evidence and is retained until UNIT-003 is permitted to freeze a successor manifest.
 - Retained a PowerShell revision-expression wrapper failure and the expected predecessor-manifest mismatch. No model call, candidate report, successor manifest, archive, image, external asset, secret, paid service, or real-infrastructure interaction exists. Publish and remotely reconcile the implementation seal before opening UNIT-003.
+- Published implementation seal `34bc1a8b8f7d4070f0858581f01852e0643685d7`, tree `bd5b47df6068f8f4e9f588627238eaba2aa5f1d7`. Local, explicit remote-tracking, `ls-remote`, and GitHub ref API identities match; all 12 changed GitHub tree entries match local blob identity and size. The repository remains public.
+- Retained two upstream-wrapper failures caused by the source clone's selected-branch fetch configuration. Explicitly reading the fetched remote-tracking ref proves the intended identity without changing product bytes. The public receipt preserves zero model calls and successor artifacts at the seal. UNIT-003 may now run the two frozen 171-call configurations.
 
 ## 2026-08-15 BASELINE-0029 public release reconciliation
 

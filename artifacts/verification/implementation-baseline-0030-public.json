@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "implementation-baseline-0030-public-20260816T000857Z",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-002",
+  "observed_at_utc": "2026-08-16T00:08:57Z",
+  "status": "pass",
+  "repository": "https://github.com/drwbkr1/runbook-sentinel",
+  "visibility": "PUBLIC",
+  "branch": "codex/baseline-0030-model-output-contract-conformance",
+  "implementation_seal_commit": "34bc1a8b8f7d4070f0858581f01852e0643685d7",
+  "implementation_seal_tree": "bd5b47df6068f8f4e9f588627238eaba2aa5f1d7",
+  "parent_phase_aware_correction_commit": "0a49729f28fa28f06fcbae0878e1d3558ea47abc",
+  "refs": {
+    "local_head": "34bc1a8b8f7d4070f0858581f01852e0643685d7",
+    "remote_tracking_ref": "34bc1a8b8f7d4070f0858581f01852e0643685d7",
+    "ls_remote_head": "34bc1a8b8f7d4070f0858581f01852e0643685d7",
+    "github_ref_api_head": "34bc1a8b8f7d4070f0858581f01852e0643685d7",
+    "all_exact": true
+  },
+  "remote_tree_comparison": {
+    "method": "GitHub Git Trees API blob identity and size versus local git ls-tree at the exact implementation commit",
+    "changed_path_count": 12,
+    "exact_path_count": 12,
+    "failures": [],
+    "paths": [
+      {"path": "CHANGELOG.md", "git_blob_sha1": "d66432f71ae7b5784abb05997579cc3afbe2af3c", "bytes": 71922},
+      {"path": "artifacts/verification/baseline-0030-implementation-probe-failures-001.json", "git_blob_sha1": "909520eb4f33cb2d3817be5a0162463a0d011264", "bytes": 1558},
+      {"path": "artifacts/verification/baseline-0030-preimplementation-harness-correction.json", "git_blob_sha1": "f173e1bb4a18ffc15c7b25d46ffbbb98df9f6085", "bytes": 2083},
+      {"path": "artifacts/verification/implementation-baseline-0030-local.json", "git_blob_sha1": "5c882a37687b02220aee45e2e955cbbf3386c4d8", "bytes": 5980},
+      {"path": "contracts/milestone-0030.json", "git_blob_sha1": "7c1c4412f9e31f3e9d28c83e94109c011e0f9163", "bytes": 14858},
+      {"path": "docs/devlog.md", "git_blob_sha1": "58d06249b767d1d0b55859673457f9eb4cba63ce", "bytes": 361441},
+      {"path": "docs/evaluation-contract.md", "git_blob_sha1": "4f8b2089b627f805774977b44c614c4eed52def1", "bytes": 42370},
+      {"path": "docs/evaluation-report.md", "git_blob_sha1": "c7c9e4c2fff15a57f4fa509ce496db79f0df109e", "bytes": 161205},
+      {"path": "docs/roadmap.md", "git_blob_sha1": "ccd086bf418031b9c72701debd538ebe3d024abb", "bytes": 61506},
+      {"path": "docs/status.md", "git_blob_sha1": "a45c405228e544b020e63847d544b3f99efc4163", "bytes": 232816},
+      {"path": "docs/threat-model.md", "git_blob_sha1": "52500d79aca604aa67aa629d78b3496d473090fc", "bytes": 15033},
+      {"path": "eval/model-contract.json", "git_blob_sha1": "3847398dc2f7ece2875e92ed164282b95d6ebc5e", "bytes": 4712}
+    ]
+  },
+  "critical_public_contract": {
+    "path": "eval/model-contract.json",
+    "bytes": 4712,
+    "sha256": "8718971a9e54320603c08d9f31957bd5dabee0e50944925f588f74e5915defda",
+    "object_sha256": "4cd479f0255d88cceb4cd78afd5194426ae7e55233746ff95351ea5f338beb0c",
+    "exact_four_path_projection": true
+  },
+  "candidate_absence_at_publication": {
+    "baseline_0030_model_call_count": 0,
+    "baseline_0030_candidate_report_count": 0,
+    "successor_manifest_created": false,
+    "v0_0_30_archive_count": 0,
+    "baseline_0030_image_count": 0
+  },
+  "retained_process_failures": [
+    "The first public wrapper found exact implementation commit, GitHub ref, visibility, and all twelve tree entries but could not resolve @{u} because the repository fetch refspec stores only selected branches.",
+    "An explicit fetch created the exact remote-tracking ref, but git branch --set-upstream-to rejected it because the remote configuration still does not advertise that path as a branch. The corrected verifier reads refs/remotes/origin/codex/baseline-0030-model-output-contract-conformance directly and all identities pass."
+  ],
+  "seal_status": "public_implementation_seal_verified",
+  "authorized_next_action": "Publish this reconciliation receipt, then run the frozen legacy-v2 and candidate-v3 171-call comparisons without retaining raw output."
+}

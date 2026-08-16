@@ -9,6 +9,7 @@
 - Retained and corrected a preimplementation-only focused test before runtime change; the bounded phase-aware successor changes no frozen target, validator acceptance, product behavior, or authority and must be public before implementation.
 - Published and remotely verified that phase-aware correction at `0a49729f28fa28f06fcbae0878e1d3558ea47abc`, then implemented exactly the four frozen active-contract object paths. The exact projection validator, five focused tests, all 76 tests, and 35 applicable non-manifest validators pass; the immutable predecessor manifest rejects only the expected changed contract.
 - No model call, candidate report, successor manifest, package, archive, image, external asset, secret, paid service, or real-infrastructure interaction occurred before the implementation seal. Comparative utility and safety remain unknown until the public seal opens UNIT-003.
+- Published and reconciled implementation seal `34bc1a8b8f7d4070f0858581f01852e0643685d7`; four ref views and all 12 changed remote Git tree entries are exact. UNIT-003 may now run the frozen v2/v3 comparison while keeping raw output absent and the deterministic control as default.
 
 ## 0.0.29 - 2026-08-15
 

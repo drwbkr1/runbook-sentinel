@@ -113,15 +113,15 @@
       "depends_on": ["UNIT-001"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "gates": {
         "public_freeze_verified": "pass",
         "phase_aware_harness_correction_public": "pass",
         "exact_four_path_projection": "pass",
         "all_prior_behavior_and_authority_exact": "pass",
-        "implementation_seal_public": "pending"
+        "implementation_seal_public": "pass"
       },
-      "disposition": "pending",
+      "disposition": "pass",
       "retained_failures": [
         "The publicly frozen focused test always invoked preimplementation mode and would reject an exact implementation; a phase-aware validation-only successor must be public before runtime change."
       ],
@@ -133,7 +133,7 @@
       "depends_on": ["UNIT-002"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "gates": {},
       "disposition": "pending",
       "retained_failures": [],
@@ -164,8 +164,8 @@
       "next_dependency": null
     }
   ],
-  "current_unit": "UNIT-002",
-  "next_action": "Publish and remotely verify the exact UNIT-002 implementation seal before any model call, then open UNIT-003 and compare v2 with v3 on the frozen 57-scenario three-trial contract.",
+  "current_unit": "UNIT-003",
+  "next_action": "Run and preserve separate legacy-v2 and candidate-v3 171-call comparisons on the same frozen scenarios and trials, validate every metric family, and select or exclude v3 by the frozen Pareto rule.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -210,11 +210,13 @@
       ,"the active model contract now matches the frozen target object SHA-256 4cd479f0255d88cceb4cd78afd5194426ae7e55233746ff95351ea5f338beb0c and changes exactly the four permitted object paths"
       ,"all 76 tests pass in 87.015 seconds and all 35 non-manifest side-effect-free validators pass after implementation"
       ,"the immutable v0.0.29 manifest fails closed on exactly eval/model-contract.json changing from b5ed65aff647087344a6f9781e565483940f01563c678a3fcc97f7e55500eafd to 8718971a9e54320603c08d9f31957bd5dabee0e50944925f588f74e5915defda; no manifest is rewritten before the public implementation seal"
+      ,"implementation seal 34bc1a8b8f7d4070f0858581f01852e0643685d7 is public and exact across local remote-tracking ls-remote GitHub ref API and all twelve changed remote tree entries"
+      ,"public implementation receipt confirms zero baseline-0030 model calls candidate reports successor manifests v0.0.30 archives and images at publication"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0030 UNIT-002 has the exact frozen four-path implementation locally. The phase-aware correction is public at 0a49729f28fa28f06fcbae0878e1d3558ea47abc; the implementation validator, 76 tests, and 35 non-manifest validators pass. The predecessor manifest reports exactly the expected model-contract mismatch, and no baseline-0030 model call exists.",
-    "next_action": "Commit and push the exact implementation seal, verify public ref and critical bytes, then activate UNIT-003 before running either 171-call model configuration.",
+    "current_checkpoint": "BASELINE-0030 UNIT-002 is complete. Public implementation seal 34bc1a8b8f7d4070f0858581f01852e0643685d7 is exact across four refs and all twelve changed GitHub tree entries. No model call or successor artifact existed at publication; UNIT-003 is open.",
+    "next_action": "Run the frozen legacy-v2 and candidate-v3 comparisons separately over the same 57 scenarios and three trials, retain digest-only outputs and every result, then apply the frozen Pareto rule without tuning on held-out cases.",
     "do_not_carry_forward": [
       "any prompt model runtime parser-acceptance retrieval decision-context scenario terminal policy approval executor authority dependency secret external asset or real-infrastructure change",
       "any test-split tuning raw model-output retention or inference that syntactic validity equals diagnostic correctness",

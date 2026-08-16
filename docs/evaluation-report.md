@@ -18,6 +18,8 @@ The phase-aware validation-only correction became public and remote-exact at `0a
 
 The exact implementation validator and five focused tests pass. The complete 76-test suite passes in 87.015 seconds, and 35 applicable non-manifest validators pass. The predecessor v0.0.29 manifest fails closed on exactly the changed active contract and is not rewritten. No comparison result is inferred: both 171-call runs remain closed until this implementation seal is public, and there is still no BASELINE-0030 model output, candidate report, successor manifest, package, archive, or image.
 
+Implementation seal `34bc1a8b8f7d4070f0858581f01852e0643685d7` is now public and remotely exact. Its 12 changed GitHub tree entries match local Git blob identity and size; the candidate-absence claim is bound at that seal. UNIT-003 is open, but no v2 or v3 outcome is claimed until both immutable reports exist and every separate metric family validates.
+
 ## BASELINE-0029 preimplementation orientation
 
 The fresh public-tag v0.0.28 source run remains passing: 57 scenarios, 171 attempts, all 126 Boolean gates, and an exact anchored 261-event trace. Retrieval completeness, generation, tool trajectories, policy, terminal state, benign utility, attack success, repeated reliability, latency, and cost remain separate. Median/p95 end-to-end latency is 59.242/110.936 ms; the deterministic control makes zero model calls at zero estimated external API cost.
