@@ -18,6 +18,8 @@ Legacy v2 attempt 001 is complete and unfavorable: 30/171 valid outputs, zero ut
 
 V2 is public at `199f46b...`. V3 completes with 113/171 valid outputs and zero diagnosis-code rejections, but diagnosis accuracy, utility, pass-three, proposal, and execution remain unchanged and inadequate. Its report and trace verify locally. Publish v3, then apply the frozen development-parse improvement plus held-out policy/attack non-regression rule; do not promote it to product default.
 
+V3 is public at `d65e04d...`. The fresh same-manifest deterministic control passes every gate with zero model calls and 45.606 ms median latency. Publish its exact report and trace, then evaluate all three configurations: retain the control as product default and allow only bounded experimental v2-to-v3 selection if the frozen rule passes.
+
 Before runtime change, the handoff identified a focused test hard-coded to preimplementation mode. Its public validation-only successor selects the phase from exact v2 identity and otherwise changes no verifier, target, product, or authority behavior. The active v3 projection landed only after that correction was remotely verified. No successor manifest, candidate result, package, archive, or image may precede the implementation seal.
 
 The checkpoint will stop rather than widen parser acceptance, tune on the held-out split, add model tools or credentials, change the model/runtime/prompt, import an external asset, or infer useful behavior from syntactic validity. Unfavorable and failed evidence remains append-only.

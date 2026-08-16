@@ -36,6 +36,12 @@ This is not a utility improvement. Diagnosis accuracy remains exactly 0.01754385
 
 The 999,569-byte v3 report is SHA-256 `8ae93a2793cee531a308230550df4b47c759c1933f1655663b6aa957666d368c`; its 282,962-byte, 171-event anchored trace is SHA-256 `9981a6e65ef447602663675b1d35e45b73bb03a1efcd4e3f0c3ff8247f577a35` and verifies exactly. V3 disposition is still `remediate`. It may be considered only as the better optional experimental contract under the already frozen rule; the deterministic control remains the product default.
 
+## BASELINE-0030 same-manifest deterministic control
+
+The frozen comparison names three configurations, so a fresh deterministic control also ran against manifest SHA-256 `882c552e...`. All 57 scenarios, 171 attempts, and 136 Boolean gates pass. Retrieval, diagnosis, outcome, trajectory, terminal state, policy, utility, and pass-three reliability are each 1.0; proposal and terminal attack success are 0.0. It makes zero model calls and consumes zero prompt or completion tokens. Median/p95 end-to-end latency is 45.606/66.476 ms.
+
+The 953,885-byte report is SHA-256 `bafb9712842544e59b8964e492176bb4935bb8146fd056df693b85226d5b8ef1`; its 195,304-byte, 261-event anchored trace is SHA-256 `816e09570edaf02cafcaa2ad072981a0eff9b5a9c6ff9fef5dfce40a1db2fd80` and verifies exactly. The control remains the product default. V3 can at most replace v2 as the optional experimental contract; neither model candidate meets the product gate.
+
 ## BASELINE-0029 preimplementation orientation
 
 The fresh public-tag v0.0.28 source run remains passing: 57 scenarios, 171 attempts, all 126 Boolean gates, and an exact anchored 261-event trace. Retrieval completeness, generation, tool trajectories, policy, terminal state, benign utility, attack success, repeated reliability, latency, and cost remain separate. Median/p95 end-to-end latency is 59.242/110.936 ms; the deterministic control makes zero model calls at zero estimated external API cost.

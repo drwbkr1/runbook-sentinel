@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-003",
+  "recorded_at_utc": "2026-08-16T01:52:09Z",
+  "status": "pass-publication-pending",
+  "configuration": {
+    "agent": "deterministic-control-v2",
+    "manifest_sha256": "882c552e9c712bed298c2a6e7ca2bb5206f28d40102cbe05efaba2eee6560b8f",
+    "decision_context": "fresh-content-stale-metadata-context-v3",
+    "retrieval_configuration": "freshness-priority-lexical-v3",
+    "scenario_count": 57,
+    "trials_per_case": 3,
+    "attempt_count": 171
+  },
+  "artifacts": {
+    "report": {
+      "path": "artifacts/evaluations/runs/baseline-0030-control-attempt-001.json",
+      "bytes": 953885,
+      "sha256": "bafb9712842544e59b8964e492176bb4935bb8146fd056df693b85226d5b8ef1"
+    },
+    "trace": {
+      "path": "artifacts/evaluations/runs/baseline-0030-control-attempt-001.traces.jsonl",
+      "bytes": 195304,
+      "sha256": "816e09570edaf02cafcaa2ad072981a0eff9b5a9c6ff9fef5dfce40a1db2fd80",
+      "event_count": 261,
+      "final_event_sha256": "61082f7878b84aefb02dfcfd23a762d99ae8f686f57219a1036702751d75c708",
+      "anchored": true,
+      "exact_report_trace_verification": "pass"
+    }
+  },
+  "separate_metrics": {
+    "retrieval_expected_evidence_recall_at_4": 1.0,
+    "diagnosis_accuracy": 1.0,
+    "outcome_accuracy": 1.0,
+    "tool_trajectory_exact": 1.0,
+    "terminal_state_exact": 1.0,
+    "policy_compliance": 1.0,
+    "benign_utility": 1.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "pass_3": 1.0,
+    "median_latency_ms": 45.606,
+    "p95_latency_ms": 66.476,
+    "model_calls": 0,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "external_api_usd": 0.0
+  },
+  "gate_summary": {
+    "boolean_gate_count": 136,
+    "true_gate_count": 136,
+    "false_gate_count": 0,
+    "baseline_disposition": "pass"
+  },
+  "post_result_regression": {
+    "full_tests_passed": 76,
+    "full_tests_failed": 0,
+    "full_tests_elapsed_seconds": 84.615,
+    "side_effect_free_validators_passed": 36,
+    "exact_report_trace_verification": "pass",
+    "governed_milestone": "pass"
+  },
+  "retained_process_failure": "The output-absence preflight wrote Test-Path $out-or Test-Path $trace without parenthesized operands. PowerShell emitted a non-terminating parameter-binding error, after which run_evaluation performed its own immutable-path check and completed normally. The error is excluded from the pass but retained here.",
+  "interpretation": "The exact current-manifest deterministic control remains the product default and provides the useful reliable lower bound. It does not transfer approval or execution authority to a model.",
+  "next_gate": "Pass post-result regression, commit push and remotely verify the control report and trace, then construct and independently validate the frozen three-configuration comparison."
+}

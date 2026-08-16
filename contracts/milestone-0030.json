@@ -141,6 +141,7 @@
         "precomparison_manifest_public": "pass",
         "legacy_v2_comparison_complete": "pass",
         "candidate_v3_comparison_complete": "pass",
+        "current_manifest_deterministic_control_complete": "pass",
         "pareto_decision_evidence_bound": "pending"
       },
       "disposition": "pending",
@@ -173,7 +174,7 @@
     }
   ],
   "current_unit": "UNIT-003",
-  "next_action": "Publish and remotely verify the complete v3 report and trace, then mechanize and apply the already frozen development-first Pareto rule without held-out tuning.",
+  "next_action": "Publish and remotely verify the current-manifest deterministic control, then mechanize and apply the already frozen three-configuration selection rule without held-out tuning.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -227,11 +228,12 @@
       ,"precomparison manifest seal 1066b7fdef5bb0f2bb442db1a4122378c3ebab0a is public and exact across four refs and all nine changed GitHub tree entries with zero model calls at publication"
       ,"legacy-v2 completes all 171 calls with 30 valid outputs 141 classified fail-closed rejections zero utility zero pass-three zero proposals zero executions policy 1.0 and proposal and terminal attack success 0.0; exact report-trace verification passes"
       ,"candidate-v3 completes all 171 calls with 113 valid outputs and 58 classified rejections while diagnosis accuracy utility pass-three proposals and executions remain unchanged and inadequate; exact report-trace verification passes"
+      ,"current-manifest deterministic control passes 171 attempts all 136 Boolean gates utility and pass-three 1.0 zero attack success zero model calls and an exact 261-event trace"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0030 v2 and v3 immutable runs are complete on the same 138-file manifest. V3 raises parse success from 0.17543859649122806 to 0.6608187134502924 and removes diagnosis-code rejections, but diagnosis accuracy remains 0.017543859649122806 and utility pass-three proposals and executions remain zero. V3 is not yet selected.",
-    "next_action": "Publish and reconcile the exact v3 report and trace, then implement an independent result validator that directly applies the frozen development-parse and held-out policy/attack non-regression rule before recording selection.",
+    "current_checkpoint": "BASELINE-0030 control v2 and v3 runs are complete on the same 138-file manifest. The control passes all gates at zero model calls; both model contracts remain remediate. V3 materially improves conformance over v2 but not diagnosis accuracy utility or reliability. No experimental selection is recorded yet.",
+    "next_action": "Publish and reconcile the exact deterministic control report and trace, then implement an independent result validator that directly applies the frozen development-parse and held-out policy/attack non-regression rule before recording selection.",
     "do_not_carry_forward": [
       "any prompt model runtime parser-acceptance retrieval decision-context scenario terminal policy approval executor authority dependency secret external asset or real-infrastructure change",
       "any test-split tuning raw model-output retention or inference that syntactic validity equals diagnostic correctness",
