@@ -12,6 +12,8 @@ Before comparison, UNIT-003 must replace only stale manifest identity: publish a
 
 The inventory seal is public at `c6eab065...`. The local 138-file manifest verifies at SHA-256 `882c552e...`; after retaining and correcting one stale test identity, 76 tests and 36 validators pass. Publish and reconcile this exact manifest before either 171-call run.
 
+The exact manifest is public at `1066b7fdef5bb0f2bb442db1a4122378c3ebab0a`, with all nine changed remote entries reconciled and no model call at publication. Run v2 first and v3 second under the same manifest and local-runtime conditions, preserving each result before applying the selection rule.
+
 Before runtime change, the handoff identified a focused test hard-coded to preimplementation mode. Its public validation-only successor selects the phase from exact v2 identity and otherwise changes no verifier, target, product, or authority behavior. The active v3 projection landed only after that correction was remotely verified. No successor manifest, candidate result, package, archive, or image may precede the implementation seal.
 
 The checkpoint will stop rather than widen parser acceptance, tune on the held-out split, add model tools or credentials, change the model/runtime/prompt, import an external asset, or infer useful behavior from syntactic validity. Unfavorable and failed evidence remains append-only.

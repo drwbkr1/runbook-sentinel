@@ -13,6 +13,7 @@
 - Before model execution, identified that the evaluator would bind stale BASELINE-0029 manifest identity. Added exactly the preserved v2 contract, frozen conformance contract, and independent verifier to the 135-file manifest inventory; publish this inventory and the resulting 138-file manifest before either comparison. Retained an initial stale-count assertion instead of rewriting it.
 - Published the inventory seal, froze the exact 138-file BASELINE-0030 manifest, and retained the first 75-of-76 regression after a test correctly observed the new report identity but still expected the predecessor label. The bounded assertion-only successor changes no manifest-bound runtime or security boundary.
 - The corrected manifest gate passes all 76 tests, all 36 side-effect-free validators, exact manifest validation, compilation, and diff checks. No model output exists before the manifest seal.
+- Published and remotely reconciled the 138-file manifest at `1066b7fdef5bb0f2bb442db1a4122378c3ebab0a`; four refs and all nine changed remote entries are exact. The frozen v2-then-v3 comparison is now open.
 
 ## 0.0.29 - 2026-08-15
 

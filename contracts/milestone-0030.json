@@ -138,7 +138,7 @@
         "public_implementation_seal_verified": "pass",
         "manifest_inventory_additions_exact": "pass",
         "manifest_inventory_seal_public": "pass",
-        "precomparison_manifest_public": "pending",
+        "precomparison_manifest_public": "pass",
         "legacy_v2_comparison_complete": "pending",
         "candidate_v3_comparison_complete": "pending",
         "pareto_decision_evidence_bound": "pending"
@@ -173,7 +173,7 @@
     }
   ],
   "current_unit": "UNIT-003",
-  "next_action": "Publish and remotely verify the exact 138-file BASELINE-0030 precomparison manifest, then run and preserve separate legacy-v2 and candidate-v3 171-call comparisons.",
+  "next_action": "Run and preserve the immutable legacy-v2 171-call comparison, then the candidate-v3 171-call comparison on the same frozen manifest, runtime, scenarios, and trials.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -224,11 +224,12 @@
       ,"the first 138-file manifest regression retained one stale baseline-0029 report-checkpoint assertion; the bounded test-only successor expects baseline-0030 and changes no manifest-bound runtime file"
       ,"inventory seal c6eab065b17420d893d69781a8e7d20051ae9fa6 is public and exact across four refs and all seven changed remote tree entries"
       ,"the local 138-file BASELINE-0030 manifest verifies at 16597 bytes and SHA-256 882c552e9c712bed298c2a6e7ca2bb5206f28d40102cbe05efaba2eee6560b8f; the corrected complete suite passes 76 tests and all 36 side-effect-free validators"
+      ,"precomparison manifest seal 1066b7fdef5bb0f2bb442db1a4122378c3ebab0a is public and exact across four refs and all nine changed GitHub tree entries with zero model calls at publication"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0030 UNIT-003 has a verified local 138-file precomparison manifest after public inventory seal c6eab065b17420d893d69781a8e7d20051ae9fa6. All 76 tests and 36 validators pass after retaining one stale test assertion failure. No model call or comparison report exists.",
-    "next_action": "Commit push and remotely reconcile the exact precomparison manifest, then run v2 and v3 separately over the same 57 scenarios and three trials without retaining raw output.",
+    "current_checkpoint": "BASELINE-0030 UNIT-003 has public precomparison manifest seal 1066b7fdef5bb0f2bb442db1a4122378c3ebab0a, exact across four refs and nine remote paths. The 138-file manifest is SHA-256 882c552e9c712bed298c2a6e7ca2bb5206f28d40102cbe05efaba2eee6560b8f. No model call existed at publication.",
+    "next_action": "Run the immutable v2 comparison first and v3 second over the same 57 scenarios and three trials, retain digest-only generated-output evidence, then validate every separate metric family before selection.",
     "do_not_carry_forward": [
       "any prompt model runtime parser-acceptance retrieval decision-context scenario terminal policy approval executor authority dependency secret external asset or real-infrastructure change",
       "any test-split tuning raw model-output retention or inference that syntactic validity equals diagnostic correctness",
