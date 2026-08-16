@@ -39,6 +39,8 @@
 - Preserved the byte-exact generated full and clean-build component receipts, original-detail dashboard, and structured Docker Scout SARIF with zero critical/high findings. Bounded scans find zero high-specificity credential, raw approval-token, or model-artifact findings.
 - The post-container gate passes 80 tests, 37 phase-correct validators, archive and three trace verifiers, final manifest, milestone, compilation, diff, and full evidence parsing. Retained and classified the component's stale non-authoritative next-gate text, one phase-flag wrapper failure, an interrupted unpromoted duplicate evaluation, one guessed clean-tag failure, and one leading-dash scan invocation failure.
 - UNIT-004 remains open until this exact container evidence is public and every changed Git object is independently reconciled. The deterministic control remains the product default, the optional local model remains `selected-experimental-remediate`, and no production or broad Pareto claim is made.
+- Published canonical container-evidence commit `77efe4eb85dd213b087cf6ad4e8de4aa502c0c13`, tree `9cc0c34cd8f8251c5d81ecbfeb6068d9df4033bb`. Local, tracking, `ls-remote`, GitHub ref API, public visibility, and all 17 changed Git objects agree; anonymous credential-free retrieval verifies all 17 files by length and SHA-256.
+- Retained the first anonymous public-byte wrapper after it failed before network access because Windows PowerShell had not loaded `System.Net.Http`; the explicit standard-assembly successor passes. UNIT-004 is complete, and UNIT-005 opens with the governed premerge release-truth audit after this receipt commit is public.
 
 ## 0.0.29 - 2026-08-15
 

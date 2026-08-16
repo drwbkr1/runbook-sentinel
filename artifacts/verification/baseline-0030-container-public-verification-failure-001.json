@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-16T04:51:43Z",
+  "status": "retained_process_invalid",
+  "classification": "anonymous public-byte wrapper missing assembly",
+  "command_intent": "Fetch all 17 paths changed by canonical container-evidence commit 77efe4eb85dd213b087cf6ad4e8de4aa502c0c13 from raw.githubusercontent.com without credentials and compare byte length and SHA-256 to the local Git worktree.",
+  "failure": "Windows PowerShell reported Unable to find type [System.Net.Http.HttpClient] before constructing the client or making a network request.",
+  "mutation": "none",
+  "positive_evidence_released": false,
+  "correction": "The unchanged successor explicitly loaded the standard System.Net.Http assembly, fetched all 17 immutable-commit URLs without credentials, and verified 17 of 17 byte lengths and SHA-256 values exact.",
+  "product_effect": "none"
+}
