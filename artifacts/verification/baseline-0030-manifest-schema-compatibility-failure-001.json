@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-003",
+  "observed_at_utc": "2026-08-16T00:22:00Z",
+  "status": "retained_failure",
+  "phase": "first full regression after freezing the 138-file precomparison manifest",
+  "result": {
+    "passed": 75,
+    "failed": 1,
+    "elapsed_seconds": 63.269,
+    "failing_test": "tests.test_baseline.BaselineTest.test_evaluation_reports_separate_metrics_and_passes_control_gates",
+    "assertion": "expected report checkpoint baseline-0029 but the exact successor manifest correctly projected baseline-0030"
+  },
+  "cause": "The test retained the predecessor's explicit current-checkpoint assertion. The report schema and runtime correctly source checkpoint identity from the newly frozen manifest.",
+  "correction": {
+    "path": "tests/test_baseline.py",
+    "change": "Advance only the exact current report checkpoint assertion from baseline-0029 to baseline-0030.",
+    "runtime_or_model_contract_changed": false,
+    "manifest_bound_file_changed": false,
+    "scenario_or_terminal_state_changed": false,
+    "policy_approval_executor_or_authority_changed": false
+  },
+  "disposition": "Failure retained. Rerun the complete suite and all 36 side-effect-free validators before publishing the manifest seal."
+}

@@ -11,6 +11,8 @@
 - No model call, candidate report, successor manifest, package, archive, image, external asset, secret, paid service, or real-infrastructure interaction occurred before the implementation seal. Comparative utility and safety remain unknown until the public seal opens UNIT-003.
 - Published and reconciled implementation seal `34bc1a8b8f7d4070f0858581f01852e0643685d7`; four ref views and all 12 changed remote Git tree entries are exact. UNIT-003 may now run the frozen v2/v3 comparison while keeping raw output absent and the deterministic control as default.
 - Before model execution, identified that the evaluator would bind stale BASELINE-0029 manifest identity. Added exactly the preserved v2 contract, frozen conformance contract, and independent verifier to the 135-file manifest inventory; publish this inventory and the resulting 138-file manifest before either comparison. Retained an initial stale-count assertion instead of rewriting it.
+- Published the inventory seal, froze the exact 138-file BASELINE-0030 manifest, and retained the first 75-of-76 regression after a test correctly observed the new report identity but still expected the predecessor label. The bounded assertion-only successor changes no manifest-bound runtime or security boundary.
+- The corrected manifest gate passes all 76 tests, all 36 side-effect-free validators, exact manifest validation, compilation, and diff checks. No model output exists before the manifest seal.
 
 ## 0.0.29 - 2026-08-15
 

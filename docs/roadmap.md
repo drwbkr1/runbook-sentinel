@@ -10,6 +10,8 @@ UNIT-001 is complete. Public commit `f82e301d...` is exact across all refs and a
 
 Before comparison, UNIT-003 must replace only stale manifest identity: publish a three-path inventory addition for the preserved v2 contract, frozen conformance contract, and independent verifier; then freeze and publish the 138-file BASELINE-0030 manifest. Model calls remain closed until both seals reconcile. This does not change runtime behavior or widen the frozen experiment.
 
+The inventory seal is public at `c6eab065...`. The local 138-file manifest verifies at SHA-256 `882c552e...`; after retaining and correcting one stale test identity, 76 tests and 36 validators pass. Publish and reconcile this exact manifest before either 171-call run.
+
 Before runtime change, the handoff identified a focused test hard-coded to preimplementation mode. Its public validation-only successor selects the phase from exact v2 identity and otherwise changes no verifier, target, product, or authority behavior. The active v3 projection landed only after that correction was remotely verified. No successor manifest, candidate result, package, archive, or image may precede the implementation seal.
 
 The checkpoint will stop rather than widen parser acceptance, tune on the held-out split, add model tools or credentials, change the model/runtime/prompt, import an external asset, or infer useful behavior from syntactic validity. Unfavorable and failed evidence remains append-only.

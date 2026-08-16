@@ -137,7 +137,7 @@
       "gates": {
         "public_implementation_seal_verified": "pass",
         "manifest_inventory_additions_exact": "pass",
-        "manifest_inventory_seal_public": "pending",
+        "manifest_inventory_seal_public": "pass",
         "precomparison_manifest_public": "pending",
         "legacy_v2_comparison_complete": "pending",
         "candidate_v3_comparison_complete": "pending",
@@ -173,7 +173,7 @@
     }
   ],
   "current_unit": "UNIT-003",
-  "next_action": "Publish the exact three-path manifest-inventory addition, freeze and publish a 138-file BASELINE-0030 manifest, then run and preserve separate legacy-v2 and candidate-v3 171-call comparisons.",
+  "next_action": "Publish and remotely verify the exact 138-file BASELINE-0030 precomparison manifest, then run and preserve separate legacy-v2 and candidate-v3 171-call comparisons.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -221,11 +221,14 @@
       ,"implementation seal 34bc1a8b8f7d4070f0858581f01852e0643685d7 is public and exact across local remote-tracking ls-remote GitHub ref API and all twelve changed remote tree entries"
       ,"public implementation receipt confirms zero baseline-0030 model calls candidate reports successor manifests v0.0.30 archives and images at publication"
       ,"UNIT-003 adds only the preserved v2 contract frozen conformance contract and independent verifier to the manifest inventory; no model call or successor manifest exists before this inventory seal"
+      ,"the first 138-file manifest regression retained one stale baseline-0029 report-checkpoint assertion; the bounded test-only successor expects baseline-0030 and changes no manifest-bound runtime file"
+      ,"inventory seal c6eab065b17420d893d69781a8e7d20051ae9fa6 is public and exact across four refs and all seven changed remote tree entries"
+      ,"the local 138-file BASELINE-0030 manifest verifies at 16597 bytes and SHA-256 882c552e9c712bed298c2a6e7ca2bb5206f28d40102cbe05efaba2eee6560b8f; the corrected complete suite passes 76 tests and all 36 side-effect-free validators"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0030 UNIT-002 is complete. UNIT-003 is open, but the evaluation CLI would otherwise bind stale BASELINE-0029 manifest identity. A local three-path inventory addition covers the v2 archive, conformance contract, and independent verifier; no model call or successor manifest exists.",
-    "next_action": "Publish and reconcile the inventory seal, freeze and publish the 138-file BASELINE-0030 manifest, then run v2 and v3 separately over the same 57 scenarios and three trials without retaining raw output.",
+    "current_checkpoint": "BASELINE-0030 UNIT-003 has a verified local 138-file precomparison manifest after public inventory seal c6eab065b17420d893d69781a8e7d20051ae9fa6. All 76 tests and 36 validators pass after retaining one stale test assertion failure. No model call or comparison report exists.",
+    "next_action": "Commit push and remotely reconcile the exact precomparison manifest, then run v2 and v3 separately over the same 57 scenarios and three trials without retaining raw output.",
     "do_not_carry_forward": [
       "any prompt model runtime parser-acceptance retrieval decision-context scenario terminal policy approval executor authority dependency secret external asset or real-infrastructure change",
       "any test-split tuning raw model-output retention or inference that syntactic validity equals diagnostic correctness",

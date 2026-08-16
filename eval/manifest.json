@@ -1,5 +1,5 @@
 {
-  "checkpoint": "baseline-0029",
+  "checkpoint": "baseline-0030",
   "files": {
     ".dockerignore": "adba53cbb63d0ae80ce229ee8749507657fb8501e7b2a18b4a4fe8836e28e8d4",
     "Dockerfile": "f680bd182e592c98ad5e9c8981219120c6c6cbc7c1dddf039983330ed1607225",
@@ -35,7 +35,9 @@
     "eval/dashboard-identity-contract.json": "10ccc78dda8e909343a01aa15a8d287b3dd3aa5480a3922ef5c820dfdd8e4ac6",
     "eval/idempotency-authorization-contract.json": "c785a4a09825b2fe0e675576d8b3403a9736775725dde3b603272401370e80c8",
     "eval/live-trace-anchor-contract.json": "12b69d7743bfc1b9ad3c8a078bd7e21cb2d35da08898209cd6b4110fde7c2b95",
-    "eval/model-contract.json": "b5ed65aff647087344a6f9781e565483940f01563c678a3fcc97f7e55500eafd",
+    "eval/model-contract-0018-v2.json": "b5ed65aff647087344a6f9781e565483940f01563c678a3fcc97f7e55500eafd",
+    "eval/model-contract.json": "8718971a9e54320603c08d9f31957bd5dabee0e50944925f588f74e5915defda",
+    "eval/model-output-conformance-contract.json": "159b9da51ed5da8c1b9b384b09720e65eafe5ba9a9cd43dcd33d9063a1a30259",
     "eval/model-output-failure-contract.json": "3c7b00fcd4ff2b4d0e3f3a8e7a1784cc80bf9c6303919f9a45ff08a271bc02c4",
     "eval/operator-authentication-contract.json": "b8bc2bb95cecd316ec91cabe318eacbfa7bd892e3aca109785aca317562df328",
     "eval/package-contract-0012.json": "d431bbaaedb3178516114de193130e5382c09464fd10beea98b7c10071800433",
@@ -101,6 +103,7 @@
     "scripts/verify_live_trace_anchor_contract.py": "8933be083b28e0b049960bf4b790857cf211cd889e1f92a9f593e2b01e7f52d6",
     "scripts/verify_mcp_stdio.py": "c53ce00cf44ad78fa1ffb77273067074120d15b36d2eb9436d4ccc873836d57a",
     "scripts/verify_model_comparison.py": "c17961a8796485315a34bded57fecf1d207a443522e10696d30bfb1fce5cdd6f",
+    "scripts/verify_model_output_conformance_contract.py": "745a1cd7e4df2bc7d329258be6a40f7146b19aef52658d9bedb619bc6563bde7",
     "scripts/verify_model_output_failure_contract.py": "9c4460a9f72200815ff3e1db1629926872278064c5d7a844f68272e9d8b03421",
     "scripts/verify_operator_authentication_contract.py": "05310cc860199edb79f0ffaf32331d5134f32e6cc068586f81ace6a391585ef2",
     "scripts/verify_package_contract.py": "ab8fd9a3859010f51a710fd01b88947df324b754233fd55c50251fc9f8e7519d",
@@ -137,6 +140,6 @@
     "src/runbook_sentinel/telemetry.py": "1e136b8642fc37f76bd803e720d5849123867fe8565426c8ce43ec5b21245815",
     "src/runbook_sentinel/trace_integrity_evaluation.py": "aab63e902297aa2c26734cbaef46b9106c07074696c5cf1d4cef2a1b70690d4a"
   },
-  "frozen_at_utc": "2026-08-15T20:46:32Z",
+  "frozen_at_utc": "2026-08-16T00:20:50Z",
   "schema_version": "1.0"
 }
