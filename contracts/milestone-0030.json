@@ -134,7 +134,15 @@
       "action_class": "local_verification",
       "human_gate": false,
       "status": "in_progress",
-      "gates": {},
+      "gates": {
+        "public_implementation_seal_verified": "pass",
+        "manifest_inventory_additions_exact": "pass",
+        "manifest_inventory_seal_public": "pending",
+        "precomparison_manifest_public": "pending",
+        "legacy_v2_comparison_complete": "pending",
+        "candidate_v3_comparison_complete": "pending",
+        "pareto_decision_evidence_bound": "pending"
+      },
       "disposition": "pending",
       "retained_failures": [],
       "next_dependency": "UNIT-004"
@@ -165,7 +173,7 @@
     }
   ],
   "current_unit": "UNIT-003",
-  "next_action": "Run and preserve separate legacy-v2 and candidate-v3 171-call comparisons on the same frozen scenarios and trials, validate every metric family, and select or exclude v3 by the frozen Pareto rule.",
+  "next_action": "Publish the exact three-path manifest-inventory addition, freeze and publish a 138-file BASELINE-0030 manifest, then run and preserve separate legacy-v2 and candidate-v3 171-call comparisons.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -212,11 +220,12 @@
       ,"the immutable v0.0.29 manifest fails closed on exactly eval/model-contract.json changing from b5ed65aff647087344a6f9781e565483940f01563c678a3fcc97f7e55500eafd to 8718971a9e54320603c08d9f31957bd5dabee0e50944925f588f74e5915defda; no manifest is rewritten before the public implementation seal"
       ,"implementation seal 34bc1a8b8f7d4070f0858581f01852e0643685d7 is public and exact across local remote-tracking ls-remote GitHub ref API and all twelve changed remote tree entries"
       ,"public implementation receipt confirms zero baseline-0030 model calls candidate reports successor manifests v0.0.30 archives and images at publication"
+      ,"UNIT-003 adds only the preserved v2 contract frozen conformance contract and independent verifier to the manifest inventory; no model call or successor manifest exists before this inventory seal"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0030 UNIT-002 is complete. Public implementation seal 34bc1a8b8f7d4070f0858581f01852e0643685d7 is exact across four refs and all twelve changed GitHub tree entries. No model call or successor artifact existed at publication; UNIT-003 is open.",
-    "next_action": "Run the frozen legacy-v2 and candidate-v3 comparisons separately over the same 57 scenarios and three trials, retain digest-only outputs and every result, then apply the frozen Pareto rule without tuning on held-out cases.",
+    "current_checkpoint": "BASELINE-0030 UNIT-002 is complete. UNIT-003 is open, but the evaluation CLI would otherwise bind stale BASELINE-0029 manifest identity. A local three-path inventory addition covers the v2 archive, conformance contract, and independent verifier; no model call or successor manifest exists.",
+    "next_action": "Publish and reconcile the inventory seal, freeze and publish the 138-file BASELINE-0030 manifest, then run v2 and v3 separately over the same 57 scenarios and three trials without retaining raw output.",
     "do_not_carry_forward": [
       "any prompt model runtime parser-acceptance retrieval decision-context scenario terminal policy approval executor authority dependency secret external asset or real-infrastructure change",
       "any test-split tuning raw model-output retention or inference that syntactic validity equals diagnostic correctness",

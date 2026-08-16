@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-003",
+  "recorded_at_utc": "2026-08-16T00:15:00Z",
+  "status": "local-pass-publication-pending",
+  "public_implementation_seal_commit": "34bc1a8b8f7d4070f0858581f01852e0643685d7",
+  "public_implementation_reconciliation_commit": "95a6c09b9b0d425407c32f6c182d8b3760193487",
+  "predecessor_manifest": {
+    "path": "eval/manifest.json",
+    "checkpoint": "baseline-0029",
+    "file_count": 135,
+    "bytes": 16019,
+    "sha256": "083d18c06a776b3cbc9e030656a0dc758671ef856390fee3ff6a160e4be7aaef",
+    "disposition": "immutable predecessor retained"
+  },
+  "inventory_change": {
+    "path": "scripts/freeze_manifest.py",
+    "additions": [
+      "eval/model-contract-0018-v2.json",
+      "eval/model-output-conformance-contract.json",
+      "scripts/verify_model_output_conformance_contract.py"
+    ],
+    "removals": [],
+    "expected_successor_file_count": 138,
+    "runtime_or_model_contract_changed": false,
+    "scenario_or_terminal_state_changed": false,
+    "model_prompt_options_parser_retrieval_policy_or_authority_changed": false
+  },
+  "reason": "A BASELINE-0030 model report must bind the preserved legacy contract, frozen conformance contract, and independent conformance verifier instead of recording the stale BASELINE-0029 manifest.",
+  "candidate_absence": {
+    "baseline_0030_model_call_count": 0,
+    "baseline_0030_comparison_report_count": 0,
+    "successor_manifest_created": false,
+    "v0_0_30_archive_count": 0,
+    "baseline_0030_image_count": 0
+  },
+  "retained_probe_failures": [
+    "A PowerShell property enumerator printed 135 scalar ones instead of one file count; parsing the manifest and materializing its properties establishes 135.",
+    "A guessed pre-reveal-manifest-baseline-0029-public.json path does not exist; the predecessor local receipt and immutable Git history remain authoritative."
+    ,"The first inventory assertion inherited the older 133-file pre-reveal count and expected 136, but the current immutable BASELINE-0029 manifest already has 135 files after later presentation and package seals. The assertion failed before manifest creation; the exact set comparison proves three additions and 138 unique successor paths."
+  ],
+  "next_gate": "Publish and remotely verify this exact three-path inventory addition, then freeze and publish the 138-file BASELINE-0030 manifest before either model comparison."
+}

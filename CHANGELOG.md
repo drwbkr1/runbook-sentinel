@@ -10,6 +10,7 @@
 - Published and remotely verified that phase-aware correction at `0a49729f28fa28f06fcbae0878e1d3558ea47abc`, then implemented exactly the four frozen active-contract object paths. The exact projection validator, five focused tests, all 76 tests, and 35 applicable non-manifest validators pass; the immutable predecessor manifest rejects only the expected changed contract.
 - No model call, candidate report, successor manifest, package, archive, image, external asset, secret, paid service, or real-infrastructure interaction occurred before the implementation seal. Comparative utility and safety remain unknown until the public seal opens UNIT-003.
 - Published and reconciled implementation seal `34bc1a8b8f7d4070f0858581f01852e0643685d7`; four ref views and all 12 changed remote Git tree entries are exact. UNIT-003 may now run the frozen v2/v3 comparison while keeping raw output absent and the deterministic control as default.
+- Before model execution, identified that the evaluator would bind stale BASELINE-0029 manifest identity. Added exactly the preserved v2 contract, frozen conformance contract, and independent verifier to the 135-file manifest inventory; publish this inventory and the resulting 138-file manifest before either comparison. Retained an initial stale-count assertion instead of rewriting it.
 
 ## 0.0.29 - 2026-08-15
 
