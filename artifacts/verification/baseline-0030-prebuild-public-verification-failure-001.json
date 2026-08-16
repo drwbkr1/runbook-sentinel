@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-16T02:55:20Z",
+  "status": "retained_process_failure",
+  "operation": "first four-ref public pre-build reconciliation wrapper",
+  "public_commit": "dda0c347c108a78ac0afe279f09bc074c73579e9",
+  "observed_refs": {
+    "local_head": "dda0c347c108a78ac0afe279f09bc074c73579e9",
+    "explicit_remote_tracking_before_fetch": "cfeba437d0a4f18005afae53c4d7744ac6d9d4f1",
+    "ls_remote": "dda0c347c108a78ac0afe279f09bc074c73579e9",
+    "github_ref_api": "dda0c347c108a78ac0afe279f09bc074c73579e9"
+  },
+  "finding": "The explicit push updated the live public branch but did not update the separately stored local remote-tracking ref, so the first wrapper stopped before recursive remote-tree comparison.",
+  "remote_mutation_failure": false,
+  "public_branch_wrong": false,
+  "product_or_evidence_mutation": false,
+  "correction": "Fetch the exact public branch into refs/remotes/origin/codex/baseline-0030-model-output-contract-conformance, then rerun all four refs and recursive remote-tree comparison.",
+  "successor": "artifacts/verification/package-seal-baseline-0030-public.json"
+}

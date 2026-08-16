@@ -25,6 +25,7 @@
 - Ran deterministic source attempt 001: all 57 scenarios, 171 attempts, 136 Boolean gates, and its anchored 261-event trace pass. `latest.json` is byte-identical to the retained report. The bounded MCP, authenticated API/approval/executor path, persisted state, telemetry, and rendered dashboard pass 3-tool/no-authority, 131-check, 72-check, and original-detail gates respectively.
 - Retained the initial 130-of-131 source API failure caused by the stale baseline-0029 `latest.json` pointer and eight package-freeze process failures. The recovery promoted only the exact passing frozen evaluation and reran the unchanged verifier; no security boundary was weakened and no unfavorable evidence was rewritten.
 - The local pre-build seal passes with 80 tests and all 37 phase-correct validators. No v0.0.30 archive, checksum, container receipt, or image exists; publication and remote reconciliation are mandatory before build.
+- Published and remotely reconciled pre-build commit `dda0c347c108a78ac0afe279f09bc074c73579e9`, tree `d5b70d325cc221f10beb4542273856ce7459caeb`; all four ref views and all 42 changed remote entries are exact. Retained the first wrapper's stale local tracking ref and corrected it with an explicit branch fetch. Two archive builds may begin; the container gate remains closed until the package/source payload passes and is public.
 
 ## 0.0.29 - 2026-08-15
 

@@ -160,7 +160,7 @@
       "status": "in_progress",
       "gates": {
         "selection_evidence_public_and_reconciled": "pass",
-        "package_and_final_manifest_contract_frozen": "pending",
+        "package_and_final_manifest_contract_frozen": "pass",
         "source_and_package_surfaces_exact": "pending",
         "mcp_api_approval_executor_state_telemetry_exact": "pass",
         "dashboard_render_verified": "pass",
@@ -170,7 +170,8 @@
       "disposition": "pending",
       "retained_failures": [
         "The first source API run passed 130 of 131 checks but rejected the stale baseline-0029 latest-evaluation pointer. The frozen baseline-0030 source candidate was then run, retained, trace-verified, and promoted byte-exact; the unchanged API passed 131 of 131.",
-        "Eight package-freeze process failures are retained: one read-only path guess, one trailing-blank-line exact-copy defect, one explicit CRLF/LF representation distinction, two focused-test fixture defects, one search-quoting failure, one read-only hash-wrapper parser failure, one credential-scan option-separator failure, and one upstream-ref wrapper that stopped before staging."
+        "Eight package-freeze process failures are retained: one read-only path guess, one trailing-blank-line exact-copy defect, one explicit CRLF/LF representation distinction, two focused-test fixture defects, one search-quoting failure, one read-only hash-wrapper parser failure, one credential-scan option-separator failure, and one upstream-ref wrapper that stopped before staging.",
+        "The first public reconciliation wrapper found the live public branch and GitHub API at dda0c347c108a78ac0afe279f09bc074c73579e9 but the separately stored local tracking ref at its parent, then stopped before remote-tree comparison. An exact branch fetch reconciled local reference state; the successor passes all four refs and 42 remote entries."
       ],
       "next_dependency": "UNIT-005"
     },
@@ -188,7 +189,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Publish and remotely reconcile the exact v0.0.30 package contract, container-runtime-v10 contract, 143-file final manifest, deterministic source candidate, real-surface evidence, retained failures, and local pre-build seal before building any archive or image.",
+  "next_action": "Build two independent v0.0.30 zipapps from public pre-build commit dda0c347c108a78ac0afe279f09bc074c73579e9, verify exact bytes and the frozen 43-entry package contract, then run source/package evaluation and real-surface parity before any container build.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -253,11 +254,13 @@
       ,"bounded source MCP exposes exactly three diagnostic and read tools with no approval or execution authority; the authenticated API passes 131 checks and native state and telemetry inspection passes 72 checks"
       ,"original-detail review accepts the complete 1440 by 1000 BASELINE-0030 dashboard with the authenticated external operator boundary and real infrastructure disconnected"
       ,"the stale-evaluation API failure and eight package-freeze process failures are retained; the corrected successors change no immutable model evidence or security boundary"
+      ,"public pre-build commit dda0c347c108a78ac0afe279f09bc074c73579e9 and tree d5b70d325cc221f10beb4542273856ce7459caeb are exact across local explicit tracking ls-remote GitHub ref API public visibility and all 42 changed remote tree entries"
+      ,"the first public verification wrapper retained a stale local tracking ref before an explicit exact-branch fetch; live public state was already correct and no product or evidence byte changed"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0030 UNIT-004 has a passing local pre-build seal over the exact package and container contracts, 143-file final manifest, deterministic source candidate, bounded MCP, authenticated API, approval and executor, persisted state, telemetry, and rendered dashboard. Archive, checksum, container receipt, and v0.0.30 image remain absent.",
-    "next_action": "Commit, push, and remotely reconcile the exact local pre-build seal before creating v0.0.30 archive or image bytes.",
+    "current_checkpoint": "BASELINE-0030 UNIT-004 has a public and remotely reconciled pre-build seal at dda0c347c108a78ac0afe279f09bc074c73579e9 over the exact package and container contracts, 143-file final manifest, deterministic source candidate, bounded MCP, authenticated API, approval and executor, persisted state, telemetry, and rendered dashboard. Archive, checksum, container receipt, and v0.0.30 image remain absent.",
+    "next_action": "Build and compare two independent v0.0.30 archives, then verify source/package evaluation and real-surface parity before publishing the package/source payload or building a container.",
     "do_not_carry_forward": [
       "any prompt model runtime parser-acceptance retrieval decision-context scenario terminal policy approval executor authority dependency secret external asset or real-infrastructure change",
       "any test-split tuning raw model-output retention or inference that syntactic validity equals diagnostic correctness",
