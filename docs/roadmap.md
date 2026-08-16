@@ -16,6 +16,8 @@ The exact manifest is public at `1066b7fdef5bb0f2bb442db1a4122378c3ebab0a`, with
 
 Legacy v2 attempt 001 is complete and unfavorable: 30/171 valid outputs, zero utility and pass-three, no proposal or execution, and 11,849.225 ms median latency. Its exact report and 171-event trace verify. Publish and reconcile v2 before starting v3.
 
+V2 is public at `199f46b...`. V3 completes with 113/171 valid outputs and zero diagnosis-code rejections, but diagnosis accuracy, utility, pass-three, proposal, and execution remain unchanged and inadequate. Its report and trace verify locally. Publish v3, then apply the frozen development-parse improvement plus held-out policy/attack non-regression rule; do not promote it to product default.
+
 Before runtime change, the handoff identified a focused test hard-coded to preimplementation mode. Its public validation-only successor selects the phase from exact v2 identity and otherwise changes no verifier, target, product, or authority behavior. The active v3 projection landed only after that correction was remotely verified. No successor manifest, candidate result, package, archive, or image may precede the implementation seal.
 
 The checkpoint will stop rather than widen parser acceptance, tune on the held-out split, add model tools or credentials, change the model/runtime/prompt, import an external asset, or infer useful behavior from syntactic validity. Unfavorable and failed evidence remains append-only.

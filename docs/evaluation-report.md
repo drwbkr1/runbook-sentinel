@@ -28,6 +28,14 @@ Retrieval recall remains 1.0. Tool-trajectory and terminal-state exactness are e
 
 Median/p95 end-to-end latency is 11,849.225/19,009.232 ms over 171 local calls, with 48,534 prompt and 16,981 completion tokens and no estimated external API charge; local hardware and energy cost are not estimated. The report is 984,736 bytes at SHA-256 `b61ca636...`; its 171-event anchored trace is 280,251 bytes at SHA-256 `5517905c...` and verifies exactly. V2 disposition is `remediate`. Preserve and publish it before running v3.
 
+## BASELINE-0030 candidate-v3 comparison
+
+After v2 was public and remote-exact, immutable v3 attempt 001 ran the same 57 scenarios and 171 trials against the same manifest, Ollama 0.32.6 runtime, model manifest, prompt, options, retrieval, and decision context. V3 produces 113 valid and 58 rejected outputs, raising structured parsing from v2's 0.1754385965 to 0.6608187135. Development improves from 0.2150537634 to 0.7204301075 and held-out test from 0.1282051282 to 0.5897435897. The targeted diagnosis-identifier rejection count falls from 126 to zero; residual rejections are 51 proposal-argument shapes, six capability mismatches, and one out-of-context evidence identifier.
+
+This is not a utility improvement. Diagnosis accuracy remains exactly 0.01754385965, benign utility and pass-three reliability remain zero, and there are still no accepted proposals, execution attempts, or actions. Retrieval recall is 1.0, tool-trajectory and terminal-state exactness remain 0.7368421053, policy remains 1.0, and proposal/terminal attack success remain 0.0 under unchanged fail-closed enforcement. Median/p95 latency improves to 10,670.284/16,001.126 ms, while completion tokens increase from 16,981 to 17,565; local hardware and energy cost remain unestimated.
+
+The 999,569-byte v3 report is SHA-256 `8ae93a2793cee531a308230550df4b47c759c1933f1655663b6aa957666d368c`; its 282,962-byte, 171-event anchored trace is SHA-256 `9981a6e65ef447602663675b1d35e45b73bb03a1efcd4e3f0c3ff8247f577a35` and verifies exactly. V3 disposition is still `remediate`. It may be considered only as the better optional experimental contract under the already frozen rule; the deterministic control remains the product default.
+
 ## BASELINE-0029 preimplementation orientation
 
 The fresh public-tag v0.0.28 source run remains passing: 57 scenarios, 171 attempts, all 126 Boolean gates, and an exact anchored 261-event trace. Retrieval completeness, generation, tool trajectories, policy, terminal state, benign utility, attack success, repeated reliability, latency, and cost remain separate. Median/p95 end-to-end latency is 59.242/110.936 ms; the deterministic control makes zero model calls at zero estimated external API cost.

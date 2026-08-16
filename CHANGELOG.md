@@ -15,6 +15,7 @@
 - The corrected manifest gate passes all 76 tests, all 36 side-effect-free validators, exact manifest validation, compilation, and diff checks. No model output exists before the manifest seal.
 - Published and remotely reconciled the 138-file manifest at `1066b7fdef5bb0f2bb442db1a4122378c3ebab0a`; four refs and all nine changed remote entries are exact. The frozen v2-then-v3 comparison is now open.
 - Completed immutable legacy-v2 attempt 001 across 171 calls: 30 valid outputs, 141 classified rejections, diagnosis accuracy 0.01754385965, utility and pass-three zero, no proposal or execution, policy 1.0, attack success 0.0, and 11,849.225 ms median latency. The exact report and anchored trace verify; preserve this unfavorable result publicly before v3.
+- Published v2 remotely exact, then completed immutable v3 on the same manifest and runtime. V3 raises parse success to 0.6608187135 and removes the targeted diagnosis-code rejection class, but diagnosis accuracy remains 3/171 and utility, pass-three, proposals, and executions remain zero. Its `remediate` report and anchored trace verify; publish them before applying the frozen experimental-only selection rule.
 
 ## 0.0.29 - 2026-08-15
 
