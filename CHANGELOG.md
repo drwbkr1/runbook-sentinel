@@ -31,6 +31,7 @@
 - Reverified both three-tool no-authority MCP paths, both 131-check authenticated API/approval/executor paths, both 72-check native state/telemetry paths, and both complete dashboards. Retained the invalid parallel preflight and known successful-renderer diagnostics.
 - Passed the post-surface 80-test, 37-validator, package, trace, manifest, milestone, compilation, full artifact-parse, PNG, credential/model, and diff gates. Retained and corrected one validator import-path wrapper, one unavailable-parser wrapper, and one over-broad credential scan with a documented test-literal false positive. No container image exists; public package/source reconciliation is required before Docker opens.
 - Retained one staging wrapper rejected before process creation because of binary shell redirection; the redirection-free successor verifies staged Git blob identity before commit.
+- Committed the exact 27-path package/source payload at `35a0f18f...`. Retained a first pre-push wrapper that misparsed an unquoted tree revision and stopped before remote mutation; the public branch remained at its pre-build reconciliation commit.
 
 ## 0.0.29 - 2026-08-15
 

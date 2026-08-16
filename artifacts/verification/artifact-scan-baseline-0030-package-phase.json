@@ -16,7 +16,8 @@
       "artifacts/verification/baseline-0030-post-surface-validator-wrapper-failure-001.json",
       "artifacts/verification/baseline-0030-post-surface-artifact-parse-wrapper-failure-001.json",
       "artifacts/verification/baseline-0030-post-surface-credential-scan-scope-failure-001.json",
-      "artifacts/verification/baseline-0030-package-source-stage-wrapper-failure-001.json"
+      "artifacts/verification/baseline-0030-package-source-stage-wrapper-failure-001.json",
+      "artifacts/verification/baseline-0030-package-source-push-wrapper-failure-001.json"
     ],
     "jsonl_files": [
       "artifacts/evaluations/runs/baseline-0030-final-source-attempt-001.traces.jsonl",
@@ -29,7 +30,7 @@
     "archive": "dist/runbook-sentinel-0.0.30.pyz"
   },
   "selected_artifacts": {
-    "json_files_parsed": 10,
+    "json_files_parsed": 11,
     "json_parse_errors": 0,
     "jsonl_files_parsed": 2,
     "jsonl_records": 522,
@@ -50,8 +51,8 @@
     "archive_zip_test_error": null
   },
   "repository_artifact_parse": {
-    "json_files": 937,
-    "json_documents_parsed": 936,
+    "json_files": 938,
+    "json_documents_parsed": 937,
     "json_parse_errors": 0,
     "utf8_bom_json_files": 14,
     "retained_expected_zero_byte_json": "artifacts/verification/mcp-source-baseline-0026.json",

@@ -226,8 +226,8 @@
     "git_diff_check": "pass",
     "artifact_scan": {
       "path": "artifacts/verification/artifact-scan-baseline-0030-package-phase.json",
-      "bytes": 3716,
-      "sha256": "1f693af8c4a5de22f3673f9fd903b517302d723562ba5641d44da7802acbf3b0",
+      "bytes": 3807,
+      "sha256": "2ea05b0fd29b69d8bee5be1d80db44514ca6d1177311a9d14c94c877d0c4e618",
       "status": "pass"
     }
   },
@@ -236,7 +236,8 @@
     "artifacts/verification/baseline-0030-post-surface-validator-wrapper-failure-001.json",
     "artifacts/verification/baseline-0030-post-surface-artifact-parse-wrapper-failure-001.json",
     "artifacts/verification/baseline-0030-post-surface-credential-scan-scope-failure-001.json",
-    "artifacts/verification/baseline-0030-package-source-stage-wrapper-failure-001.json"
+    "artifacts/verification/baseline-0030-package-source-stage-wrapper-failure-001.json",
+    "artifacts/verification/baseline-0030-package-source-push-wrapper-failure-001.json"
   ],
   "boundaries": {
     "synthetic_only": true,

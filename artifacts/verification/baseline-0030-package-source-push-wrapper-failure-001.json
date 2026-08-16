@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-16T04:03:04Z",
+  "status": "retained_process_failure",
+  "classification": "pre-push identity wrapper parse failure",
+  "observation": "After package/source commit 35a0f18f8e9cf54a56cec0eded620397a98f992f, the first combined status-and-push wrapper let PowerShell misparse the unquoted HEAD^{tree} revision. Git rejected the resulting invalid revision before the push command ran.",
+  "mutation": "local commit 35a0f18f8e9cf54a56cec0eded620397a98f992f already existed; no remote mutation occurred",
+  "remote_head_after_failure": "4e1d8384d5f73f9d4c554529fca76e2205809438",
+  "correction": "Quote the tree revision separately, retain this evidence in a successor commit, and push the exact branch without combining revision syntax into the mutation wrapper.",
+  "positive_evidence_use": "none",
+  "product_effect": "none",
+  "release_effect": "The failed wrapper is excluded from positive evidence. Public package/source identity remains unverified until the successor commit is pushed and reconciled."
+}

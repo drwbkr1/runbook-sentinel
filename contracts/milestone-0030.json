@@ -176,7 +176,8 @@
         "The first post-surface validator inventory omitted PYTHONPATH=src and stopped during verify_model_comparison.py import after 22 passing validators. The corrected complete inventory passes 37 of 37.",
         "The first post-surface repository parser used an unavailable System.Text.Json type and invalidly reported every nonempty artifact as a parser error. The corrected ConvertFrom-Json audit parses the complete repository without content error while retaining the one known historical zero-byte item.",
         "A broad final credential scan read unchanged lines inside modified files and classified a historical documented private-key scanner literal as material. Its first corrected successor later encountered the artifact-scan receipt quoting that same classification. The final added-line plus complete-untracked scope classifies only the two evidence receipts and has zero unresolved credential findings.",
-        "The first staging wrapper was rejected before process creation because it used shell redirection to compare staged binary bytes. The index remained empty; the successor uses redirection-free Git blob identities."
+        "The first staging wrapper was rejected before process creation because it used shell redirection to compare staged binary bytes. The index remained empty; the successor uses redirection-free Git blob identities.",
+        "The first combined status-and-push wrapper misparsed an unquoted Git tree revision after local commit 35a0f18f8e9cf54a56cec0eded620397a98f992f and stopped before push. The public branch remained at 4e1d8384d5f73f9d4c554529fca76e2205809438."
       ],
       "next_dependency": "UNIT-005"
     },
@@ -265,8 +266,8 @@
       ,"fresh source and package runs each pass 57 scenarios 171 attempts all 136 Boolean gates and an exact anchored 261-event trace; replacing only seventeen contract-declared launch-varying leaf keys makes the complete reports byte-identical at normalized SHA-256 51b921cea84f8b7ac2b51af9402f3b253d69d265bc4c83a0ef08e1d8b4a56533"
       ,"both MCP surfaces expose exactly three diagnostic and read tools with no approval or execution tool; both authenticated APIs pass 131 checks and both native inspections pass 72 checks with exact semantics outside separately retained launch identities"
       ,"original-detail review accepts both complete 1440 by 1000 dashboards with all 35 metrics two persisted incident rows authenticated external operator and real infrastructure disconnected"
-      ,"the post-surface gate passes 80 tests in 137.620 seconds 37 phase-correct validators in 12.395 seconds package and trace validators compilation milestone validation diff checks 936 nonempty JSON documents 28258 JSONL records and bounded credential model and PNG scans"
-      ,"the invalid package-source preflight validator-wrapper parser-wrapper broad credential-scan and staging-wrapper attempts are retained and excluded from positive evidence; no container image was built"
+      ,"the post-surface gate passes 80 tests in 137.620 seconds 37 phase-correct validators in 12.395 seconds package and trace validators compilation milestone validation diff checks 937 nonempty JSON documents 28258 JSONL records and bounded credential model and PNG scans"
+      ,"the invalid package-source preflight validator-wrapper parser-wrapper broad credential-scan staging-wrapper and pre-push-wrapper attempts are retained and excluded from positive evidence; no container image was built"
     ]
   },
   "handoff": {
