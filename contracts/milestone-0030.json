@@ -162,6 +162,7 @@
         "selection_evidence_public_and_reconciled": "pass",
         "package_and_final_manifest_contract_frozen": "pass",
         "source_and_package_surfaces_exact": "pass",
+        "package_source_payload_public_exact": "pass",
         "mcp_api_approval_executor_state_telemetry_exact": "pass",
         "dashboard_render_verified": "pass",
         "local_container_and_scan_exact": "pending",
@@ -195,7 +196,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Commit, push, and independently reconcile the exact passing v0.0.30 package/source payload from public pre-build commit dda0c347c108a78ac0afe279f09bc074c73579e9. Do not begin container-runtime-v10 until those public bytes are exact.",
+  "next_action": "Publish and remotely reconcile the package/source public-gate receipt and living-record update. Then run the frozen local-only container-runtime-v10 workflow without image export, push, publication, or redistribution.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -268,11 +269,13 @@
       ,"original-detail review accepts both complete 1440 by 1000 dashboards with all 35 metrics two persisted incident rows authenticated external operator and real infrastructure disconnected"
       ,"the post-surface gate passes 80 tests in 137.620 seconds 37 phase-correct validators in 12.395 seconds package and trace validators compilation milestone validation diff checks 937 nonempty JSON documents 28258 JSONL records and bounded credential model and PNG scans"
       ,"the invalid package-source preflight validator-wrapper parser-wrapper broad credential-scan staging-wrapper and pre-push-wrapper attempts are retained and excluded from positive evidence; no container image was built"
+      ,"public package/source payload commit 27e9bb1a8467d2cc601ba5d10ba8e629b896e3fe and tree d9f3415568850314caeeaa89656b98197c734dd3 are exact across local explicit tracking live ls-remote GitHub ref API public visibility and all 28 changed Git tree entries"
+      ,"the first public package/source verification retained a stale local tracking ref while all live public views and 28 entries were already exact; an explicit branch fetch reconciled local reference state without changing product bytes"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0030 UNIT-004 has a locally complete package/source gate from public pre-build commit dda0c347c108a78ac0afe279f09bc074c73579e9. Three 646081-byte archive copies are exact at SHA-256 b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf; fresh source/package evaluations, traces, bounded MCP, authenticated API, approval and executor, persisted state, telemetry, dashboards, tests, validators, parsing, and scans pass. No v0.0.30 container image exists.",
-    "next_action": "Publish and remotely reconcile the exact package/source payload and retained failures. Open container-runtime-v10 only after public blob identity is exact.",
+    "current_checkpoint": "BASELINE-0030 UNIT-004 has an exact public package/source payload at 27e9bb1a8467d2cc601ba5d10ba8e629b896e3fe. All four refs, public visibility, and 28 changed entries reconcile; three 646081-byte archive copies are exact at SHA-256 b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf; fresh source/package evaluations, traces, bounded MCP, authenticated API, approval and executor, persisted state, telemetry, dashboards, tests, validators, parsing, and scans pass. No v0.0.30 container image exists.",
+    "next_action": "Publish and verify the public-gate receipt and living records, then run container-runtime-v10 locally under its frozen no-export no-push no-publication contract.",
     "do_not_carry_forward": [
       "any prompt model runtime parser-acceptance retrieval decision-context scenario terminal policy approval executor authority dependency secret external asset or real-infrastructure change",
       "any test-split tuning raw model-output retention or inference that syntactic validity equals diagnostic correctness",
