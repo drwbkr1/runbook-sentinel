@@ -50,6 +50,8 @@ This is not a broad Pareto improvement. Diagnosis accuracy remains 0.01754385965
 
 The corrected 8,209-byte comparison artifact is SHA-256 `1a28361b04b2640d38abc45378e0f9be48fb84ba827be2d7255eff9a1db4cf25`. Its validator, four focused tests, all 80 tests in 83.820 seconds, and all 37 phase-correct project validators pass. The first comparison validation rejected a synthetic zero-valued error-map entry, and the first full-validator wrapper omitted an implementation-phase flag; both failures are retained, and no frozen report, trace, contract, runtime, or authority boundary changed.
 
+Selection seal `a77904b7e565bf9548a27e0e0e9d80c523499cb4` is public and exact across four ref views and all 17 changed GitHub tree entries. At publication, no v0.0.30 archive, checksum, BASELINE-0030 container receipt, or v0.0.30 local image existed. UNIT-004 real-surface and package outcomes remain unknown until their contract is frozen, published, and executed.
+
 ## BASELINE-0029 preimplementation orientation
 
 The fresh public-tag v0.0.28 source run remains passing: 57 scenarios, 171 attempts, all 126 Boolean gates, and an exact anchored 261-event trace. Retrieval completeness, generation, tool trajectories, policy, terminal state, benign utility, attack success, repeated reliability, latency, and cost remain separate. Median/p95 end-to-end latency is 59.242/110.936 ms; the deterministic control makes zero model calls at zero estimated external API cost.

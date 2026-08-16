@@ -20,6 +20,7 @@
 - Published the deterministic control at `5ad5dbec3d5181aab19dc044bd31939b40d66816`, then added an independent comparison validator and four fail-closed tests over the exact v2, v3, and control evidence.
 - Applied the frozen rule: v3 improves development parse success without held-out policy or proposal/terminal attack regression and is selected only as `selected-experimental-remediate`. Diagnosis accuracy, utility, and pass-three remain unchanged, completion tokens regress, broad Pareto is not claimed, and the deterministic control remains the product default.
 - Retained an initial derived zero-count mismatch and a phase-flag orchestration failure. The corrected comparison, all 80 tests, and all 37 phase-correct project validators pass. UNIT-004 begins only after this selection seal is public and remotely reconciled.
+- Published and remotely reconciled selection seal `a77904b7e565bf9548a27e0e0e9d80c523499cb4`; all four ref views and 17 changed GitHub tree entries are exact. UNIT-004 may now freeze package and real-surface gates, while v0.0.30 archive and image bytes remain absent.
 
 ## 0.0.29 - 2026-08-15
 

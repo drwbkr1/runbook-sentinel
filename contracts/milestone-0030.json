@@ -17,7 +17,7 @@
       "public_verification"
     ],
     "active_contract": "contracts/milestone-0030.json",
-    "verified_at_utc": "2026-08-16T02:05:40Z",
+    "verified_at_utc": "2026-08-16T02:14:03Z",
     "expires_at_utc": null
   },
   "scope": {
@@ -159,7 +159,7 @@
       "human_gate": false,
       "status": "in_progress",
       "gates": {
-        "selection_evidence_public_and_reconciled": "pending",
+        "selection_evidence_public_and_reconciled": "pass",
         "package_and_final_manifest_contract_frozen": "pending",
         "source_and_package_surfaces_exact": "pending",
         "mcp_api_approval_executor_state_telemetry_exact": "pending",
@@ -243,11 +243,12 @@
       ,"the independent three-configuration validator binds exact report and trace identities and applies the frozen rule: v3 development parse improves by 0.5053763440860215 with no held-out policy or proposal or terminal attack regression"
       ,"v3 is selected only as optional experimental-remediate; diagnosis accuracy benign utility and pass-three do not improve, completion tokens increase by 584, broad Pareto is not claimed, and deterministic-control-v2 remains the product default"
       ,"the complete post-selection suite passes 80 tests in 83.820 seconds and all 37 phase-correct side-effect-free validators; the corrected comparison-field and validator-orchestration failures are retained"
+      ,"selection seal a77904b7e565bf9548a27e0e0e9d80c523499cb4 is public and exact across four ref views and all seventeen changed GitHub tree entries"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0030 UNIT-003 is complete locally. Exact v2, v3, and deterministic-control reports share the 138-file manifest; the independent validator selects v3 only as optional experimental-remediate while deterministic-control-v2 remains the product default. The selection seal is not yet public.",
-    "next_action": "Commit, push, and remotely reconcile the exact selection evidence, then freeze UNIT-004 package, final-manifest, real-surface, and local-container gates before creating v0.0.30 archive or image bytes.",
+    "current_checkpoint": "BASELINE-0030 UNIT-003 is complete and public at selection seal a77904b7e565bf9548a27e0e0e9d80c523499cb4. Exact v2, v3, and deterministic-control reports share the 138-file manifest; v3 is optional experimental-remediate and deterministic-control-v2 remains the product default.",
+    "next_action": "Freeze and publicly verify UNIT-004 package, final-manifest, real-surface, and local-container gates before creating v0.0.30 archive or image bytes.",
     "do_not_carry_forward": [
       "any prompt model runtime parser-acceptance retrieval decision-context scenario terminal policy approval executor authority dependency secret external asset or real-infrastructure change",
       "any test-split tuning raw model-output retention or inference that syntactic validity equals diagnostic correctness",
