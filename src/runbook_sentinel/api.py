@@ -14,7 +14,7 @@ from .service import DEFAULT_APPROVAL_TTL_SECONDS, RunbookSentinel
 from .telemetry import live_trace_anchor_path
 
 
-CHECKPOINT = "baseline-0029"
+CHECKPOINT = "baseline-0030"
 
 
 class SentinelHTTPServer(ThreadingHTTPServer):

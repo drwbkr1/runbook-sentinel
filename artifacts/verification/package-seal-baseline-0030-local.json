@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0030-package-seal-local-20260816T025036Z",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-16T02:50:36Z",
+  "disposition": "pass",
+  "public_parent_commit": "cfeba437d0a4f18005afae53c4d7744ac6d9d4f1",
+  "source_candidate": {
+    "report_path": "artifacts/evaluations/runs/baseline-0030-attempt-001.json",
+    "report_bytes": 953866,
+    "report_sha256": "6151b9b06c1ef16d20dc466969c337acb21efeb366531e1d63fb33d72ced87be",
+    "latest_byte_identical": true,
+    "trace_path": "artifacts/evaluations/runs/baseline-0030-attempt-001.traces.jsonl",
+    "trace_bytes": 195296,
+    "trace_sha256": "007882ed14c3b40060142083ab617ca50105c0b27979cca3908eebe34ce54b7c",
+    "trace_verification": "pass with 261 anchored events",
+    "manifest_copy_sha256": "bc98beca62ba13968ecfa5f8c79800c24c94a3298b3ae31270465ec7ed61ce96",
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "boolean_gate_count": 136,
+    "false_boolean_gate_count": 0,
+    "agent_configuration": "deterministic-control-v2",
+    "model_calls": 0
+  },
+  "precomparison_manifest_custody": {
+    "raw_report_bound_sha256": "882c552e9c712bed298c2a6e7ca2bb5206f28d40102cbe05efaba2eee6560b8f",
+    "normalized_copy_path": "eval/manifest-0030-precomparison.json",
+    "normalized_copy_bytes": 16452,
+    "normalized_copy_sha256": "1e4b8f22e8161934313743f88cf6a129706cb4bdc9f3291ce8a4689349daf6cd",
+    "representation": "The immutable reports retain the raw CRLF manifest identity; the versioned semantic copy is LF-normalized and is not mislabeled as byte-identical."
+  },
+  "package_contract": {
+    "current_path": "eval/package-contract.json",
+    "versioned_path": "eval/package-contract-0030.json",
+    "bytes": 16980,
+    "sha256": "956e2b945f4ca4848e5209fac806f7eda310e214e4abeb75959a47660a2e7300",
+    "current_and_versioned_exact": true,
+    "entry_count": 43,
+    "runtime_dependencies": [],
+    "selected_model_contract": "ollama-loopback-structured-sre-v3-diagnosis-pattern",
+    "selected_model_disposition": "selected-experimental-remediate",
+    "product_default": "deterministic-control-v2",
+    "static_validation": "pass"
+  },
+  "container_contract": {
+    "current_path": "eval/container-contract.json",
+    "versioned_path": "eval/container-contract-0030-v10.json",
+    "contract_id": "container-runtime-v10",
+    "bytes": 11889,
+    "sha256": "8ab929384c6e0b7b6a60554430bf0759a5b0cbb0130b597638fe17e779733d67",
+    "current_and_versioned_exact": true,
+    "inherited_v9_contract_sha256": "578ba95099df2b6816ac702dd2cfcfbecb78b8ee6e7849c2ef034e48db930642",
+    "required_check_count": 46,
+    "added_check": "container_model_contract_selection_exact",
+    "implementation_phase": "implemented_v10",
+    "runtime_receipt_state": "absent",
+    "static_validation": "pass"
+  },
+  "final_manifest": {
+    "path": "eval/manifest.json",
+    "frozen_at_utc": "2026-08-16T02:31:18Z",
+    "file_count": 143,
+    "bytes": 17202,
+    "sha256": "bc98beca62ba13968ecfa5f8c79800c24c94a3298b3ae31270465ec7ed61ce96",
+    "exact_verification": "pass"
+  },
+  "source_real_surfaces": {
+    "path": "artifacts/verification/source-real-surfaces-baseline-0030-local.json",
+    "bytes": 4000,
+    "sha256": "0ec7c69e566617fe3337543827b6f7e56aa96fc7ba80dc90df5d564dea2a8046",
+    "status": "pass",
+    "mcp": "pass with exactly three diagnostic/read tools and no approval or execution tool",
+    "authenticated_api": "131 of 131 checks pass",
+    "native_state_and_telemetry": "72 of 72 checks pass",
+    "dashboard_original_detail_review": "pass at 1440 by 1000"
+  },
+  "complete_gate": {
+    "focused_container_tests": {"passed": 4, "total": 4},
+    "post_freeze_unit_tests": {"passed": 80, "total": 80, "elapsed_seconds": 123.666},
+    "project_validators": {"passed": 37, "total": 37},
+    "model_comparison_validator": "pass",
+    "source_candidate_workflow": "pass",
+    "source_candidate_trace": "pass",
+    "package_contract_validator": "pass",
+    "container_contract_validator": "pass in implemented_v10 phase with receipt absent",
+    "governed_milestone_validator": "pass with active inherited authority and no errors or warnings",
+    "compileall": "pass",
+    "git_diff_check": "pass",
+    "changed_content_credential_scan": "pass; four matches are two exact package-contract forbidden-pattern definitions, one verifier scanner definition, and one retained historical devlog statement; zero credential material",
+    "changed_model_artifact_files": 0,
+    "archive_created": false,
+    "image_built": false
+  },
+  "pre_build_absence": {
+    "package_archive": "absent",
+    "package_checksum": "absent",
+    "container_runtime_receipt": "absent",
+    "runbook_sentinel_0_0_30_image_count": 0,
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false
+  },
+  "docker_observation": {
+    "daemon_available": true,
+    "docker_client_version": "29.4.3",
+    "docker_engine_version": "29.4.3",
+    "docker_desktop_version": "4.74.0",
+    "buildx_version": "0.33.0-desktop.1",
+    "claim_scope": "Environment availability only; no BASELINE-0030 image was built."
+  },
+  "retained_failures": [
+    {
+      "path": "artifacts/verification/baseline-0030-package-freeze-process-failures-001.json",
+      "sha256": "5084d205eb6e12e227bd2c54dd4d4bb02f20da74cbef5feb551d541cbdd41ae2"
+    },
+    {
+      "path": "artifacts/verification/baseline-0030-source-live-api-stale-evaluation-failure-001.json",
+      "sha256": "4bcfe2b79062cc8c92ca332594ec5fa5c9f436e5ae5596c1c9d2c47f0fc35d5d"
+    },
+    {
+      "path": "artifacts/verification/baseline-0030-model-comparison-validation-failure-001.json",
+      "classification": "retained UNIT-003 comparison validation failure"
+    },
+    {
+      "path": "artifacts/verification/baseline-0030-project-validator-orchestration-failure-001.json",
+      "classification": "retained UNIT-003 validator orchestration failure"
+    }
+  ],
+  "seal_status": "complete_gate_pass_awaiting_public_commit",
+  "authorized_next_action": "Commit, push, and remotely reconcile this exact package contract, container contract, final manifest, source candidate, real-surface evidence, retained failures, and local seal before constructing any v0.0.30 archive or BASELINE-0030 image."
+}

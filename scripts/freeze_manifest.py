@@ -22,6 +22,7 @@ FILES = [
     "eval/container-contract-0027-v7.json",
     "eval/container-contract-0028-v8.json",
     "eval/container-contract-0029-v9.json",
+    "eval/container-contract-0030-v10.json",
     "eval/model-contract.json",
     "eval/model-contract-0018-v2.json",
     "eval/model-output-conformance-contract.json",
@@ -45,6 +46,7 @@ FILES = [
     "eval/package-contract-0027.json",
     "eval/package-contract-0028.json",
     "eval/package-contract-0029.json",
+    "eval/package-contract-0030.json",
     "eval/approval-lifetime-contract.json",
     "eval/idempotency-authorization-contract.json",
     "eval/operator-authentication-contract.json",
@@ -71,6 +73,8 @@ FILES = [
     "eval/adversarial-retrieval-stage-outcome-split-coverage-prechange.json",
     "eval/retrieval-quality-observability-contract.json",
     "eval/retrieval-quality-observability-prechange.json",
+    "eval/manifest-0030-precomparison.json",
+    "artifacts/evaluations/baseline-0030-model-contract-comparison.json",
     "artifacts/verification/intake-public-v0.0.23-package-baseline-0028.json",
     "artifacts/verification/controlled-intake/baseline-0028-historical-package-v0.0.23-001/runbook-sentinel-0.0.23.pyz",
     "src/runbook_sentinel/__init__.py",
@@ -111,6 +115,7 @@ FILES = [
     "scripts/verify_live_trace_anchor_contract.py",
     "scripts/verify_model_output_failure_contract.py",
     "scripts/verify_model_output_conformance_contract.py",
+    "scripts/verify_model_output_conformance_result.py",
     "scripts/verify_model_comparison.py",
     "scripts/verify_evaluation_trace.py",
     "scripts/verify_evidence_conditions.py",
@@ -160,7 +165,7 @@ def sha256(path: Path) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--checkpoint", default="baseline-0029")
+    parser.add_argument("--checkpoint", default="baseline-0030")
     parser.add_argument("--frozen-at")
     parser.add_argument("--output", default="eval/manifest.json")
     args = parser.parse_args()

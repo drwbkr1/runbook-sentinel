@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-004",
+  "observed_through_utc": "2026-08-16T02:40:38Z",
+  "status": "retained_process_failures",
+  "failures": [
+    {
+      "sequence": 1,
+      "classification": "read-only path assumption",
+      "observation": "The first package-contract inspection guessed packaging/package-contract.json, which does not exist.",
+      "mutation": "none",
+      "correction": "Resolved the repository-owned paths eval/package-contract.json and eval/container-contract.json before reading or changing them."
+    },
+    {
+      "sequence": 2,
+      "classification": "exact-byte copy defect",
+      "observation": "The first versioned-contract copy operation appended one extra trailing blank line to three JSON files, and exact current-versus-versioned validation rejected the bytes.",
+      "mutation": "invalid draft bytes only; no archive or image existed",
+      "correction": "Removed only the appended blank lines. Both current/versioned pairs now match byte-for-byte."
+    },
+    {
+      "sequence": 3,
+      "classification": "representation mismatch",
+      "observation": "The preserved precomparison manifest was normalized from CRLF to LF, so its byte hash differed from the immutable raw manifest used by the model reports.",
+      "mutation": "no immutable model report or trace changed",
+      "correction": "The v10 contract records both identities: raw report-bound SHA-256 882c552e9c712bed298c2a6e7ca2bb5206f28d40102cbe05efaba2eee6560b8f and normalized semantic-copy SHA-256 1e4b8f22e8161934313743f88cf6a129706cb4bdc9f3291ce8a4689349daf6cd."
+    },
+    {
+      "sequence": 4,
+      "classification": "focused-test fixture defects",
+      "observation": "The first v10-focused run raised StopIteration because a negative-path subprocess mock supplied three results for four calls, and one dashboard assertion still expected the v8 predecessor exclusion marker.",
+      "mutation": "tests only; both real contract validators already passed",
+      "correction": "Added the fourth mocked result and advanced only the current dashboard identity assertion. All four focused tests pass."
+    },
+    {
+      "sequence": 5,
+      "classification": "read-only search wrapper",
+      "observation": "A PowerShell ripgrep pattern used invalid quoting while searching runtime identity markers.",
+      "mutation": "none",
+      "correction": "Used literal repository inspection and focused validators."
+    },
+    {
+      "sequence": 6,
+      "classification": "read-only hash wrapper",
+      "observation": "The first consolidated identity probe placed a pipeline immediately after a foreach block, producing PowerShell EmptyPipeElement before any hashes were emitted.",
+      "mutation": "none",
+      "correction": "Collected objects into an explicit array before formatting; the corrected probe produced all admitted identities."
+    },
+    {
+      "sequence": 7,
+      "classification": "read-only credential-scan wrapper",
+      "observation": "The first high-specificity ripgrep pattern began with hyphens and omitted the explicit end-of-options separator, so ripgrep interpreted the pattern as a flag and stopped before scanning.",
+      "mutation": "none",
+      "correction": "Passed an explicit -- separator before the unchanged high-specificity pattern and reran the scan."
+    },
+    {
+      "sequence": 8,
+      "classification": "read-only upstream-identity wrapper",
+      "observation": "The pre-stage wrapper used @{upstream}, but this branch's configured merge ref is not stored by Git as a normal remote-tracking upstream, so rev-parse returned no identity and the wrapper stopped before staging.",
+      "mutation": "none; local HEAD and live ls-remote both reported cfeba437d0a4f18005afae53c4d7744ac6d9d4f1",
+      "correction": "Compare local HEAD, the explicit refs/remotes/origin branch when present, and live ls-remote directly."
+    }
+  ],
+  "product_effect": "none",
+  "release_effect": "All failures are excluded from positive evidence and retained. No v0.0.30 archive, checksum, container receipt, image, tag, or release existed during them."
+}

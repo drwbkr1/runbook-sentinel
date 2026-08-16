@@ -9,7 +9,8 @@ import zipfile
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_CONTRACT = ROOT / "eval/package-contract-0029.json"
+DEFAULT_CONTRACT = ROOT / "eval/package-contract-0030.json"
+CURRENT_CONTRACT = ROOT / "eval/package-contract.json"
 PACKAGE_MANIFEST_PATH = "runbook_sentinel/data/package-manifest.json"
 ALLOWED_SOURCE_KINDS = {
     "project_file",
@@ -298,6 +299,8 @@ def main() -> None:
     source_root = args.source_root.resolve()
     contract, contract_raw = load_json(contract_path)
     errors = validate_contract(contract, source_root)
+    if contract_path == DEFAULT_CONTRACT.resolve():
+        expect(CURRENT_CONTRACT.read_bytes() == contract_raw, "current and versioned package contracts differ", errors)
     result = {
         "status": "pass" if not errors else "fail",
         "checkpoint": contract.get("checkpoint"),
