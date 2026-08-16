@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.1",
-  "checkpoint": "baseline-0018",
-  "contract_id": "ollama-loopback-structured-sre-v2",
+  "schema_version": "1.2",
+  "checkpoint": "baseline-0030",
+  "contract_id": "ollama-loopback-structured-sre-v3-diagnosis-pattern",
   "runtime": {
     "provider": "ollama",
     "endpoint": "http://127.0.0.1:11434/api/chat",
@@ -35,7 +35,7 @@
     "required": ["outcome", "diagnosis_code", "evidence_ids", "missing_evidence", "proposal", "reason"],
     "properties": {
       "outcome": {"type": "string", "enum": ["diagnose", "request_evidence", "propose_action", "abstain"]},
-      "diagnosis_code": {"type": "string", "minLength": 1, "maxLength": 80},
+      "diagnosis_code": {"type": "string", "minLength": 1, "maxLength": 80, "pattern": "^[a-z][a-z0-9_]{0,79}$"},
       "evidence_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
       "missing_evidence": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
       "proposal": {

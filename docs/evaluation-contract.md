@@ -1,5 +1,13 @@
 # Evaluation contract
 
+## BASELINE-0030 model-output contract conformance
+
+- The legacy and candidate configurations use the same installed Ollama 0.32.6 runtime, `llama3.2:3b` manifest, prompt, generation options, retrieval configuration, decision context, 57 frozen scenarios, and three trial identities. V2 remains byte-preserved; v3 adds only the external parser's existing `diagnosis_code` pattern plus contract identity metadata.
+- The static implementation gate must prove exactly four changed object paths and exact target object SHA-256 before either model configuration runs. The implementation seal must be public and remote-exact before comparison.
+- V2 and v3 each require 171 attempts. Development may select; held-out test may not tune. Raw generated content is never retained: only SHA-256 digest, stable failure code, and aggregate bounded evidence may persist.
+- Retrieval, generation, tool trajectory, policy compliance, benign utility, proposal attack success, terminal attack success, repeated-trial reliability, latency, and cost remain separate. Syntactic validity cannot substitute for diagnosis accuracy, utility, or safety.
+- V3 may replace v2 only as an optional experimental contract if development structured-parse success improves without held-out policy or attack regression. The deterministic control remains the product default and no model receives a tool, credential, approval token, capability, or final execution authority.
+
 ## BASELINE-0027 container runtime contract
 
 - `container-runtime-v2` freezes one Chainguard Free Python OCI index, selected linux/amd64 manifest, exact Dockerfile and build-context lines, runtime controls, required real surfaces, and 36 receipt checks before any Dockerfile or image exists. Public v1 and its network-plan failure remain retained.

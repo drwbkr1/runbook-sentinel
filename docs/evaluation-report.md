@@ -12,6 +12,12 @@ No candidate result exists. The conformance validator, source gate, governed mil
 
 The exact preimplementation freeze is public at `f82e301d984548d5354d8093e245c17fe0419a1f`; its tree and all 18 changed blob identities and sizes reconcile. The active model contract at that commit is still v2, and no BASELINE-0030 model output exists. One bounded tree-comparison successor passes after retaining an inconclusive raw-byte wrapper and a 404 caused by an undelimited PowerShell variable.
 
+## BASELINE-0030 implementation result before comparison
+
+The phase-aware validation-only correction became public and remote-exact at `0a49729f28fa28f06fcbae0878e1d3558ea47abc` before the active model contract changed. V3 now matches the frozen object target exactly: `schema_version`, `checkpoint`, `contract_id`, and `output_schema.properties.diagnosis_code.pattern` are the only changed object paths. The resulting file is 4,712 bytes at SHA-256 `8718971a9e54320603c08d9f31957bd5dabee0e50944925f588f74e5915defda`.
+
+The exact implementation validator and five focused tests pass. The complete 76-test suite passes in 87.015 seconds, and 35 applicable non-manifest validators pass. The predecessor v0.0.29 manifest fails closed on exactly the changed active contract and is not rewritten. No comparison result is inferred: both 171-call runs remain closed until this implementation seal is public, and there is still no BASELINE-0030 model output, candidate report, successor manifest, package, archive, or image.
+
 ## BASELINE-0029 preimplementation orientation
 
 The fresh public-tag v0.0.28 source run remains passing: 57 scenarios, 171 attempts, all 126 Boolean gates, and an exact anchored 261-event trace. Retrieval completeness, generation, tool trajectories, policy, terminal state, benign utility, attack success, repeated reliability, latency, and cost remain separate. Median/p95 end-to-end latency is 59.242/110.936 ms; the deterministic control makes zero model calls at zero estimated external API cost.

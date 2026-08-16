@@ -7,6 +7,8 @@
 - No runtime behavior, parser acceptance, prompt, model, retrieval, scenario, terminal state, policy, approval, executor, tool, credential, secret, dependency, external asset, package, archive, image, or release changed. The deterministic control remains the default and no baseline-0030 model result exists before public freeze.
 - Published and remotely reconciled the exact preimplementation freeze at `f82e301d984548d5354d8093e245c17fe0419a1f`; all refs and all 18 changed remote tree entries match. Two unsuccessful read-only verification wrappers are retained, and the corrected tree comparison passes.
 - Retained and corrected a preimplementation-only focused test before runtime change; the bounded phase-aware successor changes no frozen target, validator acceptance, product behavior, or authority and must be public before implementation.
+- Published and remotely verified that phase-aware correction at `0a49729f28fa28f06fcbae0878e1d3558ea47abc`, then implemented exactly the four frozen active-contract object paths. The exact projection validator, five focused tests, all 76 tests, and 35 applicable non-manifest validators pass; the immutable predecessor manifest rejects only the expected changed contract.
+- No model call, candidate report, successor manifest, package, archive, image, external asset, secret, paid service, or real-infrastructure interaction occurred before the implementation seal. Comparative utility and safety remain unknown until the public seal opens UNIT-003.
 
 ## 0.0.29 - 2026-08-15
 
