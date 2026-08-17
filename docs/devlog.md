@@ -1,5 +1,11 @@
 # Development log
 
+## 2026-08-17 BASELINE-0030 final release audit
+
+- Reconciled the verified merged-main candidate in exactly seven living-record paths at `2b61511941564dbccadf0433fdf4f654b18223ec`; all seven public paths match anonymous byte lengths and SHA-256 values. The complete 80-test pass, 37 project validators, milestone, parsing, diff, real-surface, and three-build container evidence remain valid because the reconciliation changes only lifecycle records.
+- Published the sole-path 24,823-byte final audit at SHA-256 `aea637d35d0b1cca8eb79f5910929fea6479501e802335c861b520efcb0aa7a2` as commit `e5cc9f2cb75c6fc8cc20400eb0b286cbe44e0e05`; anonymous public bytes are exact. The release-truth evaluator reports `verified` with ten of ten checks, all 20 required real surfaces, active inherited authority, and no error, warning, stale, missing, unknown, or unrun surface.
+- Public v0.0.29 remains latest; v0.0.30 tag and release remain absent. Exact closure, annotated tag, selected zipapp/checksum, downloaded-byte and rendered-page verification, and fresh public-tag source/package/local-container reproduction are next. The PowerShell 7 compatibility observation remains retained and the validated Windows PowerShell API path remains the admitted gate.
+
 ## 2026-08-15 BASELINE-0030 model-output conformance orientation and local freeze
 
 - Resumed from reconciled public `main` commit `cc07fa2a0790a49b04b4352a004deb913bb12a60` in clean `C:/Projects/Active/runbook-sentinel-baseline-0030`; no OneDrive path is authoritative.

@@ -98,7 +98,7 @@ Both MCP paths negotiate protocol `2025-11-25`, expose exactly three diagnostic/
 
 Two fresh full container builds and one no-alternates clean build reproduce exact image ID `sha256:793cc009835350972ac30215cbdad2fb73f3802d47982d3bfddbd49af633fea3`. All 46 composed checks pass: exact source/package/container metric parity, bounded MCP, authenticated API, authorization, approval, executor, idempotency, replay protection, postconditions, persisted state, anchored telemetry, nonroot/read-only/no-capability/no-network runtime, complete dashboard, and no image export or publication. Docker Scout 1.20.4 reports zero critical/high findings at observation time only.
 
-The 10,923-byte `artifacts/verification/merged-main-baseline-0030.json` is SHA-256 `2caa37c879e510c75daf2efe761a3a1d258317415daecef530ed3fe0dccbe98a`. Commit `211d7bdd2bc885f8568210fca7b60ff5c9aeb8da` is exact across four ref views and both anonymous immutable-commit downloads. Final release audit remains required; no v0.0.30 tag, release, deployment, or container publication exists.
+The 10,923-byte `artifacts/verification/merged-main-baseline-0030.json` is SHA-256 `2caa37c879e510c75daf2efe761a3a1d258317415daecef530ed3fe0dccbe98a`. Commit `211d7bdd2bc885f8568210fca7b60ff5c9aeb8da` and living-record reconciliation `2b61511941564dbccadf0433fdf4f654b18223ec` are exact across public refs and anonymous immutable-commit downloads. Final audit-only commit `e5cc9f2cb75c6fc8cc20400eb0b286cbe44e0e05` verifies all ten checks and 20 required surfaces with no warning or unresolved state. Exact closure, tag, selected zipapp/checksum release, downloads, rendered pages, and public-tag verification remain pending; no container publication is authorized.
 
 ## BASELINE-0029 preimplementation orientation
 

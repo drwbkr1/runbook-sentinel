@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased - BASELINE-0030
+## 0.0.30 - 2026-08-17
 
 - Oriented from exact public v0.0.29 and froze a one-field local-model output-contract experiment targeting the retained 67-of-84 `diagnosis_code_invalid` failure class.
 - Preserved the v2 contract byte-exact, added a project-authored v3 target that changes only schema identity metadata and the existing parser pattern, plus an independent validator, five focused tests, ADR 0025, source gate, milestone, threat-model delta, evaluation plan, and retained process-invalid attempts.
@@ -45,6 +45,7 @@
 - Passed the governed premerge audit with no error, warning, stale, missing, unknown, or unrun surface. PR `#28` merged exact reviewed head `cef8b3f00ab33227539d8d0646937da302eb1d52` under expected-head lock as `053ff98d04cfabfc67c7e7fb08d1de10ba560a1b`; reviewed and merged trees are identical.
 - Fresh public-main verification passes 80 tests, all 37 phase-correct validators, two exact archive rebuilds, source/package 136-gate evaluations and anchored traces, bounded MCP, both 131-check validated-shell APIs, both 72-check native inspections, three complete dashboards, structured parsing and scans, plus two full and one clean container build at exact image ID `793cc009...` with all 46 composed checks true.
 - Retained the PowerShell 7 129/131 header-observation mismatch and every process-invalid predecessor. Published merged-main receipt commit `211d7bdd2bc885f8568210fca7b60ff5c9aeb8da` and verified both public files byte-exact. No v0.0.30 tag, release, deployment, image export, image push, or image publication exists; final release audit is next.
+- Reconciled the seven living records at `2b61511941564dbccadf0433fdf4f654b18223ec`, then published sole-path final audit `e5cc9f2cb75c6fc8cc20400eb0b286cbe44e0e05`. The release-truth evaluator reports `verified` across all ten checks and 20 required surfaces with active inherited authority and no error, warning, stale, missing, unknown, or unrun state. Only annotated v0.0.30, the selected zipapp/checksum, and immediate public verification are authorized; the container image remains local-only.
 
 ## 0.0.29 - 2026-08-15
 

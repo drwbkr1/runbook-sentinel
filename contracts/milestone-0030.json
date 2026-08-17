@@ -200,8 +200,8 @@
         "exact_reviewed_head_merged_with_history_preserved": "pass",
         "fresh_public_main_complete_stack": "pass",
         "merged_main_receipt_public_and_exact": "pass",
-        "final_release_truth_audit": "pending",
-        "release_closure": "pending",
+        "final_release_truth_audit": "pass",
+        "release_closure": "pass",
         "annotated_tag_and_selected_assets": "pending",
         "public_tag_complete_stack": "pending",
         "external_reconciliation": "pending"
@@ -215,7 +215,7 @@
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Run the final release-truth audit against exact public merged-main receipt commit 211d7bdd2bc885f8568210fca7b60ff5c9aeb8da and its reconciled living records. Create the release closure only if the audit verifies without a warning, missing surface, or unresolved discrepancy.",
+  "next_action": "Commit and push these exact release-closure records, create annotated v0.0.30 at that exact commit, publish only the selected zipapp and checksum, then immediately reconcile every public surface and a fresh public-tag source package and local-container reproduction.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -303,11 +303,12 @@
       ,"fresh public-main verification passes 80 tests 37 validators two exact archive rebuilds both 136-gate source and package evaluations bounded MCP both 131-check Windows PowerShell APIs both 72-check native inspections three complete dashboards and exact structured evidence parsing"
       ,"two fresh full container builds and one no-alternates clean build reproduce image sha256:793cc009835350972ac30215cbdad2fb73f3802d47982d3bfddbd49af633fea3; all 46 composed checks and the observation-time zero-critical-high structured scan pass without image export push or publication"
       ,"merged-main receipt commit 211d7bdd2bc885f8568210fca7b60ff5c9aeb8da is exact across local tracking ls-remote GitHub ref API and both anonymous immutable-commit downloads; retained compatibility and process observations are public beside the passing receipt"
+      ,"living-record reconciliation commit 2b61511941564dbccadf0433fdf4f654b18223ec is public; final audit-only commit e5cc9f2cb75c6fc8cc20400eb0b286cbe44e0e05 evaluates verified with ten of ten checks all twenty required surfaces active inherited authority and no error warning stale missing unknown or unrun result"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0030 reviewed head cef8b3f00ab33227539d8d0646937da302eb1d52 merged with identical tree as 053ff98d04cfabfc67c7e7fb08d1de10ba560a1b. Fresh public-main source, package, MCP, API, state, telemetry, dashboards, parsing, and three local image builds pass; merged-main receipt commit 211d7bdd2bc885f8568210fca7b60ff5c9aeb8da is public and raw-byte exact. No v0.0.30 tag, release, deployment, image export, image push, or image publication exists.",
-    "next_action": "Run the final release-truth audit against exact public main and reconciled living records. If verified without warning or unresolved surface, publish the exact release closure before creating annotated v0.0.30 and the selected zipapp/checksum release.",
+    "current_checkpoint": "BASELINE-0030 reviewed merge, fresh public-main complete stack, reconciled living records, and final audit pass. Audit-only commit e5cc9f2cb75c6fc8cc20400eb0b286cbe44e0e05 verifies all ten checks and twenty surfaces without warning. No v0.0.30 tag, release, deployment, image export, image push, or image publication exists before this exact closure.",
+    "next_action": "Publish these exact closure records, create annotated v0.0.30 at that closure, publish only the selected zipapp and checksum, then independently verify public refs, metadata, assets, downloads, pages, and a fresh public-tag source, package, and local-container stack before external reconciliation.",
     "do_not_carry_forward": [
       "any prompt model runtime parser-acceptance retrieval decision-context scenario terminal policy approval executor authority dependency secret external asset or real-infrastructure change",
       "any test-split tuning raw model-output retention or inference that syntactic validity equals diagnostic correctness",
