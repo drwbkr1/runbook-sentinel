@@ -1,0 +1,261 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0030-merged-main-complete-stack",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-005",
+  "observed_at_utc": "2026-08-17T23:01:04Z",
+  "status": "pass",
+  "repository": {
+    "url": "https://github.com/drwbkr1/runbook-sentinel",
+    "visibility": "public",
+    "branch": "main",
+    "head": "053ff98d04cfabfc67c7e7fb08d1de10ba560a1b",
+    "live_remote_head": "053ff98d04cfabfc67c7e7fb08d1de10ba560a1b",
+    "clone_transport": "https",
+    "clone_used_local_objects": false,
+    "object_alternates_present": false,
+    "tracked_file_count": 1342,
+    "started_clean": true,
+    "ended_clean": true,
+    "verification_outputs_copied_to_external_custody": true
+  },
+  "review_and_merge": {
+    "pull_request": 28,
+    "pull_request_url": "https://github.com/drwbkr1/runbook-sentinel/pull/28",
+    "base_before_merge": "cc07fa2a0790a49b04b4352a004deb913bb12a60",
+    "exact_reviewed_head": "cef8b3f00ab33227539d8d0646937da302eb1d52",
+    "merge_commit": "053ff98d04cfabfc67c7e7fb08d1de10ba560a1b",
+    "merge_parents": [
+      "cc07fa2a0790a49b04b4352a004deb913bb12a60",
+      "cef8b3f00ab33227539d8d0646937da302eb1d52"
+    ],
+    "reviewed_tree": "6c8fbeb3c485e03cd44baebeeaf80a6b9216b3eb",
+    "merged_tree": "6c8fbeb3c485e03cd44baebeeaf80a6b9216b3eb",
+    "reviewed_and_merged_trees_equal": true,
+    "merged_at_utc": "2026-08-17T22:38:05Z"
+  },
+  "regression": {
+    "unit_tests": {
+      "command": "python -m unittest discover -s tests",
+      "passed": 80,
+      "failed": 0,
+      "duration_seconds": 112.103,
+      "status": "pass"
+    },
+    "validators": {
+      "project_validators_passed": 37,
+      "governed_milestone_validator_passed": 1,
+      "failed": 0,
+      "duration_seconds": 5.261,
+      "status": "pass"
+    },
+    "compilation": "pass"
+  },
+  "package_reproduction": {
+    "build_count": 2,
+    "entry_count": 43,
+    "archive_bytes": 646081,
+    "archive_sha256": "b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf",
+    "selected_checksum_bytes": 94,
+    "selected_checksum_sha256": "5a27247f2757b44ad8c6d6d46efe8bf4ff984e62f76d085fb36696758e6f92b8",
+    "builds_byte_identical": true,
+    "selected_archive_exact": true,
+    "package_contract_passed_for_each": true,
+    "runtime_dependencies": 0,
+    "status": "pass"
+  },
+  "evaluations": {
+    "source": {
+      "report_bytes": 953936,
+      "report_sha256": "5429284db34efc99d5b1b9a950c33b318ce0a71f9a24f807c2fa01f1a9d3efb4",
+      "trace_bytes": 195336,
+      "trace_sha256": "acbf87e85c80874a66363a0da4e6e4a4dcf0344431afbb5d980c6a6f730afaa3",
+      "trace_final_event_sha256": "7be4004ff1cd72f25a399d0c0b0719e18d6cdd9fa4367dc82172a24587e653a9"
+    },
+    "package": {
+      "report_bytes": 953935,
+      "report_sha256": "0463c82b5c507014599e9bf90d052231e8ee8047785387c223fcc9439e2b2899",
+      "trace_bytes": 195342,
+      "trace_sha256": "ebebd3c8f48afc2efd2ff1565a75f33a04eaad3b211b43ff1a414057c374f204",
+      "trace_final_event_sha256": "6631ee25f7351fddacb6b0d7b54dbd7375926f40a0e9f858d2424a431054cbbb"
+    },
+    "normalized_complete_reports": {
+      "bytes": 576333,
+      "sha256": "06b1032d52c020734b731def323dd7424606cb43bbce2775b5992dc3c1ae0d57",
+      "launch_varying_leaf_key_count": 17,
+      "raw_difference_count": 407,
+      "parity_after_declared_normalization": true
+    },
+    "final_manifest_sha256": "bc98beca62ba13968ecfa5f8c79800c24c94a3298b3ae31270465ec7ed61ce96",
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "boolean_gates_true": 136,
+    "boolean_gates_false": 0,
+    "trace_event_count_each": 261,
+    "trace_chains_valid_and_anchored": true,
+    "retrieval_generation_trajectory_policy_utility_attack_reliability_latency_and_cost_separate": true,
+    "product_default": "deterministic-control-v2",
+    "optional_model_contract": "selected-experimental-remediate",
+    "model_calls": 0,
+    "estimated_external_api_cost": 0.0,
+    "status": "pass"
+  },
+  "real_surfaces": {
+    "mcp": {
+      "protocol": "2025-11-25",
+      "server_version": "0.0.30",
+      "tool_names": [
+        "list_synthetic_scenarios",
+        "diagnose_synthetic_incident",
+        "get_synthetic_incident"
+      ],
+      "authority_tool_count": 0,
+      "attack_document_excluded_from_decision_context": true,
+      "selected_retriever_exact": true,
+      "selected_decision_context_exact": true,
+      "stale_payload_characters": 0,
+      "source_and_package_semantic_projection_sha256": "13e839bb92b3cfe07c1d08cd0009797919eefd32f43fac99d71cf177d154efdf",
+      "source_and_package_semantics_equal": true,
+      "trace_event_count_each": 2,
+      "traces_valid_and_anchored": true
+    },
+    "source": {
+      "api_checks_passed": 131,
+      "api_checks_failed": 0,
+      "native_checks_passed": 72,
+      "native_checks_failed": 0,
+      "native_receipt_sha256": "cc573f2a02150040776222e12fbce84cb00147f97ba3798719b36b6aba2ea7b0",
+      "dashboard_bytes": 101719,
+      "dashboard_sha256": "14f819f1e0d017d154ca416e2a8f30575399b6640151e7883d3daa556bfefb8c"
+    },
+    "package": {
+      "api_checks_passed": 131,
+      "api_checks_failed": 0,
+      "native_checks_passed": 72,
+      "native_checks_failed": 0,
+      "native_receipt_sha256": "6e4700c4aebd584f4cfab36fbf4d949444a99093830ae70248118a0e54c47f53",
+      "dashboard_bytes": 101757,
+      "dashboard_sha256": "8d22f10f88b6b87fffd74dc97e33350f59d39d8a780a9d49a14271afd62e1112"
+    },
+    "validated_shell": "Windows PowerShell",
+    "powershell_7_header_observation_limitation_retained": "artifacts/verification/baseline-0030-merged-main-verification-failures-001.json",
+    "api_checks_identical": true,
+    "native_checks_identical": true,
+    "approval_executor_idempotency_replay_postconditions_state_and_telemetry_pass": true,
+    "authorization_material_absent_from_persistence_traces_logs_and_dashboard": true,
+    "dashboards": {
+      "dimensions": [1440, 1000],
+      "source_original_detail_inspection": "pass",
+      "package_original_detail_inspection": "pass",
+      "metric_card_count": 35,
+      "persisted_incident_rows_visible": 2,
+      "baseline_identity_exact": true,
+      "execution_boundary_exact": true,
+      "real_infrastructure_disconnected": true
+    },
+    "status": "pass"
+  },
+  "artifact_integrity": {
+    "filesystem_json_files": 951,
+    "json_documents_valid": 950,
+    "expected_invalid_json": [
+      {
+        "path": "artifacts/verification/mcp-source-baseline-0026.json",
+        "bytes": 0,
+        "classification": "previously retained exact process failure"
+      }
+    ],
+    "unclassified_json_errors": 0,
+    "jsonl_files": 158,
+    "jsonl_records_valid": 28519,
+    "jsonl_errors": 0,
+    "unclassified_credential_or_secret_hits": 0,
+    "model_artifacts": 0,
+    "status": "pass"
+  },
+  "container": {
+    "contract_id": "container-runtime-v10",
+    "contract_sha256": "8ab929384c6e0b7b6a60554430bf0759a5b0cbb0130b597638fe17e779733d67",
+    "image_id": "sha256:793cc009835350972ac30215cbdad2fb73f3802d47982d3bfddbd49af633fea3",
+    "canonical_candidate_receipt": {
+      "path": "artifacts/verification/container-baseline-0030.json",
+      "sha256": "2d4cd57e4cdc3c02492703a83bbf1eb71acf9f612c0d7f0e9ce8ca3f2b280d18",
+      "checks_true": 46,
+      "checks_false": 0,
+      "status": "pass"
+    },
+    "fresh_merged_main_full": {
+      "external_receipt_sha256": "e59ca4e798ea2280f09c95c9805d1aab36a4220975f32164be0ee9d8de1200e8",
+      "observed_at_utc": "2026-08-17T22:50:46.625649Z",
+      "two_builds_image_id_exact": true,
+      "checks_true_before_separate_clean_clone_composition": 45,
+      "checks_false_before_separate_clean_clone_composition": 1,
+      "status": "pass-clean-clone-composed-separately"
+    },
+    "fresh_no_alternates_public_main_clean_build": {
+      "external_receipt_sha256": "f0efa87af8863b3cac99e087fe253d183b2d33c172b762cbbf05aa7389a92205",
+      "observed_at_utc": "2026-08-17T22:51:31.330372Z",
+      "source_head": "053ff98d04cfabfc67c7e7fb08d1de10ba560a1b",
+      "object_alternates_present": false,
+      "image_id_exact": true,
+      "status": "pass"
+    },
+    "fresh_composed_checks_true": 46,
+    "fresh_composed_checks_false": 0,
+    "container_evaluation": {
+      "report_bytes": 926757,
+      "report_sha256": "02451afb47e3b72f6761d9a7835e5268ff945780548030fa2b98f426b3544fac",
+      "trace_bytes": 195290,
+      "trace_sha256": "e3d70d6cc7d1af40aae7db838cdc559e4e9f728b6a5bfd7d5b4ebd00b247b6f6",
+      "metric_projection_sha256": "77eb2c6dd517078225ff73bcc5a5c5efac9c94adc9c1b88ceea01979f0cd55b8",
+      "source_package_container_metric_parity": true
+    },
+    "structured_scan": {
+      "scanner": "Docker Scout 1.20.4",
+      "sarif_sha256": "7749b34be7a069559b10b1b9d53cc8897576fdd104071a9e0f907f9a301ee303",
+      "sarif_bytes": 461,
+      "critical_high_findings": 0,
+      "claim_boundary": "Observation-time evidence for the exact content-addressed image, not a perpetual vulnerability claim."
+    },
+    "dashboard_bytes": 101682,
+    "dashboard_sha256": "50239e12e07d030955fddab5eae763382075d493eae62646c85f7f34c8eb8434",
+    "dashboard_original_detail_inspection": "pass",
+    "surviving_verifier_containers": 0,
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false,
+    "status": "pass"
+  },
+  "retained_process_failures": [
+    "artifacts/verification/baseline-0030-merged-main-verification-failures-001.json",
+    "artifacts/verification/baseline-0030-premerge-audit-orientation-failures-001.json",
+    "artifacts/verification/release-audit-baseline-0030-premerge.json"
+  ],
+  "claim_boundary": {
+    "research_informed": true,
+    "synthetic_sre_only": true,
+    "production_readiness_claimed": false,
+    "useful_local_model_diagnosis_claimed": false,
+    "universal_prompt_injection_resistance_claimed": false,
+    "cross_builder_reproducibility_claimed": false,
+    "container_distribution_claimed": false,
+    "powershell_7_live_api_wrapper_portability_claimed": false
+  },
+  "gates": {
+    "exact_reviewed_head_merged_with_history_preserved": "pass",
+    "fresh_public_main_tests_and_validators": "pass",
+    "fresh_public_main_package_reproduction": "pass",
+    "fresh_public_main_source_and_package_evaluations": "pass",
+    "fresh_public_main_mcp_api_state_telemetry_and_dashboards": "pass",
+    "fresh_public_main_container_runtime_scan_and_identity": "pass",
+    "failed_blocked_and_compatibility_observations_preserved": "pass",
+    "no_container_image_bytes_published": "pass",
+    "fresh_public_main_complete_stack": "pass"
+  },
+  "release_state": {
+    "latest_release": "v0.0.29",
+    "v0.0.30_tag_exists": false,
+    "v0.0.30_release_exists": false
+  },
+  "next_gate": "Publish this merged-main receipt and retained compatibility evidence, reconcile living records to the resulting exact public head, then run the final release-truth audit. Create no v0.0.30 tag or release unless that exact audited closure remains verifiable."
+}

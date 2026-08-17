@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0030-merged-main-verification-failures-001",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-005",
+  "observed_at_utc": "2026-08-17T23:01:04Z",
+  "status": "retained-process-and-compatibility-observations",
+  "candidate_commit": "053ff98d04cfabfc67c7e7fb08d1de10ba560a1b",
+  "selected_successor_receipt": "artifacts/verification/merged-main-baseline-0030.json",
+  "observations": [
+    {
+      "id": "trace-verifier-import-path-001",
+      "stage": "fresh merged-main source and package evaluation",
+      "classification": "process-invalid",
+      "observation": "The first post-evaluation trace-verifier wrapper omitted the repository src directory from PYTHONPATH and stopped on import before evaluating either immutable report or trace.",
+      "successor": "The corrected wrapper supplied the exact source path; both 261-event traces passed chain and endpoint-anchor verification without changing the reports or traces."
+    },
+    {
+      "id": "mcp-verifier-import-path-001",
+      "stage": "fresh merged-main MCP verification",
+      "classification": "process-invalid",
+      "observation": "The first MCP wrapper set only the child runtime selector and omitted the verifier process import path, so the verifier failed before MCP startup.",
+      "successor": "The corrected wrapper supplied src to the verifier and separately selected src or the exact zipapp for the child runtime. Both paths exposed the same three no-authority tools and passed anchored telemetry checks."
+    },
+    {
+      "id": "byte-array-sequence-wrapper-001",
+      "stage": "exact container-contract byte comparison",
+      "classification": "process-invalid",
+      "observation": "A PowerShell wrapper attempted to call SequenceEqual as an instance method on byte arrays after independently displaying equal lengths and SHA-256 values; that method is unavailable in the invoked form.",
+      "successor": "An exact length plus SHA-256 comparison proved the two contract files byte-identical. No contract byte changed."
+    },
+    {
+      "id": "powershell-7-www-authenticate-observation-001",
+      "stage": "fresh merged-main live API verification",
+      "classification": "known-client-compatibility-limitation",
+      "observation": "Running scripts/verify_live_api.ps1 under PowerShell 7 passed 129 of 131 checks. Only the missing- and wrong-capability WWW-Authenticate observations were null when read through HttpResponseMessage.Headers['WWW-Authenticate']; HTTP 401 handling and all other API, policy, approval, executor, idempotency, replay, postcondition, state, telemetry, and dashboard checks passed.",
+      "server_evidence": "The server emits Sentinel-Capability realm=\"runbook-sentinel-operator\" and the independent urllib unit surface observes it exactly.",
+      "successor": "The same unchanged script and server run under the project's validated Windows PowerShell runtime passed 131 of 131 checks with both challenges exact.",
+      "claim_boundary": "The release supports the validated Windows PowerShell verification path. It does not claim that this header-observation wrapper is portable to PowerShell 7."
+    },
+    {
+      "id": "dashboard-view-batch-truncation-001",
+      "stage": "rendered dashboard inspection",
+      "classification": "viewer-process-invalid",
+      "observation": "A first batched image-view request exceeded the viewer output context and yielded no admissible inspection result.",
+      "successor": "The unchanged source, package, and container PNG bytes were inspected one at a time at original detail and each complete frame passed."
+    },
+    {
+      "id": "prior-receipt-inspection-pipe-001",
+      "stage": "historical release-pattern inspection",
+      "classification": "process-invalid",
+      "observation": "A read-only PowerShell foreach result was piped without an array wrapper and stopped at parser validation.",
+      "successor": "The corrected array-wrapped inspection read the immutable BASELINE-0029 receipt and changed no project or evidence byte."
+    }
+  ],
+  "premerge_failures_preserved_separately": [
+    "artifacts/verification/baseline-0030-premerge-audit-orientation-failures-001.json",
+    "artifacts/verification/release-audit-baseline-0030-premerge.json"
+  ],
+  "release_effect": "None of these observations is positive release evidence. The selected corrected successors are independently bound in merged-main-baseline-0030.json. The PowerShell 7 item remains an explicit compatibility limitation; no verifier, security boundary, runtime, package, model, or release claim was weakened."
+}
