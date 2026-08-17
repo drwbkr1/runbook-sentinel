@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0030",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -24,6 +24,7 @@
     "objective": "Align the declared local-model diagnosis-code schema with the unchanged fail-closed parser, then measure whether the one-field contract change is a Pareto improvement without changing the deterministic default or any authority boundary.",
     "allowed_paths": [
       "C:/Projects/Active/runbook-sentinel-baseline-0030",
+      "C:/Projects/Active/runbook-sentinel-baseline-0030-release",
       "C:/Projects/Verification"
     ],
     "forbidden_work": [
@@ -65,8 +66,14 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "Annotated tag object 1e51f18e6023bd66b19ad11ca794c5a0c2c42885 peels exactly to audited release closure 9bfa784feeb1e002c546326ce9db214c2c155fce.",
+        "Public non-draft latest v0.0.30 contains exactly the selected 646081-byte zipapp and 94-byte checksum with exact GitHub and downloaded SHA-256 identities.",
+        "A fresh no-alternates public-tag clone passes 80 tests, 37 validators, two exact archive rebuilds, fresh source/downloaded-package evaluations, MCP, authenticated API, state, telemetry, rendered dashboards, structured parsing, and local-only container reproduction.",
+        "Two full public-tag builds and one independent clean build reproduce image ID sha256:793cc009835350972ac30215cbdad2fb73f3802d47982d3bfddbd49af633fea3; all 46 composed checks pass and no image was exported, pushed, or published.",
+        "artifacts/verification/public-tag-baseline-0030.json binds the complete external reconciliation and preserves failed, compatibility, viewer, network, and split-receipt observations."
+      ]
     }
   ],
   "units": [
@@ -194,7 +201,7 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "gates": {
         "premerge_release_truth_audit": "pass",
         "exact_reviewed_head_merged_with_history_preserved": "pass",
@@ -202,20 +209,21 @@
         "merged_main_receipt_public_and_exact": "pass",
         "final_release_truth_audit": "pass",
         "release_closure": "pass",
-        "annotated_tag_and_selected_assets": "pending",
-        "public_tag_complete_stack": "pending",
-        "external_reconciliation": "pending"
+        "annotated_tag_and_selected_assets": "pass",
+        "public_tag_complete_stack": "pass",
+        "external_reconciliation": "pass"
       },
-      "disposition": "pending",
+      "disposition": "pass",
       "retained_failures": [
         "Five read-only premerge orientation wrappers are retained as process-invalid: expected release absence became terminating, one release query requested an unsupported field, one latest-release assertion mishandled nested arrays, one target-release jq expression was over-escaped, and one paginated PR query combined unsupported --slurp and --jq options. Corrected scalar release and paginated path queries pass without mutation.",
-        "Merged-main verification retains import-path, byte-array, viewer, and historical-receipt wrapper failures as process-invalid. PowerShell 7 observes two null WWW-Authenticate header values and passes 129 of 131 live API checks; the unchanged validated Windows PowerShell path passes 131 of 131 with both server challenges exact. No security boundary or positive evidence was weakened."
+        "Merged-main verification retains import-path, byte-array, viewer, and historical-receipt wrapper failures as process-invalid. PowerShell 7 observes two null WWW-Authenticate header values and passes 129 of 131 live API checks; the unchanged validated Windows PowerShell path passes 131 of 131 with both server challenges exact. No security boundary or positive evidence was weakened.",
+        "Public-tag reconciliation retains a truncated console response, an empty-pipe PowerShell parser failure, browser screenshot and wait timeouts after page load, a corrected unsigned-tag wrapper, expected annotated-tag clone warnings, first-frame dashboard viewer artifacts, one unsupported release-query field, a transient release-view network timeout, and the intentional 45-plus-1 container receipt composition. Exact successors pass without rewriting unfavorable evidence."
       ],
       "next_dependency": null
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Commit and push these exact release-closure records, create annotated v0.0.30 at that exact commit, publish only the selected zipapp and checksum, then immediately reconcile every public surface and a fresh public-tag source package and local-container reproduction.",
+  "next_action": "Begin the next cycle from immutable public v0.0.30 by running the accepted system, inspecting traces and separately reported evaluation families, and selecting one highest-leverage measurable weakness before implementation.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -304,11 +312,16 @@
       ,"two fresh full container builds and one no-alternates clean build reproduce image sha256:793cc009835350972ac30215cbdad2fb73f3802d47982d3bfddbd49af633fea3; all 46 composed checks and the observation-time zero-critical-high structured scan pass without image export push or publication"
       ,"merged-main receipt commit 211d7bdd2bc885f8568210fca7b60ff5c9aeb8da is exact across local tracking ls-remote GitHub ref API and both anonymous immutable-commit downloads; retained compatibility and process observations are public beside the passing receipt"
       ,"living-record reconciliation commit 2b61511941564dbccadf0433fdf4f654b18223ec is public; final audit-only commit e5cc9f2cb75c6fc8cc20400eb0b286cbe44e0e05 evaluates verified with ten of ten checks all twenty required surfaces active inherited authority and no error warning stale missing unknown or unrun result"
+      ,"release closure 9bfa784feeb1e002c546326ce9db214c2c155fce is public main and annotated tag object 1e51f18e6023bd66b19ad11ca794c5a0c2c42885 peels exactly to it with GitHub verification reason unsigned and no signature claim"
+      ,"public non-draft latest v0.0.30 release 372002788 contains exactly the selected 646081-byte zipapp at SHA-256 b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf and 94-byte checksum at SHA-256 5a27247f2757b44ad8c6d6d46efe8bf4ff984e62f76d085fb36696758e6f92b8"
+      ,"fresh public-tag verification passes 80 tests 37 validators three-way exact archive identity source and downloaded-package 57-scenario 171-attempt 136-gate evaluations three-tool MCP both 131-check APIs both 72-check native inspections complete dashboards and structured parsing"
+      ,"two full public-tag builds and one no-alternates clean-tag build reproduce image sha256:793cc009835350972ac30215cbdad2fb73f3802d47982d3bfddbd49af633fea3 with all 46 composed checks point-in-time zero critical or high scan results and no image export push publication or redistribution"
+      ,"artifacts/verification/public-tag-baseline-0030.json binds the complete external reconciliation and preserved process compatibility viewer network and split-receipt observations"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0030 reviewed merge, fresh public-main complete stack, reconciled living records, and final audit pass. Audit-only commit e5cc9f2cb75c6fc8cc20400eb0b286cbe44e0e05 verifies all ten checks and twenty surfaces without warning. No v0.0.30 tag, release, deployment, image export, image push, or image publication exists before this exact closure.",
-    "next_action": "Publish these exact closure records, create annotated v0.0.30 at that closure, publish only the selected zipapp and checksum, then independently verify public refs, metadata, assets, downloads, pages, and a fresh public-tag source, package, and local-container stack before external reconciliation.",
+    "current_checkpoint": "BASELINE-0030 is complete at verified public v0.0.30. Annotated tag object 1e51f18e6023bd66b19ad11ca794c5a0c2c42885 peels to audited closure 9bfa784feeb1e002c546326ce9db214c2c155fce; selected assets, rendered pages, fresh public-tag source/package surfaces, and all 46 composed local-container checks reconcile. No container image was exported, pushed, or published.",
+    "next_action": "Begin the next cycle from immutable public v0.0.30 by running the accepted system, inspecting traces and separately reported evaluation families, and selecting one highest-leverage measurable weakness before implementation.",
     "do_not_carry_forward": [
       "any prompt model runtime parser-acceptance retrieval decision-context scenario terminal policy approval executor authority dependency secret external asset or real-infrastructure change",
       "any test-split tuning raw model-output retention or inference that syntactic validity equals diagnostic correctness",

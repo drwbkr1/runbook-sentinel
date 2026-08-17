@@ -1,5 +1,17 @@
 # Evaluation report
 
+## BASELINE-0030 public v0.0.30 reconciliation
+
+Audited closure `9bfa784feeb1e002c546326ce9db214c2c155fce`, annotated tag object `1e51f18e6023bd66b19ad11ca794c5a0c2c42885`, public latest release `372002788`, and exactly two selected assets reconcile. The downloaded zipapp is 646,081 bytes at SHA-256 `b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf`; its 94-byte checksum is SHA-256 `5a27247f2757b44ad8c6d6d46efe8bf4ff984e62f76d085fb36696758e6f92b8`. Two fresh tag builds reproduce the downloaded archive byte-for-byte and the 43-entry package contract passes.
+
+A fresh no-alternates HTTPS tag clone passes 80 tests and all 37 phase-correct validators. Fresh source and downloaded-package runs each pass 57 scenarios, 171 attempts, all 136 Boolean gates, and an anchored 261-event trace. Their raw report/trace SHA-256 pairs are `991b2567...` / `a3c0a971...` and `8abb1def...` / `a3cce6f6...`; replacing only the 17 declared launch-varying leaf values produces exact 576,333-byte normalized reports at SHA-256 `06b1032d52c020734b731def323dd7424606cb43bbce2775b5992dc3c1ae0d57`. Retrieval, generation, tool trajectory, policy, terminal state, utility, attack success, repeated-trial reliability, latency, and cost remain separately reported. Source/package median end-to-end latency is 65.346/62.619 ms and p95 is 113.675/108.58 ms; those launch measurements are not claimed identical.
+
+Both source and downloaded-package MCP surfaces expose exactly three diagnostic/read tools under protocol `2025-11-25` and no approval or execution authority. Both authenticated APIs pass 131/131 checks; both native persisted-state, audit, redaction, and anchored-telemetry inspections pass 72/72. Source, package, and container dashboards are complete at 1440 by 1000 with all 35 metrics, two persisted incidents, authenticated external operator, and real infrastructure disconnected.
+
+Two full public-tag builds and one independent no-alternates clean-tag build reproduce local image ID `sha256:793cc009835350972ac30215cbdad2fb73f3802d47982d3bfddbd49af633fea3`. The composed `container-runtime-v10` result passes 46/46 checks, including source/package/container metric parity, bounded MCP/API, approval/executor, persisted state, telemetry, runtime hardening, verified tmpfs extraction, and the rendered dashboard. Docker Scout reports zero critical/high findings at the observation time. No image was exported, pushed, published, or redistributed; no cross-builder, perpetual-vulnerability, production-readiness, useful optional-model, universal-safety, or broad Pareto claim follows.
+
+The complete result is bound in `artifacts/verification/public-tag-baseline-0030.json`. Truncated console, PowerShell parser, browser timeout, unsigned-tag wrapper, expected annotated-clone warning, viewer-frame, transient network, and split container-receipt observations remain retained rather than rewritten.
+
 ## BASELINE-0030 preimplementation orientation
 
 Public v0.0.29 remains exact. Its accepted deterministic source run passes 57 scenarios, 171 attempts, all 136 Boolean gates, and an anchored 261-event trace. The current product default therefore has no observed regression in retrieval, generation, tool trajectory, policy, terminal state, utility, attack success, repeated reliability, latency, or cost.
