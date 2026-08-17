@@ -197,12 +197,14 @@
       "status": "in_progress",
       "gates": {},
       "disposition": "pending",
-      "retained_failures": [],
+      "retained_failures": [
+        "Five read-only premerge orientation wrappers are retained as process-invalid: expected release absence became terminating, one release query requested an unsupported field, one latest-release assertion mishandled nested arrays, one target-release jq expression was over-escaped, and one paginated PR query combined unsupported --slurp and --jq options. Corrected scalar release and paginated path queries pass without mutation."
+      ],
       "next_dependency": null
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Publish and remotely verify the UNIT-004 public reconciliation receipt and completion update, then run the governed UNIT-005 premerge release-truth audit against exact public container-evidence commit 77efe4eb85dd213b087cf6ad4e8de4aa502c0c13.",
+  "next_action": "Publish and remotely verify the retained premerge-orientation evidence plus this bounded control-pointer correction, then run the governed UNIT-005 premerge release-truth audit against the resulting exact public candidate head on draft PR #28.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -288,8 +290,8 @@
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0030 UNIT-004 passes. Exact public package/source reconciliation dc5e72594b7919dbd75bf4d66f35615551ace900 and public canonical container evidence 77efe4eb85dd213b087cf6ad4e8de4aa502c0c13 reconcile; all 46 container checks pass at local image ID sha256:793cc009835350972ac30215cbdad2fb73f3802d47982d3bfddbd49af633fea3 with no image export, push, publication, or redistribution.",
-    "next_action": "Publish and verify this UNIT-004 completion receipt, then run the governed premerge release-truth audit. Open and review a pull request only if that audit verifies without a release-blocking finding.",
+    "current_checkpoint": "BASELINE-0030 UNIT-004 passes. Exact public package/source reconciliation dc5e72594b7919dbd75bf4d66f35615551ace900, canonical container evidence 77efe4eb85dd213b087cf6ad4e8de4aa502c0c13, and public completion-receipt head fcc76ad299b6996ec63db4014a388e69d73d65f3 reconcile; all 46 container checks pass at local image ID sha256:793cc009835350972ac30215cbdad2fb73f3802d47982d3bfddbd49af633fea3 with no image export, push, publication, or redistribution.",
+    "next_action": "Publish and verify the retained premerge-orientation evidence and bounded stale-pointer correction, then audit the resulting exact public candidate head. Change draft readiness and begin exact review only if that audit verifies without a release-blocking finding.",
     "do_not_carry_forward": [
       "any prompt model runtime parser-acceptance retrieval decision-context scenario terminal policy approval executor authority dependency secret external asset or real-infrastructure change",
       "any test-split tuning raw model-output retention or inference that syntactic validity equals diagnostic correctness",

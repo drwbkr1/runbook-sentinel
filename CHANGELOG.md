@@ -41,6 +41,7 @@
 - UNIT-004 remains open until this exact container evidence is public and every changed Git object is independently reconciled. The deterministic control remains the product default, the optional local model remains `selected-experimental-remediate`, and no production or broad Pareto claim is made.
 - Published canonical container-evidence commit `77efe4eb85dd213b087cf6ad4e8de4aa502c0c13`, tree `9cc0c34cd8f8251c5d81ecbfeb6068d9df4033bb`. Local, tracking, `ls-remote`, GitHub ref API, public visibility, and all 17 changed Git objects agree; anonymous credential-free retrieval verifies all 17 files by length and SHA-256.
 - Retained the first anonymous public-byte wrapper after it failed before network access because Windows PowerShell had not loaded `System.Net.Http`; the explicit standard-assembly successor passes. UNIT-004 is complete, and UNIT-005 opens with the governed premerge release-truth audit after this receipt commit is public.
+- Published and remotely reconciled the UNIT-004 completion receipt at `fcc76ad299b6996ec63db4014a388e69d73d65f3`; draft PR `#28` is exact at that head. Retained five read-only UNIT-005 orientation-wrapper failures and corrected the stale controlling next-action pointer before the head-bound premerge audit. No runtime, evaluation, package, image, review, merge, tag, release, or deployment state changed.
 
 ## 0.0.29 - 2026-08-15
 
