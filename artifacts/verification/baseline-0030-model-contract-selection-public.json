@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-003",
+  "recorded_at_utc": "2026-08-16T02:14:03Z",
+  "status": "pass",
+  "repository": "https://github.com/drwbkr1/runbook-sentinel",
+  "visibility": "public",
+  "branch": "codex/baseline-0030-model-output-contract-conformance",
+  "commit": "a77904b7e565bf9548a27e0e0e9d80c523499cb4",
+  "tree": "cb0bfd9dc8852f5f4d9e9ec5bd02c0b27419c59b",
+  "ref_reconciliation": {
+    "local_head": "a77904b7e565bf9548a27e0e0e9d80c523499cb4",
+    "explicit_remote_tracking": "a77904b7e565bf9548a27e0e0e9d80c523499cb4",
+    "git_ls_remote": "a77904b7e565bf9548a27e0e0e9d80c523499cb4",
+    "github_ref_api": "a77904b7e565bf9548a27e0e0e9d80c523499cb4",
+    "all_exact": true
+  },
+  "remote_tree_reconciliation": {
+    "changed_path_count": 17,
+    "exact_blob_and_size_count": 17,
+    "mismatch_count": 0
+  },
+  "selection": {
+    "product_default": "deterministic-control-v2",
+    "selected_optional_model_contract": "ollama-loopback-structured-sre-v3-diagnosis-pattern",
+    "optional_model_disposition": "selected-experimental-remediate",
+    "frozen_bounded_selection_rule": "pass",
+    "broad_multi_metric_pareto_claimed": false,
+    "production_readiness_claimed": false,
+    "research_informed_only": true
+  },
+  "verification_at_publication": {
+    "comparison_validator": "pass",
+    "full_tests": "80/80 pass in 83.820 seconds",
+    "phase_correct_side_effect_free_project_validators": "37/37 pass",
+    "high_specificity_credential_hits": 0,
+    "changed_model_artifact_hits": 0,
+    "worktree_clean": true
+  },
+  "artifact_absence": {
+    "v0_0_30_zipapp_present": false,
+    "v0_0_30_checksum_present": false,
+    "baseline_0030_container_receipt_count": 0,
+    "v0_0_30_local_image_count": 0
+  },
+  "next_gate": "UNIT-004 may freeze package, final-manifest, source/package, real-surface, dashboard, local-container, scan, and clean-clone contracts before creating archive or image bytes."
+}

@@ -1,0 +1,304 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0030",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "active_contract": "contracts/milestone-0030.json",
+    "verified_at_utc": "2026-08-16T02:14:03Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Align the declared local-model diagnosis-code schema with the unchanged fail-closed parser, then measure whether the one-field contract change is a Pareto improvement without changing the deterministic default or any authority boundary.",
+    "allowed_paths": [
+      "C:/Projects/Active/runbook-sentinel-baseline-0030",
+      "C:/Projects/Verification"
+    ],
+    "forbidden_work": [
+      "change the system prompt user template model runtime generation options parser acceptance retrieval decision context scenario terminal state policy approval executor API or MCP authority",
+      "add a tool credential secret paid service remote model call dependency external asset or real-infrastructure connector",
+      "use the held-out test split to tune the candidate",
+      "retain raw generated model content or treat model output as authority",
+      "silently replace or delete the unfavorable baseline-0018 result or any failed blocked stale excluded or superseded evidence",
+      "promote the local model to the product default without every frozen deterministic-default gate",
+      "claim production readiness universal prompt-injection resistance or stronger than research-informed status"
+    ],
+    "reversible_actions": [
+      "create and update project-authored files on codex/baseline-0030-model-output-contract-conformance",
+      "run the already installed source-gated Ollama runtime and llama3.2:3b model over frozen synthetic scenarios after the public freeze",
+      "run deterministic source package container dashboard and clean-clone verification under C:/Projects",
+      "version commit push review merge and release the exact verified source plus zipapp checkpoint after all gates pass"
+    ],
+    "stop_conditions": [
+      "core thesis change or security-boundary weakening",
+      "the experiment requires changing parser acceptance model bytes runtime prompt policy authority or held-out scenarios",
+      "a dependency secret paid service external asset remote model or real infrastructure becomes necessary",
+      "source package container real surfaces clean clone release or public tag cannot be verified",
+      "container image publication or redistribution becomes necessary"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.29, its annotated tag, selected release assets, downloaded bytes, rendered pages, public-tag source/package/container runs, real surfaces, and external reconciliation are exact in artifacts/verification/public-tag-baseline-0029.json.",
+        "The accepted source run passes 57 scenarios, 171 attempts, all 136 Boolean gates, and an anchored 261-event trace.",
+        "The frozen baseline-0018 local-model comparison records 67 diagnosis_code_invalid failures among 84 attempts, while the declared schema omits the parser's exact diagnosis identifier pattern.",
+        "The installed loopback runtime remains Ollama 0.32.6 with unchanged source-gated llama3.2:3b manifest a80c4f17acd5; no download update import or remote call occurred during orientation.",
+        "Official JSON Schema and exact-tag Ollama sources passed the eight-criterion external-source gate for citation and narrow experimental feasibility only."
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Reconcile public v0.0.29, inspect the current system and retained local-model evidence, gate official specifications, and publish an exact preimplementation freeze.",
+      "depends_on": [],
+      "action_class": "evidence_preservation",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": [
+        "artifacts/verification/orientation-baseline-0030.json",
+        "artifacts/verification/research-source-gate-baseline-0030-model-output-conformance.json",
+        "artifacts/verification/baseline-0030-orientation-probe-failures-001.json",
+        "eval/model-contract-0018-v2.json",
+        "eval/model-output-conformance-contract.json",
+        "scripts/verify_model_output_conformance_contract.py",
+        "tests/test_model_output_conformance_contract.py",
+        "docs/adr/0025-align-the-declared-diagnosis-pattern-before-retuning.md"
+      ],
+      "gates": {
+        "public_checkpoint_reconciled": "pass",
+        "accepted_system_run_and_trace_inspected": "pass",
+        "separate_metric_families_inspected": "pass",
+        "highest_leverage_weakness_selected": "pass",
+        "research_source_gate_ready": "pass",
+        "legacy_contract_preserved_exact": "pass",
+        "one_field_target_frozen_before_implementation": "pass",
+        "preimplementation_validator_pass": "pass",
+        "public_freeze_verified": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "The first PowerShell identity wrapper failed before output because of an empty pipeline element; the corrected explicit-array wrapper produced the admitted hashes.",
+        "The first external-source-gate validation rejected semantically equivalent but non-exact approved action labels; exact inherited and planned labels replaced them without changing scope.",
+        "Two repository JSON parse wrappers stopped on retained UTF-8 BOM evidence and the intentional zero-byte baseline-0026 MCP evidence item; the corrected parser reports those conditions and validates every nonempty document.",
+        "Two broad secret scans matched only historical scanner definitions or an unchanged devlog sentence; the corrected added-line and untracked-content scan has zero high-specificity hits."
+      ],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Implement only the frozen diagnosis-code pattern and contract identity metadata, then seal the exact implementation before model calls.",
+      "depends_on": ["UNIT-001"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "gates": {
+        "public_freeze_verified": "pass",
+        "phase_aware_harness_correction_public": "pass",
+        "exact_four_path_projection": "pass",
+        "all_prior_behavior_and_authority_exact": "pass",
+        "implementation_seal_public": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "The publicly frozen focused test always invoked preimplementation mode and would reject an exact implementation; a phase-aware validation-only successor must be public before runtime change."
+      ],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Run same-scenario legacy and candidate local-model comparisons, preserve all results, and select or exclude by the frozen Pareto rule.",
+      "depends_on": ["UNIT-002"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "gates": {
+        "public_implementation_seal_verified": "pass",
+        "manifest_inventory_additions_exact": "pass",
+        "manifest_inventory_seal_public": "pass",
+        "precomparison_manifest_public": "pass",
+        "legacy_v2_comparison_complete": "pass",
+        "candidate_v3_comparison_complete": "pass",
+        "current_manifest_deterministic_control_complete": "pass",
+        "pareto_decision_evidence_bound": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "The first independent comparison validation rejected a derived candidate failure-code map containing an unobserved zero-valued diagnosis_code_invalid entry; the immutable report and trace remained unchanged, the derived field was corrected, and the failure receipt is retained.",
+        "The first 37-validator wrapper invoked a phase-aware historical retrieval validator in preimplementation mode; its scenario and terminal checks were exact, the corrected --require-implementation inventory passes 37 of 37, and the orchestration failure is retained."
+      ],
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Verify the selected source, package, bounded MCP, authenticated API, approval and executor, persisted state, telemetry, rendered dashboard, local container, scan, and clean clone.",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "gates": {
+        "selection_evidence_public_and_reconciled": "pass",
+        "package_and_final_manifest_contract_frozen": "pass",
+        "source_and_package_surfaces_exact": "pass",
+        "package_source_payload_public_exact": "pass",
+        "mcp_api_approval_executor_state_telemetry_exact": "pass",
+        "dashboard_render_verified": "pass",
+        "local_container_and_scan_exact": "pass",
+        "clean_clone_exact": "pass",
+        "canonical_container_result_public_exact": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "The first source API run passed 130 of 131 checks but rejected the stale baseline-0029 latest-evaluation pointer. The frozen baseline-0030 source candidate was then run, retained, trace-verified, and promoted byte-exact; the unchanged API passed 131 of 131.",
+        "Eight package-freeze process failures are retained: one read-only path guess, one trailing-blank-line exact-copy defect, one explicit CRLF/LF representation distinction, two focused-test fixture defects, one search-quoting failure, one read-only hash-wrapper parser failure, one credential-scan option-separator failure, and one upstream-ref wrapper that stopped before staging.",
+        "The first public reconciliation wrapper found the live public branch and GitHub API at dda0c347c108a78ac0afe279f09bc074c73579e9 but the separately stored local tracking ref at its parent, then stopped before remote-tree comparison. An exact branch fetch reconciled local reference state; the successor passes all four refs and 42 remote entries.",
+        "The first parallel package/source launch used an invalid PowerShell Test-Path expression and stopped before either evaluator started. Corrected parenthesized guards then produced both passing immutable runs.",
+        "The first post-surface validator inventory omitted PYTHONPATH=src and stopped during verify_model_comparison.py import after 22 passing validators. The corrected complete inventory passes 37 of 37.",
+        "The first post-surface repository parser used an unavailable System.Text.Json type and invalidly reported every nonempty artifact as a parser error. The corrected ConvertFrom-Json audit parses the complete repository without content error while retaining the one known historical zero-byte item.",
+        "A broad final credential scan read unchanged lines inside modified files and classified a historical documented private-key scanner literal as material. Its first corrected successor later encountered the artifact-scan receipt quoting that same classification. The final added-line plus complete-untracked scope classifies only the two evidence receipts and has zero unresolved credential findings.",
+        "The first staging wrapper was rejected before process creation because it used shell redirection to compare staged binary bytes. The index remained empty; the successor uses redirection-free Git blob identities.",
+        "The first combined status-and-push wrapper misparsed an unquoted Git tree revision after local commit 35a0f18f8e9cf54a56cec0eded620397a98f992f and stopped before push. The public branch remained at 4e1d8384d5f73f9d4c554529fca76e2205809438.",
+        "The first public package/source reconciliation-receipt wrapper omitted spaces in two PowerShell foreach statements and stopped at parse. The unchanged successor proved public commit dc5e72594b7919dbd75bf4d66f35615551ace900 exact across four refs and all nine changed paths.",
+        "The generated full container component receipt preserves stale non-authoritative next-gate text naming 43 checks. The frozen contract and canonical composition independently validate 46 of 46 checks; no component byte was rewritten.",
+        "The first post-container validator wrapper applied the implementation flag to a shortened nonexistent filename. The actual adversarial retrieval-stage contract correctly failed closed in preimplementation mode; the corrected complete inventory passes 37 of 37.",
+        "A --help orientation call to scripts/verify_baseline.py started a duplicate deterministic evaluation because that script has no argument parser. It was stopped after a complete trace but before report, anchor, or promotion; its manifest and trace are retained and classified invalid, and latest.json remained byte-exact.",
+        "The first core identity wrapper guessed a nonexistent clean-build tag after its preceding checks passed, and the first bounded credential scan omitted ripgrep -e for a leading-dash expression. Corrected successors verify all three live image tags and report zero high-specificity credential findings."
+      ],
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Audit, review, merge, release source plus zipapp only, and independently reconcile the public tag and selected assets.",
+      "depends_on": ["UNIT-004"],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "in_progress",
+      "gates": {},
+      "disposition": "pending",
+      "retained_failures": [
+        "Five read-only premerge orientation wrappers are retained as process-invalid: expected release absence became terminating, one release query requested an unsupported field, one latest-release assertion mishandled nested arrays, one target-release jq expression was over-escaped, and one paginated PR query combined unsupported --slurp and --jq options. Corrected scalar release and paginated path queries pass without mutation."
+      ],
+      "next_dependency": null
+    }
+  ],
+  "current_unit": "UNIT-005",
+  "next_action": "Publish and remotely verify the retained premerge-orientation evidence plus this bounded control-pointer correction, then run the governed UNIT-005 premerge release-truth audit against the resulting exact public candidate head on draft PR #28.",
+  "path_efficiency": {
+    "max_consecutive_no_progress_units": 2,
+    "review_action_class": "project_control",
+    "review_human_gate": false
+  },
+  "verification": {
+    "changed_risks": [
+      "a declared schema broader than its external parser creates avoidable fail-closed model output",
+      "schema-constrained syntax can be misrepresented as correct diagnosis or useful behavior",
+      "held-out results can leak into tuning or be hidden by aggregate parsing gains",
+      "a local model experiment can accidentally gain tools credentials approval material or execution authority",
+      "source-only success can hide stale API MCP state telemetry dashboard package or container behavior"
+    ],
+    "required_checks": [
+      "exact public v0.0.29 receipt and accepted 57-case source run identity",
+      "exact v2 archive current parser model runtime prompt options catalog and authority identities",
+      "one-field v3 target with explicit metadata-only identity changes",
+      "same-scenario three-trial legacy and candidate reports with raw output digest only",
+      "separate development and held-out retrieval generation trajectory policy utility attack reliability latency and cost evidence",
+      "exact deterministic default and no tool credential approval or executor authority change",
+      "source package MCP API approval executor state telemetry dashboard container scan clean clone review release and public-tag verification",
+      "retention of all failed stale blocked corrected superseded excluded and unfavorable evidence"
+    ],
+      "completed_checks": [
+      "public v0.0.29 external reconciliation commit cc07fa2a0790a49b04b4352a004deb913bb12a60 and receipt df84d6a4af7dc2cbac3f55eb659651d98ce54da82affcc02412e370a8fd58a9f",
+      "accepted baseline-0029 source evaluation with 57 scenarios 171 attempts all 136 Boolean gates and exact 261-event trace",
+      "frozen baseline-0018 comparison identity and exact 67-of-84 diagnosis-code failure observation",
+      "current local Ollama 0.32.6 CLI and loopback API identity with unchanged installed llama3.2:3b manifest",
+      "two-source official specification metadata and content review with no asset import",
+      "external-source gate validates ready with two sources sixteen criteria nine fresh live evidence items and no warning error blocker or pending live check",
+      "model-output conformance validator passes in frozen-preimplementation mode with the exact four-path target change set",
+      "all 76 tests pass in 87.931 seconds including five focused conformance tests",
+      "all 36 side-effect-free project validators pass under exact current implementation modes",
+      "governed milestone validation reports active inherited authority with no error or warning",
+      "compilation passes; 889 nonempty JSON files and 149 JSONL files with 26865 records parse; one known zero-byte evidence item and fourteen retained BOM-bearing files are reported; git diff check passes",
+      "exact added-line and untracked-content scan reports zero high-specificity credential hits and zero changed model artifacts"
+      ,"local preimplementation freeze receipt binds every changed file and confirms candidate model contract report package archive and image absence before publication"
+      ,"public preimplementation commit f82e301d984548d5354d8093e245c17fe0419a1f is exact across local tracking ls-remote GitHub ref API and all 18 changed Git blob identities and sizes"
+      ,"the post-freeze handoff identified a preimplementation-only focused test before runtime change; its bounded phase-aware correction is retained and must be public before implementation"
+      ,"the phase-aware harness correction passes five focused tests all 76 tests in 84.407 seconds and all 36 project validators while the active model contract remains v2"
+      ,"phase-aware correction commit 0a49729f28fa28f06fcbae0878e1d3558ea47abc is public and remote-tree exact before runtime implementation"
+      ,"the active model contract now matches the frozen target object SHA-256 4cd479f0255d88cceb4cd78afd5194426ae7e55233746ff95351ea5f338beb0c and changes exactly the four permitted object paths"
+      ,"all 76 tests pass in 87.015 seconds and all 35 non-manifest side-effect-free validators pass after implementation"
+      ,"the immutable v0.0.29 manifest fails closed on exactly eval/model-contract.json changing from b5ed65aff647087344a6f9781e565483940f01563c678a3fcc97f7e55500eafd to 8718971a9e54320603c08d9f31957bd5dabee0e50944925f588f74e5915defda; no manifest is rewritten before the public implementation seal"
+      ,"implementation seal 34bc1a8b8f7d4070f0858581f01852e0643685d7 is public and exact across local remote-tracking ls-remote GitHub ref API and all twelve changed remote tree entries"
+      ,"public implementation receipt confirms zero baseline-0030 model calls candidate reports successor manifests v0.0.30 archives and images at publication"
+      ,"UNIT-003 adds only the preserved v2 contract frozen conformance contract and independent verifier to the manifest inventory; no model call or successor manifest exists before this inventory seal"
+      ,"the first 138-file manifest regression retained one stale baseline-0029 report-checkpoint assertion; the bounded test-only successor expects baseline-0030 and changes no manifest-bound runtime file"
+      ,"inventory seal c6eab065b17420d893d69781a8e7d20051ae9fa6 is public and exact across four refs and all seven changed remote tree entries"
+      ,"the local 138-file BASELINE-0030 manifest verifies at 16597 bytes and SHA-256 882c552e9c712bed298c2a6e7ca2bb5206f28d40102cbe05efaba2eee6560b8f; the corrected complete suite passes 76 tests and all 36 side-effect-free validators"
+      ,"precomparison manifest seal 1066b7fdef5bb0f2bb442db1a4122378c3ebab0a is public and exact across four refs and all nine changed GitHub tree entries with zero model calls at publication"
+      ,"legacy-v2 completes all 171 calls with 30 valid outputs 141 classified fail-closed rejections zero utility zero pass-three zero proposals zero executions policy 1.0 and proposal and terminal attack success 0.0; exact report-trace verification passes"
+      ,"candidate-v3 completes all 171 calls with 113 valid outputs and 58 classified rejections while diagnosis accuracy utility pass-three proposals and executions remain unchanged and inadequate; exact report-trace verification passes"
+      ,"current-manifest deterministic control passes 171 attempts all 136 Boolean gates utility and pass-three 1.0 zero attack success zero model calls and an exact 261-event trace"
+      ,"the independent three-configuration validator binds exact report and trace identities and applies the frozen rule: v3 development parse improves by 0.5053763440860215 with no held-out policy or proposal or terminal attack regression"
+      ,"v3 is selected only as optional experimental-remediate; diagnosis accuracy benign utility and pass-three do not improve, completion tokens increase by 584, broad Pareto is not claimed, and deterministic-control-v2 remains the product default"
+      ,"the complete post-selection suite passes 80 tests in 83.820 seconds and all 37 phase-correct side-effect-free validators; the corrected comparison-field and validator-orchestration failures are retained"
+      ,"selection seal a77904b7e565bf9548a27e0e0e9d80c523499cb4 is public and exact across four ref views and all seventeen changed GitHub tree entries"
+      ,"the dependency-free 43-entry v0.0.30 package contract and inherited 46-check container-runtime-v10 contract validate exact in current and versioned forms, while archive checksum container receipt and v0.0.30 image remain absent"
+      ,"the final 143-file manifest verifies at 17202 bytes and SHA-256 bc98beca62ba13968ecfa5f8c79800c24c94a3298b3ae31270465ec7ed61ce96"
+      ,"deterministic source attempt 001 passes 57 scenarios 171 attempts all 136 Boolean gates and an exact anchored 261-event trace; latest.json is byte-identical to the retained report"
+      ,"bounded source MCP exposes exactly three diagnostic and read tools with no approval or execution authority; the authenticated API passes 131 checks and native state and telemetry inspection passes 72 checks"
+      ,"original-detail review accepts the complete 1440 by 1000 BASELINE-0030 dashboard with the authenticated external operator boundary and real infrastructure disconnected"
+      ,"the stale-evaluation API failure and eight package-freeze process failures are retained; the corrected successors change no immutable model evidence or security boundary"
+      ,"public pre-build commit dda0c347c108a78ac0afe279f09bc074c73579e9 and tree d5b70d325cc221f10beb4542273856ce7459caeb are exact across local explicit tracking ls-remote GitHub ref API public visibility and all 42 changed remote tree entries"
+      ,"the first public verification wrapper retained a stale local tracking ref before an explicit exact-branch fetch; live public state was already correct and no product or evidence byte changed"
+      ,"two independent and one canonical 43-entry v0.0.30 zipapps are byte-identical at 646081 bytes and SHA-256 b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf"
+      ,"fresh source and package runs each pass 57 scenarios 171 attempts all 136 Boolean gates and an exact anchored 261-event trace; replacing only seventeen contract-declared launch-varying leaf keys makes the complete reports byte-identical at normalized SHA-256 51b921cea84f8b7ac2b51af9402f3b253d69d265bc4c83a0ef08e1d8b4a56533"
+      ,"both MCP surfaces expose exactly three diagnostic and read tools with no approval or execution tool; both authenticated APIs pass 131 checks and both native inspections pass 72 checks with exact semantics outside separately retained launch identities"
+      ,"original-detail review accepts both complete 1440 by 1000 dashboards with all 35 metrics two persisted incident rows authenticated external operator and real infrastructure disconnected"
+      ,"the post-surface gate passes 80 tests in 137.620 seconds 37 phase-correct validators in 12.395 seconds package and trace validators compilation milestone validation diff checks 937 nonempty JSON documents 28258 JSONL records and bounded credential model and PNG scans"
+      ,"the invalid package-source preflight validator-wrapper parser-wrapper broad credential-scan staging-wrapper and pre-push-wrapper attempts are retained and excluded from positive evidence; no container image was built"
+      ,"public package/source payload commit 27e9bb1a8467d2cc601ba5d10ba8e629b896e3fe and tree d9f3415568850314caeeaa89656b98197c734dd3 are exact across local explicit tracking live ls-remote GitHub ref API public visibility and all 28 changed Git tree entries"
+      ,"the first public package/source verification retained a stale local tracking ref while all live public views and 28 entries were already exact; an explicit branch fetch reconciled local reference state without changing product bytes"
+      ,"public reconciliation receipt commit dc5e72594b7919dbd75bf4d66f35615551ace900 is exact across four refs and all nine changed entries and opens the frozen local-only container-runtime-v10 gate"
+      ,"two full local builds and one exact public-clean-clone build reproduce image ID sha256:793cc009835350972ac30215cbdad2fb73f3802d47982d3bfddbd49af633fea3; the clone starts clean at dc5e72594b7919dbd75bf4d66f35615551ace900 with no object alternates"
+      ,"canonical container-runtime-v10 validates 46 of 46 checks including exact source/package metric projections model-contract selection bounded MCP authenticated API approval and executor state telemetry hardening scan and clean-clone identity"
+      ,"the container evaluation passes 57 scenarios 171 attempts all 136 Boolean gates and an independently verified anchored 261-event trace; its complete 1440 by 1000 dashboard passes original-detail review"
+      ,"Docker Scout structured SARIF contains zero critical or high findings; bounded scans find zero high-specificity credentials raw approval tokens or repository model artifacts; no image was exported pushed published or redistributed"
+      ,"the post-container gate passes 80 tests in 141.559 seconds all 37 phase-correct validators in 10.036 seconds archive and three trace validators the 143-file manifest governed milestone compilation diff checks 946 nonempty JSON documents and 28519 JSONL records"
+      ,"canonical container-evidence commit 77efe4eb85dd213b087cf6ad4e8de4aa502c0c13 and tree 9cc0c34cd8f8251c5d81ecbfeb6068d9df4033bb are exact across local tracking ls-remote GitHub ref API public visibility and all 17 changed Git blob identities and sizes"
+      ,"anonymous credential-free retrieval by immutable commit URL verifies all 17 changed public files by byte length and SHA-256 after retaining one pre-network missing-assembly wrapper failure"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "BASELINE-0030 UNIT-004 passes. Exact public package/source reconciliation dc5e72594b7919dbd75bf4d66f35615551ace900, canonical container evidence 77efe4eb85dd213b087cf6ad4e8de4aa502c0c13, and public completion-receipt head fcc76ad299b6996ec63db4014a388e69d73d65f3 reconcile; all 46 container checks pass at local image ID sha256:793cc009835350972ac30215cbdad2fb73f3802d47982d3bfddbd49af633fea3 with no image export, push, publication, or redistribution.",
+    "next_action": "Publish and verify the retained premerge-orientation evidence and bounded stale-pointer correction, then audit the resulting exact public candidate head. Change draft readiness and begin exact review only if that audit verifies without a release-blocking finding.",
+    "do_not_carry_forward": [
+      "any prompt model runtime parser-acceptance retrieval decision-context scenario terminal policy approval executor authority dependency secret external asset or real-infrastructure change",
+      "any test-split tuning raw model-output retention or inference that syntactic validity equals diagnostic correctness",
+      "any model tool credential approval token final execution authority or deterministic-default promotion",
+      "any container image export registry authentication push publication or redistribution",
+      "any rewrite or deletion of failed stale blocked corrected superseded excluded or unfavorable evidence",
+      "any production model-utility universal-safety or perpetual-CVE claim"
+    ]
+  }
+}

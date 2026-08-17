@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-16T04:06:05Z",
+  "status": "retained_verification_failure",
+  "classification": "stale local remote-tracking reference",
+  "observation": "The first public package/source verification found live ls-remote and the GitHub ref API at 27e9bb1a8467d2cc601ba5d10ba8e629b896e3fe, public visibility exact, and all 28 changed Git tree entries exact, while refs/remotes/origin/codex/baseline-0030-model-output-contract-conformance still named 4e1d8384d5f73f9d4c554529fca76e2205809438.",
+  "local_head": "27e9bb1a8467d2cc601ba5d10ba8e629b896e3fe",
+  "local_tree": "d9f3415568850314caeeaa89656b98197c734dd3",
+  "live_public_head": "27e9bb1a8467d2cc601ba5d10ba8e629b896e3fe",
+  "matched_remote_entries": 28,
+  "remote_tree_truncated": false,
+  "product_mutation": "none",
+  "correction": "Fetch only the exact public branch into its explicit local remote-tracking ref, then repeat all four ref and 28-entry comparisons.",
+  "positive_evidence_use": "none",
+  "release_effect": "Public package/source reconciliation remains unclaimed until the successor verification passes."
+}

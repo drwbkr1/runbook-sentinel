@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0030-package-source-gate-public-20260816T040802Z",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-16T04:08:02Z",
+  "status": "pass",
+  "repository": "https://github.com/drwbkr1/runbook-sentinel",
+  "visibility": "public",
+  "branch": "codex/baseline-0030-model-output-contract-conformance",
+  "payload_commit": "27e9bb1a8467d2cc601ba5d10ba8e629b896e3fe",
+  "payload_tree": "d9f3415568850314caeeaa89656b98197c734dd3",
+  "product_commit": "35a0f18f8e9cf54a56cec0eded620397a98f992f",
+  "product_tree": "f02c43956fd2852d8ad5c1f3804b4e2838af777a",
+  "four_ref_identity": {
+    "local_head": "27e9bb1a8467d2cc601ba5d10ba8e629b896e3fe",
+    "explicit_remote_tracking": "27e9bb1a8467d2cc601ba5d10ba8e629b896e3fe",
+    "live_ls_remote": "27e9bb1a8467d2cc601ba5d10ba8e629b896e3fe",
+    "github_ref_api": "27e9bb1a8467d2cc601ba5d10ba8e629b896e3fe",
+    "exact": true
+  },
+  "remote_tree": {
+    "changed_from_commit": "4e1d8384d5f73f9d4c554529fca76e2205809438",
+    "changed_path_count": 28,
+    "matched_path_count": 28,
+    "mismatches": [],
+    "github_tree_truncated": false
+  },
+  "package_source_receipt": {
+    "path": "artifacts/verification/package-source-baseline-0030.json",
+    "bytes": 10454,
+    "sha256": "5490c6e2d5b7486b450e4c15940ad1b5a2cf79547793188e84e3190e70d8adbc",
+    "git_blob": "daf8f9244829e72273c9f5f82776e83fc4998ae1",
+    "remote_exact": true
+  },
+  "artifact_scan": {
+    "path": "artifacts/verification/artifact-scan-baseline-0030-package-phase.json",
+    "bytes": 3807,
+    "sha256": "2ea05b0fd29b69d8bee5be1d80db44514ca6d1177311a9d14c94c877d0c4e618",
+    "git_blob": "ba66ca941135d3ee8159d068fb0313730fc2782d",
+    "remote_exact": true
+  },
+  "archive": {
+    "path": "dist/runbook-sentinel-0.0.30.pyz",
+    "bytes": 646081,
+    "sha256": "b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf",
+    "git_blob": "08f5f9becc24bddaff642962015745b78a5a9ca2",
+    "remote_exact": true
+  },
+  "checksum": {
+    "path": "dist/runbook-sentinel-0.0.30.pyz.sha256",
+    "bytes": 94,
+    "sha256": "5a27247f2757b44ad8c6d6d46efe8bf4ff984e62f76d085fb36696758e6f92b8",
+    "git_blob": "afac095d51b9a3fad2c501a90102419fa11f6655",
+    "remote_exact": true
+  },
+  "retained_first_verification_failure": "artifacts/verification/baseline-0030-package-source-public-verification-failure-001.json",
+  "container_state": {
+    "baseline_0030_image_count": 0,
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false
+  },
+  "claim_scope": "Exact public branch package/source payload only. This is not container, clean-clone, review, merge, tag, release, production, universal-safety, or broad Pareto evidence.",
+  "authorized_next_action": "Commit and publish this reconciliation receipt and living-record update. After that exact commit is remotely verified, run the frozen local-only container-runtime-v10 workflow without exporting, pushing, publishing, or redistributing an image."
+}

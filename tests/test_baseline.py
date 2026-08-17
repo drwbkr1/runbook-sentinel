@@ -114,7 +114,7 @@ class BaselineTest(unittest.TestCase):
         self.temp.cleanup()
 
     def test_container_v4_build_command_is_frozen_and_local_only(self):
-        tag = "runbook-sentinel:baseline-0029-test"
+        tag = "runbook-sentinel:baseline-0030-test"
         command = build_command(tag)
         self.assertEqual(command[:3], ["docker", "buildx", "build"])
         self.assertNotIn("--load", command)
@@ -126,22 +126,27 @@ class BaselineTest(unittest.TestCase):
         self.assertIn("--sbom=false", command)
         self.assertEqual(
             command[command.index("--output") + 1],
-            "type=image,name=runbook-sentinel:baseline-0029-test,"
+            "type=image,name=runbook-sentinel:baseline-0030-test,"
             "rewrite-timestamp=true,unpack=false,store=true,push=false",
         )
-        self.assertEqual(SOURCE_DATE_EPOCH, "1786823292")
-        self.assertEqual(SOURCE_DATE_EPOCH_UTC, "2026-08-15T19:48:12Z")
+        self.assertEqual(SOURCE_DATE_EPOCH, "1786839650")
+        self.assertEqual(SOURCE_DATE_EPOCH_UTC, "2026-08-16T00:20:50Z")
         self.assertEqual(EXPECTED_BUILDER["buildkit"], "0.29.0")
 
-    def test_container_v9_prerequisite_requires_current_implementation_phase(self):
+    def test_container_v10_prerequisite_requires_current_implementation_phase(self):
         contract = {
             "status": "pass",
-            "implementation_phase": "implemented_v9",
+            "implementation_phase": "implemented_v10",
         }
         manifest = {"status": "pass"}
         package = {"status": "pass"}
+        model_selection = {
+            "status": "pass",
+            "product_default": "deterministic-control-v2",
+            "selected_optional_model_contract": "ollama-loopback-structured-sre-v3-diagnosis-pattern",
+        }
         evaluation = {
-            "checkpoint": "baseline-0029",
+            "checkpoint": "baseline-0030",
             "gates": {"baseline_disposition": "pass"},
         }
 
@@ -155,18 +160,29 @@ class BaselineTest(unittest.TestCase):
 
         with mock.patch(
             "scripts.verify_container_runtime.run",
-            side_effect=[completed(contract), completed(manifest), completed(package)],
+            side_effect=[
+                completed(contract),
+                completed(manifest),
+                completed(package),
+                completed(model_selection),
+            ],
         ), mock.patch(
             "scripts.verify_container_runtime.sha256_file",
             return_value="0" * 64,
         ):
             result = validate_prerequisites(evaluation)
         self.assertTrue(result["checks"]["container_contract"])
+        self.assertTrue(result["checks"]["model_selection"])
 
-        contract["implementation_phase"] = "implemented_v8"
+        contract["implementation_phase"] = "implemented_v9"
         with mock.patch(
             "scripts.verify_container_runtime.run",
-            side_effect=[completed(contract), completed(manifest), completed(package)],
+            side_effect=[
+                completed(contract),
+                completed(manifest),
+                completed(package),
+                completed(model_selection),
+            ],
         ), mock.patch(
             "scripts.verify_container_runtime.sha256_file",
             return_value="0" * 64,
@@ -213,6 +229,10 @@ class BaselineTest(unittest.TestCase):
         )
         self.assertIn(
             "container_retrieval_quality_metric_exact",
+            contract["verification_contract"]["required_checks"],
+        )
+        self.assertIn(
+            "container_model_contract_selection_exact",
             contract["verification_contract"]["required_checks"],
         )
 
@@ -366,7 +386,7 @@ class BaselineTest(unittest.TestCase):
         )
         self.assertFalse(local_content_digest_matches_image_id({"Id": image_id, "RepoDigests": []}))
 
-        tags = ["runbook-sentinel:baseline-0029-a-test", "runbook-sentinel:baseline-0029-b-test"]
+        tags = ["runbook-sentinel:baseline-0030-a-test", "runbook-sentinel:baseline-0030-b-test"]
         events = [
             {
                 "Action": "tag",
@@ -1120,7 +1140,7 @@ class BaselineTest(unittest.TestCase):
         server = MCPServer(self.service)
         initialized = server.handle({"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
         self.assertEqual(initialized["result"]["protocolVersion"], "2025-11-25")
-        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.29")
+        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.30")
         listed = server.handle({"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         self.assertEqual({tool["name"] for tool in listed["result"]["tools"]}, names)
         called = server.handle(
@@ -1388,7 +1408,7 @@ class BaselineTest(unittest.TestCase):
                 )
                 self.assertIn("frame-ancestors 'none'", response.headers["Content-Security-Policy"])
             with urlopen(f"http://127.0.0.1:{server.server_port}/health") as response:
-                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0029")
+                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0030")
             with urlopen(
                 f"http://127.0.0.1:{server.server_port}/api/evaluation"
             ) as response:
@@ -1414,27 +1434,27 @@ class BaselineTest(unittest.TestCase):
     def test_live_api_verifier_requires_current_dashboard_checkpoint(self):
         verifier = (ROOT / "scripts/verify_live_api.ps1").read_text(encoding="utf-8")
         self.assertIn(
-            "dashboard_baseline_0029 = $dashboardResponse.Content.Contains('Baseline 0029')",
+            "dashboard_baseline_0030 = $dashboardResponse.Content.Contains('Baseline 0030')",
             verifier,
         )
         self.assertIn(
-            "dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0029",
+            "dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0030",
             verifier,
         )
         self.assertNotIn("dashboard_baseline_0027 =", verifier)
 
-    def test_container_v9_verifier_requires_current_dashboard_checkpoint(self):
+    def test_container_v10_verifier_requires_current_dashboard_checkpoint(self):
         runtime = (ROOT / "scripts/verify_container_runtime.py").read_text(encoding="utf-8")
         validator = (ROOT / "scripts/verify_container_contract.py").read_text(encoding="utf-8")
-        self.assertIn('b"Baseline 0029" in dashboard_raw', runtime)
-        self.assertNotIn('b"Baseline 0028" in dashboard_raw', runtime)
-        self.assertIn("'b\"Baseline 0028\" in dashboard_raw' not in runtime_text", validator)
+        self.assertIn('b"Baseline 0030" in dashboard_raw', runtime)
+        self.assertNotIn('b"Baseline 0029" in dashboard_raw', runtime)
+        self.assertIn("'b\"Baseline 0029\" in dashboard_raw' not in runtime_text", validator)
 
-    def test_container_v9_retrieval_quality_projection_fails_closed(self):
+    def test_container_v10_retrieval_quality_projection_fails_closed(self):
         report = json.loads(
             (
                 ROOT
-                / "artifacts/evaluations/runs/baseline-0029-attempt-001.json"
+                / "artifacts/evaluations/runs/baseline-0030-control-attempt-001.json"
             ).read_text(encoding="utf-8")
         )
         self.assertTrue(retrieval_quality_metric_exact(report))
@@ -1711,7 +1731,7 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["coverage"]["missing_condition_split_pairs"], [])
         self.assertEqual(report["metrics"]["coverage"]["missing_adversarial_splits"], [])
         self.assertEqual(report["schema_version"], "3.4")
-        self.assertEqual(report["checkpoint"], "baseline-0029")
+        self.assertEqual(report["checkpoint"], "baseline-0030")
         self.assertEqual(report["metrics"]["proposal"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["development"]["tool_trajectory"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["test"]["tool_trajectory"]["exact_match"], 1.0)

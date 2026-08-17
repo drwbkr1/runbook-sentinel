@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "implementation-baseline-0030-local-20260816T000150Z",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-002",
+  "recorded_at_utc": "2026-08-16T00:01:50Z",
+  "status": "local-pass-awaiting-public-seal",
+  "public_preimplementation_freeze_commit": "f82e301d984548d5354d8093e245c17fe0419a1f",
+  "public_preimplementation_reconciliation_commit": "9b2d1da46863b3b8637a536a987f5b658451a60f",
+  "public_phase_aware_correction_commit": "0a49729f28fa28f06fcbae0878e1d3558ea47abc",
+  "public_phase_aware_correction_tree": "7d7386fc6b0f95966ed9a08b9f04dbd07cdbc429",
+  "implementation": {
+    "runtime_path": "eval/model-contract.json",
+    "bytes": 4712,
+    "sha256": "8718971a9e54320603c08d9f31957bd5dabee0e50944925f588f74e5915defda",
+    "object_sha256": "4cd479f0255d88cceb4cd78afd5194426ae7e55233746ff95351ea5f338beb0c",
+    "expected_target_object_sha256": "4cd479f0255d88cceb4cd78afd5194426ae7e55233746ff95351ea5f338beb0c",
+    "schema_version": "1.2",
+    "checkpoint": "baseline-0030",
+    "contract_id": "ollama-loopback-structured-sre-v3-diagnosis-pattern",
+    "diagnosis_code_pattern": "^[a-z][a-z0-9_]{0,79}$",
+    "only_changed_object_paths": [
+      "$.checkpoint",
+      "$.contract_id",
+      "$.output_schema.properties.diagnosis_code.pattern",
+      "$.schema_version"
+    ]
+  },
+  "preserved_legacy": {
+    "path": "eval/model-contract-0018-v2.json",
+    "bytes": 4657,
+    "sha256": "b5ed65aff647087344a6f9781e565483940f01563c678a3fcc97f7e55500eafd"
+  },
+  "unchanged_frozen_boundaries": {
+    "model_adapter_sha256": "a769b4b8f871eff813562e6149aef6adbf74ded15037fe8c004a64d98e154ec4",
+    "agent_sha256": "b04ac41d48708028733a31ff2d8b11a6f7f109a17f1f52f6f9ca273a171579e6",
+    "policy_sha256": "1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa",
+    "scenario_catalog_sha256": "f9e3fb24bf1cb74487796de0cd7c78b3594fa9fc46d1cacb957f755c0ca8a242",
+    "scenario_count": 57,
+    "development_count": 31,
+    "test_count": 26,
+    "trials_per_case": 3,
+    "runtime_model_prompt_options_changed": false,
+    "parser_acceptance_changed": false,
+    "retrieval_or_decision_context_changed": false,
+    "scenario_or_terminal_state_changed": false,
+    "policy_approval_executor_or_authority_changed": false,
+    "tools_credentials_or_secrets_added": false,
+    "deterministic_product_default_changed": false
+  },
+  "validation": {
+    "model_output_conformance_validator": "pass",
+    "focused_tests_passed": 5,
+    "full_tests_passed": 76,
+    "full_tests_failed": 0,
+    "full_tests_elapsed_seconds": 87.015,
+    "non_manifest_side_effect_free_validators_passed": 35,
+    "predecessor_manifest": {
+      "status": "expected_mismatch",
+      "only_mismatched_path": "eval/model-contract.json",
+      "expected_sha256": "b5ed65aff647087344a6f9781e565483940f01563c678a3fcc97f7e55500eafd",
+      "actual_sha256": "8718971a9e54320603c08d9f31957bd5dabee0e50944925f588f74e5915defda",
+      "evidence": "artifacts/verification/baseline-0030-implementation-probe-failures-001.json"
+    },
+    "source_gate": "ready",
+    "milestone": "valid-active",
+    "compileall": "pass",
+    "nonempty_json_files_parsed": 893,
+    "empty_json_files_reported": 1,
+    "bom_json_files_reported": 14,
+    "jsonl_files_parsed": 149,
+    "jsonl_records_parsed": 26865,
+    "git_diff_check": "pass",
+    "changed_content_high_specificity_secret_hits": 0,
+    "changed_model_artifacts": 0,
+    "post_receipt_full_regression": {
+      "status": "pass",
+      "passed": 76,
+      "failed": 0,
+      "elapsed_seconds": 86.365
+    }
+  },
+  "sealed_files_excluding_this_receipt": [
+    {"path": "CHANGELOG.md", "bytes": 71922, "sha256": "3b7bf28ec84e798c67a926333d5e14ff3d3c7b728ff9910b21634f55a755b1c7"},
+    {"path": "artifacts/verification/baseline-0030-implementation-probe-failures-001.json", "bytes": 1558, "sha256": "17d1df84b71abb80cb23623d6f86cba7ac4befb30d8e79b33c12e3c01d39fdbc"},
+    {"path": "artifacts/verification/baseline-0030-preimplementation-harness-correction.json", "bytes": 2083, "sha256": "231c258568cca02f78b6fda7c8a508367570069be617894a34b6d7b4414e4bd4"},
+    {"path": "contracts/milestone-0030.json", "bytes": 14858, "sha256": "bf91464e74d1d46b2d3da3310f7ea12748ea3f5bab895c792ab9456f6e665147"},
+    {"path": "docs/devlog.md", "bytes": 361441, "sha256": "0a8ad94068048ea269f533c08ffb3480a58e9d22be086869a055c9da4520d8d9"},
+    {"path": "docs/evaluation-contract.md", "bytes": 42370, "sha256": "25a86cddeda23b50436498be60a56d2684c65f8a4952839f3a154061a5aa6945"},
+    {"path": "docs/evaluation-report.md", "bytes": 161205, "sha256": "32b59b8147841ded94e55057ed47cb189ed1812664f869eaf126d97a325678fd"},
+    {"path": "docs/roadmap.md", "bytes": 61506, "sha256": "835698ce924c0d0cb3ce23c4d8c68ff34c87061e4ded72addd4a45d7f0b534c2"},
+    {"path": "docs/status.md", "bytes": 232816, "sha256": "dec95c87ed8be18ab6369347832fc5d75ae1560afa73cc75a8fc4bb48667d967"},
+    {"path": "docs/threat-model.md", "bytes": 15033, "sha256": "5b1d127a560757106ed6bd2d81aa42371fc45ef413ddb58de4858e95d829011a"},
+    {"path": "eval/model-contract.json", "bytes": 4712, "sha256": "8718971a9e54320603c08d9f31957bd5dabee0e50944925f588f74e5915defda"}
+  ],
+  "candidate_boundary": {
+    "baseline_0030_model_call_count": 0,
+    "baseline_0030_candidate_report_count": 0,
+    "successor_manifest_created": false,
+    "v0_0_30_archive_count": 0,
+    "baseline_0030_image_count": 0,
+    "reason": "UNIT-003 remains closed until this exact implementation seal is public and remotely verified."
+  },
+  "external_actions": {
+    "new_source_accessed": false,
+    "new_asset_imported": false,
+    "secret_added": false,
+    "paid_service_added": false,
+    "real_infrastructure_contacted": false,
+    "container_image_exported_or_published": false
+  },
+  "next_gate": "Commit and push this exact UNIT-002 implementation seal, verify public branch identity and critical bytes, then publish a reconciliation receipt before either 171-call model comparison."
+}

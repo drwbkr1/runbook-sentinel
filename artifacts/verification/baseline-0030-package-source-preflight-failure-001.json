@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-16T03:14:20Z",
+  "status": "retained_process_failure",
+  "classification": "read-only preflight expression error",
+  "observation": "The first parallel source/package evaluation launch used Test-Path -LiteralPath <path> -or Test-Path -LiteralPath <path>. PowerShell parsed -or as an invalid Test-Path argument, so both guards stopped before either evaluation process started.",
+  "mutation": "none; neither command reached the evaluator and neither requested output path existed",
+  "correction": "The corrected guards evaluate each parenthesized Test-Path expression separately, confirm both final report paths are absent, and then launch the source and packaged evaluators independently.",
+  "corrected_result": {
+    "source_report": "artifacts/evaluations/runs/baseline-0030-final-source-attempt-001.json",
+    "source_status": "pass",
+    "package_report": "artifacts/evaluations/runs/baseline-0030-final-package-attempt-001.json",
+    "package_status": "pass"
+  },
+  "product_effect": "none",
+  "release_effect": "The failed wrapper is excluded from positive evidence and retained. No container image existed or was built during this failure."
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "observed_at_utc": "2026-08-15T23:47:10Z",
+  "disposition": "bounded-validation-correction",
+  "public_freeze": {
+    "content_commit": "f82e301d984548d5354d8093e245c17fe0419a1f",
+    "reconciliation_commit": "9b2d1da46863b3b8637a536a987f5b658451a60f",
+    "all_remote_refs_and_changed_tree_entries_exact": true
+  },
+  "defect": {
+    "path": "tests/test_model_output_conformance_contract.py",
+    "test": "test_preimplementation_contract_passes",
+    "description": "The test always invoked the validator in preimplementation mode. After the exact four-path target landed, it would reject implementation presence by design and make a correct implementation unable to pass the full suite.",
+    "observed_before_runtime_change": true,
+    "runtime_or_model_contract_changed": false
+  },
+  "correction": {
+    "description": "Select validator mode from exact equality between the active contract and the byte-preserved v2 archive, then require the matching phase label.",
+    "changes_frozen_target": false,
+    "changes_validator_acceptance": false,
+    "changes_product_runtime": false,
+    "changes_security_or_authority": false,
+    "changed_paths": ["tests/test_model_output_conformance_contract.py", "project evidence and living records"]
+  },
+  "gates": {
+    "active_model_contract_still_v2": true,
+    "focused_tests_pass": "pass",
+    "full_tests_pass": "pass",
+    "full_tests_passed": 76,
+    "full_tests_elapsed_seconds": 84.407,
+    "project_validators_pass": "pass",
+    "project_validators_passed": 36,
+    "public_correction_seal_verified": "pass",
+    "public_correction_commit": "0a49729f28fa28f06fcbae0878e1d3558ea47abc",
+    "public_correction_tree": "7d7386fc6b0f95966ed9a08b9f04dbd07cdbc429",
+    "local_tracking_ls_remote_and_github_ref_exact": true,
+    "changed_remote_tree_entries_exact": 7
+  },
+  "authorized_next_action": "Implement only the four frozen eval/model-contract.json object paths, pass the implementation gate, and publish the exact implementation seal before any model call."
+}

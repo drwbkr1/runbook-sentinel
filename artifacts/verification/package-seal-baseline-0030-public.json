@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0030-package-seal-public-20260816T025636Z",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-16T02:56:36Z",
+  "status": "pass",
+  "repository": "https://github.com/drwbkr1/runbook-sentinel",
+  "visibility": "public",
+  "branch": "codex/baseline-0030-model-output-contract-conformance",
+  "public_commit": "dda0c347c108a78ac0afe279f09bc074c73579e9",
+  "public_tree": "d5b70d325cc221f10beb4542273856ce7459caeb",
+  "refs": {
+    "local_head": "dda0c347c108a78ac0afe279f09bc074c73579e9",
+    "explicit_remote_tracking": "dda0c347c108a78ac0afe279f09bc074c73579e9",
+    "ls_remote": "dda0c347c108a78ac0afe279f09bc074c73579e9",
+    "github_ref_api": "dda0c347c108a78ac0afe279f09bc074c73579e9",
+    "exact": true
+  },
+  "remote_tree": {
+    "recursive_tree_complete": true,
+    "changed_entry_count": 42,
+    "exact_git_blob_and_size_count": 42,
+    "mismatch_count": 0
+  },
+  "critical_public_bytes": [
+    {
+      "path": "artifacts/verification/package-seal-baseline-0030-local.json",
+      "bytes": 6281,
+      "sha256": "f85810b5bcfafe42b9fee40150559e2e23a67fbc30eadc6de7fbf4fa23077092"
+    },
+    {
+      "path": "eval/manifest.json",
+      "bytes": 17202,
+      "sha256": "bc98beca62ba13968ecfa5f8c79800c24c94a3298b3ae31270465ec7ed61ce96"
+    },
+    {
+      "path": "eval/package-contract.json",
+      "bytes": 16980,
+      "sha256": "956e2b945f4ca4848e5209fac806f7eda310e214e4abeb75959a47660a2e7300"
+    },
+    {
+      "path": "eval/container-contract.json",
+      "bytes": 11889,
+      "sha256": "8ab929384c6e0b7b6a60554430bf0759a5b0cbb0130b597638fe17e779733d67"
+    },
+    {
+      "path": "artifacts/evaluations/runs/baseline-0030-attempt-001.json",
+      "bytes": 953866,
+      "sha256": "6151b9b06c1ef16d20dc466969c337acb21efeb366531e1d63fb33d72ced87be"
+    },
+    {
+      "path": "artifacts/evaluations/runs/baseline-0030-attempt-001.traces.jsonl",
+      "bytes": 195296,
+      "sha256": "007882ed14c3b40060142083ab617ca50105c0b27979cca3908eebe34ce54b7c"
+    },
+    {
+      "path": "artifacts/verification/source-real-surfaces-baseline-0030-local.json",
+      "bytes": 4000,
+      "sha256": "0ec7c69e566617fe3337543827b6f7e56aa96fc7ba80dc90df5d564dea2a8046"
+    },
+    {
+      "path": "artifacts/verification/native-baseline-0030.json",
+      "bytes": 12476,
+      "sha256": "dfca68b8b5e125911dd38a234416db9eba8ba35a1ffb8b589f5ca69430f0b378"
+    },
+    {
+      "path": "artifacts/verification/dashboard-baseline-0030.png",
+      "bytes": 101887,
+      "sha256": "3003bb58eb0f75d7f43a9a0125a381742b8e841d158e53b4177087d37e846592"
+    },
+    {
+      "path": "artifacts/verification/baseline-0030-package-freeze-process-failures-001.json",
+      "bytes": 4146,
+      "sha256": "5084d205eb6e12e227bd2c54dd4d4bb02f20da74cbef5feb551d541cbdd41ae2"
+    },
+    {
+      "path": "artifacts/verification/baseline-0030-source-live-api-stale-evaluation-failure-001.json",
+      "bytes": 1469,
+      "sha256": "4bcfe2b79062cc8c92ca332594ec5fa5c9f436e5ae5596c1c9d2c47f0fc35d5d"
+    }
+  ],
+  "public_gate": {
+    "package_contract_frozen": true,
+    "container_contract_frozen": true,
+    "final_manifest_frozen": true,
+    "deterministic_source_candidate_pass": true,
+    "source_real_surfaces_pass": true,
+    "archive_absent_at_publication": true,
+    "checksum_absent_at_publication": true,
+    "container_receipt_absent_at_publication": true,
+    "v0_0_30_local_image_count_at_reconciliation": 0,
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false
+  },
+  "retained_first_wrapper_failure": "artifacts/verification/baseline-0030-prebuild-public-verification-failure-001.json",
+  "authorized_next_action": "Build two independent v0.0.30 zipapps from this exact public pre-build checkpoint, verify byte identity and the package contract, then run source/package evaluation and real-surface parity before any container build."
+}

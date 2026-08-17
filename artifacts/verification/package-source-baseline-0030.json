@@ -1,0 +1,251 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "package-source-baseline-0030-20260816T032614Z",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-16T03:26:14Z",
+  "status": "pass",
+  "public_input": {
+    "repository": "https://github.com/drwbkr1/runbook-sentinel",
+    "branch": "codex/baseline-0030-model-output-contract-conformance",
+    "prebuild_commit": "dda0c347c108a78ac0afe279f09bc074c73579e9",
+    "prebuild_reconciliation_commit": "4e1d8384d5f73f9d4c554529fca76e2205809438",
+    "public_remote_exact": true,
+    "manifest_sha256": "bc98beca62ba13968ecfa5f8c79800c24c94a3298b3ae31270465ec7ed61ce96",
+    "package_contract_sha256": "956e2b945f4ca4848e5209fac806f7eda310e214e4abeb75959a47660a2e7300",
+    "container_contract_sha256": "8ab929384c6e0b7b6a60554430bf0759a5b0cbb0130b597638fe17e779733d67"
+  },
+  "archive": {
+    "path": "dist/runbook-sentinel-0.0.30.pyz",
+    "bytes": 646081,
+    "sha256": "b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf",
+    "checksum_path": "dist/runbook-sentinel-0.0.30.pyz.sha256",
+    "checksum_bytes": 94,
+    "checksum_sha256": "5a27247f2757b44ad8c6d6d46efe8bf4ff984e62f76d085fb36696758e6f92b8",
+    "entry_count": 43,
+    "duplicate_entries": 0,
+    "zip_test_error": null,
+    "runtime_dependencies": [],
+    "package_contract_status": "pass",
+    "independent_build_root": "C:/Projects/Verification/runbook-sentinel-baseline-0030-package",
+    "build_a": {
+      "path": "runbook-sentinel-0.0.30-build-a.pyz",
+      "bytes": 646081,
+      "sha256": "b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf"
+    },
+    "build_b": {
+      "path": "runbook-sentinel-0.0.30-build-b.pyz",
+      "bytes": 646081,
+      "sha256": "b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf"
+    },
+    "three_way_byte_identity": true
+  },
+  "evaluation": {
+    "source_report": {
+      "path": "artifacts/evaluations/runs/baseline-0030-final-source-attempt-001.json",
+      "bytes": 954029,
+      "sha256": "caf016718aefd9bb0400b8671e836d71ba057537fa547ec18a6a0df2685b0c74"
+    },
+    "source_trace": {
+      "path": "artifacts/evaluations/runs/baseline-0030-final-source-attempt-001.traces.jsonl",
+      "bytes": 195377,
+      "sha256": "eabd2f2519a88af5f76d5145b4a848f8aa1728126bbb58ab0795bef48bc1f314",
+      "events": 261,
+      "final_event_sha256": "334e602a76f3a019ff5a575f55abb398b6aa7447ac0dd82dd54aea3a75b33b07",
+      "valid": true,
+      "anchored": true
+    },
+    "package_report": {
+      "path": "artifacts/evaluations/runs/baseline-0030-final-package-attempt-001.json",
+      "bytes": 954008,
+      "sha256": "a66799274953d81e7b9461ab286162bfe6580f012ea3f4cf1379740be4c512cb"
+    },
+    "package_trace": {
+      "path": "artifacts/evaluations/runs/baseline-0030-final-package-attempt-001.traces.jsonl",
+      "bytes": 195364,
+      "sha256": "e5e494c1371cbd5d38e99978efe7492f8a2da64f4526adeaad3c78e85eaf2c34",
+      "events": 261,
+      "final_event_sha256": "64a1976a288aec26ad1b9af9ff0fddf9fe6d1d8fc2bd7ae551aa911b18a1a66a",
+      "valid": true,
+      "anchored": true
+    },
+    "latest_sha256": "caf016718aefd9bb0400b8671e836d71ba057537fa547ec18a6a0df2685b0c74",
+    "latest_is_byte_identical_to_source_report": true,
+    "configuration": {
+      "agent": "deterministic-control-v2",
+      "retriever": "freshness-priority-lexical-v3",
+      "decision_context": "fresh-content-stale-metadata-context-v3"
+    },
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "boolean_gates": {
+      "true": 136,
+      "false": 0
+    },
+    "retrieval_quality": {
+      "expected_document_share_mean": 0.683006535948,
+      "attempts_with_extra_documents_rate": 0.56862745098,
+      "guidance_first_rank_attempt_count": {
+        "not_retrieved": 6,
+        "rank_1": 6,
+        "rank_2": 45,
+        "rank_3_4": 9
+      },
+      "inband_first_rank_attempt_count": {
+        "not_retrieved": 0,
+        "rank_1": 24,
+        "rank_2": 0,
+        "rank_3_4": 0
+      },
+      "cross_trial_rank_bucket_ambiguity_count": 0,
+      "populated_bucket_policy_compliance_rate": 1.0,
+      "populated_bucket_proposal_attack_success_rate": 0.0,
+      "populated_bucket_terminal_attack_success_rate": 0.0
+    },
+    "raw_leaf_difference_count": 407,
+    "declared_runtime_varying_leaf_keys": [
+      "latency_ms",
+      "diagnosis_latency_ms",
+      "state_after_approval_sha256",
+      "state_before_sha256",
+      "trace_sha256_after",
+      "database_sha256_after",
+      "trace_sha256_before",
+      "database_sha256_before",
+      "operator_identity",
+      "final_event_sha256",
+      "diagnosis_median_ms",
+      "file_name",
+      "median_ms",
+      "diagnosis_p95_ms",
+      "median",
+      "p95",
+      "p95_ms"
+    ],
+    "normalized_report_bytes": 587746,
+    "normalized_report_sha256": "51b921cea84f8b7ac2b51af9402f3b253d69d265bc4c83a0ef08e1d8b4a56533",
+    "source_package_normalized_reports_exact": true,
+    "retrieval_generation_trajectory_policy_terminal_utility_security_reliability_latency_and_cost_separately_reported": true
+  },
+  "mcp": {
+    "protocol_version": "2025-11-25",
+    "server_version": "0.0.30",
+    "tool_names": [
+      "list_synthetic_scenarios",
+      "diagnose_synthetic_incident",
+      "get_synthetic_incident"
+    ],
+    "approval_or_execution_tool_exposed": false,
+    "attack_document_in_decision_context": false,
+    "source": {
+      "runtime_custody": "C:/Projects/Verification/runbook-sentinel-baseline-0030-package/source-runtime",
+      "trace_final_event_sha256": "9ff3055706449c8f779d2d2c931f3d630708045ba4d925535e203fcc7a315e0a",
+      "trace_anchor_sha256": "fe9d03673887a0c765675b659b4c94a0b3fe3ad6587be2cd542ceeed156f70c1",
+      "anchor_file_sha256": "ad03a808df9c4a5595445674fc324965994dbc9a81056fd32ffa0aeb2d12720a"
+    },
+    "package": {
+      "runtime_custody": "C:/Projects/Verification/runbook-sentinel-baseline-0030-package/package-runtime",
+      "trace_final_event_sha256": "41657342b19cc040d17c142255a7cf53c975366775520141b0540e48cc409be4",
+      "trace_anchor_sha256": "0e3e0b59e4f1c837d7a8b5d3de1db3268f994315d6cadeb3e763450fbadb0582",
+      "anchor_file_sha256": "c63f9f9d2326fa3d3929cf5fc28aca8fafea19b47f34bbbcacc54b044bc92a75"
+    },
+    "both_trace_chains_valid_and_anchored": true
+  },
+  "authenticated_api": {
+    "source_checks": "131/131",
+    "package_checks": "131/131",
+    "checks_exact": true,
+    "operator_identity_server_derived": true,
+    "authorization_approval_action_hash_idempotency_replay_and_postconditions_exact": true,
+    "known_renderer_observation": "Both Edge launches emitted the existing fallback task-provider diagnostic after writing the requested dashboard; both commands exited zero and both images passed native and visual verification."
+  },
+  "native_evidence": {
+    "source": {
+      "path": "artifacts/verification/native-source-baseline-0030.json",
+      "bytes": 12476,
+      "sha256": "65a72dd1073d7d7c0816358e7961eef7a3597d849d931556b2393b8fad02e2cb"
+    },
+    "package": {
+      "path": "artifacts/verification/native-package-baseline-0030.json",
+      "bytes": 12476,
+      "sha256": "7ab74c4d91206d5c4dd7752446dfd789c2551668713fe793e99bbf89829ac630"
+    },
+    "source_checks": "72/72",
+    "package_checks": "72/72",
+    "checks_exact": true,
+    "evaluation_projection_semantically_exact_except_companion_trace_identity": true,
+    "database_counts_and_audit_event_sequence_exact": true,
+    "logs_exact": true,
+    "launch_specific_operator_database_telemetry_and_dashboard_hashes_observed_separately": true
+  },
+  "dashboards": {
+    "source": {
+      "path": "artifacts/verification/dashboard-source-baseline-0030.png",
+      "bytes": 101530,
+      "sha256": "2f24c81e522ce5fd7221213874a473090fd7f60d1ff42bf650c4c9dc5882012c",
+      "dimensions": [1440, 1000]
+    },
+    "package": {
+      "path": "artifacts/verification/dashboard-package-baseline-0030.png",
+      "bytes": 101761,
+      "sha256": "b795a441060430856eb9d3fa65ced97aa1fdd0489439b82a2447038bf644a49e",
+      "dimensions": [1440, 1000]
+    },
+    "both_visually_inspected_at_original_detail": true,
+    "all_35_metrics_visible": true,
+    "authorization_and_execution_boundaries_visible": true,
+    "persisted_incident_header_and_two_rows_visible": true,
+    "real_infrastructure_disconnected_visible": true,
+    "clipping_observed": false
+  },
+  "post_surface_gates": {
+    "unit_tests": {
+      "passed": 80,
+      "total": 80,
+      "unittest_elapsed_seconds": 137.620,
+      "wrapper_elapsed_seconds": 138.203
+    },
+    "final_documentation_regression": {
+      "passed": 80,
+      "total": 80,
+      "unittest_elapsed_seconds": 1178.756,
+      "wrapper_elapsed_seconds": 1179.312,
+      "classification": "pass with unusually slow orchestration; not product latency evidence"
+    },
+    "standalone_validators": {
+      "passed": 37,
+      "total": 37,
+      "elapsed_seconds": 12.395
+    },
+    "source_trace_validation": "pass",
+    "package_trace_validation": "pass",
+    "source_package_contract_validation": "pass",
+    "manifest_validation": "pass with 143 files",
+    "compileall": "pass",
+    "milestone_validation": "pass with active inherited authority and no errors or warnings",
+    "git_diff_check": "pass",
+    "artifact_scan": {
+      "path": "artifacts/verification/artifact-scan-baseline-0030-package-phase.json",
+      "bytes": 3807,
+      "sha256": "2ea05b0fd29b69d8bee5be1d80db44514ca6d1177311a9d14c94c877d0c4e618",
+      "status": "pass"
+    }
+  },
+  "retained_failures": [
+    "artifacts/verification/baseline-0030-package-source-preflight-failure-001.json",
+    "artifacts/verification/baseline-0030-post-surface-validator-wrapper-failure-001.json",
+    "artifacts/verification/baseline-0030-post-surface-artifact-parse-wrapper-failure-001.json",
+    "artifacts/verification/baseline-0030-post-surface-credential-scan-scope-failure-001.json",
+    "artifacts/verification/baseline-0030-package-source-stage-wrapper-failure-001.json",
+    "artifacts/verification/baseline-0030-package-source-push-wrapper-failure-001.json"
+  ],
+  "boundaries": {
+    "synthetic_only": true,
+    "model_has_credentials": false,
+    "model_has_approval_authority": false,
+    "model_has_execution_authority": false,
+    "real_infrastructure_connected": false,
+    "container_image_built": false,
+    "container_gate": "closed until this exact package/source payload is committed, pushed, and independently reconciled from public bytes"
+  }
+}

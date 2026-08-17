@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-004",
+  "phase": "container_runtime_v10_local_and_clean_clone",
+  "observed_at_utc": "2026-08-16T04:38:59Z",
+  "status": "pass",
+  "public_input": {
+    "repository": "https://github.com/drwbkr1/runbook-sentinel",
+    "visibility": "PUBLIC",
+    "branch": "codex/baseline-0030-model-output-contract-conformance",
+    "commit": "dc5e72594b7919dbd75bf4d66f35615551ace900",
+    "clean_clone_path": "C:/Projects/Verification/runbook-sentinel-baseline-0030-public-clean",
+    "clean_clone_git_clean_before_verification": true,
+    "clean_clone_no_object_alternates": true
+  },
+  "container_contract": {
+    "contract_id": "container-runtime-v10",
+    "contract_sha256": "8ab929384c6e0b7b6a60554430bf0759a5b0cbb0130b597638fe17e779733d67",
+    "required_check_count": 46,
+    "true_check_count": 46,
+    "false_check_count": 0,
+    "independent_validator": "pass with --require-implementation"
+  },
+  "selected_artifacts": {
+    "canonical_receipt": {
+      "path": "artifacts/verification/container-baseline-0030.json",
+      "bytes": 30132,
+      "sha256": "2d4cd57e4cdc3c02492703a83bbf1eb71acf9f612c0d7f0e9ce8ca3f2b280d18"
+    },
+    "local_full_component_receipt": {
+      "path": "artifacts/verification/container-baseline-0030-local.json",
+      "bytes": 28336,
+      "sha256": "5064d37f7ae46fe4094f1b319f00596de44fc3ff7e203fa31211adfba7fd25d4"
+    },
+    "clean_build_component_receipt": {
+      "path": "artifacts/verification/clean-container-baseline-0030-local.json",
+      "bytes": 9286,
+      "sha256": "0f31b52cd2b5c93e5d68462561c07815e250cbdb4dfe9cedb786d7d82276dccc"
+    },
+    "dashboard": {
+      "path": "artifacts/verification/dashboard-container-baseline-0030.png",
+      "bytes": 102140,
+      "dimensions": [1440, 1000],
+      "sha256": "9ef9bf6f44e8bdd58524d6df7e6e8934160346100f4396f7f719fd5482bff232",
+      "png_signature": "89504e470d0a1a0a",
+      "visually_inspected_at_original_detail": true,
+      "complete_and_legible": true
+    },
+    "scanner_sarif": {
+      "path": "artifacts/verification/container-scout-critical-high-baseline-0030.sarif.json",
+      "bytes": 461,
+      "sha256": "7749b34be7a069559b10b1b9d53cc8897576fdd104071a9e0f907f9a301ee303",
+      "critical_high_findings": 0,
+      "parsed_result_count": 0
+    },
+    "observations": {
+      "path": "artifacts/verification/baseline-0030-container-v10-observations-001.json",
+      "bytes": 4427,
+      "sha256": "48c7abf40581ade814784dd6a5f41d254418906445b6c51f02142ea93de2b828"
+    }
+  },
+  "reproducibility": {
+    "image_id": "sha256:793cc009835350972ac30215cbdad2fb73f3802d47982d3bfddbd49af633fea3",
+    "exact_build_count": 3,
+    "live_tags": [
+      "runbook-sentinel:baseline-0030-a-2dde7fee7a",
+      "runbook-sentinel:baseline-0030-b-2dde7fee7a",
+      "runbook-sentinel:baseline-0030-clean-73f8a48475"
+    ],
+    "clean_clone_exact": true,
+    "clean_clone_head": "dc5e72594b7919dbd75bf4d66f35615551ace900",
+    "archive_sha256": "b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf",
+    "archive_entry_count": 43
+  },
+  "runtime_surfaces": {
+    "evaluation_report": {
+      "external_path": "C:/Projects/Verification/runbook-sentinel-baseline-0030-container-v10/container-evaluation.json",
+      "bytes": 926791,
+      "sha256": "3ed51759ae74ebed6375c28b3dbf4dd2e212f489b28a0b48a620f31ff408d04e",
+      "scenario_count": 57,
+      "attempt_count": 171,
+      "boolean_gates": "136 of 136 pass"
+    },
+    "evaluation_trace": {
+      "external_path": "C:/Projects/Verification/runbook-sentinel-baseline-0030-container-v10/container-evaluation.traces.jsonl",
+      "bytes": 195293,
+      "sha256": "be9ab5a75a07dd2b5ce4205e1aa6bdb2d8aa59a1a6b2ffaee9866b7a4d09dd3f",
+      "event_count": 261,
+      "anchored": true,
+      "final_event_sha256": "39e9f680158006dc4292c134dcfc23c8306ff321631212f788ab90a193f415ad"
+    },
+    "metric_projection_sha256": "77eb2c6dd517078225ff73bcc5a5c5efac9c94adc9c1b88ceea01979f0cd55b8",
+    "mcp_tool_count": 3,
+    "mcp_approval_or_execution_authority": false,
+    "authenticated_api": "pass",
+    "approval_executor_state_telemetry": "pass",
+    "dashboard": "pass",
+    "real_infrastructure_connected": false
+  },
+  "security": {
+    "runtime_hardening": "pass",
+    "network_none": true,
+    "read_only_root": true,
+    "nonroot_user": true,
+    "capabilities_dropped": true,
+    "no_new_privileges": true,
+    "host_binds": false,
+    "devices": false,
+    "secrets_in_environment": false,
+    "high_specificity_credential_hits_in_new_artifacts": 0,
+    "raw_approval_token_hits_in_selected_evaluations": 0,
+    "repository_model_artifact_files": 0,
+    "critical_high_container_findings": 0
+  },
+  "repository_artifact_parse": {
+    "json_files": 947,
+    "json_documents_parsed": 946,
+    "json_parse_errors": 0,
+    "utf8_bom_json_files": 14,
+    "retained_expected_zero_byte_json": "artifacts/verification/mcp-source-baseline-0026.json",
+    "jsonl_files": 158,
+    "jsonl_records": 28519,
+    "jsonl_parse_errors": 0
+  },
+  "verification": {
+    "direct_unit_tests": "80 of 80 pass in 141.559 seconds",
+    "embedded_duplicate_unit_tests": "80 of 80 pass in 137.266 seconds before the invalid duplicate evaluation began",
+    "phase_correct_project_validators": "37 of 37 pass in 10.036 seconds",
+    "package_contract_archive": "pass",
+    "source_evaluation_trace": "pass",
+    "package_evaluation_trace": "pass",
+    "container_evaluation_trace": "pass",
+    "manifest": "143 files exact",
+    "milestone": "valid active inherited authority with UNIT-004 in progress and no error or warning",
+    "compileall": "pass",
+    "git_diff_check": "pass"
+  },
+  "retained_invalid_attempts": [
+    {
+      "path": "artifacts/evaluations/runs/baseline-0030-attempt-002.manifest.json",
+      "bytes": 17202,
+      "sha256": "bc98beca62ba13968ecfa5f8c79800c24c94a3298b3ae31270465ec7ed61ce96",
+      "classification": "invalid incomplete duplicate evaluation manifest"
+    },
+    {
+      "path": "artifacts/evaluations/runs/baseline-0030-attempt-002.traces.jsonl",
+      "bytes": 195416,
+      "sha256": "7445ed2fb084c1aa94138a4c85bbe9c5bfdd6f67c64031fdbd74eee5936544fe",
+      "event_count": 261,
+      "classification": "invalid incomplete duplicate evaluation trace without report or anchor"
+    },
+    "The first post-container validator wrapper omitted the phase flag from the exact adversarial retrieval-stage contract filename and correctly failed closed; its corrected successor passes 37 of 37.",
+    "The first core identity wrapper guessed a nonexistent clean-build tag after all preceding gates passed; its corrected successor derives and verifies the live tag.",
+    "The first bounded credential scan passed a leading-dash expression without -e and stopped before scanning; its corrected successor reports zero findings."
+  ],
+  "publication": {
+    "canonical_container_result_public_exact": "pending",
+    "container_image_built_locally": true,
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false
+  },
+  "next_gate": "Reconcile living records, commit and push this exact container evidence, then independently verify every changed public Git object before premerge release audit."
+}

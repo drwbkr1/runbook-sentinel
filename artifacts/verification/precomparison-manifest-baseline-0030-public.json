@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-003",
+  "observed_at_utc": "2026-08-16T00:29:00Z",
+  "status": "pass",
+  "repository": "https://github.com/drwbkr1/runbook-sentinel",
+  "visibility": "PUBLIC",
+  "branch": "codex/baseline-0030-model-output-contract-conformance",
+  "manifest_seal_commit": "1066b7fdef5bb0f2bb442db1a4122378c3ebab0a",
+  "manifest_seal_tree": "ecc32b3af50502bf0f6e1d11e7e85d87cb239858",
+  "refs": {
+    "local_head": "1066b7fdef5bb0f2bb442db1a4122378c3ebab0a",
+    "remote_tracking_ref": "1066b7fdef5bb0f2bb442db1a4122378c3ebab0a",
+    "ls_remote_head": "1066b7fdef5bb0f2bb442db1a4122378c3ebab0a",
+    "github_ref_api_head": "1066b7fdef5bb0f2bb442db1a4122378c3ebab0a",
+    "all_exact": true
+  },
+  "manifest": {
+    "path": "eval/manifest.json",
+    "checkpoint": "baseline-0030",
+    "file_count": 138,
+    "bytes": 16597,
+    "sha256": "882c552e9c712bed298c2a6e7ca2bb5206f28d40102cbe05efaba2eee6560b8f",
+    "git_blob_sha1": "d9892258616b58995c439a31645bc4f88bf4fe4a",
+    "remote_exact": true
+  },
+  "remote_tree_comparison": {
+    "method": "GitHub Git Trees API blob identity and size versus local git ls-tree at the exact manifest seal",
+    "changed_path_count": 9,
+    "exact_path_count": 9,
+    "failures": [],
+    "paths": [
+      {"path": "CHANGELOG.md", "git_blob_sha1": "aee9ab196d95c63742f2dcb330ffacfa733fa963", "bytes": 73102},
+      {"path": "artifacts/verification/baseline-0030-manifest-schema-compatibility-failure-001.json", "git_blob_sha1": "813de2d59d8af77819bf81f2ec25605c5b054fe3", "bytes": 1282},
+      {"path": "artifacts/verification/precomparison-manifest-baseline-0030-local.json", "git_blob_sha1": "d0b66137f2d9e5f56082aeb4d61f66ac31485705", "bytes": 3827},
+      {"path": "contracts/milestone-0030.json", "git_blob_sha1": "f900987aaac023d945ffd09540b729582f0c63f0", "bytes": 16286},
+      {"path": "docs/devlog.md", "git_blob_sha1": "6de6f530949aadcc41c4e7e3a16a2ad437bbbe30", "bytes": 363533},
+      {"path": "docs/roadmap.md", "git_blob_sha1": "beaa9df2bf2e0cb09aa04e6d12784bd79fb4de28", "bytes": 62141},
+      {"path": "docs/status.md", "git_blob_sha1": "906fdbd44439b9993ef14f3c7329c8c3ad63921d", "bytes": 234242},
+      {"path": "eval/manifest.json", "git_blob_sha1": "d9892258616b58995c439a31645bc4f88bf4fe4a", "bytes": 16597},
+      {"path": "tests/test_baseline.py", "git_blob_sha1": "ea48a2ad7cf7f99282b456a4ca85a04e936c1be9", "bytes": 137524}
+    ]
+  },
+  "candidate_absence_at_publication": {
+    "baseline_0030_model_call_count": 0,
+    "legacy_v2_report_exists": false,
+    "candidate_v3_report_exists": false,
+    "comparison_decision_exists": false,
+    "v0_0_30_archive_exists": false,
+    "baseline_0030_image_count": 0
+  },
+  "seal_status": "public_precomparison_manifest_verified",
+  "authorized_next_action": "Publish this reconciliation receipt, then run the immutable legacy-v2 171-call comparison followed by the candidate-v3 171-call comparison on the same local runtime and frozen scenarios."
+}

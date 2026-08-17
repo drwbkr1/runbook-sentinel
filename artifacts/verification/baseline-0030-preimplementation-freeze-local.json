@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0030-preimplementation-freeze-local-20260815T233723Z",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-001",
+  "observed_at_utc": "2026-08-15T23:37:23Z",
+  "disposition": "pass",
+  "starting_public_checkpoint": {
+    "version": "0.0.29",
+    "main_commit": "cc07fa2a0790a49b04b4352a004deb913bb12a60",
+    "tag_object": "2f54a5cc180f9a79962c5ac56a416444a4be5a58",
+    "release_commit": "d90dbf36cad28e9738d5ca9c38f42967e557376d",
+    "public_receipt_sha256": "df84d6a4af7dc2cbac3f55eb659651d98ce54da82affcc02412e370a8fd58a9f"
+  },
+  "working_state": {
+    "worktree": "C:/Projects/Active/runbook-sentinel-baseline-0030",
+    "branch": "codex/baseline-0030-model-output-contract-conformance",
+    "starting_worktree_clean": true,
+    "one_drive_used": false
+  },
+  "selected_weakness": {
+    "legacy_attempt_count": 84,
+    "legacy_valid_output_count": 9,
+    "legacy_schema_invalid_count": 75,
+    "legacy_diagnosis_code_invalid_count": 67,
+    "legacy_structured_parse_success_rate": 0.10714285714285714,
+    "legacy_benign_utility": 0.0,
+    "legacy_pass_3": 0.0,
+    "declared_schema": {"type": "string", "minLength": 1, "maxLength": 80},
+    "external_parser_pattern": "^[a-z][a-z0-9_]{0,79}$"
+  },
+  "frozen_scope": {
+    "contract_id": "model-output-static-schema-conformance-v1",
+    "target_contract_id": "ollama-loopback-structured-sre-v3-diagnosis-pattern",
+    "permitted_changed_paths": [
+      "$.checkpoint",
+      "$.contract_id",
+      "$.output_schema.properties.diagnosis_code.pattern",
+      "$.schema_version"
+    ],
+    "target_pattern": "^[a-z][a-z0-9_]{0,79}$",
+    "scenario_count": 57,
+    "development_count": 31,
+    "test_count": 26,
+    "trials_per_case": 3,
+    "attempt_count_per_model_contract": 171,
+    "prompt_runtime_model_parser_retrieval_policy_authority_change": false,
+    "external_asset_dependency_secret_service_or_real_infrastructure_change": false
+  },
+  "source_gate": {
+    "path": "artifacts/verification/research-source-gate-baseline-0030-model-output-conformance.json",
+    "status": "ready",
+    "source_count": 2,
+    "criteria_count": 16,
+    "live_evidence_count": 9,
+    "warnings": [],
+    "authorized_use": "official specification citation, one-field project-authored schema experiment, and unchanged installed local-runtime evaluation after public freeze"
+  },
+  "validation": {
+    "source_gate_valid": true,
+    "source_gate_ready": true,
+    "milestone_valid": true,
+    "milestone_warnings": [],
+    "contract_validator_status": "pass",
+    "focused_tests_passed": 5,
+    "full_tests_passed": 76,
+    "full_tests_total": 76,
+    "full_tests_elapsed_seconds": 87.931,
+    "side_effect_free_validators_passed": 36,
+    "side_effect_free_validators_total": 36,
+    "compileall": "pass",
+    "nonempty_json_files_parsed": 889,
+    "empty_json_files_reported": 1,
+    "known_empty_json_path": "artifacts/verification/mcp-source-baseline-0026.json",
+    "bom_json_files_reported": 14,
+    "jsonl_files_parsed": 149,
+    "jsonl_records_parsed": 26865,
+    "git_diff_check": "pass",
+    "changed_content_high_specificity_secret_hits": 0,
+    "changed_model_artifacts": 0
+  },
+  "frozen_files": [
+    {"path": "artifacts/verification/baseline-0030-orientation-probe-failures-001.json", "bytes": 4680, "sha256": "146ec9b7d8e4a0575350871a57433b9c9499b04287d750632cedbf1e6327d680"},
+    {"path": "artifacts/verification/orientation-baseline-0030.json", "bytes": 5192, "sha256": "fc9efba8b5e2c3246ee741285cbd4ef60eb0f1edb4b3d9596ae9f18450a87759"},
+    {"path": "artifacts/verification/research-source-gate-baseline-0030-model-output-conformance.json", "bytes": 9554, "sha256": "9aa222e9e177fb909b339fc0ffdcc9ded56fc21e84197cc5a583bfbf9a48bc6d"},
+    {"path": "CHANGELOG.md", "bytes": 70752, "sha256": "a1ccd09008b7f583fa89b2bad0ed5f435fc0f6d69387d35386a3f86386e29b94"},
+    {"path": "contracts/milestone-0030.json", "bytes": 12917, "sha256": "0ebeb7c03f7cf6b8309e04d47386a382347f26dd1d435354408f530ab09a918c"},
+    {"path": "docs/adr/0025-align-the-declared-diagnosis-pattern-before-retuning.md", "bytes": 3025, "sha256": "b895e68e3badef8fe73482cd21d0e887e99f3ef964d6101d19eecb71fd0a49ff"},
+    {"path": "docs/devlog.md", "bytes": 358918, "sha256": "9232e6dce0c06d3602ae06e95013feb2e9ee48415a3238c67dfc8b5b137df55f"},
+    {"path": "docs/evaluation-report.md", "bytes": 159784, "sha256": "77d8c4f2ecfc8aafc8b333c04c4c9cc714ac26f13615b6d21f861c8c35148a5d"},
+    {"path": "docs/research-ledger.md", "bytes": 23376, "sha256": "223896d1ea67ed2e77d72092638eed1c8041e77c45477ec064ef54a7f7215be6"},
+    {"path": "docs/roadmap.md", "bytes": 60922, "sha256": "a46a5ec2c15574141c64c6216047d6d5753754731dcc766a9719c317c65abad5"},
+    {"path": "docs/source-ledger.md", "bytes": 5984, "sha256": "18a01ec7e75fdca1f953c52972a9e33f4a515d003758b976c79faa2c3b967b0e"},
+    {"path": "docs/status.md", "bytes": 230351, "sha256": "aaf89061e775856d1ecf00a22fcf908edf57afd14f16d04b7def5e899fe2f593"},
+    {"path": "docs/threat-model.md", "bytes": 14950, "sha256": "5b9f743d530942fe2b7daf46b11132f6b663652aff5d1e0ddf0dc0b9b1a55000"},
+    {"path": "eval/model-contract-0018-v2.json", "bytes": 4657, "sha256": "b5ed65aff647087344a6f9781e565483940f01563c678a3fcc97f7e55500eafd"},
+    {"path": "eval/model-output-conformance-contract.json", "bytes": 6409, "sha256": "159b9da51ed5da8c1b9b384b09720e65eafe5ba9a9cd43dcd33d9063a1a30259"},
+    {"path": "scripts/verify_model_output_conformance_contract.py", "bytes": 11951, "sha256": "745a1cd7e4df2bc7d329258be6a40f7146b19aef52658d9bedb619bc6563bde7"},
+    {"path": "tests/test_model_output_conformance_contract.py", "bytes": 2913, "sha256": "1dc8b13644be0f05dad18426df732ee6329c46d31ac11a2968af5463e749a961"}
+  ],
+  "candidate_absence": {
+    "runtime_model_contract_bytes": 4657,
+    "runtime_model_contract_sha256": "b5ed65aff647087344a6f9781e565483940f01563c678a3fcc97f7e55500eafd",
+    "runtime_model_contract_is_legacy_v2": true,
+    "baseline_0030_evaluation_report_count": 0,
+    "v0_0_30_archive_count": 0,
+    "baseline_0030_image_count": 0
+  },
+  "retained_failures": [
+    "empty-pipeline PowerShell identity wrapper",
+    "non-exact source-gate action labels",
+    "strict UTF-8 parser stopped on retained BOM evidence",
+    "BOM-aware parser stopped on the known zero-byte evidence item",
+    "repository-wide secret scan matched historical scanner definitions",
+    "whole-file changed-path scan matched an unchanged devlog marker",
+    "PowerShell Boolean wrapper misread successful quiet Git check stdout",
+    "repeated direct-foreach pipeline wrapper parse failure"
+  ],
+  "seal_status": "local_preimplementation_freeze_pass_awaiting_public_commit",
+  "authorized_next_action": "Commit and push this exact preimplementation freeze, then verify branch identity and critical public raw bytes before changing eval/model-contract.json or calling the local model."
+}

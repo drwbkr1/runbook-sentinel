@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-005",
+  "observed_at_utc": "2026-08-17T22:24:19Z",
+  "status": "retained_process_invalid",
+  "classification": "read-only premerge audit orientation wrapper failures",
+  "candidate_head": "fcc76ad299b6996ec63db4014a388e69d73d65f3",
+  "pull_request": 28,
+  "attempts": [
+    {
+      "id": "orientation-wrapper-001",
+      "intent": "Confirm that the target v0.0.30 release is absent.",
+      "failure": "An expected gh release view not-found response was promoted to a terminating PowerShell error by ErrorActionPreference Stop.",
+      "completed_claim": false
+    },
+    {
+      "id": "orientation-wrapper-002",
+      "intent": "Inspect current GitHub release metadata.",
+      "failure": "The wrapper requested unsupported gh release list JSON field url and stopped before producing a usable release result.",
+      "completed_claim": false
+    },
+    {
+      "id": "orientation-wrapper-003",
+      "intent": "Identify the latest public release and compare it with v0.0.30.",
+      "failure": "Windows PowerShell nested-array handling caused the assertion to compare the complete release list as one object instead of selecting one latest-release object.",
+      "completed_claim": false
+    },
+    {
+      "id": "orientation-wrapper-004",
+      "intent": "Count GitHub releases tagged v0.0.30.",
+      "failure": "An over-escaped jq expression failed to parse, leaving the target-release count unset.",
+      "completed_claim": false
+    },
+    {
+      "id": "orientation-wrapper-005",
+      "intent": "Compare the complete paginated GitHub PR path set with the local base-to-head path set.",
+      "failure": "The installed gh version rejects combining api --slurp with --jq; the wrapper stopped before path comparison.",
+      "completed_claim": false
+    }
+  ],
+  "mutation": "none",
+  "positive_evidence_released": false,
+  "correction": {
+    "release_query": "Parsed gh release list JSON with ConvertFrom-Json and selected scalar objects explicitly.",
+    "release_result": "v0.0.30 release count is zero; latest public release is non-draft, non-prerelease v0.0.29 published at 2026-08-15T22:27:19Z.",
+    "tag_result": "git ls-remote reports zero refs for v0.0.30.",
+    "path_query": "Used gh api --paginate with per-page jq projection and no --slurp.",
+    "path_result": "The local and GitHub PR #28 inventories each contain 113 paths with zero local-only and zero remote-only paths."
+  },
+  "product_effect": "none",
+  "release_effect": "No review, readiness change, merge, tag, release, asset upload, or deployment occurred."
+}

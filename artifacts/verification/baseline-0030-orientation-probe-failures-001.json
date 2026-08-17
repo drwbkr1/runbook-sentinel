@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "observed_at_utc": "2026-08-15T23:17:10Z",
+  "disposition": "process-invalid-retained",
+  "attempts": [
+    {
+      "attempt": 1,
+      "purpose": "hash the frozen model, parser, policy, comparison, and public receipt inputs",
+      "command_family": "PowerShell foreach plus ConvertTo-Json evidence wrapper",
+      "result": "invalid",
+      "error": "ParserError: An empty pipe element is not allowed.",
+      "state_change": false,
+      "output_admitted": false,
+      "correction": "Accumulate rows into an explicit array, then pipe the completed array to ConvertTo-Json."
+    },
+    {
+      "attempt": 2,
+      "purpose": "validate the BASELINE-0030 external-source gate",
+      "command_family": "gate-external-sources validate_source_gate.py",
+      "result": "invalid",
+      "error": "decision.approved_actions used semantically equivalent but non-exact labels absent from intended_use.planned_actions and the inherited authority array",
+      "state_change": false,
+      "output_admitted": false,
+      "correction": "Use the exact same three authorized action strings in authority.authorized_actions, intended_use.planned_actions, and decision.approved_actions."
+    },
+    {
+      "attempt": 3,
+      "purpose": "parse every repository JSON document",
+      "command_family": "Python UTF-8 strict JSON parse",
+      "result": "invalid",
+      "error": "A retained BASELINE-0027 evidence file begins with a UTF-8 BOM; the decoder stopped before completing the inventory.",
+      "state_change": false,
+      "output_admitted": false,
+      "correction": "Decode repository evidence with utf-8-sig while separately reporting BOM-bearing files."
+    },
+    {
+      "attempt": 4,
+      "purpose": "parse every repository JSON document with BOM-aware decoding",
+      "command_family": "Python UTF-8-SIG JSON parse",
+      "result": "invalid",
+      "error": "The intentionally retained zero-byte artifacts/verification/mcp-source-baseline-0026.json is not a JSON document.",
+      "state_change": false,
+      "output_admitted": false,
+      "correction": "Report empty files explicitly, exclude only the known retained zero-byte evidence item from content parsing, and parse every nonempty JSON file."
+    },
+    {
+      "attempt": 5,
+      "purpose": "scan the repository for high-specificity credential material",
+      "command_family": "broad repository rg scan",
+      "result": "invalid",
+      "error": "The broad scan matched historical forbidden-pattern definitions and retained synthetic scanner evidence.",
+      "state_change": false,
+      "output_admitted": false,
+      "correction": "Scan only added diff lines and untracked file contents."
+    },
+    {
+      "attempt": 6,
+      "purpose": "scan modified and untracked paths for high-specificity credential material",
+      "command_family": "whole-file changed-path rg scan",
+      "result": "invalid",
+      "error": "The modified devlog contains an unchanged historical sentence naming a forbidden private-key marker.",
+      "state_change": false,
+      "output_admitted": false,
+      "correction": "Scan only zero-context added diff lines plus the complete contents of new untracked files."
+    },
+    {
+      "attempt": 7,
+      "purpose": "prove the active eval/model-contract.json has no preimplementation diff",
+      "command_family": "PowerShell if around git diff --quiet",
+      "result": "invalid",
+      "error": "PowerShell tested the command's empty stdout as false and printed ACTIVE_MODEL_CONTRACT_CHANGED=true even though git exited zero.",
+      "state_change": false,
+      "output_admitted": false,
+      "correction": "Read LASTEXITCODE immediately after git diff --quiet; exit zero proves the path is unchanged."
+    },
+    {
+      "attempt": 8,
+      "purpose": "rehash the failure ledger and status record after preserving attempt 7",
+      "command_family": "PowerShell foreach piped directly to ConvertTo-Json",
+      "result": "invalid",
+      "error": "The repeated wrapper shape again produced ParserError: An empty pipe element is not allowed.",
+      "state_change": false,
+      "output_admitted": false,
+      "correction": "Reuse the already validated explicit-array accumulation pattern before ConvertTo-Json."
+    }
+  ],
+  "replacement_evidence": "Corrected successors record exact byte lengths and SHA-256 identities, validate the source gate, parse 889 nonempty JSON files while reporting 14 retained BOM-bearing files and the one known empty evidence item, parse 149 JSONL files with 26,865 records, and report zero high-specificity credential or model-artifact hits in the exact change set."
+}

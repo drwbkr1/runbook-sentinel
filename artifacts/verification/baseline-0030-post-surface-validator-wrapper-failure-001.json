@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-16T03:18:09Z",
+  "status": "retained_process_failure",
+  "classification": "validator orchestration import path omission",
+  "observation": "The first post-surface validator wrapper completed 22 validators successfully, then verify_model_comparison.py stopped at import with ModuleNotFoundError: No module named 'runbook_sentinel'.",
+  "failed_validator": "scripts/verify_model_comparison.py",
+  "cause": "The wrapper did not set PYTHONPATH=src for standalone validators that import the package directly.",
+  "mutation": "none; the inventory is side-effect-free and the failure occurred during module import",
+  "correction": "Set the repository-local source path explicitly and rerun the complete 37-validator inventory with the four frozen phase-specific argument sets.",
+  "positive_evidence_use": "none",
+  "product_effect": "none",
+  "release_effect": "This incomplete wrapper is excluded from positive evidence and retained. The corrected full inventory must pass before the package/source gate can close."
+}

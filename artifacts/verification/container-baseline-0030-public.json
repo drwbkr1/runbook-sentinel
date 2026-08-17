@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "container-baseline-0030-public-20260816T045143Z",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-16T04:51:43Z",
+  "status": "pass",
+  "repository": "https://github.com/drwbkr1/runbook-sentinel",
+  "visibility": "PUBLIC",
+  "branch": "codex/baseline-0030-model-output-contract-conformance",
+  "canonical_evidence_commit": "77efe4eb85dd213b087cf6ad4e8de4aa502c0c13",
+  "canonical_evidence_tree": "9cc0c34cd8f8251c5d81ecbfeb6068d9df4033bb",
+  "verified_branch_head": "77efe4eb85dd213b087cf6ad4e8de4aa502c0c13",
+  "heads": {
+    "local": "77efe4eb85dd213b087cf6ad4e8de4aa502c0c13",
+    "remote_tracking": "77efe4eb85dd213b087cf6ad4e8de4aa502c0c13",
+    "ls_remote": "77efe4eb85dd213b087cf6ad4e8de4aa502c0c13",
+    "github_api": "77efe4eb85dd213b087cf6ad4e8de4aa502c0c13",
+    "exact": true
+  },
+  "github_tree_verification": {
+    "changed_path_count": 17,
+    "verified": 17,
+    "failed": 0,
+    "git_blob_and_size_exact": true,
+    "tree_api_truncated": false
+  },
+  "anonymous_raw_verification": {
+    "immutable_commit_urls": true,
+    "credentials_supplied": false,
+    "changed_path_count": 17,
+    "verified": 17,
+    "failed": 0,
+    "length_and_sha256_exact": true
+  },
+  "canonical_receipt": {
+    "path": "artifacts/verification/container-baseline-0030.json",
+    "bytes": 30132,
+    "sha256": "2d4cd57e4cdc3c02492703a83bbf1eb71acf9f612c0d7f0e9ce8ca3f2b280d18",
+    "git_blob": "6221d2314cc00c63065878a9f03b6c3fcbf5e805",
+    "remote_bytes_exact": true,
+    "checks_passed": 46,
+    "checks_total": 46
+  },
+  "component_receipts": [
+    {
+      "path": "artifacts/verification/container-baseline-0030-local.json",
+      "bytes": 28336,
+      "sha256": "5064d37f7ae46fe4094f1b319f00596de44fc3ff7e203fa31211adfba7fd25d4",
+      "git_blob": "cd9506d17e14e41d7c5a53a5d670ce290faf0c54",
+      "remote_bytes_exact": true
+    },
+    {
+      "path": "artifacts/verification/clean-container-baseline-0030-local.json",
+      "bytes": 9286,
+      "sha256": "0f31b52cd2b5c93e5d68462561c07815e250cbdb4dfe9cedb786d7d82276dccc",
+      "git_blob": "c8620f4c93445ceb580af9ff50f017cf4f42cb35",
+      "remote_bytes_exact": true
+    }
+  ],
+  "artifact_scan": {
+    "path": "artifacts/verification/artifact-scan-baseline-0030-container-phase.json",
+    "bytes": 7257,
+    "sha256": "18556e0f5e64666be8eab82d686b4e600a89e64a8e3be0793c26403563da83c2",
+    "git_blob": "788941e8f70f6c8eec1e1a21fed4625ad43f0ee6",
+    "remote_bytes_exact": true,
+    "status": "pass"
+  },
+  "container_contract_sha256": "8ab929384c6e0b7b6a60554430bf0759a5b0cbb0130b597638fe17e779733d67",
+  "source_gate_sha256": "effc86d7c30dcbc08cbc7c70eb1271208acea5c1af725cd55b1577019ed24d18",
+  "image": {
+    "image_id": "sha256:793cc009835350972ac30215cbdad2fb73f3802d47982d3bfddbd49af633fea3",
+    "exact_build_count": 3,
+    "local_tags": [
+      "runbook-sentinel:baseline-0030-a-2dde7fee7a",
+      "runbook-sentinel:baseline-0030-b-2dde7fee7a",
+      "runbook-sentinel:baseline-0030-clean-73f8a48475"
+    ],
+    "all_tags_exact": true,
+    "exported": false,
+    "pushed": false,
+    "published": false,
+    "redistributed": false
+  },
+  "clean_clone": {
+    "path": "C:/Projects/Verification/runbook-sentinel-baseline-0030-public-clean",
+    "head": "dc5e72594b7919dbd75bf4d66f35615551ace900",
+    "git_clean_before_verification": true,
+    "no_object_alternates": true,
+    "selected_archive_sha256": "b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf",
+    "image_id_exact": true
+  },
+  "runtime_verification": {
+    "evaluation": "57 scenarios, 171 attempts, 136 of 136 Boolean gates pass",
+    "evaluation_trace": "261 events, anchored and valid",
+    "mcp": "three diagnostic/read tools and no approval or execution authority",
+    "authenticated_api_approval_executor_state_telemetry": "pass",
+    "runtime_hardening": "pass",
+    "unit_tests": "80 of 80 pass in 141.559 seconds",
+    "phase_correct_validators": "37 of 37 pass in 10.600 seconds",
+    "repository_artifact_parse": "946 nonempty JSON documents and 28519 JSONL records pass"
+  },
+  "rendered_dashboard": {
+    "path": "artifacts/verification/dashboard-container-baseline-0030.png",
+    "bytes": 102140,
+    "sha256": "9ef9bf6f44e8bdd58524d6df7e6e8934160346100f4396f7f719fd5482bff232",
+    "git_blob": "b5b94bd519abc57663b48cfbfe24c6a592ab14ba",
+    "remote_bytes_exact": true,
+    "original_detail_accepted": true
+  },
+  "structured_scan": {
+    "path": "artifacts/verification/container-scout-critical-high-baseline-0030.sarif.json",
+    "bytes": 461,
+    "sha256": "7749b34be7a069559b10b1b9d53cc8897576fdd104071a9e0f907f9a301ee303",
+    "git_blob": "16d5629e4d20740c36cbd4dc2e329c4b789777d0",
+    "remote_bytes_exact": true,
+    "critical_findings": 0,
+    "high_findings": 0,
+    "observation_time_only": true
+  },
+  "retained_observations": {
+    "path": "artifacts/verification/baseline-0030-container-v10-observations-001.json",
+    "bytes": 4427,
+    "sha256": "48c7abf40581ade814784dd6a5f41d254418906445b6c51f02142ea93de2b828",
+    "git_blob": "9533b638c0be74fc96f9c5964cb22059d940fdb0",
+    "remote_bytes_exact": true,
+    "canonical_claims_affected": false
+  },
+  "retained_incomplete_evaluation": {
+    "manifest": {
+      "path": "artifacts/evaluations/runs/baseline-0030-attempt-002.manifest.json",
+      "sha256": "bc98beca62ba13968ecfa5f8c79800c24c94a3298b3ae31270465ec7ed61ce96",
+      "git_blob": "30855f602819f707c9bbdbf2cfe56942f548bae3"
+    },
+    "trace": {
+      "path": "artifacts/evaluations/runs/baseline-0030-attempt-002.traces.jsonl",
+      "sha256": "7445ed2fb084c1aa94138a4c85bbe9c5bfdd6f67c64031fdbd74eee5936544fe",
+      "git_blob": "5cb4928aea3f664b5c0c86fa89dff935a8b02d1f"
+    },
+    "report_present": false,
+    "anchor_present": false,
+    "promoted": false,
+    "classification": "invalid incomplete duplicate evaluation"
+  },
+  "retained_public_verification_failure": "artifacts/verification/baseline-0030-container-public-verification-failure-001.json",
+  "unit_disposition": "pass",
+  "authorized_next_action": "Publish and remotely verify this reconciliation receipt and the UNIT-004 completion update, then begin UNIT-005 with the governed premerge release-truth audit. Continue to review, history-preserving merge, public-main verification, final audit, source-plus-zipapp release, and public-tag verification only if every gate passes."
+}

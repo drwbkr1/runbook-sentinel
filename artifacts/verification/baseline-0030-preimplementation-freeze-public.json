@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0030-preimplementation-freeze-public-20260815T234710Z",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-001",
+  "observed_at_utc": "2026-08-15T23:47:10Z",
+  "disposition": "pass",
+  "repository": {
+    "url": "https://github.com/drwbkr1/runbook-sentinel",
+    "visibility": "PUBLIC",
+    "default_branch": "main",
+    "branch": "codex/baseline-0030-model-output-contract-conformance"
+  },
+  "public_identity": {
+    "commit": "f82e301d984548d5354d8093e245c17fe0419a1f",
+    "tree": "b7c6cac16073901a3e3ce1753fac85c1b17d5ef1",
+    "local_head": "f82e301d984548d5354d8093e245c17fe0419a1f",
+    "tracking_head": "f82e301d984548d5354d8093e245c17fe0419a1f",
+    "ls_remote_head": "f82e301d984548d5354d8093e245c17fe0419a1f",
+    "github_ref_api_head": "f82e301d984548d5354d8093e245c17fe0419a1f",
+    "all_refs_exact": true
+  },
+  "remote_tree_comparison": {
+    "method": "GitHub Git Trees API blob identity and size versus local git ls-tree at the exact commit",
+    "changed_path_count": 18,
+    "exact_path_count": 18,
+    "failures": [],
+    "paths": [
+      {"path": "CHANGELOG.md", "git_blob_sha1": "ad131b7f2ef9eec35cb1db3e395663b325baa7dc", "bytes": 70752},
+      {"path": "artifacts/verification/baseline-0030-orientation-probe-failures-001.json", "git_blob_sha1": "8c0ab8e4d296a6e145ad05698b3c8c2d97f6a6e3", "bytes": 4680},
+      {"path": "artifacts/verification/baseline-0030-preimplementation-freeze-local.json", "git_blob_sha1": "30909db4787e8e61742b83839274a18540f5b12b", "bytes": 6901},
+      {"path": "artifacts/verification/orientation-baseline-0030.json", "git_blob_sha1": "1ac267992e3e3d11f4489259fe5ad77e1ba204b0", "bytes": 5192},
+      {"path": "artifacts/verification/research-source-gate-baseline-0030-model-output-conformance.json", "git_blob_sha1": "d46bf1f78f5f4548e0d851d5af5970f4c423e162", "bytes": 9554},
+      {"path": "contracts/milestone-0030.json", "git_blob_sha1": "a22e273ea35a9444d80b705f597ebce187610ed1", "bytes": 12917},
+      {"path": "docs/adr/0025-align-the-declared-diagnosis-pattern-before-retuning.md", "git_blob_sha1": "e13c1f9d5ffdd039d7f8d5501fe427d22c0cd2c3", "bytes": 3025},
+      {"path": "docs/devlog.md", "git_blob_sha1": "950f4a014305b87d6312fe3676821fbfc8e601f4", "bytes": 358918},
+      {"path": "docs/evaluation-report.md", "git_blob_sha1": "f1ce05471d5fc3cb5205d745e1840687ffc82678", "bytes": 159784},
+      {"path": "docs/research-ledger.md", "git_blob_sha1": "462bcb3097850431bdfff829cb2dc08ddcf38aec", "bytes": 23376},
+      {"path": "docs/roadmap.md", "git_blob_sha1": "d429db4b3a55aa40c2f0a9e3c516e1f61930877a", "bytes": 60922},
+      {"path": "docs/source-ledger.md", "git_blob_sha1": "ef98914ebdc2183cd9a5041a5f778e100cf185b5", "bytes": 5984},
+      {"path": "docs/status.md", "git_blob_sha1": "8b47d3a479be418d12cd055ef6cdf3c41f53861f", "bytes": 230351},
+      {"path": "docs/threat-model.md", "git_blob_sha1": "34a788b33492a103428e139e0b641eea7d542539", "bytes": 14950},
+      {"path": "eval/model-contract-0018-v2.json", "git_blob_sha1": "81f7b1584c12694ea962bf7d6e1ff2f31ac96d56", "bytes": 4657},
+      {"path": "eval/model-output-conformance-contract.json", "git_blob_sha1": "3eebc8dd125767c8085d59f4ced1baca0957c354", "bytes": 6409},
+      {"path": "scripts/verify_model_output_conformance_contract.py", "git_blob_sha1": "2bb6a0170ea99e3dc22cd7af4ed17ac2a23cfa31", "bytes": 11951},
+      {"path": "tests/test_model_output_conformance_contract.py", "git_blob_sha1": "3a673b3576a14f1702d191ef41083acd7b708a9d", "bytes": 2913}
+    ]
+  },
+  "frozen_boundary": {
+    "active_model_contract_sha256": "b5ed65aff647087344a6f9781e565483940f01563c678a3fcc97f7e55500eafd",
+    "active_model_contract_is_legacy_v2": true,
+    "baseline_0030_model_call_count": 0,
+    "baseline_0030_candidate_report_count": 0,
+    "v0_0_30_archive_count": 0,
+    "baseline_0030_image_count": 0,
+    "implementation_open": false
+  },
+  "retained_verification_failures": [
+    "The first anonymous all-path byte verifier exceeded its 30-second yield before the wrapper returned a usable session handle; it is inconclusive and not admitted.",
+    "The first Git Trees API wrapper expanded $treeSha?recursive as one PowerShell variable, requested an invalid endpoint, received HTTP 404, and produced 18 null comparisons; the explicitly delimited successor passes 18 of 18."
+  ],
+  "seal_status": "public_preimplementation_freeze_verified",
+  "authorized_next_action": "Publish this reconciliation receipt, then implement only the four frozen object-path changes and verify the exact target projection before any model call."
+}

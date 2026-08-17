@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-002",
+  "observed_at_utc": "2026-08-16T00:01:00Z",
+  "disposition": "retained_process_and_expected_fail_closed_evidence",
+  "attempts": [
+    {
+      "id": "implementation-public-identity-wrapper-001",
+      "result": "invalid_wrapper",
+      "operation": "Read the correction commit tree identity with git rev-parse HEAD^{tree} from PowerShell.",
+      "observed": "PowerShell altered the unquoted revision expression and git rejected the resulting argument.",
+      "product_state_changed": false,
+      "admitted": false,
+      "corrected_successor": "git show -s --format=%T HEAD returned 7d7386fc6b0f95966ed9a08b9f04dbd07cdbc429; ls-remote returned exact correction commit 0a49729f28fa28f06fcbae0878e1d3558ea47abc."
+    },
+    {
+      "id": "predecessor-manifest-validation-001",
+      "result": "expected_mismatch",
+      "operation": "Run scripts/verify_manifest.py after applying the frozen active model-contract projection.",
+      "observed": {
+        "only_mismatched_path": "eval/model-contract.json",
+        "expected_sha256": "b5ed65aff647087344a6f9781e565483940f01563c678a3fcc97f7e55500eafd",
+        "actual_sha256": "8718971a9e54320603c08d9f31957bd5dabee0e50944925f588f74e5915defda"
+      },
+      "product_state_changed": false,
+      "admitted_as_pass": false,
+      "disposition": "Retained as correct fail-closed behavior. The v0.0.29 manifest remains immutable and UNIT-003 may create a successor only after the implementation seal is public."
+    }
+  ]
+}

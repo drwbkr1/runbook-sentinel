@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-004",
+  "phase": "package_source_pre_container",
+  "observed_at_utc": "2026-08-16T03:25:09Z",
+  "status": "pass",
+  "scope": {
+    "json_files": [
+      "artifacts/evaluations/latest.json",
+      "artifacts/evaluations/runs/baseline-0030-final-source-attempt-001.json",
+      "artifacts/evaluations/runs/baseline-0030-final-package-attempt-001.json",
+      "artifacts/verification/native-source-baseline-0030.json",
+      "artifacts/verification/native-package-baseline-0030.json",
+      "artifacts/verification/baseline-0030-package-source-preflight-failure-001.json",
+      "artifacts/verification/baseline-0030-post-surface-validator-wrapper-failure-001.json",
+      "artifacts/verification/baseline-0030-post-surface-artifact-parse-wrapper-failure-001.json",
+      "artifacts/verification/baseline-0030-post-surface-credential-scan-scope-failure-001.json",
+      "artifacts/verification/baseline-0030-package-source-stage-wrapper-failure-001.json",
+      "artifacts/verification/baseline-0030-package-source-push-wrapper-failure-001.json"
+    ],
+    "jsonl_files": [
+      "artifacts/evaluations/runs/baseline-0030-final-source-attempt-001.traces.jsonl",
+      "artifacts/evaluations/runs/baseline-0030-final-package-attempt-001.traces.jsonl"
+    ],
+    "png_files": [
+      "artifacts/verification/dashboard-source-baseline-0030.png",
+      "artifacts/verification/dashboard-package-baseline-0030.png"
+    ],
+    "archive": "dist/runbook-sentinel-0.0.30.pyz"
+  },
+  "selected_artifacts": {
+    "json_files_parsed": 11,
+    "json_parse_errors": 0,
+    "jsonl_files_parsed": 2,
+    "jsonl_records": 522,
+    "jsonl_parse_errors": 0,
+    "png_signatures_valid": 2,
+    "source_dashboard": {
+      "bytes": 101530,
+      "sha256": "2f24c81e522ce5fd7221213874a473090fd7f60d1ff42bf650c4c9dc5882012c",
+      "signature": "89504e470d0a1a0a"
+    },
+    "package_dashboard": {
+      "bytes": 101761,
+      "sha256": "b795a441060430856eb9d3fa65ced97aa1fdd0489439b82a2447038bf644a49e",
+      "signature": "89504e470d0a1a0a"
+    },
+    "archive_entries": 43,
+    "duplicate_archive_entries": 0,
+    "archive_zip_test_error": null
+  },
+  "repository_artifact_parse": {
+    "json_files": 938,
+    "json_documents_parsed": 937,
+    "json_parse_errors": 0,
+    "utf8_bom_json_files": 14,
+    "retained_expected_zero_byte_json": "artifacts/verification/mcp-source-baseline-0026.json",
+    "jsonl_files": 157,
+    "jsonl_records": 28258,
+    "jsonl_parse_errors": 0
+  },
+  "scan": {
+    "classified_non_material_credential_signature_findings": [
+      "The retained scan-scope failure receipt quotes the historical -----BEGIN PRIVATE KEY----- scanner test literal.",
+      "This artifact-scan receipt quotes the same literal only to classify the retained failure."
+    ],
+    "unresolved_credential_signature_findings": [],
+    "raw_approval_token_field_in_selected_evaluations": false,
+    "operator_capability_in_selected_evidence": false,
+    "changed_external_model_artifacts": 0,
+    "archive_runtime_dependencies": [],
+    "latest_is_byte_identical_to_final_source": true,
+    "latest_sha256": "caf016718aefd9bb0400b8671e836d71ba057537fa547ec18a6a0df2685b0c74"
+  },
+  "contracts": {
+    "manifest": "pass",
+    "selected_package": "pass",
+    "independent_package_a": "pass",
+    "independent_package_b": "pass",
+    "container_static_require_implementation": "pass with receipt absent"
+  },
+  "retained_invalid_attempts": [
+    "artifacts/verification/baseline-0030-post-surface-artifact-parse-wrapper-failure-001.json",
+    "artifacts/verification/baseline-0030-post-surface-credential-scan-scope-failure-001.json"
+  ],
+  "container_image_built": false,
+  "image_exported": false,
+  "image_pushed": false,
+  "image_published": false
+}

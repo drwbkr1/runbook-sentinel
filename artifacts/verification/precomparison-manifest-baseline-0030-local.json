@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0030",
+  "unit": "UNIT-003",
+  "recorded_at_utc": "2026-08-16T00:25:47Z",
+  "status": "local-pass-publication-pending",
+  "public_implementation_seal_commit": "34bc1a8b8f7d4070f0858581f01852e0643685d7",
+  "public_implementation_reconciliation_commit": "95a6c09b9b0d425407c32f6c182d8b3760193487",
+  "public_inventory_seal_commit": "c6eab065b17420d893d69781a8e7d20051ae9fa6",
+  "public_inventory_seal_tree": "63c6062f8221680f9fdf6f86a342b84cb212891c",
+  "manifest": {
+    "path": "eval/manifest.json",
+    "checkpoint": "baseline-0030",
+    "frozen_at_utc": "2026-08-16T00:20:50Z",
+    "file_count": 138,
+    "bytes": 16597,
+    "sha256": "882c552e9c712bed298c2a6e7ca2bb5206f28d40102cbe05efaba2eee6560b8f",
+    "exact_verification": "pass",
+    "inventory_additions_from_predecessor": [
+      "eval/model-contract-0018-v2.json",
+      "eval/model-output-conformance-contract.json",
+      "scripts/verify_model_output_conformance_contract.py"
+    ],
+    "inventory_removals_from_predecessor": []
+  },
+  "verification": {
+    "full_tests_attempt_001": {
+      "status": "retained_failure",
+      "passed": 75,
+      "failed": 1,
+      "elapsed_seconds": 63.269,
+      "evidence": "artifacts/verification/baseline-0030-manifest-schema-compatibility-failure-001.json"
+    },
+    "full_tests_attempt_002": {
+      "status": "pass",
+      "passed": 76,
+      "failed": 0,
+      "elapsed_seconds": 90.830
+    },
+    "side_effect_free_validators": {
+      "status": "pass",
+      "passed": 36,
+      "failed": 0,
+      "includes_exact_manifest_verification": true,
+      "excluded_runtime_scripts": [
+        "scripts/verify_baseline.py",
+        "scripts/verify_container_runtime.py",
+        "scripts/verify_evaluation_trace.py",
+        "scripts/verify_mcp_stdio.py"
+      ]
+    },
+    "model_output_conformance_required_implementation": "pass",
+    "governed_milestone_contract": "pass",
+    "compileall": "pass",
+    "diff_check": "pass",
+    "retained_wrapper_failure": "The first final-gate wrapper omitted whitespace before a PowerShell redirection token, passed a malformed contracts\\\\milestone-0030.json> path to the validator, and was excluded. The corrected direct invocation validates with no error or warning."
+  },
+  "sealed_files_excluding_this_receipt": [
+    {"path": "CHANGELOG.md", "bytes": 73102, "sha256": "5f8a89a6b29d2c5b427e0642425f8b3e53ca7f7450f6bf9c4071c567bd9b6e26"},
+    {"path": "artifacts/verification/baseline-0030-manifest-schema-compatibility-failure-001.json", "bytes": 1282, "sha256": "c82347289a6310c410520ecd764c0e0a549205c1ea1af475a7dff73a58642ddd"},
+    {"path": "contracts/milestone-0030.json", "bytes": 16286, "sha256": "75a1ddc8fc6176f94fecc235a6300be64f8e396fe0415f61814aedd9183efe06"},
+    {"path": "docs/devlog.md", "bytes": 363533, "sha256": "07b8163414d4efe719f1e94f980dce424b21012c88ca6c6dafe7aa4d0ebd19cd"},
+    {"path": "docs/roadmap.md", "bytes": 62141, "sha256": "5942feb1548e340ae1107f237009b9a903e2a1a4cdd91cea4edeec7182064c5d"},
+    {"path": "docs/status.md", "bytes": 234242, "sha256": "4d0874a3c7ec2811fc93a1f55e46349b4dc1e93ce810ef0d6ce733dfa84cf94d"},
+    {"path": "eval/manifest.json", "bytes": 16597, "sha256": "882c552e9c712bed298c2a6e7ca2bb5206f28d40102cbe05efaba2eee6560b8f"},
+    {"path": "tests/test_baseline.py", "bytes": 137524, "sha256": "cc87ee0a56e96cccc5743febc7b16de8d4742ec9c0301a2fd1d574d3ac908ffa"}
+  ],
+  "candidate_absence": {
+    "baseline_0030_model_call_count": 0,
+    "legacy_v2_report_exists": false,
+    "candidate_v3_report_exists": false,
+    "comparison_decision_exists": false,
+    "v0_0_30_archive_exists": false,
+    "baseline_0030_image_count": 0
+  },
+  "next_gate": "Commit push and remotely verify this exact manifest seal before running either immutable 171-call model comparison."
+}
