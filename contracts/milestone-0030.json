@@ -195,16 +195,27 @@
       "action_class": "public_release",
       "human_gate": false,
       "status": "in_progress",
-      "gates": {},
+      "gates": {
+        "premerge_release_truth_audit": "pass",
+        "exact_reviewed_head_merged_with_history_preserved": "pass",
+        "fresh_public_main_complete_stack": "pass",
+        "merged_main_receipt_public_and_exact": "pass",
+        "final_release_truth_audit": "pending",
+        "release_closure": "pending",
+        "annotated_tag_and_selected_assets": "pending",
+        "public_tag_complete_stack": "pending",
+        "external_reconciliation": "pending"
+      },
       "disposition": "pending",
       "retained_failures": [
-        "Five read-only premerge orientation wrappers are retained as process-invalid: expected release absence became terminating, one release query requested an unsupported field, one latest-release assertion mishandled nested arrays, one target-release jq expression was over-escaped, and one paginated PR query combined unsupported --slurp and --jq options. Corrected scalar release and paginated path queries pass without mutation."
+        "Five read-only premerge orientation wrappers are retained as process-invalid: expected release absence became terminating, one release query requested an unsupported field, one latest-release assertion mishandled nested arrays, one target-release jq expression was over-escaped, and one paginated PR query combined unsupported --slurp and --jq options. Corrected scalar release and paginated path queries pass without mutation.",
+        "Merged-main verification retains import-path, byte-array, viewer, and historical-receipt wrapper failures as process-invalid. PowerShell 7 observes two null WWW-Authenticate header values and passes 129 of 131 live API checks; the unchanged validated Windows PowerShell path passes 131 of 131 with both server challenges exact. No security boundary or positive evidence was weakened."
       ],
       "next_dependency": null
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Publish and remotely verify the retained premerge-orientation evidence plus this bounded control-pointer correction, then run the governed UNIT-005 premerge release-truth audit against the resulting exact public candidate head on draft PR #28.",
+  "next_action": "Run the final release-truth audit against exact public merged-main receipt commit 211d7bdd2bc885f8568210fca7b60ff5c9aeb8da and its reconciled living records. Create the release closure only if the audit verifies without a warning, missing surface, or unresolved discrepancy.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -287,11 +298,16 @@
       ,"the post-container gate passes 80 tests in 141.559 seconds all 37 phase-correct validators in 10.036 seconds archive and three trace validators the 143-file manifest governed milestone compilation diff checks 946 nonempty JSON documents and 28519 JSONL records"
       ,"canonical container-evidence commit 77efe4eb85dd213b087cf6ad4e8de4aa502c0c13 and tree 9cc0c34cd8f8251c5d81ecbfeb6068d9df4033bb are exact across local tracking ls-remote GitHub ref API public visibility and all 17 changed Git blob identities and sizes"
       ,"anonymous credential-free retrieval by immutable commit URL verifies all 17 changed public files by byte length and SHA-256 after retaining one pre-network missing-assembly wrapper failure"
+      ,"premerge release-truth audit d3799344cc4233cffd056d24ce6170e30176651e5db7fce63694932e26168a30 verifies all ten checks and declared real surfaces with active inherited authority and no error warning stale missing unknown or unrun state"
+      ,"PR 28 merged exact reviewed head cef8b3f00ab33227539d8d0646937da302eb1d52 under expected-head lock as 053ff98d04cfabfc67c7e7fb08d1de10ba560a1b with reviewed and merged tree 6c8fbeb3c485e03cd44baebeeaf80a6b9216b3eb exact"
+      ,"fresh public-main verification passes 80 tests 37 validators two exact archive rebuilds both 136-gate source and package evaluations bounded MCP both 131-check Windows PowerShell APIs both 72-check native inspections three complete dashboards and exact structured evidence parsing"
+      ,"two fresh full container builds and one no-alternates clean build reproduce image sha256:793cc009835350972ac30215cbdad2fb73f3802d47982d3bfddbd49af633fea3; all 46 composed checks and the observation-time zero-critical-high structured scan pass without image export push or publication"
+      ,"merged-main receipt commit 211d7bdd2bc885f8568210fca7b60ff5c9aeb8da is exact across local tracking ls-remote GitHub ref API and both anonymous immutable-commit downloads; retained compatibility and process observations are public beside the passing receipt"
     ]
   },
   "handoff": {
-    "current_checkpoint": "BASELINE-0030 UNIT-004 passes. Exact public package/source reconciliation dc5e72594b7919dbd75bf4d66f35615551ace900, canonical container evidence 77efe4eb85dd213b087cf6ad4e8de4aa502c0c13, and public completion-receipt head fcc76ad299b6996ec63db4014a388e69d73d65f3 reconcile; all 46 container checks pass at local image ID sha256:793cc009835350972ac30215cbdad2fb73f3802d47982d3bfddbd49af633fea3 with no image export, push, publication, or redistribution.",
-    "next_action": "Publish and verify the retained premerge-orientation evidence and bounded stale-pointer correction, then audit the resulting exact public candidate head. Change draft readiness and begin exact review only if that audit verifies without a release-blocking finding.",
+    "current_checkpoint": "BASELINE-0030 reviewed head cef8b3f00ab33227539d8d0646937da302eb1d52 merged with identical tree as 053ff98d04cfabfc67c7e7fb08d1de10ba560a1b. Fresh public-main source, package, MCP, API, state, telemetry, dashboards, parsing, and three local image builds pass; merged-main receipt commit 211d7bdd2bc885f8568210fca7b60ff5c9aeb8da is public and raw-byte exact. No v0.0.30 tag, release, deployment, image export, image push, or image publication exists.",
+    "next_action": "Run the final release-truth audit against exact public main and reconciled living records. If verified without warning or unresolved surface, publish the exact release closure before creating annotated v0.0.30 and the selected zipapp/checksum release.",
     "do_not_carry_forward": [
       "any prompt model runtime parser-acceptance retrieval decision-context scenario terminal policy approval executor authority dependency secret external asset or real-infrastructure change",
       "any test-split tuning raw model-output retention or inference that syntactic validity equals diagnostic correctness",
