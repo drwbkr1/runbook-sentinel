@@ -78,7 +78,7 @@
       "depends_on": [],
       "action_class": "evidence_preservation",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "outputs": [
         "artifacts/verification/orientation-baseline-0031.json",
         "artifacts/verification/baseline-0031-orientation-probe-failures-001.json",
@@ -96,9 +96,9 @@
         "rejected_candidates_preserved": "pass",
         "research_source_gate_fit": "pass",
         "preimplementation_contract_and_tests": "pass",
-        "public_freeze_verified": "pending"
+        "public_freeze_verified": "pass"
       },
-      "disposition": "pending",
+      "disposition": "pass",
       "retained_failures": [
         "The first post-release GitHub Trees API URL interpolated the commit query suffix as part of the PowerShell variable and returned 404; the corrected explicit tree-SHA query verified all nine public entries.",
         "Relative score thresholds 0.50 and 0.75 and top-score-only filtering each dropped frozen required evidence on development cases and were rejected before implementation."
@@ -111,9 +111,9 @@
       "depends_on": ["UNIT-001"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "gates": {
-        "public_freeze_verified": "pending",
+        "public_freeze_verified": "pass",
         "exact_runtime_projection": "pending",
         "development_reference_exact": "pending",
         "default_and_authority_unchanged": "pending",
@@ -182,8 +182,8 @@
       "next_dependency": null
     }
   ],
-  "current_unit": "UNIT-001",
-  "next_action": "Publish and remotely verify the exact preimplementation freeze before adding bounded-trust-tier-lexical-v4 or revealing held-out candidate results.",
+  "current_unit": "UNIT-002",
+  "next_action": "Implement exactly bounded-trust-tier-lexical-v4 in the frozen retrieval path, retain v3 as product default, and publish a verified implementation seal before any held-out candidate evaluation.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -218,11 +218,12 @@
       "preimplementation contract validator and six focused tests pass with candidate absent and v3 default exact"
       ,"the complete preimplementation suite passes 86 tests in 100.239 seconds and all 38 inherited phase-correct side-effect-free validators pass in 4.159 seconds"
       ,"governed milestone validation compilation structured parsing git diff and bounded credential and model-artifact scans pass without warning or unclassified error"
+      ,"public preimplementation seal a7e42589b8e85d6f967128d32d7cea7a5111c3e9 and tree 22d186d9c5a558560abb6fe81c272f389e6571dd reconcile across local explicit tracking ls-remote anonymous GitHub APIs all 16 changed Git entries and all 16 anonymous raw files with candidate runtime and held-out results absent"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Verified public v0.0.30 at reconciliation commit 4d62ecf930130b938594a9b7bc70675f9d8122e1 is the sole starting point. BASELINE-0031 is a frozen experimental retrieval comparison; no candidate runtime or held-out result exists.",
-    "next_action": "Publish and remotely reconcile the preimplementation freeze, then implement only bounded-trust-tier-lexical-v4 while leaving freshness-priority-lexical-v3 as default until the full comparison passes.",
+    "current_checkpoint": "Public preimplementation seal a7e42589b8e85d6f967128d32d7cea7a5111c3e9 is remotely exact. BASELINE-0031 remains a frozen experimental retrieval comparison; no candidate runtime or held-out result exists at the seal.",
+    "next_action": "Implement only bounded-trust-tier-lexical-v4 while leaving freshness-priority-lexical-v3 as default, then publish an implementation seal before the full comparison.",
     "do_not_carry_forward": [
       "any held-out tuning expected-label grader scenario terminal model prompt parser decision-context policy approval executor or authority change",
       "any trust in evidence kind timestamp freshness or provenance before external authentication and normalization",

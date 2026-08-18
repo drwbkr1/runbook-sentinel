@@ -12,6 +12,8 @@ The development-only independent reference for exact 2/1/1 trust-tier caps with 
 
 The recent exact BASELINE-0029 source gate is reused only for modular retrieval diagnostics and useful-information/noise tradeoffs. No external code, paper bytes, benchmark, dataset, model, prompt, package, service, relevance label, or other asset is imported. The candidate can replace v3 only after a same-manifest three-trial comparison strictly improves development focus and preserves exact completeness, expected ranks, scenarios, terminal states, coverage, adversarial stages, policy, utility, attack success, reliability, latency, and cost on the frozen development and held-out splits. Until then, candidate performance is unknown.
 
+Preimplementation seal `a7e42589b8e85d6f967128d32d7cea7a5111c3e9`, tree `22d186d9c5a558560abb6fe81c272f389e6571dd`, is public and remotely exact. Local, explicit tracking, `ls-remote`, anonymous GitHub ref and tree APIs, all 16 changed Git entries, and all 16 anonymous raw files agree. `bounded-trust-tier-lexical-v4` and held-out candidate results remain absent at that boundary; UNIT-002 may implement only the frozen runtime projection.
+
 ## BASELINE-0030 public v0.0.30 reconciliation
 
 Audited closure `9bfa784feeb1e002c546326ce9db214c2c155fce`, annotated tag object `1e51f18e6023bd66b19ad11ca794c5a0c2c42885`, public latest release `372002788`, and exactly two selected assets reconcile. The downloaded zipapp is 646,081 bytes at SHA-256 `b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf`; its 94-byte checksum is SHA-256 `5a27247f2757b44ad8c6d6d46efe8bf4ff984e62f76d085fb36696758e6f92b8`. Two fresh tag builds reproduce the downloaded archive byte-for-byte and the 43-entry package contract passes.

@@ -50,6 +50,24 @@
       "mutation": false,
       "correction": "The successor passed the revision expression as the literal string 'HEAD^{tree}' and resolved tree c36fd5b9d98c6b6049ee0e0f7ef99a1bb9fdfaa0.",
       "positive_evidence": false
+    },
+    {
+      "id": "UPSTREAM-TRACKING-REF-001",
+      "class": "process_invalid",
+      "operation": "Reconcile the newly pushed preimplementation branch across local and remote refs",
+      "failure": "The first wrapper asked Git for @{upstream}, but the repository's narrow fetch configuration had not stored the newly pushed branch as a remote-tracking ref despite push reporting upstream setup.",
+      "mutation": false,
+      "correction": "The successor explicitly fetched refs/heads/codex/baseline-0031-bounded-trust-tier-retrieval to the matching origin remote-tracking ref, then verified local, tracking, ls-remote, anonymous GitHub ref, commit, tree, all sixteen Git tree entries, and all sixteen anonymous raw files exactly.",
+      "positive_evidence": false
+    },
+    {
+      "id": "MILESTONE-UNIT-STATUS-001",
+      "class": "process_invalid",
+      "operation": "Advance the governed milestone from UNIT-001 to UNIT-002",
+      "failure": "The first lifecycle edit used status 'completed', while the installed governed milestone contract requires the exact terminal status 'complete'. The validator rejected UNIT-001 and opened no additional authority.",
+      "mutation": false,
+      "correction": "Use the validator's exact 'complete' status for UNIT-001 and rerun the governed milestone gate before publication or implementation.",
+      "positive_evidence": false
     }
   ],
   "held_out_candidate_results_observed": false,
