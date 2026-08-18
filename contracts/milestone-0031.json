@@ -114,9 +114,9 @@
       "status": "in_progress",
       "gates": {
         "public_freeze_verified": "pass",
-        "exact_runtime_projection": "pending",
-        "development_reference_exact": "pending",
-        "default_and_authority_unchanged": "pending",
+        "exact_runtime_projection": "pass",
+        "development_reference_exact": "pass",
+        "default_and_authority_unchanged": "pass",
         "implementation_seal_public": "pending"
       },
       "disposition": "pending",
@@ -219,6 +219,9 @@
       ,"the complete preimplementation suite passes 86 tests in 100.239 seconds and all 38 inherited phase-correct side-effect-free validators pass in 4.159 seconds"
       ,"governed milestone validation compilation structured parsing git diff and bounded credential and model-artifact scans pass without warning or unclassified error"
       ,"public preimplementation seal a7e42589b8e85d6f967128d32d7cea7a5111c3e9 and tree 22d186d9c5a558560abb6fe81c272f389e6571dd reconcile across local explicit tracking ls-remote anonymous GitHub APIs all 16 changed Git entries and all 16 anonymous raw files with candidate runtime and held-out results absent"
+      ,"bounded-trust-tier-lexical-v4 matches the frozen development reference exactly at retrieval SHA-256 6eb5227b2e20141bf978670cfbbe9edd6d55ca1db69b76a4007b830e13ff864a while freshness-priority-lexical-v3 remains the product default"
+      ,"the implementation phase passes six focused tests all 86 tests in 107.216 seconds and 37 applicable phase-correct non-manifest validators in 2.463 seconds; the immutable predecessor manifest rejects exactly src/runbook_sentinel/retrieval.py"
+      ,"implementation-phase governed milestone compilation structured parsing diff and bounded credential and model-artifact scans pass without warning or unclassified error"
     ]
   },
   "handoff": {

@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0031-implementation-local",
+  "checkpoint": "baseline-0031",
+  "unit": "UNIT-002",
+  "observed_at_utc": "2026-08-18T00:38:04Z",
+  "status": "pass",
+  "disposition": "local_implementation_pass_publication_pending",
+  "starting_public_freeze": {
+    "freeze_commit": "a7e42589b8e85d6f967128d32d7cea7a5111c3e9",
+    "freeze_tree": "22d186d9c5a558560abb6fe81c272f389e6571dd",
+    "reconciliation_commit": "733feb52d1983f532e17fb1d3224d95d8070b597",
+    "reconciliation_tree": "ef71366f4be0c4451b2ed67b1e92fe4448e1af22",
+    "public_and_remote_exact": true
+  },
+  "implementation": {
+    "configuration": "bounded-trust-tier-lexical-v4",
+    "runtime_path": "src/runbook_sentinel/retrieval.py",
+    "preimplementation_bytes": 4294,
+    "preimplementation_sha256": "cdaa33d231191e64e0da6b3d0da353b46b191716a062d47a7abaa000093f5535",
+    "implementation_bytes": 4643,
+    "implementation_sha256": "6eb5227b2e20141bf978670cfbbe9edd6d55ca1db69b76a4007b830e13ff864a",
+    "implementation_git_blob_sha1": "08aae01104cfea98ea78c138c8e678ad836c1f2f",
+    "tier_caps": {
+      "fresh_project_evidence": 2,
+      "stale_project_evidence": 1,
+      "untrusted_guidance": 1
+    },
+    "quota_backfill": false,
+    "within_tier_ranking_changed": false,
+    "product_default": "freshness-priority-lexical-v3",
+    "product_default_changed": false,
+    "phase": "implemented_experimental"
+  },
+  "development_projection": {
+    "independent_reference_exact": true,
+    "eligible_attempt_count": 84,
+    "all_expected_retrieved_rate": 1.0,
+    "expected_rank_1_count": 84,
+    "expected_rank_2_count": 12,
+    "control_extra_document_count": 66,
+    "candidate_extra_document_count": 48,
+    "control_expected_document_share_mean": 0.6964285714285714,
+    "candidate_expected_document_share_mean": 0.7261904761904762,
+    "held_out_candidate_evaluation_run": false
+  },
+  "unchanged_boundaries": {
+    "service_sha256": "9c19a3d597b06a53adfa45c77ea6f83b820c54e808b555e1a6618a7cb3a6beb0",
+    "agent_sha256": "b04ac41d48708028733a31ff2d8b11a6f7f109a17f1f52f6f9ca273a171579e6",
+    "policy_sha256": "1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa",
+    "scenario_catalog_sha256": "f9e3fb24bf1cb74487796de0cd7c78b3594fa9fc46d1cacb957f755c0ca8a242",
+    "decision_context_changed": false,
+    "model_prompt_parser_changed": false,
+    "approval_executor_authority_changed": false,
+    "dependency_credential_secret_service_external_asset_or_real_infrastructure_added": false
+  },
+  "validation": {
+    "implementation_contract_validator": "pass",
+    "focused_tests_passed": 6,
+    "full_tests_passed": 86,
+    "full_tests_failed": 0,
+    "full_tests_elapsed_seconds": 107.216,
+    "applicable_phase_correct_non_manifest_validators_passed": 37,
+    "applicable_phase_correct_non_manifest_validators_failed": 0,
+    "validator_elapsed_seconds": 2.463,
+    "predecessor_manifest_status": "expected_fail_closed",
+    "predecessor_manifest_mismatch_count": 1,
+    "predecessor_manifest_unexpected_mismatch_count": 0,
+    "predecessor_manifest_mismatch_path": "src/runbook_sentinel/retrieval.py",
+    "governed_milestone_valid": true,
+    "governed_milestone_warnings": [],
+    "compileall": "pass",
+    "git_diff_check": "pass",
+    "json_files_observed_before_this_receipt": 961,
+    "nonempty_json_files_parsed": 960,
+    "known_empty_json_files": [
+      "artifacts/verification/mcp-source-baseline-0026.json"
+    ],
+    "bom_json_files_reported": 14,
+    "json_parse_errors": 0,
+    "jsonl_files_parsed": 156,
+    "jsonl_records_parsed": 28512,
+    "jsonl_parse_errors": 0,
+    "added_line_high_specificity_secret_hits": 0,
+    "untracked_file_high_specificity_secret_hits": 0,
+    "model_artifact_count": 0
+  },
+  "changed_files": [
+    {"path": "artifacts/verification/baseline-0031-predecessor-manifest-mismatch.json", "bytes": 1261, "sha256": "411d76b3cc2ddc0cb4768167b07fc155e317a9a788e12af949dcdd7608ad84ba", "git_blob_sha1": "e6367633d2374e72bd1b60f939d4d1328fe98b21"},
+    {"path": "CHANGELOG.md", "bytes": 88072, "sha256": "7820e7522c9ad535c5d3f3b3776249e5242e31a7205466f0ee90c8ed568afd29", "git_blob_sha1": "c88ed154b9c4c45d60bd5a636465db4bee710cb9"},
+    {"path": "contracts/milestone-0031.json", "bytes": 14627, "sha256": "876359a11fc0970364e7265b0e1f49b6e48d408a64a08b9a65ffe1e8c0b47cf9", "git_blob_sha1": "3f8462a783568b0dea63d888f59c6c2174ff8ca2"},
+    {"path": "docs/devlog.md", "bytes": 390699, "sha256": "bffc6f03497746f5fc14af588bc43c55f5e614af541d63db3afdd4a082a78d0d", "git_blob_sha1": "f38f32e6fe7feebc8a5ed6489370a4ce2b248a4f"},
+    {"path": "docs/evaluation-report.md", "bytes": 186760, "sha256": "2c884296a1339233e372264c2c9b4107934026112120978a64fc928db6a9ed5e", "git_blob_sha1": "2ba65e154806be229331900adb10d09601c4f2b7"},
+    {"path": "docs/roadmap.md", "bytes": 73656, "sha256": "0702e786fc29591c7d8de964ddb51c7287bf335eb7a7238e12e0154c947fb697", "git_blob_sha1": "14a3ce07549b0a91820963b673ef6a99b55810cf"},
+    {"path": "docs/status.md", "bytes": 247860, "sha256": "a8b346dc37a09f5f44be27057785f64357026cba9b01be823dc2d357aa75fd99", "git_blob_sha1": "2286b5eba39ea28e0db1b49bb9b184cd35d562bc"},
+    {"path": "docs/version-history.md", "bytes": 25704, "sha256": "08a4cea8f3a2f5ede93d78258c9f6a2231ccd1c16d46db06f089468826d5c616", "git_blob_sha1": "1ce808f127f0c61f5df81277868c3dcf9e9365cd"},
+    {"path": "eval/retrieval-tier-cap-contract.json", "bytes": 8755, "sha256": "0911040a9edb53a685a492a17eaac2a2914eabc42c694157d058f81f175dc7eb", "git_blob_sha1": "1867944da95972f4df0f2dd03a72fdcfed643859"},
+    {"path": "src/runbook_sentinel/retrieval.py", "bytes": 4643, "sha256": "6eb5227b2e20141bf978670cfbbe9edd6d55ca1db69b76a4007b830e13ff864a", "git_blob_sha1": "08aae01104cfea98ea78c138c8e678ad836c1f2f"}
+  ],
+  "seal_status": {
+    "local_implementation": "pass",
+    "public_implementation_seal": "pending",
+    "candidate_evaluation": "closed",
+    "successor_manifest_freeze": "closed"
+  },
+  "next_gate": "Commit, push, and remotely reconcile the exact implementation seal before any same-manifest control or candidate evaluation."
+}
