@@ -18,6 +18,7 @@
 - Rejected public amendment `fa740b95442232cdcef72b8f5fd7dcbdb5b29bb1` as positive custody evidence: refs and 11 of 12 raw paths are exact, but Git normalized the failed manifest from 17,558 CRLF bytes to 17,405 LF bytes. Its exact SHA-256 `99489ecb...` bytes now live under the binary verification namespace; the normalized Git copy and failed publication remain preserved. Corrected inventory is 149 paths with zero removals.
 - Published corrected inventory `9e031aa3ddfc89a26b8d78452daa583201361fbd`, tree `70a102b6554ee35831441ca426fcc82907b73e3e`; all four refs, all 11 Git tree entries, and all 11 unauthenticated raw files are exact. The successor manifest and v3/v4 comparison remain unopened.
 - Froze manifest attempt 002 from the corrected public inventory: 149 files, 17,981 bytes, SHA-256 `9cdb30aa...`. It passes 91/91 tests and all 39 applicable phase-correct validators, including exact manifest verification. No comparison artifact exists; publication and public-byte reconciliation precede the v3 control.
+- Published manifest seal `596a81dec106e508486a9c739a1c43fad053250a`, tree `2052251cf76f3ebd2fc8ee357f67707b585eedb4`; all four refs, all eight tree entries, and all eight unauthenticated raw files are exact. The v3 control is now authorized; v4 remains closed until the control result is public.
 
 ## 0.0.30 - 2026-08-17
 

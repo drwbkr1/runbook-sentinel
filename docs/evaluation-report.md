@@ -38,6 +38,8 @@ Corrected inventory commit `9e031aa3ddfc89a26b8d78452daa583201361fbd`, tree `70a
 
 Manifest attempt 002 freezes the exact 149-path inventory at 17,981 bytes and SHA-256 `9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c`. It passes 91/91 tests in 107.021 seconds and 39/39 applicable phase-correct validators in 2.647 seconds, including its internal verifier. V3 remains default and the control, candidate, traces, receipts, and comparison remain absent. The result is local-only until public raw and Git-tree reconciliation passes.
 
+Manifest seal `596a81dec106e508486a9c739a1c43fad053250a`, tree `2052251cf76f3ebd2fc8ee357f67707b585eedb4`, is public and exact across all four refs, all eight Git tree entries, and all eight unauthenticated raw files. The manifest is 17,981 bytes at SHA-256 `9cdb30aa...` both locally and publicly. This authorizes only the v3 control. Candidate execution remains closed until the control result is itself public and exact.
+
 ## BASELINE-0030 public v0.0.30 reconciliation
 
 Audited closure `9bfa784feeb1e002c546326ce9db214c2c155fce`, annotated tag object `1e51f18e6023bd66b19ad11ca794c5a0c2c42885`, public latest release `372002788`, and exactly two selected assets reconcile. The downloaded zipapp is 646,081 bytes at SHA-256 `b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf`; its 94-byte checksum is SHA-256 `5a27247f2757b44ad8c6d6d46efe8bf4ff984e62f76d085fb36696758e6f92b8`. Two fresh tag builds reproduce the downloaded archive byte-for-byte and the 43-entry package contract passes.
