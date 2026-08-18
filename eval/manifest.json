@@ -122,7 +122,7 @@
     "scripts/verify_package_contract.py": "079d65483fa5f330f7074fd142ebb3b3481c8867b8230d7fd0adbee7e6cbc7d0",
     "scripts/verify_retrieval_quality_observability_contract.py": "8fab02cd1a9a85f3cc6b9e30780b579ec9fbf88571e489fa24d1ce00f1bad55c",
     "scripts/verify_retrieval_stress.py": "3394258d6c17b2875105eede76c80b10c7e8caed82e867fa654568512618f819",
-    "scripts/verify_retrieval_tier_cap_contract.py": "6cac523144538168fd35e18e15bb402d2a5d878b40b4f05ff31ddbd0d0820fec",
+    "scripts/verify_retrieval_tier_cap_contract.py": "52b77c04c251747fe5dfe57a13094d79a23f85710499332b51f4dd3afc5999e1",
     "scripts/verify_retrieval_tier_cap_result.py": "e1b4ebb425d2cef69d2d6d4f3d37d71c4e40772700572ca584f2856f5e6879e8",
     "scripts/verify_stale_evidence_stress.py": "3ce0199258b295ca007ce3516e7c9d605a21430adba3e29543ba132fe7f6f89f",
     "scripts/verify_stale_payload_projection.py": "05b2ae2f3686963a2fb4b3a8469e4408485c5c7b6de63cb1e97293e67d045c18",
@@ -155,6 +155,6 @@
     "src/runbook_sentinel/telemetry.py": "1e136b8642fc37f76bd803e720d5849123867fe8565426c8ce43ec5b21245815",
     "src/runbook_sentinel/trace_integrity_evaluation.py": "aab63e902297aa2c26734cbaef46b9106c07074696c5cf1d4cef2a1b70690d4a"
   },
-  "frozen_at_utc": "2026-08-18T02:18:04Z",
+  "frozen_at_utc": "2026-08-18T02:53:29Z",
   "schema_version": "1.0"
 }

@@ -190,7 +190,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Freeze and publish a successor release manifest containing public correction c4e69df094d98c65026c9c4a4ae33c9b38153653, then rebuild and repeat selected-v3 source/package real surfaces. Docker remains closed.",
+  "next_action": "Publish and independently reconcile the exact 153-file successor manifest at SHA-256 e2ea1bcad45fe35e61ae84f3fb992400a737b46fa0daf94065e0ecb69a29a7e4, then rebuild and repeat selected-v3 source/package real surfaces. Docker remains closed.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -251,11 +251,12 @@
       ,"package/source attempt 001 produced two exact 647712-byte archives plus passing selected-v3 source/package evaluations MCP authenticated API native state telemetry and complete dashboards; the attempt is retained as superseded because the post-surface regression exposed a mutable latest.json historical-control pointer defect"
       ,"the bounded accepted-control archive/current-pointer correction rejects archive mutation and passes seven focused tests all 93 tests and all 39 phase-correct non-manifest validators while the predecessor manifest rejects exactly the corrected validator path"
       ,"public lifecycle-correction commit c4e69df094d98c65026c9c4a4ae33c9b38153653 and tree 8c41aa73f4479e3b1d9f4362e8bea810f1bda301 reconcile across local explicit tracking ls-remote anonymous GitHub ref and tree APIs all 20 changed Git entries and all 20 anonymous raw files"
+      ,"the 153-file successor release manifest is 18484 bytes at SHA-256 e2ea1bcad45fe35e61ae84f3fb992400a737b46fa0daf94065e0ecb69a29a7e4 and passes 93 tests plus all 40 phase-correct validators after two retained lifecycle-test fixture failures"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public lifecycle-correction commit c4e69df094d98c65026c9c4a4ae33c9b38153653 is exact across refs, its 20 Git tree entries, and all 20 anonymous raw files. Package/source attempt 001 remains superseded. The predecessor manifest rejects exactly the now-public corrected validator path.",
-    "next_action": "Freeze and publish the successor release manifest, then rebuild and repeat package/source verification before Docker.",
+    "current_checkpoint": "Public lifecycle correction c4e69df094d98c65026c9c4a4ae33c9b38153653 is exact. The local successor manifest freezes the same 153-file scope at SHA-256 e2ea1bcad45fe35e61ae84f3fb992400a737b46fa0daf94065e0ecb69a29a7e4 and passes 93/93 tests plus 40/40 validators; no archive or image was rebuilt.",
+    "next_action": "Publish and reconcile the successor manifest, then rebuild and repeat package/source verification before Docker.",
     "do_not_carry_forward": [
       "any held-out tuning expected-label grader scenario terminal model prompt parser decision-context policy approval executor or authority change",
       "any trust in evidence kind timestamp freshness or provenance before external authentication and normalization",

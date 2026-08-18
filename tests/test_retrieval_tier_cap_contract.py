@@ -43,8 +43,14 @@ class RetrievalTierCapContractTests(unittest.TestCase):
             archived = root / "baseline-0030-final-source-attempt-001.json"
             manifest = root / "manifest.json"
             baseline_0030 = verifier.ACCEPTED_CONTROL_ARCHIVE_PATH.read_bytes()
-            baseline_0031 = (verifier.ROOT / "artifacts/evaluations/latest.json").read_bytes()
-            active_manifest = verifier.ACTIVE_MANIFEST_PATH.read_bytes()
+            baseline_0031 = (
+                verifier.ROOT
+                / "artifacts/evaluations/runs/baseline-0031-final-source-attempt-001.json"
+            ).read_bytes()
+            active_manifest = (
+                verifier.ROOT
+                / "artifacts/evaluations/runs/baseline-0031-final-source-attempt-001.manifest.json"
+            ).read_bytes()
             self.assertEqual(
                 hashlib.sha256(baseline_0030).hexdigest(),
                 control["evaluation_sha256"],
