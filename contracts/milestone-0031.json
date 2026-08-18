@@ -161,7 +161,7 @@
         "source_package_public_exact": "pass",
         "local_container_and_scan_exact": "pass",
         "clean_clone_portability_correction_public": "pass",
-        "clean_clone_exact": "pending",
+        "clean_clone_exact": "pass",
         "public_complete_stack_candidate_exact": "pending"
       },
       "disposition": "pending",
@@ -193,7 +193,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Retry container-runtime-v11 clean-build from a new no-alternates clone of public portability seal d7302b67842d44280108b0ebd2b17af9e61a7840 and require exact image sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1 without exporting pushing publishing or redistributing image bytes.",
+  "next_action": "Publish and remotely reconcile the exact canonical 47-of-47 container receipt components dashboard SARIF artifact scan retained observations and living records; do not export push publish or redistribute image bytes.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -262,11 +262,13 @@
       ,"two full local container builds reproduce image sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1; 46 of 47 component checks pass with only clean-clone identity pending and no image export push publication or redistribution"
       ,"the first no-alternates public clean clone rebuilds the selected archive exactly but fails before Docker on the retained historical invalid-manifest LF/CRLF checkout mismatch; the bounded binary-attribute correction passes 93 tests and all 40 phase-correct validators without changing manifest package evaluation image policy or authority bytes"
       ,"public portability seal d7302b67842d44280108b0ebd2b17af9e61a7840 and tree 05eb6d150e4f453fa639857a9466896fc7800c79 reconcile across refs all eight changed Git entries and all eight anonymous public files; the historical file is publicly exact at 17558 bytes and SHA-256 99489ecbcd1fb9f92fff23c09494647139c4c1f58c90f9c1ffdedde57cb74167"
+      ,"fresh no-alternates clean clone at public reconciliation head 0ce0369bf6d62b15344d0f09498c79c034e85a2b rebuilds the selected archive and reproduces image sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1 exactly"
+      ,"canonical container receipt 236dbc9fc2f5a28cbc012612488bfc378103c877874dd8ad3119296ce5798d92 passes all 47 frozen checks; post-container 93 tests 40 required-result validators three exact traces structured parsing scans compilation and local-only publication boundaries pass"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public portability seal d7302b67842d44280108b0ebd2b17af9e61a7840 is exact across refs and all eight anonymous files. Two local builds reproduce image sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1 with 46 of 47 checks true; only fresh clean-clone identity remains pending.",
-    "next_action": "Retry from a new no-alternates clone of public seal d7302b67842d44280108b0ebd2b17af9e61a7840 without exporting or publishing image bytes.",
+    "current_checkpoint": "Local canonical container-runtime-v11 passes 47 of 47 checks. Two full builds and one fresh public no-alternates clean build reproduce image sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1; post-container regression parsing scan and no-publication gates pass.",
+    "next_action": "Publish and anonymously reconcile the exact container evidence payload before completing UNIT-004 or beginning the premerge audit.",
     "do_not_carry_forward": [
       "any held-out tuning expected-label grader scenario terminal model prompt parser decision-context policy approval executor or authority change",
       "any trust in evidence kind timestamp freshness or provenance before external authentication and normalization",
