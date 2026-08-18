@@ -34,6 +34,7 @@
 - Published attempt-002 package/source commit `297cc62...`, tree `7b353d62...`; all refs, all 18 changed Git entries, and all 18 anonymous raw files are exact. The local-only container-runtime-v11 gate opens with image export, push, publication, and redistribution still prohibited.
 - Two independent local container builds reproduce image ID `sha256:3736d003...`, with 46 of 47 checks true and only clean-clone identity pending. The real container evaluation, 261-event trace, three-tool MCP, authenticated API/approval/executor, persisted state, telemetry, complete dashboard, hardening, and zero-critical/high point-in-time scan pass; no image was exported, pushed, published, or redistributed.
 - The first no-alternates public clone rebuilt the selected 647,712-byte archive exactly, then failed before Docker because its LF public checkout of the retained invalid manifest did not match the stale CRLF representation frozen from the active worktree. The empty attempt and exact mismatch are retained. A bounded Git-attribute correction marks only that historical file as binary; runtime, package, evaluation, image, release-manifest, and authority bytes remain unchanged pending public reconciliation and a fresh-clone retry.
+- Published portability seal `d7302b6...`, tree `05eb6d15...`; all refs and all eight anonymous public files are exact. The historical file is now publicly 17,558 bytes at SHA-256 `99489ecb...`, exactly matching the unchanged release manifest. A fresh no-alternates clone retry is open.
 
 ## 0.0.30 - 2026-08-17
 

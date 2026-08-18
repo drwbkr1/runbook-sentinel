@@ -160,6 +160,7 @@
         "source_package_and_real_surfaces_exact": "pass",
         "source_package_public_exact": "pass",
         "local_container_and_scan_exact": "pass",
+        "clean_clone_portability_correction_public": "pass",
         "clean_clone_exact": "pending",
         "public_complete_stack_candidate_exact": "pending"
       },
@@ -192,7 +193,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Publish and remotely reconcile the bounded historical-file binary-attribute correction, verify the existing release manifest package evaluation and local image remain exact, then retry container-runtime-v11 clean-build from a new no-alternates public clone without exporting pushing publishing or redistributing image bytes.",
+  "next_action": "Retry container-runtime-v11 clean-build from a new no-alternates clone of public portability seal d7302b67842d44280108b0ebd2b17af9e61a7840 and require exact image sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1 without exporting pushing publishing or redistributing image bytes.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -260,11 +261,12 @@
       ,"public attempt-002 package/source commit 297cc62a3679bd6ed07e4b6b46d0599ddff6b120 and tree 7b353d62b3a4db27acc6dd38735edb93af2c494e reconcile across refs all 18 changed Git entries and all 18 anonymous raw files"
       ,"two full local container builds reproduce image sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1; 46 of 47 component checks pass with only clean-clone identity pending and no image export push publication or redistribution"
       ,"the first no-alternates public clean clone rebuilds the selected archive exactly but fails before Docker on the retained historical invalid-manifest LF/CRLF checkout mismatch; the bounded binary-attribute correction passes 93 tests and all 40 phase-correct validators without changing manifest package evaluation image policy or authority bytes"
+      ,"public portability seal d7302b67842d44280108b0ebd2b17af9e61a7840 and tree 05eb6d150e4f453fa639857a9466896fc7800c79 reconcile across refs all eight changed Git entries and all eight anonymous public files; the historical file is publicly exact at 17558 bytes and SHA-256 99489ecbcd1fb9f92fff23c09494647139c4c1f58c90f9c1ffdedde57cb74167"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public attempt-002 package/source commit 297cc62a3679bd6ed07e4b6b46d0599ddff6b120 is exact across refs all 18 Git entries and all 18 anonymous raw files. Reproducible archive 0e355dff and every source/package real surface pass; no BASELINE-0031 image exists.",
-    "next_action": "Publish and reconcile the historical-file binary-attribute correction, then retry from a new no-alternates public clone without exporting or publishing image bytes.",
+    "current_checkpoint": "Public portability seal d7302b67842d44280108b0ebd2b17af9e61a7840 is exact across refs and all eight anonymous files. Two local builds reproduce image sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1 with 46 of 47 checks true; only fresh clean-clone identity remains pending.",
+    "next_action": "Retry from a new no-alternates clone of public seal d7302b67842d44280108b0ebd2b17af9e61a7840 without exporting or publishing image bytes.",
     "do_not_carry_forward": [
       "any held-out tuning expected-label grader scenario terminal model prompt parser decision-context policy approval executor or authority change",
       "any trust in evidence kind timestamp freshness or provenance before external authentication and normalization",
