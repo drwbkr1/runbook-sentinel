@@ -34,6 +34,8 @@ Public amendment `fa740b95442232cdcef72b8f5fd7dcbdb5b29bb1` does not establish c
 
 Local correction gates pass: 91/91 tests in 106.266 seconds and 38/38 applicable phase-correct non-manifest validators in 2.651 seconds. The two earlier validator wrappers are retained as process-invalid because their phase flags were incomplete. The active manifest is still the exact 17,202-byte BASELINE-0030 predecessor, v3 is still default, and all seven frozen control/candidate/comparison paths remain absent.
 
+Corrected inventory commit `9e031aa3ddfc89a26b8d78452daa583201361fbd`, tree `70a102b6554ee35831441ca426fcc82907b73e3e`, is public and exact across local head, explicit tracking, `ls-remote`, GitHub ref and tree APIs, all 11 changed tree entries, and all 11 unauthenticated raw files. The exact failed-manifest copy is 17,558 bytes at SHA-256 `99489ecb...` on both sides. This passes only the inventory gate; the successor manifest and comparison remain unopened.
+
 ## BASELINE-0030 public v0.0.30 reconciliation
 
 Audited closure `9bfa784feeb1e002c546326ce9db214c2c155fce`, annotated tag object `1e51f18e6023bd66b19ad11ca794c5a0c2c42885`, public latest release `372002788`, and exactly two selected assets reconcile. The downloaded zipapp is 646,081 bytes at SHA-256 `b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf`; its 94-byte checksum is SHA-256 `5a27247f2757b44ad8c6d6d46efe8bf4ff984e62f76d085fb36696758e6f92b8`. Two fresh tag builds reproduce the downloaded archive byte-for-byte and the 43-entry package contract passes.

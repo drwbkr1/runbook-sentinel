@@ -16,6 +16,7 @@
 - Published and remotely reconciled the 146-path inventory at `d96a1f03b010c00c44e36e5332e97ae37aee3e39`, tree `e3224af3cf8085ae8d6f319b63b0c2f1584134fc`; all 11 changed Git entries and anonymous raw files are exact. The successor manifest remains absent at that seal.
 - Retained the first internally valid 146-file manifest at SHA-256 `99489ecb...` after its regression run failed 3 of 91 historical-pointer/current-checkpoint tests. The bounded correction adds its exact bytes plus the 17,202-byte BASELINE-0030 companion manifest to a 148-path inventory and derives the current checkpoint assertion from the exact manifest. No runtime, scenario, expected result, grader, selection rule, or held-out result changed.
 - Rejected public amendment `fa740b95442232cdcef72b8f5fd7dcbdb5b29bb1` as positive custody evidence: refs and 11 of 12 raw paths are exact, but Git normalized the failed manifest from 17,558 CRLF bytes to 17,405 LF bytes. Its exact SHA-256 `99489ecb...` bytes now live under the binary verification namespace; the normalized Git copy and failed publication remain preserved. Corrected inventory is 149 paths with zero removals.
+- Published corrected inventory `9e031aa3ddfc89a26b8d78452daa583201361fbd`, tree `70a102b6554ee35831441ca426fcc82907b73e3e`; all four refs, all 11 Git tree entries, and all 11 unauthenticated raw files are exact. The successor manifest and v3/v4 comparison remain unopened.
 
 ## 0.0.30 - 2026-08-17
 

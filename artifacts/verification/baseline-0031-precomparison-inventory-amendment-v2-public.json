@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0031-precomparison-inventory-amendment-v2-public",
+  "checkpoint": "baseline-0031",
+  "unit": "UNIT-003",
+  "observed_at_utc": "2026-08-18T01:20:57Z",
+  "status": "pass",
+  "disposition": "public_inventory_exact_manifest_freeze_authorized",
+  "repository": {
+    "owner": "drwbkr1",
+    "name": "runbook-sentinel",
+    "visibility": "public",
+    "branch": "codex/baseline-0031-bounded-trust-tier-retrieval",
+    "commit": "9e031aa3ddfc89a26b8d78452daa583201361fbd",
+    "tree": "70a102b6554ee35831441ca426fcc82907b73e3e"
+  },
+  "ref_reconciliation": {
+    "local_head": "9e031aa3ddfc89a26b8d78452daa583201361fbd",
+    "explicit_tracking_after_fetch": "9e031aa3ddfc89a26b8d78452daa583201361fbd",
+    "ls_remote": "9e031aa3ddfc89a26b8d78452daa583201361fbd",
+    "github_ref_api": "9e031aa3ddfc89a26b8d78452daa583201361fbd",
+    "all_exact": true
+  },
+  "public_content_reconciliation": {
+    "changed_path_count": 11,
+    "github_tree_entry_exact_count": 11,
+    "github_tree_entry_mismatch_count": 0,
+    "unauthenticated_raw_exact_count": 11,
+    "unauthenticated_raw_mismatch_count": 0,
+    "local_tree_matches_github_tree": true
+  },
+  "corrected_inventory": {
+    "file_count": 149,
+    "unique_file_count": 149,
+    "missing_paths": [],
+    "removals": [],
+    "exact_failed_manifest": {
+      "path": "artifacts/verification/baseline-0031-manifest-attempt-001-invalid.json",
+      "bytes": 17558,
+      "sha256": "99489ecbcd1fb9f92fff23c09494647139c4c1f58c90f9c1ffdedde57cb74167",
+      "git_blob_sha1": "fc9fbf582f890b2c41c977045d1d4562675a0434",
+      "public_bytes_exact": true
+    }
+  },
+  "preserved_failure": {
+    "failed_public_amendment_commit": "fa740b95442232cdcef72b8f5fd7dcbdb5b29bb1",
+    "receipt": "artifacts/verification/baseline-0031-inventory-amendment-public-failure.json",
+    "rewritten_or_deleted": false
+  },
+  "boundaries": {
+    "active_manifest_checkpoint": "baseline-0030",
+    "successor_manifest_written": false,
+    "control_candidate_or_comparison_artifact_present": false,
+    "default_configuration": "freshness-priority-lexical-v3"
+  },
+  "next_gate": "Freeze, validate, publish, and remotely reconcile a 149-file BASELINE-0031 manifest before executing the v3 control."
+}
