@@ -159,13 +159,14 @@
         "successor_release_manifest_exact": "pass",
         "source_package_and_real_surfaces_exact": "pass",
         "source_package_public_exact": "pass",
-        "local_container_and_scan_exact": "pending",
+        "local_container_and_scan_exact": "pass",
         "clean_clone_exact": "pending",
         "public_complete_stack_candidate_exact": "pending"
       },
       "disposition": "pending",
       "retained_failures": [
-        "Package/source attempt 001 passed archive reproducibility, both selected-v3 evaluations, MCP, authenticated API, state, telemetry, and rendered dashboards, but the post-surface regression stopped at 91/92 because the frozen starting-control validator dereferenced mutable latest.json. The complete attempt and d10e77ad manifest are retained as superseded; the bounded archive/current-pointer correction passes 93/93 tests and 39/39 non-manifest validators and must be public before a successor manifest and exact rerun."
+        "Package/source attempt 001 passed archive reproducibility, both selected-v3 evaluations, MCP, authenticated API, state, telemetry, and rendered dashboards, but the post-surface regression stopped at 91/92 because the frozen starting-control validator dereferenced mutable latest.json. The complete attempt and d10e77ad manifest are retained as superseded; the bounded archive/current-pointer correction passes 93/93 tests and 39/39 non-manifest validators and must be public before a successor manifest and exact rerun.",
+        "The first no-alternates public clean clone rebuilt the selected archive exactly but stopped before Docker because the public LF blob of the retained invalid manifest did not match stale CRLF bytes frozen from the active checkout. The empty attempt and exact mismatch are retained; only that historical file receives a binary Git attribute before public reconciliation and a fresh-clone retry."
       ],
       "next_dependency": "UNIT-005"
     },
@@ -191,7 +192,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Run container-runtime-v11 locally against exact public package/source commit 297cc62a3679bd6ed07e4b6b46d0599ddff6b120; preserve scans and clean-clone evidence and do not export push publish or redistribute image bytes.",
+  "next_action": "Publish and remotely reconcile the bounded historical-file binary-attribute correction, verify the existing release manifest package evaluation and local image remain exact, then retry container-runtime-v11 clean-build from a new no-alternates public clone without exporting pushing publishing or redistributing image bytes.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -257,11 +258,13 @@
       ,"attempt 002 produces two exact 647712-byte archives at SHA-256 0e355dffd06ad6854d529b74a0248600e7d5ae1a86dadb1767e5be851cb0e865 plus source/package 57-scenario 171-attempt all-136-gate evaluations exact normalized parity bounded MCP both 131-check APIs both 72-check native inspections and complete dashboards"
       ,"post-surface attempt-002 gates pass 93 tests in 152.601 seconds all 40 validators in 7.674 seconds exact traces manifest compilation parsing scans milestone and diff with no BASELINE-0031 image present"
       ,"public attempt-002 package/source commit 297cc62a3679bd6ed07e4b6b46d0599ddff6b120 and tree 7b353d62b3a4db27acc6dd38735edb93af2c494e reconcile across refs all 18 changed Git entries and all 18 anonymous raw files"
+      ,"two full local container builds reproduce image sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1; 46 of 47 component checks pass with only clean-clone identity pending and no image export push publication or redistribution"
+      ,"the first no-alternates public clean clone rebuilds the selected archive exactly but fails before Docker on the retained historical invalid-manifest LF/CRLF checkout mismatch; the bounded binary-attribute correction passes 93 tests and all 40 phase-correct validators without changing manifest package evaluation image policy or authority bytes"
     ]
   },
   "handoff": {
     "current_checkpoint": "Public attempt-002 package/source commit 297cc62a3679bd6ed07e4b6b46d0599ddff6b120 is exact across refs all 18 Git entries and all 18 anonymous raw files. Reproducible archive 0e355dff and every source/package real surface pass; no BASELINE-0031 image exists.",
-    "next_action": "Run local container-runtime-v11 without exporting or publishing image bytes.",
+    "next_action": "Publish and reconcile the historical-file binary-attribute correction, then retry from a new no-alternates public clone without exporting or publishing image bytes.",
     "do_not_carry_forward": [
       "any held-out tuning expected-label grader scenario terminal model prompt parser decision-context policy approval executor or authority change",
       "any trust in evidence kind timestamp freshness or provenance before external authentication and normalization",

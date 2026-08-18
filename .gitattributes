@@ -3,3 +3,4 @@
 artifacts/evaluations/** binary
 artifacts/verification/*.json binary
 eval/manifest.json binary
+eval/manifest-0031-attempt-001-invalid.json binary
