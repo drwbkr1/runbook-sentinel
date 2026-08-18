@@ -243,11 +243,12 @@
       ,"public excluded-v4 comparison commit f9134cfb451e84730c9cebdd586ea68dabee1a99 and tree 8c2569d4376c9cf1bf87fe4a63d58e38c0b70f75 reconcile across all four refs all 11 Git tree entries and all 11 unauthenticated raw files; v3 remains default"
       ,"dependency-free v0.0.31 package contract SHA-256 776f01b33b3e5b25fbf1f65774b13f61ce641744da617258aa2cc8ad40259b18 and inherited container-runtime-v11 SHA-256 9b6ca120844c5fd541585a029599b0cabf4b797b312c3bd39b8894bbb0c69ac9 are frozen with current and versioned bytes exact"
       ,"the 153-file BASELINE-0031 prebuild manifest freezes at 2026-08-18T02:18:04Z as 18484 bytes and SHA-256 d10e77ad8e3f889c18d1c7e6c4ebc7406c614e65ae11561ce84c3406c46a5fde; exact verification 92 tests and all 39 applicable validators pass before archive or image construction"
+      ,"public prebuild seal 54e1c4593516bb39975908c1c2151755b1f00b8b and tree b4ab8c082ebce3fba90339d597161a387f3f47e7 reconcile across local explicit tracking ls-remote anonymous GitHub ref and tree APIs all 31 changed Git entries and all 31 anonymous raw files with archive checksum receipt and image absent"
     ]
   },
   "handoff": {
-    "current_checkpoint": "The local v0.0.31 package and container contracts plus 153-file prebuild manifest pass. V3 remains selected and default; excluded v4 evidence is public and retained. No v0.0.31 archive or image exists.",
-    "next_action": "Publish and remotely reconcile the exact prebuild seal before building either v0.0.31 archive or any local container image.",
+    "current_checkpoint": "Public prebuild seal 54e1c4593516bb39975908c1c2151755b1f00b8b is exact across refs, Git objects, and anonymous raw bytes. V3 remains selected/default and v4 excluded. No v0.0.31 archive or image existed at publication.",
+    "next_action": "Build two independent v0.0.31 archives, then verify selected-v3 source/package evaluations, bounded MCP, authenticated API, state, telemetry, and complete dashboards before any local container build.",
     "do_not_carry_forward": [
       "any held-out tuning expected-label grader scenario terminal model prompt parser decision-context policy approval executor or authority change",
       "any trust in evidence kind timestamp freshness or provenance before external authentication and normalization",

@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0031",
+  "status": "pass",
+  "observed_at_utc": "2026-08-18T02:28:25Z",
+  "branch": "codex/baseline-0031-bounded-trust-tier-retrieval",
+  "commit": "54e1c4593516bb39975908c1c2151755b1f00b8b",
+  "tree": "b4ab8c082ebce3fba90339d597161a387f3f47e7",
+  "checks": {
+    "local_ref_exact": true,
+    "explicit_tracking_ref_exact": true,
+    "ls_remote_ref_exact": true,
+    "anonymous_github_ref_exact": true,
+    "github_tree_not_truncated": true,
+    "changed_tree_entries_exact": true,
+    "anonymous_raw_bytes_exact": true,
+    "public_repository": true
+  },
+  "counts": {
+    "changed_paths": 31,
+    "tree_mismatches": 0,
+    "raw_byte_mismatches": 0
+  },
+  "sealed_inputs": {
+    "package_contract_sha256": "776f01b33b3e5b25fbf1f65774b13f61ce641744da617258aa2cc8ad40259b18",
+    "container_contract_sha256": "9b6ca120844c5fd541585a029599b0cabf4b797b312c3bd39b8894bbb0c69ac9",
+    "active_manifest_sha256": "d10e77ad8e3f889c18d1c7e6c4ebc7406c614e65ae11561ce84c3406c46a5fde",
+    "active_manifest_files": 153,
+    "selection_manifest_sha256": "9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c",
+    "selected_retrieval_configuration": "freshness-priority-lexical-v3",
+    "excluded_retrieval_configuration": "bounded-trust-tier-lexical-v4"
+  },
+  "absence_at_publication": {
+    "v0.0.31_archive": true,
+    "v0.0.31_checksum": true,
+    "baseline_0031_container_receipt": true,
+    "baseline_0031_local_image_count": 0
+  },
+  "boundaries": {
+    "container_image_exported_pushed_or_published": false,
+    "real_operational_infrastructure_used": false,
+    "dependency_secret_paid_service_or_external_asset_added": false,
+    "security_boundary_weakened": false
+  },
+  "next_gate": "Build two independent v0.0.31 archives and admit them only after exact package identity, selected-v3 source/package evaluations, traces, bounded MCP, authenticated API, state, telemetry, and complete rendered dashboards pass. Do not build a container first."
+}
