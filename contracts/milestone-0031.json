@@ -134,7 +134,7 @@
         "public_implementation_seal_verified": "pass",
         "comparison_inventory_public": "pass",
         "comparison_manifest_public": "pass",
-        "control_complete": "pending",
+        "control_complete": "pass",
         "candidate_complete": "pending",
         "retrieval_behavior_safety_reliability_latency_and_cost_separate": "pending",
         "pareto_decision_evidence_bound": "pending"
@@ -186,7 +186,7 @@
     }
   ],
   "current_unit": "UNIT-003",
-  "next_action": "Publish and remotely reconcile the exact validated v3 control report, trace, receipt, and lifecycle-only test correction before executing v4.",
+  "next_action": "Execute, validate, and preserve the frozen v4 candidate once against the same public manifest without tuning or default promotion.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -237,11 +237,12 @@
       ,"local 149-file manifest attempt 002 is 17981 bytes at SHA-256 9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c and passes all 91 tests plus all 39 applicable phase-correct validators including manifest verification"
       ,"public manifest seal 596a81dec106e508486a9c739a1c43fad053250a and tree 2052251cf76f3ebd2fc8ee357f67707b585eedb4 reconcile across all four refs all eight Git tree entries and all eight unauthenticated raw files; eval/manifest.json is exact at 17981 bytes and SHA-256 9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c"
       ,"local v3 control attempt 001 passes 57 scenarios 171 attempts all 136 Boolean gates anchored 261-event trace exact retrieval and behavioral contracts 91 corrected post-control tests and all 39 applicable validators; candidate and comparison remain absent"
+      ,"public v3 control seal 2d30ec26eb6f0a4ee8cfa0214bd2481518934303 and tree 426e281f1ba1f3173d53b674e3465d4e0115252d reconcile across all four refs all ten Git tree entries and all ten unauthenticated raw files including exact report trace and receipt bytes"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public manifest seal 596a81dec106e508486a9c739a1c43fad053250a is remotely exact. Local v3 control attempt 001 passes against that manifest; v3 remains default and no candidate result exists.",
-    "next_action": "Publish and reconcile the exact v3 control; v4 remains closed until the control is public.",
+    "current_checkpoint": "Public v3 control seal 2d30ec26eb6f0a4ee8cfa0214bd2481518934303 is remotely exact against manifest SHA-256 9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c. V3 remains default and no candidate result exists.",
+    "next_action": "Run the frozen v4 candidate once against the same manifest without tuning, then apply the frozen selection rule.",
     "do_not_carry_forward": [
       "any held-out tuning expected-label grader scenario terminal model prompt parser decision-context policy approval executor or authority change",
       "any trust in evidence kind timestamp freshness or provenance before external authentication and normalization",

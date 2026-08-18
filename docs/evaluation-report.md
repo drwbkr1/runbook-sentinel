@@ -44,6 +44,8 @@ The frozen v3 control completed in 28.210 seconds. Its 953,963-byte report at SH
 
 The first post-control regression is retained at 90/91: a lifecycle test expected `precomparison` after the frozen verifier correctly observed the immutable control trio and returned `control_publication_pending`. The bounded test-only correction derives phase and presence from the frozen artifact paths. The verifier, report, trace, manifest, grader, selection rule, scenario outcomes, and runtime are unchanged. The corrected suite passes 91/91 in 106.439 seconds and all 39 phase-correct validators pass in 2.632 seconds with the control explicitly required. Candidate and comparison remain absent; the control is still publication-pending.
 
+Control seal `2d30ec26eb6f0a4ee8cfa0214bd2481518934303`, tree `426e281f1ba1f3173d53b674e3465d4e0115252d`, is public and exact across all four refs, all ten Git tree entries, and all ten unauthenticated raw files. Report, trace, and receipt bytes match exactly. The candidate gate is now open for one untuned v4 run against the same manifest; v3 remains default.
+
 ## BASELINE-0030 public v0.0.30 reconciliation
 
 Audited closure `9bfa784feeb1e002c546326ce9db214c2c155fce`, annotated tag object `1e51f18e6023bd66b19ad11ca794c5a0c2c42885`, public latest release `372002788`, and exactly two selected assets reconcile. The downloaded zipapp is 646,081 bytes at SHA-256 `b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf`; its 94-byte checksum is SHA-256 `5a27247f2757b44ad8c6d6d46efe8bf4ff984e62f76d085fb36696758e6f92b8`. Two fresh tag builds reproduce the downloaded archive byte-for-byte and the 43-entry package contract passes.
