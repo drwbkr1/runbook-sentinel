@@ -27,6 +27,7 @@
 - Published prebuild commit `54e1c459...`, tree `b4ab8c08...`, exact across all refs, 31 Git entries, and 31 anonymous raw files with archive, checksum, container receipt, and image absent. Source/package verification now opens; container construction remains gated.
 - Retained package/source attempt 001 as superseded after its two exact archives, two 136-gate evaluations, two MCP paths, two 131-check APIs, two 72-check native inspections, and two complete dashboards passed but the post-surface suite stopped at 91/92. The failure exposed a release-lifecycle defect: the frozen v0.0.30 starting-control identity still dereferenced mutable `latest.json` after promotion of the valid BASELINE-0031 report.
 - Added a bounded fail-closed archive/current-pointer resolution: the historical control must match its existing immutable run archive, while active `latest.json` must independently match BASELINE-0031, selected v3, the active manifest, 57 scenarios, 171 attempts, pass disposition, and all 136 Boolean gates. Archive mutation fails closed; 7 focused tests, all 93 tests, and all 39 non-manifest validators pass. The public correction and successor-manifest gates precede any rebuild or Docker use.
+- Published lifecycle correction `c4e69df...`, tree `8c41aa73...`; local, explicit tracking, `ls-remote`, anonymous GitHub ref/tree, all 20 changed Git entries, and all 20 anonymous raw files are exact. The successor-manifest gate is now open; package/source and Docker remain closed until that manifest is public.
 
 ## 0.0.30 - 2026-08-17
 

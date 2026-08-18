@@ -155,7 +155,7 @@
       "gates": {
         "selection_public_and_reconciled": "pass",
         "package_and_manifest_contract_frozen": "pass",
-        "release_lifecycle_correction_public": "pending",
+        "release_lifecycle_correction_public": "pass",
         "successor_release_manifest_exact": "pending",
         "source_package_and_real_surfaces_exact": "pending",
         "local_container_and_scan_exact": "pending",
@@ -190,7 +190,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Publish and independently reconcile the accepted-control lifecycle correction, then freeze and publish a successor release manifest before rebuilding and repeating selected-v3 source/package real surfaces. Docker remains closed.",
+  "next_action": "Freeze and publish a successor release manifest containing public correction c4e69df094d98c65026c9c4a4ae33c9b38153653, then rebuild and repeat selected-v3 source/package real surfaces. Docker remains closed.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -250,11 +250,12 @@
       ,"public prebuild seal 54e1c4593516bb39975908c1c2151755b1f00b8b and tree b4ab8c082ebce3fba90339d597161a387f3f47e7 reconcile across local explicit tracking ls-remote anonymous GitHub ref and tree APIs all 31 changed Git entries and all 31 anonymous raw files with archive checksum receipt and image absent"
       ,"package/source attempt 001 produced two exact 647712-byte archives plus passing selected-v3 source/package evaluations MCP authenticated API native state telemetry and complete dashboards; the attempt is retained as superseded because the post-surface regression exposed a mutable latest.json historical-control pointer defect"
       ,"the bounded accepted-control archive/current-pointer correction rejects archive mutation and passes seven focused tests all 93 tests and all 39 phase-correct non-manifest validators while the predecessor manifest rejects exactly the corrected validator path"
+      ,"public lifecycle-correction commit c4e69df094d98c65026c9c4a4ae33c9b38153653 and tree 8c41aa73f4479e3b1d9f4362e8bea810f1bda301 reconcile across local explicit tracking ls-remote anonymous GitHub ref and tree APIs all 20 changed Git entries and all 20 anonymous raw files"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public prebuild seal 54e1c4593516bb39975908c1c2151755b1f00b8b remains exact. Package/source attempt 001 passed its runtime surfaces but is superseded after a 91/92 regression exposed the mutable latest.json historical-control pointer. The bounded correction passes 93/93 tests and 39/39 non-manifest validators; its predecessor manifest mismatch is exactly one corrected validator path.",
-    "next_action": "Publish and remotely reconcile the lifecycle correction, freeze and publish the successor manifest, then rebuild and repeat package/source verification before Docker.",
+    "current_checkpoint": "Public lifecycle-correction commit c4e69df094d98c65026c9c4a4ae33c9b38153653 is exact across refs, its 20 Git tree entries, and all 20 anonymous raw files. Package/source attempt 001 remains superseded. The predecessor manifest rejects exactly the now-public corrected validator path.",
+    "next_action": "Freeze and publish the successor release manifest, then rebuild and repeat package/source verification before Docker.",
     "do_not_carry_forward": [
       "any held-out tuning expected-label grader scenario terminal model prompt parser decision-context policy approval executor or authority change",
       "any trust in evidence kind timestamp freshness or provenance before external authentication and normalization",
