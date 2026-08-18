@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0031",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-18T03:39:37Z",
+  "status": "retained_observations",
+  "observations": [
+    {
+      "phase": "attempt-002 clean-clone package wrapper",
+      "status": "retained_process_invalid",
+      "failure": "The combined clone-and-build wrapper created and verified the fresh clone but kept C:/Projects/Active/runbook-sentinel-baseline-0031 as the process working directory. The build command encountered the active immutable archive and stopped.",
+      "clone_mutation": "none",
+      "product_mutation": "none",
+      "correction": "The unchanged successor ran from C:/Projects/Verification/runbook-sentinel-baseline-0031-public-clean-attempt-002, which began Git-clean, rebuilt the selected archive exactly, and remained tracked-clean."
+    },
+    {
+      "phase": "generated full component receipt wording",
+      "status": "retained_non_authoritative_text",
+      "observation": "The generated local component's next_gate sentence says 43 checks even though the frozen v11 contract and component inventory contain 47.",
+      "effect": "none; the component retains 47 named checks, the canonical composition passes 47 of 47, and the independent contract validator enforces the exact 47-check inventory"
+    },
+    {
+      "phase": "standalone post-container trace verification",
+      "status": "retained_process_invalid",
+      "failure": "The first standalone container-trace verifier omitted PYTHONPATH=src and stopped at import with ModuleNotFoundError before reading the trace.",
+      "correction": "The successor binds the repository source path and reruns the source, package, and container report/trace pairs.",
+      "mutation": "none"
+    },
+    {
+      "phase": "structured-evidence measurement display",
+      "status": "retained_process_invalid",
+      "failure": "The first PowerShell summary projected the PSObject property collection's Count member as 47 one-valued elements rather than one scalar count.",
+      "correction": "The successor first materialized the property collection and reported scalar counts of 47 total and 47 true.",
+      "mutation": "none"
+    }
+  ],
+  "boundaries": {
+    "positive_evidence_inferred_from_failed_wrapper": false,
+    "container_image_exported": false,
+    "container_image_pushed": false,
+    "container_image_published": false
+  }
+}

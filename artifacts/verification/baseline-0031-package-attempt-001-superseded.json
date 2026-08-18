@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0031",
+  "status": "superseded",
+  "observed_at_utc": "2026-08-18T02:42:49Z",
+  "phase": "package-source-real-surface-attempt-001",
+  "prebuild_manifest": {
+    "active_path": "eval/manifest.json",
+    "archive_path": "artifacts/verification/baseline-0031-prebuild-manifest-d10.json",
+    "bytes": 18484,
+    "sha256": "d10e77ad8e3f889c18d1c7e6c4ebc7406c614e65ae11561ce84c3406c46a5fde",
+    "archive_exact": true
+  },
+  "archive": {
+    "path": "dist/runbook-sentinel-0.0.31.pyz",
+    "bytes": 647712,
+    "sha256": "0f93d468d59790323f1ac30021484cabd1dcd3577eba30f31c119486f40fadab",
+    "checksum_bytes": 94,
+    "checksum_sha256": "cca66a6ad8f92e8dba9da2b03476780042ce842920e0ec70cbac99f3c786e2bd",
+    "independent_build_exact": true,
+    "external_custody": "C:/Projects/Verification/runbook-sentinel-baseline-0031-package/superseded-attempt-001"
+  },
+  "source_evaluation": {
+    "report_path": "artifacts/evaluations/runs/baseline-0031-final-source-attempt-001.json",
+    "report_bytes": 953939,
+    "report_sha256": "1b18f1b9755777af55924b963d15c8835763f315e36a0f760fd3868da1d3f1b8",
+    "trace_path": "artifacts/evaluations/runs/baseline-0031-final-source-attempt-001.traces.jsonl",
+    "trace_bytes": 195334,
+    "trace_sha256": "45365cb7a67cf209fbabf149f48a32df0d4bbee3a029b89a955386e152f72c81",
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "boolean_gates_true": 136,
+    "boolean_gates_false": 0,
+    "disposition": "pass"
+  },
+  "package_evaluation": {
+    "report_path": "artifacts/evaluations/runs/baseline-0031-final-package-attempt-001.json",
+    "report_bytes": 953967,
+    "report_sha256": "aea6f35faa7b3851e36cc95791cee4d6656380624b16646c733199a0d9682b10",
+    "trace_path": "artifacts/evaluations/runs/baseline-0031-final-package-attempt-001.traces.jsonl",
+    "trace_bytes": 195354,
+    "trace_sha256": "f1e1ca6b17b8c21ed6960bf3ea69e81a9fbbb53222cb94d5df14fa5642dd4b45",
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "boolean_gates_true": 136,
+    "boolean_gates_false": 0,
+    "disposition": "pass"
+  },
+  "semantic_parity": {
+    "raw_leaf_difference_count": 407,
+    "declared_runtime_varying_leaf_count": 17,
+    "unexpected_leaf_keys": [],
+    "normalized_reports_exact": true,
+    "normalized_bytes": 560780,
+    "normalized_sha256": "6b13002a7c7b06dcd934a4769e3c4c9dd343e052ba4307ebcdd2e3473f546bc5",
+    "metric_projection_exact": true
+  },
+  "real_surfaces": {
+    "source_mcp": "pass",
+    "package_mcp": "pass",
+    "source_authenticated_api_checks": "131/131",
+    "package_authenticated_api_checks": "131/131",
+    "source_native_checks": "72/72",
+    "package_native_checks": "72/72",
+    "native_checks_exact": true,
+    "source_dashboard_path": "artifacts/verification/dashboard-source-baseline-0031-attempt-001.png",
+    "source_dashboard_sha256": "3f573b613887fd7b4ba58ecf8a2a7cc930d046430e4bf69b16576ca1610f3928",
+    "package_dashboard_path": "artifacts/verification/dashboard-package-baseline-0031-attempt-001.png",
+    "package_dashboard_sha256": "b9c98c4bfe89ca77aa6c985ee217540fe62eb4cfc5d418f887b9b69a7cf6dd4e",
+    "dashboards_visually_inspected": true,
+    "all_35_metrics_and_boundaries_visible": true
+  },
+  "failed_gate": {
+    "tests_passed": 91,
+    "tests_total": 92,
+    "elapsed_seconds": 106.689,
+    "failed_test": "test_retrieval_tier_cap_contract.RetrievalTierCapContractTests.test_current_contract_phase_passes",
+    "validator_error": "control_evaluation_identity",
+    "root_cause": "The frozen starting-control identity used the mutable artifacts/evaluations/latest.json pointer. Promoting the valid BASELINE-0031 final source report therefore made the historical v0.0.30 control unreachable to the phase validator even though its exact immutable run archive remained present."
+  },
+  "bounded_correction": {
+    "validator_path": "scripts/verify_retrieval_tier_cap_contract.py",
+    "validator_sha256": "52b77c04c251747fe5dfe57a13094d79a23f85710499332b51f4dd3afc5999e1",
+    "test_path": "tests/test_retrieval_tier_cap_contract.py",
+    "test_sha256": "e8d7ea988e23c614c91389f4d838c0d008f16e4811ef6efb58844de1bf9fe08c",
+    "focused_tests": "7/7",
+    "archive_mutation_rejected": true,
+    "active_latest_must_match_active_manifest_and_all_136_boolean_gates": true,
+    "manifest_state": "expected mismatch on corrected validator only until a successor manifest is frozen"
+  },
+  "correction_verification": {
+    "focused_tests": "7/7",
+    "complete_tests": "93/93",
+    "complete_test_elapsed_seconds": 143.483,
+    "phase_correct_non_manifest_validators": "39/39",
+    "phase_correct_validator_elapsed_seconds": 6.193,
+    "manifest_expected_mismatch_paths": [
+      "scripts/verify_retrieval_tier_cap_contract.py"
+    ],
+    "git_diff_check": "pass"
+  },
+  "retained_process_failures": [
+    "The first MCP wrapper invocation omitted PYTHONPATH=src and stopped at import before launching a server.",
+    "One read-only argument-inventory wrapper called Trim on a missing match and stopped without mutation.",
+    "One read-only hash-table wrapper contained an empty PowerShell pipeline element and stopped at parse time without mutation.",
+    "The first post-correction validator wrapper unrolled a one-item PowerShell array into characters; twelve validators passed before the retrieval-stage validator rejected the malformed arguments. The exact string-array successor passed all 39 non-manifest validators."
+  ],
+  "admission": {
+    "positive_release_evidence": false,
+    "reason": "The runtime evidence passed, but the post-surface regression exposed a release-lifecycle validator defect. The exact attempt remains preserved and must be repeated against a successor public manifest after the correction is sealed.",
+    "container_image_built": false,
+    "container_gate": "closed"
+  }
+}

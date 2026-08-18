@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0031",
+  "phase": "package-source-attempt-002",
+  "status": "pass",
+  "observed_at_utc": "2026-08-18T03:10:38Z",
+  "structured_artifacts": {
+    "status_paths": 11,
+    "json_files_parsed": 7,
+    "jsonl_files_parsed": 2,
+    "jsonl_records_parsed": 522,
+    "parse_errors": 0
+  },
+  "archive": {
+    "path": "dist/runbook-sentinel-0.0.31.pyz",
+    "entries": 43,
+    "duplicate_entries": 0,
+    "zip_test_error": null,
+    "runtime_dependencies": []
+  },
+  "scans": {
+    "high_specificity_credential_hits_in_added_tracked_content": 0,
+    "model_artifact_count": 0,
+    "raw_approval_material_in_selected_reports": false,
+    "operator_capability_in_source_or_package_runtime_evidence": false
+  },
+  "other_gates": {
+    "compileall": "pass",
+    "manifest": "pass-153-files",
+    "milestone": "valid-active-inherited-authority-no-warnings",
+    "git_diff_check": "pass"
+  },
+  "boundaries": {
+    "real_operational_infrastructure_used": false,
+    "external_asset_or_service_added": false,
+    "container_image_built": false,
+    "container_image_exported_pushed_or_published": false
+  }
+}

@@ -18,11 +18,13 @@ DECISION_CONTEXT_CONFIGURATIONS = (
 LEXICAL_RETRIEVER_V1 = "lexical-token-overlap-v1"
 EVIDENCE_PRIORITY_RETRIEVER_V2 = "evidence-priority-lexical-v2"
 FRESHNESS_PRIORITY_RETRIEVER_V3 = "freshness-priority-lexical-v3"
+BOUNDED_TRUST_TIER_RETRIEVER_V4 = "bounded-trust-tier-lexical-v4"
 DEFAULT_RETRIEVAL_CONFIGURATION = FRESHNESS_PRIORITY_RETRIEVER_V3
 RETRIEVAL_CONFIGURATIONS = (
     LEXICAL_RETRIEVER_V1,
     EVIDENCE_PRIORITY_RETRIEVER_V2,
     FRESHNESS_PRIORITY_RETRIEVER_V3,
+    BOUNDED_TRUST_TIER_RETRIEVER_V4,
 )
 
 
@@ -72,7 +74,14 @@ class LexicalRetriever:
         stale_project_evidence = [
             item for item in project_evidence if not is_fresh_project_evidence(item[2], as_of)
         ]
-        prioritized = fresh_project_evidence + stale_project_evidence + untrusted_guidance
+        if self.name == FRESHNESS_PRIORITY_RETRIEVER_V3:
+            prioritized = fresh_project_evidence + stale_project_evidence + untrusted_guidance
+        else:
+            prioritized = (
+                fresh_project_evidence[:2]
+                + stale_project_evidence[:1]
+                + untrusted_guidance[:1]
+            )
         return [document for _, _, document in prioritized[:limit]]
 
 

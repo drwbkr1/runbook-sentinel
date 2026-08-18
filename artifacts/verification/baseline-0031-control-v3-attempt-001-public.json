@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0031-control-v3-attempt-001-public",
+  "checkpoint": "baseline-0031",
+  "unit": "UNIT-003",
+  "observed_at_utc": "2026-08-18T01:41:03Z",
+  "status": "pass",
+  "disposition": "public_control_exact_candidate_authorized",
+  "repository": {
+    "owner": "drwbkr1",
+    "name": "runbook-sentinel",
+    "visibility": "public",
+    "branch": "codex/baseline-0031-bounded-trust-tier-retrieval",
+    "commit": "2d30ec26eb6f0a4ee8cfa0214bd2481518934303",
+    "tree": "426e281f1ba1f3173d53b674e3465d4e0115252d"
+  },
+  "ref_reconciliation": {
+    "local_head": "2d30ec26eb6f0a4ee8cfa0214bd2481518934303",
+    "explicit_tracking_after_fetch": "2d30ec26eb6f0a4ee8cfa0214bd2481518934303",
+    "ls_remote": "2d30ec26eb6f0a4ee8cfa0214bd2481518934303",
+    "github_ref_api": "2d30ec26eb6f0a4ee8cfa0214bd2481518934303",
+    "all_exact": true
+  },
+  "public_content_reconciliation": {
+    "changed_path_count": 10,
+    "github_tree_entry_exact_count": 10,
+    "github_tree_entry_mismatch_count": 0,
+    "unauthenticated_raw_exact_count": 10,
+    "unauthenticated_raw_mismatch_count": 0,
+    "local_tree_matches_github_tree": true
+  },
+  "control": {
+    "configuration": "freshness-priority-lexical-v3",
+    "manifest_sha256": "9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c",
+    "report_path": "artifacts/evaluations/baseline-0031-control-v3-attempt-001.json",
+    "report_bytes": 953963,
+    "report_sha256": "1bf431136660177b87cc7c893aa31cd75d2a6d7dfb19034705d5bc7f10ccf47a",
+    "trace_path": "artifacts/evaluations/baseline-0031-control-v3-attempt-001.traces.jsonl",
+    "trace_bytes": 195358,
+    "trace_sha256": "8e99e5fd5d5521518bc713ea99a0bdde782ce272b10cf2453c508b6bde7e9bfe",
+    "receipt_path": "artifacts/verification/baseline-0031-control-v3-attempt-001.json",
+    "receipt_bytes": 3990,
+    "receipt_sha256": "89689de44fafe470408a6cbf42850dd484ecad91e3bed7ea0af1ab559d5e6826",
+    "all_public_bytes_exact": true
+  },
+  "boundaries": {
+    "candidate_present_at_control_seal": false,
+    "comparison_present_at_control_seal": false,
+    "default_configuration": "freshness-priority-lexical-v3",
+    "held_out_used_for_tuning": false
+  },
+  "next_gate": "Execute, validate, and preserve the frozen v4 candidate once against the same public manifest, without tuning or default promotion."
+}

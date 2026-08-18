@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0031-retrieval-comparison-local",
+  "checkpoint": "baseline-0031",
+  "unit": "UNIT-003",
+  "observed_at_utc": "2026-08-18T01:51:47Z",
+  "status": "pass",
+  "disposition": "comparison_valid_candidate_excluded_publication_pending",
+  "manifest": {
+    "path": "eval/manifest.json",
+    "bytes": 17981,
+    "sha256": "9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c"
+  },
+  "candidate_artifacts": {
+    "report": {
+      "path": "artifacts/evaluations/baseline-0031-candidate-v4-attempt-001.json",
+      "bytes": 949933,
+      "sha256": "495492569af29555c382527c49ce7594147e33170d56429cfebd4fff795ac19b"
+    },
+    "trace": {
+      "path": "artifacts/evaluations/baseline-0031-candidate-v4-attempt-001.traces.jsonl",
+      "bytes": 195352,
+      "sha256": "fa65e2650a9605fd39cb318191191bdd1408d98ecd31eef2aaa8043580dc0f17"
+    },
+    "receipt": {
+      "path": "artifacts/verification/baseline-0031-candidate-v4-attempt-001.json",
+      "bytes": 3867,
+      "sha256": "79d9c676325039a5128831c6bfb09ecdde91b33b7539212fbae4992187325384"
+    }
+  },
+  "comparison": {
+    "path": "artifacts/evaluations/baseline-0031-retrieval-comparison.json",
+    "bytes": 5152,
+    "sha256": "9e46ee4047ca51f00c453eb4b02adbf988f3accb9b0d5b9aefbdc388dde9d768",
+    "frozen_verifier_status": "pass",
+    "phase": "comparison_complete",
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "selection_checks_passed": 14,
+    "selection_checks_failed": 4
+  },
+  "final_regression": {
+    "full_tests_passed": 91,
+    "full_tests_failed": 0,
+    "full_tests_elapsed_seconds": 108.941,
+    "applicable_phase_correct_validators_passed": 39,
+    "applicable_phase_correct_validators_failed": 0,
+    "validator_elapsed_seconds": 2.686,
+    "comparison_required": true
+  },
+  "boundaries": {
+    "held_out_used_for_tuning": false,
+    "candidate_tuned_after_reveal": false,
+    "product_default_changed": false,
+    "default_configuration": "freshness-priority-lexical-v3",
+    "external_asset_or_service_added": false,
+    "broad_pareto_claimed": false
+  },
+  "next_gate": "Publish and remotely reconcile the exact candidate report, trace, receipt, comparison, and living records before beginning selected-v3 full-stack verification."
+}

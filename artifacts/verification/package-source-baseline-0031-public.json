@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0031",
+  "status": "pass",
+  "observed_at_utc": "2026-08-18T03:14:32Z",
+  "branch": "codex/baseline-0031-bounded-trust-tier-retrieval",
+  "commit": "297cc62a3679bd6ed07e4b6b46d0599ddff6b120",
+  "tree": "7b353d62b3a4db27acc6dd38735edb93af2c494e",
+  "parent": "05eb2deb4a55b58ecaa3f1c9082ad0bf8637aedd",
+  "checks": {
+    "local_ref_exact": true,
+    "explicit_tracking_ref_exact": true,
+    "ls_remote_ref_exact": true,
+    "anonymous_github_ref_exact": true,
+    "github_tree_not_truncated": true,
+    "changed_tree_entries_exact": true,
+    "anonymous_raw_bytes_exact": true,
+    "public_repository": true
+  },
+  "counts": {
+    "changed_paths": 18,
+    "tree_mismatches": 0,
+    "raw_byte_mismatches": 0
+  },
+  "selected_payload": {
+    "receipt_path": "artifacts/verification/package-source-baseline-0031.json",
+    "archive_sha256": "0e355dffd06ad6854d529b74a0248600e7d5ae1a86dadb1767e5be851cb0e865",
+    "source_report_sha256": "072de0cd2c597413ac9cce29c1540c9717e85dc6d9b093b9c9ae5cd41afd95ee",
+    "package_report_sha256": "68b6f6697f6b7623ae6b02abeeb7fc6a66ebda8650a68e4d15044969dd12e005",
+    "manifest_sha256": "e2ea1bcad45fe35e61ae84f3fb992400a737b46fa0daf94065e0ecb69a29a7e4",
+    "source_and_package_real_surfaces_exact": true
+  },
+  "boundaries": {
+    "container_image_built": false,
+    "container_image_exported_pushed_or_published": false,
+    "real_operational_infrastructure_used": false
+  },
+  "next_gate": "Run container-runtime-v11 locally against this exact public package/source payload. Do not export, push, publish, or redistribute image bytes."
+}

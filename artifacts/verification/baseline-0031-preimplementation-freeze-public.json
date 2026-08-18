@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0031-preimplementation-freeze-public",
+  "checkpoint": "baseline-0031",
+  "unit": "UNIT-001",
+  "observed_at_utc": "2026-08-18T00:20:41Z",
+  "status": "pass",
+  "disposition": "public_freeze_verified",
+  "repository": {
+    "url": "https://github.com/drwbkr1/runbook-sentinel",
+    "visibility": "public",
+    "private": false,
+    "default_branch": "main",
+    "freeze_branch": "codex/baseline-0031-bounded-trust-tier-retrieval"
+  },
+  "freeze": {
+    "commit": "a7e42589b8e85d6f967128d32d7cea7a5111c3e9",
+    "tree": "22d186d9c5a558560abb6fe81c272f389e6571dd",
+    "parent": "4d62ecf930130b938594a9b7bc70675f9d8122e1",
+    "local_freeze_receipt_path": "artifacts/verification/baseline-0031-preimplementation-freeze-local.json",
+    "local_freeze_receipt_bytes": 8434,
+    "local_freeze_receipt_sha256": "a871aaf7e383cc8268bd9ad5e772735ac0bbb084c2866989830d33ea3e13c16f",
+    "local_freeze_receipt_git_blob_sha1": "72755034a2be11f4ce8c58e1c09f667f11cbdca5"
+  },
+  "verification": {
+    "local_head_exact": true,
+    "explicit_remote_tracking_ref_exact": true,
+    "ls_remote_ref_exact": true,
+    "anonymous_github_ref_api_exact": true,
+    "anonymous_github_commit_api_tree_exact": true,
+    "changed_path_count": 16,
+    "github_tree_entries_exact": 16,
+    "anonymous_raw_files_exact": 16,
+    "candidate_runtime_present_at_freeze": false,
+    "held_out_candidate_result_present_at_freeze": false,
+    "product_default_at_freeze": "freshness-priority-lexical-v3"
+  },
+  "retained_process_observation": {
+    "id": "UPSTREAM-TRACKING-REF-001",
+    "positive_evidence": false,
+    "correction": "Explicitly fetch the new branch ref before comparing the remote-tracking identity."
+  },
+  "gates": {
+    "preimplementation_freeze_public": "pass",
+    "candidate_implementation": "open_exact_frozen_projection_only",
+    "held_out_candidate_evaluation": "closed_until_public_implementation_seal",
+    "default_promotion": "closed_until_complete_same_manifest_comparison"
+  },
+  "next_gate": "Implement only bounded-trust-tier-lexical-v4 while retaining freshness-priority-lexical-v3 as product default, then publish and remotely reconcile the implementation seal before candidate evaluation."
+}

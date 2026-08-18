@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0031-preimplementation-freeze-reconciliation",
+  "checkpoint": "baseline-0031",
+  "unit": "UNIT-001",
+  "observed_at_utc": "2026-08-18T00:25:37Z",
+  "status": "pass",
+  "disposition": "public_reconciliation_verified",
+  "public_freeze": {
+    "commit": "a7e42589b8e85d6f967128d32d7cea7a5111c3e9",
+    "tree": "22d186d9c5a558560abb6fe81c272f389e6571dd",
+    "changed_tree_entries_exact": 16,
+    "anonymous_raw_files_exact": 16
+  },
+  "reconciliation": {
+    "commit": "401387f42940f78a037718eb41e1936d3b9f1d2c",
+    "tree": "e1ca96828ee311c2a5b9d5a4f498136533dcf12a",
+    "parent": "a7e42589b8e85d6f967128d32d7cea7a5111c3e9",
+    "public_freeze_receipt_path": "artifacts/verification/baseline-0031-preimplementation-freeze-public.json",
+    "public_freeze_receipt_bytes": 2249,
+    "public_freeze_receipt_sha256": "79432022b06e791e25041f5eb04631cdf425237cc3948d849ad52e1aa777084d",
+    "public_freeze_receipt_git_blob_sha1": "51eb25ac9403748c984c8c289a19334515ffba66"
+  },
+  "verification": {
+    "local_head_exact": true,
+    "explicit_remote_tracking_ref_exact": true,
+    "ls_remote_ref_exact": true,
+    "anonymous_github_ref_api_exact": true,
+    "anonymous_github_commit_api_tree_exact": true,
+    "changed_path_count": 9,
+    "github_tree_entries_exact": 9,
+    "anonymous_raw_files_exact": 9,
+    "repository_visibility": "public",
+    "default_branch": "main"
+  },
+  "boundaries": {
+    "candidate_runtime_present_at_public_freeze": false,
+    "held_out_candidate_result_present_at_public_freeze": false,
+    "product_default": "freshness-priority-lexical-v3",
+    "unit_001": "complete",
+    "unit_002": "in_progress",
+    "candidate_evaluation": "closed_until_public_implementation_seal"
+  },
+  "retained_failures": {
+    "path": "artifacts/verification/baseline-0031-orientation-probe-failures-001.json",
+    "new_items": [
+      "POWERSHELL-COMPARISON-TOKEN-001",
+      "RECONCILIATION-TRACKING-REF-001"
+    ],
+    "positive_evidence": false
+  },
+  "next_gate": "Implement only the frozen bounded-trust-tier-lexical-v4 projection, verify it without held-out candidate evaluation, and publish the implementation seal."
+}

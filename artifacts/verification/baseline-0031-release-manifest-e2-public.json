@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0031",
+  "status": "pass",
+  "observed_at_utc": "2026-08-18T03:00:56Z",
+  "branch": "codex/baseline-0031-bounded-trust-tier-retrieval",
+  "commit": "cb20bb29f881d78b8f9d2b9ea7c3b220c1a979e4",
+  "tree": "799de725757f4dce992f89c2699e4744fa095652",
+  "parent": "771eeb74da747862150e181b560ad4e47d422725",
+  "manifest": {
+    "path": "eval/manifest.json",
+    "file_count": 153,
+    "bytes": 18484,
+    "sha256": "e2ea1bcad45fe35e61ae84f3fb992400a737b46fa0daf94065e0ecb69a29a7e4",
+    "frozen_at_utc": "2026-08-18T02:53:29Z"
+  },
+  "checks": {
+    "local_ref_exact": true,
+    "explicit_tracking_ref_exact": true,
+    "ls_remote_ref_exact": true,
+    "anonymous_github_ref_exact": true,
+    "github_tree_not_truncated": true,
+    "changed_tree_entries_exact": true,
+    "anonymous_raw_bytes_exact": true,
+    "public_repository": true
+  },
+  "counts": {
+    "changed_paths": 9,
+    "tree_mismatches": 0,
+    "raw_byte_mismatches": 0
+  },
+  "verification": {
+    "manifest": "pass",
+    "complete_tests": "93/93",
+    "phase_correct_validators": "40/40",
+    "historical_control_lifecycle": "pass",
+    "retrieval_selection": "freshness-priority-lexical-v3",
+    "milestone": "valid-active-inherited-authority-no-warnings"
+  },
+  "boundaries": {
+    "archive_rebuilt": false,
+    "container_image_built": false,
+    "container_image_exported_pushed_or_published": false,
+    "real_operational_infrastructure_used": false
+  },
+  "next_gate": "Rebuild two v0.0.31 archives from this exact public manifest and repeat selected-v3 source/package evaluations, MCP, authenticated API, state, telemetry, and rendered dashboards before Docker."
+}

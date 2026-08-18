@@ -1,0 +1,138 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0031-preimplementation-freeze-local",
+  "checkpoint": "baseline-0031",
+  "unit": "UNIT-001",
+  "observed_at_utc": "2026-08-18T00:15:48Z",
+  "status": "pass",
+  "disposition": "local_pass_publication_pending",
+  "starting_public_checkpoint": {
+    "version": "0.0.30",
+    "remote": "https://github.com/drwbkr1/runbook-sentinel.git",
+    "public_main_commit": "4d62ecf930130b938594a9b7bc70675f9d8122e1",
+    "public_main_tree": "c36fd5b9d98c6b6049ee0e0f7ef99a1bb9fdfaa0",
+    "release_commit": "9bfa784feeb1e002c546326ce9db214c2c155fce",
+    "tag_object": "1e51f18e6023bd66b19ad11ca794c5a0c2c42885",
+    "public_receipt_path": "artifacts/verification/public-tag-baseline-0030.json",
+    "public_receipt_bytes": 18433,
+    "public_receipt_sha256": "bbef21fe6b56e60f579dd83e0a117d579330793eb3e580a9c3d707f3383ece7d"
+  },
+  "working_state": {
+    "worktree": "C:/Projects/Active/runbook-sentinel-baseline-0031",
+    "branch": "codex/baseline-0031-bounded-trust-tier-retrieval",
+    "head_before_freeze_commit": "4d62ecf930130b938594a9b7bc70675f9d8122e1",
+    "head_tree": "c36fd5b9d98c6b6049ee0e0f7ef99a1bb9fdfaa0",
+    "one_drive_authoritative": false,
+    "changed_path_count_excluding_this_receipt": 15
+  },
+  "selected_weakness": {
+    "configuration": "freshness-priority-lexical-v3",
+    "accepted_report_path": "artifacts/evaluations/latest.json",
+    "accepted_report_sha256": "caf016718aefd9bb0400b8671e836d71ba057537fa547ec18a6a0df2685b0c74",
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "all_expected_retrieved_rate": 1.0,
+    "eligible_attempt_count": 153,
+    "attempts_with_extra_documents": 87,
+    "extra_document_count": 123,
+    "expected_document_share_mean": 0.683006535948,
+    "interpretation": "Additional records are measurable untrusted context, not exhaustive irrelevance labels."
+  },
+  "development_only_preflight": {
+    "held_out_candidate_results_inspected_or_used": false,
+    "candidate": "bounded-trust-tier-lexical-v4",
+    "tier_caps": {
+      "fresh_project_evidence": 2,
+      "stale_project_evidence": 1,
+      "untrusted_guidance": 1
+    },
+    "quota_backfill": false,
+    "control_extra_document_count": 66,
+    "candidate_extra_document_count": 48,
+    "control_expected_document_share_mean": 0.6964285714285714,
+    "candidate_expected_document_share_mean": 0.7261904761904762,
+    "all_required_evidence_and_expected_ranks_preserved": true,
+    "rejected_candidate_count": 3
+  },
+  "frozen_scope": {
+    "contract_path": "eval/retrieval-tier-cap-contract.json",
+    "contract_bytes": 8136,
+    "contract_sha256": "4288359e43768d2cd4facd5e2614adc4a3d9201446b41f0d333b264d154518b0",
+    "validator_path": "scripts/verify_retrieval_tier_cap_contract.py",
+    "validator_bytes": 15982,
+    "validator_sha256": "6cac523144538168fd35e18e15bb402d2a5d878b40b4f05ff31ddbd0d0820fec",
+    "test_path": "tests/test_retrieval_tier_cap_contract.py",
+    "test_bytes": 5920,
+    "test_sha256": "524e30306d9b4a3ab4c0db8a9efac3e8425c6cdd94750c8d19f1f2f8a9ee9b63",
+    "candidate_runtime_present": false,
+    "product_default": "freshness-priority-lexical-v3",
+    "product_default_changed": false,
+    "runtime_retrieval_changed": false,
+    "decision_context_policy_approval_executor_or_authority_changed": false,
+    "dependency_secret_service_external_asset_model_or_real_infrastructure_added": false
+  },
+  "research_basis": {
+    "source_gate_path": "artifacts/verification/research-source-gate-baseline-0029-retrieval-quality.json",
+    "source_gate_sha256": "c269809d7ff3b1c8fc67a2eb17967fd178964a79eddbf5e5750f3247e350152b",
+    "status": "ready",
+    "new_external_source_accessed": false,
+    "external_asset_imported": false,
+    "adaptation": "project_authored"
+  },
+  "validation": {
+    "contract_validator": "pass_frozen_preimplementation",
+    "focused_tests_passed": 6,
+    "full_tests_passed": 86,
+    "full_tests_failed": 0,
+    "full_tests_elapsed_seconds": 100.239,
+    "phase_correct_side_effect_free_validators_passed": 38,
+    "phase_correct_side_effect_free_validators_failed": 0,
+    "validator_elapsed_seconds": 4.159,
+    "governed_milestone_valid": true,
+    "governed_milestone_warnings": [],
+    "compileall": "pass",
+    "git_diff_check": "pass",
+    "json_files_observed_before_this_receipt": 957,
+    "nonempty_json_files_parsed": 956,
+    "known_empty_json_files": [
+      "artifacts/verification/mcp-source-baseline-0026.json"
+    ],
+    "bom_json_files_reported": 14,
+    "json_parse_errors": 0,
+    "jsonl_files_parsed": 156,
+    "jsonl_records_parsed": 28512,
+    "jsonl_parse_errors": 0,
+    "added_line_high_specificity_secret_hits": 0,
+    "untracked_file_high_specificity_secret_hits": 0,
+    "model_artifact_count": 0
+  },
+  "frozen_files": [
+    {"path": "artifacts/verification/baseline-0031-orientation-probe-failures-001.json", "bytes": 3247, "sha256": "996d8342eba426a9fc37fb90ee204499a34645534618a0cfb54941c3782d337a", "git_blob_sha1": "f1abbeb9250ce23f710c4f32292279f776b1276f"},
+    {"path": "artifacts/verification/orientation-baseline-0031.json", "bytes": 8229, "sha256": "85798381ea01db829b2d7411e5e3ca9790d12b0669d896a92bd465ce6eaa4624", "git_blob_sha1": "1d936fbe7898da46fc2c8a0dc985246a0e33ea04"},
+    {"path": "CHANGELOG.md", "bytes": 87309, "sha256": "09190029fd4013af089a20e599f53f9a8a2c237c22b00913a4173840186583fa", "git_blob_sha1": "ebf8d32299ca3e3682cc37f5a96e0f41c3737ed4"},
+    {"path": "contracts/milestone-0031.json", "bytes": 13669, "sha256": "b371f7cf89e98ddb1661e260fe5298859ee6ee4e6bfaea859fd0c8eb58d6a299", "git_blob_sha1": "aca1e90943d28d1b910da2021154c084a984fe9e"},
+    {"path": "docs/adr/0026-bound-retrieval-by-externally-assigned-trust-tier.md", "bytes": 4593, "sha256": "08bf12141cc3fee2d90fe35041c46f2840df329cb13b9f44d85d9b0b241bdd85", "git_blob_sha1": "39546feeacb0b8ff0afcd873aa165b136cd7c7ae"},
+    {"path": "docs/devlog.md", "bytes": 388004, "sha256": "8a3fd7ede33ffc22a0bd4cbf61681516776d4450d5f5797c3094f71c4ebe4c9a", "git_blob_sha1": "e3d8d31d4b49adc63da1a6d06cae95d5c5c447a9"},
+    {"path": "docs/evaluation-report.md", "bytes": 184836, "sha256": "8ceacfbc708041930dda98c44c88ab7e4cb1f1c756bb002cb50f5577be86504e", "git_blob_sha1": "9ddb67e8181c5475d1bf96901cb29dac71aa13cd"},
+    {"path": "docs/research-ledger.md", "bytes": 25173, "sha256": "08b2a51e39c98a4427a2ebc0002613b818be7795306bc0286dd9e01008925fd0", "git_blob_sha1": "ea94a75076071add0a38b9310178524e49b11acf"},
+    {"path": "docs/roadmap.md", "bytes": 73366, "sha256": "396c158576e43e5dac182b7b546d1b89870b174fc46e820c4435288aeebeb769", "git_blob_sha1": "8e7d068a2ed7c6e1ae96836434e23764aebe37a4"},
+    {"path": "docs/status.md", "bytes": 247827, "sha256": "f0df17e9388cdb206619a5c7e53224db2e2f48cbee92a8ef8163047205b17305", "git_blob_sha1": "1ec4d23837d2345a2c6739cbae428156391554e8"},
+    {"path": "docs/threat-model.md", "bytes": 17244, "sha256": "1df2d1bc881660ca479537b9d9666bfc2941c829678a81777f100f96ae522986", "git_blob_sha1": "03835442174094e125dd26e227b69dfc4584245e"},
+    {"path": "docs/version-history.md", "bytes": 25527, "sha256": "d9ea7acbd8a2c8594c48ff20d27457774b3e8f47ec9b4e71b89e0b62daad2fca", "git_blob_sha1": "07d18aa6ccd823efe79fc337b6474f5489df9cb0"},
+    {"path": "eval/retrieval-tier-cap-contract.json", "bytes": 8136, "sha256": "4288359e43768d2cd4facd5e2614adc4a3d9201446b41f0d333b264d154518b0", "git_blob_sha1": "aa60b6c6bde59766f9658652932c34473a117d27"},
+    {"path": "scripts/verify_retrieval_tier_cap_contract.py", "bytes": 15982, "sha256": "6cac523144538168fd35e18e15bb402d2a5d878b40b4f05ff31ddbd0d0820fec", "git_blob_sha1": "68e55c6c30faafc110365400885f1039a4af7858"},
+    {"path": "tests/test_retrieval_tier_cap_contract.py", "bytes": 5920, "sha256": "524e30306d9b4a3ab4c0db8a9efac3e8425c6cdd94750c8d19f1f2f8a9ee9b63", "git_blob_sha1": "a44aa9242bca5b15f8dcbbea5d4271c92c0b0135"}
+  ],
+  "retained_failures": {
+    "path": "artifacts/verification/baseline-0031-orientation-probe-failures-001.json",
+    "item_count": 5,
+    "all_excluded_from_positive_evidence": true
+  },
+  "seal_status": {
+    "local_freeze": "pass",
+    "public_freeze": "pending",
+    "candidate_implementation_authorized_now": false,
+    "held_out_candidate_evaluation_authorized_now": false
+  },
+  "authorized_next_action": "Commit, push, and remotely reconcile this exact preimplementation freeze. Only after that public gate may UNIT-002 implement bounded-trust-tier-lexical-v4."
+}

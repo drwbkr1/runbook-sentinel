@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0031",
+  "status": "local-pass-publication-pending",
+  "observed_at_utc": "2026-08-18T02:59:09Z",
+  "source_public_checkpoint": {
+    "branch": "codex/baseline-0031-bounded-trust-tier-retrieval",
+    "correction_commit": "c4e69df094d98c65026c9c4a4ae33c9b38153653",
+    "correction_tree": "8c41aa73f4479e3b1d9f4362e8bea810f1bda301",
+    "reconciliation_commit": "771eeb74da747862150e181b560ad4e47d422725",
+    "public_correction_exact": true
+  },
+  "successor_manifest": {
+    "path": "eval/manifest.json",
+    "checkpoint": "baseline-0031",
+    "frozen_at_utc": "2026-08-18T02:53:29Z",
+    "file_count": 153,
+    "bytes": 18484,
+    "sha256": "e2ea1bcad45fe35e61ae84f3fb992400a737b46fa0daf94065e0ecb69a29a7e4",
+    "predecessor_sha256": "d10e77ad8e3f889c18d1c7e6c4ebc7406c614e65ae11561ce84c3406c46a5fde",
+    "changed_inventory_paths": [
+      "scripts/verify_retrieval_tier_cap_contract.py"
+    ]
+  },
+  "pre_evaluation_latest_pointer": {
+    "path": "artifacts/evaluations/latest.json",
+    "bytes": 954029,
+    "sha256": "caf016718aefd9bb0400b8671e836d71ba057537fa547ec18a6a0df2685b0c74",
+    "checkpoint": "baseline-0030",
+    "purpose": "Keep the accepted public control exact until a new same-manifest BASELINE-0031 source run is admitted; latest.json is outside the 153-file manifest inventory."
+  },
+  "verification": {
+    "manifest": "pass",
+    "historical_control_lifecycle": "pass",
+    "retrieval_selection_result": "pass-selected-v3",
+    "focused_lifecycle_tests": "7/7",
+    "complete_tests": "93/93",
+    "complete_test_elapsed_seconds": 127.116,
+    "phase_correct_validators": "40/40",
+    "phase_correct_validator_elapsed_seconds": 7.275,
+    "package_contract_prebuild_phase": "pass",
+    "container_contract_required_implementation": "pass",
+    "git_diff_check": "pass"
+  },
+  "retained_failures": [
+    "The first successor-manifest regression passed 92/93 in 118.107 seconds because the new lifecycle test still read its BASELINE-0031 fixture through latest.json after the pointer was intentionally restored to BASELINE-0030.",
+    "The first focused correction bound the preserved attempt-001 report to the new successor manifest and correctly failed the launch identity. The exact successor binds that report to its preserved attempt-001 companion manifest."
+  ],
+  "test_only_correction": {
+    "path": "tests/test_retrieval_tier_cap_contract.py",
+    "bytes": 8021,
+    "sha256": "205b1e24fac50e8a36683e479125d60c2b65ae1de659bedf42f898aa2d7f7350",
+    "runtime_or_manifest_inventory_changed": false
+  },
+  "boundaries": {
+    "product_default": "freshness-priority-lexical-v3",
+    "excluded_configuration": "bounded-trust-tier-lexical-v4",
+    "model_or_agent_has_credentials": false,
+    "model_or_agent_has_final_execution_authority": false,
+    "security_boundary_weakened": false,
+    "scenario_grader_or_expected_result_changed": false,
+    "dependency_secret_paid_service_or_external_asset_added": false,
+    "real_operational_infrastructure_used": false,
+    "archive_rebuilt": false,
+    "container_image_built": false,
+    "container_image_exported_pushed_or_published": false
+  },
+  "next_gate": "Publish and independently reconcile this exact successor manifest and test-only lifecycle fixture correction before rebuilding the v0.0.31 archive or running a new evaluation."
+}

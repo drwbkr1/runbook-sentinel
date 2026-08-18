@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0031",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-18T03:23:39Z",
+  "status": "retained_failure",
+  "phase": "first no-alternates public-branch clean container rebuild prerequisite validation",
+  "public_input_commit": "c52c4bc07e142e98360fe8a2da5e60d58e92475d",
+  "clone": {
+    "path": "C:/Projects/Verification/runbook-sentinel-baseline-0031-public-clean",
+    "remote": "https://github.com/drwbkr1/runbook-sentinel.git",
+    "head_exact": true,
+    "tracked_status_clean_before_generated_archive": true,
+    "object_alternates_present": false
+  },
+  "package": {
+    "archive_bytes": 647712,
+    "archive_sha256": "0e355dffd06ad6854d529b74a0248600e7d5ae1a86dadb1767e5be851cb0e865",
+    "selected_archive_exact": true,
+    "entry_count": 43,
+    "runtime_dependencies": []
+  },
+  "failure": {
+    "type": "public_checkout_manifest_representation_mismatch",
+    "path": "eval/manifest-0031-attempt-001-invalid.json",
+    "release_manifest_expected_sha256": "99489ecbcd1fb9f92fff23c09494647139c4c1f58c90f9c1ffdedde57cb74167",
+    "fresh_public_checkout_actual_sha256": "406676b1dd3b924d9456b5640a928e46c031838c91827e34e41acde9e1c21fba",
+    "public_git_blob": "15a85130033e26c6c35ca07d0c4f80a6603ec16f",
+    "active_stale_crlf_sha256": "99489ecbcd1fb9f92fff23c09494647139c4c1f58c90f9c1ffdedde57cb74167",
+    "binary_custody_copy_sha256": "99489ecbcd1fb9f92fff23c09494647139c4c1f58c90f9c1ffdedde57cb74167",
+    "cause": "The repository-wide text rule requires LF, but the active checkout retained stale CRLF bytes from before that rule. The successor release manifest bound the stale checkout bytes, while Git and a fresh public clone correctly materialized the LF blob."
+  },
+  "runtime": {
+    "image_build_started": false,
+    "container_started": false,
+    "runtime_surface_executed": false,
+    "receipt_created": false,
+    "evidence_directory": "C:/Projects/Verification/runbook-sentinel-baseline-0031-container-clean-build-attempt-001",
+    "evidence_directory_state": "created_empty_before_prerequisite_validation",
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false
+  },
+  "inspection_wrapper_observation": {
+    "status": "retained_process_invalid",
+    "failure": "A read-only PowerShell helper named H collided with the Get-History alias and stopped before emitting the comparison.",
+    "correction": "The unchanged successor used Get-Sha and proved the active, clone, binary-custody, attribute, and Git-blob identities above.",
+    "mutation": "none"
+  },
+  "validator_wrapper_observation": {
+    "status": "retained_process_invalid",
+    "validators_passed_before_stop": 37,
+    "failure": "The first portability-correction validator inventory supplied --require-selection to the experimental v4 contract validator. It correctly failed with selection_required because v4 is retained and excluded.",
+    "correction": "The successor requires only exact v4 implementation in the contract validator and separately requires the frozen comparison result that selects v3.",
+    "mutation": "none"
+  },
+  "credential_scan_observation": {
+    "status": "retained_process_invalid",
+    "failure": "A broad whole-file scan matched one unchanged devlog sentence that documents a frozen package-contract private-key test literal.",
+    "correction": "The successor scanned staged added text plus the complete new receipt and found zero high-specificity credential hits and zero staged model artifacts.",
+    "mutation": "none"
+  },
+  "correction_verification": {
+    "complete_tests": "93/93",
+    "complete_test_elapsed_seconds": 132.312,
+    "phase_correct_validators": "40/40",
+    "phase_correct_validator_elapsed_seconds": 8.49,
+    "manifest_sha256_unchanged": "e2ea1bcad45fe35e61ae84f3fb992400a737b46fa0daf94065e0ecb69a29a7e4",
+    "package_sha256_unchanged": "0e355dffd06ad6854d529b74a0248600e7d5ae1a86dadb1767e5be851cb0e865",
+    "evaluation_sha256_unchanged": "072de0cd2c597413ac9cce29c1540c9717e85dc6d9b093b9c9ae5cd41afd95ee",
+    "local_image_id_unchanged": "sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1",
+    "milestone_validation": "valid active inherited authority with UNIT-004 in progress and no errors or warnings",
+    "compilation": "pass",
+    "git_diff_check": "pass"
+  },
+  "bounded_correction": "Mark only eval/manifest-0031-attempt-001-invalid.json as binary, publish its already-preserved original CRLF bytes, verify the current 153-file release manifest and selected package remain exact, and retry from a new no-alternates public clone.",
+  "product_effect": "none; runtime, retrieval default, excluded candidate, package, evaluation, policy, authority, container image, and release manifest bytes are unchanged",
+  "positive_evidence_released": false
+}

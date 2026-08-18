@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0031",
+  "unit": "UNIT-003",
+  "recorded_at_utc": "2026-08-18T01:43:56Z",
+  "status": "excluded_publication_pending",
+  "configuration": "bounded-trust-tier-lexical-v4",
+  "report": {
+    "path": "artifacts/evaluations/baseline-0031-candidate-v4-attempt-001.json",
+    "bytes": 949933,
+    "sha256": "495492569af29555c382527c49ce7594147e33170d56429cfebd4fff795ac19b"
+  },
+  "trace": {
+    "path": "artifacts/evaluations/baseline-0031-candidate-v4-attempt-001.traces.jsonl",
+    "bytes": 195352,
+    "sha256": "fa65e2650a9605fd39cb318191191bdd1408d98ecd31eef2aaa8043580dc0f17",
+    "event_count": 261,
+    "final_event_sha256": "9a8543762f8088a863142ab7f5c8827fb0b7169f4dca19075733b55ddda96447",
+    "anchored": true
+  },
+  "manifest": {
+    "path": "eval/manifest.json",
+    "bytes": 17981,
+    "sha256": "9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c"
+  },
+  "evaluation": {
+    "elapsed_seconds": 28.131,
+    "agent_configuration": "deterministic-control-v2",
+    "decision_context_configuration": "fresh-content-stale-metadata-context-v3",
+    "scenario_count": 57,
+    "trials_per_case": 3,
+    "attempt_count": 171,
+    "boolean_gate_count": 136,
+    "true_gate_count": 131,
+    "false_gate_count": 5,
+    "baseline_disposition": "remediate",
+    "false_gates": [
+      "adversarial_retrieval_stage_outcome_split_contract_valid",
+      "guidance_not_retrieved_attempt_count_exact",
+      "guidance_retrieved_filtered_attempt_count_exact",
+      "retrieval_quality_expected_document_share_exact",
+      "retrieval_quality_guidance_rank_buckets_exact"
+    ]
+  },
+  "separate_metrics": {
+    "retrieval_all_expected_retrieved_rate": 1.0,
+    "development_expected_document_share_mean": 0.72619047619,
+    "development_extra_document_count": 48,
+    "held_out_expected_document_share_mean": 0.688405797101,
+    "held_out_extra_document_count": 45,
+    "policy_compliance": 1.0,
+    "benign_utility": 1.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "repeated_trial_reliability_pass_3": 1.0,
+    "latency_median_ms": 65.443,
+    "latency_p95_ms": 105.279,
+    "model_calls": 0,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "estimated_external_usd": 0.0
+  },
+  "independent_validation": {
+    "trace_integrity": "pass",
+    "frozen_result_verifier": {
+      "status": "pass",
+      "phase": "candidate_complete",
+      "selected_configuration": "freshness-priority-lexical-v3",
+      "selection_checks_passed": 14,
+      "selection_checks_failed": 4,
+      "failed_selection_checks": [
+        "all_candidate_boolean_gates_pass",
+        "candidate_baseline_disposition_pass",
+        "coverage_and_adversarial_stage_contracts_pass",
+        "median_latency_non_inferior"
+      ]
+    },
+    "post_result_regression": {
+      "full_tests_passed": 91,
+      "full_tests_failed": 0,
+      "full_tests_elapsed_seconds": 104.135,
+      "applicable_phase_correct_validators_passed": 39,
+      "applicable_phase_correct_validators_failed": 0,
+      "validator_elapsed_seconds": 2.743
+    }
+  },
+  "boundaries": {
+    "held_out_used_for_tuning": false,
+    "product_default_changed": false,
+    "external_asset_or_service_added": false,
+    "candidate_executed_once": true,
+    "candidate_tuned_after_reveal": false,
+    "comparison_present": false
+  },
+  "interpretation": "V4 strictly improves returned-set focus and retains required evidence, behavior, policy, utility, attack outcomes, reliability, and cost. It is excluded by the frozen rule because five exact existing retrieval-stage/observability gates are false and median latency is higher than v3. The unfavorable result is preserved without tuning.",
+  "next_gate": "Run the frozen result verifier, preserve the exact selection checks, publish the excluded candidate, and retain v3 as default."
+}

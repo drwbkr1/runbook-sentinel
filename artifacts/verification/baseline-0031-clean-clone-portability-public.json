@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0031",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-18T03:34:36Z",
+  "status": "pass",
+  "repository": "https://github.com/drwbkr1/runbook-sentinel",
+  "branch": "codex/baseline-0031-bounded-trust-tier-retrieval",
+  "commit": "d7302b67842d44280108b0ebd2b17af9e61a7840",
+  "tree": "05eb6d150e4f453fa639857a9466896fc7800c79",
+  "refs": {
+    "local_head_exact": true,
+    "explicit_tracking_exact": true,
+    "ls_remote_exact": true
+  },
+  "anonymous_public_verification": {
+    "changed_path_count": 8,
+    "git_blob_exact_count": 8,
+    "raw_byte_exact_count": 8,
+    "credential_used": false,
+    "paths": [
+      ".gitattributes",
+      "CHANGELOG.md",
+      "artifacts/verification/container-baseline-0031-clean-build-failure-001.json",
+      "contracts/milestone-0031.json",
+      "docs/devlog.md",
+      "docs/roadmap.md",
+      "docs/status.md",
+      "eval/manifest-0031-attempt-001-invalid.json"
+    ]
+  },
+  "historical_file": {
+    "path": "eval/manifest-0031-attempt-001-invalid.json",
+    "public_bytes": 17558,
+    "public_sha256": "99489ecbcd1fb9f92fff23c09494647139c4c1f58c90f9c1ffdedde57cb74167",
+    "public_git_blob": "fc9fbf582f890b2c41c977045d1d4562675a0434",
+    "release_manifest_expected_sha256": "99489ecbcd1fb9f92fff23c09494647139c4c1f58c90f9c1ffdedde57cb74167",
+    "exact": true
+  },
+  "unchanged_selected_inputs": {
+    "release_manifest_sha256": "e2ea1bcad45fe35e61ae84f3fb992400a737b46fa0daf94065e0ecb69a29a7e4",
+    "package_sha256": "0e355dffd06ad6854d529b74a0248600e7d5ae1a86dadb1767e5be851cb0e865",
+    "evaluation_sha256": "072de0cd2c597413ac9cce29c1540c9717e85dc6d9b093b9c9ae5cd41afd95ee",
+    "local_image_id": "sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1"
+  },
+  "boundaries": {
+    "runtime_changed": false,
+    "retrieval_selection_changed": false,
+    "policy_or_authority_changed": false,
+    "package_or_evaluation_rebuilt": false,
+    "container_image_exported": false,
+    "container_image_pushed": false,
+    "container_image_published": false
+  },
+  "next_gate": "Clone this exact public branch over HTTPS with no local object alternates, independently rebuild the selected archive, and require clean-build image identity sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1."
+}

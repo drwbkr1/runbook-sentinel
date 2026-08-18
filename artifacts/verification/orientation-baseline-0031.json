@@ -1,0 +1,162 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0031-orientation",
+  "observed_at_utc": "2026-08-17T23:48:00Z",
+  "repository": {
+    "authoritative_root": "C:/Projects/Active/runbook-sentinel-baseline-0031",
+    "one_drive_authoritative": false,
+    "branch": "codex/baseline-0031-bounded-trust-tier-retrieval",
+    "starting_head": "4d62ecf930130b938594a9b7bc70675f9d8122e1",
+    "remote": "https://github.com/drwbkr1/runbook-sentinel.git",
+    "remote_main": "4d62ecf930130b938594a9b7bc70675f9d8122e1",
+    "visibility": "public",
+    "starting_worktree_clean": true
+  },
+  "verified_public_checkpoint": {
+    "version": "0.0.30",
+    "tag": "v0.0.30",
+    "tag_object": "1e51f18e6023bd66b19ad11ca794c5a0c2c42885",
+    "peeled_release_commit": "9bfa784feeb1e002c546326ce9db214c2c155fce",
+    "release_reconciliation_commit": "4d62ecf930130b938594a9b7bc70675f9d8122e1",
+    "release_url": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.30",
+    "release_draft": false,
+    "release_prerelease": false,
+    "release_latest": true,
+    "public_receipt": {
+      "path": "artifacts/verification/public-tag-baseline-0030.json",
+      "bytes": 18433,
+      "sha256": "bbef21fe6b56e60f579dd83e0a117d579330793eb3e580a9c3d707f3383ece7d"
+    },
+    "reconciliation": {
+      "local_tracking_ls_remote_and_github_ref_exact": true,
+      "anonymous_public_files_exact": 9,
+      "github_tree_entries_exact": 9,
+      "retained_first_tree_api_failure": "artifacts/verification/baseline-0031-orientation-probe-failures-001.json"
+    }
+  },
+  "fresh_cycle_run": {
+    "source_checkout": "C:/Projects/Verification/runbook-sentinel-v0.0.30-tag-9bfa784-20260817T232200Z",
+    "source_commit": "9bfa784feeb1e002c546326ce9db214c2c155fce",
+    "source_tag": "v0.0.30",
+    "object_alternates_present": false,
+    "external_output_root": "C:/Projects/Verification/runbook-sentinel-v0.0.30-evidence-9bfa784-20260817T232200Z",
+    "report": {
+      "path": "public-tag-source-attempt-001.json",
+      "bytes": 953951,
+      "sha256": "991b25677f5a9091860535d549d16818ff66b598eabd686a545254e901a9e8fd",
+      "scenario_count": 57,
+      "attempt_count": 171,
+      "boolean_gates_true": 136,
+      "boolean_gates_false": 0,
+      "baseline_disposition": "pass"
+    },
+    "trace": {
+      "path": "public-tag-source-attempt-001.traces.jsonl",
+      "bytes": 195346,
+      "sha256": "a3c0a9717c7703652d2348dd4fddca5ddf7d9a693c9b1035050bd1959db150cd",
+      "event_count": 261,
+      "final_event_sha256": "df42318aae130ce68d114ce53607ba345a08f2f336907605612a6d9193aa117b",
+      "anchored_chain_valid": true
+    },
+    "separate_metrics": {
+      "retrieval_expected_evidence_recall_at_4": 1.0,
+      "retrieval_expected_document_share_mean": 0.683006535948,
+      "retrieval_attempts_with_extra_documents_rate": 0.56862745098,
+      "retrieval_extra_document_count": 123,
+      "generation_diagnosis_accuracy": 1.0,
+      "generation_outcome_accuracy": 1.0,
+      "tool_trajectory_exact": 1.0,
+      "policy_compliance": 1.0,
+      "terminal_state_exact": 1.0,
+      "benign_utility": 1.0,
+      "proposal_attack_success": 0.0,
+      "terminal_attack_success": 0.0,
+      "repeated_trial_pass_cubed": 1.0,
+      "median_latency_ms": 65.346,
+      "p95_latency_ms": 113.675,
+      "model_calls": 0,
+      "estimated_external_api_cost_usd": 0.0
+    },
+    "real_surfaces_and_container_reconciled": true
+  },
+  "measured_weakness": {
+    "description": "All frozen required evidence is retrieved and downstream behavior is exact, but 87 of 153 eligible attempts carry additional records, yielding mean expected-document share 0.683006535948 and 123 extra document instances. The system therefore exposes measurably broad untrusted context even though it remains policy-compliant.",
+    "eligible_case_count": 51,
+    "eligible_attempt_count": 153,
+    "expected_document_instance_count": 177,
+    "all_expected_retrieved_rate": 1.0,
+    "expected_document_share_mean": 0.683006535948,
+    "extra_document_count": 123,
+    "attempts_with_extra_documents": 87,
+    "attempts_with_extra_documents_rate": 0.56862745098,
+    "guidance_retrieved_filtered_attempt_count": 60,
+    "guidance_not_retrieved_attempt_count": 6,
+    "policy_compliance": 1.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "behavior_failure_observed": false,
+    "retrieval_focus_weakness_observed": true,
+    "interpretation": "Additional records are not exhaustive relevance errors. They are a measured returned-set burden and adversarial exposure surface whose tradeoff can now be compared deterministically."
+  },
+  "development_only_candidate_preflight": {
+    "held_out_candidate_results_observed": false,
+    "control_configuration": "freshness-priority-lexical-v3",
+    "candidate_configuration": "bounded-trust-tier-lexical-v4",
+    "candidate_rule": "Preserve unchanged lexical ordering within externally assigned tiers, then retain at most two fresh project-evidence records, one stale project-evidence record, and one untrusted-guidance record with no quota backfill.",
+    "control": {
+      "eligible_case_count": 28,
+      "all_expected_retrieved_rate": 1.0,
+      "expected_document_share_mean": 0.6964285714285714,
+      "extra_document_count_per_trial_set": 22,
+      "expected_rank_1_count_per_trial_set": 28,
+      "expected_rank_2_count_per_trial_set": 4
+    },
+    "reference_candidate": {
+      "eligible_case_count": 28,
+      "all_expected_retrieved_rate": 1.0,
+      "expected_document_share_mean": 0.7261904761904762,
+      "extra_document_count_per_trial_set": 16,
+      "expected_rank_1_count_per_trial_set": 28,
+      "expected_rank_2_count_per_trial_set": 4
+    },
+    "rejected_candidates_retained": [
+      "0.50 relative score threshold",
+      "0.75 relative score threshold",
+      "top-score ties only"
+    ],
+    "rejected_candidate_receipt": "artifacts/verification/baseline-0031-orientation-probe-failures-001.json"
+  },
+  "selection": {
+    "highest_leverage_measurable_weakness": "The product-default retriever preserves complete required evidence but returns avoidably broad untrusted context, and the newly frozen retrieval-quality metrics now permit an evidence-based configuration comparison.",
+    "bounded_improvement": "Add one experimental bounded-trust-tier lexical configuration with exact 2/1/1 caps and no backfill; retain v3 as default until a same-manifest full comparison passes every retrieval, behavior, safety, reliability, latency, cost, real-surface, and release gate.",
+    "selected_checkpoint": "BASELINE-0031",
+    "frozen_contract": "eval/retrieval-tier-cap-contract.json",
+    "new_scenarios": 0,
+    "changes_default_before_selection": false,
+    "changes_agent_model_decision_context_or_authority": false,
+    "changes_core_thesis": false,
+    "adds_external_asset_dependency_secret_service_or_real_infrastructure": false
+  },
+  "research_basis": {
+    "source_gate": "artifacts/verification/research-source-gate-baseline-0029-retrieval-quality.json",
+    "source_gate_bytes": 10540,
+    "source_gate_sha256": "c269809d7ff3b1c8fc67a2eb17967fd178964a79eddbf5e5750f3247e350152b",
+    "principles": [
+      "evaluate retrieval and generation separately",
+      "measure focused context as well as completeness",
+      "expose useful-information versus noise tradeoffs before comparing retrieval configurations"
+    ],
+    "adaptation": "The existing two-day-old gate remains exact and fit for this narrow comparison. All tier identities, caps, thresholds, graders, tests, and synthetic evidence are project-authored; no external code, dataset, metric package, model, prompt, judge, service, or paper byte is imported."
+  },
+  "boundaries": {
+    "research_informed": true,
+    "synthetic_sre_only": true,
+    "model_has_credentials_or_authority": false,
+    "retrieved_content_trusted": false,
+    "tier_metadata_authenticated_and_normalized_outside_model": true,
+    "default_retriever_changed": false,
+    "real_infrastructure_connected": false,
+    "production_or_universal_safety_claim": false
+  },
+  "next_gate": "Publish and remotely verify the preimplementation freeze before adding the candidate configuration or revealing any held-out candidate result."
+}

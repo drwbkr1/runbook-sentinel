@@ -1,0 +1,282 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0031",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "active_contract": "contracts/milestone-0031.json",
+    "verified_at_utc": "2026-08-17T23:48:00Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Compare one frozen bounded trust-tier lexical retriever against the verified v3 control, and select it only if returned-set focus improves without losing required evidence, coverage, behavior, safety, reliability, latency, cost, or real-surface integrity.",
+    "allowed_paths": [
+      "C:/Projects/Active/runbook-sentinel-baseline-0031",
+      "C:/Projects/Verification"
+    ],
+    "forbidden_work": [
+      "inspect or use held-out candidate results before the public preimplementation and implementation seals",
+      "change frozen scenarios expected retrieval identities splits terminal states agent model prompt parser decision-context projection policy approval executor API or MCP authority",
+      "treat extra records as proven irrelevant or externally assigned tier metadata as inherently trustworthy",
+      "change the product default before a complete same-manifest comparison passes every frozen selection gate",
+      "add a dependency tool credential secret paid service external asset model remote call or real-infrastructure connector",
+      "delete or rewrite the v3 control rejected score-threshold candidates failed attempts or unfavorable candidate evidence",
+      "claim production readiness universal prompt-injection resistance broad Pareto improvement cross-builder reproducibility or perpetual vulnerability status"
+    ],
+    "reversible_actions": [
+      "create and update project-authored files on codex/baseline-0031-bounded-trust-tier-retrieval",
+      "publish a preimplementation freeze before runtime change",
+      "add exactly one experimental retrieval configuration after the freeze is public",
+      "run deterministic source package MCP API dashboard container and clean-clone verification under C:/Projects",
+      "version commit push review merge and release the exact verified source plus zipapp checkpoint after all gates pass"
+    ],
+    "stop_conditions": [
+      "core thesis change or security-boundary weakening",
+      "required evidence or frozen behavior can pass only by changing expected labels graders or held-out cases",
+      "tier identity freshness or provenance must be assigned by the model or untrusted content",
+      "a dependency secret paid service external asset remote model or real infrastructure becomes necessary",
+      "source package real surfaces clean clone release or public tag cannot be verified",
+      "container image publication or redistribution becomes necessary"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public v0.0.30 is externally reconciled at commit 4d62ecf930130b938594a9b7bc70675f9d8122e1 and artifacts/verification/public-tag-baseline-0030.json SHA-256 bbef21fe6b56e60f579dd83e0a117d579330793eb3e580a9c3d707f3383ece7d.",
+        "Fresh public-tag source evidence passes 57 scenarios 171 attempts all 136 Boolean gates and an anchored 261-event trace with complete real-surface and local-container reconciliation.",
+        "Required-evidence recall is 1.0 but 87 of 153 eligible attempts contain 123 extra document instances and mean expected-document share is 0.683006535948.",
+        "Development-only reference evaluation preserves every required ID and rank while exact 2/1/1 tier caps reduce extra documents from 22 to 16 per trial set and raise mean expected-document share from 0.6964285714285714 to 0.7261904761904762.",
+        "The exact recent RAGChecker and RAGAs source gate remains ready for narrow modular diagnostics and useful-information/noise principles without importing external assets."
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Reconcile public v0.0.30, run the accepted system, inspect traces and separate metrics, reject unsafe candidate rules, and publish the exact bounded-tier preimplementation freeze.",
+      "depends_on": [],
+      "action_class": "evidence_preservation",
+      "human_gate": false,
+      "status": "complete",
+      "outputs": [
+        "artifacts/verification/orientation-baseline-0031.json",
+        "artifacts/verification/baseline-0031-orientation-probe-failures-001.json",
+        "eval/retrieval-tier-cap-contract.json",
+        "scripts/verify_retrieval_tier_cap_contract.py",
+        "tests/test_retrieval_tier_cap_contract.py",
+        "docs/adr/0026-bound-retrieval-by-externally-assigned-trust-tier.md"
+      ],
+      "gates": {
+        "public_checkpoint_reconciled": "pass",
+        "accepted_system_run_and_trace_inspected": "pass",
+        "separate_metric_families_inspected": "pass",
+        "highest_leverage_weakness_selected": "pass",
+        "development_only_preflight": "pass",
+        "rejected_candidates_preserved": "pass",
+        "research_source_gate_fit": "pass",
+        "preimplementation_contract_and_tests": "pass",
+        "public_freeze_verified": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "The first post-release GitHub Trees API URL interpolated the commit query suffix as part of the PowerShell variable and returned 404; the corrected explicit tree-SHA query verified all nine public entries.",
+        "Relative score thresholds 0.50 and 0.75 and top-score-only filtering each dropped frozen required evidence on development cases and were rejected before implementation."
+      ],
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Implement exactly the frozen experimental 2/1/1 trust-tier caps with no backfill while retaining v3 as product default, then publish an implementation seal before held-out reveal.",
+      "depends_on": ["UNIT-001"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "gates": {
+        "public_freeze_verified": "pass",
+        "exact_runtime_projection": "pass",
+        "development_reference_exact": "pass",
+        "default_and_authority_unchanged": "pass",
+        "implementation_seal_public": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [],
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Run same-manifest v3 control and v4 candidate comparisons, preserve every result, and select or exclude by the frozen Pareto rule.",
+      "depends_on": ["UNIT-002"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "gates": {
+        "public_implementation_seal_verified": "pass",
+        "comparison_inventory_public": "pass",
+        "comparison_manifest_public": "pass",
+        "control_complete": "pass",
+        "candidate_complete": "pass",
+        "retrieval_behavior_safety_reliability_latency_and_cost_separate": "pass",
+        "pareto_decision_evidence_bound": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "Public inventory amendment fa740b95442232cdcef72b8f5fd7dcbdb5b29bb1 matched across refs and 11 of 12 changed raw paths, but Git normalized the retained failed manifest from 17,558 CRLF bytes to 17,405 LF bytes. The gate remains pending; exact failed bytes move to the binary verification namespace in a 149-path successor inventory."
+      ],
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Verify the selected source, package, bounded MCP, authenticated API, approval and executor, persisted state, telemetry, rendered dashboard, local container, scan, and clean clone.",
+      "depends_on": ["UNIT-003"],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "gates": {
+        "selection_public_and_reconciled": "pass",
+        "package_and_manifest_contract_frozen": "pass",
+        "release_lifecycle_correction_public": "pass",
+        "successor_release_manifest_exact": "pass",
+        "source_package_and_real_surfaces_exact": "pass",
+        "source_package_public_exact": "pass",
+        "local_container_and_scan_exact": "pass",
+        "clean_clone_portability_correction_public": "pass",
+        "clean_clone_exact": "pass",
+        "public_complete_stack_candidate_exact": "pass"
+      },
+      "disposition": "pass",
+      "retained_failures": [
+        "Package/source attempt 001 passed archive reproducibility, both selected-v3 evaluations, MCP, authenticated API, state, telemetry, and rendered dashboards, but the post-surface regression stopped at 91/92 because the frozen starting-control validator dereferenced mutable latest.json. The complete attempt and d10e77ad manifest are retained as superseded; the bounded archive/current-pointer correction passes 93/93 tests and 39/39 non-manifest validators and must be public before a successor manifest and exact rerun.",
+        "The first no-alternates public clean clone rebuilt the selected archive exactly but stopped before Docker because the public LF blob of the retained invalid manifest did not match stale CRLF bytes frozen from the active checkout. The empty attempt and exact mismatch are retained; only that historical file receives a binary Git attribute before public reconciliation and a fresh-clone retry."
+      ],
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Audit, review, merge, release source plus zipapp only, and independently reconcile the public tag and selected assets.",
+      "depends_on": ["UNIT-004"],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "in_progress",
+      "gates": {
+        "premerge_release_truth_audit": "pending",
+        "exact_reviewed_head_merged_with_history_preserved": "pending",
+        "fresh_public_main_complete_stack": "pending",
+        "final_release_truth_audit": "pending",
+        "annotated_tag_and_selected_assets": "pending",
+        "public_tag_complete_stack": "pending",
+        "external_reconciliation": "pending"
+      },
+      "disposition": "pending",
+      "retained_failures": [],
+      "next_dependency": null
+    }
+  ],
+  "current_unit": "UNIT-005",
+  "next_action": "Run the governed premerge release-truth audit against public complete-stack evidence commit af7c6ca2a72593a9c8a816fdb44a5a65c778d256 and its exact public reconciliation receipt; do not merge tag or release unless the audit passes.",
+  "path_efficiency": {
+    "max_consecutive_no_progress_units": 2,
+    "review_action_class": "project_control",
+    "review_human_gate": false
+  },
+  "verification": {
+    "changed_risks": [
+      "broader returned context increases exposure to untrusted or stale records even when the decision projection filters them",
+      "a focus improvement can silently drop required evidence or collapse adversarial exposure coverage",
+      "trust-tier caps can be misread as trust in metadata that was not authenticated outside the model",
+      "development improvements can overfit and regress held-out completeness behavior safety reliability or latency",
+      "source-only retrieval success can hide stale MCP API state telemetry dashboard package or container behavior"
+    ],
+    "required_checks": [
+      "exact public v0.0.30 receipt release tag assets and fresh source run identity",
+      "exact v3 control retrieval source catalog metric and real-surface identities",
+      "development-only independent reference candidate and retained rejected rules",
+      "preimplementation publication before candidate runtime presence",
+      "same-manifest three-trial v3 and v4 reports with exact trace anchors",
+      "separate completeness focus attack-rank generation trajectory policy terminal utility attack reliability latency and cost results",
+      "all expected IDs ranks scenarios terminal states and coverage contracts exact",
+      "source package MCP API approval executor state telemetry dashboard container scan clean clone review release and public-tag verification",
+      "retention of all failed stale blocked corrected superseded excluded and unfavorable evidence"
+    ],
+    "completed_checks": [
+      "public v0.0.30 external reconciliation commit 4d62ecf930130b938594a9b7bc70675f9d8122e1 and receipt bbef21fe6b56e60f579dd83e0a117d579330793eb3e580a9c3d707f3383ece7d",
+      "fresh accepted public-tag run with 57 scenarios 171 attempts all 136 Boolean gates and an anchored 261-event trace",
+      "measured 0.683006535948 expected-document share 123 extra document instances and 87 extra-document attempts with required-evidence recall 1.0",
+      "three rejected development score-threshold candidates preserved",
+      "independent development reference for exact 2/1/1 caps preserves all required evidence and ranks while reducing extra document count 66 to 48 across three trials",
+      "recent exact retrieval-quality research source gate remains ready without external asset import",
+      "preimplementation contract validator and six focused tests pass with candidate absent and v3 default exact"
+      ,"the complete preimplementation suite passes 86 tests in 100.239 seconds and all 38 inherited phase-correct side-effect-free validators pass in 4.159 seconds"
+      ,"governed milestone validation compilation structured parsing git diff and bounded credential and model-artifact scans pass without warning or unclassified error"
+      ,"public preimplementation seal a7e42589b8e85d6f967128d32d7cea7a5111c3e9 and tree 22d186d9c5a558560abb6fe81c272f389e6571dd reconcile across local explicit tracking ls-remote anonymous GitHub APIs all 16 changed Git entries and all 16 anonymous raw files with candidate runtime and held-out results absent"
+      ,"bounded-trust-tier-lexical-v4 matches the frozen development reference exactly at retrieval SHA-256 6eb5227b2e20141bf978670cfbbe9edd6d55ca1db69b76a4007b830e13ff864a while freshness-priority-lexical-v3 remains the product default"
+      ,"the implementation phase passes six focused tests all 86 tests in 107.216 seconds and 37 applicable phase-correct non-manifest validators in 2.463 seconds; the immutable predecessor manifest rejects exactly src/runbook_sentinel/retrieval.py"
+      ,"implementation-phase governed milestone compilation structured parsing diff and bounded credential and model-artifact scans pass without warning or unclassified error"
+      ,"public implementation seal b13057ea924e3df002d86264c044b19c1a0f398a and tree 1c898ae67574ba7a775d4ed158d2d1e9e2bd9fef reconcile across local explicit tracking ls-remote anonymous GitHub APIs all 11 changed Git entries and all 11 anonymous raw files with v3 still default and no held-out candidate result"
+      ,"the pre-result selection verifier and five focused tests freeze required-evidence rank behavior coverage safety reliability latency cost and default boundaries before any comparison artifact exists"
+      ,"the comparison inventory contains 146 unique existing paths with exactly three additions and zero removals; 91 tests pass in 106.341 seconds and 38 applicable non-manifest validators pass in 2.501 seconds"
+      ,"public inventory seal d96a1f03b010c00c44e36e5332e97ae37aee3e39 and tree e3224af3cf8085ae8d6f319b63b0c2f1584134fc reconcile across refs all 11 Git tree entries and all 11 anonymous raw files while the successor manifest and all comparison artifacts remain absent"
+      ,"the first 146-file BASELINE-0031 manifest verifies internally at SHA-256 99489ecbcd1fb9f92fff23c09494647139c4c1f58c90f9c1ffdedde57cb74167 but is excluded after 3 of 91 tests fail on stale historical-manifest and current-checkpoint assumptions"
+      ,"the corrected 148-path inventory adds only the exact BASELINE-0030 final companion manifest and retained failed manifest with zero removals; all three targeted regressions pass and eval/manifest.json is restored to the exact 143-file predecessor"
+      ,"the corrected inventory state passes all 91 tests in 106.638 seconds and all 38 applicable non-manifest validators in 2.498 seconds while the predecessor manifest rejects only the implemented retrieval path"
+      ,"public amendment fa740b95442232cdcef72b8f5fd7dcbdb5b29bb1 is retained as a custody failure because 1 of 12 raw paths was Git-normalized from 17558 CRLF bytes to 17405 LF bytes"
+      ,"corrected public inventory commit 9e031aa3ddfc89a26b8d78452daa583201361fbd and tree 70a102b6554ee35831441ca426fcc82907b73e3e reconcile across all four refs all 11 Git tree entries and all 11 unauthenticated raw files; exact failed-manifest bytes are public under the binary verification namespace"
+      ,"local 149-file manifest attempt 002 is 17981 bytes at SHA-256 9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c and passes all 91 tests plus all 39 applicable phase-correct validators including manifest verification"
+      ,"public manifest seal 596a81dec106e508486a9c739a1c43fad053250a and tree 2052251cf76f3ebd2fc8ee357f67707b585eedb4 reconcile across all four refs all eight Git tree entries and all eight unauthenticated raw files; eval/manifest.json is exact at 17981 bytes and SHA-256 9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c"
+      ,"local v3 control attempt 001 passes 57 scenarios 171 attempts all 136 Boolean gates anchored 261-event trace exact retrieval and behavioral contracts 91 corrected post-control tests and all 39 applicable validators; candidate and comparison remain absent"
+      ,"public v3 control seal 2d30ec26eb6f0a4ee8cfa0214bd2481518934303 and tree 426e281f1ba1f3173d53b674e3465d4e0115252d reconcile across all four refs all ten Git tree entries and all ten unauthenticated raw files including exact report trace and receipt bytes"
+      ,"local v4 candidate preserves required evidence ranks behavior policy utility attacks reliability p95 latency and cost and strictly improves focus but is excluded because five Boolean gates are false baseline disposition is remediate coverage and adversarial-stage contracts do not all pass and median latency is higher"
+      ,"the frozen comparison verifier selects freshness-priority-lexical-v3 with 14 of 18 selection checks passing; final comparison-complete regression passes all 91 tests and all 39 applicable validators"
+      ,"public excluded-v4 comparison commit f9134cfb451e84730c9cebdd586ea68dabee1a99 and tree 8c2569d4376c9cf1bf87fe4a63d58e38c0b70f75 reconcile across all four refs all 11 Git tree entries and all 11 unauthenticated raw files; v3 remains default"
+      ,"dependency-free v0.0.31 package contract SHA-256 776f01b33b3e5b25fbf1f65774b13f61ce641744da617258aa2cc8ad40259b18 and inherited container-runtime-v11 SHA-256 9b6ca120844c5fd541585a029599b0cabf4b797b312c3bd39b8894bbb0c69ac9 are frozen with current and versioned bytes exact"
+      ,"the 153-file BASELINE-0031 prebuild manifest freezes at 2026-08-18T02:18:04Z as 18484 bytes and SHA-256 d10e77ad8e3f889c18d1c7e6c4ebc7406c614e65ae11561ce84c3406c46a5fde; exact verification 92 tests and all 39 applicable validators pass before archive or image construction"
+      ,"public prebuild seal 54e1c4593516bb39975908c1c2151755b1f00b8b and tree b4ab8c082ebce3fba90339d597161a387f3f47e7 reconcile across local explicit tracking ls-remote anonymous GitHub ref and tree APIs all 31 changed Git entries and all 31 anonymous raw files with archive checksum receipt and image absent"
+      ,"package/source attempt 001 produced two exact 647712-byte archives plus passing selected-v3 source/package evaluations MCP authenticated API native state telemetry and complete dashboards; the attempt is retained as superseded because the post-surface regression exposed a mutable latest.json historical-control pointer defect"
+      ,"the bounded accepted-control archive/current-pointer correction rejects archive mutation and passes seven focused tests all 93 tests and all 39 phase-correct non-manifest validators while the predecessor manifest rejects exactly the corrected validator path"
+      ,"public lifecycle-correction commit c4e69df094d98c65026c9c4a4ae33c9b38153653 and tree 8c41aa73f4479e3b1d9f4362e8bea810f1bda301 reconcile across local explicit tracking ls-remote anonymous GitHub ref and tree APIs all 20 changed Git entries and all 20 anonymous raw files"
+      ,"the 153-file successor release manifest is 18484 bytes at SHA-256 e2ea1bcad45fe35e61ae84f3fb992400a737b46fa0daf94065e0ecb69a29a7e4 and passes 93 tests plus all 40 phase-correct validators after two retained lifecycle-test fixture failures"
+      ,"public successor-manifest commit cb20bb29f881d78b8f9d2b9ea7c3b220c1a979e4 and tree 799de725757f4dce992f89c2699e4744fa095652 reconcile across refs all nine changed Git entries and all nine anonymous raw files"
+      ,"attempt 002 produces two exact 647712-byte archives at SHA-256 0e355dffd06ad6854d529b74a0248600e7d5ae1a86dadb1767e5be851cb0e865 plus source/package 57-scenario 171-attempt all-136-gate evaluations exact normalized parity bounded MCP both 131-check APIs both 72-check native inspections and complete dashboards"
+      ,"post-surface attempt-002 gates pass 93 tests in 152.601 seconds all 40 validators in 7.674 seconds exact traces manifest compilation parsing scans milestone and diff with no BASELINE-0031 image present"
+      ,"public attempt-002 package/source commit 297cc62a3679bd6ed07e4b6b46d0599ddff6b120 and tree 7b353d62b3a4db27acc6dd38735edb93af2c494e reconcile across refs all 18 changed Git entries and all 18 anonymous raw files"
+      ,"two full local container builds reproduce image sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1; 46 of 47 component checks pass with only clean-clone identity pending and no image export push publication or redistribution"
+      ,"the first no-alternates public clean clone rebuilds the selected archive exactly but fails before Docker on the retained historical invalid-manifest LF/CRLF checkout mismatch; the bounded binary-attribute correction passes 93 tests and all 40 phase-correct validators without changing manifest package evaluation image policy or authority bytes"
+      ,"public portability seal d7302b67842d44280108b0ebd2b17af9e61a7840 and tree 05eb6d150e4f453fa639857a9466896fc7800c79 reconcile across refs all eight changed Git entries and all eight anonymous public files; the historical file is publicly exact at 17558 bytes and SHA-256 99489ecbcd1fb9f92fff23c09494647139c4c1f58c90f9c1ffdedde57cb74167"
+      ,"fresh no-alternates clean clone at public reconciliation head 0ce0369bf6d62b15344d0f09498c79c034e85a2b rebuilds the selected archive and reproduces image sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1 exactly"
+      ,"canonical container receipt 236dbc9fc2f5a28cbc012612488bfc378103c877874dd8ad3119296ce5798d92 passes all 47 frozen checks; post-container 93 tests 40 required-result validators three exact traces structured parsing scans compilation and local-only publication boundaries pass"
+      ,"public complete-stack evidence commit af7c6ca2a72593a9c8a816fdb44a5a65c778d256 and tree da7442dbdebe22e6ac64944510491f61cd39befb reconcile across local explicit tracking ls-remote anonymous GitHub ref and tree APIs and all 15 anonymous raw files; UNIT-004 passes"
+    ]
+  },
+  "handoff": {
+    "current_checkpoint": "UNIT-004 passes. Public complete-stack evidence commit af7c6ca2a72593a9c8a816fdb44a5a65c778d256 is exact across refs GitHub APIs and all 15 anonymous raw files; canonical container-runtime-v11 passes 47 of 47 without image export push publication or redistribution.",
+    "next_action": "Run the governed UNIT-005 premerge release-truth audit before review merge tag or release.",
+    "do_not_carry_forward": [
+      "any held-out tuning expected-label grader scenario terminal model prompt parser decision-context policy approval executor or authority change",
+      "any trust in evidence kind timestamp freshness or provenance before external authentication and normalization",
+      "any default promotion before the frozen comparison passes",
+      "any dependency secret paid service external asset remote model or real-infrastructure interaction",
+      "any deletion or rewrite of rejected threshold candidates failures control or unfavorable candidate evidence",
+      "any production universal-safety broad-Pareto cross-builder or perpetual-vulnerability claim"
+    ]
+  }
+}

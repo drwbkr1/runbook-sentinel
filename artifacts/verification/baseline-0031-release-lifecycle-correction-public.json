@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0031",
+  "status": "pass",
+  "observed_at_utc": "2026-08-18T02:51:26Z",
+  "branch": "codex/baseline-0031-bounded-trust-tier-retrieval",
+  "commit": "c4e69df094d98c65026c9c4a4ae33c9b38153653",
+  "tree": "8c41aa73f4479e3b1d9f4362e8bea810f1bda301",
+  "parent": "c4b8ae862b128bab18234ce2f1b29de6a972cbf6",
+  "checks": {
+    "local_ref_exact": true,
+    "explicit_tracking_ref_exact": true,
+    "ls_remote_ref_exact": true,
+    "anonymous_github_ref_exact": true,
+    "github_tree_not_truncated": true,
+    "changed_tree_entries_exact": true,
+    "anonymous_raw_bytes_exact": true,
+    "public_repository": true
+  },
+  "counts": {
+    "changed_paths": 20,
+    "tree_mismatches": 0,
+    "raw_byte_mismatches": 0
+  },
+  "correction": {
+    "historical_control_archive": "artifacts/evaluations/runs/baseline-0030-final-source-attempt-001.json",
+    "historical_control_bytes": 954029,
+    "historical_control_sha256": "caf016718aefd9bb0400b8671e836d71ba057537fa547ec18a6a0df2685b0c74",
+    "active_latest_sha256": "1b18f1b9755777af55924b963d15c8835763f315e36a0f760fd3868da1d3f1b8",
+    "active_manifest_sha256": "d10e77ad8e3f889c18d1c7e6c4ebc7406c614e65ae11561ce84c3406c46a5fde",
+    "archive_mutation_rejected": true,
+    "active_latest_bound_to_manifest_and_all_136_boolean_gates": true
+  },
+  "verification": {
+    "focused_tests": "7/7",
+    "complete_tests": "93/93",
+    "complete_test_elapsed_seconds": 143.483,
+    "phase_correct_non_manifest_validators": "39/39",
+    "phase_correct_validator_elapsed_seconds": 6.193,
+    "milestone": "valid-active-inherited-authority-no-warnings",
+    "structured_changed_artifacts": "pass",
+    "compileall": "pass",
+    "git_diff_check": "pass",
+    "high_specificity_credential_hits": 0,
+    "model_artifact_count": 0,
+    "predecessor_manifest_expected_mismatch_paths": [
+      "scripts/verify_retrieval_tier_cap_contract.py"
+    ]
+  },
+  "retained_observations": [
+    "The first ordinary post-push fetch left the narrow remote-tracking ref stale; an explicit full refspec fetch then made local, tracking, and ls-remote identities exact.",
+    "Package/source attempt 001 remains superseded even though its runtime evidence passed, because its post-surface regression exposed this lifecycle defect."
+  ],
+  "boundaries": {
+    "product_default": "freshness-priority-lexical-v3",
+    "excluded_configuration": "bounded-trust-tier-lexical-v4",
+    "model_or_agent_has_credentials": false,
+    "model_or_agent_has_final_execution_authority": false,
+    "security_boundary_weakened": false,
+    "scenario_grader_or_expected_result_changed": false,
+    "dependency_secret_paid_service_or_external_asset_added": false,
+    "real_operational_infrastructure_used": false,
+    "container_image_built": false,
+    "container_image_exported_pushed_or_published": false
+  },
+  "next_gate": "Freeze and publish a successor release manifest containing the exact public correction, then rebuild and repeat selected-v3 source/package evaluations and all real surfaces before Docker."
+}

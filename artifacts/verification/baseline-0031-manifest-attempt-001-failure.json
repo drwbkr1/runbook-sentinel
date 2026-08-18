@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0031-manifest-attempt-001-failure",
+  "checkpoint": "baseline-0031",
+  "unit": "UNIT-003",
+  "observed_at_utc": "2026-08-18T00:56:00Z",
+  "status": "fail",
+  "disposition": "retained_superseded_not_positive_evidence",
+  "manifest": {
+    "byte_exact_path": "artifacts/verification/baseline-0031-manifest-attempt-001-invalid.json",
+    "normalized_git_copy_path": "eval/manifest-0031-attempt-001-invalid.json",
+    "bytes": 17558,
+    "sha256": "99489ecbcd1fb9f92fff23c09494647139c4c1f58c90f9c1ffdedde57cb74167",
+    "checkpoint": "baseline-0031",
+    "file_count": 146,
+    "internal_verifier_status": "pass"
+  },
+  "full_test_result": {
+    "tests_run": 91,
+    "tests_passed": 88,
+    "tests_failed": 3,
+    "elapsed_seconds": 75.676,
+    "failures": [
+      {
+        "test": "test_evaluation_reports_separate_metrics_and_passes_control_gates",
+        "cause": "The current-checkpoint assertion still named baseline-0030 after the manifest advanced to baseline-0031."
+      },
+      {
+        "test": "test_exposure_historical_latest_accepts_exact_passing_successor",
+        "cause": "The retained BASELINE-0030 latest report had no byte-exact companion manifest after the current manifest advanced."
+      },
+      {
+        "test": "test_historical_latest_report_accepts_exact_passing_successor",
+        "cause": "The retained BASELINE-0030 latest report had no byte-exact companion manifest after the current manifest advanced."
+      }
+    ]
+  },
+  "correction_scope": {
+    "add_byte_exact_baseline_0030_final_companion_manifest": true,
+    "companion_manifest_bytes": 17202,
+    "companion_manifest_sha256": "bc98beca62ba13968ecfa5f8c79800c24c94a3298b3ae31270465ec7ed61ce96",
+    "derive_current_checkpoint_test_expectation_from_exact_manifest": true,
+    "runtime_changed": false,
+    "scenario_or_expected_result_changed": false,
+    "grader_or_selection_rule_changed": false,
+    "held_out_result_observed": false
+  },
+  "inventory_effect": {
+    "previous_public_inventory_count": 146,
+    "corrected_inventory_count": 149,
+    "new_paths": [
+      "artifacts/evaluations/runs/baseline-0030-final-source-attempt-001.manifest.json",
+      "eval/manifest-0031-attempt-001-invalid.json",
+      "artifacts/verification/baseline-0031-manifest-attempt-001-invalid.json"
+    ],
+    "removals": []
+  },
+  "custody_correction": {
+    "failed_public_amendment_commit": "fa740b95442232cdcef72b8f5fd7dcbdb5b29bb1",
+    "public_normalized_bytes": 17405,
+    "public_normalized_sha256": "406676b1dd3b924d9456b5640a928e46c031838c91827e34e41acde9e1c21fba",
+    "public_git_blob_sha1": "15a85130033e26c6c35ca07d0c4f80a6603ec16f",
+    "reason": "Git normalized the eval-path CRLF bytes to LF because only eval/manifest.json is marked binary. The exact failed bytes are therefore retained under the binary artifacts/verification namespace; the eval path remains as a normalized semantic Git copy."
+  },
+  "next_gate": "Validate the 149-path corrected inventory and full suite, publish and remotely reconcile it, then refreeze the manifest."
+}

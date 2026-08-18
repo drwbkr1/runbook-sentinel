@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0031",
+  "receipt_id": "baseline-0031-orientation-probe-failures-001",
+  "status": "retained",
+  "disposition": "excluded_from_positive_evidence",
+  "observed_at_utc": "2026-08-17T23:48:00Z",
+  "items": [
+    {
+      "id": "PUBLIC-TREE-API-001",
+      "class": "process_invalid",
+      "operation": "Post-publication nine-path GitHub tree reconciliation for BASELINE-0030",
+      "failure": "The first GitHub Trees API URL interpolated $commit?recursive as one PowerShell variable and returned HTTP 404 after all nine anonymous raw files had already matched by length and SHA-256.",
+      "mutation": false,
+      "correction": "The successor resolved the exact tree SHA first and used ${treeSha}?recursive=1; all nine GitHub blob identities and sizes then matched local Git exactly.",
+      "positive_evidence": false
+    },
+    {
+      "id": "RELATIVE-SCORE-050-001",
+      "class": "rejected_development_candidate",
+      "operation": "Development-only relative-score filtering preflight",
+      "failure": "A 0.50 first-score ratio retained complete required evidence in only 27 of 28 eligible development cases.",
+      "mutation": false,
+      "correction": "Reject the candidate before implementation; preserve required-evidence completeness as a hard gate.",
+      "positive_evidence": false
+    },
+    {
+      "id": "RELATIVE-SCORE-075-001",
+      "class": "rejected_development_candidate",
+      "operation": "Development-only relative-score filtering preflight",
+      "failure": "A 0.75 first-score ratio retained complete required evidence in only 26 of 28 eligible development cases.",
+      "mutation": false,
+      "correction": "Reject the candidate before implementation; preserve required-evidence completeness as a hard gate.",
+      "positive_evidence": false
+    },
+    {
+      "id": "TOP-SCORE-ONLY-001",
+      "class": "rejected_development_candidate",
+      "operation": "Development-only top-score-tie filtering preflight",
+      "failure": "Keeping only records tied with the first score retained complete required evidence in only 26 of 28 eligible development cases.",
+      "mutation": false,
+      "correction": "Reject the candidate before implementation; use explicit externally assigned trust-tier caps that preserve the development required-evidence set and ranks.",
+      "positive_evidence": false
+    },
+    {
+      "id": "POWERSHELL-REV-PARSE-TREE-001",
+      "class": "process_invalid",
+      "operation": "Resolve the local starting tree for the preimplementation receipt",
+      "failure": "An unquoted HEAD^{tree} revision expression was interpreted by Windows PowerShell and passed an encoded fragment to Git, producing an ambiguous-argument error alongside unusable wrapper output.",
+      "mutation": false,
+      "correction": "The successor passed the revision expression as the literal string 'HEAD^{tree}' and resolved tree c36fd5b9d98c6b6049ee0e0f7ef99a1bb9fdfaa0.",
+      "positive_evidence": false
+    },
+    {
+      "id": "UPSTREAM-TRACKING-REF-001",
+      "class": "process_invalid",
+      "operation": "Reconcile the newly pushed preimplementation branch across local and remote refs",
+      "failure": "The first wrapper asked Git for @{upstream}, but the repository's narrow fetch configuration had not stored the newly pushed branch as a remote-tracking ref despite push reporting upstream setup.",
+      "mutation": false,
+      "correction": "The successor explicitly fetched refs/heads/codex/baseline-0031-bounded-trust-tier-retrieval to the matching origin remote-tracking ref, then verified local, tracking, ls-remote, anonymous GitHub ref, commit, tree, all sixteen Git tree entries, and all sixteen anonymous raw files exactly.",
+      "positive_evidence": false
+    },
+    {
+      "id": "MILESTONE-UNIT-STATUS-001",
+      "class": "process_invalid",
+      "operation": "Advance the governed milestone from UNIT-001 to UNIT-002",
+      "failure": "The first lifecycle edit used status 'completed', while the installed governed milestone contract requires the exact terminal status 'complete'. The validator rejected UNIT-001 and opened no additional authority.",
+      "mutation": false,
+      "correction": "Use the validator's exact 'complete' status for UNIT-001 and rerun the governed milestone gate before publication or implementation.",
+      "positive_evidence": false
+    },
+    {
+      "id": "POWERSHELL-COMPARISON-TOKEN-001",
+      "class": "process_invalid",
+      "operation": "Verify the public freeze-reconciliation refs",
+      "failure": "A compact PowerShell wrapper omitted token-separating spaces around -ne and -or, so it compared unintended variable names and emitted only a false ref-mismatch result.",
+      "mutation": false,
+      "correction": "Use explicit parenthesized comparisons with separated PowerShell operators and report each ref identity on mismatch.",
+      "positive_evidence": false
+    },
+    {
+      "id": "RECONCILIATION-TRACKING-REF-001",
+      "class": "process_invalid",
+      "operation": "Verify reconciliation commit 401387f42940f78a037718eb41e1936d3b9f1d2c across refs",
+      "failure": "The corrected comparison proved ls-remote already pointed to 401387f42940f78a037718eb41e1936d3b9f1d2c while the narrow-fetch remote-tracking ref still pointed to a7e42589b8e85d6f967128d32d7cea7a5111c3e9.",
+      "mutation": false,
+      "correction": "Explicitly fetch the exact branch ref after every push in this worktree. The successor advanced tracking to 401387f42940f78a037718eb41e1936d3b9f1d2c and verified local, tracking, ls-remote, anonymous GitHub ref and tree APIs, all nine Git tree entries, and all nine anonymous raw files exactly.",
+      "positive_evidence": false
+    },
+    {
+      "id": "POWERSHELL-COMPARISON-TOKEN-002",
+      "class": "process_invalid",
+      "operation": "Verify public implementation-seal refs",
+      "failure": "A first compact ref-only wrapper again omitted spaces around PowerShell comparison operators and emitted no usable positive result.",
+      "mutation": false,
+      "correction": "The fully explicit successor verified implementation seal b13057ea924e3df002d86264c044b19c1a0f398a across local, tracking, ls-remote, anonymous GitHub ref and tree APIs, all eleven changed Git entries, and all eleven anonymous raw files.",
+      "positive_evidence": false
+    }
+  ],
+  "held_out_candidate_results_observed": false,
+  "product_files_changed_by_failures": false,
+  "next_gate": "Freeze and publish the bounded trust-tier candidate contract before implementation or held-out candidate evaluation."
+}

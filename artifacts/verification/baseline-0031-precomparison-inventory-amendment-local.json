@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0031-precomparison-inventory-amendment-local",
+  "checkpoint": "baseline-0031",
+  "unit": "UNIT-003",
+  "observed_at_utc": "2026-08-18T01:07:13Z",
+  "status": "pass",
+  "disposition": "local_inventory_amendment_pass_publication_pending",
+  "superseded_public_inventory": {
+    "commit": "d96a1f03b010c00c44e36e5332e97ae37aee3e39",
+    "tree": "e3224af3cf8085ae8d6f319b63b0c2f1584134fc",
+    "file_count": 146,
+    "preserved": true,
+    "reason": "Manifest attempt 001 exposed three stale historical-manifest and current-checkpoint test assumptions."
+  },
+  "retained_manifest_attempt": {
+    "path": "eval/manifest-0031-attempt-001-invalid.json",
+    "bytes": 17558,
+    "sha256": "99489ecbcd1fb9f92fff23c09494647139c4c1f58c90f9c1ffdedde57cb74167",
+    "file_count": 146,
+    "internal_verifier_status": "pass",
+    "full_tests_passed": 88,
+    "full_tests_failed": 3,
+    "selected": false
+  },
+  "corrected_inventory": {
+    "file_count": 148,
+    "unique_file_count": 148,
+    "additions_over_public_inventory": [
+      "artifacts/evaluations/runs/baseline-0030-final-source-attempt-001.manifest.json",
+      "eval/manifest-0031-attempt-001-invalid.json"
+    ],
+    "removals": [],
+    "missing_paths": [],
+    "baseline_0030_companion_manifest_bytes": 17202,
+    "baseline_0030_companion_manifest_sha256": "bc98beca62ba13968ecfa5f8c79800c24c94a3298b3ae31270465ec7ed61ce96"
+  },
+  "current_manifest_restored": {
+    "path": "eval/manifest.json",
+    "checkpoint": "baseline-0030",
+    "file_count": 143,
+    "bytes": 17202,
+    "sha256": "bc98beca62ba13968ecfa5f8c79800c24c94a3298b3ae31270465ec7ed61ce96"
+  },
+  "correction_boundaries": {
+    "current_checkpoint_test_derived_from_exact_manifest": true,
+    "runtime_changed": false,
+    "scenario_or_expected_result_changed": false,
+    "grader_or_selection_rule_changed": false,
+    "held_out_result_observed": false,
+    "control_candidate_or_comparison_artifact_present": false
+  },
+  "validation": {
+    "targeted_regressions_passed": 3,
+    "targeted_regression_elapsed_seconds": 58.970,
+    "full_tests_passed": 91,
+    "full_tests_failed": 0,
+    "full_tests_elapsed_seconds": 106.638,
+    "applicable_non_manifest_validators_passed": 38,
+    "applicable_non_manifest_validators_failed": 0,
+    "validator_elapsed_seconds": 2.498,
+    "predecessor_manifest_expected_mismatch_count": 1,
+    "predecessor_manifest_unexpected_mismatch_count": 0
+  },
+  "changed_files": [
+    {"path": "artifacts/evaluations/runs/baseline-0030-final-source-attempt-001.manifest.json", "bytes": 17202, "sha256": "bc98beca62ba13968ecfa5f8c79800c24c94a3298b3ae31270465ec7ed61ce96", "git_blob_sha1": "30855f602819f707c9bbdbf2cfe56942f548bae3"},
+    {"path": "artifacts/verification/baseline-0031-manifest-attempt-001-failure.json", "bytes": 2307, "sha256": "43828a022ba6a1504303cc4b54b704001fa86046b2726e20f3687642d855c320", "git_blob_sha1": "0d6412b2ce5fa6601c564a3a35d5dc8a71fe98a7"},
+    {"path": "CHANGELOG.md", "bytes": 89520, "sha256": "ffa281cebcb332214b691ac235cf9406a3b5c643b7589d074eab9801faeb0f15", "git_blob_sha1": "545d3ed0aded14cf528995d40d0cffcf1b48a7d7"},
+    {"path": "contracts/milestone-0031.json", "bytes": 16329, "sha256": "ed3d835034ac173a58cd2d967afc2fc120cb5dbb41434801cbee7dadbf459475", "git_blob_sha1": "94345233cc2af110fd61c7bd3a89cbfb0c6d4a3e"},
+    {"path": "docs/devlog.md", "bytes": 393745, "sha256": "66919214a0cd4798e127a86a2c917599d04485aa4533bbe0b720f7a9594deccb", "git_blob_sha1": "615c2fe000c1fb385568dfe4321c122ffae963ef"},
+    {"path": "docs/evaluation-report.md", "bytes": 189163, "sha256": "0703088fc689db9ea1df8f5c75e6e7b4487013bf4d4a50ada4bd7df48b2a3637", "git_blob_sha1": "15120ab235aa7ea649b73287e07753102afb2903"},
+    {"path": "docs/roadmap.md", "bytes": 73949, "sha256": "8a17bf61de0afc8e680fcd9d76018797077b7bb0e690873267894e98bb0c30ae", "git_blob_sha1": "c8db3300e2e8cf2f3b339b5d7cf7bcd7f34e6145"},
+    {"path": "docs/status.md", "bytes": 247893, "sha256": "8003a5f3fb88fc33c56c56f1d705f5bd2507bb8257b9a9466562271a24027e59", "git_blob_sha1": "4664b532ac00831a7dd4c184647a2f3452be3b2a"},
+    {"path": "eval/manifest-0031-attempt-001-invalid.json", "bytes": 17558, "sha256": "99489ecbcd1fb9f92fff23c09494647139c4c1f58c90f9c1ffdedde57cb74167", "git_blob_sha1": "15a85130033e26c6c35ca07d0c4f80a6603ec16f"},
+    {"path": "scripts/freeze_manifest.py", "bytes": 8765, "sha256": "238962d14b9f0a01c8ce8a52d8f392cced75c8cad4c9e2017cd5920393139706", "git_blob_sha1": "3d834ff7191d8583e078017feb500bb773608204"},
+    {"path": "tests/test_baseline.py", "bytes": 138330, "sha256": "53068b5607cdf704e911bd367e6fadd7418629857aed664024da1ce9d7accf90", "git_blob_sha1": "22d1d9758e5ff8ccb1cbea9853ad8258e4593262"}
+  ],
+  "next_gate": "Publish and remotely reconcile the 148-path inventory amendment before refreezing eval/manifest.json."
+}

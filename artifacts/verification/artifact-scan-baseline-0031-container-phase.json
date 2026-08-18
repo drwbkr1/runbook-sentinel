@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0031",
+  "phase": "canonical-container-and-clean-clone",
+  "status": "pass",
+  "observed_at_utc": "2026-08-18T03:46:02Z",
+  "canonical_receipt": {
+    "path": "artifacts/verification/container-baseline-0031.json",
+    "bytes": 32998,
+    "sha256": "236dbc9fc2f5a28cbc012612488bfc378103c877874dd8ad3119296ce5798d92",
+    "required_checks_true": 47,
+    "required_checks_total": 47,
+    "contract_validation": "pass with required result"
+  },
+  "component_receipts": {
+    "full_sha256": "e84f54a916ab6c686ac50ed0263b5f28ae67e3b3b982f7ae8be1d478c3a88e04",
+    "clean_sha256": "1573ba24b548d661ca281ba5a6d4ee2473a483ee77d5daf526c4087357b11054",
+    "two_full_and_one_clean_image_ids_exact": true,
+    "image_id": "sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1"
+  },
+  "structured_artifacts": {
+    "container_scope_json_files_parsed": 10,
+    "container_scope_jsonl_files_parsed": 3,
+    "container_scope_jsonl_records_parsed": 267,
+    "container_scope_parse_errors": 0,
+    "repository_json_files_before_this_receipt": 1017,
+    "repository_json_valid_nonempty_before_this_receipt": 1016,
+    "repository_known_empty_json_count": 1,
+    "repository_known_empty_json_path": "artifacts/verification/mcp-source-baseline-0026.json",
+    "repository_bom_json_count": 14,
+    "repository_jsonl_files": 164,
+    "repository_jsonl_records": 30085,
+    "repository_parse_errors": 0
+  },
+  "runtime_evidence": {
+    "source_trace": "pass-261-anchored",
+    "package_trace": "pass-261-anchored",
+    "container_trace": "pass-261-anchored",
+    "database_tables": 7,
+    "database_row_counts": {
+      "approvals": 2,
+      "audit_log": 5,
+      "idempotency": 1,
+      "incidents": 2,
+      "proposals": 2,
+      "runs": 2,
+      "sqlite_sequence": 1
+    },
+    "dashboard_bytes": 101525,
+    "dashboard_sha256": "161019102ad6c627ddff48e448322ec122cca05703621603e5bacb88d352ccdb",
+    "dashboard_dimensions": [1440, 1000],
+    "dashboard_visually_inspected": true,
+    "scanner_sarif_sha256": "7749b34be7a069559b10b1b9d53cc8897576fdd104071a9e0f907f9a301ee303",
+    "scanner_critical_high_results": 0
+  },
+  "regression": {
+    "tests_passed": 93,
+    "tests_total": 93,
+    "test_elapsed_seconds": 156.300,
+    "phase_correct_validators_passed": 40,
+    "phase_correct_validators_total": 40,
+    "validator_elapsed_seconds": 8.361,
+    "container_result_required": true
+  },
+  "scans": {
+    "high_specificity_credential_hits": 0,
+    "raw_operator_capability_hits": 0,
+    "model_artifact_count": 0,
+    "surviving_verifier_container_count": 0
+  },
+  "boundaries": {
+    "real_operational_infrastructure_used": false,
+    "external_asset_or_service_added": false,
+    "container_image_exported": false,
+    "container_image_pushed": false,
+    "container_image_published": false
+  }
+}

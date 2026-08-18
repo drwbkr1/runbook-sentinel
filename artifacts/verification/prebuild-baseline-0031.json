@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0031",
+  "status": "local-pass-publication-pending",
+  "observed_at_utc": "2026-08-18T02:25:11Z",
+  "source_checkpoint": {
+    "commit": "41a5d5f49c74b38f966b8a7671ab584e6e070047",
+    "selection_seal_commit": "f9134cfb451e84730c9cebdd586ea68dabee1a99",
+    "selection_reconciliation_commit": "41a5d5f49c74b38f966b8a7671ab584e6e070047"
+  },
+  "selection": {
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "excluded_configuration": "bounded-trust-tier-lexical-v4",
+    "comparison_path": "artifacts/evaluations/baseline-0031-retrieval-comparison.json",
+    "comparison_sha256": "9e46ee4047ca51f00c453eb4b02adbf988f3accb9b0d5b9aefbdc388dde9d768",
+    "selection_manifest_path": "artifacts/verification/baseline-0031-prebuild-source-manifest.json",
+    "selection_manifest_bytes": 17981,
+    "selection_manifest_sha256": "9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c"
+  },
+  "prebuild_inputs": {
+    "package_contract": {
+      "current_path": "eval/package-contract.json",
+      "versioned_path": "eval/package-contract-0031.json",
+      "sha256": "776f01b33b3e5b25fbf1f65774b13f61ce641744da617258aa2cc8ad40259b18",
+      "bytes_exact": true,
+      "runtime_dependencies": []
+    },
+    "container_contract": {
+      "current_path": "eval/container-contract.json",
+      "versioned_path": "eval/container-contract-0031-v11.json",
+      "contract_id": "container-runtime-v11",
+      "sha256": "9b6ca120844c5fd541585a029599b0cabf4b797b312c3bd39b8894bbb0c69ac9",
+      "bytes_exact": true,
+      "required_check_count": 47,
+      "implementation_phase": "implemented_v11",
+      "result_state": "absent"
+    },
+    "active_manifest": {
+      "path": "eval/manifest.json",
+      "checkpoint": "baseline-0031",
+      "frozen_at_utc": "2026-08-18T02:18:04Z",
+      "file_count": 153,
+      "bytes": 18484,
+      "sha256": "d10e77ad8e3f889c18d1c7e6c4ebc7406c614e65ae11561ce84c3406c46a5fde"
+    }
+  },
+  "verification": {
+    "manifest": "pass",
+    "package_contract": "pass",
+    "container_contract_required_implementation": "pass",
+    "retrieval_selection_result": "pass-selected-v3",
+    "milestone": "valid-active-inherited-authority-no-warnings",
+    "tests": {
+      "status": "pass",
+      "count": 92,
+      "elapsed_seconds": 106.512
+    },
+    "validators": {
+      "status": "pass",
+      "count": 39,
+      "elapsed_seconds": 2.718
+    },
+    "git_diff_check": "pass"
+  },
+  "absence": {
+    "dist/runbook-sentinel-0.0.31.pyz": true,
+    "dist/runbook-sentinel-0.0.31.pyz.sha256": true,
+    "artifacts/verification/container-baseline-0031.json": true,
+    "local_baseline_0031_container_image_count": 0
+  },
+  "retained_process_failures": [
+    "The first validator wrapper supplied PowerShell array concatenation directly to Start-Process and stopped before invoking a validator.",
+    "The corrected wrapper initially omitted PYTHONPATH=src and stopped at verify_model_comparison.py import.",
+    "One validator inventory incorrectly required selection of excluded v4; the exact successor requires only implementation and separately verifies the retained v3 selection result."
+  ],
+  "boundaries": {
+    "model_or_agent_has_credentials": false,
+    "model_or_agent_has_final_execution_authority": false,
+    "security_boundary_weakened": false,
+    "scenario_grader_or_expected_result_changed": false,
+    "dependency_secret_paid_service_or_external_asset_added": false,
+    "real_operational_infrastructure_used": false,
+    "container_image_exported_pushed_or_published": false,
+    "research_informed_only": true,
+    "production_readiness_claimed": false,
+    "broad_pareto_claimed": false
+  },
+  "next_gate": "Publish and remotely reconcile this exact prebuild seal before constructing either v0.0.31 archive or any BASELINE-0031 local container image."
+}
