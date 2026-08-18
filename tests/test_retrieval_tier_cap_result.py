@@ -32,12 +32,35 @@ class RetrievalTierCapResultTests(unittest.TestCase):
         candidate["metrics"]["latency"]["p95_ms"] -= 1
         return candidate
 
-    def test_precomparison_phase_passes_without_result_files(self) -> None:
+    def test_current_lifecycle_phase_matches_frozen_artifact_presence(self) -> None:
+        artifacts = json.loads(
+            (ROOT / "eval/retrieval-tier-cap-contract.json").read_text(
+                encoding="utf-8"
+            )
+        )["comparison_artifacts"]
+        control_present = all(
+            (ROOT / artifacts["control"][key]).is_file()
+            for key in ("report_path", "trace_path", "receipt_path")
+        )
+        candidate_present = all(
+            (ROOT / artifacts["candidate"][key]).is_file()
+            for key in ("report_path", "trace_path", "receipt_path")
+        )
+        comparison_present = (ROOT / artifacts["comparison_path"]).is_file()
+        expected_phase = "precomparison"
+        if control_present:
+            expected_phase = (
+                "candidate_complete" if candidate_present else "control_publication_pending"
+            )
+        if comparison_present:
+            expected_phase = "comparison_complete"
+
         result = verifier.validate()
         self.assertEqual(result["status"], "pass")
-        self.assertEqual(result["phase"], "precomparison")
-        self.assertFalse(result["control_present"])
-        self.assertFalse(result["candidate_present"])
+        self.assertEqual(result["phase"], expected_phase)
+        self.assertEqual(result["control_present"], control_present)
+        self.assertEqual(result["candidate_present"], candidate_present)
+        self.assertEqual(result["comparison_present"], comparison_present)
 
     def test_frozen_selection_accepts_only_complete_pareto_candidate(self) -> None:
         selection = verifier._selection(self.accepted, self._focused_candidate())

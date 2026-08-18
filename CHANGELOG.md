@@ -19,6 +19,7 @@
 - Published corrected inventory `9e031aa3ddfc89a26b8d78452daa583201361fbd`, tree `70a102b6554ee35831441ca426fcc82907b73e3e`; all four refs, all 11 Git tree entries, and all 11 unauthenticated raw files are exact. The successor manifest and v3/v4 comparison remain unopened.
 - Froze manifest attempt 002 from the corrected public inventory: 149 files, 17,981 bytes, SHA-256 `9cdb30aa...`. It passes 91/91 tests and all 39 applicable phase-correct validators, including exact manifest verification. No comparison artifact exists; publication and public-byte reconciliation precede the v3 control.
 - Published manifest seal `596a81dec106e508486a9c739a1c43fad053250a`, tree `2052251cf76f3ebd2fc8ee357f67707b585eedb4`; all four refs, all eight tree entries, and all eight unauthenticated raw files are exact. The v3 control is now authorized; v4 remains closed until the control result is public.
+- Ran immutable v3 control attempt 001: 57 scenarios, 171 attempts, all 136 Boolean gates, and an anchored 261-event trace pass. Required-evidence recall is 1.0; development expected-document share is 0.696428571429 with 66 extra records. Policy and utility are 1.0, proposal and terminal attack success are zero, `pass^3` is 1.0, and external model cost is zero. A stale lifecycle test produced a retained 90/91 regression; the artifact-presence-derived correction passes 91/91 tests and 39/39 validators without changing the verifier, grader, selection rule, report, trace, or runtime.
 
 ## 0.0.30 - 2026-08-17
 

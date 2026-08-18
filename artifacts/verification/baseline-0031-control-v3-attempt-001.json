@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0031",
+  "unit": "UNIT-003",
+  "recorded_at_utc": "2026-08-18T01:33:02Z",
+  "status": "pass_publication_pending",
+  "configuration": "freshness-priority-lexical-v3",
+  "report": {
+    "path": "artifacts/evaluations/baseline-0031-control-v3-attempt-001.json",
+    "bytes": 953963,
+    "sha256": "1bf431136660177b87cc7c893aa31cd75d2a6d7dfb19034705d5bc7f10ccf47a"
+  },
+  "trace": {
+    "path": "artifacts/evaluations/baseline-0031-control-v3-attempt-001.traces.jsonl",
+    "bytes": 195358,
+    "sha256": "8e99e5fd5d5521518bc713ea99a0bdde782ce272b10cf2453c508b6bde7e9bfe",
+    "event_count": 261,
+    "final_event_sha256": "784589d9a9a43cf0dbdf300a7dfe561748d3f63f12b842ae477b4f8fb346d2fe",
+    "anchored": true
+  },
+  "manifest": {
+    "path": "eval/manifest.json",
+    "bytes": 17981,
+    "sha256": "9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c"
+  },
+  "evaluation": {
+    "elapsed_seconds": 28.210,
+    "agent_configuration": "deterministic-control-v2",
+    "decision_context_configuration": "fresh-content-stale-metadata-context-v3",
+    "scenario_count": 57,
+    "trials_per_case": 3,
+    "attempt_count": 171,
+    "boolean_gate_count": 136,
+    "true_gate_count": 136,
+    "false_gate_count": 0,
+    "baseline_disposition": "pass"
+  },
+  "separate_metrics": {
+    "retrieval_all_expected_retrieved_rate": 1.0,
+    "development_expected_document_share_mean": 0.696428571429,
+    "development_extra_document_count": 66,
+    "held_out_expected_document_share_mean": 0.666666666667,
+    "held_out_extra_document_count": 57,
+    "policy_compliance": 1.0,
+    "benign_utility": 1.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "repeated_trial_reliability_pass_3": 1.0,
+    "latency_median_ms": 64.377,
+    "latency_p95_ms": 106.58,
+    "model_calls": 0,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "estimated_external_usd": 0.0
+  },
+  "independent_validation": {
+    "trace_integrity": "pass",
+    "retrieval_quality_observability": "pass",
+    "frozen_result_verifier": "pass_control_required",
+    "post_result_regression": {
+      "full_tests_passed": 91,
+      "full_tests_failed": 0,
+      "full_tests_elapsed_seconds": 106.439,
+      "applicable_phase_correct_validators_passed": 39,
+      "applicable_phase_correct_validators_failed": 0,
+      "validator_elapsed_seconds": 2.632
+    }
+  },
+  "boundaries": {
+    "held_out_used_for_tuning": false,
+    "product_default_changed": false,
+    "external_asset_or_service_added": false,
+    "candidate_executed": false,
+    "comparison_present": false
+  },
+  "retained_process_failures": [
+    {
+      "stage": "standalone_trace_verifier_attempt_001",
+      "failure": "The wrapper omitted the source import path and stopped with ModuleNotFoundError before reading or modifying the report or trace.",
+      "mutation": false,
+      "positive_evidence": false
+    },
+    {
+      "stage": "artifact_measurement_wrapper_attempt_001",
+      "failure": "PowerShell function calls embedded directly as hashtable values evaluated to null; the corrected wrapper measured the same immutable bytes before receipt creation.",
+      "mutation": false,
+      "positive_evidence": false
+    },
+    {
+      "stage": "post_control_full_suite_attempt_001",
+      "failure": "The suite passed 90 of 91 tests in 105.810 seconds; one lifecycle test hard-coded precomparison even though the frozen verifier correctly reported control_publication_pending after the immutable control trio existed.",
+      "correction_scope": "Derive only the test's expected lifecycle phase and presence flags from the frozen artifact paths; do not change the verifier, report, trace, manifest, grader, selection rule, runtime, or expected product behavior.",
+      "mutation": false,
+      "positive_evidence": false
+    }
+  ],
+  "next_gate": "Publish and remotely reconcile the report, trace, receipt, and lifecycle-only test correction before executing v4."
+}
