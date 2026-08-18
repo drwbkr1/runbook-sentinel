@@ -132,7 +132,7 @@
       "status": "in_progress",
       "gates": {
         "public_implementation_seal_verified": "pass",
-        "comparison_inventory_public": "pass",
+        "comparison_inventory_public": "pending",
         "comparison_manifest_public": "pending",
         "control_complete": "pending",
         "candidate_complete": "pending",
@@ -227,6 +227,9 @@
       ,"the pre-result selection verifier and five focused tests freeze required-evidence rank behavior coverage safety reliability latency cost and default boundaries before any comparison artifact exists"
       ,"the comparison inventory contains 146 unique existing paths with exactly three additions and zero removals; 91 tests pass in 106.341 seconds and 38 applicable non-manifest validators pass in 2.501 seconds"
       ,"public inventory seal d96a1f03b010c00c44e36e5332e97ae37aee3e39 and tree e3224af3cf8085ae8d6f319b63b0c2f1584134fc reconcile across refs all 11 Git tree entries and all 11 anonymous raw files while the successor manifest and all comparison artifacts remain absent"
+      ,"the first 146-file BASELINE-0031 manifest verifies internally at SHA-256 99489ecbcd1fb9f92fff23c09494647139c4c1f58c90f9c1ffdedde57cb74167 but is excluded after 3 of 91 tests fail on stale historical-manifest and current-checkpoint assumptions"
+      ,"the corrected 148-path inventory adds only the exact BASELINE-0030 final companion manifest and retained failed manifest with zero removals; all three targeted regressions pass and eval/manifest.json is restored to the exact 143-file predecessor"
+      ,"the corrected inventory state passes all 91 tests in 106.638 seconds and all 38 applicable non-manifest validators in 2.498 seconds while the predecessor manifest rejects only the implemented retrieval path"
     ]
   },
   "handoff": {

@@ -14,6 +14,7 @@
 - Published implementation seal `b13057ea924e3df002d86264c044b19c1a0f398a`, tree `1c898ae67574ba7a775d4ed158d2d1e9e2bd9fef`; all refs, all 11 changed Git entries, and all 11 anonymous raw files are exact. Same-manifest comparison remains closed until the successor inventory and manifest are separately frozen and public.
 - Froze the comparison artifact paths, control-first publication order, strict selection checks, and an independent result verifier before results. The manifest inventory adds exactly the retrieval-tier contract and its two independent verifiers, moving from 143 to 146 paths with zero removals; tests, ADRs, receipts, and lifecycle records remain outside the established runtime/evaluation inventory scope.
 - Published and remotely reconciled the 146-path inventory at `d96a1f03b010c00c44e36e5332e97ae37aee3e39`, tree `e3224af3cf8085ae8d6f319b63b0c2f1584134fc`; all 11 changed Git entries and anonymous raw files are exact. The successor manifest remains absent at that seal.
+- Retained the first internally valid 146-file manifest at SHA-256 `99489ecb...` after its regression run failed 3 of 91 historical-pointer/current-checkpoint tests. The bounded correction adds its exact bytes plus the 17,202-byte BASELINE-0030 companion manifest to a 148-path inventory and derives the current checkpoint assertion from the exact manifest. No runtime, scenario, expected result, grader, selection rule, or held-out result changed.
 
 ## 0.0.30 - 2026-08-17
 

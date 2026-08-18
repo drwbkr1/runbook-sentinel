@@ -1731,7 +1731,10 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(report["metrics"]["coverage"]["missing_condition_split_pairs"], [])
         self.assertEqual(report["metrics"]["coverage"]["missing_adversarial_splits"], [])
         self.assertEqual(report["schema_version"], "3.4")
-        self.assertEqual(report["checkpoint"], "baseline-0030")
+        current_manifest = json.loads(
+            (ROOT / "eval/manifest.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(report["checkpoint"], current_manifest["checkpoint"])
         self.assertEqual(report["metrics"]["proposal"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["development"]["tool_trajectory"]["exact_match"], 1.0)
         self.assertEqual(report["split_metrics"]["test"]["tool_trajectory"]["exact_match"], 1.0)

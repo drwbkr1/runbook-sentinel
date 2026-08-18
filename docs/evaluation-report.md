@@ -28,6 +28,8 @@ The pre-result verifier now operationalizes every frozen choice before report by
 
 Inventory seal `d96a1f03b010c00c44e36e5332e97ae37aee3e39`, tree `e3224af3cf8085ae8d6f319b63b0c2f1584134fc`, is public and exact across refs, all 11 changed Git entries, and all 11 anonymous raw files. The current manifest is still the 143-file BASELINE-0030 predecessor and rejects exactly the implemented retrieval path. Freeze a 146-file BASELINE-0031 successor from this public input, validate and publish it, then run the control first.
 
+The first 146-file successor is internally exact at SHA-256 `99489ecbcd1fb9f92fff23c09494647139c4c1f58c90f9c1ffdedde57cb74167` but is excluded: the full suite exposed three stale test assumptions after manifest advancement. The corrected inventory adds only the byte-exact 143-file BASELINE-0030 final companion manifest and the retained failed 146-file manifest, for 148 paths and no removals. The current-checkpoint test now derives its expected value from the exact active manifest. All three failed tests pass after correction; runtime, catalog, expected labels, graders, selection rule, and comparison-artifact absence remain unchanged.
+
 ## BASELINE-0030 public v0.0.30 reconciliation
 
 Audited closure `9bfa784feeb1e002c546326ce9db214c2c155fce`, annotated tag object `1e51f18e6023bd66b19ad11ca794c5a0c2c42885`, public latest release `372002788`, and exactly two selected assets reconcile. The downloaded zipapp is 646,081 bytes at SHA-256 `b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf`; its 94-byte checksum is SHA-256 `5a27247f2757b44ad8c6d6d46efe8bf4ff984e62f76d085fb36696758e6f92b8`. Two fresh tag builds reproduce the downloaded archive byte-for-byte and the 43-entry package contract passes.
