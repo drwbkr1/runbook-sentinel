@@ -1,5 +1,17 @@
 # Roadmap
 
+## Active checkpoint baseline-0031 - bounded trust-tier retrieval comparison
+
+Verified public v0.0.30 at reconciliation commit `4d62ecf930130b938594a9b7bc70675f9d8122e1` is the sole starting point. Its fresh public-tag run passes 57 scenarios, 171 attempts, all 136 Boolean gates, and the anchored 261-event trace. Required-evidence recall is 1.0, while 87 of 153 eligible attempts include 123 additional records and mean expected-document share is 0.683006535948. These records are additional untrusted context; they are not labeled irrelevant.
+
+BASELINE-0031 freezes one experimental comparison before runtime change. `freshness-priority-lexical-v3` remains the product default. The only permitted candidate is `bounded-trust-tier-lexical-v4`: preserve the existing within-tier rank, retain at most two fresh project-evidence records, one stale project-evidence record, and one untrusted-guidance record, and do not backfill unused tier capacity. Tier identity, provenance, and freshness must be authenticated and normalized outside the model; the full selected records remain auditable.
+
+Development-only reference evaluation preserves every required evidence ID and rank while reducing additional records from 66 to 48 across three trials and raising mean expected-document share from 0.6964285714285714 to 0.7261904761904762. Relative score thresholds 0.50 and 0.75 and first-score ties were rejected because they drop required development evidence. Held-out candidate results remain unknown and may not be used for tuning.
+
+UNIT-001 is active. It must publish and remotely reconcile the exact preimplementation contract, independent validator, focused tests, ADR, source-gate reuse, retained failures, and living records before candidate code exists. UNIT-002 may then implement only the frozen candidate and must publish an implementation seal before held-out reveal. UNIT-003 compares v3 and v4 on the same frozen manifest and three trials; default promotion requires strict focus improvement with exact completeness, rank, coverage, behavior, safety, reliability, latency, and cost non-regression. Later units verify source, package, bounded MCP, authenticated API, approval/executor, persisted state, telemetry, rendered dashboard, local container, scan, clean clone, review, release, and public tag.
+
+This checkpoint stops rather than changing expected labels, graders, scenarios, terminal states, decision projection, model, prompt, parser, policy, authority, approval, executor, dependency, secret, service, external asset, or real-infrastructure boundary. It preserves rejected, failed, stale, superseded, excluded, and unfavorable results and makes no production, universal-safety, broad-Pareto, or cross-builder claim.
+
 ## Completed checkpoint baseline-0030 - model-output diagnosis-pattern conformance
 
 Exact public v0.0.29 remains the verified starting point. The deterministic control passes all 57 scenarios and 136 Boolean gates, but the retained optional local-model comparison is unusable: only 9 of 84 outputs parse and 67 fail the external diagnosis identifier rule. The declared schema permits a much broader diagnosis string than the parser accepts.

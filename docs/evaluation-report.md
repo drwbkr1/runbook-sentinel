@@ -1,5 +1,17 @@
 # Evaluation report
 
+## BASELINE-0031 preimplementation orientation
+
+Verified public v0.0.30 at reconciliation commit `4d62ecf930130b938594a9b7bc70675f9d8122e1` remains the accepted control. Its fresh public-tag source run passes 57 scenarios, 171 attempts, every one of 136 Boolean gates, and an anchored 261-event trace. Retrieval, generation, tool trajectory, policy, terminal state, benign utility, attack success, repeated-trial reliability, latency, and cost remain separately reported.
+
+Required-evidence recall is 1.0. Across the 153 attempts with frozen required IDs, 87 include additional records, totaling 123 additional document instances; mean expected-document share is 0.683006535948. This is a measurable focus and untrusted-context burden, not an exhaustive relevance judgment: frozen expected IDs denote required evidence, and additional records may still be useful.
+
+The development-only independent reference for exact 2/1/1 trust-tier caps with no backfill retains all required evidence and the existing 84 rank-one plus 12 rank-two expected-document observations. Across three trials it reduces additional records from 66 to 48 and raises mean expected-document share from 0.6964285714285714 to 0.7261904761904762. Three score-based alternatives are retained as rejected because they preserve complete required evidence in only 27, 26, and 26 of 28 eligible development cases. No held-out candidate result has been inspected or used.
+
+`bounded-trust-tier-lexical-v4` is absent. The frozen contract permits only a maximum of two fresh project-evidence, one stale project-evidence, and one untrusted-guidance record, using the unchanged within-tier lexical rank and no quota backfill. `freshness-priority-lexical-v3` remains the product default. Tier identity and freshness must be assigned by authenticated, normalized metadata outside the model; full selected records remain auditable and decision-context projection is unchanged.
+
+The recent exact BASELINE-0029 source gate is reused only for modular retrieval diagnostics and useful-information/noise tradeoffs. No external code, paper bytes, benchmark, dataset, model, prompt, package, service, relevance label, or other asset is imported. The candidate can replace v3 only after a same-manifest three-trial comparison strictly improves development focus and preserves exact completeness, expected ranks, scenarios, terminal states, coverage, adversarial stages, policy, utility, attack success, reliability, latency, and cost on the frozen development and held-out splits. Until then, candidate performance is unknown.
+
 ## BASELINE-0030 public v0.0.30 reconciliation
 
 Audited closure `9bfa784feeb1e002c546326ce9db214c2c155fce`, annotated tag object `1e51f18e6023bd66b19ad11ca794c5a0c2c42885`, public latest release `372002788`, and exactly two selected assets reconcile. The downloaded zipapp is 646,081 bytes at SHA-256 `b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf`; its 94-byte checksum is SHA-256 `5a27247f2757b44ad8c6d6d46efe8bf4ff984e62f76d085fb36696758e6f92b8`. Two fresh tag builds reproduce the downloaded archive byte-for-byte and the 43-entry package contract passes.

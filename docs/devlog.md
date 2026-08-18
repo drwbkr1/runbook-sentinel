@@ -1,5 +1,15 @@
 # Development log
 
+## 2026-08-17 BASELINE-0031 retrieval-focus orientation and local freeze
+
+- Resumed from clean public reconciliation commit `4d62ecf930130b938594a9b7bc70675f9d8122e1` in `C:/Projects/Active/runbook-sentinel-baseline-0031`; no OneDrive path is authoritative.
+- Inspected the accepted 57-scenario, 171-attempt source result and anchored 261-event trace. Every required evidence ID is retrieved, but 87 of 153 eligible attempts include 123 additional records and mean expected-document share is 0.683006535948. Additional records are treated as untrusted-context burden, not declared irrelevant.
+- Rejected development-only relative score rules at 0.50 and 0.75 and a first-score-tie rule because they drop frozen required evidence. Preserved the corrected GitHub tree-query observation and all three rejected candidates in `artifacts/verification/baseline-0031-orientation-probe-failures-001.json`.
+- Froze one bounded candidate before implementation: unchanged within-tier lexical ranking, caps of two fresh project-evidence, one stale project-evidence, and one untrusted-guidance record, with no backfill. The independent development reference preserves required IDs and ranks while reducing additional records from 66 to 48 across three trials. Held-out candidate results remain unknown.
+- Added the phase-aware contract validator, six focused tests, ADR 0026, milestone 0031, orientation receipt, and living records. The existing recent RAGChecker/RAGAs gate is reused narrowly; no external source or asset was newly accessed or imported. `freshness-priority-lexical-v3` remains the default and `bounded-trust-tier-lexical-v4` is absent until the exact freeze is public and remotely verified.
+- The independent validator, six focused tests, governed milestone validator, compilation, and diff checks pass. The complete suite passes 86 tests in 100.239 seconds and all 38 inherited phase-correct side-effect-free validators pass in 4.159 seconds. Structured parsing covers 956 nonempty JSON files plus 28,512 records across 156 JSONL files with no parse error; the one known zero-byte historical evidence item and fourteen BOM-bearing historical JSON files are reported rather than rewritten. Exact changed-content credential and model-artifact scans find zero hits. The local receipt binds the freeze; public publication and remote-tree reconciliation remain before implementation.
+- Retained one receipt-wrapper failure where unquoted `HEAD^{tree}` was misparsed by Windows PowerShell. The literal-string successor resolves starting tree `c36fd5b9d98c6b6049ee0e0f7ef99a1bb9fdfaa0`; no repository byte was changed by the failed probe.
+
 ## 2026-08-17 BASELINE-0030 public release reconciliation
 
 - Published audited closure `9bfa784feeb1e002c546326ce9db214c2c155fce`, annotated tag object `1e51f18e6023bd66b19ad11ca794c5a0c2c42885`, and public non-draft latest v0.0.30 release `372002788`. The tag peels exactly to the closure and GitHub reports it unsigned; no signature claim is made.

@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.0.31 - Unreleased
+
+- Resumed from exact public v0.0.30 reconciliation commit `4d62ecf930130b938594a9b7bc70675f9d8122e1` and its 18,433-byte external receipt at SHA-256 `bbef21fe...`; no OneDrive path is authoritative.
+- Ran and inspected the fresh public-tag source evidence: 57 scenarios, 171 attempts, all 136 Boolean gates, and the anchored 261-event trace pass, with retrieval, generation, trajectory, policy, terminal state, utility, attack, reliability, latency, and cost reported separately.
+- Selected returned-set focus as the highest-leverage product-default weakness. Required-evidence recall is 1.0, but 87 of 153 eligible attempts contain 123 extra document instances and mean expected-document share is 0.683006535948. Additional records are not labeled irrelevant.
+- Rejected and retained three development-only score filters because they drop frozen required evidence. An independent 2/1/1 trust-tier reference instead preserves all development required IDs and ranks, reduces extra documents from 66 to 48 across three trials, and raises mean expected-document share from 0.6964285714285714 to 0.7261904761904762.
+- Froze `bounded-trust-tier-retrieval-v1`, an experimental no-backfill configuration capped at two fresh project-evidence, one stale project-evidence, and one untrusted-guidance record. V3 remains the default; no candidate runtime or held-out result exists before public freeze.
+- Reused the exact two-day-old RAGChecker/RAGAs source gate only for modular-diagnostic and useful-information/noise principles. No external code, benchmark, data, metric package, model, prompt, judge, service, relevance label, or paper byte is imported.
+- Added the independent preimplementation validator, six focused fail-closed tests, ADR 0026, milestone 0031, orientation evidence, and retained post-release/tree and rejected-candidate observations. Publication and remote reconciliation are required before implementation.
+
 ## 0.0.30 - 2026-08-17
 
 - Oriented from exact public v0.0.29 and froze a one-field local-model output-contract experiment targeting the retained 67-of-84 `diagnosis_code_invalid` failure class.
