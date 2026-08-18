@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0031-precomparison-inventory-local",
+  "checkpoint": "baseline-0031",
+  "unit": "UNIT-003",
+  "observed_at_utc": "2026-08-18T00:50:36Z",
+  "status": "pass",
+  "disposition": "local_inventory_pass_publication_pending",
+  "starting_public_checkpoint": {
+    "implementation_seal": "b13057ea924e3df002d86264c044b19c1a0f398a",
+    "implementation_tree": "1c898ae67574ba7a775d4ed158d2d1e9e2bd9fef",
+    "implementation_reconciliation": "0883bf4c8e4bd90d498e3474743d30d0647170e8",
+    "implementation_reconciliation_tree": "d4138f5037ee85e68c483af11f5fb483234c5803",
+    "public_and_remote_exact": true
+  },
+  "inventory": {
+    "predecessor_count": 143,
+    "candidate_count": 146,
+    "candidate_unique_count": 146,
+    "additions": [
+      "eval/retrieval-tier-cap-contract.json",
+      "scripts/verify_retrieval_tier_cap_contract.py",
+      "scripts/verify_retrieval_tier_cap_result.py"
+    ],
+    "removals": [],
+    "missing_paths": [],
+    "tests_adrs_lifecycle_records_and_receipts_added_to_manifest": false
+  },
+  "comparison_contract": {
+    "control_configuration": "freshness-priority-lexical-v3",
+    "candidate_configuration": "bounded-trust-tier-lexical-v4",
+    "control_must_be_public_before_candidate_run": true,
+    "same_manifest_required": true,
+    "trial_ids": [1, 2, 3],
+    "runtime_default_during_comparison": "freshness-priority-lexical-v3",
+    "held_out_used_for_tuning": false,
+    "result_verifier_phase": "precomparison"
+  },
+  "artifact_absence": {
+    "control_report": true,
+    "control_trace": true,
+    "control_receipt": true,
+    "candidate_report": true,
+    "candidate_trace": true,
+    "candidate_receipt": true,
+    "comparison": true
+  },
+  "validation": {
+    "contract_validator": "pass_implemented_experimental",
+    "result_validator": "pass_precomparison",
+    "focused_contract_and_result_tests_passed": 11,
+    "full_tests_passed": 91,
+    "full_tests_failed": 0,
+    "full_tests_elapsed_seconds": 106.341,
+    "applicable_non_manifest_validators_passed": 38,
+    "applicable_non_manifest_validators_failed": 0,
+    "validator_elapsed_seconds": 2.501,
+    "predecessor_manifest_expected_mismatch_count": 1,
+    "predecessor_manifest_unexpected_mismatch_count": 0,
+    "governed_milestone_valid": true,
+    "compileall": "pass",
+    "git_diff_check": "pass"
+  },
+  "changed_files": [
+    {"path": "CHANGELOG.md", "bytes": 88802, "sha256": "c8b4f73a4b3a7a50a8f0d9a66ba096fdcf9ff71f805993fbadcca5ded3f62461", "git_blob_sha1": "818ba665c467a196afed555a0ed96293c33f4667"},
+    {"path": "contracts/milestone-0031.json", "bytes": 15335, "sha256": "cf76e6224238a6be6f2ac01fbf96da33a7c058990dc83898af2c58f29bd6afa4", "git_blob_sha1": "cc156bc1f9a91a2ceeb48ff94b61573433238158"},
+    {"path": "docs/devlog.md", "bytes": 391972, "sha256": "1f4c44a1d85d5c42737295a3728683ededcef5fee819849f523dcd0a29f51b1e", "git_blob_sha1": "358fcf99a6305231d187a76a5afb29f3dc9455a9"},
+    {"path": "docs/evaluation-report.md", "bytes": 188078, "sha256": "486b9a3c1ca7157561caa6c5972f0157e65ec81fd7dd95fee09d312ae2ffeb2e", "git_blob_sha1": "78265d389af716f770bb9eb19601a7fe475ea74d"},
+    {"path": "docs/roadmap.md", "bytes": 73782, "sha256": "f54b56d47c8a099ddfe9d0a51f017d40fb3c90b311b92f8fe4f561fd9ee2ab8a", "git_blob_sha1": "f6b52de0d08dc1f6350b94982126e4e7ca143ea8"},
+    {"path": "docs/status.md", "bytes": 247813, "sha256": "6cf9252c4dea74edfd28bc03f446c3fd410bf96c675f0b1d3d8e03c5208137e6", "git_blob_sha1": "271adfb9046d1826f4ca747a60ccc727465f94b9"},
+    {"path": "eval/retrieval-tier-cap-contract.json", "bytes": 10161, "sha256": "5560b355d05e9c43e4a56b5a2dadc5d102b1660ffb4e84db9512fc09e2f99357", "git_blob_sha1": "31e672433393e0c6ab57bae13d93131618b6caee"},
+    {"path": "scripts/freeze_manifest.py", "bytes": 8627, "sha256": "279bde9f3482390b0741338622fe664402fdd65e4c34bd61083afea1238c4c69", "git_blob_sha1": "90fde3f38b8e5929f0cba95ca4da36488a277a5f"},
+    {"path": "scripts/verify_retrieval_tier_cap_result.py", "bytes": 15482, "sha256": "dae7be48bb8b0a8e6a33987623875f82f8d0f54eaf38e470e08ed007fa3c2262", "git_blob_sha1": "d0e96feebf2e3b0e2a6fa1f220f0286f247af36c"},
+    {"path": "tests/test_retrieval_tier_cap_result.py", "bytes": 2679, "sha256": "4a9ec419ccb82f82ca127264c59e4d25061cd662c710511bd426a7647f12f0dc", "git_blob_sha1": "a7750e54c6e303cbf776e326bf04c8a12b4cdc3b"}
+  ],
+  "next_gate": "Publish and remotely reconcile the exact 146-path inventory before writing the BASELINE-0031 manifest or running either configuration."
+}

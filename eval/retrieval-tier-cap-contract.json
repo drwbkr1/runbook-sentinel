@@ -154,6 +154,29 @@
     "held_out_count": 26,
     "trials_per_case": 3
   },
+  "comparison_artifacts": {
+    "control": {
+      "configuration": "freshness-priority-lexical-v3",
+      "report_path": "artifacts/evaluations/baseline-0031-control-v3-attempt-001.json",
+      "trace_path": "artifacts/evaluations/baseline-0031-control-v3-attempt-001.traces.jsonl",
+      "receipt_path": "artifacts/verification/baseline-0031-control-v3-attempt-001.json"
+    },
+    "candidate": {
+      "configuration": "bounded-trust-tier-lexical-v4",
+      "report_path": "artifacts/evaluations/baseline-0031-candidate-v4-attempt-001.json",
+      "trace_path": "artifacts/evaluations/baseline-0031-candidate-v4-attempt-001.traces.jsonl",
+      "receipt_path": "artifacts/verification/baseline-0031-candidate-v4-attempt-001.json"
+    },
+    "comparison_path": "artifacts/evaluations/baseline-0031-retrieval-comparison.json",
+    "result_verifier_path": "scripts/verify_retrieval_tier_cap_result.py",
+    "control_must_be_public_before_candidate_run": true,
+    "same_manifest_required": true,
+    "trial_ids": [1, 2, 3],
+    "latency_non_inferior_rule": "candidate rounded median_ms and p95_ms must each be less than or equal to control",
+    "cost_non_inferior_rule": "model calls prompt tokens completion tokens and estimated external USD must remain exact",
+    "runtime_default_during_comparison": "freshness-priority-lexical-v3",
+    "product_default_change_before_complete_comparison": false
+  },
   "research_basis": {
     "source_gate_path": "artifacts/verification/research-source-gate-baseline-0029-retrieval-quality.json",
     "source_gate_bytes": 10540,

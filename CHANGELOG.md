@@ -12,6 +12,7 @@
 - Published preimplementation seal `a7e42589b8e85d6f967128d32d7cea7a5111c3e9`, tree `22d186d9c5a558560abb6fe81c272f389e6571dd`. Local, explicit remote-tracking, `ls-remote`, anonymous GitHub ref and tree APIs, all 16 changed Git entries, and all 16 anonymous raw files are exact. Candidate code and held-out results remain absent at the seal.
 - Implemented only the frozen v4 retrieval projection: one configuration identity plus exact 2-fresh/1-stale/1-guidance caps with no backfill. V3 remains the default. The independent development projection, six focused tests, all 86 tests, and 37 applicable non-manifest validators pass; the immutable BASELINE-0030 manifest rejects exactly `src/runbook_sentinel/retrieval.py`. No held-out candidate evaluation has run.
 - Published implementation seal `b13057ea924e3df002d86264c044b19c1a0f398a`, tree `1c898ae67574ba7a775d4ed158d2d1e9e2bd9fef`; all refs, all 11 changed Git entries, and all 11 anonymous raw files are exact. Same-manifest comparison remains closed until the successor inventory and manifest are separately frozen and public.
+- Froze the comparison artifact paths, control-first publication order, strict selection checks, and an independent result verifier before results. The manifest inventory adds exactly the retrieval-tier contract and its two independent verifiers, moving from 143 to 146 paths with zero removals; tests, ADRs, receipts, and lifecycle records remain outside the established runtime/evaluation inventory scope.
 
 ## 0.0.30 - 2026-08-17
 
