@@ -156,7 +156,7 @@
         "selection_public_and_reconciled": "pass",
         "package_and_manifest_contract_frozen": "pass",
         "release_lifecycle_correction_public": "pass",
-        "successor_release_manifest_exact": "pending",
+        "successor_release_manifest_exact": "pass",
         "source_package_and_real_surfaces_exact": "pending",
         "local_container_and_scan_exact": "pending",
         "clean_clone_exact": "pending",
@@ -190,7 +190,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Publish and independently reconcile the exact 153-file successor manifest at SHA-256 e2ea1bcad45fe35e61ae84f3fb992400a737b46fa0daf94065e0ecb69a29a7e4, then rebuild and repeat selected-v3 source/package real surfaces. Docker remains closed.",
+  "next_action": "Rebuild two v0.0.31 archives from public successor manifest cb20bb29f881d78b8f9d2b9ea7c3b220c1a979e4, then repeat selected-v3 source/package evaluations and real surfaces. Docker remains closed.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -252,11 +252,12 @@
       ,"the bounded accepted-control archive/current-pointer correction rejects archive mutation and passes seven focused tests all 93 tests and all 39 phase-correct non-manifest validators while the predecessor manifest rejects exactly the corrected validator path"
       ,"public lifecycle-correction commit c4e69df094d98c65026c9c4a4ae33c9b38153653 and tree 8c41aa73f4479e3b1d9f4362e8bea810f1bda301 reconcile across local explicit tracking ls-remote anonymous GitHub ref and tree APIs all 20 changed Git entries and all 20 anonymous raw files"
       ,"the 153-file successor release manifest is 18484 bytes at SHA-256 e2ea1bcad45fe35e61ae84f3fb992400a737b46fa0daf94065e0ecb69a29a7e4 and passes 93 tests plus all 40 phase-correct validators after two retained lifecycle-test fixture failures"
+      ,"public successor-manifest commit cb20bb29f881d78b8f9d2b9ea7c3b220c1a979e4 and tree 799de725757f4dce992f89c2699e4744fa095652 reconcile across refs all nine changed Git entries and all nine anonymous raw files"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public lifecycle correction c4e69df094d98c65026c9c4a4ae33c9b38153653 is exact. The local successor manifest freezes the same 153-file scope at SHA-256 e2ea1bcad45fe35e61ae84f3fb992400a737b46fa0daf94065e0ecb69a29a7e4 and passes 93/93 tests plus 40/40 validators; no archive or image was rebuilt.",
-    "next_action": "Publish and reconcile the successor manifest, then rebuild and repeat package/source verification before Docker.",
+    "current_checkpoint": "Public successor-manifest commit cb20bb29f881d78b8f9d2b9ea7c3b220c1a979e4 is exact across refs, all nine Git entries, and all nine anonymous raw files. The manifest is 18484 bytes at SHA-256 e2ea1bcad45fe35e61ae84f3fb992400a737b46fa0daf94065e0ecb69a29a7e4; no archive or image was rebuilt.",
+    "next_action": "Rebuild and repeat package/source verification before Docker.",
     "do_not_carry_forward": [
       "any held-out tuning expected-label grader scenario terminal model prompt parser decision-context policy approval executor or authority change",
       "any trust in evidence kind timestamp freshness or provenance before external authentication and normalization",
