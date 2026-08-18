@@ -129,17 +129,17 @@
       "depends_on": ["UNIT-002"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "gates": {
         "public_implementation_seal_verified": "pass",
         "comparison_inventory_public": "pass",
         "comparison_manifest_public": "pass",
         "control_complete": "pass",
-        "candidate_complete": "pending",
-        "retrieval_behavior_safety_reliability_latency_and_cost_separate": "pending",
-        "pareto_decision_evidence_bound": "pending"
+        "candidate_complete": "pass",
+        "retrieval_behavior_safety_reliability_latency_and_cost_separate": "pass",
+        "pareto_decision_evidence_bound": "pass"
       },
-      "disposition": "pending",
+      "disposition": "pass",
       "retained_failures": [
         "Public inventory amendment fa740b95442232cdcef72b8f5fd7dcbdb5b29bb1 matched across refs and 11 of 12 changed raw paths, but Git normalized the retained failed manifest from 17,558 CRLF bytes to 17,405 LF bytes. The gate remains pending; exact failed bytes move to the binary verification namespace in a 149-path successor inventory."
       ],
@@ -151,9 +151,9 @@
       "depends_on": ["UNIT-003"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "gates": {
-        "selection_public_and_reconciled": "pending",
+        "selection_public_and_reconciled": "pass",
         "package_and_manifest_contract_frozen": "pending",
         "source_package_and_real_surfaces_exact": "pending",
         "local_container_and_scan_exact": "pending",
@@ -185,8 +185,8 @@
       "next_dependency": null
     }
   ],
-  "current_unit": "UNIT-003",
-  "next_action": "Publish and remotely reconcile the exact excluded v4 candidate and comparison evidence before beginning selected-v3 full-stack verification.",
+  "current_unit": "UNIT-004",
+  "next_action": "Verify selected-v3 source, package, bounded MCP, authenticated API, approval and executor, persisted state, telemetry, rendered dashboard, local container, scan, and clean clone.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -240,11 +240,12 @@
       ,"public v3 control seal 2d30ec26eb6f0a4ee8cfa0214bd2481518934303 and tree 426e281f1ba1f3173d53b674e3465d4e0115252d reconcile across all four refs all ten Git tree entries and all ten unauthenticated raw files including exact report trace and receipt bytes"
       ,"local v4 candidate preserves required evidence ranks behavior policy utility attacks reliability p95 latency and cost and strictly improves focus but is excluded because five Boolean gates are false baseline disposition is remediate coverage and adversarial-stage contracts do not all pass and median latency is higher"
       ,"the frozen comparison verifier selects freshness-priority-lexical-v3 with 14 of 18 selection checks passing; final comparison-complete regression passes all 91 tests and all 39 applicable validators"
+      ,"public excluded-v4 comparison commit f9134cfb451e84730c9cebdd586ea68dabee1a99 and tree 8c2569d4376c9cf1bf87fe4a63d58e38c0b70f75 reconcile across all four refs all 11 Git tree entries and all 11 unauthenticated raw files; v3 remains default"
     ]
   },
   "handoff": {
-    "current_checkpoint": "The exact local comparison selects v3 and excludes v4 under the frozen rule. V3 remains default; all unfavorable candidate evidence is retained and publication-pending.",
-    "next_action": "Publish and reconcile the candidate and comparison evidence, then verify the selected v3 source and real surfaces.",
+    "current_checkpoint": "Public comparison commit f9134cfb451e84730c9cebdd586ea68dabee1a99 is exact. V3 remains selected and default; excluded v4 evidence is public and retained.",
+    "next_action": "Verify the selected v3 source, package, real surfaces, container, scan, and clean clone before release review.",
     "do_not_carry_forward": [
       "any held-out tuning expected-label grader scenario terminal model prompt parser decision-context policy approval executor or authority change",
       "any trust in evidence kind timestamp freshness or provenance before external authentication and normalization",

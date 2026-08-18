@@ -52,6 +52,8 @@ V4 is nevertheless excluded by the precommitted rule. Five candidate Boolean gat
 
 The exact candidate report/trace hashes are `495492569af29555c382527c49ce7594147e33170d56429cfebd4fff795ac19b` / `fa65e2650a9605fd39cb318191191bdd1408d98ecd31eef2aaa8043580dc0f17`. The 5,152-byte comparison is SHA-256 `9e46ee4047ca51f00c453eb4b02adbf988f3accb9b0d5b9aefbdc388dde9d768`. Comparison-complete regression passes 91/91 tests in 108.941 seconds and 39/39 validators in 2.686 seconds. All unfavorable evidence is retained; publication remains before UNIT-004.
 
+Comparison seal `f9134cfb451e84730c9cebdd586ea68dabee1a99`, tree `8c2569d4376c9cf1bf87fe4a63d58e38c0b70f75`, is public and exact across all four refs, all 11 Git tree entries, and all 11 unauthenticated raw files. V3 remains selected and default. UNIT-003 is complete; UNIT-004 begins selected-v3 full-stack verification from this public checkpoint.
+
 ## BASELINE-0030 public v0.0.30 reconciliation
 
 Audited closure `9bfa784feeb1e002c546326ce9db214c2c155fce`, annotated tag object `1e51f18e6023bd66b19ad11ca794c5a0c2c42885`, public latest release `372002788`, and exactly two selected assets reconcile. The downloaded zipapp is 646,081 bytes at SHA-256 `b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf`; its 94-byte checksum is SHA-256 `5a27247f2757b44ad8c6d6d46efe8bf4ff984e62f76d085fb36696758e6f92b8`. Two fresh tag builds reproduce the downloaded archive byte-for-byte and the 43-entry package contract passes.

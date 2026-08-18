@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0031-retrieval-comparison-public",
+  "checkpoint": "baseline-0031",
+  "unit": "UNIT-003",
+  "observed_at_utc": "2026-08-18T01:53:49Z",
+  "status": "pass",
+  "disposition": "public_comparison_exact_v3_selected",
+  "repository": {
+    "owner": "drwbkr1",
+    "name": "runbook-sentinel",
+    "visibility": "public",
+    "branch": "codex/baseline-0031-bounded-trust-tier-retrieval",
+    "commit": "f9134cfb451e84730c9cebdd586ea68dabee1a99",
+    "tree": "8c2569d4376c9cf1bf87fe4a63d58e38c0b70f75"
+  },
+  "ref_reconciliation": {
+    "local_head": "f9134cfb451e84730c9cebdd586ea68dabee1a99",
+    "explicit_tracking_after_fetch": "f9134cfb451e84730c9cebdd586ea68dabee1a99",
+    "ls_remote": "f9134cfb451e84730c9cebdd586ea68dabee1a99",
+    "github_ref_api": "f9134cfb451e84730c9cebdd586ea68dabee1a99",
+    "all_exact": true
+  },
+  "public_content_reconciliation": {
+    "changed_path_count": 11,
+    "github_tree_entry_exact_count": 11,
+    "github_tree_entry_mismatch_count": 0,
+    "unauthenticated_raw_exact_count": 11,
+    "unauthenticated_raw_mismatch_count": 0,
+    "local_tree_matches_github_tree": true
+  },
+  "selection": {
+    "comparison_path": "artifacts/evaluations/baseline-0031-retrieval-comparison.json",
+    "comparison_bytes": 5152,
+    "comparison_sha256": "9e46ee4047ca51f00c453eb4b02adbf988f3accb9b0d5b9aefbdc388dde9d768",
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "excluded_configuration": "bounded-trust-tier-lexical-v4",
+    "selection_checks_passed": 14,
+    "selection_checks_failed": 4,
+    "frozen_verifier_status": "pass"
+  },
+  "candidate": {
+    "report_bytes": 949933,
+    "report_sha256": "495492569af29555c382527c49ce7594147e33170d56429cfebd4fff795ac19b",
+    "trace_bytes": 195352,
+    "trace_sha256": "fa65e2650a9605fd39cb318191191bdd1408d98ecd31eef2aaa8043580dc0f17",
+    "preserved_publicly": true,
+    "tuned_after_reveal": false
+  },
+  "boundaries": {
+    "default_configuration": "freshness-priority-lexical-v3",
+    "product_default_changed": false,
+    "held_out_used_for_tuning": false,
+    "broad_pareto_claimed": false,
+    "research_informed_only": true
+  },
+  "next_gate": "Verify selected-v3 source, package, bounded MCP, authenticated API, approval/executor, state, telemetry, dashboard, local container, scan, and clean clone."
+}
