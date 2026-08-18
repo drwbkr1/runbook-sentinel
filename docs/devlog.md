@@ -11,6 +11,7 @@
 - Retained one receipt-wrapper failure where unquoted `HEAD^{tree}` was misparsed by Windows PowerShell. The literal-string successor resolves starting tree `c36fd5b9d98c6b6049ee0e0f7ef99a1bb9fdfaa0`; no repository byte was changed by the failed probe.
 - Published preimplementation seal `a7e42589b8e85d6f967128d32d7cea7a5111c3e9`, tree `22d186d9c5a558560abb6fe81c272f389e6571dd`, with parent exact at public reconciliation commit `4d62ecf...`. The first wrapper retained the repository's narrow-fetch upstream observation; an explicit branch fetch then proves local, tracking, `ls-remote`, anonymous GitHub ref and tree APIs, all 16 changed Git entries, and all 16 anonymous raw files exact. The repository is public and `main` remains its default branch. Candidate runtime and held-out results are absent at the seal.
 - The first milestone lifecycle edit used `completed`; the installed validator requires exact status `complete` and rejected the edit without opening authority. The corrected successor uses `complete` for UNIT-001 and must pass before this public-reconciliation payload is admitted.
+- Public freeze-reconciliation commit `401387f42940f78a037718eb41e1936d3b9f1d2c`, tree `e1ca96828ee311c2a5b9d5a4f498136533dcf12a`, is exact across refs, all nine changed Git entries, and all nine anonymous raw files after an explicit post-push branch fetch. Retained one compact PowerShell operator-token failure and the first stale-tracking comparison; neither changed repository or product bytes.
 
 ## 2026-08-17 BASELINE-0030 public release reconciliation
 

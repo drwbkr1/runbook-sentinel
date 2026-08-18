@@ -68,6 +68,24 @@
       "mutation": false,
       "correction": "Use the validator's exact 'complete' status for UNIT-001 and rerun the governed milestone gate before publication or implementation.",
       "positive_evidence": false
+    },
+    {
+      "id": "POWERSHELL-COMPARISON-TOKEN-001",
+      "class": "process_invalid",
+      "operation": "Verify the public freeze-reconciliation refs",
+      "failure": "A compact PowerShell wrapper omitted token-separating spaces around -ne and -or, so it compared unintended variable names and emitted only a false ref-mismatch result.",
+      "mutation": false,
+      "correction": "Use explicit parenthesized comparisons with separated PowerShell operators and report each ref identity on mismatch.",
+      "positive_evidence": false
+    },
+    {
+      "id": "RECONCILIATION-TRACKING-REF-001",
+      "class": "process_invalid",
+      "operation": "Verify reconciliation commit 401387f42940f78a037718eb41e1936d3b9f1d2c across refs",
+      "failure": "The corrected comparison proved ls-remote already pointed to 401387f42940f78a037718eb41e1936d3b9f1d2c while the narrow-fetch remote-tracking ref still pointed to a7e42589b8e85d6f967128d32d7cea7a5111c3e9.",
+      "mutation": false,
+      "correction": "Explicitly fetch the exact branch ref after every push in this worktree. The successor advanced tracking to 401387f42940f78a037718eb41e1936d3b9f1d2c and verified local, tracking, ls-remote, anonymous GitHub ref and tree APIs, all nine Git tree entries, and all nine anonymous raw files exactly.",
+      "positive_evidence": false
     }
   ],
   "held_out_candidate_results_observed": false,
