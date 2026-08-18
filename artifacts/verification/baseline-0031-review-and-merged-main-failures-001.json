@@ -3,7 +3,7 @@
   "receipt_id": "baseline-0031-review-and-merged-main-failures-001",
   "checkpoint": "baseline-0031",
   "unit": "UNIT-005",
-  "observed_at_utc": "2026-08-18T05:02:46Z",
+  "observed_at_utc": "2026-08-18T05:04:18Z",
   "status": "retained_process_invalid_and_nonblocking_findings",
   "positive_evidence": false,
   "observations": [
@@ -123,6 +123,14 @@
       "classification": "validator_phase_wrapper_error",
       "observation": "The first phase-correct successor supplied retrieval-observability implementation-only mode without its companion require-implementation flag; that validator rejected the incomplete phase declaration after thirty-nine other passes.",
       "correction": "The exact successor supplies both flags, matching the implemented current lifecycle without changing any project byte other than this retained process receipt."
+    },
+    {
+      "id": "OBS-017",
+      "phase": "merged-main-evidence-publication",
+      "classification": "powershell_wrapper_error",
+      "observation": "The first publication wrapper applied array indexing directly to a native-command expression, yielding the first character 1 instead of the complete remote Git hash and stopping before push.",
+      "containment": "Remote main remained exact at 1b0ad59a59f566c8d10e7069d3ed8ffdb974f7fd and no network mutation occurred.",
+      "correction": "The exact successor stores the ls-remote output before splitting and comparing the complete hash."
     }
   ],
   "boundaries": {
