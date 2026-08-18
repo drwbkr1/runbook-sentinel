@@ -140,7 +140,9 @@
         "pareto_decision_evidence_bound": "pending"
       },
       "disposition": "pending",
-      "retained_failures": [],
+      "retained_failures": [
+        "Public inventory amendment fa740b95442232cdcef72b8f5fd7dcbdb5b29bb1 matched across refs and 11 of 12 changed raw paths, but Git normalized the retained failed manifest from 17,558 CRLF bytes to 17,405 LF bytes. The gate remains pending; exact failed bytes move to the binary verification namespace in a 149-path successor inventory."
+      ],
       "next_dependency": "UNIT-004"
     },
     {
@@ -184,7 +186,7 @@
     }
   ],
   "current_unit": "UNIT-003",
-  "next_action": "Add only the bounded BASELINE-0031 comparison inputs to the manifest inventory, publish the inventory seal, freeze and publish the successor manifest, then run v3 and v4 separately without tuning.",
+  "next_action": "Publish and remotely reconcile the corrected 149-path inventory with the exact failed manifest under the binary verification namespace, freeze and publish the successor manifest, then run v3 and v4 separately without tuning.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",

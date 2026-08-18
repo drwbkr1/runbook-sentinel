@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0031-precomparison-inventory-amendment-v2-local",
+  "checkpoint": "baseline-0031",
+  "unit": "UNIT-003",
+  "observed_at_utc": "2026-08-18T01:18:01Z",
+  "status": "pass",
+  "disposition": "corrected_local_inventory_pass_publication_pending",
+  "superseded_public_amendment": {
+    "commit": "fa740b95442232cdcef72b8f5fd7dcbdb5b29bb1",
+    "tree": "c917dca34b5d1bd391943b0683f42047f3d5f8e3",
+    "status": "fail",
+    "changed_path_count": 12,
+    "byte_exact_path_count": 11,
+    "byte_mismatch_path_count": 1,
+    "failure_receipt": "artifacts/verification/baseline-0031-inventory-amendment-public-failure.json"
+  },
+  "corrected_inventory": {
+    "file_count": 149,
+    "unique_file_count": 149,
+    "missing_paths": [],
+    "removals": [],
+    "addition_over_failed_148_path_amendment": "artifacts/verification/baseline-0031-manifest-attempt-001-invalid.json",
+    "exact_failed_manifest": {
+      "bytes": 17558,
+      "sha256": "99489ecbcd1fb9f92fff23c09494647139c4c1f58c90f9c1ffdedde57cb74167",
+      "git_attribute_text": "unset",
+      "git_attribute_diff": "unset"
+    },
+    "public_normalized_eval_copy_preserved": true
+  },
+  "current_manifest": {
+    "path": "eval/manifest.json",
+    "checkpoint": "baseline-0030",
+    "file_count": 143,
+    "bytes": 17202,
+    "sha256": "bc98beca62ba13968ecfa5f8c79800c24c94a3298b3ae31270465ec7ed61ce96",
+    "successor_written": false
+  },
+  "validation": {
+    "governed_milestone_valid": true,
+    "governed_milestone_warnings": [],
+    "retrieval_contract_status": "pass_implemented_experimental",
+    "retrieval_result_status": "pass_precomparison",
+    "full_tests_passed": 91,
+    "full_tests_failed": 0,
+    "full_tests_elapsed_seconds": 106.266,
+    "applicable_phase_correct_non_manifest_validators_passed": 38,
+    "applicable_phase_correct_non_manifest_validators_failed": 0,
+    "validator_elapsed_seconds": 2.651,
+    "inventory_count_exact": true,
+    "inventory_unique": true,
+    "inventory_missing_paths": [],
+    "git_diff_check": "pass",
+    "compile_check": "pass",
+    "control_candidate_or_comparison_artifact_present": false
+  },
+  "retained_process_failures": [
+    {
+      "stage": "aggregate_validator_wrapper_attempt_001",
+      "failure": "The phase-aware adversarial retrieval-stage contract was invoked without --require-implementation and correctly rejected the already-present implementation.",
+      "mutation": false,
+      "positive_evidence": false
+    },
+    {
+      "stage": "aggregate_validator_wrapper_attempt_002",
+      "failure": "The retrieval-quality observability contract was invoked with --require-implementation but without --implementation-only, so it correctly demanded a report metric that is outside this precomparison inventory gate.",
+      "mutation": false,
+      "positive_evidence": false
+    },
+    {
+      "stage": "changed_path_inventory_wrapper_attempt_001",
+      "failure": "A PowerShell array construction retained the tracked and untracked path lists as two nested arrays and reported a scalar count of 2 instead of the exact flattened changed-path count.",
+      "mutation": false,
+      "positive_evidence": false
+    }
+  ],
+  "boundaries": {
+    "runtime_changed": false,
+    "scenario_or_expected_result_changed": false,
+    "grader_or_selection_rule_changed": false,
+    "held_out_result_observed": false,
+    "default_configuration": "freshness-priority-lexical-v3"
+  },
+  "next_gate": "Commit, push, explicitly fetch, and anonymously reconcile every corrected public path before writing a BASELINE-0031 successor manifest."
+}

@@ -7,7 +7,8 @@
   "status": "fail",
   "disposition": "retained_superseded_not_positive_evidence",
   "manifest": {
-    "path": "eval/manifest-0031-attempt-001-invalid.json",
+    "byte_exact_path": "artifacts/verification/baseline-0031-manifest-attempt-001-invalid.json",
+    "normalized_git_copy_path": "eval/manifest-0031-attempt-001-invalid.json",
     "bytes": 17558,
     "sha256": "99489ecbcd1fb9f92fff23c09494647139c4c1f58c90f9c1ffdedde57cb74167",
     "checkpoint": "baseline-0031",
@@ -46,12 +47,20 @@
   },
   "inventory_effect": {
     "previous_public_inventory_count": 146,
-    "corrected_inventory_count": 148,
+    "corrected_inventory_count": 149,
     "new_paths": [
       "artifacts/evaluations/runs/baseline-0030-final-source-attempt-001.manifest.json",
-      "eval/manifest-0031-attempt-001-invalid.json"
+      "eval/manifest-0031-attempt-001-invalid.json",
+      "artifacts/verification/baseline-0031-manifest-attempt-001-invalid.json"
     ],
     "removals": []
   },
-  "next_gate": "Validate the 148-path inventory and corrected full suite, publish the inventory amendment, then refreeze the manifest."
+  "custody_correction": {
+    "failed_public_amendment_commit": "fa740b95442232cdcef72b8f5fd7dcbdb5b29bb1",
+    "public_normalized_bytes": 17405,
+    "public_normalized_sha256": "406676b1dd3b924d9456b5640a928e46c031838c91827e34e41acde9e1c21fba",
+    "public_git_blob_sha1": "15a85130033e26c6c35ca07d0c4f80a6603ec16f",
+    "reason": "Git normalized the eval-path CRLF bytes to LF because only eval/manifest.json is marked binary. The exact failed bytes are therefore retained under the binary artifacts/verification namespace; the eval path remains as a normalized semantic Git copy."
+  },
+  "next_gate": "Validate the 149-path corrected inventory and full suite, publish and remotely reconcile it, then refreeze the manifest."
 }

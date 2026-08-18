@@ -78,6 +78,7 @@ FILES = [
     "eval/manifest-0031-attempt-001-invalid.json",
     "artifacts/evaluations/baseline-0030-model-contract-comparison.json",
     "artifacts/evaluations/runs/baseline-0030-final-source-attempt-001.manifest.json",
+    "artifacts/verification/baseline-0031-manifest-attempt-001-invalid.json",
     "artifacts/verification/intake-public-v0.0.23-package-baseline-0028.json",
     "artifacts/verification/controlled-intake/baseline-0028-historical-package-v0.0.23-001/runbook-sentinel-0.0.23.pyz",
     "src/runbook_sentinel/__init__.py",
