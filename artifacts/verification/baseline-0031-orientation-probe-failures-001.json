@@ -86,6 +86,15 @@
       "mutation": false,
       "correction": "Explicitly fetch the exact branch ref after every push in this worktree. The successor advanced tracking to 401387f42940f78a037718eb41e1936d3b9f1d2c and verified local, tracking, ls-remote, anonymous GitHub ref and tree APIs, all nine Git tree entries, and all nine anonymous raw files exactly.",
       "positive_evidence": false
+    },
+    {
+      "id": "POWERSHELL-COMPARISON-TOKEN-002",
+      "class": "process_invalid",
+      "operation": "Verify public implementation-seal refs",
+      "failure": "A first compact ref-only wrapper again omitted spaces around PowerShell comparison operators and emitted no usable positive result.",
+      "mutation": false,
+      "correction": "The fully explicit successor verified implementation seal b13057ea924e3df002d86264c044b19c1a0f398a across local, tracking, ls-remote, anonymous GitHub ref and tree APIs, all eleven changed Git entries, and all eleven anonymous raw files.",
+      "positive_evidence": false
     }
   ],
   "held_out_candidate_results_observed": false,

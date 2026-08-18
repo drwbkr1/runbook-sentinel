@@ -111,15 +111,15 @@
       "depends_on": ["UNIT-001"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "gates": {
         "public_freeze_verified": "pass",
         "exact_runtime_projection": "pass",
         "development_reference_exact": "pass",
         "default_and_authority_unchanged": "pass",
-        "implementation_seal_public": "pending"
+        "implementation_seal_public": "pass"
       },
-      "disposition": "pending",
+      "disposition": "pass",
       "retained_failures": [],
       "next_dependency": "UNIT-003"
     },
@@ -129,9 +129,9 @@
       "depends_on": ["UNIT-002"],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "gates": {
-        "public_implementation_seal_verified": "pending",
+        "public_implementation_seal_verified": "pass",
         "comparison_manifest_public": "pending",
         "control_complete": "pending",
         "candidate_complete": "pending",
@@ -182,8 +182,8 @@
       "next_dependency": null
     }
   ],
-  "current_unit": "UNIT-002",
-  "next_action": "Implement exactly bounded-trust-tier-lexical-v4 in the frozen retrieval path, retain v3 as product default, and publish a verified implementation seal before any held-out candidate evaluation.",
+  "current_unit": "UNIT-003",
+  "next_action": "Add only the bounded BASELINE-0031 comparison inputs to the manifest inventory, publish the inventory seal, freeze and publish the successor manifest, then run v3 and v4 separately without tuning.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -222,11 +222,12 @@
       ,"bounded-trust-tier-lexical-v4 matches the frozen development reference exactly at retrieval SHA-256 6eb5227b2e20141bf978670cfbbe9edd6d55ca1db69b76a4007b830e13ff864a while freshness-priority-lexical-v3 remains the product default"
       ,"the implementation phase passes six focused tests all 86 tests in 107.216 seconds and 37 applicable phase-correct non-manifest validators in 2.463 seconds; the immutable predecessor manifest rejects exactly src/runbook_sentinel/retrieval.py"
       ,"implementation-phase governed milestone compilation structured parsing diff and bounded credential and model-artifact scans pass without warning or unclassified error"
+      ,"public implementation seal b13057ea924e3df002d86264c044b19c1a0f398a and tree 1c898ae67574ba7a775d4ed158d2d1e9e2bd9fef reconcile across local explicit tracking ls-remote anonymous GitHub APIs all 11 changed Git entries and all 11 anonymous raw files with v3 still default and no held-out candidate result"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public preimplementation seal a7e42589b8e85d6f967128d32d7cea7a5111c3e9 is remotely exact. BASELINE-0031 remains a frozen experimental retrieval comparison; no candidate runtime or held-out result exists at the seal.",
-    "next_action": "Implement only bounded-trust-tier-lexical-v4 while leaving freshness-priority-lexical-v3 as default, then publish an implementation seal before the full comparison.",
+    "current_checkpoint": "Public implementation seal b13057ea924e3df002d86264c044b19c1a0f398a is remotely exact. V4 is experimental, v3 remains default, and no held-out candidate result exists.",
+    "next_action": "Publish the bounded comparison inventory and successor manifest, then run v3 and v4 separately against the same exact inputs without tuning.",
     "do_not_carry_forward": [
       "any held-out tuning expected-label grader scenario terminal model prompt parser decision-context policy approval executor or authority change",
       "any trust in evidence kind timestamp freshness or provenance before external authentication and normalization",
