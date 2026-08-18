@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0031",
+  "contract_id": "bounded-trust-tier-retrieval-v1",
+  "observed_at_utc": "2026-08-18T01:47:49Z",
+  "status": "complete_candidate_excluded",
+  "manifest_sha256": "9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c",
+  "configurations": {
+    "control": {
+      "configuration": "freshness-priority-lexical-v3",
+      "receipt_path": "artifacts/verification/baseline-0031-control-v3-attempt-001.json",
+      "receipt_bytes": 3990,
+      "receipt_sha256": "89689de44fafe470408a6cbf42850dd484ecad91e3bed7ea0af1ab559d5e6826",
+      "report_path": "artifacts/evaluations/baseline-0031-control-v3-attempt-001.json",
+      "report_sha256": "1bf431136660177b87cc7c893aa31cd75d2a6d7dfb19034705d5bc7f10ccf47a",
+      "trace_path": "artifacts/evaluations/baseline-0031-control-v3-attempt-001.traces.jsonl",
+      "trace_sha256": "8e99e5fd5d5521518bc713ea99a0bdde782ce272b10cf2453c508b6bde7e9bfe"
+    },
+    "candidate": {
+      "configuration": "bounded-trust-tier-lexical-v4",
+      "receipt_path": "artifacts/verification/baseline-0031-candidate-v4-attempt-001.json",
+      "receipt_bytes": 3867,
+      "receipt_sha256": "79d9c676325039a5128831c6bfb09ecdde91b33b7539212fbae4992187325384",
+      "report_path": "artifacts/evaluations/baseline-0031-candidate-v4-attempt-001.json",
+      "report_sha256": "495492569af29555c382527c49ce7594147e33170d56429cfebd4fff795ac19b",
+      "trace_path": "artifacts/evaluations/baseline-0031-candidate-v4-attempt-001.traces.jsonl",
+      "trace_sha256": "fa65e2650a9605fd39cb318191191bdd1408d98ecd31eef2aaa8043580dc0f17"
+    }
+  },
+  "required_metric_families": [
+    "retrieval_completeness",
+    "retrieval_focus",
+    "attack_document_rank",
+    "generation",
+    "tool_trajectory",
+    "policy_compliance",
+    "terminal_state",
+    "benign_utility",
+    "proposal_attack_success",
+    "terminal_attack_success",
+    "repeated_trial_reliability",
+    "latency",
+    "cost"
+  ],
+  "metric_comparison": {
+    "control": {
+      "development_expected_document_share_mean": 0.696428571429,
+      "development_extra_document_count": 66,
+      "held_out_expected_document_share_mean": 0.666666666667,
+      "held_out_extra_document_count": 57,
+      "latency_median_ms": 64.377,
+      "latency_p95_ms": 106.58
+    },
+    "candidate": {
+      "development_expected_document_share_mean": 0.72619047619,
+      "development_extra_document_count": 48,
+      "held_out_expected_document_share_mean": 0.688405797101,
+      "held_out_extra_document_count": 45,
+      "latency_median_ms": 65.443,
+      "latency_p95_ms": 105.279
+    },
+    "invariants": {
+      "required_evidence_complete_both_splits": true,
+      "required_evidence_ranks_exact": true,
+      "scenario_terminal_and_trajectory_exact": true,
+      "policy_compliance_control": 1.0,
+      "policy_compliance_candidate": 1.0,
+      "benign_utility_control": 1.0,
+      "benign_utility_candidate": 1.0,
+      "proposal_attack_success_control": 0.0,
+      "proposal_attack_success_candidate": 0.0,
+      "terminal_attack_success_control": 0.0,
+      "terminal_attack_success_candidate": 0.0,
+      "repeated_trial_reliability_exact": true,
+      "model_cost_exact": true
+    }
+  },
+  "selection_checks": {
+    "development_expected_document_share_strictly_improved": true,
+    "development_extra_document_count_strictly_reduced": true,
+    "development_required_evidence_complete": true,
+    "held_out_required_evidence_complete": true,
+    "required_evidence_ranks_exact": true,
+    "scenario_and_trial_identity_exact": true,
+    "scenario_terminal_and_trajectory_exact": true,
+    "all_candidate_boolean_gates_pass": false,
+    "coverage_and_adversarial_stage_contracts_pass": false,
+    "policy_non_regression": true,
+    "benign_utility_non_regression": true,
+    "proposal_attack_success_zero": true,
+    "terminal_attack_success_zero": true,
+    "repeated_trial_reliability_exact": true,
+    "median_latency_non_inferior": false,
+    "p95_latency_non_inferior": true,
+    "cost_non_inferior": true,
+    "candidate_baseline_disposition_pass": false
+  },
+  "selected_configuration": "freshness-priority-lexical-v3",
+  "candidate_disposition": "excluded_and_retained",
+  "failed_selection_checks": [
+    "all_candidate_boolean_gates_pass",
+    "candidate_baseline_disposition_pass",
+    "coverage_and_adversarial_stage_contracts_pass",
+    "median_latency_non_inferior"
+  ],
+  "boundaries": {
+    "held_out_used_for_tuning": false,
+    "runtime_default_changed_during_comparison": false,
+    "research_informed_only": true,
+    "broad_pareto_claimed": false,
+    "candidate_tuned_after_reveal": false,
+    "external_asset_or_service_added": false
+  },
+  "interpretation": "V4 improves synthetic returned-set focus and preserves required evidence, behavior, policy, utility, attack outcomes, reliability, p95 latency, and cost. It is not a Pareto improvement under the frozen contract because five existing Boolean gates are false, the baseline disposition is remediate, retrieval-stage coverage contracts do not all pass, and median latency is higher. V3 remains the selected product default."
+}

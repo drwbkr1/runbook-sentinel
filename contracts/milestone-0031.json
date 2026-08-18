@@ -186,7 +186,7 @@
     }
   ],
   "current_unit": "UNIT-003",
-  "next_action": "Execute, validate, and preserve the frozen v4 candidate once against the same public manifest without tuning or default promotion.",
+  "next_action": "Publish and remotely reconcile the exact excluded v4 candidate and comparison evidence before beginning selected-v3 full-stack verification.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -238,11 +238,13 @@
       ,"public manifest seal 596a81dec106e508486a9c739a1c43fad053250a and tree 2052251cf76f3ebd2fc8ee357f67707b585eedb4 reconcile across all four refs all eight Git tree entries and all eight unauthenticated raw files; eval/manifest.json is exact at 17981 bytes and SHA-256 9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c"
       ,"local v3 control attempt 001 passes 57 scenarios 171 attempts all 136 Boolean gates anchored 261-event trace exact retrieval and behavioral contracts 91 corrected post-control tests and all 39 applicable validators; candidate and comparison remain absent"
       ,"public v3 control seal 2d30ec26eb6f0a4ee8cfa0214bd2481518934303 and tree 426e281f1ba1f3173d53b674e3465d4e0115252d reconcile across all four refs all ten Git tree entries and all ten unauthenticated raw files including exact report trace and receipt bytes"
+      ,"local v4 candidate preserves required evidence ranks behavior policy utility attacks reliability p95 latency and cost and strictly improves focus but is excluded because five Boolean gates are false baseline disposition is remediate coverage and adversarial-stage contracts do not all pass and median latency is higher"
+      ,"the frozen comparison verifier selects freshness-priority-lexical-v3 with 14 of 18 selection checks passing; final comparison-complete regression passes all 91 tests and all 39 applicable validators"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Public v3 control seal 2d30ec26eb6f0a4ee8cfa0214bd2481518934303 is remotely exact against manifest SHA-256 9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c. V3 remains default and no candidate result exists.",
-    "next_action": "Run the frozen v4 candidate once against the same manifest without tuning, then apply the frozen selection rule.",
+    "current_checkpoint": "The exact local comparison selects v3 and excludes v4 under the frozen rule. V3 remains default; all unfavorable candidate evidence is retained and publication-pending.",
+    "next_action": "Publish and reconcile the candidate and comparison evidence, then verify the selected v3 source and real surfaces.",
     "do_not_carry_forward": [
       "any held-out tuning expected-label grader scenario terminal model prompt parser decision-context policy approval executor or authority change",
       "any trust in evidence kind timestamp freshness or provenance before external authentication and normalization",

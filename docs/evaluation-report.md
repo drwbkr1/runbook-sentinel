@@ -46,6 +46,12 @@ The first post-control regression is retained at 90/91: a lifecycle test expecte
 
 Control seal `2d30ec26eb6f0a4ee8cfa0214bd2481518934303`, tree `426e281f1ba1f3173d53b674e3465d4e0115252d`, is public and exact across all four refs, all ten Git tree entries, and all ten unauthenticated raw files. Report, trace, and receipt bytes match exactly. The candidate gate is now open for one untuned v4 run against the same manifest; v3 remains default.
 
+The one frozen v4 run improves the intended focus measures. Development expected-document share rises from 0.696428571429 to 0.72619047619 and additional records fall from 66 to 48. Held-out share rises from 0.666666666667 to 0.688405797101 and extras fall from 57 to 45. Required evidence and ranks, every scenario/terminal/trajectory outcome, policy, utility, attack outcomes, `pass^3`, p95 latency, and cost remain exact or non-inferior.
+
+V4 is nevertheless excluded by the precommitted rule. Five candidate Boolean gates are false: the historical adversarial retrieval-stage contract, its two exact guidance-count gates, and two exact retrieval-observability gates. This makes the baseline disposition `remediate` and fails both the all-gates and coverage/adversarial-stage selection checks. Median latency also rises from 64.377 to 65.443 ms. The frozen verifier selects `freshness-priority-lexical-v3`; 14 of 18 checks pass and four fail. This is research-informed synthetic evidence, not a broad Pareto or production claim.
+
+The exact candidate report/trace hashes are `495492569af29555c382527c49ce7594147e33170d56429cfebd4fff795ac19b` / `fa65e2650a9605fd39cb318191191bdd1408d98ecd31eef2aaa8043580dc0f17`. The 5,152-byte comparison is SHA-256 `9e46ee4047ca51f00c453eb4b02adbf988f3accb9b0d5b9aefbdc388dde9d768`. Comparison-complete regression passes 91/91 tests in 108.941 seconds and 39/39 validators in 2.686 seconds. All unfavorable evidence is retained; publication remains before UNIT-004.
+
 ## BASELINE-0030 public v0.0.30 reconciliation
 
 Audited closure `9bfa784feeb1e002c546326ce9db214c2c155fce`, annotated tag object `1e51f18e6023bd66b19ad11ca794c5a0c2c42885`, public latest release `372002788`, and exactly two selected assets reconcile. The downloaded zipapp is 646,081 bytes at SHA-256 `b950672f64306d03d9806615cf50dedfad89d83c705b61f6dabe2224e35d9cbf`; its 94-byte checksum is SHA-256 `5a27247f2757b44ad8c6d6d46efe8bf4ff984e62f76d085fb36696758e6f92b8`. Two fresh tag builds reproduce the downloaded archive byte-for-byte and the 43-entry package contract passes.
