@@ -179,21 +179,24 @@
       "human_gate": false,
       "status": "in_progress",
       "gates": {
-        "premerge_release_truth_audit": "pending",
-        "exact_reviewed_head_merged_with_history_preserved": "pending",
-        "fresh_public_main_complete_stack": "pending",
+        "premerge_release_truth_audit": "pass",
+        "exact_reviewed_head_merged_with_history_preserved": "pass",
+        "fresh_public_main_complete_stack": "pass",
         "final_release_truth_audit": "pending",
         "annotated_tag_and_selected_assets": "pending",
         "public_tag_complete_stack": "pending",
         "external_reconciliation": "pending"
       },
       "disposition": "pending",
-      "retained_failures": [],
+      "retained_failures": [
+        "Exact-head review found a defense-in-depth empty-selection-gate inventory weakness. The attempted correction passed 94 tests but correctly violated the frozen release manifest, so it was reverted byte-exactly and deferred to the next checkpoint rather than rewriting verified package and image evidence.",
+        "Process-invalid review and merged-main wrappers are retained in artifacts/verification/baseline-0031-review-and-merged-main-failures-001.json and excluded from positive evidence."
+      ],
       "next_dependency": null
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Run the governed premerge release-truth audit against public complete-stack evidence commit af7c6ca2a72593a9c8a816fdb44a5a65c778d256 and its exact public reconciliation receipt; do not merge tag or release unless the audit passes.",
+  "next_action": "Publish and reconcile artifacts/verification/merged-main-baseline-0031.json plus retained review evidence, then run the final release-truth audit; do not create the v0.0.31 tag or release unless that exact audited closure remains verifiable.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -265,11 +268,14 @@
       ,"fresh no-alternates clean clone at public reconciliation head 0ce0369bf6d62b15344d0f09498c79c034e85a2b rebuilds the selected archive and reproduces image sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1 exactly"
       ,"canonical container receipt 236dbc9fc2f5a28cbc012612488bfc378103c877874dd8ad3119296ce5798d92 passes all 47 frozen checks; post-container 93 tests 40 required-result validators three exact traces structured parsing scans compilation and local-only publication boundaries pass"
       ,"public complete-stack evidence commit af7c6ca2a72593a9c8a816fdb44a5a65c778d256 and tree da7442dbdebe22e6ac64944510491f61cd39befb reconcile across local explicit tracking ls-remote anonymous GitHub ref and tree APIs and all 15 anonymous raw files; UNIT-004 passes"
+      ,"premerge release-truth audit passes all ten checks and nineteen required real surfaces at exact reviewed head bcc5be719d8885598e858867e86f55171f94be2f"
+      ,"PR 29 merges the exact reviewed head under expected-head lock as history-preserving merge 1b0ad59a59f566c8d10e7069d3ed8ffdb974f7fd with reviewed and merged tree f9fd2112b04d7a25592b23f8bef54aec34bad250 identical"
+      ,"two independent no-alternates public-main clones pass 93 tests 40 validators two exact archives fresh source package MCP API state telemetry and dashboard surfaces plus three exact local image builds; composed container-runtime-v11 passes 47 of 47 without image export push publication or redistribution"
     ]
   },
   "handoff": {
-    "current_checkpoint": "UNIT-004 passes. Public complete-stack evidence commit af7c6ca2a72593a9c8a816fdb44a5a65c778d256 is exact across refs GitHub APIs and all 15 anonymous raw files; canonical container-runtime-v11 passes 47 of 47 without image export push publication or redistribution.",
-    "next_action": "Run the governed UNIT-005 premerge release-truth audit before review merge tag or release.",
+    "current_checkpoint": "UNIT-005 premerge audit review merge and fresh public-main complete-stack verification pass. Public merge 1b0ad59a59f566c8d10e7069d3ed8ffdb974f7fd preserves reviewed tree f9fd2112b04d7a25592b23f8bef54aec34bad250; composed container-runtime-v11 passes 47 of 47 without image export push publication or redistribution.",
+    "next_action": "Publish and reconcile merged-main evidence, then run the final release-truth audit before tag or release.",
     "do_not_carry_forward": [
       "any held-out tuning expected-label grader scenario terminal model prompt parser decision-context policy approval executor or authority change",
       "any trust in evidence kind timestamp freshness or provenance before external authentication and normalization",

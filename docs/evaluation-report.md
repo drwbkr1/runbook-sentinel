@@ -1,5 +1,15 @@
 # Evaluation report
 
+## BASELINE-0031 reviewed merge and fresh public-main result
+
+Premerge audit `release-audit-baseline-0031-premerge.json` passes all ten checks and nineteen required real surfaces. Exact-head GitHub review binds `bcc5be719d8885598e858867e86f55171f94be2f`, retains the excluded v4 evidence and one nonblocking next-checkpoint gate-inventory hardening requirement, and finds no merge blocker. PR `#29` merged only under expected-head lock as `1b0ad59a59f566c8d10e7069d3ed8ffdb974f7fd`; reviewed and merged trees are identical at `f9fd2112b04d7a25592b23f8bef54aec34bad250`.
+
+A fresh no-alternates public-main clone passes 93 tests and all 40 phase-correct validators. Two 43-entry builds reproduce the selected 647,712-byte archive at SHA-256 `0e355dffd06ad6854d529b74a0248600e7d5ae1a86dadb1767e5be851cb0e865`. Fresh source/package runs each pass 57 scenarios, 171 attempts, 136 Boolean gates, and anchored 261-event traces. Their 407 raw leaf differences use exactly the seventeen declared launch-varying keys; removing only those keys yields byte-identical 560,780-byte canonical reports at SHA-256 `36359e32846ad31a3576b63f9151ed3c0bd966053456a173c7e93d18b316e661`.
+
+Both source and package MCP negotiate protocol `2025-11-25`, expose exactly three diagnostic/read tools, and expose no approval or execution authority. Both Windows PowerShell authenticated APIs pass 131/131 checks; both persisted-state, audit, redaction, and anchored-telemetry inspections pass 72/72. Source, package, and container 1440 by 1000 dashboards are complete at original detail with all 35 metric cards, two incidents, authenticated external operator, and real infrastructure disconnected.
+
+Two full public-main builds and one separate no-alternates public-main clean build reproduce exact image `sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1`. The full verifier supplies 46 checks and the independent clean clone supplies the exact final identity check, composing 47/47. Container evaluation, MCP, API/approval/executor/replay, state, telemetry, hardening, extraction, dashboard, and observation-time zero-critical/high scan pass. No image was exported, pushed, published, or redistributed. Final release audit remains before v0.0.31 tag or asset publication.
+
 ## BASELINE-0031 preimplementation orientation
 
 Verified public v0.0.30 at reconciliation commit `4d62ecf930130b938594a9b7bc70675f9d8122e1` remains the accepted control. Its fresh public-tag source run passes 57 scenarios, 171 attempts, every one of 136 Boolean gates, and an anchored 261-event trace. Retrieval, generation, tool trajectory, policy, terminal state, benign utility, attack success, repeated-trial reliability, latency, and cost remain separately reported.

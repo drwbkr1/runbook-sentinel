@@ -1,5 +1,16 @@
 # Development log
 
+## 2026-08-18 BASELINE-0031 reviewed merge and public-main verification
+
+- Premerge audit `release-audit-baseline-0031-premerge.json` verifies all ten checks and nineteen real surfaces. PR `#29` became ready at exact head `bcc5be719d8885598e858867e86f55171f94be2f`; 112 local and GitHub paths agree, GitHub reports CLEAN/MERGEABLE, and no CI/status context exists.
+- Exact-head review found no merge blocker and retained one defense-in-depth requirement: explicitly reject an absent or substituted selection-gate inventory. A narrow mutation passed 94/94 tests but correctly violated the frozen 153-file manifest; it was reverted byte-exactly and deferred to the next checkpoint instead of rewriting package/image evidence.
+- Review ID `4957276650` binds exact head and limitation. Expected-head history-preserving merge `1b0ad59a59f566c8d10e7069d3ed8ffdb974f7fd` has parents public v0.0.30 reconciliation `4d62ecf...` and reviewed head `bcc5be7...`; reviewed and merged trees are identical at `f9fd2112...`.
+- A new no-alternates HTTPS public-main clone begins clean at the merge. All 93 tests pass in 125.056 seconds and all 40 phase-correct validators pass in 7.728 seconds. Two independent 43-entry builds reproduce selected archive SHA-256 `0e355dff...` and its exact 94-byte checksum.
+- Fresh source/package evaluations each pass 57 scenarios, 171 attempts, all 136 Boolean gates, and anchored 261-event traces. Exactly seventeen declared launch-varying leaf keys explain all 407 raw differences; exact normalized report parity passes at SHA-256 `36359e32...`.
+- Source/package MCP remain bounded to three diagnostic/read tools with no approval or execution authority. Both Windows PowerShell authenticated APIs pass 131/131 checks and both native state/audit/telemetry inspections pass 72/72. Original-detail review accepts both complete 1440 by 1000 dashboards; the known Edge post-write diagnostic remains retained.
+- Two full public-main builds plus a second no-alternates public-main clean build reproduce image `sha256:3736d003...`. Composed container-runtime-v11 passes 47/47 including exact package/evaluation payloads, real CLI/MCP/API/executor/state/telemetry, hardened runtime, verified extraction, complete dashboard, local-only image events, and the observation-time zero-critical/high scan. No verifier container survives and no image was exported, pushed, published, or redistributed.
+- Retained process-invalid wrappers and the defense-in-depth finding in `baseline-0031-review-and-merged-main-failures-001.json`; no failed result is positive evidence. `merged-main-baseline-0031.json` binds the passing stack. Publish and reconcile these exact records before final release audit.
+
 ## 2026-08-17 BASELINE-0031 retrieval-focus orientation and local freeze
 
 - Resumed from clean public reconciliation commit `4d62ecf930130b938594a9b7bc70675f9d8122e1` in `C:/Projects/Active/runbook-sentinel-baseline-0031`; no OneDrive path is authoritative.

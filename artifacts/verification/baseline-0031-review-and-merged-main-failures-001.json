@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0031-review-and-merged-main-failures-001",
+  "checkpoint": "baseline-0031",
+  "unit": "UNIT-005",
+  "observed_at_utc": "2026-08-18T05:02:46Z",
+  "status": "retained_process_invalid_and_nonblocking_findings",
+  "positive_evidence": false,
+  "observations": [
+    {
+      "id": "OBS-001",
+      "phase": "premerge-review",
+      "classification": "powershell_wrapper_error",
+      "observation": "An orientation wrapper passed @{u} to PowerShell without quoting it, so PowerShell parsed a hashtable literal and stopped before Git execution.",
+      "correction": "The explicit quoted ref and later literal local, tracking, ls-remote, and GitHub head checks passed."
+    },
+    {
+      "id": "OBS-002",
+      "phase": "premerge-review",
+      "classification": "path_guess_error",
+      "observation": "A retrieval-report probe guessed artifacts/evaluations/runs/baseline-0031-retrieval-control.json, which does not exist.",
+      "correction": "The frozen comparison contract supplied the exact control and candidate paths; both reports contain 136 Boolean gates and matching gate-key inventories."
+    },
+    {
+      "id": "OBS-003",
+      "phase": "premerge-review",
+      "classification": "defense_in_depth_finding",
+      "observation": "The retrieval selection verifier derives coverage_and_adversarial_stage_contracts_pass with all(...) over filtered Boolean gates. A synthetic mutation that removed the complete coverage and retrieval-stage inventory could make that single derived check vacuously true.",
+      "current_exposure": "nonblocking for BASELINE-0031 because the exact public 136-gate control and excluded candidate reports, receipts, comparison, manifest, premerge audit, reviewed Git head, and selected v3 default remain bound; v4 already fails five gates and is not promoted",
+      "attempted_correction": "A narrow explicit inventory guard and mutation test passed 94 of 94 tests.",
+      "release_boundary": "The correction correctly failed the frozen 153-file manifest on the changed verifier, so it was reverted byte-exactly instead of rewriting the verified package and image lineage.",
+      "next_checkpoint_requirement": "Make absent or substituted selection-gate inventories fail closed in the next checkpoint before evaluating another retrieval candidate."
+    },
+    {
+      "id": "OBS-004",
+      "phase": "premerge-review",
+      "classification": "expected_manifest_rejection",
+      "observation": "A 40-validator wrapper run while the review mutation existed stopped at verify_baseline.py because verify_manifest.py reported exactly scripts/verify_retrieval_tier_cap_result.py changed.",
+      "correction": "The two-file review mutation was reverted byte-exactly; the active manifest and comparison validator then passed."
+    },
+    {
+      "id": "OBS-005",
+      "phase": "premerge-review",
+      "classification": "unsafe_orchestrator_selection",
+      "observation": "A manual validator inventory mistakenly included the legacy verify_baseline.py orchestration command, which can create and promote a new evaluation after its regression phase.",
+      "containment": "The exact Python and wrapper processes were stopped during the regression phase before evaluation creation or promotion; Git status remained clean and no candidate evidence changed.",
+      "correction": "The corrected set excludes side-effecting verify_baseline.py and includes immutable report/trace verification instead."
+    },
+    {
+      "id": "OBS-006",
+      "phase": "premerge-review",
+      "classification": "trace_wrapper_errors",
+      "observation": "The first corrected trace command omitted PYTHONPATH and the second guessed a non-existent source-attempt path.",
+      "correction": "The exact source report and trace under artifacts/evaluations/runs passed with PYTHONPATH bound to src; the complete corrected set passed 40 of 40."
+    },
+    {
+      "id": "OBS-007",
+      "phase": "premerge-review",
+      "classification": "github_query_wrapper_errors",
+      "observation": "PowerShell wrapped GitHub array responses as nested arrays during one pagination probe, and one later anonymous request hit a transient DNS failure.",
+      "correction": "Curl with retry and direct array handling proved all 112 local and GitHub PR paths equal; connected GitHub state remained clean and mergeable at the exact head."
+    },
+    {
+      "id": "OBS-008",
+      "phase": "premerge-review",
+      "classification": "public_audit_probe_error",
+      "observation": "The first public-audit verification wrapper used an invalid Where-Object expression and stopped before producing a result.",
+      "correction": "The exact successor verified the audit bytes, Git blob, length, SHA-256, branch head, and PR head."
+    },
+    {
+      "id": "OBS-009",
+      "phase": "fresh-public-main",
+      "classification": "expected_artifact_absence",
+      "observation": "The first fresh-clone validator wrapper required dist/runbook-sentinel-0.0.31.pyz before rebuilding it, so the package verifier correctly reported the ignored release artifact missing.",
+      "correction": "All 40 contract and project validators passed without asserting a not-yet-built archive; two subsequent builds reproduced and independently validated the selected archive exactly."
+    },
+    {
+      "id": "OBS-010",
+      "phase": "fresh-public-main",
+      "classification": "schema_probe_error",
+      "observation": "A package-contract probe requested a nonexistent top-level artifact property.",
+      "correction": "The exact path is candidate.artifact; two builds and the canonical checksum passed."
+    },
+    {
+      "id": "OBS-011",
+      "phase": "fresh-public-main",
+      "classification": "lost_wrapper_output",
+      "observation": "Long PowerShell wrappers for merged-main evaluation and tracked structured parsing outlived the first output-yield window, so their session identifiers were not retained by the wrapper.",
+      "containment": "Evaluation files completed normally and were independently re-read and verified; the slower read-only parse wrapper was stopped and replaced with a faster no-write parser.",
+      "correction": "Exact report, trace, JSON, and JSONL results are recorded in merged-main-baseline-0031.json."
+    },
+    {
+      "id": "OBS-012",
+      "phase": "fresh-public-main",
+      "classification": "scan_wrapper_errors",
+      "observation": "Two credential-scan attempts placed a leading-hyphen pattern before the ripgrep option terminator and then placed globs after the terminator.",
+      "correction": "The exact successor reports zero token material, zero complete private-key blocks, twenty-six definition or historical literal matches, and zero unresolved credential finding."
+    },
+    {
+      "id": "OBS-013",
+      "phase": "rendered-dashboard",
+      "classification": "known_renderer_diagnostic",
+      "observation": "Both Windows PowerShell Edge launches emitted the existing fallback task-provider diagnostic after writing the requested PNG.",
+      "correction": "Both commands exited zero; source and package PNGs are complete 1440 by 1000 frames and passed original-detail inspection."
+    },
+    {
+      "id": "OBS-014",
+      "phase": "merged-main-record-reconciliation",
+      "classification": "milestone_validator_wrapper_error",
+      "observation": "The first milestone-validation wrapper named nonexistent optional profile .codex/project.json and therefore returned invalid before evaluating the contract.",
+      "correction": "The milestone contract declares no project profile reference; the exact successor invokes the governing validator on contracts/milestone-0031.json without inventing one."
+    },
+    {
+      "id": "OBS-015",
+      "phase": "merged-main-record-reconciliation",
+      "classification": "validator_phase_wrapper_error",
+      "observation": "A generic forty-script wrapper passed thirty-three validators but omitted three source import bindings and four required lifecycle flags, so seven validators correctly failed instead of attesting the wrong phase.",
+      "correction": "The exact successor binds PYTHONPATH to src and supplies the current implementation, excluded-candidate result, and canonical container-result requirements declared by each lifecycle validator."
+    },
+    {
+      "id": "OBS-016",
+      "phase": "merged-main-record-reconciliation",
+      "classification": "validator_phase_wrapper_error",
+      "observation": "The first phase-correct successor supplied retrieval-observability implementation-only mode without its companion require-implementation flag; that validator rejected the incomplete phase declaration after thirty-nine other passes.",
+      "correction": "The exact successor supplies both flags, matching the implemented current lifecycle without changing any project byte other than this retained process receipt."
+    }
+  ],
+  "boundaries": {
+    "product_or_security_boundary_changed_by_failure": false,
+    "frozen_evaluation_rewritten": false,
+    "failed_or_unfavorable_result_used_as_positive_evidence": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "real_infrastructure_contacted": false
+  }
+}
