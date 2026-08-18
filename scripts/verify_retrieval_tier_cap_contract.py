@@ -19,6 +19,11 @@ from runbook_sentinel.evidence import (  # noqa: E402
 
 
 CONTRACT_PATH = ROOT / "eval/retrieval-tier-cap-contract.json"
+ACTIVE_MANIFEST_PATH = ROOT / "eval/manifest.json"
+ACCEPTED_CONTROL_ARCHIVE_PATH = (
+    ROOT
+    / "artifacts/evaluations/runs/baseline-0030-final-source-attempt-001.json"
+)
 CANDIDATE_CONFIGURATION = "bounded-trust-tier-lexical-v4"
 CONTROL_CONFIGURATION = "freshness-priority-lexical-v3"
 EXPECTED_METRICS = [
@@ -129,6 +134,61 @@ def _expect_identity(record: dict[str, Any], errors: list[str], prefix: str) -> 
         errors.append(f"{prefix}_identity")
 
 
+def _resolve_accepted_control(
+    control: dict[str, Any],
+    declared_path: Path,
+    archive_path: Path,
+    active_manifest_path: Path,
+    errors: list[str],
+) -> Path:
+    expected_bytes = control.get("evaluation_bytes")
+    expected_sha256 = control.get("evaluation_sha256")
+    if (
+        declared_path.is_file()
+        and declared_path.stat().st_size == expected_bytes
+        and sha256(declared_path) == expected_sha256
+    ):
+        return declared_path
+
+    if (
+        not archive_path.is_file()
+        or archive_path.stat().st_size != expected_bytes
+        or sha256(archive_path) != expected_sha256
+    ):
+        errors.append("control_evaluation_archive_identity")
+        return declared_path
+
+    try:
+        active = json.loads(declared_path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError, UnicodeDecodeError):
+        errors.append("active_evaluation_lifecycle_identity")
+        return declared_path
+    boolean_gates = [
+        value for value in active.get("gates", {}).values() if isinstance(value, bool)
+    ]
+    active_manifest_sha256 = (
+        sha256(active_manifest_path) if active_manifest_path.is_file() else None
+    )
+    if not all(
+        (
+            active.get("checkpoint") == "baseline-0031",
+            active.get("retrieval_configuration") == CONTROL_CONFIGURATION,
+            active.get("agent_configuration") == "deterministic-control-v2",
+            active.get("decision_context_configuration")
+            == "fresh-content-stale-metadata-context-v3",
+            active.get("scenario_count") == 57,
+            active.get("attempt_count") == 171,
+            active.get("manifest_sha256") == active_manifest_sha256,
+            active.get("gates", {}).get("baseline_disposition") == "pass",
+            len(boolean_gates) == 136,
+            all(boolean_gates),
+        )
+    ):
+        errors.append("active_evaluation_lifecycle_identity")
+        return declared_path
+    return archive_path
+
+
 def validate(
     require_implementation: bool = False,
     require_selection: bool = False,
@@ -156,14 +216,15 @@ def validate(
         errors.append("starting_main_identity")
 
     control = frozen.get("accepted_control", {})
-    report_path = ROOT / control.get("evaluation_path", "")
-    if (
-        not report_path.is_file()
-        or report_path.stat().st_size != control.get("evaluation_bytes")
-        or sha256(report_path) != control.get("evaluation_sha256")
-    ):
-        errors.append("control_evaluation_identity")
-    else:
+    declared_report_path = ROOT / control.get("evaluation_path", "")
+    report_path = _resolve_accepted_control(
+        control,
+        declared_report_path,
+        ACCEPTED_CONTROL_ARCHIVE_PATH,
+        ACTIVE_MANIFEST_PATH,
+        errors,
+    )
+    if report_path.is_file():
         report = json.loads(report_path.read_text(encoding="utf-8"))
         quality = report.get("metrics", {}).get("retrieval_quality", {}).get(
             "expected_evidence", {}

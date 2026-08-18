@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -32,6 +34,47 @@ class RetrievalTierCapContractTests(unittest.TestCase):
         )
         self.assertEqual(result["status"], "pass")
         self.assertEqual(result["errors"], [])
+
+    def test_accepted_control_survives_latest_pointer_advance_exactly(self) -> None:
+        control = self.frozen["accepted_control"]
+        with tempfile.TemporaryDirectory(prefix="sentinel-control-") as directory:
+            root = Path(directory)
+            declared = root / "latest.json"
+            archived = root / "baseline-0030-final-source-attempt-001.json"
+            manifest = root / "manifest.json"
+            baseline_0030 = verifier.ACCEPTED_CONTROL_ARCHIVE_PATH.read_bytes()
+            baseline_0031 = (verifier.ROOT / "artifacts/evaluations/latest.json").read_bytes()
+            active_manifest = verifier.ACTIVE_MANIFEST_PATH.read_bytes()
+            self.assertEqual(
+                hashlib.sha256(baseline_0030).hexdigest(),
+                control["evaluation_sha256"],
+            )
+
+            declared.write_bytes(baseline_0030)
+            errors: list[str] = []
+            selected = verifier._resolve_accepted_control(
+                control, declared, archived, manifest, errors
+            )
+            self.assertEqual(selected, declared)
+            self.assertEqual(errors, [])
+
+            declared.write_bytes(baseline_0031)
+            archived.write_bytes(baseline_0030)
+            manifest.write_bytes(active_manifest)
+            errors = []
+            selected = verifier._resolve_accepted_control(
+                control, declared, archived, manifest, errors
+            )
+            self.assertEqual(selected, archived)
+            self.assertEqual(errors, [])
+
+            archived.write_bytes(baseline_0030 + b"tampered")
+            errors = []
+            selected = verifier._resolve_accepted_control(
+                control, declared, archived, manifest, errors
+            )
+            self.assertEqual(selected, declared)
+            self.assertEqual(errors, ["control_evaluation_archive_identity"])
 
     def test_reference_candidate_enforces_exact_caps_without_backfill(self) -> None:
         scenario = {
