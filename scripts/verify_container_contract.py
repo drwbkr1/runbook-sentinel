@@ -9,7 +9,8 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CONTRACT = ROOT / "eval/container-contract.json"
-VERSIONED_CONTRACT = ROOT / "eval/container-contract-0030-v10.json"
+VERSIONED_CONTRACT = ROOT / "eval/container-contract-0031-v11.json"
+SUPERSEDED_V10_CONTRACT = ROOT / "eval/container-contract-0030-v10.json"
 SUPERSEDED_V9_CONTRACT = ROOT / "eval/container-contract-0029-v9.json"
 SUPERSEDED_V8_CONTRACT = ROOT / "eval/container-contract-0028-v8.json"
 SUPERSEDED_V7_CONTRACT = ROOT / "eval/container-contract-0027-v7.json"
@@ -61,6 +62,12 @@ EXPECTED_V9_CONTRACT_SHA256 = (
 )
 EXPECTED_V9_RECEIPT_SHA256 = (
     "1ad5e50384f6364d496251f0519943c42d7e046964f88a1700782ecdb8780760"
+)
+EXPECTED_V10_CONTRACT_SHA256 = (
+    "8ab929384c6e0b7b6a60554430bf0759a5b0cbb0130b597638fe17e779733d67"
+)
+EXPECTED_V10_RECEIPT_SHA256 = (
+    "35dfd1897cbd83f239b2ff36c141ef6003997c39582ef78c6f6ac129271c5ad2"
 )
 EXPECTED_V3_CONTRACT_SHA256 = (
     "1f63fcb6707f129ecc803c05026308680ea9417a6b61c4fdb4d379737d9d6b67"
@@ -133,6 +140,11 @@ EXPECTED_V10_DOCKERFILE_LINES[3] = 'LABEL org.opencontainers.image.version="0.0.
 EXPECTED_V10_DOCKERFILE_LINES[6] = "COPY --chown=65532:65532 dist/runbook-sentinel-0.0.30.pyz /opt/runbook-sentinel/runbook-sentinel.pyz"
 EXPECTED_V10_DOCKERIGNORE_LINES = list(EXPECTED_V9_DOCKERIGNORE_LINES)
 EXPECTED_V10_DOCKERIGNORE_LINES[2] = "!dist/runbook-sentinel-0.0.30.pyz"
+EXPECTED_V11_DOCKERFILE_LINES = list(EXPECTED_V10_DOCKERFILE_LINES)
+EXPECTED_V11_DOCKERFILE_LINES[3] = 'LABEL org.opencontainers.image.version="0.0.31"'
+EXPECTED_V11_DOCKERFILE_LINES[6] = "COPY --chown=65532:65532 dist/runbook-sentinel-0.0.31.pyz /opt/runbook-sentinel/runbook-sentinel.pyz"
+EXPECTED_V11_DOCKERIGNORE_LINES = list(EXPECTED_V10_DOCKERIGNORE_LINES)
+EXPECTED_V11_DOCKERIGNORE_LINES[2] = "!dist/runbook-sentinel-0.0.31.pyz"
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 
 
@@ -662,7 +674,7 @@ def validate_v9_contract(contract: dict, raw: bytes, errors: list[str]) -> None:
     expect(raw.endswith(b"\n"), "contract must end with LF", errors)
 
 
-def validate_contract(contract: dict, raw: bytes, errors: list[str]) -> None:
+def validate_v10_contract(contract: dict, raw: bytes, errors: list[str]) -> None:
     expect(contract.get("schema_version") == "1.0", "schema_version must be 1.0", errors)
     expect(contract.get("contract_id") == "container-runtime-v10", "contract_id mismatch", errors)
     expect(contract.get("checkpoint") == "baseline-0030", "checkpoint mismatch", errors)
@@ -753,6 +765,120 @@ def validate_contract(contract: dict, raw: bytes, errors: list[str]) -> None:
     expect("container_retrieval_stage_metric_exact" in required_checks, "retrieval-stage metric check is required", errors)
     expect("container_retrieval_quality_metric_exact" in required_checks, "retrieval-quality metric check is required", errors)
     expect("container_model_contract_selection_exact" in required_checks, "model-contract selection check is required", errors)
+    expect(len(required_checks) == len(set(required_checks)), "container check IDs must be unique", errors)
+    expect(bool(contract.get("no_go_boundaries")), "no-go boundaries must be nonempty", errors)
+    expect(raw.endswith(b"\n"), "contract must end with LF", errors)
+
+
+def validate_contract(contract: dict, raw: bytes, errors: list[str]) -> None:
+    expect(contract.get("schema_version") == "1.0", "schema_version must be 1.0", errors)
+    expect(contract.get("contract_id") == "container-runtime-v11", "contract_id mismatch", errors)
+    expect(contract.get("checkpoint") == "baseline-0031", "checkpoint mismatch", errors)
+    expect(
+        contract.get("contract_status")
+        == "frozen_before_v11_identity_implementation_and_any_v0.0.31_image_build",
+        "contract_status mismatch",
+        errors,
+    )
+    source = contract.get("source_checkpoint", {})
+    expect(source.get("public_version") == "0.0.30", "source public version mismatch", errors)
+    expect(
+        source.get("public_release_commit")
+        == "9bfa784feeb1e002c546326ce9db214c2c155fce",
+        "source public release commit mismatch",
+        errors,
+    )
+    expect(
+        source.get("source_candidate_commit")
+        == "2d30ec26eb6f0a4ee8cfa0214bd2481518934303",
+        "source candidate commit mismatch",
+        errors,
+    )
+    expect(
+        source.get("selection_seal_commit")
+        == "f9134cfb451e84730c9cebdd586ea68dabee1a99",
+        "selection seal commit mismatch",
+        errors,
+    )
+    expect(
+        source.get("selection_reconciliation_commit")
+        == "41a5d5f49c74b38f966b8a7671ab584e6e070047",
+        "selection reconciliation commit mismatch",
+        errors,
+    )
+    expect(
+        source.get("source_candidate_report_sha256")
+        == "1bf431136660177b87cc7c893aa31cd75d2a6d7dfb19034705d5bc7f10ccf47a",
+        "source candidate report mismatch",
+        errors,
+    )
+    expect(
+        source.get("source_candidate_manifest_sha256")
+        == "9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c",
+        "source candidate manifest mismatch",
+        errors,
+    )
+    expect(
+        source.get("source_candidate_report_manifest_sha256")
+        == "9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c",
+        "source candidate report manifest identity mismatch",
+        errors,
+    )
+    expect(
+        source.get("source_candidate_manifest_representation")
+        == "byte-exact binary verification copy of the public precomparison manifest",
+        "source candidate manifest representation mismatch",
+        errors,
+    )
+    expect(
+        source.get("source_candidate_manifest_frozen_at_utc") == "2026-08-18T01:23:34Z",
+        "source candidate manifest time mismatch",
+        errors,
+    )
+    report_path = ROOT / str(source.get("source_candidate_report", ""))
+    manifest_path = ROOT / str(source.get("source_candidate_manifest", ""))
+    expect(report_path.is_file(), "source candidate report is missing", errors)
+    expect(manifest_path.is_file(), "source candidate manifest is missing", errors)
+    if report_path.is_file():
+        expect(sha256_file(report_path) == source.get("source_candidate_report_sha256"), "source candidate report bytes changed", errors)
+        report = json.loads(report_path.read_text(encoding="utf-8"))
+        expect(report.get("manifest_sha256") == source.get("source_candidate_report_manifest_sha256"), "source candidate report manifest hash changed", errors)
+    if manifest_path.is_file():
+        expect(sha256_file(manifest_path) == source.get("source_candidate_manifest_sha256"), "source candidate manifest bytes changed", errors)
+    inheritance = contract.get("inheritance", {})
+    expect(inheritance.get("contract") == "eval/container-contract-0030-v10.json", "v10 inheritance path mismatch", errors)
+    expect(inheritance.get("contract_id") == "container-runtime-v10", "v10 inheritance ID mismatch", errors)
+    expect(inheritance.get("contract_sha256") == EXPECTED_V10_CONTRACT_SHA256, "v10 inheritance hash mismatch", errors)
+    expect(inheritance.get("verified_result") == "artifacts/verification/container-baseline-0030-public.json", "v10 receipt path mismatch", errors)
+    expect(inheritance.get("verified_result_sha256") == EXPECTED_V10_RECEIPT_SHA256, "v10 receipt hash mismatch", errors)
+    inherited_contract = json.loads(SUPERSEDED_V10_CONTRACT.read_text(encoding="utf-8")) if SUPERSEDED_V10_CONTRACT.is_file() else {}
+    inherited_receipt_path = ROOT / str(inheritance.get("verified_result", ""))
+    expect(inherited_receipt_path.is_file(), "inherited v10 receipt is missing", errors)
+    if inherited_receipt_path.is_file():
+        expect(sha256_file(inherited_receipt_path) == EXPECTED_V10_RECEIPT_SHA256, "inherited v10 receipt bytes changed", errors)
+    candidate = contract.get("candidate", {})
+    expect(candidate.get("version") == "0.0.31", "candidate version mismatch", errors)
+    expect(candidate.get("package_artifact") == "dist/runbook-sentinel-0.0.31.pyz", "candidate package mismatch", errors)
+    expect(candidate.get("published_image") is False, "candidate image publication must be false", errors)
+    expect(candidate.get("exported_image_archive") is False, "candidate image export must be false", errors)
+    base = contract.get("base_image", {})
+    expect(base.get("reference") == EXPECTED_BASE, "base reference mismatch", errors)
+    expect(base.get("platform_manifest_digest") == EXPECTED_PLATFORM_MANIFEST, "base platform manifest mismatch", errors)
+    expect(base.get("source_gate_sha256") == EXPECTED_SOURCE_GATE_SHA256, "source gate hash mismatch", errors)
+    expect(contract.get("dockerfile_contract", {}).get("expected_lines") == EXPECTED_V11_DOCKERFILE_LINES, "Dockerfile contract lines mismatch", errors)
+    expect(contract.get("dockerignore_contract", {}).get("expected_lines") == EXPECTED_V11_DOCKERIGNORE_LINES, ".dockerignore contract lines mismatch", errors)
+    for key in ("event_capture_contract", "namespace_security_contract", "tmpfs_extraction_contract"):
+        expect(contract.get(key) == inherited_contract.get(key), f"{key.replace('_', ' ')} mismatch", errors)
+    pre = contract.get("preimplementation_identity", {})
+    expect(pre.get("runtime_verifier_v10_sha256") == "b6288aaf9adf297db317444ffbd05d5c770c718ee456dc03b0cecad0ef623321", "v10 runtime verifier identity mismatch", errors)
+    expect(pre.get("tests_v10_sha256") == "53068b5607cdf704e911bd367e6fadd7418629857aed664024da1ce9d7accf90", "v10 tests identity mismatch", errors)
+    expect(pre.get("contract_verifier_v10_sha256") == "eaf0337b0506d464a25991b2bfb1b4f4b93ca6887708eed0b9670fef4fa2938f", "v10 contract verifier identity mismatch", errors)
+    required_checks = contract.get("verification_contract", {}).get("required_checks", [])
+    expect(len(required_checks) == 47, "exactly 47 container checks are required", errors)
+    expect("container_retrieval_stage_metric_exact" in required_checks, "retrieval-stage metric check is required", errors)
+    expect("container_retrieval_quality_metric_exact" in required_checks, "retrieval-quality metric check is required", errors)
+    expect("container_model_contract_selection_exact" in required_checks, "model-contract selection check is required", errors)
+    expect("container_retrieval_tier_cap_selection_exact" in required_checks, "retrieval selection check is required", errors)
     expect(len(required_checks) == len(set(required_checks)), "container check IDs must be unique", errors)
     expect(bool(contract.get("no_go_boundaries")), "no-go boundaries must be nonempty", errors)
     expect(raw.endswith(b"\n"), "contract must end with LF", errors)
@@ -1085,7 +1211,7 @@ def validate_v8_implementation(require: bool, errors: list[str]) -> str:
     return "nonconforming"
 
 
-def validate_v10_implementation(require: bool, errors: list[str]) -> str:
+def validate_v11_implementation(require: bool, errors: list[str]) -> str:
     runtime_path = ROOT / "scripts/verify_container_runtime.py"
     tests_path = ROOT / "tests/test_baseline.py"
     expect(runtime_path.is_file(), "container runtime verifier is missing", errors)
@@ -1094,39 +1220,41 @@ def validate_v10_implementation(require: bool, errors: list[str]) -> str:
         return "missing"
     runtime_hash = sha256_file(runtime_path)
     tests_hash = sha256_file(tests_path)
-    v9_exact = (
-        runtime_hash == "6587ade308d4291854bba2ff01776b4626d1f2936ac789d751b79a0dfe2517d9"
-        and tests_hash == "cc87ee0a56e96cccc5743febc7b16de8d4742ec9c0301a2fd1d574d3ac908ffa"
+    v10_exact = (
+        runtime_hash == "b6288aaf9adf297db317444ffbd05d5c770c718ee456dc03b0cecad0ef623321"
+        and tests_hash == "53068b5607cdf704e911bd367e6fadd7418629857aed664024da1ce9d7accf90"
     )
     runtime_text = runtime_path.read_text(encoding="utf-8")
     tests_text = tests_path.read_text(encoding="utf-8")
     markers = [
-        'PACKAGE_PATH = ROOT / "dist/runbook-sentinel-0.0.30.pyz"',
-        '"org.opencontainers.image.version": "0.0.30"',
-        'contract_validation.get("implementation_phase") == "implemented_v10"',
+        'PACKAGE_PATH = ROOT / "dist/runbook-sentinel-0.0.31.pyz"',
+        '"org.opencontainers.image.version": "0.0.31"',
+        'contract_validation.get("implementation_phase") == "implemented_v11"',
         '"container_retrieval_quality_metric_exact"',
         '"container_model_contract_selection_exact"',
-        '"checkpoint": "baseline-0030"',
-        'b"Baseline 0030" in dashboard_raw',
+        '"container_retrieval_tier_cap_selection_exact"',
+        '"checkpoint": "baseline-0031"',
+        'b"Baseline 0031" in dashboard_raw',
         '"retrieval_quality"',
     ]
-    v10_exact = all(marker in runtime_text for marker in markers) and 'b"Baseline 0029" in dashboard_raw' not in runtime_text and all(
+    v11_exact = all(marker in runtime_text for marker in markers) and 'b"Baseline 0030" in dashboard_raw' not in runtime_text and all(
         marker in tests_text
         for marker in (
-            "test_container_v10_prerequisite_requires_current_implementation_phase",
-            "test_container_v10_retrieval_quality_projection_fails_closed",
+            "test_container_v11_prerequisite_requires_current_implementation_phase",
+            "test_container_v11_retrieval_quality_projection_fails_closed",
             '"container_retrieval_quality_metric_exact"',
+            '"container_retrieval_tier_cap_selection_exact"',
         )
     )
-    dockerfile_exact = (ROOT / "Dockerfile").read_text(encoding="utf-8").splitlines() == EXPECTED_V10_DOCKERFILE_LINES
-    dockerignore_exact = (ROOT / ".dockerignore").read_text(encoding="utf-8").splitlines() == EXPECTED_V10_DOCKERIGNORE_LINES
-    v10_exact = v10_exact and dockerfile_exact and dockerignore_exact
+    dockerfile_exact = (ROOT / "Dockerfile").read_text(encoding="utf-8").splitlines() == EXPECTED_V11_DOCKERFILE_LINES
+    dockerignore_exact = (ROOT / ".dockerignore").read_text(encoding="utf-8").splitlines() == EXPECTED_V11_DOCKERIGNORE_LINES
+    v11_exact = v11_exact and dockerfile_exact and dockerignore_exact
+    if v11_exact:
+        return "implemented_v11"
     if v10_exact:
-        return "implemented_v10"
-    if v9_exact:
-        expect(not require, "v10 identity implementation is required", errors)
-        return "frozen_v9_preimplementation"
-    expect(False, "container verifier or tests do not match frozen v9 or required v10 implementation", errors)
+        expect(not require, "v11 identity implementation is required", errors)
+        return "frozen_v10_preimplementation"
+    expect(False, "container verifier or tests do not match frozen v10 or required v11 implementation", errors)
     return "nonconforming"
 
 
@@ -1136,7 +1264,7 @@ def validate_receipt(contract: dict, receipt_path: Path, require: bool, errors: 
         return "absent"
     receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
     expect(receipt.get("schema_version") == "1.0", "receipt schema mismatch", errors)
-    expect(receipt.get("checkpoint") == "baseline-0030", "receipt checkpoint mismatch", errors)
+    expect(receipt.get("checkpoint") == "baseline-0031", "receipt checkpoint mismatch", errors)
     expect(receipt.get("status") == "pass", "receipt status must pass", errors)
     expect(receipt.get("contract_sha256") == sha256_file(DEFAULT_CONTRACT), "receipt contract hash mismatch", errors)
     expect(receipt.get("source_gate_sha256") == EXPECTED_SOURCE_GATE_SHA256, "receipt source gate hash mismatch", errors)
@@ -1175,6 +1303,11 @@ def main() -> None:
     validate_contract(contract, raw, errors)
     if contract_path == DEFAULT_CONTRACT.resolve():
         expect(VERSIONED_CONTRACT.read_bytes() == raw, "current and versioned container contracts differ", errors)
+    expect(SUPERSEDED_V10_CONTRACT.is_file(), "superseded v10 contract is missing", errors)
+    v10_raw = SUPERSEDED_V10_CONTRACT.read_bytes() if SUPERSEDED_V10_CONTRACT.is_file() else b"{}\n"
+    expect(hashlib.sha256(v10_raw).hexdigest() == EXPECTED_V10_CONTRACT_SHA256, "superseded v10 contract bytes changed", errors)
+    v10_contract = json.loads(v10_raw)
+    validate_v10_contract(v10_contract, v10_raw, errors)
     expect(SUPERSEDED_V9_CONTRACT.is_file(), "superseded v9 contract is missing", errors)
     v9_raw = SUPERSEDED_V9_CONTRACT.read_bytes() if SUPERSEDED_V9_CONTRACT.is_file() else b"{}\n"
     expect(hashlib.sha256(v9_raw).hexdigest() == EXPECTED_V9_CONTRACT_SHA256, "superseded v9 contract bytes changed", errors)
@@ -1213,7 +1346,7 @@ def main() -> None:
     validate_v5_implementation(True, errors)
     validate_v6_implementation(True, errors)
     validate_v7_implementation(True, errors)
-    phase = validate_v10_implementation(args.require_implementation, errors)
+    phase = validate_v11_implementation(args.require_implementation, errors)
     receipt_path = (args.receipt or ROOT / contract["verification_contract"]["receipt"]).resolve()
     receipt_state = validate_receipt(contract, receipt_path, args.require_result, errors)
     result = {

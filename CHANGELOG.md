@@ -23,6 +23,7 @@
 - Published control seal `2d30ec26eb6f0a4ee8cfa0214bd2481518934303`, tree `426e281f1ba1f3173d53b674e3465d4e0115252d`; all four refs, all ten tree entries, and all ten unauthenticated raw files are exact. The frozen v4 candidate may now run once against the same manifest; v3 remains default.
 - Ran v4 once against the same manifest. It improves development expected-document share from 0.696428571429 to 0.72619047619 and reduces extras from 66 to 48 while preserving required evidence, ranks, behavior, policy, utility, attacks, reliability, p95 latency, and cost. It is excluded because five Boolean gates are false, the baseline disposition is `remediate`, retrieval-stage coverage contracts do not all pass, and median latency rises from 64.377 to 65.443 ms. The frozen verifier selects v3; final comparison-complete gates pass 91/91 tests and 39/39 validators.
 - Published comparison seal `f9134cfb451e84730c9cebdd586ea68dabee1a99`, tree `8c2569d4376c9cf1bf87fe4a63d58e38c0b70f75`; all four refs, all 11 tree entries, and all 11 unauthenticated raw files are exact. UNIT-003 is complete with v3 selected; UNIT-004 now verifies the selected source and real surfaces.
+- Froze the dependency-free v0.0.31 package contract, inherited 47-check container-runtime-v11, exact archived comparison manifest, and a 153-file prebuild manifest at SHA-256 `d10e77ad...`. V3 remains the retrieval default, v4 remains excluded, all 92 tests and 39 applicable validators pass, and no archive or image exists before the public prebuild seal.
 
 ## 0.0.30 - 2026-08-17
 

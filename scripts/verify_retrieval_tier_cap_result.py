@@ -17,6 +17,12 @@ from runbook_sentinel.telemetry import verify_trace_file  # noqa: E402
 
 CONTRACT_PATH = ROOT / "eval/retrieval-tier-cap-contract.json"
 MANIFEST_PATH = ROOT / "eval/manifest.json"
+SELECTION_MANIFEST_PATH = (
+    ROOT / "artifacts/verification/baseline-0031-prebuild-source-manifest.json"
+)
+EXPECTED_SELECTION_MANIFEST_SHA256 = (
+    "9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c"
+)
 CATALOG_PATH = ROOT / "src/runbook_sentinel/data/scenarios.json"
 CONTROL_CONFIGURATION = "freshness-priority-lexical-v3"
 CANDIDATE_CONFIGURATION = "bounded-trust-tier-lexical-v4"
@@ -43,6 +49,20 @@ def _load(path: Path) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise ValueError(f"{path} must contain an object")
     return value
+
+
+def _resolve_selection_manifest(
+    active_path: Path,
+    archived_path: Path,
+    errors: list[str],
+) -> tuple[Path, str, str]:
+    active_sha256 = _sha256(active_path)
+    if active_sha256 == EXPECTED_SELECTION_MANIFEST_SHA256:
+        return active_path, active_sha256, active_sha256
+    if archived_path.is_file() and _sha256(archived_path) == EXPECTED_SELECTION_MANIFEST_SHA256:
+        return archived_path, EXPECTED_SELECTION_MANIFEST_SHA256, active_sha256
+    errors.append("selection_manifest_archive_identity")
+    return active_path, active_sha256, active_sha256
 
 
 def _attempts(report: dict[str, Any]) -> list[tuple[dict[str, Any], dict[str, Any]]]:
@@ -274,8 +294,15 @@ def validate(
     if runtime_retrieval.DEFAULT_RETRIEVAL_CONFIGURATION != CONTROL_CONFIGURATION:
         errors.append("runtime_default_changed_before_comparison")
 
-    manifest = _load(MANIFEST_PATH)
-    manifest_sha256 = _sha256(MANIFEST_PATH)
+    selection_manifest_path, manifest_sha256, active_manifest_sha256 = (
+        _resolve_selection_manifest(MANIFEST_PATH, SELECTION_MANIFEST_PATH, errors)
+    )
+    manifest = _load(selection_manifest_path)
+    if (
+        manifest.get("checkpoint") != "baseline-0031"
+        or manifest.get("frozen_at_utc") != "2026-08-18T01:23:34Z"
+    ):
+        errors.append("selection_manifest_semantics")
     control_receipt, control = _validate_run(
         "control", artifacts["control"], manifest_sha256, errors
     )
@@ -356,6 +383,8 @@ def validate(
         "phase": phase,
         "manifest_checkpoint": manifest.get("checkpoint"),
         "manifest_sha256": manifest_sha256,
+        "manifest_source": str(selection_manifest_path.relative_to(ROOT)).replace("\\", "/"),
+        "active_manifest_sha256": active_manifest_sha256,
         "control_present": control is not None,
         "candidate_present": candidate is not None,
         "comparison_present": comparison is not None,

@@ -98,6 +98,10 @@ from scripts.verify_container_contract import (
     validate_contract as validate_container_contract,
     validate_v4_contract,
 )
+from scripts.verify_retrieval_tier_cap_result import (
+    EXPECTED_SELECTION_MANIFEST_SHA256,
+    _resolve_selection_manifest,
+)
 
 
 class BaselineTest(unittest.TestCase):
@@ -113,8 +117,44 @@ class BaselineTest(unittest.TestCase):
     def tearDown(self):
         self.temp.cleanup()
 
-    def test_container_v4_build_command_is_frozen_and_local_only(self):
-        tag = "runbook-sentinel:baseline-0030-test"
+    def test_retrieval_selection_manifest_survives_release_manifest_renewal_exactly(self):
+        root = Path(self.temp.name)
+        active = root / "eval/manifest.json"
+        archived = root / "artifacts/verification/baseline-0031-prebuild-source-manifest.json"
+        active.parent.mkdir(parents=True)
+        archived.parent.mkdir(parents=True)
+        exact = (
+            ROOT / "artifacts/verification/baseline-0031-prebuild-source-manifest.json"
+        ).read_bytes()
+        self.assertEqual(hashlib.sha256(exact).hexdigest(), EXPECTED_SELECTION_MANIFEST_SHA256)
+
+        active.write_bytes(exact)
+        errors: list[str] = []
+        selected, selection_sha256, active_sha256 = _resolve_selection_manifest(
+            active, archived, errors
+        )
+        self.assertEqual((selected, selection_sha256, active_sha256), (active,) + (EXPECTED_SELECTION_MANIFEST_SHA256,) * 2)
+        self.assertEqual(errors, [])
+
+        active.write_bytes(b'{"checkpoint":"baseline-0031","release":true}\n')
+        archived.write_bytes(exact)
+        errors = []
+        selected, selection_sha256, active_sha256 = _resolve_selection_manifest(
+            active, archived, errors
+        )
+        self.assertEqual(selected, archived)
+        self.assertEqual(selection_sha256, EXPECTED_SELECTION_MANIFEST_SHA256)
+        self.assertNotEqual(active_sha256, EXPECTED_SELECTION_MANIFEST_SHA256)
+        self.assertEqual(errors, [])
+
+        archived.write_bytes(exact + b"tampered")
+        errors = []
+        selected, _, _ = _resolve_selection_manifest(active, archived, errors)
+        self.assertEqual(selected, active)
+        self.assertEqual(errors, ["selection_manifest_archive_identity"])
+
+    def test_container_v11_build_command_is_frozen_and_local_only(self):
+        tag = "runbook-sentinel:baseline-0031-test"
         command = build_command(tag)
         self.assertEqual(command[:3], ["docker", "buildx", "build"])
         self.assertNotIn("--load", command)
@@ -126,17 +166,17 @@ class BaselineTest(unittest.TestCase):
         self.assertIn("--sbom=false", command)
         self.assertEqual(
             command[command.index("--output") + 1],
-            "type=image,name=runbook-sentinel:baseline-0030-test,"
+            "type=image,name=runbook-sentinel:baseline-0031-test,"
             "rewrite-timestamp=true,unpack=false,store=true,push=false",
         )
-        self.assertEqual(SOURCE_DATE_EPOCH, "1786839650")
-        self.assertEqual(SOURCE_DATE_EPOCH_UTC, "2026-08-16T00:20:50Z")
+        self.assertEqual(SOURCE_DATE_EPOCH, "1787016214")
+        self.assertEqual(SOURCE_DATE_EPOCH_UTC, "2026-08-18T01:23:34Z")
         self.assertEqual(EXPECTED_BUILDER["buildkit"], "0.29.0")
 
-    def test_container_v10_prerequisite_requires_current_implementation_phase(self):
+    def test_container_v11_prerequisite_requires_current_implementation_phase(self):
         contract = {
             "status": "pass",
-            "implementation_phase": "implemented_v10",
+            "implementation_phase": "implemented_v11",
         }
         manifest = {"status": "pass"}
         package = {"status": "pass"}
@@ -145,8 +185,12 @@ class BaselineTest(unittest.TestCase):
             "product_default": "deterministic-control-v2",
             "selected_optional_model_contract": "ollama-loopback-structured-sre-v3-diagnosis-pattern",
         }
+        retrieval_selection = {
+            "status": "pass",
+            "selected_configuration": "freshness-priority-lexical-v3",
+        }
         evaluation = {
-            "checkpoint": "baseline-0030",
+            "checkpoint": "baseline-0031",
             "gates": {"baseline_disposition": "pass"},
         }
 
@@ -165,6 +209,7 @@ class BaselineTest(unittest.TestCase):
                 completed(manifest),
                 completed(package),
                 completed(model_selection),
+                completed(retrieval_selection),
             ],
         ), mock.patch(
             "scripts.verify_container_runtime.sha256_file",
@@ -173,8 +218,9 @@ class BaselineTest(unittest.TestCase):
             result = validate_prerequisites(evaluation)
         self.assertTrue(result["checks"]["container_contract"])
         self.assertTrue(result["checks"]["model_selection"])
+        self.assertTrue(result["checks"]["retrieval_selection"])
 
-        contract["implementation_phase"] = "implemented_v9"
+        contract["implementation_phase"] = "implemented_v10"
         with mock.patch(
             "scripts.verify_container_runtime.run",
             side_effect=[
@@ -182,6 +228,7 @@ class BaselineTest(unittest.TestCase):
                 completed(manifest),
                 completed(package),
                 completed(model_selection),
+                completed(retrieval_selection),
             ],
         ), mock.patch(
             "scripts.verify_container_runtime.sha256_file",
@@ -233,6 +280,10 @@ class BaselineTest(unittest.TestCase):
         )
         self.assertIn(
             "container_model_contract_selection_exact",
+            contract["verification_contract"]["required_checks"],
+        )
+        self.assertIn(
+            "container_retrieval_tier_cap_selection_exact",
             contract["verification_contract"]["required_checks"],
         )
 
@@ -386,7 +437,7 @@ class BaselineTest(unittest.TestCase):
         )
         self.assertFalse(local_content_digest_matches_image_id({"Id": image_id, "RepoDigests": []}))
 
-        tags = ["runbook-sentinel:baseline-0030-a-test", "runbook-sentinel:baseline-0030-b-test"]
+        tags = ["runbook-sentinel:baseline-0031-a-test", "runbook-sentinel:baseline-0031-b-test"]
         events = [
             {
                 "Action": "tag",
@@ -1140,7 +1191,7 @@ class BaselineTest(unittest.TestCase):
         server = MCPServer(self.service)
         initialized = server.handle({"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
         self.assertEqual(initialized["result"]["protocolVersion"], "2025-11-25")
-        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.30")
+        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.31")
         listed = server.handle({"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         self.assertEqual({tool["name"] for tool in listed["result"]["tools"]}, names)
         called = server.handle(
@@ -1408,7 +1459,7 @@ class BaselineTest(unittest.TestCase):
                 )
                 self.assertIn("frame-ancestors 'none'", response.headers["Content-Security-Policy"])
             with urlopen(f"http://127.0.0.1:{server.server_port}/health") as response:
-                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0030")
+                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0031")
             with urlopen(
                 f"http://127.0.0.1:{server.server_port}/api/evaluation"
             ) as response:
@@ -1434,27 +1485,27 @@ class BaselineTest(unittest.TestCase):
     def test_live_api_verifier_requires_current_dashboard_checkpoint(self):
         verifier = (ROOT / "scripts/verify_live_api.ps1").read_text(encoding="utf-8")
         self.assertIn(
-            "dashboard_baseline_0030 = $dashboardResponse.Content.Contains('Baseline 0030')",
+            "dashboard_baseline_0031 = $dashboardResponse.Content.Contains('Baseline 0031')",
             verifier,
         )
         self.assertIn(
-            "dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0030",
+            "dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0031",
             verifier,
         )
         self.assertNotIn("dashboard_baseline_0027 =", verifier)
 
-    def test_container_v10_verifier_requires_current_dashboard_checkpoint(self):
+    def test_container_v11_verifier_requires_current_dashboard_checkpoint(self):
         runtime = (ROOT / "scripts/verify_container_runtime.py").read_text(encoding="utf-8")
         validator = (ROOT / "scripts/verify_container_contract.py").read_text(encoding="utf-8")
-        self.assertIn('b"Baseline 0030" in dashboard_raw', runtime)
-        self.assertNotIn('b"Baseline 0029" in dashboard_raw', runtime)
-        self.assertIn("'b\"Baseline 0029\" in dashboard_raw' not in runtime_text", validator)
+        self.assertIn('b"Baseline 0031" in dashboard_raw', runtime)
+        self.assertNotIn('b"Baseline 0030" in dashboard_raw', runtime)
+        self.assertIn("'b\"Baseline 0030\" in dashboard_raw' not in runtime_text", validator)
 
-    def test_container_v10_retrieval_quality_projection_fails_closed(self):
+    def test_container_v11_retrieval_quality_projection_fails_closed(self):
         report = json.loads(
             (
                 ROOT
-                / "artifacts/evaluations/runs/baseline-0030-control-attempt-001.json"
+                / "artifacts/evaluations/baseline-0031-control-v3-attempt-001.json"
             ).read_text(encoding="utf-8")
         )
         self.assertTrue(retrieval_quality_metric_exact(report))
