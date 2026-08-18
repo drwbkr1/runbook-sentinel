@@ -132,7 +132,7 @@
       "status": "in_progress",
       "gates": {
         "public_implementation_seal_verified": "pass",
-        "comparison_inventory_public": "pending",
+        "comparison_inventory_public": "pass",
         "comparison_manifest_public": "pending",
         "control_complete": "pending",
         "candidate_complete": "pending",
@@ -226,6 +226,7 @@
       ,"public implementation seal b13057ea924e3df002d86264c044b19c1a0f398a and tree 1c898ae67574ba7a775d4ed158d2d1e9e2bd9fef reconcile across local explicit tracking ls-remote anonymous GitHub APIs all 11 changed Git entries and all 11 anonymous raw files with v3 still default and no held-out candidate result"
       ,"the pre-result selection verifier and five focused tests freeze required-evidence rank behavior coverage safety reliability latency cost and default boundaries before any comparison artifact exists"
       ,"the comparison inventory contains 146 unique existing paths with exactly three additions and zero removals; 91 tests pass in 106.341 seconds and 38 applicable non-manifest validators pass in 2.501 seconds"
+      ,"public inventory seal d96a1f03b010c00c44e36e5332e97ae37aee3e39 and tree e3224af3cf8085ae8d6f319b63b0c2f1584134fc reconcile across refs all 11 Git tree entries and all 11 anonymous raw files while the successor manifest and all comparison artifacts remain absent"
     ]
   },
   "handoff": {
