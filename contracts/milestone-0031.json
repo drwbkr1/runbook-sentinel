@@ -158,6 +158,7 @@
         "release_lifecycle_correction_public": "pass",
         "successor_release_manifest_exact": "pass",
         "source_package_and_real_surfaces_exact": "pass",
+        "source_package_public_exact": "pass",
         "local_container_and_scan_exact": "pending",
         "clean_clone_exact": "pending",
         "public_complete_stack_candidate_exact": "pending"
@@ -190,7 +191,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Publish and independently reconcile the exact attempt-002 package/source payload and artifacts/verification/package-source-baseline-0031.json before building any local container image.",
+  "next_action": "Run container-runtime-v11 locally against exact public package/source commit 297cc62a3679bd6ed07e4b6b46d0599ddff6b120; preserve scans and clean-clone evidence and do not export push publish or redistribute image bytes.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -255,11 +256,12 @@
       ,"public successor-manifest commit cb20bb29f881d78b8f9d2b9ea7c3b220c1a979e4 and tree 799de725757f4dce992f89c2699e4744fa095652 reconcile across refs all nine changed Git entries and all nine anonymous raw files"
       ,"attempt 002 produces two exact 647712-byte archives at SHA-256 0e355dffd06ad6854d529b74a0248600e7d5ae1a86dadb1767e5be851cb0e865 plus source/package 57-scenario 171-attempt all-136-gate evaluations exact normalized parity bounded MCP both 131-check APIs both 72-check native inspections and complete dashboards"
       ,"post-surface attempt-002 gates pass 93 tests in 152.601 seconds all 40 validators in 7.674 seconds exact traces manifest compilation parsing scans milestone and diff with no BASELINE-0031 image present"
+      ,"public attempt-002 package/source commit 297cc62a3679bd6ed07e4b6b46d0599ddff6b120 and tree 7b353d62b3a4db27acc6dd38735edb93af2c494e reconcile across refs all 18 changed Git entries and all 18 anonymous raw files"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Attempt-002 package/source verification passes from public manifest cb20bb29f881d78b8f9d2b9ea7c3b220c1a979e4: reproducible archive 0e355dff, both all-136-gate evaluations, exact semantic parity, MCP, authenticated API, state, telemetry, dashboards, 93 tests, and 40 validators. No BASELINE-0031 image exists.",
-    "next_action": "Publish and reconcile the exact package/source payload before Docker.",
+    "current_checkpoint": "Public attempt-002 package/source commit 297cc62a3679bd6ed07e4b6b46d0599ddff6b120 is exact across refs all 18 Git entries and all 18 anonymous raw files. Reproducible archive 0e355dff and every source/package real surface pass; no BASELINE-0031 image exists.",
+    "next_action": "Run local container-runtime-v11 without exporting or publishing image bytes.",
     "do_not_carry_forward": [
       "any held-out tuning expected-label grader scenario terminal model prompt parser decision-context policy approval executor or authority change",
       "any trust in evidence kind timestamp freshness or provenance before external authentication and normalization",
