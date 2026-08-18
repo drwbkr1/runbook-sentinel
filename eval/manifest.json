@@ -1,9 +1,11 @@
 {
-  "checkpoint": "baseline-0030",
+  "checkpoint": "baseline-0031",
   "files": {
     ".dockerignore": "c3ed177e2bb6e564de45082fff651e9d1bce094f866af9475b21043163869a41",
     "Dockerfile": "f654d96e41519402fdde4040d0fd8703f89b9df255feb284f45167e9a7689b0b",
     "artifacts/evaluations/baseline-0030-model-contract-comparison.json": "1a28361b04b2640d38abc45378e0f9be48fb84ba827be2d7255eff9a1db4cf25",
+    "artifacts/evaluations/runs/baseline-0030-final-source-attempt-001.manifest.json": "bc98beca62ba13968ecfa5f8c79800c24c94a3298b3ae31270465ec7ed61ce96",
+    "artifacts/verification/baseline-0031-manifest-attempt-001-invalid.json": "99489ecbcd1fb9f92fff23c09494647139c4c1f58c90f9c1ffdedde57cb74167",
     "artifacts/verification/controlled-intake/baseline-0028-historical-package-v0.0.23-001/runbook-sentinel-0.0.23.pyz": "90e54c71d2948b3a5b47a3946396afd2758b67207a49d1809633618197c86917",
     "artifacts/verification/intake-public-v0.0.23-package-baseline-0028.json": "57902b38dcd818d404de323c0286ea8b3f124b615d8b67aad5d75158dd6f8c4d",
     "eval/action-split-coverage-contract.json": "7e7b747fef34fc7315bb002bef43c517eedbdc330cef93cfc980967557ea665a",
@@ -38,6 +40,7 @@
     "eval/idempotency-authorization-contract.json": "c785a4a09825b2fe0e675576d8b3403a9736775725dde3b603272401370e80c8",
     "eval/live-trace-anchor-contract.json": "12b69d7743bfc1b9ad3c8a078bd7e21cb2d35da08898209cd6b4110fde7c2b95",
     "eval/manifest-0030-precomparison.json": "1e4b8f22e8161934313743f88cf6a129706cb4bdc9f3291ce8a4689349daf6cd",
+    "eval/manifest-0031-attempt-001-invalid.json": "99489ecbcd1fb9f92fff23c09494647139c4c1f58c90f9c1ffdedde57cb74167",
     "eval/model-contract-0018-v2.json": "b5ed65aff647087344a6f9781e565483940f01563c678a3fcc97f7e55500eafd",
     "eval/model-contract.json": "8718971a9e54320603c08d9f31957bd5dabee0e50944925f588f74e5915defda",
     "eval/model-output-conformance-contract.json": "159b9da51ed5da8c1b9b384b09720e65eafe5ba9a9cd43dcd33d9063a1a30259",
@@ -65,6 +68,7 @@
     "eval/package-contract.json": "956e2b945f4ca4848e5209fac806f7eda310e214e4abeb75959a47660a2e7300",
     "eval/retrieval-quality-observability-contract.json": "2b7da43d19babcf64607149b1d2208d318fe991ff71fd36df8e3140814a77d2a",
     "eval/retrieval-quality-observability-prechange.json": "84dbd5a0eb8bee404c4f9a3eaacc6b0f3599787571531952414ed49d942ece25",
+    "eval/retrieval-tier-cap-contract.json": "5560b355d05e9c43e4a56b5a2dadc5d102b1660ffb4e84db9512fc09e2f99357",
     "eval/topology-split-coverage-contract.json": "92ec2c2b5ad2924d4f52606113c3cb48453c692a70125516359b50ee8b999fb9",
     "eval/topology-split-coverage-prechange.json": "42e74b6da4a80ced1f9a5321b260693d997e7578a64c6535182632ec1a6af1f3",
     "eval/trace-integrity-contract.json": "63b1e44003ed16ab5f993d29a4a4b431afd679aa2d6482a41cc3cdec059c07b1",
@@ -114,6 +118,8 @@
     "scripts/verify_package_contract.py": "2bd4c130de06fa24fe7e1c488437c2d39ea5e2d7e1facfdbb590179b169b0bd7",
     "scripts/verify_retrieval_quality_observability_contract.py": "8fab02cd1a9a85f3cc6b9e30780b579ec9fbf88571e489fa24d1ce00f1bad55c",
     "scripts/verify_retrieval_stress.py": "3394258d6c17b2875105eede76c80b10c7e8caed82e867fa654568512618f819",
+    "scripts/verify_retrieval_tier_cap_contract.py": "6cac523144538168fd35e18e15bb402d2a5d878b40b4f05ff31ddbd0d0820fec",
+    "scripts/verify_retrieval_tier_cap_result.py": "dae7be48bb8b0a8e6a33987623875f82f8d0f54eaf38e470e08ed007fa3c2262",
     "scripts/verify_stale_evidence_stress.py": "3ce0199258b295ca007ce3516e7c9d605a21430adba3e29543ba132fe7f6f89f",
     "scripts/verify_stale_payload_projection.py": "05b2ae2f3686963a2fb4b3a8469e4408485c5c7b6de63cb1e97293e67d045c18",
     "scripts/verify_terminal_contract.py": "2a424ce844e9a4540afde164959594e09a7c0fa961a0fd9c71028e6a31c550c6",
@@ -138,13 +144,13 @@
     "src/runbook_sentinel/operator_auth.py": "9431e7101a0289c68893c51a245aa9db594d9df275dccbb196b3cc4835859ea0",
     "src/runbook_sentinel/operator_authentication_evaluation.py": "0a8594d64d220f15cb65c3e2bb97c1172d3605a746b95b0a4d57b26275ff917b",
     "src/runbook_sentinel/policy.py": "1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa",
-    "src/runbook_sentinel/retrieval.py": "cdaa33d231191e64e0da6b3d0da353b46b191716a062d47a7abaa000093f5535",
+    "src/runbook_sentinel/retrieval.py": "6eb5227b2e20141bf978670cfbbe9edd6d55ca1db69b76a4007b830e13ff864a",
     "src/runbook_sentinel/retrieval_quality.py": "dbd230ed8274c686a99bc67551be1349cf76139a871c10718ff7ef79c95ac387",
     "src/runbook_sentinel/service.py": "9c19a3d597b06a53adfa45c77ea6f83b820c54e808b555e1a6618a7cb3a6beb0",
     "src/runbook_sentinel/storage.py": "1a02cbc9b7250941e264b28a2a9d7e106f961c5cae03c0e762199f5f2d337212",
     "src/runbook_sentinel/telemetry.py": "1e136b8642fc37f76bd803e720d5849123867fe8565426c8ce43ec5b21245815",
     "src/runbook_sentinel/trace_integrity_evaluation.py": "aab63e902297aa2c26734cbaef46b9106c07074696c5cf1d4cef2a1b70690d4a"
   },
-  "frozen_at_utc": "2026-08-16T02:31:18Z",
+  "frozen_at_utc": "2026-08-18T01:23:34Z",
   "schema_version": "1.0"
 }

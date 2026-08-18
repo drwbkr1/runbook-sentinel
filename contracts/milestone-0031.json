@@ -186,7 +186,7 @@
     }
   ],
   "current_unit": "UNIT-003",
-  "next_action": "Freeze, validate, publish, and remotely reconcile the 149-file BASELINE-0031 successor manifest, then run v3 and v4 separately without tuning.",
+  "next_action": "Publish and remotely reconcile the exact 149-file BASELINE-0031 manifest at SHA-256 9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c, then run v3 and v4 separately without tuning.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -234,11 +234,12 @@
       ,"the corrected inventory state passes all 91 tests in 106.638 seconds and all 38 applicable non-manifest validators in 2.498 seconds while the predecessor manifest rejects only the implemented retrieval path"
       ,"public amendment fa740b95442232cdcef72b8f5fd7dcbdb5b29bb1 is retained as a custody failure because 1 of 12 raw paths was Git-normalized from 17558 CRLF bytes to 17405 LF bytes"
       ,"corrected public inventory commit 9e031aa3ddfc89a26b8d78452daa583201361fbd and tree 70a102b6554ee35831441ca426fcc82907b73e3e reconcile across all four refs all 11 Git tree entries and all 11 unauthenticated raw files; exact failed-manifest bytes are public under the binary verification namespace"
+      ,"local 149-file manifest attempt 002 is 17981 bytes at SHA-256 9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c and passes all 91 tests plus all 39 applicable phase-correct validators including manifest verification"
     ]
   },
   "handoff": {
-    "current_checkpoint": "Corrected 149-path inventory commit 9e031aa3ddfc89a26b8d78452daa583201361fbd is remotely exact. V4 is experimental, v3 remains default, and no held-out candidate result exists.",
-    "next_action": "Freeze and publish the 149-file successor manifest, then run v3 and v4 separately against the same exact inputs without tuning.",
+    "current_checkpoint": "Corrected 149-path inventory commit 9e031aa3ddfc89a26b8d78452daa583201361fbd is remotely exact. Local manifest attempt 002 passes at SHA-256 9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c. V4 is experimental, v3 remains default, and no held-out candidate result exists.",
+    "next_action": "Publish and reconcile the exact 149-file successor manifest, then run v3 and v4 separately against the same exact inputs without tuning.",
     "do_not_carry_forward": [
       "any held-out tuning expected-label grader scenario terminal model prompt parser decision-context policy approval executor or authority change",
       "any trust in evidence kind timestamp freshness or provenance before external authentication and normalization",

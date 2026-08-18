@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0031-manifest-attempt-002-local",
+  "checkpoint": "baseline-0031",
+  "unit": "UNIT-003",
+  "observed_at_utc": "2026-08-18T01:26:12Z",
+  "status": "pass",
+  "disposition": "local_manifest_pass_publication_pending",
+  "public_inventory_prerequisite": {
+    "commit": "9e031aa3ddfc89a26b8d78452daa583201361fbd",
+    "tree": "70a102b6554ee35831441ca426fcc82907b73e3e",
+    "reconciliation_commit": "625e5600c7f41f981ccf32d8c0f594f530bbf7c9",
+    "status": "pass"
+  },
+  "manifest": {
+    "path": "eval/manifest.json",
+    "checkpoint": "baseline-0031",
+    "frozen_at_utc": "2026-08-18T01:23:34Z",
+    "file_count": 149,
+    "bytes": 17981,
+    "sha256": "9cdb30aa49613fc9ca85be915d8efa91a5c98433d2bff57bf1d6e423a9c6c08c",
+    "internal_verifier_status": "pass"
+  },
+  "validation": {
+    "full_tests_passed": 91,
+    "full_tests_failed": 0,
+    "full_tests_elapsed_seconds": 107.021,
+    "applicable_phase_correct_validators_passed": 39,
+    "applicable_phase_correct_validators_failed": 0,
+    "validator_elapsed_seconds": 2.647,
+    "manifest_validator_included": true,
+    "retrieval_result_phase": "precomparison",
+    "retrieval_result_status": "pass"
+  },
+  "preserved_history": {
+    "attempt_001_exact_bytes": "artifacts/verification/baseline-0031-manifest-attempt-001-invalid.json",
+    "attempt_001_failure_receipt": "artifacts/verification/baseline-0031-manifest-attempt-001-failure.json",
+    "failed_public_inventory_amendment_receipt": "artifacts/verification/baseline-0031-inventory-amendment-public-failure.json",
+    "deleted_or_rewritten": false
+  },
+  "boundaries": {
+    "control_candidate_or_comparison_artifact_present": false,
+    "default_configuration": "freshness-priority-lexical-v3",
+    "held_out_candidate_result_observed": false,
+    "runtime_changed_after_implementation_seal": false
+  },
+  "next_gate": "Commit and publish the exact manifest, explicitly fetch the branch, and reconcile public raw and Git-tree bytes before executing the v3 control."
+}
