@@ -236,6 +236,14 @@
       "observation": "The first anonymous post-publication check interpolated a tree hash immediately before ?recursive=1, so PowerShell treated the query suffix as part of the variable expression and GitHub returned 404 before a complete reconciliation result existed.",
       "containment": "The failed check was anonymous and read-only; no partial response was used as public verification evidence and repository, release, tag, image, and external state did not change.",
       "correction": "Build the tree endpoint by explicit string concatenation; the successor reconciled local, tracking, ls-remote, and anonymous refs at 492baf3c389994c596501894a7457bf7c0ded22d, matched tree 3216361f9b80ca817531cd13cb86b7d2e8852e11, confirmed an untruncated 1,450-entry tree, and matched both published evidence files byte for byte."
+    },
+    {
+      "id": "OBS-031",
+      "phase": "stopped-state-public-reconciliation-failure-retention",
+      "classification": "transient_anonymous_ref_propagation",
+      "observation": "The first immediate four-ref check after publishing OBS-030 returned false even though the exact commit tree and raw failure receipt already matched the public commit surface.",
+      "containment": "The false aggregate was treated as a transient incomplete reconciliation result, not as proof of ref divergence or release readiness; no state-changing action followed it.",
+      "correction": "Read each ref independently after propagation; local HEAD, explicit tracking, ls-remote main, and anonymous GitHub main all converged on 6e21908f4917a2432f5c9e631813cb471ca4f4d4."
     }
   ],
   "boundaries": {
