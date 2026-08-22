@@ -228,6 +228,14 @@
       "observation": "The first resume probe passed HEAD^{tree} through the PowerShell command wrapper without a quoting-safe form, so the wrapper mangled the revision argument and Git rejected that tree query while the independent HEAD and remote-main reads still completed.",
       "containment": "The probe was read-only; the rejected tree query was not used as reconciliation evidence and repository, release, tag, image, and external state did not change.",
       "correction": "Use git show -s --format=%T HEAD; the successor returned tree 956f42afea4ec56c00b524230cb5cdb5df03b3c4 and reconfirmed a clean worktree at commit fd01cb566241f342094c17ba5949222ad8556ddf."
+    },
+    {
+      "id": "OBS-030",
+      "phase": "stopped-state-public-reconciliation-publication",
+      "classification": "powershell_url_interpolation_error",
+      "observation": "The first anonymous post-publication check interpolated a tree hash immediately before ?recursive=1, so PowerShell treated the query suffix as part of the variable expression and GitHub returned 404 before a complete reconciliation result existed.",
+      "containment": "The failed check was anonymous and read-only; no partial response was used as public verification evidence and repository, release, tag, image, and external state did not change.",
+      "correction": "Build the tree endpoint by explicit string concatenation; the successor reconciled local, tracking, ls-remote, and anonymous refs at 492baf3c389994c596501894a7457bf7c0ded22d, matched tree 3216361f9b80ca817531cd13cb86b7d2e8852e11, confirmed an untruncated 1,450-entry tree, and matched both published evidence files byte for byte."
     }
   ],
   "boundaries": {
