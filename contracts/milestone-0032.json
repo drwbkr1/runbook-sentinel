@@ -140,7 +140,7 @@
       ],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": [
         "official Chainguard specifications and responsibility model",
         "anonymous exact-digest registry metadata",
@@ -157,8 +157,14 @@
         "source_gate_ready": "pass",
         "preimplementation_contract_valid": "pass",
         "candidate_digest_not_pulled": "pass",
-        "public_freeze_verified": "pending"
+        "public_freeze_verified": "pass"
       },
+      "evidence": [
+        "Public commit a18da8678e0f03afb1cef4c65de44a6a9b4dff40 and tree 5d74fb6bc1ef89dd69c392c713a1ba96d17ada76 are exact across local tracking ls-remote and anonymous GitHub refs",
+        "The untruncated 1,457-entry public tree contains all 15 expected changed Git blobs and every anonymous raw file matches local bytes and SHA-256",
+        "Public main remains e12e638b98b1deacb4c5058ecb9d7c8652c96985 and the candidate digest remains unpulled"
+      ],
+      "disposition": "pass",
       "next_dependency": "UNIT-003"
     },
     {
@@ -169,7 +175,7 @@
       ],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "planned",
+      "status": "ready",
       "inputs": [
         "publicly verified preimplementation freeze",
         "exact admitted digest",
@@ -221,8 +227,8 @@
       ]
     }
   ],
-  "current_unit": "UNIT-002",
-  "next_action": "Validate and publish the source gate and preimplementation freeze from the clean BASELINE-0032 worktree; do not pull or build the candidate digest until anonymous public reconciliation passes.",
+  "current_unit": null,
+  "next_action": "Begin UNIT-003 by anonymously pulling only cgr.dev/chainguard/python@sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c, reconcile its local platform identity, then apply only the frozen digest and mechanical successor-identity projection.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -253,6 +259,7 @@
       "Current release blocker is exactly two unique HIGH OpenSSL CVEs in the selected predecessor image",
       "Official publisher and anonymous registry metadata admit one exact patched digest for local use",
       "The source gate and side-effect-free frozen-phase remediation validator pass with zero errors"
+      ,"Public preimplementation commit a18da8678e0f03afb1cef4c65de44a6a9b4dff40 is exact across four refs, all 15 Git blobs, and all 15 anonymous raw files; UNIT-003 is eligible"
     ],
     "artifacts": [
       "artifacts/verification/container-source-gate-baseline-0032-chainguard-python.json",
@@ -266,7 +273,7 @@
   "handoff": {
     "latest_verified_checkpoint": "public v0.0.30 release; public main e12e638b98b1deacb4c5058ecb9d7c8652c96985 contains the stopped and reconciled BASELINE-0031 record",
     "retained_failed_checkpoint": "stopped unpublished BASELINE-0031 with exact derived image sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1 and failed CHECK-007",
-    "current_checkpoint": "BASELINE-0032 UNIT-002 is freezing exact source and remediation boundaries before any candidate pull or implementation.",
+    "current_checkpoint": "BASELINE-0032 UNIT-002 is complete at public exact preimplementation freeze a18da8678e0f03afb1cef4c65de44a6a9b4dff40; UNIT-003 is ready and the admitted digest remains unpulled.",
     "resume_rule": "Resume from the latest verified public BASELINE-0032 commit plus retained BASELINE-0031 failures; run the relevant verifier and inspect current evidence before acting, never use OneDrive, and never infer that v0.0.31 shipped."
   }
 }

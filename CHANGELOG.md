@@ -7,6 +7,7 @@
 - Froze `container-base-security-refresh-contract-0032.json`: only the Dockerfile `FROM` digest and matching base label may change functionally. Baseline-0032/v0.0.32 updates are mechanical release identity; incident-agent behavior, retrieval, generation, model selection, evaluation splits/graders, policy, approval, executor, replay, postconditions, dependencies, and authority remain fixed.
 - Added a side-effect-free phase-aware verifier and focused regression test. The frozen phase proves the vulnerable BASELINE-0031 receipts remain byte-exact, the source gate is ready, historical zero-result SARIF cannot satisfy the successor gate, and the candidate digest has not been implemented.
 - Retained the guessed predecessor source-gate path, first milestone schema-key failure, rejected duplicate-target documentation patch, and over-broad historical-literal secret scan as invalid process evidence. No candidate image has been pulled, built, exported, pushed, published, or redistributed.
+- Published preimplementation freeze `a18da8678e0f03afb1cef4c65de44a6a9b4dff40`, tree `5d74fb6bc1ef89dd69c392c713a1ba96d17ada76`; local, tracking, `ls-remote`, anonymous GitHub ref/tree, all 15 Git blobs, and all 15 raw files match. Public main remains the stopped-state commit. UNIT-003 may now pull only the admitted digest and implement the frozen projection.
 
 ## 0.0.31 - Unreleased
 
