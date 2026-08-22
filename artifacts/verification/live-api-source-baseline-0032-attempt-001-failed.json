@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "LIVE-API-SOURCE-BASELINE-0032-ATTEMPT-001-FAILED",
+  "checkpoint": "baseline-0032",
+  "observed_at_utc": "2026-08-22T19:20:37Z",
+  "status": "fail",
+  "runtime": "source",
+  "checks": {
+    "passed": 129,
+    "total": 131,
+    "failed": [
+      "missing_capability_rejected_before_body_parse",
+      "wrong_capability_rejected"
+    ]
+  },
+  "observed_authentication": {
+    "missing_capability_http_status": 401,
+    "missing_capability_error_type": "OperatorAuthenticationError",
+    "missing_capability_error_message": "Operator capability is invalid",
+    "missing_capability_challenge_as_read_by_indexer": null,
+    "wrong_capability_http_status": 401,
+    "wrong_capability_error_type": "OperatorAuthenticationError",
+    "wrong_capability_error_message": "Operator capability is invalid",
+    "wrong_capability_challenge_as_read_by_indexer": null
+  },
+  "diagnosis": {
+    "server_source_sends_challenge_header": true,
+    "http_response_type": "System.Net.Http.HttpResponseMessage",
+    "in_memory_exact_header_indexer_value": null,
+    "in_memory_typed_www_authenticate_value": "Sentinel-Capability realm=\"runbook-sentinel-operator\"",
+    "classification": "PowerShell HttpResponseHeaders indexer compatibility defect in verifier",
+    "product_authentication_behavior_changed": false
+  },
+  "retained_artifacts": [
+    {"path": "var/live-api-source-baseline-0032-attempt-001-failed.db", "bytes": 65536, "sha256": "3277d0b63893e711eb77037c25a0423ac228bd22c40d1767a82927ad043a432b"},
+    {"path": "artifacts/runtime/live-api-source-baseline-0032-attempt-001-failed.traces.jsonl", "bytes": 3226, "sha256": "3e8c54461d864946d18087bd6206e3a0f72d4e4ad53050fe79f885127ab3ecfe"},
+    {"path": "artifacts/runtime/live-api-source-baseline-0032-attempt-001-failed.traces.jsonl.anchor.json", "bytes": 304, "sha256": "92b98a392355021626d31397d7400efadbc9b109530a20012b252841cbcf8913"},
+    {"path": "artifacts/runtime/live-api-source-baseline-0032-attempt-001-failed.stdout.log", "bytes": 63, "sha256": "b7e9b5a5734849f8b50a43f9c9e1a19e9cb0355e6979ba607f1bcfcad737c8c2"},
+    {"path": "artifacts/runtime/live-api-source-baseline-0032-attempt-001-failed.stderr.log", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    {"path": "artifacts/verification/dashboard-source-baseline-0032-attempt-001-failed.png", "bytes": 101484, "sha256": "d9f58b9b9916919c6c4ac35183a0b6ab385a26ee28e6385b4b5f5fc9b4404b5d"}
+  ],
+  "passing_surface_observations": {
+    "evaluation_checkpoint_and_all_metric_families_exact": true,
+    "approval_action_hash_idempotency_replay_and_postconditions_exact": true,
+    "capability_absent_from_trace_anchor_dashboard_database_and_logs": true,
+    "live_trace_chain_valid_and_anchored": true,
+    "rendered_dashboard_complete": true
+  },
+  "disposition": "retain_failed_and_correct_verifier_only",
+  "boundaries": {
+    "package_api_run_started": false,
+    "container_image_built": false,
+    "real_infrastructure_contacted": false,
+    "tag_release_or_deployment_created": false
+  }
+}

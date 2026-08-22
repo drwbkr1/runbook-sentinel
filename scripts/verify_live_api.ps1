@@ -96,7 +96,7 @@ try {
     }
     catch {
         $missingCapabilityStatus = [int]$_.Exception.Response.StatusCode
-        $missingCapabilityChallenge = [string]$_.Exception.Response.Headers['WWW-Authenticate']
+        $missingCapabilityChallenge = $_.Exception.Response.Headers.WwwAuthenticate.ToString()
         $missingCapabilityErrorText = $_.ErrorDetails.Message
         if ([string]::IsNullOrWhiteSpace($missingCapabilityErrorText)) {
             $responseStream = $_.Exception.Response.GetResponseStream()
@@ -128,7 +128,7 @@ try {
     }
     catch {
         $wrongCapabilityStatus = [int]$_.Exception.Response.StatusCode
-        $wrongCapabilityChallenge = [string]$_.Exception.Response.Headers['WWW-Authenticate']
+        $wrongCapabilityChallenge = $_.Exception.Response.Headers.WwwAuthenticate.ToString()
         $wrongCapabilityErrorText = $_.ErrorDetails.Message
         if ([string]::IsNullOrWhiteSpace($wrongCapabilityErrorText)) {
             $responseStream = $_.Exception.Response.GetResponseStream()

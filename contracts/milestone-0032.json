@@ -223,13 +223,14 @@
       "gates": {
         "public_prebuild_manifest_verified": "pass",
         "checkpoint_resume_lifecycle_validator": "pass",
+        "real_api_header_verifier_compatibility": "pass",
         "deterministic_package_and_source_evaluation": "pending",
         "real_source_and_package_surfaces": "pending",
         "repeated_and_clean_clone_container_identity": "pending",
         "fresh_exact_derived_image_scan": "pending"
       },
       "disposition": "in_progress",
-      "next_dependency": "publish and reconcile corrected source-manifest seal, then rebuild deterministic package and run source/package evaluation"
+      "next_dependency": "publish and reconcile API-verifier correction source seal, then rebuild deterministic package and rerun source/package evaluation and real surfaces"
     },
     {
       "id": "UNIT-005",

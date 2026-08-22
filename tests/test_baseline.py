@@ -1513,6 +1513,11 @@ class BaselineTest(unittest.TestCase):
             verifier,
         )
         self.assertNotIn("dashboard_baseline_0027 =", verifier)
+        self.assertEqual(
+            verifier.count("Headers.WwwAuthenticate.ToString()"),
+            2,
+        )
+        self.assertNotIn("Headers['WWW-Authenticate']", verifier)
 
     def test_container_v12_verifier_requires_current_dashboard_checkpoint(self):
         runtime = (ROOT / "scripts/verify_container_runtime.py").read_text(encoding="utf-8")

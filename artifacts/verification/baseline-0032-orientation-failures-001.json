@@ -210,6 +210,54 @@
       "observation": "The first corrected-source seal inventory tried to combine a native git command and LASTEXITCODE test inside one parenthesized object-property expression, and PowerShell rejected the semicolon before inventory execution.",
       "containment": "No inventory result was emitted or used, and no repository, package, container, or external state changed.",
       "correction": "Determine tracked identity from the already materialized tracked-path array and keep each object-property expression free of statement separators."
+    },
+    {
+      "id": "OBS-027",
+      "phase": "unit-004-real-surface-orientation",
+      "classification": "missing_explicit_pythonpath_for_script_probe",
+      "observation": "The first help probe invoked verify_mcp_stdio.py and inspect_runtime_evidence.py without an explicit source or package import root; both exited on ModuleNotFoundError before argument handling.",
+      "containment": "No MCP, API, approval, executor, database, trace, dashboard, or external surface was started or changed, and the import failures were not used as evidence.",
+      "correction": "Read the scripts' parser declarations as source text, then set RUNBOOK_SENTINEL_PYTHONPATH explicitly for each source or package custody run."
+    },
+    {
+      "id": "OBS-028",
+      "phase": "unit-004-source-mcp-verification",
+      "classification": "wrapper_only_import_variable_used_for_standalone_script",
+      "observation": "The first source MCP retry set RUNBOOK_SENTINEL_PYTHONPATH, which verify_baseline.py translates for child processes, but the standalone verify_mcp_stdio.py imports before any wrapper translation and again exited with ModuleNotFoundError.",
+      "containment": "The verifier failed before starting its MCP subprocess; no database, trace, anchor, tool call, or external state was created and no pass was inferred.",
+      "correction": "Set PYTHONPATH directly to the exact source directory or zipapp for standalone MCP and native-inspection scripts, while reserving RUNBOOK_SENTINEL_PYTHONPATH for the orchestration wrapper and PowerShell API script."
+    },
+    {
+      "id": "OBS-029",
+      "phase": "unit-004-source-api-header-diagnosis",
+      "classification": "combined_local_server_header_probe_blocked_by_policy",
+      "observation": "A combined diagnostic command that would launch a second loopback server, exercise an unauthenticated request, and terminate the helper process was rejected by local command policy before process creation.",
+      "containment": "No helper process, request, database, trace, or external state was created, and the blocked command produced no header evidence.",
+      "correction": "Use an in-memory System.Net.Http.HttpResponseMessage with the exact challenge header to distinguish PowerShell header indexer behavior from the typed WwwAuthenticate property without starting another process."
+    },
+    {
+      "id": "OBS-030",
+      "phase": "unit-004-source-api-header-diagnosis",
+      "classification": "powershell_pipeline_after_foreach_parse_error",
+      "observation": "The first in-memory header probe command appended a pipeline directly after a foreach block in its separate artifact inventory, so PowerShell rejected the complete command before creating even the in-memory response object.",
+      "containment": "No probe, inventory, file, process, request, or state change occurred and no evidence was inferred.",
+      "correction": "Run the in-memory header-object probe separately and materialize later inventory rows into an array before JSON conversion."
+    },
+    {
+      "id": "OBS-031",
+      "phase": "unit-004-source-api-verification",
+      "classification": "powershell_httpresponseheaders_indexer_compatibility_failure",
+      "observation": "The first real source API run passed 129 of 131 checks but read both exact WWW-Authenticate challenges as null through the HttpResponseHeaders string indexer, even though each response was HTTP 401 with the exact OperatorAuthenticationError and the server source sends the challenge.",
+      "containment": "The API result remained fail, its database, trace, anchor, logs, and rendered dashboard were preserved, the already passing source/package evaluations and package bytes were classified as superseded by the required manifest renewal, and no package API or container run followed.",
+      "correction": "Read the typed Headers.WwwAuthenticate collection, add a regression assertion forbidding the null-returning indexer, require all 131 checks to pass on a real source retry, renew source identity, rebuild, and rerun evaluations and both real surfaces."
+    },
+    {
+      "id": "OBS-032",
+      "phase": "unit-004-api-verifier-correction-seal-validation",
+      "classification": "powershell_variable_redirection_token_concatenation",
+      "observation": "The first seal-validation loop omitted whitespace between the JSON path variable and output redirection, causing PowerShell to pass a filename ending in greater-than to json.tool and stop on a false missing-file error.",
+      "containment": "The milestone validator had passed, but no aggregate seal-validation result was emitted or used and no repository or external state changed.",
+      "correction": "Place explicit whitespace before the redirection operator, rerun every JSON parse and bound-file identity check, and refresh the local seal because the retained failure record changed."
     }
   ],
   "boundaries": {

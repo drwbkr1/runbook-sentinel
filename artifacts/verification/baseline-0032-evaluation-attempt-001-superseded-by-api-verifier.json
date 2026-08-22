@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0032-EVALUATION-ATTEMPT-001-SUPERSEDED-BY-API-VERIFIER",
+  "checkpoint": "baseline-0032",
+  "observed_at_utc": "2026-08-22T19:22:31Z",
+  "status": "superseded_before_surface_completion",
+  "public_source_commit": "a757ecf4bb7adff0013c5383054ff9b9fa01b62c",
+  "package": {
+    "build_count": 2,
+    "bytes_each": 647712,
+    "entries_each": 43,
+    "sha256_each": "1f16a92659a10018ac5202a6233c165919a6aa6f39b11a78d36c5be14c352fec",
+    "contract_status": "pass",
+    "preserved_under": "dist/superseded"
+  },
+  "source_evaluation": {
+    "report": "artifacts/evaluations/runs/baseline-0032-attempt-001.json",
+    "report_bytes": 953888,
+    "report_sha256": "e2a684a0b963b241b0e1eceeae2bfb7b4a66d42db3ca718d103396de4e6855f4",
+    "trace": "artifacts/evaluations/runs/baseline-0032-attempt-001.traces.jsonl",
+    "trace_bytes": 195315,
+    "trace_sha256": "b0b25d8e3b72539db1bf6350d4b3ecac46358c3f4a1a98a510c58cd2f8b9d5c5",
+    "trace_events": 261,
+    "all_136_boolean_gates": true,
+    "disposition": "pass"
+  },
+  "package_evaluation": {
+    "report": "artifacts/evaluations/runs/baseline-0032-attempt-002.json",
+    "report_bytes": 953893,
+    "report_sha256": "3d92d3e79de2ce44577b0244f55d76fedf525ea5832ce38afc149afa34e88abc",
+    "trace": "artifacts/evaluations/runs/baseline-0032-attempt-002.traces.jsonl",
+    "trace_bytes": 195319,
+    "trace_sha256": "32ba80dd1b570a49dd544263c9f88808230e1b359b9cacfd73620bb888fdc5e1",
+    "trace_events": 261,
+    "all_136_boolean_gates": true,
+    "disposition": "pass"
+  },
+  "parity": {
+    "raw_leaf_difference_count": 407,
+    "unexpected_leaf_keys": [],
+    "normalized_report_bytes": 576747,
+    "normalized_sha256": "63ddfe57465c5eab5f03ef8c0dd22a4405c329ba80f09cb961a3c224507a7bd6",
+    "source_package_normalized_exact": true
+  },
+  "real_surface": {
+    "mcp_source": "pass",
+    "api_source_attempt_001": "fail_129_of_131",
+    "api_source_correction_confirmation": "pass_131_of_131",
+    "surface_completion": false
+  },
+  "supersession_reason": "The verifier-only PowerShell HTTP header extraction correction changes a source-manifest member, so the embedded package manifest and both otherwise passing evaluation reports are not final candidate identity.",
+  "boundaries": {
+    "retrieval_model_policy_cases_metrics_thresholds_graders_or_authority_changed": false,
+    "package_api_run_started": false,
+    "container_image_built": false,
+    "real_infrastructure_contacted": false,
+    "tag_release_or_deployment_created": false,
+    "container_image_exported_pushed_published_or_redistributed": false
+  }
+}
