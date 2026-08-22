@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0031",
+  "receipt_type": "stopped-state-public-reconciliation",
+  "status": "pass",
+  "observed_at_utc": "2026-08-22T17:29:43Z",
+  "repository": {
+    "visibility": "public",
+    "owner": "drwbkr1",
+    "name": "runbook-sentinel",
+    "default_branch": "main"
+  },
+  "target": {
+    "branch": "codex/baseline-0031-release-closure",
+    "commit": "fd01cb566241f342094c17ba5949222ad8556ddf",
+    "tree": "956f42afea4ec56c00b524230cb5cdb5df03b3c4",
+    "parent": "b5657e70697f3f34c1d8bd6b7044280745214dea",
+    "commit_message": "chore: stop baseline 0031 after renewed scan failure"
+  },
+  "checks": {
+    "local_ref_exact": true,
+    "explicit_tracking_ref_exact": true,
+    "ls_remote_main_exact": true,
+    "anonymous_github_ref_exact": true,
+    "anonymous_github_commit_exact": true,
+    "anonymous_github_tree_exact": true,
+    "github_tree_not_truncated": true,
+    "changed_tree_entries_exact": true,
+    "anonymous_raw_bytes_exact": true,
+    "public_repository": true,
+    "v0_0_31_tag_absent": true,
+    "v0_0_31_release_absent": true
+  },
+  "counts": {
+    "repository_tree_entries": 1449,
+    "changed_paths": 13,
+    "tree_mismatches": 0,
+    "raw_byte_mismatches": 0
+  },
+  "changed_payload": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 101693,
+      "sha256": "af6b29fbb88e0a82f3abb5168e716da9a80cc4e9a358a75aa583308339e28349",
+      "git_blob": "a5a3f8a2959cf6b9a0c56edce4b8626db8fe18bf"
+    },
+    {
+      "path": "artifacts/verification/baseline-0031-review-and-merged-main-failures-001.json",
+      "bytes": 17021,
+      "sha256": "f874b652bb7a7b55449df06cec8f701b5d2a549451d270a694965edcd699e28b",
+      "git_blob": "edf715d9f0bf7a06a5957109725080d2ba424dab"
+    },
+    {
+      "path": "artifacts/verification/container-scout-critical-high-baseline-0031-final-audit-failure-001.json",
+      "bytes": 3269,
+      "sha256": "8c4436f7a886cd0b271ee20ffbbf3a5a537c120da635ced8095b3bfb897d5996",
+      "git_blob": "8d3f51c6028294024d3fec6e2ca50dddc7506a35"
+    },
+    {
+      "path": "artifacts/verification/release-audit-baseline-0031-attempt-001-blocked.json",
+      "bytes": 13877,
+      "sha256": "f3c7191c36831e9e05b9dafb3a80dc5a1fde534ef820dfd2d2cb8234f17ac2f4",
+      "git_blob": "daefae32ae0743f8c7db1256a90f7f596c94018e"
+    },
+    {
+      "path": "artifacts/verification/stopped-state-baseline-0031-local.json",
+      "bytes": 5857,
+      "sha256": "65ffe34fe86269e9e020666f8bce42d9879839b3db9e6898131532abd65c571f",
+      "git_blob": "b4c9e5036db34de7295ea475b3567ebbc0130002"
+    },
+    {
+      "path": "contracts/milestone-0031.json",
+      "bytes": 28350,
+      "sha256": "78bd3c5dffba0a863ec70c3a612eabec4d00e890887422a5237bfeb49e0c46bc",
+      "git_blob": "2ba4d7cafa8288b799d6ea6d5af018d04f5bf6f8"
+    },
+    {
+      "path": "docs/devlog.md",
+      "bytes": 421055,
+      "sha256": "fe43b127ef663ee1a05fc67203a5c1a7d93c364edacf1837c4d271bc1e581a62",
+      "git_blob": "225870c74fd72b0bdf6a84e71af74e630071d712"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "bytes": 202178,
+      "sha256": "d5924855db22ded2379213c3a3e79c44dcc8f6fc62a3fa9fd3bfa496e9279fa7",
+      "git_blob": "1ebcd858fea1a42c636fe78c170aa68a2d5f9a69"
+    },
+    {
+      "path": "docs/research-ledger.md",
+      "bytes": 25941,
+      "sha256": "43b307cef47f8ca82901c9f9d5948251c8f80a40249a449af30ceb19c8b2ab83",
+      "git_blob": "5cab69f38c9c76745b6fbddc137399df307afb18"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 77821,
+      "sha256": "4070e86c3b50e059347753d63254ae3fec64d0140c59486b5258d990f410e13f",
+      "git_blob": "26e487304fc403a49857e2a22ae06e9e9127ae05"
+    },
+    {
+      "path": "docs/status.md",
+      "bytes": 248294,
+      "sha256": "1190f73014ba05f25b39a4a70f13e8f9039aad8afa2ec6f0e254918be3f84f04",
+      "git_blob": "f933c23ab0ea36abf1eba79486318e764ba03bfb"
+    },
+    {
+      "path": "docs/threat-model.md",
+      "bytes": 19182,
+      "sha256": "fef1317c48219b2411c003fd8d6bc4f55cea26f3626e11a460172b4b489fb017",
+      "git_blob": "c9dd679e6aec690a111f90d6bf7985ccd1333ab2"
+    },
+    {
+      "path": "docs/version-history.md",
+      "bytes": 25978,
+      "sha256": "522e03e615f5b50fcb053fc4ce8464a21bee1e0c7e1f45254c47373fd12bea9a",
+      "git_blob": "e9294b0ca49ee1d4fe6f4d1dcb42daf4b8bdd93a"
+    }
+  ],
+  "release_truth": {
+    "baseline_0031_lifecycle": "stopped",
+    "baseline_0031_disposition": "remediate",
+    "v0_0_31_tag_created": false,
+    "v0_0_31_release_created": false,
+    "latest_verified_public_release": "v0.0.30",
+    "latest_verified_public_release_published_at_utc": "2026-08-17T23:19:14Z"
+  },
+  "retained_failure": {
+    "release_audit": "artifacts/verification/release-audit-baseline-0031-attempt-001-blocked.json",
+    "failed_check": "CHECK-007",
+    "cause": "Renewed exact-image Docker Scout evidence found two unique HIGH OpenSSL CVEs in the release-candidate image.",
+    "historical_zero-result_scan_promoted": false
+  },
+  "boundaries": {
+    "product_or_security_boundary_changed": false,
+    "frozen_evaluation_rewritten": false,
+    "failed_or_unfavorable_result_removed_or_reclassified": false,
+    "tag_release_or_deployment_created": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "real_operational_infrastructure_contacted": false
+  },
+  "next_gate": "Create and publish BASELINE-0032 as a frozen digest-only Chainguard Python base-image security remediation before importing or building the successor image."
+}

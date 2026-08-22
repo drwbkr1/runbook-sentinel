@@ -220,6 +220,14 @@
       "observation": "The first exact-command recovery reader used File.OpenText on the active Codex rollout and Windows denied the default exclusive-share request.",
       "containment": "The read-only lookup produced no command inventory and changed no repository, product, or external state.",
       "correction": "Open the active audit log explicitly with FileShare.ReadWrite; the successor recovered the exact side-effect-free 40-validator command set, which then passed unchanged."
+    },
+    {
+      "id": "OBS-029",
+      "phase": "stopped-state-public-reconciliation-resume",
+      "classification": "powershell_git_revision_parse_error",
+      "observation": "The first resume probe passed HEAD^{tree} through the PowerShell command wrapper without a quoting-safe form, so the wrapper mangled the revision argument and Git rejected that tree query while the independent HEAD and remote-main reads still completed.",
+      "containment": "The probe was read-only; the rejected tree query was not used as reconciliation evidence and repository, release, tag, image, and external state did not change.",
+      "correction": "Use git show -s --format=%T HEAD; the successor returned tree 956f42afea4ec56c00b524230cb5cdb5df03b3c4 and reconfirmed a clean worktree at commit fd01cb566241f342094c17ba5949222ad8556ddf."
     }
   ],
   "boundaries": {
