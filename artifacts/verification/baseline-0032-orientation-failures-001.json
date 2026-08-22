@@ -306,6 +306,46 @@
       "observation": "After the package/source reconciliation receipt became public but before any BASELINE-0032 derived-image build, source inspection found that the v12 verifier still named its ephemeral keeper rs-b0031 and described its clean-clone successor as composing 43 checks even though the active contract contains 49.",
       "containment": "No BASELINE-0032 image or container had been built, no scan ran, the public package/source payload was classified as superseded-before-container, its reports and real-surface evidence remain retained, and no release or image publication followed.",
       "correction": "Change only the two mechanical verifier literals to rs-b0032 and 49 checks, add regression assertions, renew manifest and package identity, and rerun package/source gates before the first derived-image build."
+    },
+    {
+      "id": "OBS-039",
+      "phase": "unit-004-post-container-verifier-source-mcp-evidence-summary",
+      "classification": "powershell_hashtable_values_bound_as_single_path",
+      "observation": "The fresh source MCP verification passed, and its database, trace, and anchor were copied to unique retained paths, but the follow-on Get-FileHash call bound the hashtable Values collection as one space-separated path and exited before summarizing hashes.",
+      "containment": "The MCP result independently reported the exact bounded tool surface and a valid anchored trace; no positive hash evidence was inferred from the failed wrapper, and no package MCP, API, container, registry, or real infrastructure action followed it.",
+      "correction": "Materialize the target paths as a flat array, require each retained file to exist, and hash each file independently before continuing."
+    },
+    {
+      "id": "OBS-040",
+      "phase": "unit-004-post-container-verifier-native-parity-summary",
+      "classification": "powershell_join_comparison_precedence_error",
+      "observation": "The first native-receipt parity summary joined one check-name array without grouping both operands, so PowerShell evaluated the comparison and second join in the wrong order and rendered native_check_names_exact as the string False despite separately reporting 72 true and zero false checks in each passing receipt.",
+      "containment": "The malformed convenience field was not used as parity evidence; both native receipts remained byte-unchanged, passed independently, and retained identical database counts and dashboard dimensions.",
+      "correction": "Parenthesize each complete joined array before case-sensitive comparison and require identical sorted check-name sets plus 72 true and zero false values on both sides."
+    },
+    {
+      "id": "OBS-041",
+      "phase": "unit-004-post-container-verifier-native-parity-summary",
+      "classification": "powershell_false_membership_coerced_zero_counts",
+      "observation": "The corrected native-name comparison produced true and both receipts again reported 72 true and zero false checks, but the aggregate guard tested whether all mixed-type summary Values contained false; PowerShell coerced a numeric zero count to false and threw on the passing summary.",
+      "containment": "The complete emitted summary made the coercion visible, no native or runtime artifact changed, and the invalid aggregate result was not used as evidence.",
+      "correction": "Check the two Boolean parity fields explicitly and compare the four numeric pass/fail counts numerically instead of applying Boolean membership to a mixed-type collection."
+    },
+    {
+      "id": "OBS-042",
+      "phase": "unit-004-post-container-verifier-living-record-reconciliation",
+      "classification": "combined_apply_patch_stale_milestone_sentence",
+      "observation": "The first combined local-candidate living-record patch expected a milestone sentence beginning Final source and package evaluations, but the current reconciled contract already begins Superseded source and package evaluations, so apply_patch rejected the complete patch atomically.",
+      "containment": "No receipt, milestone, documentation, evaluation, package, runtime, container, registry, or external state changed, and the rejected patch supplied no evidence.",
+      "correction": "Read the exact current milestone strings, apply bounded per-file patches, and refresh the final receipt's failure-ledger hash after retaining this observation."
+    },
+    {
+      "id": "OBS-043",
+      "phase": "unit-004-post-container-verifier-evaluation-report-reconciliation",
+      "classification": "apply_patch_incomplete_historical_candidate_sentence",
+      "observation": "A follow-on evaluation-report clarification supplied a shortened expected candidate sentence that omitted its embedded source-manifest clause, so apply_patch rejected the complete three-hunk edit before changing the file.",
+      "containment": "No evaluation report, receipt, package, runtime, container, registry, or external state changed, and no claim was inferred from the rejected patch.",
+      "correction": "Read and replace the exact complete lines individually, then refresh the final receipt's retained-failure binding."
     }
   ],
   "boundaries": {
