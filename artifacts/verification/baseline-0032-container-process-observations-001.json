@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0032",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-22T20:50:38Z",
+  "status": "retained_observations",
+  "observations": [
+    {
+      "phase": "resume preflight",
+      "status": "retained_incomplete_display",
+      "observation": "The prior turn's read-only preflight output exceeded the available context and was truncated.",
+      "effect": "none; no value was inferred, and the exact repository, target, Docker, container, and image checks were repeated concisely before the first derived-image build"
+    },
+    {
+      "phase": "resume preflight upstream summary",
+      "status": "retained_process_invalid",
+      "failure_ref": "OBS-044",
+      "failure": "The first repeated wrapper queried a missing local upstream-tracking ref and stopped before Docker checks.",
+      "correction": "The successor compared HEAD directly with the exact credential-free public feature ref and completed every preflight check."
+    },
+    {
+      "phase": "clean-build entrypoint inspection",
+      "status": "retained_process_invalid",
+      "failure_ref": "OBS-045",
+      "failure": "A read-only inspection requested the absent historical helper scripts/build_archive.py.",
+      "correction": "Repository discovery identified scripts/build_zipapp.py, which rebuilt the 43-entry archive at the frozen SHA-256 before clean build."
+    },
+    {
+      "phase": "canonical receipt schema inspection",
+      "status": "retained_process_invalid",
+      "failure_ref": "OBS-046",
+      "failure": "A read-only inspection requested the absent name eval/container-runtime-v12.json.",
+      "correction": "Repository discovery identified eval/container-contract-0032-v12.json; its validator enforces the exact 49-check canonical receipt."
+    },
+    {
+      "phase": "canonical receipt binding validation",
+      "status": "retained_process_invalid",
+      "failure_ref": "OBS-047",
+      "failure": "The first summary wrapper attempted to overwrite PowerShell's reserved $false constant and stopped before validation.",
+      "correction": "The successor uses $falseChecks and reruns every component-hash, check-inventory, image-identity, and frozen-contract assertion."
+    },
+    {
+      "phase": "post-container structured parsing",
+      "status": "retained_process_invalid",
+      "failure_ref": "OBS-048",
+      "failure": "The first JSON/JSONL wrapper contained a PowerShell colon-interpolation parser error and never ran.",
+      "correction": "The successor formats path and line fields explicitly and reruns the complete repository parse inventory."
+    }
+  ],
+  "boundaries": {
+    "positive_evidence_inferred_from_incomplete_or_failed_wrapper": false,
+    "product_or_security_boundary_changed": false,
+    "container_image_exported": false,
+    "container_image_pushed": false,
+    "container_image_published": false,
+    "real_infrastructure_contacted": false
+  }
+}

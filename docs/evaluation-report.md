@@ -1,6 +1,12 @@
 # Evaluation report
 
-## BASELINE-0032 current post-correction package/source candidate
+## BASELINE-0032 local canonical container candidate
+
+The exact public package/source record at `001b6a19b38616d07a9995d19831b44c8a03a6a1` supplied the only admitted Docker input. Two independent no-cache, network-disabled full builds and one credential-disabled HTTPS no-alternates clean build reproduce image ID `sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9` at the frozen creation time. The clean clone first rebuilt the exact 43-entry, 647,712-byte zipapp at SHA-256 `3be93953a367483e29c696af889ebfccc432424b8303c4f69ae00d10a38c2270`.
+
+Canonical container-runtime-v12 passes all 49 checks. The container repeats the 57-scenario, 171-attempt evaluation and anchored 261-event trace; preserves exact source/package metric projection; exposes only the three bounded MCP diagnostic/read tools; passes authenticated API, approval, executor, idempotency, replay, postcondition, SQLite state, audit, and telemetry checks; runs as UID 65532 with read-only root, all capabilities dropped, no-new-privileges, network none, and no host namespace or device access; and renders a complete 1440 by 1000 dashboard. Docker Scout 1.20.4 reports zero critical/high findings for the exact derived image at observation time. Post-container verification passes 96/96 tests, 40/40 phase-correct validators, all three anchored 261-event traces, both 43-entry package contracts, the governing milestone, repository structured parsing, high-specificity credential/capability and model scans, diff checking, and live image/container inventory. This is point-in-time, local-builder, synthetic-only evidence—not production readiness, perpetual vulnerability absence, universal safety, or cross-builder reproducibility. No image was exported, pushed, published, or redistributed.
+
+## BASELINE-0032 current post-correction package/source input
 
 The current candidate starts from exact public record commit `09fcbe7a8fdc40cbd4be0101c2a83f5600135b18` and renewed 153-file manifest SHA-256 `2641b57f17a47bab60d2c9258b1f08b6bd66f22e7cc99529fa0f41436150e27f`. Two dependency-free builds reproduce 647,712 bytes, 43 entries, and SHA-256 `3be93953a367483e29c696af889ebfccc432424b8303c4f69ae00d10a38c2270`.
 
@@ -8,7 +14,7 @@ Source attempt 005 and package attempt 006 each pass 57 scenarios, 171 repeated 
 
 Both MCP surfaces expose exactly three diagnosis/read tools with no approval or execution authority. Both real APIs pass 131/131 checks, and both native inspections pass the same 72/72 checks across authentication, approval, executor, replay, postconditions, SQLite state, audit, logs, and anchored telemetry. Both freshly rendered 1440 by 1000 dashboards were inspected at original detail and visibly retain the synthetic-only, authenticated external-operator, disconnected-real-infrastructure, metric, and two-incident boundaries without clipping. At the local seal this was a non-container candidate only; repeated local image identity, no-alternates clean-clone identity, hardening, and fresh exact-derived-image scanning still remain required.
 
-Public payload commit `3e892d5fb7830f2812531f8936aa811b93d5c424`, tree `3c366d8f465702d79651150435c83e8dc2e1a30e`, is now independently exact across all 20 changed Git blobs and anonymous raw files. This advances only publication truth: container identity, hardening, clean-clone, and derived-image scan results remain unknown.
+Public payload commit `3e892d5fb7830f2812531f8936aa811b93d5c424`, tree `3c366d8f465702d79651150435c83e8dc2e1a30e`, and record commit `001b6a19b38616d07a9995d19831b44c8a03a6a1` are independently exact. Those bytes are now the exact input to the separately retained local canonical container result above.
 
 ## BASELINE-0032 superseded pre-container-verifier package/source generation
 

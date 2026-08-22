@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0032",
+  "phase": "canonical-container-and-clean-clone",
+  "status": "pass",
+  "observed_at_utc": "2026-08-22T21:07:33Z",
+  "public_input": {
+    "repository": "https://github.com/drwbkr1/runbook-sentinel",
+    "visibility": "PUBLIC",
+    "branch": "codex/baseline-0032-container-base-security-refresh",
+    "commit": "001b6a19b38616d07a9995d19831b44c8a03a6a1",
+    "clean_clone_no_object_alternates": true
+  },
+  "canonical_receipt": {
+    "path": "artifacts/verification/container-baseline-0032.json",
+    "bytes": 40231,
+    "sha256": "b1ffc6b22385d2d359e8215a1f498fcefbed171895bd80e9f76bb7a391b0def0",
+    "required_checks_true": 49,
+    "required_checks_total": 49,
+    "contract_validation": "pass with implemented v12 and required result"
+  },
+  "component_receipts": {
+    "full_path": "artifacts/verification/container-baseline-0032-local-attempt-001.json",
+    "full_sha256": "9dc086b20ef0c540b534e7451cf4f932a13ef755441740f14c562bec827cd9b5",
+    "clean_path": "artifacts/verification/clean-container-baseline-0032-local-attempt-001.json",
+    "clean_sha256": "9bf1150eadfcf2bcfcb67cb694a49a6fa49e02b3baa485ebc8817c2fdd7b2988",
+    "two_full_and_one_clean_image_ids_exact": true,
+    "image_id": "sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9"
+  },
+  "package_and_trace_evidence": {
+    "selected_archive_sha256": "3be93953a367483e29c696af889ebfccc432424b8303c4f69ae00d10a38c2270",
+    "repeat_archive_sha256": "3be93953a367483e29c696af889ebfccc432424b8303c4f69ae00d10a38c2270",
+    "selected_archive_entries": 43,
+    "repeat_archive_entries": 43,
+    "source_trace": "pass-261-anchored",
+    "package_trace": "pass-261-anchored",
+    "container_trace": "pass-261-anchored"
+  },
+  "structured_artifacts": {
+    "container_scope_json_files_parsed": 10,
+    "container_scope_jsonl_files_parsed": 3,
+    "container_scope_jsonl_records_parsed": 267,
+    "container_scope_parse_errors": 0,
+    "repository_json_files_before_this_receipt": 1083,
+    "repository_json_valid_nonempty_before_this_receipt": 1082,
+    "repository_known_empty_json_count": 1,
+    "repository_known_empty_json_path": "artifacts/verification/mcp-source-baseline-0026.json",
+    "repository_bom_json_count": 14,
+    "repository_jsonl_files": 171,
+    "repository_jsonl_records": 31911,
+    "repository_parse_errors": 0
+  },
+  "runtime_evidence": {
+    "database_tables": 7,
+    "database_row_counts": {
+      "approvals": 2,
+      "audit_log": 5,
+      "idempotency": 1,
+      "incidents": 2,
+      "proposals": 2,
+      "runs": 2,
+      "sqlite_sequence": 1
+    },
+    "dashboard_bytes": 101818,
+    "dashboard_sha256": "81ab5c747772194474a114b4f451c1ff6664e0ba2c3d5b197891a33bad7e9a41",
+    "dashboard_dimensions": [1440, 1000],
+    "dashboard_visually_inspected": true,
+    "scanner": "Docker Scout 1.20.4",
+    "scanner_sarif_sha256": "7749b34be7a069559b10b1b9d53cc8897576fdd104071a9e0f907f9a301ee303",
+    "scanner_critical_high_results": 0
+  },
+  "regression": {
+    "tests_passed": 96,
+    "tests_total": 96,
+    "test_elapsed_seconds": 94.212,
+    "phase_correct_validators_passed": 40,
+    "phase_correct_validators_total": 40,
+    "validator_elapsed_seconds": 2.919,
+    "container_result_required": true,
+    "milestone_contract_valid": true,
+    "milestone_contract_warnings": 0
+  },
+  "scans": {
+    "high_specificity_credential_or_capability_hits": 0,
+    "model_artifact_count": 0,
+    "candidate_image_export_artifact_count": 0,
+    "surviving_verifier_container_count": 0,
+    "local_baseline_0032_tag_count": 3,
+    "local_baseline_0032_unique_image_id_count": 1,
+    "git_diff_check": "pass"
+  },
+  "retained_failures": {
+    "ledger_path": "artifacts/verification/baseline-0032-orientation-failures-001.json",
+    "ledger_sha256": "900479655def64f7ad02a12f98d7b5bce7bccb2cb5573918efc356a22dabbdbe",
+    "process_observations_path": "artifacts/verification/baseline-0032-container-process-observations-001.json",
+    "process_observations_sha256": "f609ec9065a7a8479dcdfd5ad37e5b72cd12befb03ca1feddd160efad8c71644",
+    "new_observation_ids": ["OBS-044", "OBS-045", "OBS-046", "OBS-047", "OBS-048"],
+    "failed_or_incomplete_wrapper_used_as_positive_evidence": false
+  },
+  "boundaries": {
+    "real_operational_infrastructure_used": false,
+    "external_asset_or_service_added": false,
+    "container_image_exported": false,
+    "container_image_pushed": false,
+    "container_image_published": false,
+    "container_image_redistributed": false,
+    "secret_or_paid_service_added": false,
+    "product_or_authority_boundary_changed": false
+  },
+  "next_gate": "Publish and independently reconcile this canonical local-only container result before beginning the governed premerge release-truth audit."
+}

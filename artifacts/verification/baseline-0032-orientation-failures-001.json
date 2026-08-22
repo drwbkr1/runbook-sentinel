@@ -346,6 +346,46 @@
       "observation": "A follow-on evaluation-report clarification supplied a shortened expected candidate sentence that omitted its embedded source-manifest clause, so apply_patch rejected the complete three-hunk edit before changing the file.",
       "containment": "No evaluation report, receipt, package, runtime, container, registry, or external state changed, and no claim was inferred from the rejected patch.",
       "correction": "Read and replace the exact complete lines individually, then refresh the final receipt's retained-failure binding."
+    },
+    {
+      "id": "OBS-044",
+      "phase": "unit-004-container-resume-preflight",
+      "classification": "missing_local_upstream_tracking_ref",
+      "observation": "The first concise resume preflight queried @{u}, but the exact public feature branch has no local upstream-tracking ref, so git rev-parse stopped before the remaining read-only checks.",
+      "containment": "No build, image, container, repository, registry, or real-infrastructure mutation occurred, and no remote identity was inferred from the failed lookup.",
+      "correction": "Verify the local HEAD directly against the exact public feature ref with credential-free git ls-remote; the successor preflight proved both were 001b6a19b38616d07a9995d19831b44c8a03a6a1."
+    },
+    {
+      "id": "OBS-045",
+      "phase": "unit-004-clean-build-entrypoint-inspection",
+      "classification": "mistaken_historical_archive_helper_filename",
+      "observation": "A read-only helper inspection requested scripts/build_archive.py, which does not exist in this checkpoint, and stopped before printing the Dockerfile after already reporting the clean-build parser and prior receipt shapes.",
+      "containment": "No package, image, container, repository, registry, or external state changed, and the partial inspection was not used to select an archive builder.",
+      "correction": "Discover the repository-owned helper with rg --files, then inspect and run scripts/build_zipapp.py against the frozen baseline-0032 package contract."
+    },
+    {
+      "id": "OBS-046",
+      "phase": "unit-004-canonical-container-contract-inspection",
+      "classification": "mistaken_container_contract_filename",
+      "observation": "A read-only schema inspection requested eval/container-runtime-v12.json, which does not exist, and stopped after printing the validator source but before summarizing the clean receipt.",
+      "containment": "The clean receipt remained byte-unchanged, no canonical result was composed from the failed wrapper, and no package, image, registry, or real-infrastructure state changed.",
+      "correction": "Locate the frozen contract with rg --files and inspect eval/container-contract-0032-v12.json plus the exact receipt-validation function before composition."
+    },
+    {
+      "id": "OBS-047",
+      "phase": "unit-004-canonical-container-binding-validation",
+      "classification": "powershell_reserved_false_variable",
+      "observation": "The first canonical binding-summary wrapper assigned its false-check list to $false, which is a read-only PowerShell constant, and stopped before reading receipt bindings or invoking the frozen contract validator.",
+      "containment": "The canonical receipt and every bound component remained byte-unchanged, no validator result was inferred, and no image, registry, release, or real-infrastructure action occurred.",
+      "correction": "Rename the list to $falseChecks, refresh the failure-ledger and process-observation hashes in the canonical receipt, and rerun the complete binding and contract gate."
+    },
+    {
+      "id": "OBS-048",
+      "phase": "unit-004-post-container-structured-parsing",
+      "classification": "powershell_colon_interpolation_parser_error",
+      "observation": "The first repository JSON/JSONL parser embedded $path:$lineNumber in a double-quoted error string, so PowerShell rejected the wrapper at parse time before enumerating or parsing any artifact.",
+      "containment": "No structured-artifact count or pass was inferred, no project or runtime byte changed, and no publication or release action followed the invalid wrapper.",
+      "correction": "Render the path and line number with the format operator, refresh the retained-failure bindings, and rerun the complete repository parser."
     }
   ],
   "boundaries": {
