@@ -16,6 +16,7 @@
 - Renewed the 153-file BASELINE-0032 source manifest and retained a 93/94 test failure that exposed a mutable active-manifest pointer in the historical retrieval-tier validator. A first immutable archive candidate also failed because it did not match retained `latest.json`; both failures remain explicit.
 - Corrected only the verifier lifecycle pointer to exact immutable `baseline-0031-final-source-attempt-002.manifest.json` at SHA-256 `e2ea1bca...`. Retrieval implementation, selected/default configuration, corpus, cases, metrics, thresholds, and product behavior are unchanged. Added a regression test forbidding mutable `eval/manifest.json` for the historical control.
 - Refroze byte-identical 18,484-byte active and archived BASELINE-0032 manifests at SHA-256 `07fcf36bff0f137062f6286f6e330c91441775120ee9a142868e59ca3e0ef1ae`; manifest validation covers 153 files and the complete suite passes 95/95 in 91.328 seconds. No v0.0.32 package, evaluation candidate, or derived image exists before public prebuild sealing.
+- Published and reconciled prebuild-manifest commit `9ff79a819a5ab2decc41d4329561eddeea34f8c0`, tree `c89a8d94edfea27881dac3c77b7ffd06ceac62d6`: all refs, commit/tree/parent, 13 Git blobs, and 13 anonymous raw files are exact in an untruncated 1,466-entry tree; public main remains unchanged. Package creation opens only after this record-only receipt is public.
 
 ## 0.0.31 - Unreleased
 

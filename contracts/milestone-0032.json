@@ -219,7 +219,16 @@
         "exact source package API MCP approval executor dashboard state and telemetry evidence",
         "repeated and clean-clone image identity",
         "fresh exact-image critical/high scan"
-      ]
+      ],
+      "gates": {
+        "public_prebuild_manifest_verified": "pass",
+        "deterministic_package_and_source_evaluation": "pending",
+        "real_source_and_package_surfaces": "pending",
+        "repeated_and_clean_clone_container_identity": "pending",
+        "fresh_exact_derived_image_scan": "pending"
+      },
+      "disposition": "in_progress",
+      "next_dependency": "deterministic package build and source/package evaluation"
     },
     {
       "id": "UNIT-005",
