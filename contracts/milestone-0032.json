@@ -265,7 +265,7 @@
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Run the governed premerge release-truth audit against exact public canonical-container commit f61caf6582e4095f9075f2ccc9a4de9f4f5c5f53; open review only if every required surface is pass without warning.",
+  "next_action": "Publish and independently reconcile the bounded active-truth correction after public record commit a0fbde12ad4d562239320f72dceea6a1337d99d7, then complete the governed premerge release-truth audit on draft PR #30 at the latest exact public branch head; mark review ready only if every required check and surface passes without warning.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -302,7 +302,8 @@
       "Post-correction package SHA-256 3be93953a367483e29c696af889ebfccc432424b8303c4f69ae00d10a38c2270, attempts 005/006, MCP, authenticated API, native state and telemetry, and both rendered dashboards pass locally under manifest 2641b57f17a47bab60d2c9258b1f08b6bd66f22e7cc99529fa0f41436150e27f",
       "Container-runtime-v12 passes all 49 composed checks at exact image ID sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9 across two full local builds and one credential-disabled no-alternates public-branch clean build; the fresh exact-derived-image scan reports zero critical/high at observation time",
       "Post-container regression passes 96 of 96 tests and 40 of 40 phase-correct validators; repository structured parsing, high-specificity credential/capability scanning, model-artifact scanning, Git diff checking, trace validation, package validation, milestone validation, and live image/container inventory all pass",
-      "Canonical container evidence commit f61caf6582e4095f9075f2ccc9a4de9f4f5c5f53 and tree 95c647595d89c15814e22d76a14e725b5c3d7d0f are public and exact; the GitHub tree is untruncated at 1,519 entries and all 16 changed Git blobs and anonymous raw paths match local bytes"
+      "Canonical container evidence commit f61caf6582e4095f9075f2ccc9a4de9f4f5c5f53 and tree 95c647595d89c15814e22d76a14e725b5c3d7d0f are public and exact; the GitHub tree is untruncated at 1,519 entries and all 16 changed Git blobs and anonymous raw paths match local bytes",
+      "UNIT-004 record commit a0fbde12ad4d562239320f72dceea6a1337d99d7 and tree 73d80834a2d92f63cdd441e6e099fb064a901ae4 are public and exact; all eight changed paths match anonymous immutable bytes, public main remains unchanged, and draft PR #30 opened from that exact head"
     ],
     "artifacts": [
       "artifacts/verification/container-source-gate-baseline-0032-chainguard-python.json",
@@ -332,6 +333,7 @@
       "artifacts/verification/baseline-0032-container-process-observations-001.json",
       "artifacts/verification/artifact-scan-baseline-0032-container-phase.json",
       "artifacts/verification/container-baseline-0032-public.json",
+      "artifacts/verification/baseline-0032-premerge-audit-orientation-failures-001.json",
       "eval/container-base-security-refresh-contract-0032.json",
       "scripts/verify_container_base_security_refresh_contract.py",
       "tests/test_container_base_security_refresh_contract.py"
@@ -339,9 +341,9 @@
     "disposition": "in_progress"
   },
   "handoff": {
-    "latest_verified_checkpoint": "public canonical-container evidence commit f61caf6582e4095f9075f2ccc9a4de9f4f5c5f53 is exact; public v0.0.30 remains the latest release and public main e12e638b98b1deacb4c5058ecb9d7c8652c96985 retains the stopped BASELINE-0031 record",
+    "latest_verified_checkpoint": "public UNIT-004 record commit a0fbde12ad4d562239320f72dceea6a1337d99d7 and tree 73d80834a2d92f63cdd441e6e099fb064a901ae4 are exact; draft PR #30 opened from that head, public v0.0.30 remains the latest release, and public main e12e638b98b1deacb4c5058ecb9d7c8652c96985 retains the stopped BASELINE-0031 record",
     "retained_failed_checkpoint": "stopped unpublished BASELINE-0031 with exact derived image sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1 and failed CHECK-007",
-    "current_checkpoint": "BASELINE-0032 UNIT-004 is complete: canonical receipt passes 49 of 49 at image ID sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9, post-container gates pass, and public commit f61caf6582e4095f9075f2ccc9a4de9f4f5c5f53 is independently exact. UNIT-005 begins at the governed premerge release-truth audit.",
+    "current_checkpoint": "BASELINE-0032 UNIT-004 is complete: canonical receipt passes 49 of 49 at image ID sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9, public reconciliation commit a0fbde12ad4d562239320f72dceea6a1337d99d7 is independently exact, and draft PR #30 is open. UNIT-005 is reconciling a retained stale control pointer before the warning-free premerge audit; review remains draft.",
     "resume_rule": "Resume from the latest verified public BASELINE-0032 commit plus retained BASELINE-0031 failures; run the relevant verifier and inspect current evidence before acting, never use OneDrive, and never infer that v0.0.31 shipped."
   }
 }

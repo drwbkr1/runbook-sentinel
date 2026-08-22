@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "BASELINE-0032",
+  "phase": "unit-005-premerge-release-truth-audit",
+  "status": "retained",
+  "observations": [
+    {
+      "id": "PREMERGE-OBS-001",
+      "observed_at_utc": "2026-08-22T21:23:20Z",
+      "classification": "stale_active_control_pointer",
+      "observation": "The first UNIT-005 control-plane inspection found that contracts/milestone-0032.json still directed the audit to canonical-container commit f61caf6582e4095f9075f2ccc9a4de9f4f5c5f53 and said review had not opened, even though public reconciliation commit a0fbde12ad4d562239320f72dceea6a1337d99d7 was already exact and draft PR #30 had been opened from that head.",
+      "containment": "No audit pass, review readiness, merge, tag, release, deployment, image publication, or real-infrastructure action was inferred from stale text. Draft PR #30 remained draft while the living records were reconciled.",
+      "correction": "Update only active truth records to name public reconciliation a0fbde12ad4d562239320f72dceea6a1337d99d7, draft PR #30, and the latest public branch head as the audit input; then publish and independently verify the bounded correction before evaluating the premerge audit."
+    },
+    {
+      "id": "PREMERGE-OBS-002",
+      "observed_at_utc": "2026-08-22T21:25:45Z",
+      "classification": "obsolete_container_validator_options",
+      "observation": "A post-correction validation wrapper invoked scripts/verify_container_contract.py with obsolete --root and --result options. Argparse rejected the command before reading the frozen contract or canonical receipt.",
+      "containment": "No container result, audit pass, repository byte, image, review state, or release state changed, and the rejected invocation supplied no positive evidence.",
+      "correction": "Use the repository-owned --contract and --receipt options with --require-implementation and --require-result, then require the unchanged validator to pass."
+    },
+    {
+      "id": "PREMERGE-OBS-003",
+      "observed_at_utc": "2026-08-22T21:25:45Z",
+      "classification": "obsolete_package_validator_option",
+      "observation": "The same wrapper invoked scripts/verify_package_contract.py with an unsupported --root option. Argparse rejected the command before reading the frozen contract or selected archive.",
+      "containment": "No package, audit pass, repository byte, review state, or release state changed, and the rejected invocation supplied no positive evidence.",
+      "correction": "Use the repository-owned --contract, --archive, and --source-root options, then require the unchanged validator to pass."
+    },
+    {
+      "id": "PREMERGE-OBS-004",
+      "observed_at_utc": "2026-08-22T21:26:08Z",
+      "classification": "incorrect_package_source_root_semantics",
+      "observation": "The first accepted package-validator invocation passed src as --source-root even though the frozen contract records repository-relative src and eval paths. The unchanged validator therefore reported every recorded source path missing and returned status fail.",
+      "containment": "The failure changed no archive, contract, source, audit, review, image, or release state; it was not used as evidence about package validity.",
+      "correction": "Pass the repository root as --source-root so every frozen repository-relative path resolves exactly, then require status pass with the same contract and archive bytes."
+    }
+  ],
+  "boundaries": {
+    "product_runtime_evaluation_or_security_boundary_changed": false,
+    "failed_or_stale_state_used_as_positive_evidence": false,
+    "pull_request_marked_ready": false,
+    "merge_tag_release_or_deployment_performed": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "real_infrastructure_contacted": false
+  }
+}
