@@ -175,7 +175,7 @@
       ],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": [
         "publicly verified preimplementation freeze",
         "exact admitted digest",
@@ -191,10 +191,15 @@
         "bounded_implementation_valid": "pass",
         "all_python_tests_pass": "pass",
         "no_package_or_derived_image_built_before_public_seal": "pass",
-        "public_implementation_seal_verified": "pending"
+        "public_implementation_seal_verified": "pass"
       },
-      "disposition": "in_progress",
-      "next_dependency": "public implementation seal before UNIT-004"
+      "evidence": [
+        "Public implementation commit ead044ee5da0e017a3a5af0c9891668a0a83d4a8 and tree 4726925c6d37ea95c83959c06a88f8cb2515b575 are exact across local tracking ls-remote and anonymous GitHub refs",
+        "All 33 changed Git blobs and all 33 anonymous raw files match exact local bytes and SHA-256 in the untruncated 1,462-entry tree",
+        "Public main remains e12e638b98b1deacb4c5058ecb9d7c8652c96985; no package or derived image existed at implementation seal"
+      ],
+      "disposition": "pass",
+      "next_dependency": "UNIT-004"
     },
     {
       "id": "UNIT-004",
@@ -204,7 +209,7 @@
       ],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "ready",
       "inputs": [
         "public implementation seal",
         "frozen source package container and security contracts"

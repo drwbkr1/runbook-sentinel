@@ -899,7 +899,7 @@ Public merged-main receipt `17e11ab...` binds the complete result at SHA-256 `8c
 
 ## BASELINE-0032 implementation checkpoint - pre-build result
 
-Status: local implementation pass; public implementation reconciliation pending. This is not a package, container, candidate-evaluation, or release result.
+Status: public implementation pass at `ead044ee5da0e017a3a5af0c9891668a0a83d4a8`, tree `4726925c6d37ea95c83959c06a88f8cb2515b575`; candidate evaluation pending. This is not yet a package, container, candidate-evaluation, or release result.
 
 The only functional product delta is the exact Dockerfile base index and matching label from vulnerable predecessor `sha256:69437de...` to admitted replacement `sha256:1f677977...`. All baseline-0032/v0.0.32 changes are mechanical identity. The selected `freshness-priority-lexical-v3` retrieval configuration, deterministic product default, optional model contract, frozen scenario catalog, development and held-out splits, exact graders, thresholds, agent outcomes, tools, policy, approval, executor, replay, postconditions, and authority remain unchanged.
 

@@ -12,6 +12,7 @@
 - Implemented the two frozen Dockerfile digest substitutions and mechanical baseline-0032/v0.0.32 projection across source, package, API, MCP, dashboard, runtime-evidence, and verifier identities. No incident-agent, retrieval, model, evaluation, authorization, approval, executor, replay, postcondition, dependency, secret, service, or real-infrastructure behavior changed.
 - Froze `package-contract-0032.json` and `container-contract-0032-v12.json`. V12 inherits the 47-check v11 real-surface and hardening contract, adds exact base-remediation and OCI-intake checks, and still requires a fresh zero-critical/high derived-image scan, repeated local builds, clean-clone identity, and no image export or publication.
 - Passed the implemented-phase remediation verifier, successor package and container contract validators, five focused v12 tests, and the complete 94-test suite in 93.903 seconds. Retained the transport trailing-newline mismatch, stale-phase test, and mistyped unittest class as failed process evidence. No v0.0.32 package, derived image, evaluation candidate, tag, or release exists yet.
+- Published and reconciled implementation commit `ead044ee5da0e017a3a5af0c9891668a0a83d4a8`, tree `4726925c6d37ea95c83959c06a88f8cb2515b575`: all four final refs, commit/tree/parent, all 33 Git blobs, and all 33 anonymous raw files agree in an untruncated 1,462-entry tree. Public main remains unchanged. The initially stale local remote-tracking ref is retained as a failed aggregate check before explicit fetch and passing reconciliation.
 
 ## 0.0.31 - Unreleased
 

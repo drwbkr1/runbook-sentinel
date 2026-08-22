@@ -90,6 +90,22 @@
       "observation": "The full-content scan of three untracked files found one private-key delimiter literal in eval/package-contract-0032.json, where the contract declares that delimiter as a forbidden archive-content pattern.",
       "containment": "The exact line was inspected; it is a project-authored deny-list value, not key material. Added tracked lines had zero pattern hits and no unresolved secret-shaped value was accepted.",
       "correction": "Retain the declared forbidden literal, classify the single hit as resolved non-secret contract text, and require zero unresolved added-line or untracked-file hits."
+    },
+    {
+      "id": "OBS-012",
+      "phase": "public-implementation-seal-reconciliation",
+      "classification": "post_push_remote_tracking_ref_stale",
+      "observation": "The first post-push reconciliation found the local origin/codex/baseline-0032-container-base-security-refresh tracking ref still at 028e46bb even though ls-remote and anonymous GitHub already returned implementation commit ead044ee.",
+      "containment": "The aggregate all-heads check remained false, so the observation was not promoted to a passing public seal despite exact anonymous commit, tree, blob, raw-byte, and public-main evidence.",
+      "correction": "Fetch the exact public branch into its explicit local tracking ref and repeat every ref, commit, tree, Git-blob, raw-byte, and public-main check before recording the passing receipt."
+    },
+    {
+      "id": "OBS-013",
+      "phase": "implementation-record-reconciliation",
+      "classification": "apply_patch_partial_table_row_context_mismatch",
+      "observation": "A wording-only version-history patch matched only the leading cells of a longer Markdown table row, so apply_patch could not find the incomplete expected line and rejected the edit.",
+      "containment": "No file changed and the rejected patch was not used as evidence.",
+      "correction": "Read the exact complete row and replace that full line once, changing evaluation active to the narrower evaluation unit ready claim."
     }
   ],
   "boundaries": {
