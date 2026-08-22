@@ -19,7 +19,7 @@ from runbook_sentinel.evidence import (  # noqa: E402
 
 
 CONTRACT_PATH = ROOT / "eval/retrieval-tier-cap-contract.json"
-ACTIVE_MANIFEST_PATH = ROOT / "eval/manifest.json"
+EVALUATION_RUNS_DIR = ROOT / "artifacts/evaluations/runs"
 ACCEPTED_CONTROL_ARCHIVE_PATH = (
     ROOT
     / "artifacts/evaluations/runs/baseline-0030-final-source-attempt-001.json"
@@ -134,11 +134,36 @@ def _expect_identity(record: dict[str, Any], errors: list[str], prefix: str) -> 
         errors.append(f"{prefix}_identity")
 
 
+def _resolve_active_lifecycle_manifest(
+    declared_path: Path,
+    runs_dir: Path = EVALUATION_RUNS_DIR,
+) -> Path | None:
+    try:
+        active = json.loads(declared_path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError, UnicodeDecodeError):
+        return None
+    checkpoint = active.get("checkpoint")
+    manifest_sha256 = active.get("manifest_sha256")
+    if (
+        not isinstance(checkpoint, str)
+        or not checkpoint.startswith("baseline-")
+        or not checkpoint.removeprefix("baseline-").isdigit()
+        or not isinstance(manifest_sha256, str)
+    ):
+        return None
+    matches = [
+        path
+        for path in sorted(runs_dir.glob(f"{checkpoint}-*.manifest.json"))
+        if path.is_file() and sha256(path) == manifest_sha256
+    ]
+    return matches[0] if matches else None
+
+
 def _resolve_accepted_control(
     control: dict[str, Any],
     declared_path: Path,
     archive_path: Path,
-    active_manifest_path: Path,
+    active_manifest_path: Path | None,
     errors: list[str],
 ) -> Path:
     expected_bytes = control.get("evaluation_bytes")
@@ -166,12 +191,18 @@ def _resolve_accepted_control(
     boolean_gates = [
         value for value in active.get("gates", {}).values() if isinstance(value, bool)
     ]
-    active_manifest_sha256 = (
-        sha256(active_manifest_path) if active_manifest_path.is_file() else None
-    )
+    active_manifest_sha256 = None
+    if active_manifest_path is not None and active_manifest_path.is_file():
+        active_manifest_sha256 = sha256(active_manifest_path)
+    checkpoint = active.get("checkpoint")
+    checkpoint_number = None
+    if isinstance(checkpoint, str) and checkpoint.startswith("baseline-"):
+        suffix = checkpoint.removeprefix("baseline-")
+        if suffix.isdigit():
+            checkpoint_number = int(suffix)
     if not all(
         (
-            active.get("checkpoint") == "baseline-0031",
+            checkpoint_number is not None and checkpoint_number >= 31,
             active.get("retrieval_configuration") == CONTROL_CONFIGURATION,
             active.get("agent_configuration") == "deterministic-control-v2",
             active.get("decision_context_configuration")
@@ -217,11 +248,14 @@ def validate(
 
     control = frozen.get("accepted_control", {})
     declared_report_path = ROOT / control.get("evaluation_path", "")
+    active_lifecycle_manifest_path = _resolve_active_lifecycle_manifest(
+        declared_report_path
+    )
     report_path = _resolve_accepted_control(
         control,
         declared_report_path,
         ACCEPTED_CONTROL_ARCHIVE_PATH,
-        ACTIVE_MANIFEST_PATH,
+        active_lifecycle_manifest_path,
         errors,
     )
     if report_path.is_file():

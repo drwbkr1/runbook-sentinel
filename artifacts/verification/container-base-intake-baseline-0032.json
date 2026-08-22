@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0032-CONTAINER-BASE-INTAKE",
+  "checkpoint": "BASELINE-0032",
+  "observed_at_utc": "2026-08-22T18:02:10Z",
+  "status": "verified_in_external_content_addressed_store",
+  "authority": {
+    "source_gate": "artifacts/verification/container-source-gate-baseline-0032-chainguard-python.json",
+    "decision": "ready",
+    "access": "anonymous-public-exact-digest",
+    "secret_or_credential_used": false
+  },
+  "source": {
+    "kind": "oci",
+    "reference": "cgr.dev/chainguard/python@sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+    "index_digest": "sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+    "linux_amd64_manifest_digest": "sha256:e15765ff7066a0eaf91e1b6fd5000c1bba47d62b9f9731f2da560711d910c4f3",
+    "config_digest": "sha256:54c0ed043c48d15cc5043a92ea35540cb7c9620115dae21013c74d72cf98e2fd",
+    "terms_ref": "https://edu.chainguard.dev/chainguard/containers/about/images-categories/"
+  },
+  "attempts": [
+    {
+      "attempt_id": "ATTEMPT-001",
+      "started_from_state": "source_gate_public_and_exact",
+      "command": "docker pull --platform linux/amd64 cgr.dev/chainguard/python@sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+      "completed_at_utc": "2026-08-22T18:01:43Z",
+      "exit_code": 0,
+      "outcome": "downloaded_newer_image",
+      "resumed_partial_transfer": false,
+      "secret_bearing_material_in_command_or_log": false
+    }
+  ],
+  "custody": {
+    "store": "Docker Desktop desktop-linux local content-addressed image store",
+    "project_file_destination": null,
+    "file_staging_or_promotion_claimed": false,
+    "reason": "The controlled-intake file contract requires staged project-file promotion, but exporting OCI image bytes is an explicit checkpoint no-go. The image therefore remains only in the local Docker content-addressed store and is verified through OCI identities and local inspection.",
+    "repo_digests": [
+      "cgr.dev/chainguard/python@sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c"
+    ],
+    "local_image_id": "sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+    "architecture": "amd64",
+    "os": "linux",
+    "author": "github.com/chainguard-dev/apko",
+    "created_at_utc": "2026-08-21T17:50:49Z",
+    "size_bytes_reported_by_local_store": 26168216,
+    "user": "65532",
+    "entrypoint": [
+      "/usr/bin/python"
+    ],
+    "rootfs_layer_count": 11,
+    "rootfs_diff_ids": [
+      "sha256:640c22a8736e118a09f6b86809ed896953582b8fb99ee5d9bb01e59716d809d8",
+      "sha256:7718b5a484c0d9f514eaf62d66692c47e4f519040e76a5d1133c65acf56fff98",
+      "sha256:5b96042be5282f40ad6347c21b2b8c83f36ef920a6fd40675ff8c27aa257ab31",
+      "sha256:30a67c5f807b677169cb02bf2bf5931dc5ed9871627a5ee0f0eb64ddb5193b32",
+      "sha256:8164e072a74c36b3d2296fa5c06b03816217d1d5250e1024817ad0d42cd84cba",
+      "sha256:059bbf8e4d785433d8a519d7235bea25d32fec8d6e4907dfe78e47fdec38b6cc",
+      "sha256:22516be037ba95896becac2dc910ccce5ba84af6db35b9ae4cd21dacb1a4b6d4",
+      "sha256:7de63fdd037bf24ee5fed6036c8229cdeb2d8f4462a990b00316814fc2927557",
+      "sha256:57f76dd54d1c26ac7d4bb9bc41b357ba272d2e3a37e907b91b9983da3c972957",
+      "sha256:53a907cff921d15b1f24642dff948189317c928b8af4ee270fe10ce81557b8eb",
+      "sha256:a40fb81f74d9f90ac9d20f01068eafdf7290156de45fe67e26530b70d0479e03"
+    ]
+  },
+  "verification": {
+    "repo_digest_matches_admitted_index": true,
+    "platform_matches_admitted_manifest": true,
+    "author_creation_user_entrypoint_and_layers_match_registry_metadata": true,
+    "local_scout_reference": "local://cgr.dev/chainguard/python@sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+    "local_sbom_package_count": 54,
+    "remote_attested_and_analyzed_sbom_package_count": 101,
+    "python_version": "3.14.7-r1",
+    "libcrypto3_version": "3.6.3-r5",
+    "libssl3_version": "3.6.3-r5",
+    "local_critical_high_result_count": 0,
+    "local_scan_observed_at_utc": "2026-08-22T18:02:10Z",
+    "generic_zero_result_sarif_intrinsically_binds_target": false,
+    "target_bound_by_receipt_command_reference_and_local_image_identity": true
+  },
+  "boundaries": {
+    "mutable_tag_used": false,
+    "registry_authentication_used": false,
+    "paid_or_private_entitlement_used": false,
+    "project_file_or_archive_created_from_image_bytes": false,
+    "image_exported_pushed_published_or_redistributed": false,
+    "real_infrastructure_contacted": false
+  },
+  "next_gate": "Apply only the frozen Dockerfile digest substitutions plus mechanical baseline-0032/v0.0.32 identity, then pass the implemented-phase verifier before any package or derived-image build."
+}

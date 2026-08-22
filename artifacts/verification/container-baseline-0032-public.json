@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "container-baseline-0032-public-20260822T211255Z",
+  "checkpoint": "baseline-0032",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-22T21:12:55Z",
+  "status": "pass",
+  "repository": "https://github.com/drwbkr1/runbook-sentinel",
+  "visibility": "PUBLIC",
+  "default_branch": "main",
+  "branch": "codex/baseline-0032-container-base-security-refresh",
+  "canonical_evidence_commit": "f61caf6582e4095f9075f2ccc9a4de9f4f5c5f53",
+  "canonical_evidence_tree": "95c647595d89c15814e22d76a14e725b5c3d7d0f",
+  "canonical_evidence_parent": "001b6a19b38616d07a9995d19831b44c8a03a6a1",
+  "public_main": "e12e638b98b1deacb4c5058ecb9d7c8652c96985",
+  "heads": {
+    "local": "f61caf6582e4095f9075f2ccc9a4de9f4f5c5f53",
+    "ls_remote": "f61caf6582e4095f9075f2ccc9a4de9f4f5c5f53",
+    "anonymous_github_ref_api": "f61caf6582e4095f9075f2ccc9a4de9f4f5c5f53",
+    "exact": true
+  },
+  "github_commit_and_tree_verification": {
+    "commit": "f61caf6582e4095f9075f2ccc9a4de9f4f5c5f53",
+    "tree": "95c647595d89c15814e22d76a14e725b5c3d7d0f",
+    "parent": "001b6a19b38616d07a9995d19831b44c8a03a6a1",
+    "tree_api_truncated": false,
+    "tree_entry_count": 1519,
+    "changed_path_count": 16,
+    "verified": 16,
+    "failed": 0,
+    "git_blob_exact": true
+  },
+  "anonymous_raw_verification": {
+    "immutable_commit_urls": true,
+    "credentials_supplied": false,
+    "changed_path_count": 16,
+    "verified": 16,
+    "failed": 0,
+    "length_and_sha256_exact": true
+  },
+  "public_paths": [
+    {"path": "CHANGELOG.md", "bytes": 114297, "sha256": "8bdf7b920985155c64e319c7a169ac2402660906852fa6263235ba8a7f78a9a0", "git_blob": "55208c2149640b418ab64496c20a172c35395636"},
+    {"path": "artifacts/verification/artifact-scan-baseline-0032-container-phase.json", "bytes": 4786, "sha256": "5e48a408d22a84457e4ec688cc0e07869064112c14b358345ab640a77f31318d", "git_blob": "417800c0a1621ad935ae623da98dbac3646d8f55"},
+    {"path": "artifacts/verification/baseline-0032-container-process-observations-001.json", "bytes": 2930, "sha256": "f609ec9065a7a8479dcdfd5ad37e5b72cd12befb03ca1feddd160efad8c71644", "git_blob": "96283267105ef3359f0dc37fe2a3caaf19d3c7cc"},
+    {"path": "artifacts/verification/baseline-0032-orientation-failures-001.json", "bytes": 37928, "sha256": "900479655def64f7ad02a12f98d7b5bce7bccb2cb5573918efc356a22dabbdbe", "git_blob": "82866e2d861a0f52c80f28dbbc4509ec9b7234c6"},
+    {"path": "artifacts/verification/clean-container-baseline-0032-local-attempt-001.json", "bytes": 16684, "sha256": "9bf1150eadfcf2bcfcb67cb694a49a6fa49e02b3baa485ebc8817c2fdd7b2988", "git_blob": "d78925da398fdabd733fd6e6f4e283d0712d44a7"},
+    {"path": "artifacts/verification/container-baseline-0032-local-attempt-001.json", "bytes": 36792, "sha256": "9dc086b20ef0c540b534e7451cf4f932a13ef755441740f14c562bec827cd9b5", "git_blob": "871cd5f60cbbeaafeaea6895a2ec57ac8ca51138"},
+    {"path": "artifacts/verification/container-baseline-0032.json", "bytes": 40231, "sha256": "b1ffc6b22385d2d359e8215a1f498fcefbed171895bd80e9f76bb7a391b0def0", "git_blob": "3dbbd8b0e7977cd6bd7e0dfdccb8cf76418f55ca"},
+    {"path": "artifacts/verification/container-scout-critical-high-baseline-0032.sarif.json", "bytes": 461, "sha256": "7749b34be7a069559b10b1b9d53cc8897576fdd104071a9e0f907f9a301ee303", "git_blob": "16d5629e4d20740c36cbd4dc2e329c4b789777d0"},
+    {"path": "artifacts/verification/dashboard-container-baseline-0032.png", "bytes": 101818, "sha256": "81ab5c747772194474a114b4f451c1ff6664e0ba2c3d5b197891a33bad7e9a41", "git_blob": "62db4585862cbeb7f0765d13670ed7bff9c32c08"},
+    {"path": "contracts/milestone-0032.json", "bytes": 21171, "sha256": "0a427b737646719d7997a37ffc6ebcbdceb8423e5aa46bce9a49c4eab252271e", "git_blob": "b7f5fca3bdecb66fb875c05e1ab0b7cefe79a572"},
+    {"path": "docs/devlog.md", "bytes": 439949, "sha256": "26738384af45f930d85e5ea33cf3b722e1b08df87b9d90eca15ae1994ec750ef", "git_blob": "27b4644e2e26b70957023fb93ef3a2501849ccd6"},
+    {"path": "docs/evaluation-report.md", "bytes": 216903, "sha256": "6bf5a9190c613511c1d37aa4dd37afa43f3433e53c8d7bd25b88429d0b792c5f", "git_blob": "8d6345854cf4c569fedce659b13c86ce03eb9c37"},
+    {"path": "docs/roadmap.md", "bytes": 89363, "sha256": "cd44fa54b2c83f52d6e3d3bbf5a3dd01cd3cdca07ad1a46345c7c6566182dc60", "git_blob": "c5ed30e2708d5ac605d64bb1e6e9e4c37ac7ce68"},
+    {"path": "docs/status.md", "bytes": 255102, "sha256": "da441bb6ece17cbac4362828cd23aab06ec6ca6704463c53ec90828aa35b27e0", "git_blob": "1903a4bd31f7640f4e4aac8727fc71cca7e3f8b2"},
+    {"path": "docs/threat-model.md", "bytes": 21678, "sha256": "06580c6410f53ad34b4350163a2fa1f6ffbcf651336ce5c84076329564812cf1", "git_blob": "64cf9473d57c68a263faa68f07ce62d5f3e6a229"},
+    {"path": "docs/version-history.md", "bytes": 27568, "sha256": "0f860af7b00ce7ecd24102374187046e9e7d21846fb154f38557296647c160cb", "git_blob": "1d3e29ddd2a3bbd8e410a42a8f8d0275d4c4b4c5"}
+  ],
+  "canonical_result": {
+    "receipt_path": "artifacts/verification/container-baseline-0032.json",
+    "receipt_sha256": "b1ffc6b22385d2d359e8215a1f498fcefbed171895bd80e9f76bb7a391b0def0",
+    "checks_passed": 49,
+    "checks_total": 49,
+    "archive_sha256": "3be93953a367483e29c696af889ebfccc432424b8303c4f69ae00d10a38c2270",
+    "image_id": "sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9",
+    "exact_image_build_count": 3,
+    "critical_high_findings_at_observation_time": 0,
+    "dashboard_visually_inspected": true
+  },
+  "post_container_verification": {
+    "tests": "96 of 96 pass in 94.212 seconds",
+    "phase_correct_validators": "40 of 40 pass in 2.919 seconds with canonical result required",
+    "source_package_and_container_traces": "three exact 261-event traces, anchored and valid",
+    "selected_and_repeat_package_contracts": "two exact 43-entry archives pass",
+    "repository_structured_parse": "1083 pre-receipt JSON files plus 171 JSONL files and 31911 records; zero parse errors",
+    "high_specificity_credential_capability_hits": 0,
+    "model_artifacts": 0,
+    "surviving_verifier_containers": 0,
+    "candidate_export_artifacts": 0
+  },
+  "boundaries": {
+    "real_operational_infrastructure_used": false,
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false,
+    "image_redistributed": false,
+    "secret_or_paid_service_added": false,
+    "product_or_authority_boundary_changed": false
+  },
+  "unit_disposition": "pass",
+  "authorized_next_action": "Publish and anonymously reconcile this receipt and UNIT-004 completion update, then begin the governed premerge release-truth audit for UNIT-005."
+}

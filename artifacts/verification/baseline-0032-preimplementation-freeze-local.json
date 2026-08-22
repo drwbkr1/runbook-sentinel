@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0032-PREIMPLEMENTATION-FREEZE-LOCAL",
+  "checkpoint": "BASELINE-0032",
+  "observed_at_utc": "2026-08-22T17:54:44Z",
+  "status": "pass",
+  "starting_checkpoint": {
+    "commit": "e12e638b98b1deacb4c5058ecb9d7c8652c96985",
+    "tree": "b4007d246988ae9a5a94813607fc9aea5684bfb3",
+    "branch": "codex/baseline-0032-container-base-security-refresh",
+    "public_main_exact_at_start": true,
+    "latest_verified_public_release": "v0.0.30",
+    "v0_0_31_tag_or_release_exists": false
+  },
+  "freeze": {
+    "source_gate": "artifacts/verification/container-source-gate-baseline-0032-chainguard-python.json",
+    "remediation_contract": "eval/container-base-security-refresh-contract-0032.json",
+    "milestone": "contracts/milestone-0032.json",
+    "candidate_index_digest": "sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+    "linux_amd64_manifest_digest": "sha256:e15765ff7066a0eaf91e1b6fd5000c1bba47d62b9f9731f2da560711d910c4f3",
+    "candidate_base_present_in_local_image_store": false,
+    "candidate_digest_present_in_dockerfile": false,
+    "predecessor_digest_present_in_dockerfile": true,
+    "candidate_package_or_derived_image_exists": false,
+    "functional_change_implemented": false
+  },
+  "verification": {
+    "complete_tests": {
+      "command": "python -m unittest discover -s tests -v",
+      "passed": 94,
+      "failed": 0,
+      "elapsed_seconds": 96.927
+    },
+    "source_gate": {
+      "valid": true,
+      "computed_status": "ready",
+      "criteria": 8,
+      "evidence_items": 13,
+      "live_evidence_items": 11,
+      "stale_live_evidence_items": 0,
+      "errors": [],
+      "warnings": []
+    },
+    "remediation_contract": {
+      "valid": true,
+      "phase": "frozen",
+      "source_gate_status": "ready",
+      "retained_failed_check": [
+        "CHECK-007"
+      ],
+      "errors": []
+    },
+    "milestone": {
+      "valid": true,
+      "status": "active",
+      "active_unit": "UNIT-002",
+      "authority_active": true,
+      "errors": [],
+      "warnings": []
+    },
+    "compileall": "pass",
+    "git_diff_check": "pass",
+    "changed_json_parse_errors": [],
+    "focused_contract_test": "1/1 pass",
+    "current_delta_high_specificity_secret_hits": 0,
+    "historical_private_key_delimiter_literal_classified_non_secret": true
+  },
+  "governed_payload": [
+    {
+      "path": "artifacts/verification/baseline-0032-orientation-failures-001.json",
+      "bytes": 3271,
+      "sha256": "ec69fa82a282cb263c0d1528a383e74787ef7538ab6df45f31b1ea708cd91482",
+      "git_blob_sha1": "81da9131d38b34f494c87ed109af63a0a864b933"
+    },
+    {
+      "path": "artifacts/verification/container-source-gate-baseline-0032-chainguard-python.json",
+      "bytes": 11818,
+      "sha256": "f6317c0a7c4d01041c4676e221dff705475c1e7f171e356c2c344122c8994fc4",
+      "git_blob_sha1": "7941b3fe60ff944942c275c1dcc7267c240a05e4"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 103312,
+      "sha256": "1a6edd0a682e7769f55ba592989cf051f707911bb5c4d765dccf874f63464fd7",
+      "git_blob_sha1": "75c53407ddd5caefaae298acd4fb32199067c9b8"
+    },
+    {
+      "path": "contracts/milestone-0032.json",
+      "bytes": 12752,
+      "sha256": "1553bab8b53ab788324647c1534eacdcadbc64f86b0df77b6027eae65179e314",
+      "git_blob_sha1": "6499949c4844c7d05b315e73a9ad77d4c4495e9d"
+    },
+    {
+      "path": "docs/devlog.md",
+      "bytes": 423198,
+      "sha256": "9da8f5e7c0ea9770d83f3c6e543fc09c12df8ba49d55de3ebaeb96f12a1c95be",
+      "git_blob_sha1": "31a11bfa22d5eab22946dcd2dbcb3067b6b68718"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "bytes": 204566,
+      "sha256": "4bc491322633a6f1054e5ba5a0c5139d51f6e0b3594da57b07068f6f4be8e2e6",
+      "git_blob_sha1": "3b6a0824c4fa622d4f185dc149e0c315467a4fe7"
+    },
+    {
+      "path": "docs/research-ledger.md",
+      "bytes": 27359,
+      "sha256": "fb516fb4e558b0f2640c3b9cebfd2c82fbb6d377d678104abaa5b3ccc8c4357e",
+      "git_blob_sha1": "4a2a00223c47243ed7fcedf0b7c093cd66a561ca"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 80327,
+      "sha256": "bc3440e333c57f6637979b1ddc1aca56fa6f84dd89d08e857f7cabb5e69b771f",
+      "git_blob_sha1": "06297453ccf7237c30082240b5f516315cd7b05a"
+    },
+    {
+      "path": "docs/status.md",
+      "bytes": 250258,
+      "sha256": "1ef5d2bf5483663b15c97a76b24b45c110a51c8989a05351dced892db27cec88",
+      "git_blob_sha1": "2b2ca413ae58d6bbedc1f65881d1f8b8cb854b35"
+    },
+    {
+      "path": "docs/threat-model.md",
+      "bytes": 20783,
+      "sha256": "af496a12fedbe6584b07244662f020a0a1766e81a176c9a7c17ecf9f8b06e389",
+      "git_blob_sha1": "062608c43530c6f5a2e18c3f61035dac6b0d304c"
+    },
+    {
+      "path": "docs/version-history.md",
+      "bytes": 26807,
+      "sha256": "e865dc02c4ef74e784d90d56413fa23a4baacfc10969ea6d3fc92a00018b8936",
+      "git_blob_sha1": "b7467fd4984535cf36e514a637c4cc27fe72a6b1"
+    },
+    {
+      "path": "eval/container-base-security-refresh-contract-0032.json",
+      "bytes": 8664,
+      "sha256": "4bd27c43c6309cf3efa24a87e1651679607cda4275c293ed17ae5f48d1e44cf7",
+      "git_blob_sha1": "f610975e8e5c369b0ad43c0e613384c56a53483b"
+    },
+    {
+      "path": "scripts/verify_container_base_security_refresh_contract.py",
+      "bytes": 9394,
+      "sha256": "37e077ffa261508cefe5d4782e2312ca37acee48842642d3ee04ae373224ea42",
+      "git_blob_sha1": "b26170878353cfe96064555fe34c5df41697e1fa"
+    },
+    {
+      "path": "tests/test_container_base_security_refresh_contract.py",
+      "bytes": 1076,
+      "sha256": "71130bfc454a1293dd336fd73ed30c9cf19c8918f30d48ca48b34124b78347a8",
+      "git_blob_sha1": "bbe114db9c063970c6b2b6d2fd01126333b46631"
+    }
+  ],
+  "retained_failures": {
+    "path": "artifacts/verification/baseline-0032-orientation-failures-001.json",
+    "count": 4,
+    "used_as_positive_evidence": false
+  },
+  "boundaries": {
+    "runtime_or_dockerfile_changed": false,
+    "evaluation_splits_scenarios_graders_or_thresholds_changed": false,
+    "retrieval_generation_model_policy_approval_executor_or_authority_changed": false,
+    "dependency_secret_paid_service_or_real_infrastructure_added": false,
+    "candidate_image_pulled_or_built": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "tag_release_or_deployment_created": false
+  },
+  "next_gate": "Commit, push, and anonymously reconcile the exact preimplementation freeze; only then may UNIT-003 anonymously pull the admitted digest and implement the bounded successor."
+}

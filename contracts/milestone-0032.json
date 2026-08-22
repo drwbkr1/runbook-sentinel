@@ -1,0 +1,349 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0032",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "active_contract": "contracts/milestone-0032.json",
+    "verified_at_utc": "2026-08-22T20:00:02Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Remediate the two current HIGH OpenSSL findings that stopped BASELINE-0031 by replacing only the immutable Chainguard Python base digest, advancing mechanical release identity to baseline-0032/v0.0.32, and releasing only if the full evaluation, real-surface, reproducibility, security-scan, and release-truth matrix passes.",
+    "allowed_paths": [
+      "C:/Projects/Active/runbook-sentinel-baseline-0032",
+      "C:/Projects/Verification"
+    ],
+    "forbidden_work": [
+      "Use OneDrive for repository or verification work",
+      "Change incident-agent retrieval generation decision policy approval executor replay postcondition grader scenario threshold or authority behavior",
+      "Add a dependency framework model multi-agent system fine-tuning Kubernetes paid service secret account or real-infrastructure connector",
+      "Use a mutable OCI tag another digest authenticated registry private entitlement or unresolved external asset",
+      "Export push publish attach or redistribute base or derived container image bytes",
+      "Rewrite remove relabel or rescue stopped BASELINE-0031 or any failed stale blocked superseded evidence",
+      "Create v0.0.32 tag release or deployment before every required release-truth gate passes"
+    ],
+    "reversible_actions": [
+      "Publish project-authored source-gate contract verifier test and evidence records",
+      "Anonymously pull only the exact source-gated OCI digest after the public preimplementation freeze",
+      "Apply the two base-digest substitutions and mechanical baseline-0032/v0.0.32 identity updates",
+      "Build run inspect scan and remove synthetic-only local images and containers",
+      "Run source package clean-clone container rendered dashboard persistence telemetry and public-surface verification",
+      "Version commit push review merge tag release and verify only a fully passing project-authored checkpoint"
+    ],
+    "stop_conditions": [
+      "Core product thesis would change",
+      "A security boundary or explicit no-go would weaken",
+      "Spend paid service secret access ownership or registry authentication is required",
+      "External rights integrity provenance or safety remains unresolved",
+      "Real operational infrastructure interaction is required",
+      "An irreversible action is required",
+      "The candidate or any shipped surface cannot be verified"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public main is exact and clean at e12e638b98b1deacb4c5058ecb9d7c8652c96985",
+        "BASELINE-0031 is stopped and unpublished; v0.0.31 tag and release are absent",
+        "Public v0.0.30 remains the latest verified release"
+      ]
+    },
+    {
+      "id": "ENTRY-002",
+      "status": "pass",
+      "evidence": [
+        "Renewed exact-image Docker Scout evidence found CVE-2026-14456 and CVE-2026-54876 across three Wolfi OpenSSL packages",
+        "The valid final release audit is blocked only at required CHECK-007 and retains the failed result",
+        "The selected improvement is the smallest measurable remediation of that current release blocker"
+      ]
+    },
+    {
+      "id": "ENTRY-003",
+      "status": "pass",
+      "evidence": [
+        "The active director goal authorizes continuous bounded checkpoint work, local containers, public GitHub publication, and verified releases under the declared stop gates",
+        "No product or architecture choice remains unresolved for this digest-only remediation"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "EXIT-002",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "EXIT-003",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "EXIT-004",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Reconcile the exact stopped predecessor, run and inspect current verification evidence, and select the highest-leverage measurable weakness without restarting ideation.",
+      "depends_on": [],
+      "action_class": "evidence_preservation",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "public main e12e638b98b1deacb4c5058ecb9d7c8652c96985",
+        "stopped BASELINE-0031 milestone and audit",
+        "renewed exact-image Docker Scout result",
+        "retained source package container and real-surface results"
+      ],
+      "outputs": [
+        "exact two-HIGH base-image weakness",
+        "separately retained stopped checkpoint",
+        "bounded successor recommendation"
+      ],
+      "gates": {
+        "public_checkpoint_reconciled": "pass",
+        "current_system_and_evidence_inspected": "pass",
+        "separate_evaluation_families_retained": "pass",
+        "highest_leverage_weakness_selected": "pass",
+        "predecessor_failure_preserved": "pass"
+      },
+      "disposition": "pass",
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Source-gate the exact patched Chainguard digest and publish a deterministic preimplementation remediation contract, verifier, test, and no-go boundary before pulling or implementing it.",
+      "depends_on": [
+        "UNIT-001"
+      ],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "official Chainguard specifications and responsibility model",
+        "anonymous exact-digest registry metadata",
+        "remote exact-digest SBOM attestations and current scan",
+        "retained BASELINE-0031 blocker"
+      ],
+      "outputs": [
+        "ready source gate",
+        "frozen base-security remediation contract",
+        "side-effect-free contract verifier and regression test",
+        "public preimplementation freeze and reconciliation"
+      ],
+      "gates": {
+        "source_gate_ready": "pass",
+        "preimplementation_contract_valid": "pass",
+        "candidate_digest_not_pulled": "pass",
+        "public_freeze_verified": "pass"
+      },
+      "evidence": [
+        "Public commit a18da8678e0f03afb1cef4c65de44a6a9b4dff40 and tree 5d74fb6bc1ef89dd69c392c713a1ba96d17ada76 are exact across local tracking ls-remote and anonymous GitHub refs",
+        "The untruncated 1,457-entry public tree contains all 15 expected changed Git blobs and every anonymous raw file matches local bytes and SHA-256",
+        "Public main remains e12e638b98b1deacb4c5058ecb9d7c8652c96985 and the candidate digest remains unpulled"
+      ],
+      "disposition": "pass",
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Import only the approved digest, apply the two functional Dockerfile digest changes plus mechanical successor identity, and seal the implementation without behavior or boundary changes.",
+      "depends_on": [
+        "UNIT-002"
+      ],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "publicly verified preimplementation freeze",
+        "exact admitted digest",
+        "frozen change and evaluation contract"
+      ],
+      "outputs": [
+        "baseline-0032/v0.0.32 source and package identity",
+        "container-runtime v12 contract",
+        "public implementation seal"
+      ],
+      "gates": {
+        "exact_digest_intake_verified": "pass",
+        "bounded_implementation_valid": "pass",
+        "all_python_tests_pass": "pass",
+        "no_package_or_derived_image_built_before_public_seal": "pass",
+        "public_implementation_seal_verified": "pass"
+      },
+      "evidence": [
+        "Public implementation commit ead044ee5da0e017a3a5af0c9891668a0a83d4a8 and tree 4726925c6d37ea95c83959c06a88f8cb2515b575 are exact across local tracking ls-remote and anonymous GitHub refs",
+        "All 33 changed Git blobs and all 33 anonymous raw files match exact local bytes and SHA-256 in the untruncated 1,462-entry tree",
+        "Public main remains e12e638b98b1deacb4c5058ecb9d7c8652c96985; no package or derived image existed at implementation seal"
+      ],
+      "disposition": "pass",
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Run the complete frozen evaluation and real-surface matrix, reproduce package and image identities across repeated and clean-clone builds, and accept or stop the candidate from evidence.",
+      "depends_on": [
+        "UNIT-003"
+      ],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "public implementation seal",
+        "frozen source package container and security contracts"
+      ],
+      "outputs": [
+        "separate metric-family evaluation",
+        "exact source package API MCP approval executor dashboard state and telemetry evidence",
+        "repeated and clean-clone image identity",
+        "fresh exact-image critical/high scan"
+      ],
+      "gates": {
+        "public_prebuild_manifest_verified": "pass",
+        "checkpoint_resume_lifecycle_validator": "pass",
+        "real_api_header_verifier_compatibility": "pass",
+        "deterministic_package_and_source_evaluation": "pass",
+        "real_source_and_package_surfaces": "pass",
+        "repeated_and_clean_clone_container_identity": "pass",
+        "fresh_exact_derived_image_scan": "pass"
+      },
+      "evidence": [
+        "API-verifier correction commit bf839de661dd567cfc2e66d27bb06c0ff7c19967 is public and exact with 153-file manifest SHA-256 79ddea612f664679ebf73cee54c8725942b17f07e626eb7883999f2d11019f4b",
+        "Superseded 647,712-byte 43-entry zipapps are byte-identical at SHA-256 0fa7256a15441788f38c2738da083c54c6cf491c577f7c1fe3abb1caa9bf07f5; source attempt 003 and package attempt 004 remain passing historical evidence but are not final",
+        "Record-only correction commit 09fcbe7a8fdc40cbd4be0101c2a83f5600135b18 is public and exact across eight changed Git blobs and anonymous raw files",
+        "Two current 647,712-byte 43-entry zipapps are byte-identical at SHA-256 3be93953a367483e29c696af889ebfccc432424b8303c4f69ae00d10a38c2270 and both package-contract checks pass",
+        "Source attempt 005 and package attempt 006 each pass 57 scenarios, 171 attempts, all 136 Boolean gates, and a valid anchored 261-event trace; full normalized reports are exact at SHA-256 0d5c762220bc922ac795bc9c83c834387a55056dfda6e37e05c816c1e30e3fc3",
+        "Both current bounded MCP paths pass; both authenticated API paths pass 131/131; both native persisted-state and telemetry inspections pass 72/72; both complete 1440 by 1000 dashboards pass visual inspection",
+        "Package/source receipt artifacts/verification/package-source-baseline-0032-final-v2.json retains exact identities; its public record commit 001b6a19b38616d07a9995d19831b44c8a03a6a1 is exact and opened the bounded Docker gate",
+        "Two independent no-cache network-disabled local builds and one no-alternates public-branch clean build reproduce exact image ID sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9",
+        "Canonical container-runtime-v12 receipt artifacts/verification/container-baseline-0032.json passes all 49 checks; Docker Scout 1.20.4 reports zero critical/high findings at observation time, the complete dashboard passed original-detail review, and no image was exported pushed published or redistributed",
+        "Post-container verification passes all 96 tests, all 40 phase-correct validators, source package and container anchored 261-event traces, both 43-entry package contracts, governing milestone validation, 1,083 pre-receipt JSON files plus 171 JSONL files and 31,911 records with zero parse errors, bounded credential and model scans, and live local-image/container inventory"
+      ],
+      "disposition": "pass",
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Reconcile living records and release v0.0.32 only after independent premerge and final audits pass, then verify every public project-authored surface without publishing container bytes.",
+      "depends_on": [
+        "UNIT-004"
+      ],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "in_progress",
+      "inputs": [
+        "selected passing candidate",
+        "complete source package clean-clone container and release evidence"
+      ],
+      "outputs": [
+        "verified or retained stopped BASELINE-0032",
+        "annotated v0.0.32 and package assets only if all gates pass",
+        "public reconciliation and exact resume point"
+      ]
+    }
+  ],
+  "current_unit": "UNIT-005",
+  "next_action": "Publish and independently reconcile the bounded active-truth correction after public record commit a0fbde12ad4d562239320f72dceea6a1337d99d7, then complete the governed premerge release-truth audit on draft PR #30 at the latest exact public branch head; mark review ready only if every required check and surface passes without warning.",
+  "path_efficiency": {
+    "max_consecutive_no_progress_units": 3,
+    "review_action_class": "local_verification",
+    "review_human_gate": false
+  },
+  "verification": {
+    "changed_risks": [
+      "A source digest can be misbound to the wrong platform manifest or mutable tag",
+      "Generic zero-result SARIF can be incorrectly attributed to a different image",
+      "A base refresh can alter Python runtime filesystem permissions or network behavior",
+      "Mechanical release-identity changes can diverge across source package MCP dashboard container or public assets",
+      "Cached layers or build metadata can mask non-reproducibility",
+      "A passing local image can differ from clean clone merged main or public tag"
+    ],
+    "required_checks": [
+      "Public preimplementation source and contract freeze before candidate pull or implementation",
+      "Exact digest and linux/amd64 manifest identity through source pull build and scan",
+      "Only two functional Dockerfile digest lines plus mechanical release identity change",
+      "Frozen retrieval generation trajectory policy utility attack reliability latency and cost metrics reported separately",
+      "All exact terminal-state graders tests side-effect-free validators source package API MCP approval executor dashboard persistence and telemetry surfaces pass",
+      "Two local builds and one no-alternates clean-clone build reproduce the selected image identity",
+      "Fresh local-only exact derived-image scan reports zero critical/high with target binding outside generic SARIF",
+      "Premerge final merged-main tag asset release and public real-surface audits pass",
+      "No container image bytes are exported pushed published attached or redistributed"
+    ],
+    "completed_checks": [
+      "Public stopped BASELINE-0031 is exact and v0.0.31 remains untagged and unreleased",
+      "Current release blocker is exactly two unique HIGH OpenSSL CVEs in the selected predecessor image",
+      "Official publisher and anonymous registry metadata admit one exact patched digest for local use",
+      "The source gate and side-effect-free frozen-phase remediation validator pass with zero errors",
+      "Public preimplementation commit a18da8678e0f03afb1cef4c65de44a6a9b4dff40 is exact across four refs, all 15 Git blobs, and all 15 anonymous raw files",
+      "Public implementation, prebuild, record-reconciliation, lifecycle-correction, API-verifier-correction, superseded package/source, record-only, container-verifier-correction, correction-record, corrected package/source, and corrected package/source record checkpoints are exact; the latest is 001b6a19b38616d07a9995d19831b44c8a03a6a1",
+      "Superseded source and package evaluations, MCP, API, approval, executor, replay, postconditions, persisted state, telemetry, native inspection, and rendered dashboards pass under manifest 79ddea612f664679ebf73cee54c8725942b17f07e626eb7883999f2d11019f4b; none is relabeled as final",
+      "Post-correction package SHA-256 3be93953a367483e29c696af889ebfccc432424b8303c4f69ae00d10a38c2270, attempts 005/006, MCP, authenticated API, native state and telemetry, and both rendered dashboards pass locally under manifest 2641b57f17a47bab60d2c9258b1f08b6bd66f22e7cc99529fa0f41436150e27f",
+      "Container-runtime-v12 passes all 49 composed checks at exact image ID sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9 across two full local builds and one credential-disabled no-alternates public-branch clean build; the fresh exact-derived-image scan reports zero critical/high at observation time",
+      "Post-container regression passes 96 of 96 tests and 40 of 40 phase-correct validators; repository structured parsing, high-specificity credential/capability scanning, model-artifact scanning, Git diff checking, trace validation, package validation, milestone validation, and live image/container inventory all pass",
+      "Canonical container evidence commit f61caf6582e4095f9075f2ccc9a4de9f4f5c5f53 and tree 95c647595d89c15814e22d76a14e725b5c3d7d0f are public and exact; the GitHub tree is untruncated at 1,519 entries and all 16 changed Git blobs and anonymous raw paths match local bytes",
+      "UNIT-004 record commit a0fbde12ad4d562239320f72dceea6a1337d99d7 and tree 73d80834a2d92f63cdd441e6e099fb064a901ae4 are public and exact; all eight changed paths match anonymous immutable bytes, public main remains unchanged, and draft PR #30 opened from that exact head"
+    ],
+    "artifacts": [
+      "artifacts/verification/container-source-gate-baseline-0032-chainguard-python.json",
+      "artifacts/verification/baseline-0032-orientation-failures-001.json",
+      "artifacts/verification/baseline-0032-api-verifier-correction-seal-public.json",
+      "artifacts/verification/package-source-baseline-0032.json",
+      "artifacts/verification/package-source-baseline-0032-public.json",
+      "artifacts/verification/baseline-0032-package-source-attempt-002-superseded-by-container-verifier.json",
+      "artifacts/verification/baseline-0032-container-verifier-identity-correction-source-manifest.json",
+      "artifacts/verification/baseline-0032-container-verifier-identity-correction-seal-local.json",
+      "artifacts/verification/baseline-0032-container-verifier-identity-correction-seal-public.json",
+      "artifacts/verification/package-source-baseline-0032-final-v2.json",
+      "artifacts/verification/package-source-baseline-0032-final-v2-public.json",
+      "artifacts/verification/dashboard-source-post-container-verifier-correction-baseline-0032.png",
+      "artifacts/verification/dashboard-package-post-container-verifier-correction-baseline-0032.png",
+      "artifacts/verification/native-source-post-container-verifier-correction-baseline-0032.json",
+      "artifacts/verification/native-package-post-container-verifier-correction-baseline-0032.json",
+      "artifacts/verification/dashboard-source-final-baseline-0032.png",
+      "artifacts/verification/dashboard-package-final-baseline-0032.png",
+      "artifacts/verification/native-source-final-baseline-0032.json",
+      "artifacts/verification/native-package-final-baseline-0032.json",
+      "artifacts/verification/container-baseline-0032-local-attempt-001.json",
+      "artifacts/verification/clean-container-baseline-0032-local-attempt-001.json",
+      "artifacts/verification/container-baseline-0032.json",
+      "artifacts/verification/dashboard-container-baseline-0032.png",
+      "artifacts/verification/container-scout-critical-high-baseline-0032.sarif.json",
+      "artifacts/verification/baseline-0032-container-process-observations-001.json",
+      "artifacts/verification/artifact-scan-baseline-0032-container-phase.json",
+      "artifacts/verification/container-baseline-0032-public.json",
+      "artifacts/verification/baseline-0032-premerge-audit-orientation-failures-001.json",
+      "eval/container-base-security-refresh-contract-0032.json",
+      "scripts/verify_container_base_security_refresh_contract.py",
+      "tests/test_container_base_security_refresh_contract.py"
+    ],
+    "disposition": "in_progress"
+  },
+  "handoff": {
+    "latest_verified_checkpoint": "public UNIT-004 record commit a0fbde12ad4d562239320f72dceea6a1337d99d7 and tree 73d80834a2d92f63cdd441e6e099fb064a901ae4 are exact; draft PR #30 opened from that head, public v0.0.30 remains the latest release, and public main e12e638b98b1deacb4c5058ecb9d7c8652c96985 retains the stopped BASELINE-0031 record",
+    "retained_failed_checkpoint": "stopped unpublished BASELINE-0031 with exact derived image sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1 and failed CHECK-007",
+    "current_checkpoint": "BASELINE-0032 UNIT-004 is complete: canonical receipt passes 49 of 49 at image ID sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9, public reconciliation commit a0fbde12ad4d562239320f72dceea6a1337d99d7 is independently exact, and draft PR #30 is open. UNIT-005 is reconciling a retained stale control pointer before the warning-free premerge audit; review remains draft.",
+    "resume_rule": "Resume from the latest verified public BASELINE-0032 commit plus retained BASELINE-0031 failures; run the relevant verifier and inspect current evidence before acting, never use OneDrive, and never infer that v0.0.31 shipped."
+  }
+}

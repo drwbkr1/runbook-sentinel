@@ -61,7 +61,7 @@ class MCPServer:
                 result = {
                     "protocolVersion": "2025-11-25",
                     "capabilities": {"tools": {"listChanged": False}},
-                    "serverInfo": {"name": "runbook-sentinel", "version": "0.0.31"},
+                    "serverInfo": {"name": "runbook-sentinel", "version": "0.0.32"},
                     "instructions": "Synthetic SRE diagnostics and proposals only. No approval or execution tools are exposed.",
                 }
             elif method == "ping":

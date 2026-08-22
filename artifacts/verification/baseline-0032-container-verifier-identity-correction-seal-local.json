@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0032-CONTAINER-VERIFIER-IDENTITY-CORRECTION-SEAL-LOCAL",
+  "checkpoint": "baseline-0032",
+  "observed_at_utc": "2026-08-22T20:11:38Z",
+  "status": "pass",
+  "starting_public_checkpoint": {
+    "commit": "79c12cb097effe682293fda1785fdc801ab434a0",
+    "tree": "42b206d96e0b158aa4e1eefe426a9b6c4d404bc5",
+    "public_main": "e12e638b98b1deacb4c5058ecb9d7c8652c96985"
+  },
+  "correction": {
+    "scope": "container verifier mechanical successor identity and explanatory check count only",
+    "changed_verifier_literals": 2,
+    "ephemeral_keeper_before": "rs-b0031-*",
+    "ephemeral_keeper_after": "rs-b0032-*",
+    "next_gate_check_count_before": 43,
+    "next_gate_check_count_after": 49,
+    "regression_assertions_added": 4,
+    "application_or_security_behavior_changed": false,
+    "retrieval_model_policy_cases_metrics_thresholds_graders_authority_or_product_behavior_changed": false
+  },
+  "renewed_manifest": {
+    "active_path": "eval/manifest.json",
+    "archive_path": "artifacts/verification/baseline-0032-container-verifier-identity-correction-source-manifest.json",
+    "frozen_at_utc": "2026-08-22T20:06:40Z",
+    "file_count": 153,
+    "bytes": 18484,
+    "sha256": "2641b57f17a47bab60d2c9258b1f08b6bd66f22e7cc99529fa0f41436150e27f",
+    "active_and_archive_bytes_equal": true
+  },
+  "verification": {
+    "focused_container_identity_test": "pass",
+    "full_tests_passed": 96,
+    "full_tests_failed": 0,
+    "full_test_seconds": 93.720,
+    "manifest_validator": "pass_153_files",
+    "retrieval_contract_validator": "pass_implemented",
+    "package_contract_validator": "pass_no_archive",
+    "base_security_refresh_validator": "pass_implemented",
+    "container_v12_contract_validator": "pass_implemented_receipt_absent",
+    "milestone_contract": "pass_active_no_warnings",
+    "git_diff_check": "pass",
+    "json_files_valid": 5,
+    "unresolved_secret_shaped_hits": 0
+  },
+  "superseded_generation": {
+    "public_payload_commit": "08c71350718d90723662bb1d3299ce7100ce388c",
+    "public_record_commit": "79c12cb097effe682293fda1785fdc801ab434a0",
+    "package_sha256": "0fa7256a15441788f38c2738da083c54c6cf491c577f7c1fe3abb1caa9bf07f5",
+    "source_evaluation_sha256": "4f90043cc9b503c4ad96e4f6ad044501c61a880b3068d0b9b5279d56f95187b0",
+    "package_evaluation_sha256": "feb807b2cd178b33d138a635d96268aedc1fdb9be7f24c0a595ddc78bec6f3ff",
+    "normalized_parity_sha256": "828b7f9fa26a402fa2b3a3f0ba568ce83f340fe3ad6386a331d234a3b1886608",
+    "disposition": "superseded_before_container_build",
+    "derived_image_built": false
+  },
+  "bound_pre_receipt_files": [
+    {"path":"CHANGELOG.md","bytes":111436,"sha256":"127f43477dec04df15999b23f43dd65967f4f5bac9a897d5a3de9eb8e88f9bf5"},
+    {"path":"artifacts/verification/baseline-0032-orientation-failures-001.json","bytes":29838,"sha256":"f7cf5a4abc7c1738257ff21ee6fb243ebfa85013666538517ff35b07ebc432d4"},
+    {"path":"artifacts/verification/baseline-0032-container-verifier-identity-correction-source-manifest.json","bytes":18484,"sha256":"2641b57f17a47bab60d2c9258b1f08b6bd66f22e7cc99529fa0f41436150e27f"},
+    {"path":"artifacts/verification/baseline-0032-package-source-attempt-002-superseded-by-container-verifier.json","bytes":2291,"sha256":"ec18f7f51d949b2f355d57223f8b95865122e4c64f45913e7db146ef19f4793a"},
+    {"path":"contracts/milestone-0032.json","bytes":17678,"sha256":"3bd1c1af29c182112e1dde3b5aac988d0a8d1e4a57e921237171d51c1fce44ba"},
+    {"path":"docs/devlog.md","bytes":434145,"sha256":"84465bcb37f6cc6fd11baf2bff8c00c4a905598dcb7d6d862cbe11d1b86aef6b"},
+    {"path":"docs/evaluation-report.md","bytes":212870,"sha256":"6df0af3bc80ac92197e5a9183f66c0311284629860e1f1a60b545f0177378188"},
+    {"path":"docs/roadmap.md","bytes":87006,"sha256":"e9962db8181a270d0ba4cf0037013a0c3b4b7e4f82153d3aa011efa7b3b4d894"},
+    {"path":"docs/status.md","bytes":252486,"sha256":"4a7903c7381c4776f08337d522b1c671421606f94bccc28792ee7c8d1c5b47aa"},
+    {"path":"docs/version-history.md","bytes":27260,"sha256":"d8e46ab553577f7eca27ffdbb001b40476cfb917445e206fe561a1c948479304"},
+    {"path":"eval/manifest.json","bytes":18484,"sha256":"2641b57f17a47bab60d2c9258b1f08b6bd66f22e7cc99529fa0f41436150e27f"},
+    {"path":"scripts/verify_container_runtime.py","bytes":59968,"sha256":"a9bb0d86d5965341bb9ec5d36e25f981f5088e1487c5b9659b9ded99441bd96d"},
+    {"path":"tests/test_baseline.py","bytes":142113,"sha256":"f5e78f900caa9e36fd6b3449826a31473b80a52760353bb6430d27928e1dc97f"}
+  ],
+  "boundaries": {
+    "replacement_package_built": false,
+    "candidate_evaluation_started": false,
+    "derived_container_image_built": false,
+    "container_runtime_started": false,
+    "real_infrastructure_contacted": false,
+    "tag_release_deployment_or_publication_created": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "dependency_secret_paid_service_or_real_infrastructure_added": false
+  },
+  "next_gate": "Publish and independently reconcile this exact correction before rebuilding deterministic package bytes or starting a BASELINE-0032 derived image."
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0032-API-VERIFIER-CORRECTION-SEAL-LOCAL",
+  "checkpoint": "baseline-0032",
+  "observed_at_utc": "2026-08-22T19:29:57Z",
+  "status": "pass",
+  "starting_public_checkpoint": {
+    "commit": "a757ecf4bb7adff0013c5383054ff9b9fa01b62c",
+    "tree": "ffeb6c66fadaaa2ea873b935d9c937b41eee0763",
+    "public_main": "e12e638b98b1deacb4c5058ecb9d7c8652c96985"
+  },
+  "correction": {
+    "scope": "PowerShell verifier extraction of WWW-Authenticate from System.Net.Http.HttpResponseMessage only",
+    "changed_lines": 2,
+    "before": "HttpResponseHeaders string indexer returned null",
+    "after": "typed WwwAuthenticate collection returns the exact challenge",
+    "regression_assertion_added": true,
+    "real_source_api_before": "fail_129_of_131",
+    "real_source_api_after": "pass_131_of_131",
+    "server_authentication_behavior_changed": false,
+    "retrieval_model_policy_cases_metrics_thresholds_graders_authority_or_product_behavior_changed": false
+  },
+  "renewed_manifest": {
+    "active_path": "eval/manifest.json",
+    "archive_path": "artifacts/verification/baseline-0032-api-verifier-correction-source-manifest.json",
+    "frozen_at_utc": "2026-08-22T19:25:21Z",
+    "file_count": 153,
+    "bytes": 18484,
+    "sha256": "79ddea612f664679ebf73cee54c8725942b17f07e626eb7883999f2d11019f4b",
+    "active_and_archive_bytes_equal": true
+  },
+  "verification": {
+    "manifest_validator": "pass",
+    "retrieval_lifecycle_validator": "pass",
+    "package_contract_validator": "pass",
+    "base_security_refresh_validator": "pass",
+    "container_v12_contract_validator": "pass",
+    "full_tests_passed": 96,
+    "full_tests_failed": 0,
+    "full_test_seconds": 93.633,
+    "milestone_contract": "pass",
+    "diff_check": "pass"
+  },
+  "superseded_generation": {
+    "package_sha256": "1f16a92659a10018ac5202a6233c165919a6aa6f39b11a78d36c5be14c352fec",
+    "source_evaluation_sha256": "e2a684a0b963b241b0e1eceeae2bfb7b4a66d42db3ca718d103396de4e6855f4",
+    "package_evaluation_sha256": "3d92d3e79de2ce44577b0244f55d76fedf525ea5832ce38afc149afa34e88abc",
+    "normalized_parity_sha256": "63ddfe57465c5eab5f03ef8c0dd22a4405c329ba80f09cb961a3c224507a7bd6",
+    "final_candidate": false
+  },
+  "bound_pre_receipt_files": [
+    {"path":"CHANGELOG.md","bytes":109561,"sha256":"f8d1d49ea4a1a1a1369e3528414aca2b6538699a6644bb728f380933d2287feb"},
+    {"path":"artifacts/evaluations/latest.json","bytes":953893,"sha256":"3d92d3e79de2ce44577b0244f55d76fedf525ea5832ce38afc149afa34e88abc"},
+    {"path":"artifacts/evaluations/runs/baseline-0032-attempt-001.json","bytes":953888,"sha256":"e2a684a0b963b241b0e1eceeae2bfb7b4a66d42db3ca718d103396de4e6855f4"},
+    {"path":"artifacts/evaluations/runs/baseline-0032-attempt-001.manifest.json","bytes":18484,"sha256":"2f5a6c2662f1f206e3dab8d16d6c126c7d8dbd5aa3043803e917e5b982b965cb"},
+    {"path":"artifacts/evaluations/runs/baseline-0032-attempt-001.traces.jsonl","bytes":195315,"sha256":"b0b25d8e3b72539db1bf6350d4b3ecac46358c3f4a1a98a510c58cd2f8b9d5c5"},
+    {"path":"artifacts/evaluations/runs/baseline-0032-attempt-002.json","bytes":953893,"sha256":"3d92d3e79de2ce44577b0244f55d76fedf525ea5832ce38afc149afa34e88abc"},
+    {"path":"artifacts/evaluations/runs/baseline-0032-attempt-002.manifest.json","bytes":18484,"sha256":"2f5a6c2662f1f206e3dab8d16d6c126c7d8dbd5aa3043803e917e5b982b965cb"},
+    {"path":"artifacts/evaluations/runs/baseline-0032-attempt-002.traces.jsonl","bytes":195319,"sha256":"32ba80dd1b570a49dd544263c9f88808230e1b359b9cacfd73620bb888fdc5e1"},
+    {"path":"artifacts/verification/baseline-0032-api-verifier-correction-source-manifest.json","bytes":18484,"sha256":"79ddea612f664679ebf73cee54c8725942b17f07e626eb7883999f2d11019f4b"},
+    {"path":"artifacts/verification/baseline-0032-evaluation-attempt-001-superseded-by-api-verifier.json","bytes":2623,"sha256":"177f5e22de381f520323a40e6a236bccc1cbe4971ecc70f5050ec156206a57b0"},
+    {"path":"artifacts/verification/baseline-0032-lifecycle-correction-seal-public.json","bytes":2323,"sha256":"1e5a7954c607fc944d7166be70e526efd3011bce69ecd2e8decfd4eb25963eaa"},
+    {"path":"artifacts/verification/baseline-0032-orientation-failures-001.json","bytes":24910,"sha256":"5d666bc1fd2784ef62c2ee271e530fd411c42f59890e68faaf7541bac64965fb"},
+    {"path":"artifacts/verification/dashboard-source-baseline-0032-attempt-001-failed.png","bytes":101484,"sha256":"d9f58b9b9916919c6c4ac35183a0b6ab385a26ee28e6385b4b5f5fc9b4404b5d"},
+    {"path":"artifacts/verification/dashboard-source-baseline-0032-pre-refreeze-pass.png","bytes":101844,"sha256":"cc90fcf03bf781627dbe158fdbcb4078986c76de1bb14974d2b689f94210ea41"},
+    {"path":"artifacts/verification/live-api-source-baseline-0032-attempt-001-failed.json","bytes":3093,"sha256":"158f4646c788297d342e644c666dc84c0efaecde6207c338cd4d97a949766ec5"},
+    {"path":"contracts/milestone-0032.json","bytes":15059,"sha256":"ff87c776038243e6b84643f1fad10dc7fec4c8b9d9dad12f0dc676a4bffb5a11"},
+    {"path":"docs/devlog.md","bytes":431117,"sha256":"b0b249499a9263d5f6a702dac77e260ab5af88452846afbf7c7accd7cbc777f7"},
+    {"path":"docs/evaluation-report.md","bytes":209450,"sha256":"6be8568681ee12635322f03cedece7a2df9b368bd639b63e76b0dad8bd38d771"},
+    {"path":"docs/roadmap.md","bytes":85069,"sha256":"9a61c787aae4e7174fd2613c7bd7d648708d53fbf289053e6b4e45813482a19a"},
+    {"path":"docs/status.md","bytes":251809,"sha256":"8dc77dbfe02457b9a602fd05e5cbed373ca7168bdb0acc4b52862e861faff078"},
+    {"path":"docs/version-history.md","bytes":27277,"sha256":"94e239e70aefaf128186b5a67408baaea3cfb0c323a5112213ac4e541ba67cd0"},
+    {"path":"eval/manifest.json","bytes":18484,"sha256":"79ddea612f664679ebf73cee54c8725942b17f07e626eb7883999f2d11019f4b"},
+    {"path":"scripts/verify_live_api.ps1","bytes":47417,"sha256":"f7f7fc25217585bc95860a4426a3220242e133708de6d15f89f8afe76f808862"},
+    {"path":"tests/test_baseline.py","bytes":141720,"sha256":"de57054dfa47c1663e9328715f5c0068c9b76a671b99b5b4e7add92a74095c0f"}
+  ],
+  "boundaries": {
+    "final_package_built": false,
+    "final_candidate_evaluation_started": false,
+    "derived_container_image_built": false,
+    "real_infrastructure_contacted": false,
+    "tag_release_deployment_or_publication_created": false,
+    "container_image_exported_pushed_published_or_redistributed": false
+  },
+  "next_gate": "Publish and verify this exact source correction before final package rebuild and candidate rerun."
+}

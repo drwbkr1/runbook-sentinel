@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0032-LIFECYCLE-CORRECTION-SEAL-LOCAL",
+  "checkpoint": "baseline-0032",
+  "observed_at_utc": "2026-08-22T19:08:51Z",
+  "status": "pass",
+  "starting_public_checkpoint": {
+    "commit": "9f20238bec204f750ae92046f3b50403641373b6",
+    "tree": "377758e942ce87b0ec7bbaabfe5771962945e344",
+    "public_main": "e12e638b98b1deacb4c5058ecb9d7c8652c96985"
+  },
+  "correction": {
+    "scope": "retrieval-control latest-pointer lifecycle verification only",
+    "active_manifest_resolution": "immutable archived manifest whose filename begins with the active checkpoint and whose SHA-256 equals the report-bound manifest identity",
+    "minimum_checkpoint_number": 31,
+    "preserved_invariants": [
+      "freshness-priority-lexical-v3 control configuration",
+      "deterministic-control-v2 agent configuration",
+      "fresh-content-stale-metadata-context-v3 decision context",
+      "57 scenarios and 171 attempts",
+      "exact manifest binding",
+      "136 Boolean gates all true",
+      "pass baseline disposition"
+    ],
+    "retrieval_model_cases_metrics_thresholds_graders_policy_authority_or_product_behavior_changed": false
+  },
+  "superseded_package_attempt": {
+    "build_count": 2,
+    "bytes_each": 647712,
+    "entries_each": 43,
+    "sha256_each": "6d4f8047c2429993d90c840d857eaaf2829b17ad58adf93451f2471fabc2c1e9",
+    "evaluated_or_promoted": false,
+    "preserved_under": "dist/superseded"
+  },
+  "renewed_manifest": {
+    "active_path": "eval/manifest.json",
+    "archive_path": "artifacts/verification/baseline-0032-lifecycle-correction-source-manifest.json",
+    "frozen_at_utc": "2026-08-22T19:04:45Z",
+    "file_count": 153,
+    "bytes": 18484,
+    "sha256": "2f5a6c2662f1f206e3dab8d16d6c126c7d8dbd5aa3043803e917e5b982b965cb",
+    "active_and_archive_bytes_equal": true
+  },
+  "verification": {
+    "retrieval_focused_tests_passed": 9,
+    "full_tests_passed": 96,
+    "full_tests_failed": 0,
+    "full_test_seconds": 93.997,
+    "manifest_validator": "pass",
+    "retrieval_contract_validator": "pass",
+    "package_contract_validator": "pass",
+    "base_security_refresh_validator": "pass",
+    "container_v12_contract_validator": "pass",
+    "milestone_contract": "pass",
+    "diff_check": "pass",
+    "json_files_valid": 6,
+    "unresolved_secret_shaped_hits": 0
+  },
+  "bound_pre_receipt_files": [
+    {"path": "CHANGELOG.md", "bytes": 108392, "sha256": "db9cd9d4e657f25c89ffe16a57809f6268504025959ad66be901a68b7223a9fd"},
+    {"path": "artifacts/verification/baseline-0032-lifecycle-correction-source-manifest.json", "bytes": 18484, "sha256": "2f5a6c2662f1f206e3dab8d16d6c126c7d8dbd5aa3043803e917e5b982b965cb"},
+    {"path": "artifacts/verification/baseline-0032-orientation-failures-001.json", "bytes": 20023, "sha256": "66ba2684959a06e8889c6b04638787fee66520801d70b7bca7d072a0209f4c95"},
+    {"path": "artifacts/verification/baseline-0032-package-build-attempt-001-superseded.json", "bytes": 1534, "sha256": "ea6e30b03790f5ecd606b98a30108d10a38658b9b49ce901edd0b1d3fbfaf3fb"},
+    {"path": "artifacts/verification/baseline-0032-prebuild-record-reconciliation-public.json", "bytes": 2067, "sha256": "5c25a7b49e182fa2671cda2e48ee9b6fa34b1e0f2d726fc348c9a234c2544e40"},
+    {"path": "contracts/milestone-0032.json", "bytes": 14976, "sha256": "8a920293a09311ae4f68d7456e0aaf96832de2f45f7011900cb7dc10e2db0062"},
+    {"path": "docs/devlog.md", "bytes": 429709, "sha256": "4a9a3755870d90805356e687ab62adb96fb683dc9207eefa3d9c68ba3446e372"},
+    {"path": "docs/evaluation-report.md", "bytes": 208593, "sha256": "a622bc49dcaae4bd36e3c9cd57a9090166a28bec9b9efe9d40c2e44c5128950f"},
+    {"path": "docs/roadmap.md", "bytes": 84209, "sha256": "e9962a16d6a0bac4894f773e70821ca7bbaffe482d02ca46118b6d81086d85f5"},
+    {"path": "docs/status.md", "bytes": 251806, "sha256": "accc369a06939156deb3b9ecc4631292ac06f6eb5d9bb72b2fff3c335203f469"},
+    {"path": "docs/version-history.md", "bytes": 27513, "sha256": "961fdf23079535e607d20cb6ee0b3d3135af8d8bf734e5ad65b677073b5cd471"},
+    {"path": "eval/manifest.json", "bytes": 18484, "sha256": "2f5a6c2662f1f206e3dab8d16d6c126c7d8dbd5aa3043803e917e5b982b965cb"},
+    {"path": "scripts/verify_retrieval_tier_cap_contract.py", "bytes": 19442, "sha256": "88ba656219ef27a4899c504f2bb8a9e273a4d5c42e186e1fa0578d32b167058d"},
+    {"path": "tests/test_retrieval_tier_cap_contract.py", "bytes": 10149, "sha256": "53accdd340e389aa3121583e3a10bbc146804fb2144c88f3f30d1b67ef760f1f"}
+  ],
+  "boundaries": {
+    "replacement_package_built": false,
+    "candidate_evaluation_started": false,
+    "latest_pointer_advanced": false,
+    "derived_container_image_built": false,
+    "tag_release_deployment_or_publication_created": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "dependency_secret_paid_service_or_real_infrastructure_added": false
+  },
+  "next_gate": "Publish this exact corrected-source seal, independently verify its public refs, commit graph, Git blobs, and anonymous raw bytes, then rebuild two deterministic packages."
+}

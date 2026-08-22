@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "BASELINE-0032",
+  "phase": "unit-005-premerge-release-truth-audit",
+  "status": "retained",
+  "observations": [
+    {
+      "id": "PREMERGE-OBS-001",
+      "observed_at_utc": "2026-08-22T21:23:20Z",
+      "classification": "stale_active_control_pointer",
+      "observation": "The first UNIT-005 control-plane inspection found that contracts/milestone-0032.json still directed the audit to canonical-container commit f61caf6582e4095f9075f2ccc9a4de9f4f5c5f53 and said review had not opened, even though public reconciliation commit a0fbde12ad4d562239320f72dceea6a1337d99d7 was already exact and draft PR #30 had been opened from that head.",
+      "containment": "No audit pass, review readiness, merge, tag, release, deployment, image publication, or real-infrastructure action was inferred from stale text. Draft PR #30 remained draft while the living records were reconciled.",
+      "correction": "Update only active truth records to name public reconciliation a0fbde12ad4d562239320f72dceea6a1337d99d7, draft PR #30, and the latest public branch head as the audit input; then publish and independently verify the bounded correction before evaluating the premerge audit."
+    },
+    {
+      "id": "PREMERGE-OBS-002",
+      "observed_at_utc": "2026-08-22T21:25:45Z",
+      "classification": "obsolete_container_validator_options",
+      "observation": "A post-correction validation wrapper invoked scripts/verify_container_contract.py with obsolete --root and --result options. Argparse rejected the command before reading the frozen contract or canonical receipt.",
+      "containment": "No container result, audit pass, repository byte, image, review state, or release state changed, and the rejected invocation supplied no positive evidence.",
+      "correction": "Use the repository-owned --contract and --receipt options with --require-implementation and --require-result, then require the unchanged validator to pass."
+    },
+    {
+      "id": "PREMERGE-OBS-003",
+      "observed_at_utc": "2026-08-22T21:25:45Z",
+      "classification": "obsolete_package_validator_option",
+      "observation": "The same wrapper invoked scripts/verify_package_contract.py with an unsupported --root option. Argparse rejected the command before reading the frozen contract or selected archive.",
+      "containment": "No package, audit pass, repository byte, review state, or release state changed, and the rejected invocation supplied no positive evidence.",
+      "correction": "Use the repository-owned --contract, --archive, and --source-root options, then require the unchanged validator to pass."
+    },
+    {
+      "id": "PREMERGE-OBS-004",
+      "observed_at_utc": "2026-08-22T21:26:08Z",
+      "classification": "incorrect_package_source_root_semantics",
+      "observation": "The first accepted package-validator invocation passed src as --source-root even though the frozen contract records repository-relative src and eval paths. The unchanged validator therefore reported every recorded source path missing and returned status fail.",
+      "containment": "The failure changed no archive, contract, source, audit, review, image, or release state; it was not used as evidence about package validity.",
+      "correction": "Pass the repository root as --source-root so every frozen repository-relative path resolves exactly, then require status pass with the same contract and archive bytes."
+    },
+    {
+      "id": "PREMERGE-OBS-005",
+      "recorded_at_utc": "2026-08-22T21:29:41Z",
+      "classification": "generic_validator_phase_flag_mismatch",
+      "observation": "The first 40-validator aggregate used --require-implementation for retrieval-quality observability and --require-selection for the v4 retrieval-tier contract. Thirty-eight validators passed, but observability correctly required implementation-only because the historical metric report is not the selected-result surface, and the tier contract correctly rejected selection_required because v4 is implemented and deliberately excluded.",
+      "containment": "The 38-of-40 aggregate was not admitted as a passing gate. No frozen contract, selected result, evaluation, package, image, review, or release state changed.",
+      "correction": "Run retrieval-quality observability with --require-implementation --implementation-only, run the v4 tier contract with --require-implementation, retain the separate tier-result validator with --require-result as selection authority, and require all 40 validators to pass."
+    },
+    {
+      "id": "PREMERGE-OBS-006",
+      "recorded_at_utc": "2026-08-22T21:29:41Z",
+      "classification": "read_only_validator_phase_diagnostics",
+      "observation": "Read-only diagnostics repeated the two rejected generic modes and also confirmed that combining --require-implementation with --require-selection remains invalid for the deliberately excluded v4 candidate. The implementation-only observability diagnostic passed and identified the exact compatible mode.",
+      "containment": "No diagnostic result was substituted for the complete gate and no project, evaluation, review, image, or release state changed.",
+      "correction": "The exact phase-correct successor ran all 40 side-effect-free validators and passed 40 of 40 in 2.888 seconds, including separate v4 implementation and selected-v3 result validation."
+    }
+  ],
+  "boundaries": {
+    "product_runtime_evaluation_or_security_boundary_changed": false,
+    "failed_or_stale_state_used_as_positive_evidence": false,
+    "pull_request_marked_ready": false,
+    "merge_tag_release_or_deployment_performed": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "real_infrastructure_contacted": false
+  }
+}

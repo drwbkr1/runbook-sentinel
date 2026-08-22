@@ -1,0 +1,212 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0032-chainguard-python-1f6779775c9f-20260822",
+  "assessed_at": "2026-08-22T17:38:36Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_actions": [
+      "review publisher documentation and anonymous registry metadata",
+      "anonymously pull the exact approved OCI digest",
+      "use the exact approved OCI digest as a local build base",
+      "build run inspect scan and remove synthetic-only local containers and images",
+      "publish project-authored source contracts and evidence without container image bytes"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Use one immutable Chainguard Free Python OCI index only to remediate the two current HIGH OpenSSL findings in the stopped Runbook Sentinel v0.0.31 container candidate. Build and verify the synthetic-only successor locally, preserve exact source and result identities, and publish only project-authored source, contracts, and evidence. Do not publish or redistribute the base or derived image.",
+    "planned_actions": [
+      "review publisher documentation and anonymous registry metadata",
+      "anonymously pull the exact approved OCI digest",
+      "use the exact approved OCI digest as a local build base",
+      "build run inspect scan and remove synthetic-only local containers and images",
+      "publish project-authored source contracts and evidence without container image bytes"
+    ]
+  },
+  "sources": [
+    {
+      "source_id": "chainguard-free-python-oci-1f6779775c9f",
+      "name": "Chainguard Free Python OCI image index",
+      "locator": "cgr.dev/chainguard/python@sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+      "criteria": [
+        {
+          "id": "identity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "docker buildx imagetools inspect cgr.dev/chainguard/python@sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+              "observed_at": "2026-08-22T17:38:04Z",
+              "note": "Anonymous registry metadata resolved the exact OCI index and selected linux/amd64 manifest sha256:e15765ff7066a0eaf91e1b6fd5000c1bba47d62b9f9731f2da560711d910c4f3; linux/arm64 remains outside this checkpoint."
+            },
+            {
+              "type": "live",
+              "locator": "https://images.chainguard.dev/directory/image/python/specifications",
+              "observed_at": "2026-08-22T17:39:02Z",
+              "note": "Chainguard's current directory identifies the Python image as packaged by Chainguard at cgr.dev/chainguard/python."
+            }
+          ],
+          "note": "Publisher, repository, immutable index, and selected platform manifest are exact."
+        },
+        {
+          "id": "authority",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://images.chainguard.dev/directory/image/python/specifications",
+              "observed_at": "2026-08-22T17:39:02Z",
+              "note": "The primary publisher directory names Chainguard as packager and publishes the registry reference, rootless user, entrypoint, OCI labels, and 2026-08-21T17:50:49Z creation time."
+            },
+            {
+              "type": "live",
+              "locator": "https://edu.chainguard.dev/chainguard/containers/about/images-categories/",
+              "observed_at": "2026-08-22T17:39:20Z",
+              "note": "Chainguard's official category guide identifies Python as a Base Container intended to be extended by users."
+            }
+          ],
+          "note": "The primary publisher controls the registry artifact and documents the intended base-image use."
+        },
+        {
+          "id": "access",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "docker buildx imagetools inspect cgr.dev/chainguard/python@sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+              "observed_at": "2026-08-22T17:38:04Z",
+              "note": "The exact digest was anonymously resolvable without an account, secret, terms acceptance, or fee."
+            },
+            {
+              "type": "live",
+              "locator": "https://edu.chainguard.dev/chainguard/containers/about/images-categories/",
+              "observed_at": "2026-08-22T17:39:20Z",
+              "note": "The publisher states that Free Containers are publicly available without authentication for download and use."
+            }
+          ],
+          "note": "Only anonymous public access to this exact digest is approved; paid, private, and authenticated images remain outside authority."
+        },
+        {
+          "id": "rights",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "https://edu.chainguard.dev/chainguard/containers/about/images-categories/",
+              "observed_at": "2026-08-22T17:39:20Z",
+              "note": "The publisher describes Free Containers as free to use for everyone and Base Containers, including Python, as meant to be extended with user applications."
+            }
+          ],
+          "note": "The approved use is anonymous local extension and verification only. This checkpoint may not upload, publish, export, or redistribute base or derived image bytes."
+        },
+        {
+          "id": "provenance",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "docker scout sbom registry://cgr.dev/chainguard/python@sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c --format json",
+              "observed_at": "2026-08-22T17:41:07Z",
+              "note": "Docker Scout resolved linux/amd64 manifest sha256:e15765ff7066a0eaf91e1b6fd5000c1bba47d62b9f9731f2da560711d910c4f3, config sha256:54c0ed043c48d15cc5043a92ea35540cb7c9620115dae21013c74d72cf98e2fd, eleven content-addressed layers, Chainguard/apko authorship, and three attached in-toto records covering SPDX SBOM, SLSA provenance, and apko image configuration."
+            }
+          ],
+          "note": "The records are bound to the exact platform manifest. Their signatures were observed but not independently verified, so no standalone signature-verification claim is made."
+        },
+        {
+          "id": "integrity",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "cgr.dev/chainguard/python@sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+              "observed_at": "2026-08-22T17:41:07Z",
+              "note": "OCI index, platform manifest, config, and eleven layer digests content-address the admitted bytes; Docker Scout reported platform size 26161781 bytes."
+            }
+          ],
+          "note": "The mutable latest tag is not admitted. Local pull and build receipts must reconcile back to the approved index and linux/amd64 manifest before the candidate can pass."
+        },
+        {
+          "id": "fitness",
+          "required": true,
+          "requires_live": false,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "static",
+              "locator": "docker scout sbom registry://cgr.dev/chainguard/python@sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c --format json",
+              "note": "The 101-package resolved SBOM includes Python 3.14.7-r1, SQLite 3.53.4-r0, glibc 2.43-r15, libcrypto3 3.6.3-r5, and libssl3 3.6.3-r5; Python remains compatible with the frozen Python >=3.12 project requirement."
+            },
+            {
+              "type": "static",
+              "locator": "https://images.chainguard.dev/directory/image/python/specifications",
+              "note": "The image has no shell or apk, defaults to UID 65532, and enters through /usr/bin/python; Runbook Sentinel has no runtime dependency beyond the Python standard library."
+            }
+          ],
+          "note": "Fitness is provisional until exact local build, package, CLI, evaluation, API, MCP, approval, executor, dashboard, persistence, telemetry, clean-clone, and repeated-build verification pass."
+        },
+        {
+          "id": "privacy-security",
+          "required": true,
+          "requires_live": true,
+          "status": "pass",
+          "evidence": [
+            {
+              "type": "live",
+              "locator": "docker scout cves registry://cgr.dev/chainguard/python@sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c --only-severity critical,high --format sarif",
+              "observed_at": "2026-08-22T17:38:36Z",
+              "note": "Docker Scout 1.20.4 returned zero critical/high results. Its generic zero-result SARIF serialization was 461 UTF-8 bytes at SHA-256 7749b34be7a069559b10b1b9d53cc8897576fdd104071a9e0f907f9a301ee303; the command, exact registry reference, and observation time provide the target binding because the SARIF body does not."
+            },
+            {
+              "type": "live",
+              "locator": "https://edu.chainguard.dev/chainguard/containers/about/shared-responsibility-model/",
+              "observed_at": "2026-08-22T17:39:20Z",
+              "note": "The publisher assigns customers responsibility for qualifying pinned updates, testing modifications, maintaining rollback, and patching added application components."
+            }
+          ],
+          "note": "The zero-result scan is observation-time source evidence, not a perpetual CVE-free or finished-product claim. The final gate requires a fresh exact local derived-image scan plus full runtime verification."
+        }
+      ]
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "live_verification_pending": [],
+    "approved_actions": [
+      "review publisher documentation and anonymous registry metadata",
+      "anonymously pull the exact approved OCI digest",
+      "use the exact approved OCI digest as a local build base",
+      "build run inspect scan and remove synthetic-only local containers and images",
+      "publish project-authored source contracts and evidence without container image bytes"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "retain exact source identities metadata and narrow publisher paraphrases",
+      "anonymously pull only the exact approved digest after the preimplementation freeze is public",
+      "build run inspect scan and remove synthetic-only local containers and derived images",
+      "publish project-authored source contracts and evidence containing no container image bytes"
+    ],
+    "requires_explicit_authorization": [
+      "authenticate to a registry or accept terms",
+      "purchase or use a paid private FIPS or entitlement-only image",
+      "replace the approved digest with a mutable tag or another digest",
+      "upload publish export or redistribute the base image or any derived container image",
+      "add a secret credential elevated privilege writable host mount or external network dependency",
+      "connect to or operate real infrastructure"
+    ]
+  }
+}

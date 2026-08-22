@@ -1,0 +1,267 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0032-IMPLEMENTATION-SEAL-PUBLIC",
+  "checkpoint": "BASELINE-0032",
+  "observed_at_utc": "2026-08-22T18:36:11Z",
+  "status": "pass",
+  "repository": {
+    "owner": "drwbkr1",
+    "name": "runbook-sentinel",
+    "visibility": "public",
+    "branch": "codex/baseline-0032-container-base-security-refresh"
+  },
+  "target": {
+    "commit": "ead044ee5da0e017a3a5af0c9891668a0a83d4a8",
+    "tree": "4726925c6d37ea95c83959c06a88f8cb2515b575",
+    "parent": "028e46bb7e44937113764c1921b1613a0cfd6509",
+    "commit_message": "feat: implement baseline 0032 patched container base"
+  },
+  "checks": {
+    "local_ref_exact": true,
+    "explicit_tracking_ref_exact": true,
+    "ls_remote_branch_exact": true,
+    "anonymous_github_ref_exact": true,
+    "anonymous_github_commit_exact": true,
+    "anonymous_github_tree_exact": true,
+    "anonymous_github_parent_exact": true,
+    "github_tree_not_truncated": true,
+    "changed_git_blobs_exact": true,
+    "anonymous_raw_bytes_exact": true,
+    "public_main_unchanged": true
+  },
+  "counts": {
+    "repository_tree_entries": 1462,
+    "changed_paths": 33,
+    "git_blob_mismatches": 0,
+    "raw_byte_mismatches": 0
+  },
+  "public_main": {
+    "commit": "e12e638b98b1deacb4c5058ecb9d7c8652c96985",
+    "baseline_0031_lifecycle": "stopped",
+    "v0_0_31_tag_or_release_exists": false,
+    "latest_verified_public_release": "v0.0.30"
+  },
+  "implementation": {
+    "checkpoint": "baseline-0032",
+    "version": "0.0.32",
+    "base_index_digest": "sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+    "linux_amd64_manifest_digest": "sha256:e15765ff7066a0eaf91e1b6fd5000c1bba47d62b9f9731f2da560711d910c4f3",
+    "package_contract_sha256": "75f1b4de4cefda2f156fa7dbcae931a467a8ae58953992a912bbd1b8557c1079",
+    "container_contract_sha256": "de0fe568f1d5222731493277ab00d43feb06aa72e63b3b2b1e20ea081311d919",
+    "container_contract_id": "container-runtime-v12"
+  },
+  "changed_payload": [
+    {
+      "path": ".dockerignore",
+      "bytes": 115,
+      "sha256": "a953ab3731c03494e53d58a2ca8f0d5555fdcf7438ed73ad695ef07dfee42003",
+      "git_blob": "4cf4154380d9e82da1868caea089ba14b14b36e1"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 105077,
+      "sha256": "ce28b177f8848427cf4b2a149cbb8c9542ff8b49dcf3535eb20a49f186db4d53",
+      "git_blob": "d780b74680b2e401d6c355905176ca1b8e54ab06"
+    },
+    {
+      "path": "Dockerfile",
+      "bytes": 811,
+      "sha256": "e46770976398a9ead763f949a13e0d5415d7a0a44adccbe0c62a719e12b8b919",
+      "git_blob": "5cae73cf20ca677a182448cc39aac37dec4f2584"
+    },
+    {
+      "path": "artifacts/verification/baseline-0032-implementation-seal-local.json",
+      "bytes": 9603,
+      "sha256": "4d6d66e62146d26780dc49a406cd763fdeb9cc9d3db1383777fbd72e9ecd2641",
+      "git_blob": "c0202af2a04baa913d6dcfd4cd3f7f573cb90348"
+    },
+    {
+      "path": "artifacts/verification/baseline-0032-orientation-failures-001.json",
+      "bytes": 8238,
+      "sha256": "906f3d796ec7aaaee7889ffdf7da77a0af3fb049a2f4e45034c7086c8b92cd15",
+      "git_blob": "ca92c4405891e8defe4df77311e8cc513febedb0"
+    },
+    {
+      "path": "artifacts/verification/container-base-intake-baseline-0032.json",
+      "bytes": 4741,
+      "sha256": "1172c50f7794ec6cc6f855f8b61fc1cf448df2c76221d7487fc3f03829cdf142",
+      "git_blob": "933609cf2d40ac7cc81d5cfa23b41a8fa9785dfe"
+    },
+    {
+      "path": "contracts/milestone-0032.json",
+      "bytes": 13959,
+      "sha256": "ae76918357f1ea78d60334e47d86a44ec10025794dda56e67029fe1fff419541",
+      "git_blob": "77206e6a93f68f06eb87bb7ce2869f345657daa2"
+    },
+    {
+      "path": "docs/devlog.md",
+      "bytes": 425725,
+      "sha256": "a12203a9cd5358d33bd11c09a5c28db15e242fb62823b320e95161283603941b",
+      "git_blob": "c341708f952d82e8c820a4951326aade736f859b"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "bytes": 206085,
+      "sha256": "c19dca2cdfc6add582dc0fa1e60a7ba15d17bc0866cd76fb935a13ea85910d2b",
+      "git_blob": "a1765b8b2d56ce7566e6693695f657515959b387"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 81101,
+      "sha256": "ed8fb0e3194fff7214e43ab841eee0aa07d9a372f4be70a72effb36b965e54e6",
+      "git_blob": "ae187c10daaf3829af094600042b62059fc5e58d"
+    },
+    {
+      "path": "docs/status.md",
+      "bytes": 251468,
+      "sha256": "ddaf9c906bf92e293252933e1aff78f1c344d59e186077627d883af455c1fa62",
+      "git_blob": "6645fe174313935dd354b51dfd6b196e23be34fc"
+    },
+    {
+      "path": "docs/threat-model.md",
+      "bytes": 21685,
+      "sha256": "3a9507232bb847090342cdc7a055b150f2b950be6803d68f3213094a2289c32f",
+      "git_blob": "5d957479aa90ee746e3a0fe4818b986a05685c4a"
+    },
+    {
+      "path": "docs/version-history.md",
+      "bytes": 26959,
+      "sha256": "b40d2080bfed9311ced8ced482d10d337a8a1278a05b7c6cd6095ef49d1022b7",
+      "git_blob": "c35504b8571d9721b2146153d76df1a71b8433c6"
+    },
+    {
+      "path": "eval/container-contract-0032-v12.json",
+      "bytes": 14151,
+      "sha256": "de0fe568f1d5222731493277ab00d43feb06aa72e63b3b2b1e20ea081311d919",
+      "git_blob": "519e409e4f8ec02c23ba7f18f86b1e40cda69cec"
+    },
+    {
+      "path": "eval/container-contract.json",
+      "bytes": 14151,
+      "sha256": "de0fe568f1d5222731493277ab00d43feb06aa72e63b3b2b1e20ea081311d919",
+      "git_blob": "519e409e4f8ec02c23ba7f18f86b1e40cda69cec"
+    },
+    {
+      "path": "eval/package-contract-0032.json",
+      "bytes": 17698,
+      "sha256": "75f1b4de4cefda2f156fa7dbcae931a467a8ae58953992a912bbd1b8557c1079",
+      "git_blob": "dc38c1e75eaf52ddfae28a07d2dca59d8eb6549f"
+    },
+    {
+      "path": "eval/package-contract.json",
+      "bytes": 17698,
+      "sha256": "75f1b4de4cefda2f156fa7dbcae931a467a8ae58953992a912bbd1b8557c1079",
+      "git_blob": "dc38c1e75eaf52ddfae28a07d2dca59d8eb6549f"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 349,
+      "sha256": "7176d908683cf3d9bb37d1154a7839e5ac1df971e09ec81d17523d3e7fb9cdab",
+      "git_blob": "4ddfdcc4e5626104c3fe62ba648347b9b47151f4"
+    },
+    {
+      "path": "scripts/build_zipapp.py",
+      "bytes": 4841,
+      "sha256": "f4a5865a0de1010db059e6412670c5dcea7f7918b850356acffa277566b4ed6a",
+      "git_blob": "2a4f0fcc331619579ac37984429114e187f58adf"
+    },
+    {
+      "path": "scripts/freeze_manifest.py",
+      "bytes": 9070,
+      "sha256": "4b7b2f5b79c6dd47277ff1529884350aa5d7cb948ec80babb2a4a2d2624f5f09",
+      "git_blob": "2f9b2469e85d0f0e5028d6965bba56811a4a1f18"
+    },
+    {
+      "path": "scripts/inspect_runtime_evidence.py",
+      "bytes": 21081,
+      "sha256": "4806d19d9fc30f5876a83b1a3fb612ec389b1bb3bda4cceb1620bc23683c796e",
+      "git_blob": "bbe014b8b4663f0e60c0b1ee55463256d0e9afa7"
+    },
+    {
+      "path": "scripts/verify_baseline.py",
+      "bytes": 5192,
+      "sha256": "a08b093b24809447947e0b631b38c0289b006612b27cc56bd4e72b19c5f90051",
+      "git_blob": "279b0fac3b0e7a7bdb39f5e45cdec531716a8764"
+    },
+    {
+      "path": "scripts/verify_container_contract.py",
+      "bytes": 94845,
+      "sha256": "5e9c8ac23cebb49fa645e15188bef5da318170d825c6d7351e6859744ceb21f4",
+      "git_blob": "26b2a82fa6601f87ee379ba120e5f6c7e802826b"
+    },
+    {
+      "path": "scripts/verify_container_runtime.py",
+      "bytes": 59968,
+      "sha256": "85dcccd1871f07c387cfafc506e5505c94d07f27c462d4fe855951af96bfabc8",
+      "git_blob": "85992ec04119870278a4caebc6116c331449b38a"
+    },
+    {
+      "path": "scripts/verify_live_api.ps1",
+      "bytes": 47419,
+      "sha256": "2439e0b729df118372e0be69db64b916ac137966c3671762b36fa00b485e5a54",
+      "git_blob": "5ea97b02eeb0eb0c5621df3954c887b2bf1a804f"
+    },
+    {
+      "path": "scripts/verify_mcp_stdio.py",
+      "bytes": 7247,
+      "sha256": "41ca381a696efaa48edb3fe72c018e10c34afbf71813302b477cec82de7ec4fd",
+      "git_blob": "d3b19dd7a787e090e082e3a49c45870e77c57a84"
+    },
+    {
+      "path": "scripts/verify_package_contract.py",
+      "bytes": 16366,
+      "sha256": "0e35cd414426f31139916b1991660711d56a096df0fe7c669de11030269a905d",
+      "git_blob": "380b9d1dd4dde7368801c6fda2986d182158688b"
+    },
+    {
+      "path": "src/runbook_sentinel/__init__.py",
+      "bytes": 65,
+      "sha256": "a913a47cfbe89b773fe59dea69893d1cb8a77f2131d01ad4c8920c1263ceb319",
+      "git_blob": "1e53031f61382e1ff3c99779042aa481c6c78e56"
+    },
+    {
+      "path": "src/runbook_sentinel/api.py",
+      "bytes": 23965,
+      "sha256": "f3f316c69dde67e390699b746ec1031b81bc2b14f9c63f79e7f1f6228aa7f3c5",
+      "git_blob": "2ac3072a16dadbbfdd407b3f62483b57dbf06321"
+    },
+    {
+      "path": "src/runbook_sentinel/cli.py",
+      "bytes": 7215,
+      "sha256": "766960374d6c3df81b30c013b8c99719e0208a3f6acf527a6b9c202a44ed664e",
+      "git_blob": "108e1e49d5801a020cf3271027b3ad7329678258"
+    },
+    {
+      "path": "src/runbook_sentinel/mcp_server.py",
+      "bytes": 5250,
+      "sha256": "af6e11d108311040dbf73f53e373a6db5970a056c12b42ceafb6d73324e6e6be",
+      "git_blob": "7bd7776526073581356fcedeec7b2bf108746dc3"
+    },
+    {
+      "path": "tests/test_baseline.py",
+      "bytes": 141537,
+      "sha256": "2f03b08138c589beffb040fc9b7a5cdca9fcd6cf213e867a959ca7bda0757224",
+      "git_blob": "14c595ae178850890bd293a79511271c280be888"
+    },
+    {
+      "path": "tests/test_container_base_security_refresh_contract.py",
+      "bytes": 1082,
+      "sha256": "6ec73c4cbfe607b1298ec3477b07d723e8a34c21489f292b69225ac5b1891414",
+      "git_blob": "4536533351dce611245f1916d5cf98cf6c0240da"
+    }
+  ],
+  "boundaries": {
+    "public_main_moved": false,
+    "package_or_derived_image_built_by_publication": false,
+    "candidate_evaluation_started": false,
+    "dependency_secret_paid_service_or_real_infrastructure_added": false,
+    "tag_release_or_deployment_created": false,
+    "container_image_exported_pushed_published_or_redistributed": false
+  },
+  "retained_observation": {
+    "initial_post_push_tracking_ref_stale": true,
+    "initial_tracking_ref": "028e46bb7e44937113764c1921b1613a0cfd6509",
+    "correction": "Explicit read-only fetch advanced the local remote-tracking ref before the passing reconciliation; ls-remote and anonymous GitHub had already shown the target commit."
+  },
+  "next_gate": "Reconcile this public implementation seal into living records, publish that record-only commit, verify it, and then open UNIT-004 package, evaluation, real-surface, repeated-build, clean-clone, and fresh derived-image scan execution."
+}

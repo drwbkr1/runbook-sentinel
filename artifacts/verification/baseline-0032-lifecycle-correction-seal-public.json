@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0032-LIFECYCLE-CORRECTION-SEAL-PUBLIC",
+  "checkpoint": "baseline-0032",
+  "observed_at_utc": "2026-08-22T19:11:17Z",
+  "status": "pass",
+  "repository": {
+    "owner": "drwbkr1",
+    "name": "runbook-sentinel",
+    "visibility": "public",
+    "branch": "codex/baseline-0032-container-base-security-refresh"
+  },
+  "target": {
+    "commit": "a757ecf4bb7adff0013c5383054ff9b9fa01b62c",
+    "tree": "ffeb6c66fadaaa2ea873b935d9c937b41eee0763",
+    "parent": "9f20238bec204f750ae92046f3b50403641373b6",
+    "commit_message": "fix: preserve evaluation checkpoint lifecycle"
+  },
+  "checks": {
+    "local_ref_exact": true,
+    "explicit_tracking_ref_exact": true,
+    "ls_remote_branch_exact": true,
+    "anonymous_github_ref_exact": true,
+    "anonymous_github_commit_exact": true,
+    "anonymous_github_tree_exact": true,
+    "anonymous_github_parent_exact": true,
+    "github_tree_not_truncated": true,
+    "changed_git_blobs_exact": true,
+    "anonymous_raw_bytes_exact": true,
+    "public_main_unchanged": true
+  },
+  "counts": {
+    "repository_tree_entries": 1470,
+    "changed_paths": 15,
+    "git_blob_mismatches": 0,
+    "raw_byte_mismatches": 0,
+    "changed_raw_bytes_total": 1220448
+  },
+  "renewed_manifest": {
+    "file_count": 153,
+    "bytes": 18484,
+    "sha256": "2f5a6c2662f1f206e3dab8d16d6c126c7d8dbd5aa3043803e917e5b982b965cb",
+    "active_and_archived_bytes_equal": true
+  },
+  "superseded_package_attempt": {
+    "build_count": 2,
+    "bytes_each": 647712,
+    "sha256_each": "6d4f8047c2429993d90c840d857eaaf2829b17ad58adf93451f2471fabc2c1e9",
+    "evaluated_or_promoted": false
+  },
+  "public_main": {
+    "commit": "e12e638b98b1deacb4c5058ecb9d7c8652c96985",
+    "moved": false
+  },
+  "boundaries": {
+    "replacement_package_built_by_publication": false,
+    "candidate_evaluation_started": false,
+    "latest_pointer_advanced": false,
+    "derived_container_image_built": false,
+    "tag_release_deployment_or_publication_created": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "dependency_secret_paid_service_or_real_infrastructure_added": false
+  },
+  "next_gate": "Build and verify two deterministic replacement zipapps from the public corrected source, then run frozen source and package evaluations."
+}

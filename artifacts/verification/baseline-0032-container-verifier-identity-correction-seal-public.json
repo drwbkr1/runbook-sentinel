@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0032-CONTAINER-VERIFIER-IDENTITY-CORRECTION-SEAL-PUBLIC",
+  "checkpoint": "baseline-0032",
+  "observed_at_utc": "2026-08-22T20:15:36Z",
+  "status": "pass",
+  "repository": {
+    "owner": "drwbkr1",
+    "name": "runbook-sentinel",
+    "visibility": "public",
+    "branch": "codex/baseline-0032-container-base-security-refresh"
+  },
+  "target": {
+    "commit": "7ef0eeefe073ec82e29adb8fa9ce387a2c57d2e9",
+    "tree": "1f8d396f95f3e194ee79f63b98b1dfd94fa25acc",
+    "parent": "79c12cb097effe682293fda1785fdc801ab434a0",
+    "commit_message": "fix: align baseline 0032 container verifier"
+  },
+  "checks": {
+    "local_ref_exact": true,
+    "explicit_tracking_ref_exact": true,
+    "ls_remote_branch_exact": true,
+    "anonymous_github_ref_exact": true,
+    "anonymous_github_commit_exact": true,
+    "anonymous_github_tree_exact": true,
+    "anonymous_github_parent_exact": true,
+    "github_tree_not_truncated": true,
+    "changed_git_blobs_exact": true,
+    "anonymous_raw_bytes_exact": true,
+    "public_main_unchanged": true
+  },
+  "counts": {
+    "repository_tree_entries": 1499,
+    "changed_paths": 14,
+    "changed_raw_bytes_total": 1419175,
+    "git_blob_mismatches": 0,
+    "raw_byte_mismatches": 0
+  },
+  "renewed_manifest": {
+    "file_count": 153,
+    "bytes": 18484,
+    "sha256": "2641b57f17a47bab60d2c9258b1f08b6bd66f22e7cc99529fa0f41436150e27f",
+    "active_and_archived_bytes_equal": true
+  },
+  "verification": {
+    "full_tests_passed": 96,
+    "full_tests_failed": 0,
+    "full_test_seconds": 93.720,
+    "manifest_and_contract_validators": "pass",
+    "milestone_contract": "pass_active_no_warnings",
+    "unresolved_secret_shaped_hits": 0
+  },
+  "public_main": {
+    "commit": "e12e638b98b1deacb4c5058ecb9d7c8652c96985",
+    "moved": false
+  },
+  "boundaries": {
+    "replacement_package_built_by_publication": false,
+    "candidate_evaluation_started": false,
+    "derived_container_image_built": false,
+    "container_runtime_started": false,
+    "real_infrastructure_contacted": false,
+    "tag_release_deployment_or_publication_created": false,
+    "container_image_exported_pushed_published_or_redistributed": false
+  },
+  "next_gate": "Publish and verify this record-only receipt, then rebuild two deterministic packages and repeat source/package evaluation and real surfaces before Docker."
+}

@@ -1,0 +1,399 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0032",
+  "status": "retained",
+  "observations": [
+    {
+      "id": "OBS-001",
+      "phase": "source-gate-orientation",
+      "classification": "source_gate_path_guess_error",
+      "observation": "A read-only orientation probe guessed artifacts/verification/container-source-gate-baseline-0031-chainguard-python.json, but no file exists at that path.",
+      "containment": "The missing read was not treated as evidence and did not change repository, container, registry, or external state.",
+      "correction": "Inventory artifacts/verification explicitly, use the retained BASELINE-0027 Chainguard source gate only as a structural precedent, and assess the BASELINE-0032 digest independently from current primary publisher metadata."
+    },
+    {
+      "id": "OBS-002",
+      "phase": "preimplementation-milestone-freeze",
+      "classification": "milestone_schema_key_error",
+      "observation": "The first governed milestone validation rejected path_efficiency.consecutive_no_progress_threshold because the schema requires max_consecutive_no_progress_units.",
+      "containment": "The invalid milestone had not been committed, pushed, or used to authorize work; the validator returned no eligible next unit.",
+      "correction": "Use the exact governed key path_efficiency.max_consecutive_no_progress_units and rerun the independent milestone validator before publication."
+    },
+    {
+      "id": "OBS-003",
+      "phase": "preimplementation-living-record-reconciliation",
+      "classification": "apply_patch_duplicate_target_error",
+      "observation": "The first combined documentation patch declared two separate update operations for docs/status.md, so apply_patch rejected the entire patch before applying any hunk.",
+      "containment": "No documentation or repository byte changed and the rejected patch was not used as evidence.",
+      "correction": "Apply one status-file operation containing both hunks, then apply each remaining living-record update once and validate the complete diff."
+    },
+    {
+      "id": "OBS-004",
+      "phase": "preimplementation-bounded-credential-scan",
+      "classification": "overbroad_whole_file_secret_scan",
+      "observation": "The first bounded scan searched complete contents of every modified tracked file and reported one historical docs/devlog.md line that quotes the literal private-key delimiter as an earlier forbidden-pattern false positive.",
+      "containment": "The result was treated as unresolved until located; it is historical explanatory text, not credential material, and no publication action followed the aggregate count.",
+      "correction": "Scan only added lines for modified tracked files and full contents for untracked files, retain the historical literal as known non-secret text, and require zero unresolved current-delta hits before commit."
+    },
+    {
+      "id": "OBS-005",
+      "phase": "implementation-identity-inventory",
+      "classification": "powershell_pipeline_after_foreach_parse_error",
+      "observation": "The first read-only identity inventory placed a pipeline immediately after a foreach statement, and PowerShell rejected the empty pipeline before collecting measurements.",
+      "containment": "No repository, container, registry, or external state changed, and the rejected command produced no evidence used by the checkpoint.",
+      "correction": "Assign foreach output to an array before piping it to ConvertTo-Json, then recompute every file identity after implementation edits."
+    },
+    {
+      "id": "OBS-006",
+      "phase": "implementation-resume-reconciliation",
+      "classification": "powershell_git_revision_brace_parse_error",
+      "observation": "A read-only Git tree query passed HEAD^{tree} through PowerShell without a quoting-safe format, causing the shell to transform the brace expression and Git to reject the resulting revision.",
+      "containment": "The commit and status probes still completed, no repository or external state changed, and the rejected tree value was not used as evidence.",
+      "correction": "Use git show -s --format=%T HEAD for tree identity on PowerShell and retain the corrected exact tree separately."
+    },
+    {
+      "id": "OBS-007",
+      "phase": "implementation-side-effect-free-validation",
+      "classification": "versioned_contract_transport_trailing_blank_line",
+      "observation": "The first successor contract validation found that the package and container versioned copies each contained one extra terminal blank line introduced while transporting otherwise identical active-contract text into apply_patch.",
+      "containment": "Both validators failed closed on byte inequality; neither mismatched copy was committed, published, or used to authorize a build.",
+      "correction": "Remove the single extra blank line with apply_patch and require byte equality between each active and versioned contract before continuing."
+    },
+    {
+      "id": "OBS-008",
+      "phase": "implementation-targeted-unit-validation",
+      "classification": "stale_phase_test_and_unittest_class_name",
+      "observation": "The first targeted unittest command addressed BaselineTests instead of the actual BaselineTest class, while the base-refresh unit test still required the preimplementation frozen phase after the authorized implementation was present.",
+      "containment": "The test loader errors and stale-phase assertion were retained as failures; no build, repository publication, or external action followed them.",
+      "correction": "Advance the unit test to the implemented phase, use the exact singular test class, and rerun the complete targeted set before the full suite."
+    },
+    {
+      "id": "OBS-009",
+      "phase": "implementation-seal-file-inventory",
+      "classification": "powershell_nested_path_array_inventory",
+      "observation": "The first changed-file identity command wrapped tracked and untracked Git path lists as two nested arrays, causing Get-Item and Get-FileHash to emit aggregated array-valued records instead of one record per path.",
+      "containment": "The malformed 29-path and 3-path aggregate was rejected and not used in a seal, commit, or publication decision.",
+      "correction": "Append each Git path list into one flat array, sort unique paths, and require one path, byte count, and SHA-256 per record."
+    },
+    {
+      "id": "OBS-010",
+      "phase": "implementation-seal-secret-hit-location",
+      "classification": "repeated_powershell_pipeline_after_foreach_parse_error",
+      "observation": "The first exact secret-hit locator again piped directly from a foreach block, and PowerShell rejected the empty pipe before returning any locations.",
+      "containment": "No scan result was inferred from the parser failure and no repository, container, or external state changed.",
+      "correction": "Accumulate Select-String results in an explicit array, emit only after both loops finish, and force a successful read-only exit after exact localization."
+    },
+    {
+      "id": "OBS-011",
+      "phase": "implementation-seal-secret-hit-adjudication",
+      "classification": "declared_forbidden_pattern_literal_false_positive",
+      "observation": "The full-content scan of three untracked files found one private-key delimiter literal in eval/package-contract-0032.json, where the contract declares that delimiter as a forbidden archive-content pattern.",
+      "containment": "The exact line was inspected; it is a project-authored deny-list value, not key material. Added tracked lines had zero pattern hits and no unresolved secret-shaped value was accepted.",
+      "correction": "Retain the declared forbidden literal, classify the single hit as resolved non-secret contract text, and require zero unresolved added-line or untracked-file hits."
+    },
+    {
+      "id": "OBS-012",
+      "phase": "public-implementation-seal-reconciliation",
+      "classification": "post_push_remote_tracking_ref_stale",
+      "observation": "The first post-push reconciliation found the local origin/codex/baseline-0032-container-base-security-refresh tracking ref still at 028e46bb even though ls-remote and anonymous GitHub already returned implementation commit ead044ee.",
+      "containment": "The aggregate all-heads check remained false, so the observation was not promoted to a passing public seal despite exact anonymous commit, tree, blob, raw-byte, and public-main evidence.",
+      "correction": "Fetch the exact public branch into its explicit local tracking ref and repeat every ref, commit, tree, Git-blob, raw-byte, and public-main check before recording the passing receipt."
+    },
+    {
+      "id": "OBS-013",
+      "phase": "implementation-record-reconciliation",
+      "classification": "apply_patch_partial_table_row_context_mismatch",
+      "observation": "A wording-only version-history patch matched only the leading cells of a longer Markdown table row, so apply_patch could not find the incomplete expected line and rejected the edit.",
+      "containment": "No file changed and the rejected patch was not used as evidence.",
+      "correction": "Read the exact complete row and replace that full line once, changing evaluation active to the narrower evaluation unit ready claim."
+    },
+    {
+      "id": "OBS-014",
+      "phase": "unit-004-successor-manifest-freeze",
+      "classification": "powershell_byte_equality_precedence_error",
+      "observation": "The first explicit active-versus-archived manifest equality expression combined byte-array joins and comparison without grouping, producing a string-valued False even though both files had the same length and SHA-256.",
+      "containment": "The malformed equality output was not used to accept the manifest; both generated files remained unchanged and the manifest validator independently passed.",
+      "correction": "Compare Base64 encodings of the complete byte arrays with a case-sensitive equality operator, confirming both 18,484-byte files are exact at SHA-256 711b6016f2856cdd41c9eb7f9459320666e9b424e599bea52e1abad4e0fa7264."
+    },
+    {
+      "id": "OBS-015",
+      "phase": "unit-004-successor-manifest-validation",
+      "classification": "mutable_active_manifest_pointer_in_historical_retrieval_validator",
+      "observation": "The first full suite against the renewed BASELINE-0032 manifest passed 93 of 94 tests but failed retrieval-tier current_contract_phase because the production validator supplied mutable eval/manifest.json when authenticating the retained BASELINE-0031 lifecycle report.",
+      "containment": "No package, evaluation candidate, or derived image was built. The 95.746-second failed run, errors active_evaluation_lifecycle_identity and control_manifest_sha256, and unchanged selected retrieval configuration were retained.",
+      "correction": "Replace the mutable pointer with an immutable retained lifecycle manifest, add a regression test that forbids eval/manifest.json, and require exact report-to-manifest SHA-256 validation before refreezing BASELINE-0032 source identity; the first candidate archive is separately rejected in OBS-016."
+    },
+    {
+      "id": "OBS-016",
+      "phase": "unit-004-retrieval-validator-pointer-correction",
+      "classification": "wrong_immutable_lifecycle_manifest_selected",
+      "observation": "The first bounded pointer correction selected the general BASELINE-0031 prebuild manifest at SHA-256 9cdb30aa, but current retained latest.json binds the later attempt-002 lifecycle manifest at SHA-256 e2ea1bca; the validator and current-phase test correctly remained failed.",
+      "containment": "The two-test correction check passed only the new immutability assertion and failed current phase; no manifest refreeze, package, evaluation candidate, or derived image followed the mismatch.",
+      "correction": "Bind the production lifecycle check to immutable baseline-0031-final-source-attempt-002.manifest.json, whose SHA-256 exactly equals retained latest.json manifest_sha256, while leaving the frozen retrieval selection evidence and all behavior unchanged."
+    },
+    {
+      "id": "OBS-017",
+      "phase": "unit-004-retrieval-validator-manifest-inventory",
+      "classification": "powershell_compact_manifest_inventory_failed_without_output",
+      "observation": "A compact read-only PowerShell manifest-hash inventory exited 1 without producing usable output, so it could not localize the lifecycle mismatch.",
+      "containment": "No missing value was inferred, and the failed command changed no file or external state.",
+      "correction": "Use a read-only Python inventory to report retained latest.json checkpoint, bound manifest SHA-256, and all candidate manifest lengths and hashes before selecting the exact attempt-002 artifact."
+    },
+    {
+      "id": "OBS-018",
+      "phase": "unit-004-prebuild-living-record-update",
+      "classification": "combined_apply_patch_partial_table_row_rejected",
+      "observation": "The first combined prebuild documentation patch again supplied only the leading cells of the long v0.0.32 version-history row, so apply_patch rejected the entire multi-file patch before applying any hunk.",
+      "containment": "No living record changed and the rejected patch was not used as evidence.",
+      "correction": "Apply the non-table living-record changes in one atomic patch, read the exact complete version-history row, and replace that full row separately."
+    },
+    {
+      "id": "OBS-019",
+      "phase": "unit-004-prebuild-record-reconciliation",
+      "classification": "powershell_git_tree_revision_parse_error",
+      "observation": "The first resumed reconciliation command passed unquoted HEAD^{tree} through PowerShell, which transformed the brace expression and caused git rev-parse to reject an encoded token instead of resolving the tree.",
+      "containment": "The parser failure was not used as tree evidence; the command changed no repository, package, container, registry, or external state.",
+      "correction": "Quote the complete HEAD^{tree} revision expression and require the resolved value to equal the known prebuild tree c89a8d94edfea27881dac3c77b7ffd06ceac62d6."
+    },
+    {
+      "id": "OBS-020",
+      "phase": "unit-004-prebuild-record-reconciliation",
+      "classification": "stale_repository_local_milestone_validator_path",
+      "observation": "The same resumed command guessed scripts/verify_milestone.py, but this repository has no validator at that path.",
+      "containment": "The missing-file result was treated as process-invalid, not a milestone pass or failure, and no publication or build action followed it.",
+      "correction": "Invoke the installed run-controlled-milestone skill validator at C:/Users/drewb/.codex/skills/run-controlled-milestone/scripts/validate_milestone.py against the exact active contract before publication."
+    },
+    {
+      "id": "OBS-021",
+      "phase": "unit-004-prebuild-record-public-reconciliation",
+      "classification": "combined_public_verification_command_blocked_by_local_policy",
+      "observation": "The first post-push public reconciliation combined ref checks, anonymous GitHub API requests, raw-byte downloads, and temporary-file cleanup in one command; the local execution policy rejected it before process creation.",
+      "containment": "No command ran, no temporary file existed, no positive evidence was inferred, and repository and external state remained unchanged.",
+      "correction": "Split ref, metadata, blob, and raw-byte checks into smaller read-only commands and calculate raw Git blob identities entirely in memory."
+    },
+    {
+      "id": "OBS-022",
+      "phase": "unit-004-package-build-lifecycle-preflight",
+      "classification": "next_checkpoint_latest_pointer_incompatibility",
+      "observation": "After two deterministic package builds passed but before candidate evaluation, lifecycle inspection showed that advancing artifacts/evaluations/latest.json to BASELINE-0032 would make the retained retrieval-control validator require the new report to identify as BASELINE-0031.",
+      "containment": "No source or package candidate evaluation was run or promoted, no derived image was built, and both 647,712-byte package attempts at SHA-256 6d4f8047 were classified as superseded before use as candidate evidence.",
+      "correction": "Resolve the active report's immutable archived manifest by exact checkpoint prefix and report-bound SHA-256, require checkpoint number 31 or later plus all existing configuration and gate invariants, add later-checkpoint and tamper tests, refreeze the source manifest, and rebuild the package."
+    },
+    {
+      "id": "OBS-023",
+      "phase": "unit-004-lifecycle-validator-correction-test",
+      "classification": "unmatched_test_parenthesis",
+      "observation": "The first focused post-correction test run did not start because the new later-checkpoint regression test contained one unmatched closing parenthesis at line 81.",
+      "containment": "The production validator had passed immediately beforehand, the syntax failure was not treated as test evidence, and no manifest, package, evaluation, container, or external state changed during the failed run.",
+      "correction": "Remove the single unmatched test-only parenthesis and rerun the focused validator and complete test module before refreezing source identity."
+    },
+    {
+      "id": "OBS-024",
+      "phase": "unit-004-lifecycle-correction-manifest-freeze",
+      "classification": "powershell_pscustomobject_property_count_projection",
+      "observation": "The first post-freeze summary accessed PSObject.Properties.Count directly, and PowerShell projected Count from each property as 153 separate one values instead of emitting one manifest file count.",
+      "containment": "The active and archived manifests were still byte-identical at 18,484 bytes and SHA-256 2f5a6c26; the malformed count rendering was not used as evidence.",
+      "correction": "Materialize PSObject.Properties into an explicit array before reading Count and require the independent manifest validator to report exactly 153 verified files."
+    },
+    {
+      "id": "OBS-025",
+      "phase": "unit-004-lifecycle-correction-postfreeze-validation",
+      "classification": "base_refresh_validator_argument_guess_error",
+      "observation": "The first post-freeze validator bundle guessed --require-implemented for the base-security-refresh verifier, which supports --phase implemented instead.",
+      "containment": "The argument parser rejected the invocation before validation; its result was not counted as a pass, while the other independently reported checks remained separately usable.",
+      "correction": "Invoke verify_container_base_security_refresh_contract.py with the documented --phase implemented argument and explicitly check its native exit status."
+    },
+    {
+      "id": "OBS-026",
+      "phase": "unit-004-lifecycle-correction-seal-inventory",
+      "classification": "powershell_subexpression_statement_separator_parse_error",
+      "observation": "The first corrected-source seal inventory tried to combine a native git command and LASTEXITCODE test inside one parenthesized object-property expression, and PowerShell rejected the semicolon before inventory execution.",
+      "containment": "No inventory result was emitted or used, and no repository, package, container, or external state changed.",
+      "correction": "Determine tracked identity from the already materialized tracked-path array and keep each object-property expression free of statement separators."
+    },
+    {
+      "id": "OBS-027",
+      "phase": "unit-004-real-surface-orientation",
+      "classification": "missing_explicit_pythonpath_for_script_probe",
+      "observation": "The first help probe invoked verify_mcp_stdio.py and inspect_runtime_evidence.py without an explicit source or package import root; both exited on ModuleNotFoundError before argument handling.",
+      "containment": "No MCP, API, approval, executor, database, trace, dashboard, or external surface was started or changed, and the import failures were not used as evidence.",
+      "correction": "Read the scripts' parser declarations as source text, then set RUNBOOK_SENTINEL_PYTHONPATH explicitly for each source or package custody run."
+    },
+    {
+      "id": "OBS-028",
+      "phase": "unit-004-source-mcp-verification",
+      "classification": "wrapper_only_import_variable_used_for_standalone_script",
+      "observation": "The first source MCP retry set RUNBOOK_SENTINEL_PYTHONPATH, which verify_baseline.py translates for child processes, but the standalone verify_mcp_stdio.py imports before any wrapper translation and again exited with ModuleNotFoundError.",
+      "containment": "The verifier failed before starting its MCP subprocess; no database, trace, anchor, tool call, or external state was created and no pass was inferred.",
+      "correction": "Set PYTHONPATH directly to the exact source directory or zipapp for standalone MCP and native-inspection scripts, while reserving RUNBOOK_SENTINEL_PYTHONPATH for the orchestration wrapper and PowerShell API script."
+    },
+    {
+      "id": "OBS-029",
+      "phase": "unit-004-source-api-header-diagnosis",
+      "classification": "combined_local_server_header_probe_blocked_by_policy",
+      "observation": "A combined diagnostic command that would launch a second loopback server, exercise an unauthenticated request, and terminate the helper process was rejected by local command policy before process creation.",
+      "containment": "No helper process, request, database, trace, or external state was created, and the blocked command produced no header evidence.",
+      "correction": "Use an in-memory System.Net.Http.HttpResponseMessage with the exact challenge header to distinguish PowerShell header indexer behavior from the typed WwwAuthenticate property without starting another process."
+    },
+    {
+      "id": "OBS-030",
+      "phase": "unit-004-source-api-header-diagnosis",
+      "classification": "powershell_pipeline_after_foreach_parse_error",
+      "observation": "The first in-memory header probe command appended a pipeline directly after a foreach block in its separate artifact inventory, so PowerShell rejected the complete command before creating even the in-memory response object.",
+      "containment": "No probe, inventory, file, process, request, or state change occurred and no evidence was inferred.",
+      "correction": "Run the in-memory header-object probe separately and materialize later inventory rows into an array before JSON conversion."
+    },
+    {
+      "id": "OBS-031",
+      "phase": "unit-004-source-api-verification",
+      "classification": "powershell_httpresponseheaders_indexer_compatibility_failure",
+      "observation": "The first real source API run passed 129 of 131 checks but read both exact WWW-Authenticate challenges as null through the HttpResponseHeaders string indexer, even though each response was HTTP 401 with the exact OperatorAuthenticationError and the server source sends the challenge.",
+      "containment": "The API result remained fail, its database, trace, anchor, logs, and rendered dashboard were preserved, the already passing source/package evaluations and package bytes were classified as superseded by the required manifest renewal, and no package API or container run followed.",
+      "correction": "Read the typed Headers.WwwAuthenticate collection, add a regression assertion forbidding the null-returning indexer, require all 131 checks to pass on a real source retry, renew source identity, rebuild, and rerun evaluations and both real surfaces."
+    },
+    {
+      "id": "OBS-032",
+      "phase": "unit-004-api-verifier-correction-seal-validation",
+      "classification": "powershell_variable_redirection_token_concatenation",
+      "observation": "The first seal-validation loop omitted whitespace between the JSON path variable and output redirection, causing PowerShell to pass a filename ending in greater-than to json.tool and stop on a false missing-file error.",
+      "containment": "The milestone validator had passed, but no aggregate seal-validation result was emitted or used and no repository or external state changed.",
+      "correction": "Place explicit whitespace before the redirection operator, rerun every JSON parse and bound-file identity check, and refresh the local seal because the retained failure record changed."
+    },
+    {
+      "id": "OBS-033",
+      "phase": "unit-004-final-package-source-evidence-summary",
+      "classification": "missing_explicit_pythonpath_for_standalone_trace_verifier",
+      "observation": "The first read-only final evaluation-trace summary invoked verify_evaluation_trace.py without PYTHONPATH, so both source and package verifier calls stopped at ModuleNotFoundError before reading either report or trace.",
+      "containment": "No report, trace, manifest, runtime surface, repository, container, or external state changed and the failed wrapper supplied no positive evidence.",
+      "correction": "Set PYTHONPATH to the exact source directory for the standalone trace verifier and rerun both retained report/trace pairs."
+    },
+    {
+      "id": "OBS-034",
+      "phase": "unit-004-final-package-source-evidence-summary",
+      "classification": "powershell_read_only_boolean_constant_collision",
+      "observation": "The same read-only summary attempted to assign a count to PowerShell's reserved case-insensitive $true constant and stopped before producing native-check totals.",
+      "containment": "The native receipts remained byte-unchanged and no count from the failed helper was accepted.",
+      "correction": "Use non-reserved passCount and failCount variables; both native receipts then report 72 true and zero false checks with pass status."
+    },
+    {
+      "id": "OBS-035",
+      "phase": "unit-004-final-package-source-post-record-validation",
+      "classification": "phase_aware_validators_invoked_with_frozen_defaults",
+      "observation": "The first aggregate post-record validator command omitted the implemented-phase arguments for both retrieval-tier and base-security-refresh validators; each correctly rejected current implemented files against its frozen-phase expectations, while PowerShell continued and printed an invalid aggregate pass label.",
+      "containment": "The manifest, package contract, container contract, compilation, JSON parsing, and milestone results remained independent, but the aggregate label was discarded and neither expected phase mismatch was treated as a product failure.",
+      "correction": "Enforce each native exit code and invoke retrieval-tier with --require-implementation and base-security-refresh with --phase implemented."
+    },
+    {
+      "id": "OBS-036",
+      "phase": "unit-004-final-package-source-post-record-validation",
+      "classification": "rejected_experimental_candidate_mistakenly_required_as_selected",
+      "observation": "The first phase-correct retrieval retry also supplied --require-selection, which asks for rejected bounded-trust-tier-lexical-v4 to be selected and therefore correctly failed with selection_required.",
+      "containment": "The selected/default freshness-priority-lexical-v3 configuration was not changed, the unfavorable v4 decision remained intact, and no later validator ran under the failed wrapper.",
+      "correction": "Require implementation only; the retrieval contract, implemented base refresh, v12 container contract, and governed milestone then all pass with explicit exit enforcement."
+    },
+    {
+      "id": "OBS-037",
+      "phase": "unit-004-final-package-source-credential-scan",
+      "classification": "historical_forbidden_pattern_definition_false_positive",
+      "observation": "The first bounded credential scan read complete modified documentation files and matched an old devlog sentence that intentionally records the literal private-key delimiter as a forbidden-pattern definition.",
+      "containment": "Receipt bindings and JSONL parsing had passed independently, the scan remained fail, no historical text was relabeled or removed, and no credential-like value was accepted.",
+      "correction": "Scan only added tracked lines plus the complete new text evidence files; 54 added lines and ten new files pass with zero credential-pattern matches."
+    },
+    {
+      "id": "OBS-038",
+      "phase": "unit-004-container-preexecution-inspection",
+      "classification": "stale_predecessor_keeper_and_check_count_literals",
+      "observation": "After the package/source reconciliation receipt became public but before any BASELINE-0032 derived-image build, source inspection found that the v12 verifier still named its ephemeral keeper rs-b0031 and described its clean-clone successor as composing 43 checks even though the active contract contains 49.",
+      "containment": "No BASELINE-0032 image or container had been built, no scan ran, the public package/source payload was classified as superseded-before-container, its reports and real-surface evidence remain retained, and no release or image publication followed.",
+      "correction": "Change only the two mechanical verifier literals to rs-b0032 and 49 checks, add regression assertions, renew manifest and package identity, and rerun package/source gates before the first derived-image build."
+    },
+    {
+      "id": "OBS-039",
+      "phase": "unit-004-post-container-verifier-source-mcp-evidence-summary",
+      "classification": "powershell_hashtable_values_bound_as_single_path",
+      "observation": "The fresh source MCP verification passed, and its database, trace, and anchor were copied to unique retained paths, but the follow-on Get-FileHash call bound the hashtable Values collection as one space-separated path and exited before summarizing hashes.",
+      "containment": "The MCP result independently reported the exact bounded tool surface and a valid anchored trace; no positive hash evidence was inferred from the failed wrapper, and no package MCP, API, container, registry, or real infrastructure action followed it.",
+      "correction": "Materialize the target paths as a flat array, require each retained file to exist, and hash each file independently before continuing."
+    },
+    {
+      "id": "OBS-040",
+      "phase": "unit-004-post-container-verifier-native-parity-summary",
+      "classification": "powershell_join_comparison_precedence_error",
+      "observation": "The first native-receipt parity summary joined one check-name array without grouping both operands, so PowerShell evaluated the comparison and second join in the wrong order and rendered native_check_names_exact as the string False despite separately reporting 72 true and zero false checks in each passing receipt.",
+      "containment": "The malformed convenience field was not used as parity evidence; both native receipts remained byte-unchanged, passed independently, and retained identical database counts and dashboard dimensions.",
+      "correction": "Parenthesize each complete joined array before case-sensitive comparison and require identical sorted check-name sets plus 72 true and zero false values on both sides."
+    },
+    {
+      "id": "OBS-041",
+      "phase": "unit-004-post-container-verifier-native-parity-summary",
+      "classification": "powershell_false_membership_coerced_zero_counts",
+      "observation": "The corrected native-name comparison produced true and both receipts again reported 72 true and zero false checks, but the aggregate guard tested whether all mixed-type summary Values contained false; PowerShell coerced a numeric zero count to false and threw on the passing summary.",
+      "containment": "The complete emitted summary made the coercion visible, no native or runtime artifact changed, and the invalid aggregate result was not used as evidence.",
+      "correction": "Check the two Boolean parity fields explicitly and compare the four numeric pass/fail counts numerically instead of applying Boolean membership to a mixed-type collection."
+    },
+    {
+      "id": "OBS-042",
+      "phase": "unit-004-post-container-verifier-living-record-reconciliation",
+      "classification": "combined_apply_patch_stale_milestone_sentence",
+      "observation": "The first combined local-candidate living-record patch expected a milestone sentence beginning Final source and package evaluations, but the current reconciled contract already begins Superseded source and package evaluations, so apply_patch rejected the complete patch atomically.",
+      "containment": "No receipt, milestone, documentation, evaluation, package, runtime, container, registry, or external state changed, and the rejected patch supplied no evidence.",
+      "correction": "Read the exact current milestone strings, apply bounded per-file patches, and refresh the final receipt's failure-ledger hash after retaining this observation."
+    },
+    {
+      "id": "OBS-043",
+      "phase": "unit-004-post-container-verifier-evaluation-report-reconciliation",
+      "classification": "apply_patch_incomplete_historical_candidate_sentence",
+      "observation": "A follow-on evaluation-report clarification supplied a shortened expected candidate sentence that omitted its embedded source-manifest clause, so apply_patch rejected the complete three-hunk edit before changing the file.",
+      "containment": "No evaluation report, receipt, package, runtime, container, registry, or external state changed, and no claim was inferred from the rejected patch.",
+      "correction": "Read and replace the exact complete lines individually, then refresh the final receipt's retained-failure binding."
+    },
+    {
+      "id": "OBS-044",
+      "phase": "unit-004-container-resume-preflight",
+      "classification": "missing_local_upstream_tracking_ref",
+      "observation": "The first concise resume preflight queried @{u}, but the exact public feature branch has no local upstream-tracking ref, so git rev-parse stopped before the remaining read-only checks.",
+      "containment": "No build, image, container, repository, registry, or real-infrastructure mutation occurred, and no remote identity was inferred from the failed lookup.",
+      "correction": "Verify the local HEAD directly against the exact public feature ref with credential-free git ls-remote; the successor preflight proved both were 001b6a19b38616d07a9995d19831b44c8a03a6a1."
+    },
+    {
+      "id": "OBS-045",
+      "phase": "unit-004-clean-build-entrypoint-inspection",
+      "classification": "mistaken_historical_archive_helper_filename",
+      "observation": "A read-only helper inspection requested scripts/build_archive.py, which does not exist in this checkpoint, and stopped before printing the Dockerfile after already reporting the clean-build parser and prior receipt shapes.",
+      "containment": "No package, image, container, repository, registry, or external state changed, and the partial inspection was not used to select an archive builder.",
+      "correction": "Discover the repository-owned helper with rg --files, then inspect and run scripts/build_zipapp.py against the frozen baseline-0032 package contract."
+    },
+    {
+      "id": "OBS-046",
+      "phase": "unit-004-canonical-container-contract-inspection",
+      "classification": "mistaken_container_contract_filename",
+      "observation": "A read-only schema inspection requested eval/container-runtime-v12.json, which does not exist, and stopped after printing the validator source but before summarizing the clean receipt.",
+      "containment": "The clean receipt remained byte-unchanged, no canonical result was composed from the failed wrapper, and no package, image, registry, or real-infrastructure state changed.",
+      "correction": "Locate the frozen contract with rg --files and inspect eval/container-contract-0032-v12.json plus the exact receipt-validation function before composition."
+    },
+    {
+      "id": "OBS-047",
+      "phase": "unit-004-canonical-container-binding-validation",
+      "classification": "powershell_reserved_false_variable",
+      "observation": "The first canonical binding-summary wrapper assigned its false-check list to $false, which is a read-only PowerShell constant, and stopped before reading receipt bindings or invoking the frozen contract validator.",
+      "containment": "The canonical receipt and every bound component remained byte-unchanged, no validator result was inferred, and no image, registry, release, or real-infrastructure action occurred.",
+      "correction": "Rename the list to $falseChecks, refresh the failure-ledger and process-observation hashes in the canonical receipt, and rerun the complete binding and contract gate."
+    },
+    {
+      "id": "OBS-048",
+      "phase": "unit-004-post-container-structured-parsing",
+      "classification": "powershell_colon_interpolation_parser_error",
+      "observation": "The first repository JSON/JSONL parser embedded $path:$lineNumber in a double-quoted error string, so PowerShell rejected the wrapper at parse time before enumerating or parsing any artifact.",
+      "containment": "No structured-artifact count or pass was inferred, no project or runtime byte changed, and no publication or release action followed the invalid wrapper.",
+      "correction": "Render the path and line number with the format operator, refresh the retained-failure bindings, and rerun the complete repository parser."
+    }
+  ],
+  "boundaries": {
+    "product_or_security_boundary_changed_by_failure": false,
+    "failed_or_incomplete_probe_used_as_positive_evidence": false,
+    "external_asset_imported_by_failure": false,
+    "container_image_pulled_by_failure": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "real_infrastructure_contacted": false
+  }
+}

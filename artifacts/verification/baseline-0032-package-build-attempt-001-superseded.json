@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0032-PACKAGE-BUILD-ATTEMPT-001-SUPERSEDED",
+  "checkpoint": "baseline-0032",
+  "observed_at_utc": "2026-08-22T18:59:01Z",
+  "status": "superseded_before_evaluation",
+  "package_contract": {
+    "path": "eval/package-contract-0032.json",
+    "sha256": "75f1b4de4cefda2f156fa7dbcae931a467a8ae58953992a912bbd1b8557c1079",
+    "status": "pass"
+  },
+  "builds": [
+    {
+      "path": "dist/runbook-sentinel-0.0.32.pyz",
+      "bytes": 647712,
+      "entries": 43,
+      "sha256": "6d4f8047c2429993d90c840d857eaaf2829b17ad58adf93451f2471fabc2c1e9",
+      "contract_status": "pass"
+    },
+    {
+      "path": "dist/runbook-sentinel-0.0.32-repeat.pyz",
+      "bytes": 647712,
+      "entries": 43,
+      "sha256": "6d4f8047c2429993d90c840d857eaaf2829b17ad58adf93451f2471fabc2c1e9",
+      "contract_status": "pass"
+    }
+  ],
+  "byte_identical": true,
+  "supersession_reason": "The frozen package embeds the current source manifest. A verifier-only lifecycle correction is required before latest.json can advance to BASELINE-0032 without invalidating the next cycle, so these pre-correction bytes cannot be candidate release evidence.",
+  "behavioral_boundaries": {
+    "source_candidate_evaluation_run": false,
+    "package_candidate_evaluation_run": false,
+    "latest_pointer_advanced": false,
+    "retrieval_model_policy_cases_graders_thresholds_or_authority_changed": false,
+    "derived_container_image_built": false,
+    "tag_release_deployment_or_publication_created": false
+  }
+}
