@@ -1,0 +1,285 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0032-merged-main-complete-stack",
+  "checkpoint": "baseline-0032",
+  "unit": "UNIT-005",
+  "observed_at_utc": "2026-08-22T22:01:40Z",
+  "status": "pass",
+  "repository": {
+    "url": "https://github.com/drwbkr1/runbook-sentinel",
+    "visibility": "public",
+    "branch": "main",
+    "head": "772e2a375e4cad1fc8697c75af886194656be6aa",
+    "live_remote_head": "772e2a375e4cad1fc8697c75af886194656be6aa",
+    "tree": "4b891c9a9e9f09e8b51de399f9df2b3fefb69e2f",
+    "clone_transport": "credential-disabled HTTPS",
+    "clone_used_local_objects": false,
+    "object_alternates_present": false,
+    "tracked_file_count": 1505,
+    "tracked_content_started_clean": true,
+    "tracked_content_ended_clean": true,
+    "verification_outputs_untracked_or_ignored": true
+  },
+  "review_and_merge": {
+    "pull_request": 30,
+    "pull_request_url": "https://github.com/drwbkr1/runbook-sentinel/pull/30",
+    "base_before_merge": "e12e638b98b1deacb4c5058ecb9d7c8652c96985",
+    "exact_reviewed_head": "200b455125aa60be938f7cb2289dba1d0194d930",
+    "review_id": 5001107103,
+    "review_state": "COMMENTED",
+    "merge_commit": "772e2a375e4cad1fc8697c75af886194656be6aa",
+    "merge_parents": [
+      "e12e638b98b1deacb4c5058ecb9d7c8652c96985",
+      "200b455125aa60be938f7cb2289dba1d0194d930"
+    ],
+    "reviewed_tree": "4b891c9a9e9f09e8b51de399f9df2b3fefb69e2f",
+    "merged_tree": "4b891c9a9e9f09e8b51de399f9df2b3fefb69e2f",
+    "reviewed_and_merged_trees_equal": true,
+    "expected_head_lock_used": true,
+    "history_preserved": true,
+    "merged_at_utc": "2026-08-22T21:38:57Z"
+  },
+  "regression": {
+    "unit_tests": {
+      "command": "python -m unittest discover -s tests -v",
+      "passed": 96,
+      "failed": 0,
+      "duration_seconds": 96.002,
+      "status": "pass"
+    },
+    "validators": {
+      "phase_correct_project_validators_passed": 40,
+      "failed": 0,
+      "duration_seconds": 5.228,
+      "status": "pass"
+    },
+    "compilation": {
+      "python_files_compiled_in_memory": 88,
+      "errors": 0,
+      "status": "pass"
+    }
+  },
+  "package_reproduction": {
+    "build_count": 2,
+    "entry_count": 43,
+    "archive_bytes": 647712,
+    "archive_sha256": "3be93953a367483e29c696af889ebfccc432424b8303c4f69ae00d10a38c2270",
+    "checksum_bytes": 94,
+    "checksum_sha256": "2c1c0f95d8c06e8978b99bd9311e3ec4d63380a36887998d3cc34ac08b9bb24a",
+    "builds_byte_identical": true,
+    "selected_archive_exact": true,
+    "package_contract_passed_for_each": true,
+    "runtime_dependencies": 0,
+    "status": "pass"
+  },
+  "evaluations": {
+    "source": {
+      "report_bytes": 953905,
+      "report_sha256": "aa58b1b10eeb44c01f7c659546991b46c225578d36f53ef330c8a9cf2be1d95c",
+      "trace_bytes": 195311,
+      "trace_sha256": "e670ea0ee47c9aa9240e7331ef12931375e7ac2d9817ee930fa798fd8472845b",
+      "trace_final_event_sha256": "c9c8cf3d7b51d007ac5c64eef488613ef1498cbcfa623164e3242f57657f601a"
+    },
+    "package": {
+      "report_bytes": 953907,
+      "report_sha256": "309ab89b5539f19a8111b103c03a0a8ecd39af55d0264ede16ff1cef612f4b62",
+      "trace_bytes": 195320,
+      "trace_sha256": "e79e349db0616498e0b48f9455d531539443b2df157e3c91fe01a672fe1e123a",
+      "trace_final_event_sha256": "7dba102bc5426e61d6f3af5a4a59b15699522773772b1924bb66f036361b20f8"
+    },
+    "normalized_complete_reports": {
+      "method": "remove exactly the seventeen declared launch-varying leaf keys and serialize canonical sorted compact JSON",
+      "bytes": 560780,
+      "sha256": "c9b4acb7b7711d0957b438bab4b5a869be7efefefc26e21d3f8c2b872b3487f8",
+      "launch_varying_leaf_key_count": 17,
+      "observed_leaf_key_count": 17,
+      "unexpected_leaf_key_count": 0,
+      "raw_difference_count": 407,
+      "parity_after_declared_normalization": true
+    },
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "boolean_gates_true_each": 136,
+    "boolean_gates_false_each": 0,
+    "trace_event_count_each": 261,
+    "trace_chains_valid_and_anchored": true,
+    "retrieval_configuration": "freshness-priority-lexical-v3",
+    "expected_document_share": 0.683006535948,
+    "extra_document_attempt_rate": 0.56862745098,
+    "policy_compliance": 1.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "retrieval_generation_trajectory_policy_terminal_utility_attack_reliability_latency_and_cost_separate": true,
+    "model_calls": 0,
+    "estimated_external_api_cost": 0.0,
+    "status": "pass"
+  },
+  "real_surfaces": {
+    "mcp": {
+      "protocol": "2025-11-25",
+      "server_version": "0.0.32",
+      "tool_names": [
+        "list_synthetic_scenarios",
+        "diagnose_synthetic_incident",
+        "get_synthetic_incident"
+      ],
+      "authority_tool_count": 0,
+      "attack_document_excluded_from_decision_context": true,
+      "selected_retriever_exact": true,
+      "source_trace_sha256": "9525f1dd0cda1369e774e7540d9c70f6a4575470b80e8f03612416e366ce0501",
+      "package_trace_sha256": "1fb8fc1b77684deec46393c381b2bf3d0c6db9ab59700ef6b0cb66c9b0e93933",
+      "source_and_package_semantics_equal": true,
+      "trace_event_count_each": 2,
+      "traces_valid_and_anchored": true
+    },
+    "source": {
+      "api_checks_passed": 131,
+      "api_checks_failed": 0,
+      "native_checks_passed": 72,
+      "native_checks_failed": 0,
+      "native_receipt_sha256": "aec4ec45c4552642864f45193608d5a7efb29679ef4493ea0e9cc5f9887ab4d8",
+      "dashboard_path": "artifacts/verification/dashboard-source-merged-main-baseline-0032.png",
+      "dashboard_bytes": 101608,
+      "dashboard_sha256": "fa795e6d30475dea9610d3b852fa63907257a16173aa55f62d72df9a7f85165e"
+    },
+    "package": {
+      "api_checks_passed": 131,
+      "api_checks_failed": 0,
+      "native_checks_passed": 72,
+      "native_checks_failed": 0,
+      "native_receipt_sha256": "28ac7f5345756b87314c5d7a3efb5a52f3a6d0dd624004d0aca86372aa6c2b48",
+      "dashboard_path": "artifacts/verification/dashboard-package-merged-main-baseline-0032.png",
+      "dashboard_bytes": 101820,
+      "dashboard_sha256": "2d771f1e5b6ac93df931f6b0e10b46002978fecb1b4f42144373b2296715a59b"
+    },
+    "validated_shell": "Windows PowerShell",
+    "api_checks_identical": true,
+    "native_checks_identical": true,
+    "approval_executor_idempotency_replay_postconditions_state_and_telemetry_pass": true,
+    "authorization_material_absent_from_persistence_traces_logs_and_dashboard": true,
+    "dashboards": {
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "source_original_detail_inspection": "pass",
+      "package_original_detail_inspection": "pass",
+      "metric_card_count": 35,
+      "persisted_incident_rows_visible": 2,
+      "baseline_identity_exact": true,
+      "execution_boundary_exact": true,
+      "real_infrastructure_disconnected": true,
+      "clipping_observed": false
+    },
+    "status": "pass"
+  },
+  "artifact_integrity": {
+    "tracked_json_files": 1081,
+    "json_documents_valid": 1080,
+    "utf8_bom_json_documents_valid": 14,
+    "expected_empty_json": [
+      "artifacts/verification/mcp-source-baseline-0026.json"
+    ],
+    "unclassified_json_errors": 0,
+    "tracked_jsonl_files": 168,
+    "jsonl_records_valid": 31644,
+    "jsonl_errors": 0,
+    "credential_material_hits": 0,
+    "runtime_capability_hits_in_src": 0,
+    "model_artifacts": 0,
+    "container_export_artifacts": 0,
+    "status": "pass"
+  },
+  "container": {
+    "contract_id": "container-runtime-v12",
+    "contract_sha256": "de0fe568f1d5222731493277ab00d43feb06aa72e63b3b2b1e20ea081311d919",
+    "image_id": "sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9",
+    "created_at_utc": "2026-08-22T17:58:03Z",
+    "canonical_candidate_receipt": {
+      "path": "artifacts/verification/container-baseline-0032.json",
+      "sha256": "b1ffc6b22385d2d359e8215a1f498fcefbed171895bd80e9f76bb7a391b0def0",
+      "checks_true": 49,
+      "checks_false": 0,
+      "status": "pass"
+    },
+    "fresh_merged_main_full": {
+      "external_receipt_sha256": "6c6352b97d0711f35b8f2e80174fa2203ebae28d3b1fd6a11a7b57101217b6df",
+      "external_receipt_bytes": 36182,
+      "observed_at_utc": "2026-08-22T21:50:45.311395Z",
+      "two_builds_image_id_exact": true,
+      "checks_true_before_separate_clean_clone_composition": 48,
+      "checks_false_before_separate_clean_clone_composition": 1,
+      "status": "pass-clean-clone-composed-separately"
+    },
+    "fresh_no_alternates_public_main_clean_build": {
+      "external_receipt_sha256": "c62a5a91203a46fd4f8ff38c54bec57b4c8d9107fd65a469cb69ba0ee9d9b933",
+      "external_receipt_bytes": 16721,
+      "observed_at_utc": "2026-08-22T21:53:50.115334Z",
+      "source_head": "772e2a375e4cad1fc8697c75af886194656be6aa",
+      "object_alternates_present": false,
+      "image_id_exact": true,
+      "status": "pass"
+    },
+    "fresh_composed_checks_true": 49,
+    "fresh_composed_checks_false": 0,
+    "container_evaluation": {
+      "report_bytes": 926760,
+      "report_sha256": "fdd0222f2eb540e9d504418b57749be39724621df54900b574e8a504b9719a08",
+      "trace_bytes": 195292,
+      "trace_sha256": "7d745859386e3f1d66a6a9b6f0ea78d477b1d404e1707fd524b67eaacb69001f",
+      "trace_final_event_sha256": "5715e760301c21c6c70d8fc8420964a8185c497eda704979823424eb4b6b8e42",
+      "metric_projection_sha256": "a75bb43e2585347655779dcc1db54ac2b5a07b028d18a010ef9860220ddf8e93",
+      "source_package_container_metric_parity": true
+    },
+    "structured_scan": {
+      "scanner": "Docker Scout 1.20.4",
+      "sarif_sha256": "7749b34be7a069559b10b1b9d53cc8897576fdd104071a9e0f907f9a301ee303",
+      "sarif_bytes": 461,
+      "critical_high_findings": 0,
+      "claim_boundary": "Observation-time evidence for the exact content-addressed image, not a perpetual vulnerability claim."
+    },
+    "dashboard_path": "artifacts/verification/dashboard-container-merged-main-baseline-0032.png",
+    "dashboard_bytes": 101882,
+    "dashboard_sha256": "8383efac64161421a2ea00aa30b62c1d44d375878f8319461c1f333dd6797aae",
+    "dashboard_original_detail_inspection": "pass",
+    "surviving_verifier_containers": 0,
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false,
+    "image_redistributed": false,
+    "status": "pass"
+  },
+  "retained_process_failures": [
+    "artifacts/verification/baseline-0032-premerge-audit-orientation-failures-001.json",
+    "artifacts/verification/release-audit-baseline-0032-premerge.json",
+    "artifacts/verification/baseline-0032-review-and-merged-main-failures-001.json"
+  ],
+  "claim_boundary": {
+    "research_informed": true,
+    "synthetic_sre_only": true,
+    "production_readiness_claimed": false,
+    "universal_prompt_injection_resistance_claimed": false,
+    "broad_pareto_claimed": false,
+    "cross_builder_reproducibility_claimed": false,
+    "container_distribution_claimed": false
+  },
+  "gates": {
+    "exact_reviewed_head_merged_with_history_preserved": "pass",
+    "fresh_public_main_tests_and_validators": "pass",
+    "fresh_public_main_package_reproduction": "pass",
+    "fresh_public_main_source_and_package_evaluations": "pass",
+    "fresh_public_main_mcp_api_state_telemetry_and_dashboards": "pass",
+    "fresh_public_main_container_runtime_scan_and_identity": "pass",
+    "failed_blocked_and_nonblocking_findings_preserved": "pass",
+    "no_container_image_bytes_published": "pass",
+    "fresh_public_main_complete_stack": "pass"
+  },
+  "release_state": {
+    "latest_release": "v0.0.30",
+    "v0.0.31_tag_exists": false,
+    "v0.0.31_release_exists": false,
+    "v0.0.32_tag_exists": false,
+    "v0.0.32_release_exists": false
+  },
+  "next_gate": "Publish this merged-main receipt, retained process evidence, and three inspected dashboards; reconcile the exact public bytes; then reconcile living records and run the final release-truth audit before creating an annotated v0.0.32 tag or GitHub release."
+}

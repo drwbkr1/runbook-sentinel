@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0032-review-and-merged-main-failures-001",
+  "checkpoint": "baseline-0032",
+  "unit": "UNIT-005",
+  "observed_at_utc": "2026-08-22T21:38:57Z",
+  "last_updated_at_utc": "2026-08-22T22:01:40Z",
+  "status": "retained_process_invalid_and_nonblocking_findings",
+  "positive_evidence": false,
+  "observations": [
+    {
+      "id": "OBS-001",
+      "phase": "merge-reconciliation",
+      "classification": "transient_external_consistency",
+      "observation": "The first immediate GitHub pull-request read still reported PR 30 open and unmerged after the public main ref and merge object already exposed the exact merge commit.",
+      "correction": "A later independent read reconciled PR 30 as merged at 2026-08-22T21:38:57Z with exact reviewed head 200b455125aa60be938f7cb2289dba1d0194d930 and merge commit 772e2a375e4cad1fc8697c75af886194656be6aa."
+    },
+    {
+      "id": "OBS-002",
+      "phase": "fresh-public-main-package",
+      "classification": "powershell_wrapper_error",
+      "observation": "A wrapper completed two successful external archive builds, then parsed two Test-Path calls as duplicate LiteralPath arguments and stopped before copying the already-built bytes.",
+      "correction": "The two external archives were read directly and both are 647712 bytes at SHA-256 3be93953a367483e29c696af889ebfccc432424b8303c4f69ae00d10a38c2270; both checksum files are 94 bytes at SHA-256 2c1c0f95d8c06e8978b99bd9311e3ec4d63380a36887998d3cc34ac08b9bb24a. A corrected literal copy populated only the clone's ignored dist directory."
+    },
+    {
+      "id": "OBS-003",
+      "phase": "fresh-public-main-real-surfaces",
+      "classification": "unsafe_inspector_probe",
+      "observation": "Invoking inspect_runtime_evidence.py with --help ran that script's default missing-evidence inspection rather than displaying help and failed before mutation.",
+      "correction": "The exact source and package runtime evidence was subsequently produced and inspected with the intended repository workflow; both native receipts pass 72 of 72 checks."
+    },
+    {
+      "id": "OBS-004",
+      "phase": "fresh-public-main-evaluation",
+      "classification": "truncated_console_output",
+      "observation": "The evaluation console response was too large for the tool output window and could not itself attest completion.",
+      "correction": "The immutable source and package report, manifest, and trace files were read directly. Each contains 57 scenarios, 171 attempts, all 136 Boolean gates true, and a valid anchored 261-event trace."
+    },
+    {
+      "id": "OBS-005",
+      "phase": "fresh-public-main-real-surfaces",
+      "classification": "evidence_copy_omission",
+      "observation": "The source native summary was not copied to external custody before the package surface overwrote the generic disposable-clone path.",
+      "correction": "The underlying source evidence had already been copied. The source native summary was regenerated from those exact files and preserved at 12476 bytes with SHA-256 aec4ec45c4552642864f45193608d5a7efb29679ef4493ea0e9cc5f9887ab4d8; the separately preserved package summary is 12476 bytes at SHA-256 28ac7f5345756b87314c5d7a3efb5a52f3a6d0dd624004d0aca86372aa6c2b48."
+    },
+    {
+      "id": "OBS-006",
+      "phase": "fresh-public-main-clean-container",
+      "classification": "path_guess_error",
+      "observation": "The first direct clean-clone probe guessed the unversioned archive name and incorrectly reported the package absent.",
+      "correction": "The versioned archive dist/runbook-sentinel-0.0.32.pyz was present, exact, ignored, and left the clone clean."
+    },
+    {
+      "id": "OBS-007",
+      "phase": "fresh-public-main-clean-container",
+      "classification": "obsolete_cli_option",
+      "observation": "A redundant rebuild attempt supplied the unsupported build_zipapp.py option --checksum-output and stopped without changing tracked content.",
+      "correction": "The already-present versioned archive and checksum were verified directly, and the independent clean container build passed at the exact expected image ID."
+    },
+    {
+      "id": "OBS-008",
+      "phase": "fresh-public-main-parity",
+      "classification": "path_guess_error",
+      "observation": "The first parity wrapper guessed generic evaluation.json filenames that do not exist in the immutable attempt directories.",
+      "correction": "The attempt-specific report paths were located and compared. All 407 raw leaf differences are confined to the frozen seventeen launch-varying names, and the stripped canonical reports are byte-identical."
+    },
+    {
+      "id": "OBS-009",
+      "phase": "fresh-public-main-integrity",
+      "classification": "lost_wrapper_output",
+      "observation": "A PowerShell JSON and JSONL parser exceeded its first output window and returned no usable summary.",
+      "correction": "A bounded no-write Python parser completed against the clean public clone and reported 1080 valid nonempty JSON documents, one known historical empty JSON file, and 31644 valid JSONL records with no parse error."
+    },
+    {
+      "id": "OBS-010",
+      "phase": "fresh-public-main-integrity",
+      "classification": "diagnostic_scope_error",
+      "observation": "The first Python integrity scan treated fourteen valid UTF-8-BOM historical JSON files as errors, matched private-key scanner literals as if they were key material, and ran against a surface clone containing two intentional untracked render outputs.",
+      "correction": "The exact successor decoded UTF-8 BOMs, required a complete key block with substantial encoded body, and ran against the separate clean clone. It found zero JSON errors, zero credential material, zero runtime capability hits in src, zero model artifacts, zero container export artifacts, and zero Git dirt."
+    },
+    {
+      "id": "OBS-011",
+      "phase": "fresh-public-main-integrity",
+      "classification": "unbounded_diagnostic_expression",
+      "observation": "A multiline private-key regular expression was too expensive over the full tracked history and returned no usable result.",
+      "correction": "A bounded line-state detector replaced it and completed with zero complete private-key block or token-shaped material."
+    },
+    {
+      "id": "OBS-012",
+      "phase": "release-state-reconciliation",
+      "classification": "unsupported_cli_field",
+      "observation": "The first GitHub release-list query requested the unsupported url JSON field and stopped without changing remote state.",
+      "correction": "The supported-field successor confirms v0.0.30 remains the latest non-draft release and v0.0.32 remains absent."
+    },
+    {
+      "id": "OBS-013",
+      "phase": "merged-main-receipt-validation",
+      "classification": "invented_validator_expectation",
+      "observation": "The first receipt cross-check invented a 36187-byte expectation for the canonical container receipt even though merged-main-baseline-0032.json binds that artifact only by path and SHA-256.",
+      "correction": "The validator removed the unsupported byte-count assertion, retained the exact SHA-256 requirement, and passed all twenty composed checks. The canonical receipt is 40231 bytes and its bound SHA-256 remains exact."
+    }
+  ],
+  "claim_boundary": "These observations are retained process evidence and are not candidate failures. Passing successor evidence is bound separately in merged-main-baseline-0032.json."
+}
