@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.32 - Unreleased
+
+- Opened BASELINE-0032 from exact public stopped-state commit `e12e638b98b1deacb4c5058ecb9d7c8652c96985`; public v0.0.30 remains latest, and v0.0.31 remains stopped, untagged, and unreleased.
+- Source-gated immutable Chainguard Python index `sha256:1f677977...` and linux/amd64 manifest `sha256:e15765ff...` from current primary publisher, registry, SBOM/provenance, package, rights, and security evidence. The gate permits anonymous local pull/build/scan only after public freeze and forbids mutable tags, authentication, paid/private assets, secrets, image redistribution, and real infrastructure.
+- Froze `container-base-security-refresh-contract-0032.json`: only the Dockerfile `FROM` digest and matching base label may change functionally. Baseline-0032/v0.0.32 updates are mechanical release identity; incident-agent behavior, retrieval, generation, model selection, evaluation splits/graders, policy, approval, executor, replay, postconditions, dependencies, and authority remain fixed.
+- Added a side-effect-free phase-aware verifier and focused regression test. The frozen phase proves the vulnerable BASELINE-0031 receipts remain byte-exact, the source gate is ready, historical zero-result SARIF cannot satisfy the successor gate, and the candidate digest has not been implemented.
+- Retained the guessed predecessor source-gate path, first milestone schema-key failure, rejected duplicate-target documentation patch, and over-broad historical-literal secret scan as invalid process evidence. No candidate image has been pulled, built, exported, pushed, published, or redistributed.
+
 ## 0.0.31 - Unreleased
 
 - Stopped this candidate without tag or release after valid final audit attempt 001 reran the exact local image scan and found two unique current Docker Scout HIGH vulnerabilities in Wolfi `libcrypto3`, `libssl3`, and `openssl` 3.6.3-r3. CVE-2026-14456 is fixed in 3.6.3-r5 and CVE-2026-54876 is fixed in 3.6.3-r4.

@@ -1,5 +1,15 @@
 # Evaluation report
 
+## BASELINE-0032 preimplementation container-base security contract
+
+The successor starts from exact public stopped-state commit `e12e638b98b1deacb4c5058ecb9d7c8652c96985`. It does not reinterpret the BASELINE-0031 result: exact derived image `sha256:3736d003...` still fails CHECK-007 with two unique HIGH OpenSSL CVEs, v0.0.31 remains untagged and unreleased, and historical zero-result SARIF remains historical.
+
+The eight-criterion external-source gate admits only `cgr.dev/chainguard/python@sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c` for anonymous local extension and verification. The exact linux/amd64 manifest is `sha256:e15765ff...`, config is `sha256:54c0ed04...`, platform size is 26,161,781 bytes, and Docker Scout resolves 101 packages plus three attached in-toto records covering SPDX SBOM, SLSA provenance, and apko configuration. Current packages include Python 3.14.7-r1 and libcrypto3/libssl3 3.6.3-r5. The current remote exact-digest scan has zero critical/high results, but its generic 461-byte SARIF does not intrinsically name the target; the source gate therefore binds command, digest, scanner, and time outside the body and requires a fresh exact local derived-image scan later.
+
+`container-base-security-refresh-contract-0032.json` freezes two functional changes—the Dockerfile base reference and matching digest label—and treats baseline-0032/v0.0.32 substitutions as mechanical release identity. No new dependency, retrieval/model configuration, corpus, scenario, split, grader, expected terminal state, threshold, policy, approval, executor, replay, postcondition, credential, service, authority, or real-infrastructure path is allowed. All metric families remain separate, and promotion requires the full source/package/container/clean-clone/public matrix without regression.
+
+The independent frozen-phase verifier passes with no error and confirms the stopped scan receipt and blocked audit remain byte-exact, CHECK-007 remains failed, all source criteria pass, the admitted reference is immutable and exact, current source packages meet the frozen fix floor, the generic-SARIF limitation is explicit, and the Dockerfile still contains the old digest/v0.0.31 identity. One focused test passes. Candidate pull, implementation, package, local image, and release results remain unknown until the public freeze is reconciled.
+
 ## BASELINE-0031 final release audit - stopped and unpublished
 
 Final audit attempt 001 binds public main candidate `b5657e70697f3f34c1d8bd6b7044280745214dea`, selected archive SHA-256 `0e355dffd06ad6854d529b74a0248600e7d5ae1a86dadb1767e5be851cb0e865`, and local image `sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1`. The independent evaluator reports a structurally valid `blocked` result with no errors or warnings, CHECK-007 as the only failed required check, and the required point-in-time scan surface unverified.

@@ -1,5 +1,15 @@
 # Roadmap
 
+## Active checkpoint baseline-0032 - digest-only container-base security refresh
+
+Resume from public stopped-state reconciliation `e12e638b98b1deacb4c5058ecb9d7c8652c96985`, not from new ideation. BASELINE-0031 and its exact image `sha256:3736d003...` remain stopped and unpublished because the renewed release-time scan found CVE-2026-14456 and CVE-2026-54876 in Wolfi OpenSSL 3.6.3-r3. Public v0.0.30 remains the latest verified release; v0.0.31 remains deliberately skipped.
+
+UNIT-001 is complete. The highest-leverage measurable weakness is exactly the failed zero-current-critical/high container gate. UNIT-002 admits only immutable Chainguard Python index `sha256:1f677977...`, linux/amd64 manifest `sha256:e15765ff...`, after current publisher, anonymous registry, SBOM/provenance, fixed-package, and scan review. The candidate has UID 65532, no shell or apk, Python 3.14.7-r1, OpenSSL libraries 3.6.3-r5, and zero current remote critical/high results at observation time. The gate permits anonymous local pull and verification only after the exact preimplementation freeze is public; authenticated access, other digests, mutable tags, image export/push/publication/redistribution, secrets, paid services, and real infrastructure remain closed.
+
+The frozen remediation contract permits only two functional changes: the Dockerfile `FROM` and matching base-digest label. Baseline-0032/v0.0.32 substitutions are mechanical release identity. Retrieval, generation, model configuration, selected v3 default, corpus, scenarios, splits, exact graders, thresholds, policy, approval, executor, replay, postconditions, dependencies, and authority remain unchanged. Publish and anonymously reconcile the source gate, contract, verifier, focused test, milestone, living records, and retained process failures before importing the digest.
+
+After that public seal, UNIT-003 applies the bounded digest and identity projection and publishes a separate implementation seal. UNIT-004 reruns all separate evaluation families, exact terminal-state graders, source/package/CLI/MCP/API/approval/executor/dashboard/state/telemetry surfaces, two local builds, one no-alternates clean-clone build, hardening inspection, and a fresh local-only derived-image critical/high scan with target binding outside generic SARIF. UNIT-005 may create annotated v0.0.32 and selected project-authored zipapp/checksum assets only after warning-free premerge and final release audits pass. Container image bytes are never a release asset.
+
 ## Stopped checkpoint baseline-0031 - bounded trust-tier retrieval comparison
 
 Verified public v0.0.30 at reconciliation commit `4d62ecf930130b938594a9b7bc70675f9d8122e1` is the sole starting point. Its fresh public-tag run passes 57 scenarios, 171 attempts, all 136 Boolean gates, and the anchored 261-event trace. Required-evidence recall is 1.0, while 87 of 153 eligible attempts include 123 additional records and mean expected-document share is 0.683006535948. These records are additional untrusted context; they are not labeled irrelevant.

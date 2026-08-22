@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0032",
+  "status": "retained",
+  "observations": [
+    {
+      "id": "OBS-001",
+      "phase": "source-gate-orientation",
+      "classification": "source_gate_path_guess_error",
+      "observation": "A read-only orientation probe guessed artifacts/verification/container-source-gate-baseline-0031-chainguard-python.json, but no file exists at that path.",
+      "containment": "The missing read was not treated as evidence and did not change repository, container, registry, or external state.",
+      "correction": "Inventory artifacts/verification explicitly, use the retained BASELINE-0027 Chainguard source gate only as a structural precedent, and assess the BASELINE-0032 digest independently from current primary publisher metadata."
+    },
+    {
+      "id": "OBS-002",
+      "phase": "preimplementation-milestone-freeze",
+      "classification": "milestone_schema_key_error",
+      "observation": "The first governed milestone validation rejected path_efficiency.consecutive_no_progress_threshold because the schema requires max_consecutive_no_progress_units.",
+      "containment": "The invalid milestone had not been committed, pushed, or used to authorize work; the validator returned no eligible next unit.",
+      "correction": "Use the exact governed key path_efficiency.max_consecutive_no_progress_units and rerun the independent milestone validator before publication."
+    },
+    {
+      "id": "OBS-003",
+      "phase": "preimplementation-living-record-reconciliation",
+      "classification": "apply_patch_duplicate_target_error",
+      "observation": "The first combined documentation patch declared two separate update operations for docs/status.md, so apply_patch rejected the entire patch before applying any hunk.",
+      "containment": "No documentation or repository byte changed and the rejected patch was not used as evidence.",
+      "correction": "Apply one status-file operation containing both hunks, then apply each remaining living-record update once and validate the complete diff."
+    },
+    {
+      "id": "OBS-004",
+      "phase": "preimplementation-bounded-credential-scan",
+      "classification": "overbroad_whole_file_secret_scan",
+      "observation": "The first bounded scan searched complete contents of every modified tracked file and reported one historical docs/devlog.md line that quotes the literal private-key delimiter as an earlier forbidden-pattern false positive.",
+      "containment": "The result was treated as unresolved until located; it is historical explanatory text, not credential material, and no publication action followed the aggregate count.",
+      "correction": "Scan only added lines for modified tracked files and full contents for untracked files, retain the historical literal as known non-secret text, and require zero unresolved current-delta hits before commit."
+    }
+  ],
+  "boundaries": {
+    "product_or_security_boundary_changed_by_failure": false,
+    "failed_or_incomplete_probe_used_as_positive_evidence": false,
+    "external_asset_imported_by_failure": false,
+    "container_image_pulled_by_failure": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "real_infrastructure_contacted": false
+  }
+}

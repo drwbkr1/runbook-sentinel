@@ -1,0 +1,143 @@
+{
+  "schema_version": "runbook-sentinel/container-base-security-refresh/v1",
+  "checkpoint": "baseline-0032",
+  "contract_status": "frozen_before_candidate_pull_or_implementation",
+  "frozen_at_utc": "2026-08-22T17:42:00Z",
+  "starting_checkpoint": {
+    "public_main_commit": "e12e638b98b1deacb4c5058ecb9d7c8652c96985",
+    "public_main_tree": "b4007d246988ae9a5a94813607fc9aea5684bfb3",
+    "checkpoint": "baseline-0031",
+    "version": "0.0.31",
+    "lifecycle": "stopped",
+    "latest_verified_release": "v0.0.30",
+    "v0_0_31_tag_or_release_exists": false
+  },
+  "measured_weakness": {
+    "derived_image_id": "sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1",
+    "source_base_index_digest": "sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5",
+    "renewed_scan_receipt": "artifacts/verification/container-scout-critical-high-baseline-0031-final-audit-failure-001.json",
+    "renewed_scan_receipt_sha256": "8c4436f7a886cd0b271ee20ffbbf3a5a537c120da635ced8095b3bfb897d5996",
+    "blocked_release_audit": "artifacts/verification/release-audit-baseline-0031-attempt-001-blocked.json",
+    "blocked_release_audit_sha256": "f3c7191c36831e9e05b9dafb3a80dc5a1fde534ef820dfd2d2cb8234f17ac2f4",
+    "failed_release_check": "CHECK-007",
+    "unique_high_cves": [
+      "CVE-2026-14456",
+      "CVE-2026-54876"
+    ],
+    "affected_packages": [
+      "libcrypto3 3.6.3-r3",
+      "libssl3 3.6.3-r3",
+      "openssl 3.6.3-r3"
+    ],
+    "minimum_fixed_versions": {
+      "CVE-2026-14456": "3.6.3-r5",
+      "CVE-2026-54876": "3.6.3-r4"
+    },
+    "historical_zero_result_scan_may_satisfy_successor_gate": false
+  },
+  "admitted_source": {
+    "source_gate": "artifacts/verification/container-source-gate-baseline-0032-chainguard-python.json",
+    "reference": "cgr.dev/chainguard/python@sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+    "index_digest": "sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+    "linux_amd64_manifest_digest": "sha256:e15765ff7066a0eaf91e1b6fd5000c1bba47d62b9f9731f2da560711d910c4f3",
+    "config_digest": "sha256:54c0ed043c48d15cc5043a92ea35540cb7c9620115dae21013c74d72cf98e2fd",
+    "created_at_utc": "2026-08-21T17:50:49Z",
+    "platform": "linux/amd64",
+    "user": "65532",
+    "entrypoint": "/usr/bin/python",
+    "has_shell": false,
+    "has_apk": false,
+    "sbom_package_count": 101,
+    "libcrypto3_version": "3.6.3-r5",
+    "libssl3_version": "3.6.3-r5",
+    "remote_critical_high_scan": {
+      "observed_at_utc": "2026-08-22T17:38:36Z",
+      "scanner": "Docker Scout 1.20.4",
+      "result_count": 0,
+      "sarif_utf8_bytes": 461,
+      "sarif_sha256": "7749b34be7a069559b10b1b9d53cc8897576fdd104071a9e0f907f9a301ee303",
+      "sarif_body_intrinsically_binds_target": false
+    }
+  },
+  "bounded_change": {
+    "meaningful_improvement": "Replace the vulnerable immutable Chainguard Python base with the exact admitted patched digest and prove the derived image has zero current critical/high findings without changing incident-agent behavior or authority.",
+    "functional_delta": [
+      "Dockerfile FROM digest changes from sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5 to sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+      "Dockerfile dev.runbook-sentinel.base.digest label changes to the same admitted digest"
+    ],
+    "mechanical_release_identity": {
+      "from_checkpoint": "baseline-0031",
+      "to_checkpoint": "baseline-0032",
+      "from_version": "0.0.31",
+      "to_version": "0.0.32",
+      "purpose": "Ensure source package container dashboard MCP and public release identities describe the successor checkpoint; these substitutions may not alter incident behavior."
+    },
+    "new_project_dependencies": [],
+    "new_model_or_retrieval_configuration": [],
+    "allowed_project_changes": [
+      "the two Dockerfile base-digest lines",
+      "mechanical baseline-0032 and 0.0.32 identities in active source package container runtime validators and tests",
+      "new versioned BASELINE-0032 contracts manifests receipts reports screenshots and release records",
+      "living roadmap status changelog version history research ledger threat model evaluation report and devlog reconciliation"
+    ],
+    "forbidden_changes": [
+      "agent diagnosis evidence-request action-proposal or abstention behavior",
+      "retrieval corpus index ranking or selected freshness-priority-lexical-v3 configuration",
+      "generation decision-context prompt model adapter or model configuration",
+      "synthetic scenarios frozen development or held-out splits exact graders or evaluation thresholds",
+      "authorization capabilities approval proposal hashing expiry idempotency replay or postcondition enforcement",
+      "model credentials approval material arbitrary execution access or final execution authority",
+      "new project dependency framework model paid service secret account or real-infrastructure connector",
+      "mutable OCI tags authenticated registry access image export image push image publication or redistribution",
+      "rewriting removing or relabeling failed blocked stale superseded or stopped evidence"
+    ]
+  },
+  "verification_contract": {
+    "preimplementation": [
+      "source gate independently validates ready",
+      "candidate digest is not locally pulled before this contract is frozen and public",
+      "Dockerfile still contains the exact predecessor digest and v0.0.31 identity",
+      "stopped BASELINE-0031 failure and blocked audit remain byte-preserved",
+      "public main and local worktree start at e12e638b98b1deacb4c5058ecb9d7c8652c96985"
+    ],
+    "implementation": [
+      "only the two functional digest lines and mechanical successor identity change in live product and verifier code",
+      "no dependency lockfile package dependency corpus scenario expected terminal state threshold policy or authority change",
+      "active container contract advances to a versioned v12 contract that includes this security-refresh contract"
+    ],
+    "evaluation": [
+      "frozen retrieval generation tool-trajectory policy benign-utility attack-success repeated-trial latency and cost metrics remain separately reported",
+      "all exact terminal-state graders and frozen development and held-out cases pass without threshold or expectation changes",
+      "source and packaged results match on all non-latency metric families",
+      "the complete Python test suite and all phase-correct side-effect-free validators pass"
+    ],
+    "real_surfaces": [
+      "real CLI evaluation API MCP approval flow executor replay protection and postconditions",
+      "rendered dashboard persisted SQLite state JSONL telemetry and clean process teardown",
+      "two local container builds and one fresh no-alternates clean-clone build reproduce the selected image identity",
+      "derived image runs as non-root 65532 with required filesystem capability network and secret restrictions",
+      "fresh exact local derived-image Docker Scout scan reports zero critical and zero high findings and is bound outside generic SARIF to exact image ID command target scanner version and observation time"
+    ],
+    "release": [
+      "premerge and final release-truth audits pass with no unknown stale blocked or failed required surface",
+      "merged public main commit tree and raw governed bytes reconcile anonymously",
+      "annotated v0.0.32 tag package assets checksums and release are created only after all gates pass",
+      "public tag clean clone package downloads rendered dashboard persisted state telemetry and scan evidence are independently verified",
+      "container image bytes are never attached pushed published exported or redistributed"
+    ]
+  },
+  "selection_rule": {
+    "status_if_any_required_gate_fails": "stop_and_retain",
+    "status_if_current_critical_or_high_is_nonzero": "stop_and_retain",
+    "status_if_behavior_or_security_boundary_changes": "stop_and_retain",
+    "promotion_rule": "Promote only if the patched digest is the sole functional product delta, all separate evaluation families are non-regressing, every real surface passes, repeated builds are identical, and release truth is independently verifiable."
+  },
+  "no_go_boundaries": {
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "registry_authentication_or_paid_entitlement": false,
+    "secret_or_credential_added": false,
+    "real_operational_infrastructure_contacted": false,
+    "model_has_credentials_or_final_execution_authority": false,
+    "security_boundary_weakened": false
+  }
+}
