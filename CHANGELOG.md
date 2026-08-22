@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.0.33 - Unreleased
+
+- Resumed from verified public v0.0.32 at main `4b7dd999c13384a196746de5dbff872e93f9f2fe`, annotated tag object `ea203784...`, audited release closure `f0e5650...`, and public receipt SHA-256 `eebd1571...`; no OneDrive path is authoritative.
+- Inspected the fresh public-tag 57-scenario, 171-attempt, all-136-gate source run and anchored 261-event trace. Retrieval, generation, trajectory, policy, utility, attack success, reliability, latency, and cost remain separate; model calls and external API cost remain zero.
+- Selected candidate-comparison validity as the highest-leverage measurable weakness. V3 still returns 123 extra records across 87 of 153 eligible attempts. Retained v4 reduces extras to 93 and preserves required evidence, ranks, behavior, policy, utility, attack outcomes, and reliability, but five exact v3 observational fingerprints make its top-level disposition remediate.
+- Froze `retrieval-candidate-admissibility-v1`: candidate evidence may be classified valid only when those five exact fingerprints are the entire false-gate set, every other 131 Boolean gate passes, required coverage and ranks remain exact, the safe-superset pair inventory is exact, and ambiguity is zero. Default-release gates and historical evidence remain unchanged.
+- V4 remains excluded and v3 remains selected because the original median-latency non-inferiority check is false. The frozen overlay is not a selection, Pareto, semantic-relevance, production, or universal-safety claim.
+- Added ADR 0027, the active BASELINE-0033 milestone, orientation and failure receipts, an independent phase-aware verifier, and six focused fail-closed tests. The read-only adjudicator and successor result remain absent until this exact freeze is public and anonymously reconciled.
+- Passed the complete 102-test regression suite in 134.996 seconds. A detached 53-case partial run is retained as inconclusive and excluded from positive evidence.
+
 ## 0.0.32 - 2026-08-22
 
 - Opened BASELINE-0032 from exact public stopped-state commit `e12e638b98b1deacb4c5058ecb9d7c8652c96985`; public v0.0.30 remains latest, and v0.0.31 remains stopped, untagged, and unreleased.

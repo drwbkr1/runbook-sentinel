@@ -1,0 +1,298 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0033",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "active_contract": "contracts/milestone-0033.json",
+    "verified_at_utc": "2026-08-22T23:24:06Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Separate non-default retrieval candidate admissibility from selected-default observational conformance, using an exact read-only overlay over retained v3/v4 evidence while preserving every historical result, every default-release and security gate, and the selected v3 product behavior.",
+    "allowed_paths": [
+      "C:/Projects/Active/runbook-sentinel-baseline-0033",
+      "C:/Projects/Verification"
+    ],
+    "forbidden_work": [
+      "Use OneDrive for repository or verification work",
+      "Change runtime retrieval evaluator agent decision context model prompt scenario split grader policy approval executor replay postcondition API MCP credential or authority behavior",
+      "Modify relabel delete or rescue any BASELINE-0031 report trace comparison contract verifier failed gate remediate disposition or excluded result",
+      "Treat a control-fingerprint exemption as a policy security utility terminal trajectory reliability latency cost evidence-rank coverage or ambiguity exemption",
+      "Promote bounded-trust-tier-lexical-v4 or change the freshness-priority-lexical-v3 product default in this checkpoint",
+      "Use held-out evidence for tuning or add a dependency model service secret paid asset external code data or real-infrastructure connector",
+      "Export push publish attach or redistribute container image bytes",
+      "Create v0.0.33 tag release or deployment before every required release-truth gate passes"
+    ],
+    "reversible_actions": [
+      "Publish project-authored orientation contract verifier tests ADR milestone and living records",
+      "Add one standard-library read-only adjudicator after the exact preimplementation freeze is public",
+      "Emit one new successor result that binds and preserves immutable historical inputs",
+      "Run source package clean-clone container dashboard API MCP approval executor state telemetry and public-surface verification",
+      "Version commit push review merge tag release and verify only a fully passing project-authored checkpoint"
+    ],
+    "stop_conditions": [
+      "Core product thesis would change",
+      "A security boundary or explicit no-go would weaken",
+      "Spend paid service secret access ownership or authentication is required",
+      "External rights integrity provenance or safety remains unresolved",
+      "Real operational infrastructure interaction is required",
+      "An irreversible action is required",
+      "The candidate or any shipped surface cannot be verified"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public main and the new clean worktree start exact at 4b7dd999c13384a196746de5dbff872e93f9f2fe",
+        "Annotated v0.0.32 tag object ea203784e11afd611666bcd988f4d1e60259f6a8 peels to audited release closure f0e565015be2ca8ed155be600a61fe131dbfa012",
+        "Public receipt artifacts/verification/public-tag-baseline-0032.json is exact at SHA-256 eebd1571dfab5942f7b1b6dfc2a42c5807629391564d01d7621b307a8c78726c"
+      ]
+    },
+    {
+      "id": "ENTRY-002",
+      "status": "pass",
+      "evidence": [
+        "Fresh public-tag v0.0.32 source execution passes 57 scenarios 171 attempts all 136 Boolean gates and an anchored 261-event trace",
+        "The accepted retriever still returns 123 extra document instances across 87 of 153 eligible attempts with expected-document share 0.683006535948",
+        "Retained v4 reduces extras to 93 and improves focus while five exact v3 observational fingerprints remain false and all other 131 Boolean gates pass"
+      ]
+    },
+    {
+      "id": "ENTRY-003",
+      "status": "pass",
+      "evidence": [
+        "The original v4 exclusion and median-latency non-inferiority failure remain retained",
+        "The active director goal authorizes continuous bounded checkpoint work and verified public releases under the declared stop gates",
+        "No unresolved product or architecture choice is required because this checkpoint cannot change the product default or any security boundary"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "EXIT-002",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "EXIT-003",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "EXIT-004",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Run the verified system, inspect current traces and separated metrics, and select the highest-leverage measurable weakness without restarting ideation.",
+      "depends_on": [],
+      "action_class": "evidence_preservation",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "verified public v0.0.32",
+        "fresh public-tag source report and anchored trace",
+        "retained BASELINE-0031 v3/v4 comparison"
+      ],
+      "outputs": [
+        "exact candidate-admissibility weakness",
+        "bounded overlay recommendation",
+        "retained original exclusion and latency failure"
+      ],
+      "gates": {
+        "public_checkpoint_reconciled": "pass",
+        "current_system_run_and_trace_inspected": "pass",
+        "separate_metric_families_inspected": "pass",
+        "highest_leverage_weakness_selected": "pass",
+        "historical_evidence_preserved": "pass"
+      },
+      "disposition": "pass",
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze and publish the exact candidate-admissibility overlay contract before implementation or successor result creation.",
+      "depends_on": [
+        "UNIT-001"
+      ],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "in_progress",
+      "inputs": [
+        "orientation-baseline-0033.json",
+        "retrieval-candidate-admissibility-contract.json",
+        "ADR 0027",
+        "independent phase-aware verifier and focused tests"
+      ],
+      "outputs": [
+        "public preimplementation freeze",
+        "anonymous byte reconciliation",
+        "proof that implementation and result were absent at freeze"
+      ],
+      "gates": {
+        "local_contract_valid": "pass",
+        "focused_fail_closed_tests": "pass",
+        "implementation_absent": "pass",
+        "successor_result_absent": "pass",
+        "full_regression": "pass",
+        "public_commit_exact": "pending",
+        "anonymous_changed_bytes_exact": "pending"
+      }
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement one read-only deterministic adjudicator over exact retained evidence without changing runtime or historical bytes.",
+      "depends_on": [
+        "UNIT-002"
+      ],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": [
+        "public exact preimplementation contract",
+        "exact retained v3 report v4 report and comparison"
+      ],
+      "outputs": [
+        "scripts/readjudicate_retrieval_candidate.py",
+        "fail-closed implementation tests",
+        "implementation seal before result generation"
+      ],
+      "gates": {
+        "only_allowed_implementation_path": "pending",
+        "historical_inputs_unchanged": "pending",
+        "runtime_default_unchanged": "pending",
+        "security_and_authority_unchanged": "pending",
+        "implementation_public_and_exact": "pending"
+      }
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Generate the successor adjudication once, verify it independently, preserve v4 exclusion on latency, and rerun every risk-matched real surface.",
+      "depends_on": [
+        "UNIT-003"
+      ],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": [
+        "public exact implementation seal",
+        "immutable v3 v4 and original comparison artifacts"
+      ],
+      "outputs": [
+        "one immutable baseline-0033 adjudication",
+        "source package clean-clone and local-container evidence",
+        "rendered dashboard API MCP state telemetry and audit evidence"
+      ],
+      "gates": {
+        "candidate_evidence_admissible": "pending",
+        "candidate_selected_false": "pending",
+        "median_latency_failure_retained": "pending",
+        "all_nonfingerprint_gates_pass": "pending",
+        "full_real_surface_matrix": "pending",
+        "container_local_only": "pending"
+      }
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Audit review merge and release v0.0.33 only after exact source package container and public-surface verification pass.",
+      "depends_on": [
+        "UNIT-004"
+      ],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": [
+        "passing bounded evaluation improvement",
+        "complete risk-matched release evidence"
+      ],
+      "outputs": [
+        "verified or retained stopped BASELINE-0033",
+        "annotated v0.0.33 and selected project-authored assets only if every gate passes",
+        "public reconciliation and exact resume point"
+      ],
+      "gates": {
+        "premerge_release_truth_audit": "pending",
+        "exact_reviewed_merge": "pending",
+        "fresh_public_main_complete_stack": "pending",
+        "final_release_truth_audit": "pending",
+        "annotated_tag_and_selected_assets": "pending",
+        "public_tag_complete_stack": "pending",
+        "external_reconciliation": "pending"
+      }
+    }
+  ],
+  "current_unit": "UNIT-002",
+  "next_action": "Complete the local preimplementation freeze gate, commit and push only the frozen overlay contract verifier tests ADR milestone evidence and living records, then anonymously reconcile every changed public byte before implementation.",
+  "path_efficiency": {
+    "max_consecutive_no_progress_units": 3,
+    "review_action_class": "local_verification",
+    "review_human_gate": false
+  },
+  "verification": {
+    "changed_risks": [
+      "A candidate-specific exemption can accidentally become a general release-gate waiver",
+      "A safe-superset classification can hide a missing required cell or ambiguous retrieval audit",
+      "Historical unfavorable v4 evidence can be silently relabeled or replaced",
+      "Held-out results can leak into tuning or selection criteria",
+      "An admissible evidence result can be misrepresented as candidate selection or Pareto improvement",
+      "Source-only evaluation success can diverge from package API MCP dashboard state telemetry or container surfaces"
+    ],
+    "required_checks": [
+      "Exact public v0.0.32 starting checkpoint receipt and fresh source-run identity",
+      "Exact retained v3 v4 comparison contract verifier report and trace identities",
+      "Exactly five allowed control-fingerprint false gates and all other 131 Boolean gates true",
+      "All required retrieval-stage cells present zero ambiguity and exact three-pair safe superset",
+      "Required evidence ranks terminal trajectory policy utility security reliability latency and cost kept separate",
+      "Original remediate disposition exclusion and median-latency failure preserved",
+      "No runtime evaluator default scenario policy authority dependency secret service external asset or real-infrastructure change",
+      "Source package API MCP dashboard state telemetry clean-clone container audit review release and public-tag verification"
+    ],
+    "completed_checks": [
+      "Public main and clean BASELINE-0033 worktree start exact at 4b7dd999c13384a196746de5dbff872e93f9f2fe",
+      "Fresh public-tag v0.0.32 source run passes 57 scenarios 171 attempts all 136 Boolean gates and anchored 261-event trace",
+      "Retained v4 has exactly five false selected-default fingerprints and 131 passing nonfingerprint Boolean gates",
+      "Required retrieval-stage coverage is 1.0 with zero missing cell zero ambiguity and exactly three frozen safe-superset pairs",
+      "The original comparison keeps v3 selected and v4 excluded because median latency non-inferiority is false",
+      "The frozen contract verifier passes in preimplementation mode and six focused fail-closed tests pass",
+      "The complete regression suite passes 102 tests in 134.996 seconds; the earlier detached 53-case partial attempt remains inconclusive and supplies no positive evidence"
+    ],
+    "artifacts": [
+      "artifacts/verification/orientation-baseline-0033.json",
+      "artifacts/verification/baseline-0033-orientation-failures-001.json",
+      "eval/retrieval-candidate-admissibility-contract.json",
+      "scripts/verify_retrieval_candidate_admissibility_contract.py",
+      "tests/test_retrieval_candidate_admissibility_contract.py",
+      "docs/adr/0027-separate-default-retrieval-conformance-from-candidate-admissibility.md"
+    ],
+    "disposition": "in_progress"
+  },
+  "handoff": {
+    "latest_verified_checkpoint": "immutable public v0.0.32 at tag object ea203784e11afd611666bcd988f4d1e60259f6a8 peeled to audited closure f0e565015be2ca8ed155be600a61fe131dbfa012, with public receipt SHA-256 eebd1571dfab5942f7b1b6dfc2a42c5807629391564d01d7621b307a8c78726c and rendered-truth correction main 4b7dd999c13384a196746de5dbff872e93f9f2fe",
+    "retained_failed_checkpoint": "stopped unpublished BASELINE-0031 release candidate v0.0.31 plus separately retained excluded bounded-trust-tier-lexical-v4 comparison",
+    "current_checkpoint": "BASELINE-0033 has selected a bounded evaluation-system correction only. The local contract verifier and six focused tests pass; readjudication implementation and successor result are absent until the exact freeze is public.",
+    "resume_rule": "Resume from public verified v0.0.32 and the exact BASELINE-0033 freeze state; inspect the active milestone and verifier before acting, never use OneDrive, never rewrite the original v4 exclusion, and never infer candidate selection from candidate evidence admissibility."
+  }
+}

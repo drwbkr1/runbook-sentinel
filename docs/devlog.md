@@ -1,5 +1,14 @@
 # Development log
 
+## 2026-08-22 BASELINE-0033 candidate-admissibility orientation and freeze
+
+- Began from clean `C:/Projects/Active/runbook-sentinel-baseline-0033` at exact public main `4b7dd999c13384a196746de5dbff872e93f9f2fe`; the annotated v0.0.32 tag, audited closure, latest release, two selected assets, rendered pages, public-tag receipt, and local-only container boundary remain exact. No OneDrive path is authoritative.
+- Inspected the fresh v0.0.32 source report and anchored trace: 57 scenarios, 171 attempts, all 136 Boolean gates, 261 events, 45 approvals, 45 executions, required-evidence recall 1.0, policy and utility 1.0, attack success zero, `pass^3` 1.0, and zero model calls or external API cost. Retrieval still carries 123 extra records across 87 of 153 eligible attempts.
+- Reinspected exact retained v3/v4 comparison evidence. V4 reduces extras to 93 and improves focus on both splits while preserving required evidence and ranks, downstream behavior, policy, utility, attack outcomes, reliability, p95 latency, and cost. Five false gates are exact v3 observational fingerprints; all other 131 Boolean gates pass. Required retrieval-stage coverage is 1.0 with zero missing cell or ambiguity and three new safe `guidance_not_retrieved` pairs.
+- Selected one bounded evaluation correction: separate candidate evidence admissibility from selected-default release conformance. The overlay cannot modify historical reports or dispositions, exempt a security or quality family, change runtime/default behavior, or promote v4. Original median latency remains 65.443 ms versus 64.377 ms, so v4 stays excluded.
+- Added the frozen contract, ADR 0027, active milestone, orientation receipt, retained PowerShell preflight failure, independent phase-aware verifier, and six focused fail-closed tests. The verifier passes in `frozen_preimplementation` mode with exactly five fingerprint gates, 131 nonfingerprint passes, three safe-superset pairs, v3 selected, and both implementation and successor result absent.
+- The first full regression process showed 53 passing cases and no failure before context compaction severed its attachment; without a final exit record it is retained as inconclusive and supplies no positive evidence. A single clean successor run passes all 102 tests in 134.996 seconds.
+
 ## 2026-08-22 BASELINE-0032 public release and external reconciliation
 
 - Published exact eight-path closure `f0e565015be2ca8ed155be600a61fe131dbfa012`, tree `68dfe36f6d7eb818fc0a565272a6222eff77af2a`, to public `main` and the release branch. Annotated tag object `ea203784e11afd611666bcd988f4d1e60259f6a8` peels exactly to that closure and carries message `Runbook Sentinel v0.0.32`; GitHub reports it unsigned and no signature claim is made.

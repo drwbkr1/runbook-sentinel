@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0033",
+  "receipt_id": "baseline-0033-orientation-failures-001",
+  "status": "retained",
+  "disposition": "excluded_from_positive_evidence",
+  "observed_at_utc": "2026-08-22T23:24:06Z",
+  "items": [
+    {
+      "id": "POWERSHELL-BRANCH-PREFLIGHT-001",
+      "class": "process_invalid",
+      "operation": "Check whether the BASELINE-0033 path and branch already existed before worktree creation",
+      "failure": "The first compact PowerShell expression embedded a semicolon and if statement inside a cast and failed parsing with a missing closing parenthesis before any Git or filesystem mutation.",
+      "mutation": false,
+      "correction": "The successor ran git show-ref separately, captured its exit code, and proved the path and branch absent while local HEAD and public main both equaled 4b7dd999c13384a196746de5dbff872e93f9f2fe.",
+      "positive_evidence": false
+    },
+    {
+      "id": "FULL-REGRESSION-ATTACHMENT-001",
+      "class": "inconclusive",
+      "operation": "Run the complete preimplementation regression suite across the context-compaction boundary",
+      "failure": "The attached process reported 53 passing cases and no failure before context compaction, but its final exit status, total count, and elapsed time were no longer recoverable because the process attachment was gone.",
+      "mutation": false,
+      "correction": "Run the complete suite once more in a fresh process and use only its complete terminal result as positive regression evidence.",
+      "positive_evidence": false
+    },
+    {
+      "id": "BOUNDED-SECRET-SCAN-LITERAL-001",
+      "class": "process_invalid",
+      "operation": "Scan every changed path for credential material and private-key blocks",
+      "failure": "The first scan treated a historical devlog sentence containing the literal forbidden-pattern definition -----BEGIN PRIVATE KEY----- as credential material even though no key body or matching end marker was present.",
+      "mutation": false,
+      "correction": "Keep exact token-pattern checks and require both matching begin and end markers for a complete private-key block; inspect every changed file without excluding the historical devlog.",
+      "positive_evidence": false
+    }
+  ],
+  "historical_candidate_results_rewritten": false,
+  "product_files_changed_by_failure": false,
+  "next_gate": "Validate and publish the complete candidate-admissibility preimplementation freeze before implementation."
+}

@@ -20,6 +20,8 @@ The bounded agent can diagnose, request evidence, propose an action, or abstain.
 
 The selected freshness-priority lexical retriever first preserves externally project-classified telemetry and status that pass a fail-closed one-hour freshness rule, then ranks stale project evidence and untrusted guidance. Full returned records remain available for audit. The decision context receives complete fresh telemetry/status records and projects stale records to exactly `id`, `kind`, and `observed_at`; stale `title` and `content` never cross that boundary. Missing, malformed, naive, or future timestamps never receive fresh treatment. Runbook prose never grants authority.
 
+Active research checkpoint `BASELINE-0033` is frozen before implementation. It addresses an evaluation-system defect, not runtime behavior: non-default retriever evidence currently inherits five exact selected-v3 observational fingerprints even when all required evidence, coverage, policy, security, utility, trajectory, and reliability checks pass. The candidate-admissibility overlay preserves every default-release gate and every historical result, permits only the exact frozen five-gate fingerprint difference, and keeps `freshness-priority-lexical-v3` selected because the retained v4 median-latency non-inferiority check still fails. No readjudication implementation or v0.0.33 result exists before the public freeze.
+
 ## Baseline commands
 
 Run all commands from the repository root with Python 3.12 or newer.

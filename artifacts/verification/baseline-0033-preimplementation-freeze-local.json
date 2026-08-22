@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0033",
+  "receipt_id": "baseline-0033-preimplementation-freeze-local",
+  "phase": "frozen_preimplementation",
+  "status": "pass",
+  "observed_at_utc": "2026-08-22T23:41:59.8276860Z",
+  "repository": {
+    "worktree": "C:/Projects/Active/runbook-sentinel-baseline-0033",
+    "branch": "codex/baseline-0033-retrieval-candidate-admissibility",
+    "starting_head": "4b7dd999c13384a196746de5dbff872e93f9f2fe",
+    "starting_tree": "c96b18658ac684142e2bec0fa178d8af03c8c0d7",
+    "public_main_at_observation": "4b7dd999c13384a196746de5dbff872e93f9f2fe",
+    "one_drive_authoritative": false
+  },
+  "immutable_evidence": {
+    "public_tag_source_report_sha256": "e3908067d54c10d150e77af6efe9bd783d5b488cb0d370124ef20ff75ee44d25",
+    "public_tag_source_trace_sha256": "6219c3e391acebf1d24a33d00d203ceadf2e40a4c850168db2a212223ab2829a",
+    "retained_v3_control_report_sha256": "1bf431136660177b87cc7c893aa31cd75d2a6d7dfb19034705d5bc7f10ccf47a",
+    "retained_v3_control_trace_sha256": "8e99e5fd5d5521518bc713ea99a0bdde782ce272b10cf2453c508b6bde7e9bfe",
+    "retained_v4_report_sha256": "495492569af29555c382527c49ce7594147e33170d56429cfebd4fff795ac19b",
+    "retained_v4_trace_sha256": "fa65e2650a9605fd39cb318191191bdd1408d98ecd31eef2aaa8043580dc0f17",
+    "retained_comparison_sha256": "9e46ee4047ca51f00c453eb4b02adbf988f3accb9b0d5b9aefbdc388dde9d768",
+    "retained_tier_contract_sha256": "5560b355d05e9c43e4a56b5a2dadc5d102b1660ffb4e84db9512fc09e2f99357",
+    "retained_result_verifier_sha256": "e1b4ebb425d2cef69d2d6d4f3d37d71c4e40772700572ca584f2856f5e6879e8"
+  },
+  "admissibility_result": {
+    "contract_id": "retrieval-candidate-admissibility-v1",
+    "candidate_evidence_admissible": true,
+    "candidate_selected": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "candidate_false_gate_count": 5,
+    "nonfingerprint_boolean_gates_passed": 131,
+    "safe_superset_pair_count": 3,
+    "required_stage_coverage": 1.0,
+    "missing_required_cell_count": 0,
+    "cross_trial_ambiguity_count": 0,
+    "original_remediate_disposition_preserved": true,
+    "original_median_latency_failure_preserved": true,
+    "pareto_claim": false
+  },
+  "verification": {
+    "contract_verifier": "pass",
+    "focused_tests": {
+      "status": "pass",
+      "count": 6,
+      "elapsed_seconds": 0.145
+    },
+    "complete_regression": {
+      "status": "pass",
+      "count": 102,
+      "elapsed_seconds": 134.996
+    },
+    "milestone_validator": "pass_no_warnings",
+    "changed_json_parse_count": 4,
+    "python_compile": "pass",
+    "git_diff_check": "pass",
+    "changed_path_token_match_count": 0,
+    "changed_path_complete_private_key_block_count": 0,
+    "implementation_absent": true,
+    "successor_result_absent": true,
+    "retained_failure_ledger": "artifacts/verification/baseline-0033-orientation-failures-001.json",
+    "partial_53_case_process_counted_as_positive_evidence": false
+  },
+  "frozen_paths_excluding_this_receipt": [
+    {
+      "path": "artifacts/verification/baseline-0033-orientation-failures-001.json",
+      "bytes": 2493,
+      "sha256": "3de2a3147389e5cbce9f459be936be3bf43f629686dd08b40627a3a7bfb4ce3b"
+    },
+    {
+      "path": "artifacts/verification/orientation-baseline-0033.json",
+      "bytes": 7232,
+      "sha256": "aa7a5abc6cda69183cde3929129be18c3eb9c9de79bca105a38ba5c8b4b3c555"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 119743,
+      "sha256": "ac3e2173e094fe3f52df32e850497279cdba89cad1d983398fe42705b17966cb"
+    },
+    {
+      "path": "contracts/milestone-0033.json",
+      "bytes": 14654,
+      "sha256": "3c8938fd2db1181dfa1ffd737985083932e8cd883569cd581d8169ee75202a6a"
+    },
+    {
+      "path": "docs/adr/0027-separate-default-retrieval-conformance-from-candidate-admissibility.md",
+      "bytes": 4037,
+      "sha256": "132848d3fd2e97fd4066f90b0f227310bfcb88787e5364cccf02f02da1d5763e"
+    },
+    {
+      "path": "docs/architecture.md",
+      "bytes": 11872,
+      "sha256": "93699fb72bf0aff717ade52fd071795057801689641919dacca653c851503fdb"
+    },
+    {
+      "path": "docs/devlog.md",
+      "bytes": 450817,
+      "sha256": "52f9688c46193fb391e9a146431e6be41a22e7e6483b5e76e390c6048ff8de57"
+    },
+    {
+      "path": "docs/evaluation-contract.md",
+      "bytes": 43804,
+      "sha256": "64f1cdb2ae3130eeae5c0b3299c90419a51614f302a51fb2da76b5460c14087f"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "bytes": 226336,
+      "sha256": "f9a3142ec45abfa7d73e7c03655ebe43e805b36ebc3888323b88cc854c4dcc00"
+    },
+    {
+      "path": "docs/research-ledger.md",
+      "bytes": 28099,
+      "sha256": "fb53fdda864fea55e540b81877348d534c883351da938a4e3d125c7914bff8d5"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 94658,
+      "sha256": "518bbdc6516c160d0306468674036d751075434a4051bd6dda39f72ba57a70b6"
+    },
+    {
+      "path": "docs/status.md",
+      "bytes": 259240,
+      "sha256": "e8b61715013e12ce96453f188aa6288fe5e68575dcdd68c45d8267e230828aa9"
+    },
+    {
+      "path": "docs/threat-model.md",
+      "bytes": 22236,
+      "sha256": "a375ccd1e126c13a17d0793b0a772854f26667a6eb64d0b92aea000191cb54d5"
+    },
+    {
+      "path": "docs/version-history.md",
+      "bytes": 28557,
+      "sha256": "264aacf1f29c699e3b862d2a287259fd21a9d359e28dc63f102a74888c42b14c"
+    },
+    {
+      "path": "eval/retrieval-candidate-admissibility-contract.json",
+      "bytes": 10548,
+      "sha256": "16a859d27f0155f92d5c8a08fbe401a8b49d1763af56379a5624fc82069c137d"
+    },
+    {
+      "path": "README.md",
+      "bytes": 13548,
+      "sha256": "e49f3b06614ba50d414faf9ed9fd2e55f003caca28c7850b6c6527ad606ba898"
+    },
+    {
+      "path": "scripts/verify_retrieval_candidate_admissibility_contract.py",
+      "bytes": 10942,
+      "sha256": "92f64bdfbbaf07bdc10aae143c74b7ab015df111eb3286f5615d90fe65bd7f89"
+    },
+    {
+      "path": "tests/test_retrieval_candidate_admissibility_contract.py",
+      "bytes": 4296,
+      "sha256": "631dfed16a9be71d70e0740b904893b6f92d1df54a97a19d981d3fda340bc6cc"
+    }
+  ],
+  "frozen_path_count_excluding_this_receipt": 18,
+  "total_commit_path_count_expected": 19,
+  "boundaries": {
+    "runtime_or_default_changed": false,
+    "historical_result_rewritten": false,
+    "security_gate_weakened": false,
+    "held_out_tuning": false,
+    "dependency_or_external_asset_added": false,
+    "secret_or_paid_service_added": false,
+    "real_infrastructure_contacted": false,
+    "container_exported_pushed_published_or_redistributed": false,
+    "tag_release_or_deployment_created": false
+  },
+  "next_gate": "Commit and publish only these 19 freeze paths on the candidate branch, anonymously reconcile every public byte, and keep public main unchanged before implementation."
+}

@@ -1,5 +1,11 @@
 # Evaluation report
 
+## BASELINE-0033 frozen candidate-admissibility overlay
+
+The read-only preimplementation verifier accepts the exact retained v3/v4 comparison as candidate evidence while keeping candidate selection false. V4 has exactly five allowed selected-v3 observational fingerprints false, every other 131 Boolean gate true, complete required retrieval-stage coverage, zero ambiguity, and exactly three frozen safe-superset classification pairs. The original remediate disposition and median-latency failure remain immutable, so v3 stays selected and no Pareto claim is made.
+
+Six focused fail-closed tests and the complete 102-test regression suite pass; the latter completed in 134.996 seconds. The adjudicator and successor result are absent. An earlier 53-case partial process lost its terminal attachment and is retained as inconclusive rather than counted as a pass.
+
 ## BASELINE-0032 local canonical container candidate
 
 The exact public package/source record at `001b6a19b38616d07a9995d19831b44c8a03a6a1` supplied the only admitted Docker input. Two independent no-cache, network-disabled full builds and one credential-disabled HTTPS no-alternates clean build reproduce image ID `sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9` at the frozen creation time. The clean clone first rebuilt the exact 43-entry, 647,712-byte zipapp at SHA-256 `3be93953a367483e29c696af889ebfccc432424b8303c4f69ae00d10a38c2270`.
@@ -970,3 +976,13 @@ Retrieval, generation, trajectory, policy, benign utility, attack success, repea
 Two full tag-source builds and one independent clean-tag build reproduce exact local image `sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9`. Full plus clean receipts compose to 49 of 49 checks; Docker Scout 1.20.4 reports zero critical/high findings for the exact image at observation time. Structured custody scans cover 1,511 tracked paths, 1,084 JSON files, and 31,644 records across 168 JSONL files, retaining the one known empty historical JSON and fourteen BOM-bearing historical files. Bounded scans find zero high-specificity credentials, complete private-key blocks, repository model artifacts, or container exports.
 
 The 18,278-byte `artifacts/verification/public-tag-baseline-0032.json` at SHA-256 `eebd1571dfab5942f7b1b6dfc2a42c5807629391564d01d7621b307a8c78726c` binds the passing external result. The 7,824-byte `baseline-0032-release-and-public-tag-failures-001.json` at SHA-256 `55f94abe6d39a97c3df50ea190e820fc9d0d8ec12d96b5a94586b1415ceef3a2` retains fourteen read-only wrapper and interpretation failures; none is positive evidence. No image was exported, pushed, published, attached, or redistributed. This remains a synthetic-only, research-informed checkpoint, not a production, universal-safety, broad-Pareto, cross-builder, or perpetual-vulnerability claim.
+
+## BASELINE-0033 candidate-admissibility orientation
+
+Status: frozen before implementation. The accepted starting run is exact public-tag v0.0.32: 57 scenarios, 171 attempts, all 136 Boolean gates, and an anchored 261-event trace pass. Required-evidence recall, generation, trajectory, terminal state, policy, utility, and repeated-trial reliability are 1.0; proposal and terminal attack success are zero; model calls and external API cost are zero. V3 still returns 123 extra document instances across 87 of 153 eligible attempts, with mean expected-document share 0.683006535948.
+
+The retained v4 report reduces extras to 93 and raises expected-document share to 0.709150326797. Development share improves 0.696428571429 to 0.72619047619 and held-out share improves 0.666666666667 to 0.688405797101; held-out extras fall 57 to 45. Required IDs and ranks, scenario/terminal/trajectory behavior, policy, utility, proposal and terminal attack outcomes, repeated-trial reliability, p95 latency, and cost remain exact.
+
+Exactly five of 136 candidate Boolean gates are false: the retrieval-stage contract-valid flag plus exact guidance retrieved/not-retrieved counts, expected-document share, and guidance-rank buckets. They are selected-v3 observational fingerprints. Required retrieval-stage coverage remains 1.0 with zero missing required cell and zero ambiguity; the contract error inventory contains exactly three additional safe `guidance_not_retrieved` outcome pairs. All other 131 Boolean gates pass.
+
+The frozen overlay may classify this exact comparative evidence as admissible only under that complete inventory. It does not rewrite the original remediate disposition or select v4. Median latency remains 65.443 ms versus 64.377 ms, so the original non-inferiority rule fails and v3 remains selected. The implementation and successor result are absent until the preimplementation freeze is public. This is an evaluation-validity improvement, not broad Pareto, semantic relevance, model utility, production readiness, or universal safety.

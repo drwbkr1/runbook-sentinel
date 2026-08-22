@@ -1,5 +1,15 @@
 # Roadmap
 
+## Active checkpoint baseline-0033 - retrieval candidate admissibility
+
+Resume from verified public v0.0.32 and rendered-truth correction main `4b7dd999c13384a196746de5dbff872e93f9f2fe`, not from new ideation. A fresh no-alternates public-tag run passes 57 scenarios, 171 attempts, all 136 Boolean gates, and an anchored 261-event trace. Selected/default v3 still returns 123 extra records across 87 of 153 eligible attempts with mean expected-document share 0.683006535948.
+
+The best retained candidate, bounded-trust-tier v4, reduces extras to 93 and improves share to 0.709150326797 while preserving all required IDs and ranks, scenario/terminal/trajectory behavior, policy, utility, attack outcomes, repeated-trial reliability, p95 latency, and cost. Its report nevertheless has five false Boolean gates because the universal baseline disposition includes exact v3 guidance-count, guidance-rank, expected-share, and observed-pair fingerprints. All other 131 Boolean gates pass; required retrieval-stage coverage remains 1.0 with zero missing cell or ambiguity.
+
+BASELINE-0033 freezes a read-only candidate-admissibility overlay. It may classify only this exact comparative evidence as structurally admissible; it cannot change default-release gates, historical reports, the original remediate disposition, or product behavior. The original median latency comparison remains 65.443 ms for v4 versus 64.377 ms for v3, so v4 remains excluded and v3 remains selected. Publish and anonymously reconcile the contract, independent verifier, focused tests, ADR, milestone, orientation evidence, and living records before adding the adjudicator or successor result.
+
+After the public freeze, implement only `scripts/readjudicate_retrieval_candidate.py`, publish its implementation seal before generating a result, then emit one immutable successor adjudication. Full source/package/API/MCP/dashboard/state/telemetry/clean-clone/local-container and release-truth verification still applies. No runtime retriever, evaluator, model, scenario, policy, authority, dependency, secret, paid service, external asset, container distribution, or real-infrastructure change is permitted.
+
 ## Completed checkpoint baseline-0032 - digest-only container-base security refresh
 
 BASELINE-0032 began from public stopped-state reconciliation `e12e638b98b1deacb4c5058ecb9d7c8652c96985`, not from new ideation. BASELINE-0031 and exact image `sha256:3736d003...` remain stopped and unpublished because the renewed release-time scan found CVE-2026-14456 and CVE-2026-54876 in Wolfi OpenSSL 3.6.3-r3. Public v0.0.32 is now the latest verified release; v0.0.31 remains deliberately skipped.
