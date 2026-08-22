@@ -10,6 +10,8 @@ Both source and package MCP negotiate protocol `2025-11-25`, expose exactly thre
 
 Two full public-main builds and one separate no-alternates public-main clean build reproduce exact image `sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1`. The full verifier supplies 46 checks and the independent clean clone supplies the exact final identity check, composing 47/47. Container evaluation, MCP, API/approval/executor/replay, state, telemetry, hardening, extraction, dashboard, and observation-time zero-critical/high scan pass. No image was exported, pushed, published, or redistributed. Final release audit remains before v0.0.31 tag or asset publication.
 
+Merged-main evidence commit `c621614445a8e0f93160dd64ace905a418ba62ff`, tree `5b55ca0044b89957f66ac927d4d713852c377879`, is exact across local and tracking refs, `ls-remote`, anonymous GitHub ref/commit/tree APIs, and all ten immutable raw paths. The passing receipt is 11,099 bytes at SHA-256 `74d80cb6ca63566452c32f64e788b443d0f2cade7fe76c50fca569853f7d297c`. The retained wrapper failures are not positive evidence. This closes public merged-main reconciliation; the final release-truth audit remains next.
+
 ## BASELINE-0031 preimplementation orientation
 
 Verified public v0.0.30 at reconciliation commit `4d62ecf930130b938594a9b7bc70675f9d8122e1` remains the accepted control. Its fresh public-tag source run passes 57 scenarios, 171 attempts, every one of 136 Boolean gates, and an anchored 261-event trace. Retrieval, generation, tool trajectory, policy, terminal state, benign utility, attack success, repeated-trial reliability, latency, and cost remain separately reported.

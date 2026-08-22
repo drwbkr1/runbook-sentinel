@@ -42,6 +42,7 @@
 - PR `#29` merged reviewed head `bcc5be7...` under expected-head lock as history-preserving merge `1b0ad59...`; reviewed and merged trees are identical at `f9fd2112...`.
 - Two independent public-main clones pass 93 tests, all 40 phase-correct validators, two exact archive rebuilds, fresh source/package all-136-gate evaluations with anchored 261-event traces and exact declared normalization, both bounded MCP paths, both 131-check authenticated APIs, both 72-check state/telemetry inspections, and three complete dashboards.
 - Two full public-main image builds plus one separate no-alternates public-main clean build reproduce exact local image `sha256:3736d003...`; composed container-runtime-v11 passes 47/47 with the observation-time zero-critical/high scan. No image was exported, pushed, published, or redistributed. Final release audit remains before tag or release.
+- Published merged-main evidence at `c621614445a8e0f93160dd64ace905a418ba62ff`, tree `5b55ca0044b89957f66ac927d4d713852c377879`. Local, tracking, `ls-remote`, anonymous GitHub ref/commit/tree APIs, and all ten immutable raw paths are exact; the 11,099-byte passing receipt is SHA-256 `74d80cb6...`. Corrected read-only reconciliation and resume-wrapper failures remain excluded from positive evidence. Final release audit is next; v0.0.31 tag and release remain absent.
 
 ## 0.0.30 - 2026-08-17
 

@@ -3,7 +3,7 @@
   "receipt_id": "baseline-0031-review-and-merged-main-failures-001",
   "checkpoint": "baseline-0031",
   "unit": "UNIT-005",
-  "observed_at_utc": "2026-08-18T05:04:18Z",
+  "observed_at_utc": "2026-08-22T16:55:58Z",
   "status": "retained_process_invalid_and_nonblocking_findings",
   "positive_evidence": false,
   "observations": [
@@ -131,6 +131,22 @@
       "observation": "The first publication wrapper applied array indexing directly to a native-command expression, yielding the first character 1 instead of the complete remote Git hash and stopping before push.",
       "containment": "Remote main remained exact at 1b0ad59a59f566c8d10e7069d3ed8ffdb974f7fd and no network mutation occurred.",
       "correction": "The exact successor stores the ls-remote output before splitting and comparing the complete hash."
+    },
+    {
+      "id": "OBS-018",
+      "phase": "merged-main-public-reconciliation",
+      "classification": "powershell_url_interpolation_error",
+      "observation": "The first anonymous GitHub reconciliation wrapper did not brace the tree hash before the query delimiter, so PowerShell misparsed the URL and GitHub returned 404 before raw-path comparison.",
+      "containment": "The wrapper was read-only; public and local repository state did not change.",
+      "correction": "The exact successor braces the hash in the recursive-tree URL and repeats all ref, tree, and raw-byte comparisons."
+    },
+    {
+      "id": "OBS-019",
+      "phase": "resume-orientation",
+      "classification": "memory_summary_path_error",
+      "observation": "The first resume-orientation wrapper used the older BASELINE-0030 rollout-summary filename after the current memory registry had advanced to the BASELINE-0031 pause summary, so the wrapper stopped before reading any skill instruction.",
+      "containment": "The lookup was read-only and did not change repository or external state.",
+      "correction": "The exact successor used the current registry path, read the BASELINE-0031 pause summary, and then read every required governing skill and release/reconciliation reference completely."
     }
   ],
   "boundaries": {

@@ -196,7 +196,7 @@
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Publish and reconcile artifacts/verification/merged-main-baseline-0031.json plus retained review evidence, then run the final release-truth audit; do not create the v0.0.31 tag or release unless that exact audited closure remains verifiable.",
+  "next_action": "Run the final release-truth audit against exact public merged-main evidence commit c621614445a8e0f93160dd64ace905a418ba62ff and reconciled living records; do not create the v0.0.31 tag or release unless the audit verifies without warning, missing surface, or unresolved discrepancy.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -271,11 +271,12 @@
       ,"premerge release-truth audit passes all ten checks and nineteen required real surfaces at exact reviewed head bcc5be719d8885598e858867e86f55171f94be2f"
       ,"PR 29 merges the exact reviewed head under expected-head lock as history-preserving merge 1b0ad59a59f566c8d10e7069d3ed8ffdb974f7fd with reviewed and merged tree f9fd2112b04d7a25592b23f8bef54aec34bad250 identical"
       ,"two independent no-alternates public-main clones pass 93 tests 40 validators two exact archives fresh source package MCP API state telemetry and dashboard surfaces plus three exact local image builds; composed container-runtime-v11 passes 47 of 47 without image export push publication or redistribution"
+      ,"public merged-main evidence commit c621614445a8e0f93160dd64ace905a418ba62ff and tree 5b55ca0044b89957f66ac927d4d713852c377879 reconcile across local tracking ls-remote anonymous GitHub ref commit and tree APIs and all ten immutable raw paths; the 11099-byte passing receipt is SHA-256 74d80cb6ca63566452c32f64e788b443d0f2cade7fe76c50fca569853f7d297c"
     ]
   },
   "handoff": {
-    "current_checkpoint": "UNIT-005 premerge audit review merge and fresh public-main complete-stack verification pass. Public merge 1b0ad59a59f566c8d10e7069d3ed8ffdb974f7fd preserves reviewed tree f9fd2112b04d7a25592b23f8bef54aec34bad250; composed container-runtime-v11 passes 47 of 47 without image export push publication or redistribution.",
-    "next_action": "Publish and reconcile merged-main evidence, then run the final release-truth audit before tag or release.",
+    "current_checkpoint": "UNIT-005 public merged-main evidence commit c621614445a8e0f93160dd64ace905a418ba62ff is exact across refs GitHub APIs and all ten raw paths after reviewed-tree-preserving merge and fresh complete-stack verification; composed container-runtime-v11 passes 47 of 47 without image export push publication or redistribution.",
+    "next_action": "Run the final release-truth audit against exact public main and reconciled living records before tag or release.",
     "do_not_carry_forward": [
       "any held-out tuning expected-label grader scenario terminal model prompt parser decision-context policy approval executor or authority change",
       "any trust in evidence kind timestamp freshness or provenance before external authentication and normalization",
