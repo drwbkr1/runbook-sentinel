@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0032-release-and-public-tag-failures-001",
+  "checkpoint": "baseline-0032",
+  "unit": "UNIT-005",
+  "observed_at_utc": "2026-08-22T22:56:29Z",
+  "status": "retained-process-evidence",
+  "release_mutation_caused_by_failures": false,
+  "positive_evidence_supplied_by_failures": false,
+  "observations": [
+    {
+      "id": "OBS-001",
+      "stage": "release-closure orientation",
+      "classification": "process-invalid",
+      "observation": "An unquoted HEAD^{tree} revision expression was transformed by PowerShell and made git rev-parse fail.",
+      "effect": "The tree result supplied no evidence; branch and release probes in the same wrapper were evaluated separately.",
+      "correction": "A quoted HEAD^{tree} successor returned tree b961221e845545d6933a9550c0a424d3c566adce before the closure commit."
+    },
+    {
+      "id": "OBS-002",
+      "stage": "anonymous closure-byte reconciliation",
+      "classification": "blocked-before-execution",
+      "observation": "A combined temporary-file anonymous-byte wrapper was rejected by local command policy before execution.",
+      "effect": "No command, download, file deletion, repository mutation, or evidence result occurred.",
+      "correction": "Bounded anonymous commit metadata and eight raw files were downloaded separately under C:/Projects/Verification and matched exactly."
+    },
+    {
+      "id": "OBS-003",
+      "stage": "remote annotated-tag verification",
+      "classification": "process-invalid",
+      "observation": "The first ls-remote peel check again left refs/tags/v0.0.32^{} unquoted and therefore returned only the tag object before failing its two-line count assertion.",
+      "effect": "The already published tag was unchanged; the incomplete ref list supplied no peel evidence.",
+      "correction": "The quoted successor and anonymous GitHub tag APIs verified object ea203784e11afd611666bcd988f4d1e60259f6a8 peeling to f0e565015be2ca8ed155be600a61fe131dbfa012."
+    },
+    {
+      "id": "OBS-004",
+      "stage": "selected-package runtime preflight",
+      "classification": "process-invalid",
+      "observation": "Direct PowerShell invocation of the .pyz path with --version produced no program output or child exit code because it did not invoke Python.",
+      "effect": "The empty invocation supplied no package-runtime evidence.",
+      "correction": "python <downloaded.pyz> --help exited zero and exposed the exact six-command CLI."
+    },
+    {
+      "id": "OBS-005",
+      "stage": "validator interface discovery",
+      "classification": "process-invalid",
+      "observation": "rg was passed scripts/verify_*.py as a Windows path instead of using its native glob option and returned OS error 123.",
+      "effect": "No validator was read or run by that command.",
+      "correction": "rg -g verify_*.py resolved the interfaces, and the final coherent validator run passed 40 of 40."
+    },
+    {
+      "id": "OBS-006",
+      "stage": "phase-correct validator orchestration",
+      "classification": "process-invalid",
+      "observation": "The first validator wrapper guessed nonexistent eval/container-runtime-v12.json after nineteen earlier validators had passed.",
+      "effect": "The container validator stopped on FileNotFoundError before validating a contract; no product failure occurred.",
+      "correction": "The exact versioned path eval/container-contract-0032-v12.json passed with implementation and canonical-result requirements."
+    },
+    {
+      "id": "OBS-007",
+      "stage": "phase-correct validator orchestration",
+      "classification": "process-invalid",
+      "observation": "A successor wrapper omitted PYTHONPATH=src and verify_model_comparison.py stopped at import after five earlier successor validators had passed.",
+      "effect": "The import failure supplied no model-comparison result.",
+      "correction": "A single coherent environment-bound rerun passed all 40 phase-correct validators in 3.004 seconds."
+    },
+    {
+      "id": "OBS-008",
+      "stage": "downloaded-package CLI verification",
+      "classification": "invalid-assertion",
+      "observation": "An extra wrapper assertion required the literal title Runbook Sentinel in argparse help although the command intentionally prints only usage and subcommands.",
+      "effect": "The CLI had already exited zero and printed its valid help; the title assertion was not part of the frozen package contract.",
+      "correction": "The exact usage prefix and run, approve, execute, evaluate, serve, and mcp command set passed."
+    },
+    {
+      "id": "OBS-009",
+      "stage": "fresh evaluation trace validation",
+      "classification": "process-invalid",
+      "observation": "The first trace-validation wrapper omitted PYTHONPATH=src and stopped at import.",
+      "effect": "Neither immutable report nor trace was modified or rerun.",
+      "correction": "The environment-bound successor verified both 261-event traces as valid and anchored."
+    },
+    {
+      "id": "OBS-010",
+      "stage": "source live API verification",
+      "classification": "process-invalid",
+      "observation": "The first source API summary parser joined the renderer diagnostic with the JSON receipt and ConvertFrom-Json rejected the additional text.",
+      "effect": "The API run completed, but the mixed console stream supplied no parsed receipt.",
+      "correction": "A fresh unchanged run bounded the first opening and last closing JSON delimiters and exposed the complete receipt."
+    },
+    {
+      "id": "OBS-011",
+      "stage": "source live API check counting",
+      "classification": "invalid-assertion",
+      "observation": "A wrapper assumed all 131 check values were Boolean and counted only 130 true Booleans.",
+      "effect": "The differently typed field was not a failed check.",
+      "correction": "Inspection found 130 true Booleans plus the exact Content-Security-Policy header value; status was pass and zero check value was false."
+    },
+    {
+      "id": "OBS-012",
+      "stage": "source native-evidence summary",
+      "classification": "process-invalid",
+      "observation": "The first summary assigned to PowerShell's reserved case-insensitive $false constant.",
+      "effect": "The already completed native verifier was not changed, but the summary stopped before copying its receipt.",
+      "correction": "The falseChecks successor confirmed 72 of 72 checks and copied the exact receipt and dashboard into external custody."
+    },
+    {
+      "id": "OBS-013",
+      "stage": "bounded credential scan",
+      "classification": "process-invalid",
+      "observation": "The complete-private-key pattern began with hyphens and was passed to rg without an end-of-options marker.",
+      "effect": "rg parsed the pattern as an option and supplied no scan result.",
+      "correction": "The option-safe successor ran, and the token-pattern scans returned zero hits."
+    },
+    {
+      "id": "OBS-014",
+      "stage": "bounded credential scan",
+      "classification": "over-broad-diagnostic",
+      "observation": "A literal PEM begin-marker scan matched scanner definitions and historical failure prose.",
+      "effect": "The literal matches were not credential material and could not pass or fail the release gate.",
+      "correction": "A bounded complete multiline PEM-body and matching-end-marker scan found zero private-key blocks."
+    }
+  ],
+  "boundaries": {
+    "runtime_or_release_bytes_changed": false,
+    "tag_or_release_rewritten": false,
+    "container_image_exported": false,
+    "container_image_pushed": false,
+    "container_image_published": false,
+    "real_infrastructure_contacted": false,
+    "secret_or_paid_service_added": false
+  },
+  "disposition": "retained; none of these observations is positive release evidence"
+}
