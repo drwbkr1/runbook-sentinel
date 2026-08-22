@@ -36,15 +36,48 @@ class RetrievalTierCapContractTests(unittest.TestCase):
         self.assertEqual(result["errors"], [])
 
     def test_accepted_control_lifecycle_manifest_is_archived_not_mutable(self) -> None:
-        self.assertEqual(
-            verifier.ACCEPTED_CONTROL_LIFECYCLE_MANIFEST_PATH,
-            ROOT
-            / "artifacts/evaluations/runs/baseline-0031-final-source-attempt-002.manifest.json",
+        resolved = verifier._resolve_active_lifecycle_manifest(
+            ROOT / "artifacts/evaluations/latest.json"
         )
-        self.assertNotEqual(
-            verifier.ACCEPTED_CONTROL_LIFECYCLE_MANIFEST_PATH,
-            ROOT / "eval/manifest.json",
-        )
+        self.assertIsNotNone(resolved)
+        self.assertEqual(resolved.parent, verifier.EVALUATION_RUNS_DIR)
+        self.assertNotEqual(resolved, ROOT / "eval/manifest.json")
+
+    def test_lifecycle_manifest_resolution_follows_later_checkpoint_exactly(self) -> None:
+        control = self.frozen["accepted_control"]
+        with tempfile.TemporaryDirectory(prefix="sentinel-lifecycle-") as directory:
+            root = Path(directory)
+            runs = root / "runs"
+            runs.mkdir()
+            declared = root / "latest.json"
+            archived = root / "baseline-0030-final-source-attempt-001.json"
+            manifest = runs / "baseline-0032-attempt-001.manifest.json"
+            manifest_bytes = (ROOT / "eval/manifest.json").read_bytes()
+            active = json.loads(
+                (
+                    ROOT
+                    / "artifacts/evaluations/runs/baseline-0031-final-source-attempt-001.json"
+                ).read_text(encoding="utf-8")
+            )
+            active["checkpoint"] = "baseline-0032"
+            active["manifest_sha256"] = hashlib.sha256(manifest_bytes).hexdigest()
+            declared.write_text(json.dumps(active), encoding="utf-8")
+            manifest.write_bytes(manifest_bytes)
+            archived.write_bytes(verifier.ACCEPTED_CONTROL_ARCHIVE_PATH.read_bytes())
+
+            resolved = verifier._resolve_active_lifecycle_manifest(declared, runs)
+            self.assertEqual(resolved, manifest)
+            errors: list[str] = []
+            selected = verifier._resolve_accepted_control(
+                control, declared, archived, resolved, errors
+            )
+            self.assertEqual(selected, archived)
+            self.assertEqual(errors, [])
+
+            manifest.write_bytes(manifest_bytes + b"tampered")
+            self.assertIsNone(
+                verifier._resolve_active_lifecycle_manifest(declared, runs)
+            )
 
     def test_accepted_control_survives_latest_pointer_advance_exactly(self) -> None:
         control = self.frozen["accepted_control"]

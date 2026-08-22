@@ -162,6 +162,54 @@
       "observation": "The same resumed command guessed scripts/verify_milestone.py, but this repository has no validator at that path.",
       "containment": "The missing-file result was treated as process-invalid, not a milestone pass or failure, and no publication or build action followed it.",
       "correction": "Invoke the installed run-controlled-milestone skill validator at C:/Users/drewb/.codex/skills/run-controlled-milestone/scripts/validate_milestone.py against the exact active contract before publication."
+    },
+    {
+      "id": "OBS-021",
+      "phase": "unit-004-prebuild-record-public-reconciliation",
+      "classification": "combined_public_verification_command_blocked_by_local_policy",
+      "observation": "The first post-push public reconciliation combined ref checks, anonymous GitHub API requests, raw-byte downloads, and temporary-file cleanup in one command; the local execution policy rejected it before process creation.",
+      "containment": "No command ran, no temporary file existed, no positive evidence was inferred, and repository and external state remained unchanged.",
+      "correction": "Split ref, metadata, blob, and raw-byte checks into smaller read-only commands and calculate raw Git blob identities entirely in memory."
+    },
+    {
+      "id": "OBS-022",
+      "phase": "unit-004-package-build-lifecycle-preflight",
+      "classification": "next_checkpoint_latest_pointer_incompatibility",
+      "observation": "After two deterministic package builds passed but before candidate evaluation, lifecycle inspection showed that advancing artifacts/evaluations/latest.json to BASELINE-0032 would make the retained retrieval-control validator require the new report to identify as BASELINE-0031.",
+      "containment": "No source or package candidate evaluation was run or promoted, no derived image was built, and both 647,712-byte package attempts at SHA-256 6d4f8047 were classified as superseded before use as candidate evidence.",
+      "correction": "Resolve the active report's immutable archived manifest by exact checkpoint prefix and report-bound SHA-256, require checkpoint number 31 or later plus all existing configuration and gate invariants, add later-checkpoint and tamper tests, refreeze the source manifest, and rebuild the package."
+    },
+    {
+      "id": "OBS-023",
+      "phase": "unit-004-lifecycle-validator-correction-test",
+      "classification": "unmatched_test_parenthesis",
+      "observation": "The first focused post-correction test run did not start because the new later-checkpoint regression test contained one unmatched closing parenthesis at line 81.",
+      "containment": "The production validator had passed immediately beforehand, the syntax failure was not treated as test evidence, and no manifest, package, evaluation, container, or external state changed during the failed run.",
+      "correction": "Remove the single unmatched test-only parenthesis and rerun the focused validator and complete test module before refreezing source identity."
+    },
+    {
+      "id": "OBS-024",
+      "phase": "unit-004-lifecycle-correction-manifest-freeze",
+      "classification": "powershell_pscustomobject_property_count_projection",
+      "observation": "The first post-freeze summary accessed PSObject.Properties.Count directly, and PowerShell projected Count from each property as 153 separate one values instead of emitting one manifest file count.",
+      "containment": "The active and archived manifests were still byte-identical at 18,484 bytes and SHA-256 2f5a6c26; the malformed count rendering was not used as evidence.",
+      "correction": "Materialize PSObject.Properties into an explicit array before reading Count and require the independent manifest validator to report exactly 153 verified files."
+    },
+    {
+      "id": "OBS-025",
+      "phase": "unit-004-lifecycle-correction-postfreeze-validation",
+      "classification": "base_refresh_validator_argument_guess_error",
+      "observation": "The first post-freeze validator bundle guessed --require-implemented for the base-security-refresh verifier, which supports --phase implemented instead.",
+      "containment": "The argument parser rejected the invocation before validation; its result was not counted as a pass, while the other independently reported checks remained separately usable.",
+      "correction": "Invoke verify_container_base_security_refresh_contract.py with the documented --phase implemented argument and explicitly check its native exit status."
+    },
+    {
+      "id": "OBS-026",
+      "phase": "unit-004-lifecycle-correction-seal-inventory",
+      "classification": "powershell_subexpression_statement_separator_parse_error",
+      "observation": "The first corrected-source seal inventory tried to combine a native git command and LASTEXITCODE test inside one parenthesized object-property expression, and PowerShell rejected the semicolon before inventory execution.",
+      "containment": "No inventory result was emitted or used, and no repository, package, container, or external state changed.",
+      "correction": "Determine tracked identity from the already materialized tracked-path array and keep each object-property expression free of statement separators."
     }
   ],
   "boundaries": {

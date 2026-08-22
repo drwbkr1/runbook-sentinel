@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0032-PREBUILD-RECORD-RECONCILIATION-PUBLIC",
+  "checkpoint": "BASELINE-0032",
+  "observed_at_utc": "2026-08-22T18:56:03Z",
+  "status": "pass",
+  "repository": {
+    "owner": "drwbkr1",
+    "name": "runbook-sentinel",
+    "visibility": "public",
+    "branch": "codex/baseline-0032-container-base-security-refresh"
+  },
+  "target": {
+    "commit": "9f20238bec204f750ae92046f3b50403641373b6",
+    "tree": "377758e942ce87b0ec7bbaabfe5771962945e344",
+    "parent": "9ff79a819a5ab2decc41d4329561eddeea34f8c0",
+    "commit_message": "docs: reconcile baseline 0032 prebuild seal"
+  },
+  "checks": {
+    "local_ref_exact": true,
+    "explicit_tracking_ref_exact": true,
+    "ls_remote_branch_exact": true,
+    "anonymous_github_ref_exact": true,
+    "anonymous_github_commit_exact": true,
+    "anonymous_github_tree_exact": true,
+    "anonymous_github_parent_exact": true,
+    "github_tree_not_truncated": true,
+    "changed_git_blobs_exact": true,
+    "anonymous_raw_bytes_exact": true,
+    "public_main_unchanged": true,
+    "milestone_contract_valid": true,
+    "unit_004_is_only_active_unit": true,
+    "current_delta_secret_scan_clear": true
+  },
+  "counts": {
+    "repository_tree_entries": 1466,
+    "changed_paths": 9,
+    "git_blob_mismatches": 0,
+    "raw_byte_mismatches": 0,
+    "unresolved_secret_shaped_hits": 0
+  },
+  "public_main": {
+    "commit": "e12e638b98b1deacb4c5058ecb9d7c8652c96985",
+    "moved": false
+  },
+  "boundaries": {
+    "package_existed_during_reconciliation": false,
+    "candidate_evaluation_started": false,
+    "derived_container_image_built": false,
+    "dependency_secret_paid_service_or_real_infrastructure_added": false,
+    "tag_release_or_deployment_created": false,
+    "container_image_exported_pushed_published_or_redistributed": false
+  },
+  "next_gate": "Build and independently verify two deterministic v0.0.32 zipapps, then run frozen source and package candidate evaluations without altering graders, thresholds, cases, retrieval selection, or authority boundaries."
+}
