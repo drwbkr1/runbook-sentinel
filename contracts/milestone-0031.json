@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0031",
-  "status": "active",
+  "status": "stopped",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -67,8 +67,11 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
-      "evidence": []
+      "status": "fail",
+      "evidence": [
+        "Final release audit attempt 001 is structurally valid and computes blocked because the renewed exact-image Docker Scout scan reports two unique HIGH vulnerabilities across libcrypto3, libssl3, and openssl 3.6.3-r3.",
+        "The frozen zero-critical/high container gate is unchanged; v0.0.31 remains untagged and unreleased while public v0.0.30 remains the latest verified checkpoint."
+      ]
     }
   ],
   "units": [
@@ -177,26 +180,27 @@
       "depends_on": ["UNIT-004"],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "failed",
       "gates": {
         "premerge_release_truth_audit": "pass",
         "exact_reviewed_head_merged_with_history_preserved": "pass",
         "fresh_public_main_complete_stack": "pass",
-        "final_release_truth_audit": "pending",
-        "annotated_tag_and_selected_assets": "pending",
-        "public_tag_complete_stack": "pending",
-        "external_reconciliation": "pending"
+        "final_release_truth_audit": "fail",
+        "annotated_tag_and_selected_assets": "not_run",
+        "public_tag_complete_stack": "not_run",
+        "external_reconciliation": "not_run"
       },
-      "disposition": "pending",
+      "disposition": "remediate",
       "retained_failures": [
         "Exact-head review found a defense-in-depth empty-selection-gate inventory weakness. The attempted correction passed 94 tests but correctly violated the frozen release manifest, so it was reverted byte-exactly and deferred to the next checkpoint rather than rewriting verified package and image evidence.",
-        "Process-invalid review and merged-main wrappers are retained in artifacts/verification/baseline-0031-review-and-merged-main-failures-001.json and excluded from positive evidence."
+        "Process-invalid review and merged-main wrappers are retained in artifacts/verification/baseline-0031-review-and-merged-main-failures-001.json and excluded from positive evidence.",
+        "Renewed local-only Docker Scout evidence on 2026-08-22 reports six package results for CVE-2026-14456 and CVE-2026-54876, both HIGH under the frozen scanner gate, in the exact image built from Wolfi OpenSSL 3.6.3-r3. The valid blocked audit and scan failure receipt are retained; no tag, release, image export, push, publication, or redistribution occurred."
       ],
       "next_dependency": null
     }
   ],
-  "current_unit": "UNIT-005",
-  "next_action": "Run the final release-truth audit against exact public merged-main evidence commit c621614445a8e0f93160dd64ace905a418ba62ff and reconciled living records; do not create the v0.0.31 tag or release unless the audit verifies without warning, missing surface, or unresolved discrepancy.",
+  "current_unit": null,
+  "next_action": null,
   "path_efficiency": {
     "max_consecutive_no_progress_units": 2,
     "review_action_class": "project_control",
@@ -208,7 +212,8 @@
       "a focus improvement can silently drop required evidence or collapse adversarial exposure coverage",
       "trust-tier caps can be misread as trust in metadata that was not authenticated outside the model",
       "development improvements can overfit and regress held-out completeness behavior safety reliability or latency",
-      "source-only retrieval success can hide stale MCP API state telemetry dashboard package or container behavior"
+      "source-only retrieval success can hide stale MCP API state telemetry dashboard package or container behavior",
+      "a previously passing point-in-time vulnerability scan can become stale before release while every source and runtime byte remains unchanged"
     ],
     "required_checks": [
       "exact public v0.0.30 receipt release tag assets and fresh source run identity",
@@ -272,18 +277,24 @@
       ,"PR 29 merges the exact reviewed head under expected-head lock as history-preserving merge 1b0ad59a59f566c8d10e7069d3ed8ffdb974f7fd with reviewed and merged tree f9fd2112b04d7a25592b23f8bef54aec34bad250 identical"
       ,"two independent no-alternates public-main clones pass 93 tests 40 validators two exact archives fresh source package MCP API state telemetry and dashboard surfaces plus three exact local image builds; composed container-runtime-v11 passes 47 of 47 without image export push publication or redistribution"
       ,"public merged-main evidence commit c621614445a8e0f93160dd64ace905a418ba62ff and tree 5b55ca0044b89957f66ac927d4d713852c377879 reconcile across local tracking ls-remote anonymous GitHub ref commit and tree APIs and all ten immutable raw paths; the 11099-byte passing receipt is SHA-256 74d80cb6ca63566452c32f64e788b443d0f2cade7fe76c50fca569853f7d297c"
-    ]
+      ,"reconciled public-main record commit b5657e70697f3f34c1d8bd6b7044280745214dea is exact across local tracking ls-remote and anonymous GitHub main; v0.0.31 tag and release are absent and public v0.0.30 remains latest"
+      ,"final audit attempt 001 is valid blocked with CHECK-007 failed and no warning or structural error; the exact local image has two unique current Docker Scout HIGH findings across three Wolfi OpenSSL 3.6.3-r3 packages, so the frozen release gate fails and BASELINE-0031 stops unpublished"
+      ,"the stopped-state regression passes all 93 tests in 102.031 seconds and all 40 phase-correct side-effect-free validators with the canonical container result required in 5.696 seconds"
+    ],
+    "disposition": "remediate"
   },
   "handoff": {
-    "current_checkpoint": "UNIT-005 public merged-main evidence commit c621614445a8e0f93160dd64ace905a418ba62ff is exact across refs GitHub APIs and all ten raw paths after reviewed-tree-preserving merge and fresh complete-stack verification; composed container-runtime-v11 passes 47 of 47 without image export push publication or redistribution.",
-    "next_action": "Run the final release-truth audit against exact public main and reconciled living records before tag or release.",
+    "current_checkpoint": "BASELINE-0031 is stopped and unpublished after valid final audit attempt 001 found two unique current Docker Scout HIGH vulnerabilities in exact image sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1. Public main remains exact, v0.0.31 tag/release are absent, and v0.0.30 remains the latest verified release.",
+    "next_action": "Start BASELINE-0032 from the published stopped-state commit; freeze and publicly reconcile one source-gated digest-only Chainguard Python base refresh before pulling, building, or evaluating the successor image.",
     "do_not_carry_forward": [
       "any held-out tuning expected-label grader scenario terminal model prompt parser decision-context policy approval executor or authority change",
       "any trust in evidence kind timestamp freshness or provenance before external authentication and normalization",
       "any default promotion before the frozen comparison passes",
       "any dependency secret paid service external asset remote model or real-infrastructure interaction",
       "any deletion or rewrite of rejected threshold candidates failures control or unfavorable candidate evidence",
-      "any production universal-safety broad-Pareto cross-builder or perpetual-vulnerability claim"
+      "any production universal-safety broad-Pareto cross-builder or perpetual-vulnerability claim",
+      "the historical August 18 zero-result SARIF as current security evidence",
+      "the frozen 3.6.3-r3 base packages into a release candidate without a separately gated remediation checkpoint"
     ]
   }
 }

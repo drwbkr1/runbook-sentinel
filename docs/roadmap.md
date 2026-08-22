@@ -1,6 +1,6 @@
 # Roadmap
 
-## Active checkpoint baseline-0031 - bounded trust-tier retrieval comparison
+## Stopped checkpoint baseline-0031 - bounded trust-tier retrieval comparison
 
 Verified public v0.0.30 at reconciliation commit `4d62ecf930130b938594a9b7bc70675f9d8122e1` is the sole starting point. Its fresh public-tag run passes 57 scenarios, 171 attempts, all 136 Boolean gates, and the anchored 261-event trace. Required-evidence recall is 1.0, while 87 of 153 eligible attempts include 123 additional records and mean expected-document share is 0.683006535948. These records are additional untrusted context; they are not labeled irrelevant.
 
@@ -16,9 +16,15 @@ Fresh clone attempt 002 at public reconciliation head `0ce0369...` passes. It be
 
 UNIT-004 is complete. Public evidence commit `af7c6ca...`, tree `da7442db...`, is exact across local and remote refs, anonymous GitHub ref/tree APIs, and all 15 immutable anonymous raw files. UNIT-005 premerge audit and exact-head review pass. PR `#29` merged reviewed head `bcc5be7...` under expected-head lock as `1b0ad59...`, preserving history and exact tree `f9fd2112...`.
 
-Fresh public-main verification passes from two independent no-alternates HTTPS clones: 93 tests, 40 phase-correct validators, two byte-identical 647,712-byte archives at SHA-256 `0e355dff...`, fresh source/package evaluations and real surfaces, and three exact local image builds at `sha256:3736d003...`. Composed container-runtime-v11 passes 47/47 with no image export or publication. Merged-main evidence commit `c621614...`, tree `5b55ca0...`, is exact across every ref/API and all ten anonymous raw paths. The next ordered gate is final release-truth audit, then annotated source-plus-zipapp release, public-tag verification, and external reconciliation.
+Fresh public-main verification passes from two independent no-alternates HTTPS clones: 93 tests, 40 phase-correct validators, two byte-identical 647,712-byte archives at SHA-256 `0e355dff...`, fresh source/package evaluations and real surfaces, and three exact local image builds at `sha256:3736d003...`. Composed container-runtime-v11 passes 47/47 with no image export or publication. Merged-main evidence commit `c621614...`, tree `5b55ca0...`, is exact across every ref/API and all ten anonymous raw paths.
+
+The release-time security refresh changes the disposition. On 2026-08-22, Docker Scout v1.20.4 reports two unique HIGH vulnerabilities across Wolfi OpenSSL 3.6.3-r3 packages in the exact image: CVE-2026-14456 is fixed in 3.6.3-r5 and CVE-2026-54876 is fixed in 3.6.3-r4. The valid final audit therefore computes `blocked` with only CHECK-007 failed. BASELINE-0031 stops unpublished; no v0.0.31 tag, release, image export, push, publication, or redistribution occurs. The historical zero-result SARIF remains retained as an August 18 observation, not current release evidence.
 
 This checkpoint stops rather than changing expected labels, graders, scenarios, terminal states, decision projection, model, prompt, parser, policy, authority, approval, executor, dependency, secret, service, external asset, or real-infrastructure boundary. It preserves rejected, failed, stale, superseded, excluded, and unfavorable results and makes no production, universal-safety, broad-Pareto, or cross-builder claim.
+
+## Next checkpoint baseline-0032 - digest-only container-base security refresh
+
+Resume from the published stopped BASELINE-0031 state and retain public v0.0.30 as the latest verified release. Freeze one source-gated change: replace only the exact Chainguard Python OCI digest with a current exact digest whose identity, anonymous-use rights, SBOM/provenance, platform manifest, fixed OpenSSL package versions, and zero-current-critical/high observation pass before import. Do not change application source, dependency set, retrieval/model selection, evaluation splits, graders, policy, approval, executor, credentials, authority, or image-publication boundary. Pull, build, run, scan, and rerun the complete source/package/container/API/MCP/dashboard/state/telemetry matrix only after the gate and preimplementation contract are public and remotely exact.
 
 ## Completed checkpoint baseline-0030 - model-output diagnosis-pattern conformance
 

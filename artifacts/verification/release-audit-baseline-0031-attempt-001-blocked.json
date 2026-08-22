@@ -1,0 +1,273 @@
+{
+  "schema_version": "1.0",
+  "release_id": "BASELINE-0031-FINAL-ATTEMPT-001",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal and contracts/milestone-0031.json UNIT-005",
+    "authorized_action_classes": [
+      "evidence_preservation",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "public_verification"
+    ],
+    "verified_at_utc": "2026-08-22T17:14:42Z",
+    "expires_at_utc": null
+  },
+  "risk_classes": [
+    "documentation",
+    "runtime",
+    "data",
+    "model",
+    "package",
+    "public",
+    "security",
+    "external"
+  ],
+  "candidate": {
+    "base_commit": "1b0ad59a59f566c8d10e7069d3ed8ffdb974f7fd",
+    "commit": "b5657e70697f3f34c1d8bd6b7044280745214dea",
+    "merged_evidence_commit": "c621614445a8e0f93160dd64ace905a418ba62ff",
+    "version": "0.0.31",
+    "tag": "v0.0.31",
+    "manifest_sha256": "e2ea1bcad45fe35e61ae84f3fb992400a737b46fa0daf94065e0ecb69a29a7e4",
+    "package_contract_sha256": "776f01b33b3e5b25fbf1f65774b13f61ce641744da617258aa2cc8ad40259b18",
+    "container_contract_sha256": "9b6ca120844c5fd541585a029599b0cabf4b797b312c3bd39b8894bbb0c69ac9",
+    "retrieval_comparison_sha256": "9e46ee4047ca51f00c453eb4b02adbf988f3accb9b0d5b9aefbdc388dde9d768",
+    "container_receipt_sha256": "236dbc9fc2f5a28cbc012612488bfc378103c877874dd8ad3119296ce5798d92",
+    "merged_main_receipt_sha256": "74d80cb6ca63566452c32f64e788b443d0f2cade7fe76c50fca569853f7d297c",
+    "image_id": "sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1",
+    "artifacts": [
+      {
+        "path": "dist/runbook-sentinel-0.0.31.pyz",
+        "bytes": 647712,
+        "sha256": "0e355dffd06ad6854d529b74a0248600e7d5ae1a86dadb1767e5be851cb0e865"
+      },
+      {
+        "path": "dist/runbook-sentinel-0.0.31.pyz.sha256",
+        "bytes": 94,
+        "sha256": "04b67112ddae45789c636b88f83ec31357ac48d1384af0254c7ec6f26124ac59"
+      }
+    ]
+  },
+  "live_truth": {
+    "verified_at_utc": "2026-08-22T17:14:42Z",
+    "branch": "main",
+    "remote_commit": "b5657e70697f3f34c1d8bd6b7044280745214dea",
+    "pull_request": {
+      "number": 29,
+      "state": "MERGED",
+      "merge_commit": "1b0ad59a59f566c8d10e7069d3ed8ffdb974f7fd"
+    },
+    "repository_visibility": "PUBLIC",
+    "latest_public_release": "v0.0.30",
+    "latest_public_release_published_at_utc": "2026-08-17T23:19:14Z",
+    "tag_target": "not_created",
+    "release": "not_created",
+    "deployment": null
+  },
+  "real_surface_matrix": {
+    "required": true,
+    "registry_ref": "contracts/milestone-0031.json#units/UNIT-004",
+    "evaluation_receipt_ref": "artifacts/verification/merged-main-baseline-0031.json",
+    "status": "blocked",
+    "candidate_identity": "b5657e70697f3f34c1d8bd6b7044280745214dea",
+    "required_surface_ids": [
+      "retrieval-selection",
+      "source-evaluation",
+      "package-evaluation",
+      "mcp",
+      "api-approval-executor-state-telemetry",
+      "rendered-dashboard",
+      "selected-archive-reproduction",
+      "container-runtime",
+      "container-point-in-time-scan",
+      "clean-public-main-reproduction",
+      "public-byte-reconciliation"
+    ],
+    "verified_surface_ids": [
+      "retrieval-selection",
+      "source-evaluation",
+      "package-evaluation",
+      "mcp",
+      "api-approval-executor-state-telemetry",
+      "rendered-dashboard",
+      "selected-archive-reproduction",
+      "container-runtime",
+      "clean-public-main-reproduction",
+      "public-byte-reconciliation"
+    ],
+    "reason": "The exact current image fails the frozen zero-critical/high Docker Scout gate, so the required point-in-time scan surface is not verified."
+  },
+  "checks": [
+    {
+      "id": "CHECK-001",
+      "category": "scope-and-authority",
+      "required": true,
+      "status": "pass",
+      "method": "Reconciled the active director goal, milestone authority, no-go boundaries, exact public main, and release absence before any release action.",
+      "evidence": [
+        "the active goal authorizes bounded evidence, repository, commit, push, and release verification work without weakening security gates",
+        "local HEAD, origin/main, ls-remote main, and anonymous GitHub main all equal b5657e70697f3f34c1d8bd6b7044280745214dea",
+        "no credential, paid service, secret, ownership change, real infrastructure, irreversible action, or image publication is involved"
+      ],
+      "reason": "Authority permits preserving and publishing a blocked result but does not permit bypassing the frozen scan gate."
+    },
+    {
+      "id": "CHECK-002",
+      "category": "candidate-identity",
+      "required": true,
+      "status": "pass",
+      "method": "Bound source, tree, package, manifest, image, merged-main receipt, and public refs to exact immutable identities.",
+      "evidence": [
+        "public reconciled source commit b5657e70697f3f34c1d8bd6b7044280745214dea",
+        "selected archive 647712 bytes at SHA-256 0e355dffd06ad6854d529b74a0248600e7d5ae1a86dadb1767e5be851cb0e865",
+        "exact local image ID sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1"
+      ],
+      "reason": "The failure is bound to the exact release candidate rather than inferred from an adjacent image."
+    },
+    {
+      "id": "CHECK-003",
+      "category": "evaluation-and-selection",
+      "required": true,
+      "status": "pass",
+      "method": "Reused frozen same-manifest evaluation and revalidated its contracts without changing selected behavior or unfavorable results.",
+      "evidence": [
+        "v3 remains the selected deterministic retriever",
+        "v4 remains retained and excluded with five false Boolean gates, remediate disposition, incompatible adversarial stage coverage, and higher median latency",
+        "retrieval, generation, trajectories, policy, utility, attacks, reliability, latency, tokens, and cost remain separate"
+      ],
+      "reason": "No model, retrieval, split, grader, or selection result changed during release closure."
+    },
+    {
+      "id": "CHECK-004",
+      "category": "source-and-package",
+      "required": true,
+      "status": "pass",
+      "method": "Used the fresh public-main complete-stack receipt plus reconciliation commit validators to verify source, zipapp, exact traces, and archive reproducibility.",
+      "evidence": [
+        "fresh public main passes all 93 tests and all 40 phase-correct validators in the merged-main receipt",
+        "source and package each pass 57 scenarios, 171 attempts, all 136 Boolean gates, and exact 261-event anchored traces",
+        "independent archive builds reproduce the selected bytes and checksum exactly"
+      ],
+      "reason": "The current blocker is limited to renewed container vulnerability status."
+    },
+    {
+      "id": "CHECK-005",
+      "category": "real-surfaces",
+      "required": true,
+      "status": "pass",
+      "method": "Verified source, package, and container CLI, MCP, authenticated API, approval, executor, replay, state, telemetry, and rendered dashboard receipts.",
+      "evidence": [
+        "MCP exposes only three diagnostic/read tools and no approval or execution tool",
+        "the authenticated API and deterministic approval/executor boundary pass with persisted SQLite state and anchored telemetry",
+        "rendered 1440 by 1000 source, package, and container dashboards were inspected at original detail"
+      ],
+      "reason": "The agent remains bounded, synthetic-only, credential-free, and without final execution authority."
+    },
+    {
+      "id": "CHECK-006",
+      "category": "portability-and-recovery",
+      "required": true,
+      "status": "pass",
+      "method": "Verified the no-alternates clean public-main build, exact package/image reproduction, absence of surviving verifier containers, and latest recoverable public release.",
+      "evidence": [
+        "the clean public-main workflow reproduces the package and exact image under the frozen builder environment",
+        "zero Runbook Sentinel verifier containers survive",
+        "public v0.0.30 remains the latest non-draft non-prerelease recoverable release"
+      ],
+      "reason": "Stopping v0.0.31 does not disturb the latest verified checkpoint."
+    },
+    {
+      "id": "CHECK-007",
+      "category": "security-and-boundaries",
+      "required": true,
+      "status": "fail",
+      "method": "Restarted only the authorized local verifier, resolved six tags to the exact image, and reran Docker Scout locally with a critical/high filter.",
+      "evidence": [
+        "Docker Scout v1.20.4 reports six SARIF results across three Wolfi packages for two unique HIGH vulnerabilities",
+        "CVE-2026-14456 affects 3.6.3-r3 below fixed 3.6.3-r5; CVE-2026-54876 affects 3.6.3-r3 below fixed 3.6.3-r4",
+        "failure receipt artifacts/verification/container-scout-critical-high-baseline-0031-final-audit-failure-001.json binds the exact image, packages, fixes, transient SARIF hash, and prior historical zero-result scan"
+      ],
+      "reason": "The frozen contract requires zero current critical/high scanner findings. Severity is not suppressed or reinterpreted, so release is blocked."
+    },
+    {
+      "id": "CHECK-008",
+      "category": "research-rights-and-claims",
+      "required": true,
+      "status": "pass",
+      "method": "Kept project-authored synthetic evidence and research-informed claim language while consulting official upstream vulnerability and base-image specifications only as current decision evidence.",
+      "evidence": [
+        "no external code, data, model, document bytes, package, paid service, or secret was imported",
+        "the exact existing Chainguard base remains subject to its inherited anonymous local-build source gate",
+        "the next base candidate is not imported until a separate current identity, rights, integrity, fitness, and security gate is ready"
+      ],
+      "reason": "Upstream severity differences do not override the frozen scanner contract."
+    },
+    {
+      "id": "CHECK-009",
+      "category": "evidence-integrity",
+      "required": true,
+      "status": "pass",
+      "method": "Preserved the historical zero-result SARIF, the renewed unfavorable result, every process-invalid wrapper, the excluded v4 candidate, and all stale or superseded attempts separately.",
+      "evidence": [
+        "the August 18 zero-result SARIF remains byte-exact and explicitly historical",
+        "the August 22 failure receipt is additive and does not overwrite passing evidence",
+        "failed scan reference, path, wildcard, template, and projection wrappers remain excluded from positive evidence"
+      ],
+      "reason": "No unfavorable result, threshold, split, grader, or prior receipt was rewritten."
+    },
+    {
+      "id": "CHECK-010",
+      "category": "public-release-truth",
+      "required": true,
+      "status": "pass",
+      "method": "Queried local, tracking, live remote, anonymous GitHub refs, repository visibility, tags, releases, and latest-release endpoints immediately before the audit.",
+      "evidence": [
+        "the public default branch is main at b5657e70697f3f34c1d8bd6b7044280745214dea across all four refs",
+        "v0.0.31 tag count is zero and v0.0.31 release count is zero",
+        "v0.0.30 is latest, public, non-draft, and non-prerelease, published 2026-08-17T23:19:14Z"
+      ],
+      "reason": "No release mutation occurred before or after the failed gate."
+    }
+  ],
+  "truth_surfaces": [
+    {
+      "path_or_uri": "C:/Projects/Active/runbook-sentinel-baseline-0031",
+      "expected_state": "exact public-main candidate with additive final-audit evidence only",
+      "observed_state": "HEAD and all public main refs equal b5657e70697f3f34c1d8bd6b7044280745214dea before the additive audit paths",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "local Docker image sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1",
+      "expected_state": "local-only candidate with zero current critical/high findings",
+      "observed_state": "six tags resolve exactly and no container survives, but the current local-only scan has two unique HIGH findings",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/releases/latest",
+      "expected_state": "v0.0.30 remains latest after v0.0.31 is blocked",
+      "observed_state": "v0.0.30 is latest and recoverable",
+      "status": "current"
+    },
+    {
+      "path_or_uri": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.31",
+      "expected_state": "absent",
+      "observed_state": "no tag and no release object",
+      "status": "current"
+    }
+  ],
+  "limitations": [
+    "The scan is a point-in-time Docker Scout observation and does not establish perpetual vulnerability status.",
+    "Upstream OpenSSL severity classifications do not weaken the frozen zero-critical/high scanner gate.",
+    "All incident and evaluation evidence is deterministic and synthetic; no production reliability or universal prompt-injection-resistance claim is made.",
+    "Image reproducibility remains bounded to the exact frozen builder, base, source inputs, and workflow.",
+    "No container image is exported, pushed, published, or redistributed."
+  ],
+  "decision": {
+    "reported_status": "blocked",
+    "rationale": "Every non-security release surface remains exact, but the renewed scan finds two unique HIGH vulnerabilities in the frozen base packages. The frozen zero-critical/high gate fails, so v0.0.31 must remain untagged and unreleased.",
+    "next_action": "Publish the stopped BASELINE-0031 truth, then freeze BASELINE-0032 as a separately source-gated digest-only base-image security refresh and rerun the complete real-surface matrix before considering a new release identity.",
+    "authorized_next_actions": []
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0031-FINAL-AUDIT-SCOUT-FAILURE-001",
+  "checkpoint": "BASELINE-0031",
+  "status": "fail",
+  "disposition": "remediate",
+  "observed_at_utc": "2026-08-22T17:14:22Z",
+  "candidate": {
+    "public_main_commit": "b5657e70697f3f34c1d8bd6b7044280745214dea",
+    "image_id": "sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1",
+    "local_reference": "local://runbook-sentinel:baseline-0031-a-3602b35502",
+    "frozen_base": "cgr.dev/chainguard/python@sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5"
+  },
+  "scanner": {
+    "name": "Docker Scout",
+    "version": "v1.20.4",
+    "client_platform": "windows/amd64",
+    "target_resolution": "local-only",
+    "cached_sbom_package_count": 54,
+    "severity_filter": [
+      "critical",
+      "high"
+    ],
+    "transient_sarif_stdout": {
+      "retained_in_command_audit_log": true,
+      "promoted_over_prior_passing_sarif": false,
+      "bytes": 14143,
+      "sha256": "168653d63514500e293a9e4f9f23dbdd2fdf2320e2b28ea1218b27e77ad626fa"
+    }
+  },
+  "prior_observation": {
+    "path": "artifacts/verification/container-scout-critical-high-baseline-0031.sarif.json",
+    "observed_at_utc": "2026-08-18T03:19:46Z",
+    "bytes": 461,
+    "sha256": "7749b34be7a069559b10b1b9d53cc8897576fdd104071a9e0f907f9a301ee303",
+    "critical_or_high_result_count": 0,
+    "historical_only": true
+  },
+  "results": {
+    "sarif_result_count": 6,
+    "unique_vulnerability_count": 2,
+    "affected_package_count": 3,
+    "critical_count": 0,
+    "high_unique_count": 2,
+    "affected_packages": [
+      "pkg:apk/wolfi/libcrypto3@3.6.3-r3?os_name=wolfi&os_version=rolling",
+      "pkg:apk/wolfi/libssl3@3.6.3-r3?os_name=wolfi&os_version=rolling",
+      "pkg:apk/wolfi/openssl@3.6.3-r3?os_name=wolfi&os_version=rolling"
+    ],
+    "vulnerabilities": [
+      {
+        "id": "CVE-2026-14456",
+        "scanner_severity": "HIGH",
+        "security_severity": "7.5",
+        "affected_range": "<3.6.3-r5",
+        "fixed_version": "3.6.3-r5",
+        "epss_score": 0.00465,
+        "epss_percentile": 0.38643,
+        "package_result_count": 3
+      },
+      {
+        "id": "CVE-2026-54876",
+        "scanner_severity": "HIGH",
+        "security_severity": "7.5",
+        "affected_range": "<3.6.3-r4",
+        "fixed_version": "3.6.3-r4",
+        "epss_score": 0.00261,
+        "epss_percentile": 0.18087,
+        "package_result_count": 3
+      }
+    ]
+  },
+  "gate": {
+    "contract_ref": "eval/container-contract-0031-v11.json",
+    "requirement": "zero Docker Scout critical or high findings for the exact local image at release audit time",
+    "requirement_changed": false,
+    "pass": false,
+    "release_allowed": false,
+    "tag_allowed": false
+  },
+  "boundaries": {
+    "image_exported_pushed_published_or_redistributed": false,
+    "registry_authentication_used": false,
+    "credential_or_secret_used": false,
+    "real_infrastructure_contacted": false,
+    "prior_passing_scan_rewritten": false,
+    "scanner_severity_reinterpreted_or_suppressed": false
+  },
+  "next_action": "Stop BASELINE-0031 unpublished and open a separately frozen, source-gated digest-only base-image remediation checkpoint; do not tag or release v0.0.31."
+}

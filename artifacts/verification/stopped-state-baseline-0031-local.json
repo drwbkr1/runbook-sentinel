@@ -1,0 +1,163 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0031-STOPPED-STATE-LOCAL",
+  "checkpoint": "BASELINE-0031",
+  "observed_at_utc": "2026-08-22T17:26:59Z",
+  "status": "pass",
+  "disposition": "preserve_and_publish_stopped_state",
+  "parent": {
+    "commit": "b5657e70697f3f34c1d8bd6b7044280745214dea",
+    "public_main_exact_before_local_delta": true,
+    "v0_0_31_tag_present": false,
+    "v0_0_31_release_present": false,
+    "latest_verified_public_release": "v0.0.30"
+  },
+  "release_audit": {
+    "path": "artifacts/verification/release-audit-baseline-0031-attempt-001-blocked.json",
+    "bytes": 13877,
+    "sha256": "f3c7191c36831e9e05b9dafb3a80dc5a1fde534ef820dfd2d2cb8234f17ac2f4",
+    "valid": true,
+    "computed_status": "blocked",
+    "errors": [],
+    "warnings": [],
+    "failed_required_checks": [
+      "CHECK-007"
+    ],
+    "unrun_required_checks": [],
+    "unknown_surfaces": [],
+    "real_surface_matrix_status": "blocked"
+  },
+  "security_failure": {
+    "path": "artifacts/verification/container-scout-critical-high-baseline-0031-final-audit-failure-001.json",
+    "bytes": 3269,
+    "sha256": "8c4436f7a886cd0b271ee20ffbbf3a5a537c120da635ced8095b3bfb897d5996",
+    "image_id": "sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1",
+    "sarif_result_count": 6,
+    "unique_high_vulnerability_count": 2,
+    "critical_count": 0,
+    "release_gate_pass": false
+  },
+  "regression": {
+    "tests": {
+      "command": "python -m unittest discover -s tests -v",
+      "passed": 93,
+      "failed": 0,
+      "elapsed_seconds": 102.031
+    },
+    "phase_correct_validators": {
+      "passed": 40,
+      "failed": 0,
+      "elapsed_seconds": 5.696,
+      "side_effecting_verify_baseline_excluded": true,
+      "canonical_container_result_required": true
+    },
+    "compileall": "pass",
+    "git_diff_check": "pass",
+    "milestone_validation": {
+      "valid": true,
+      "status": "stopped",
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "structured_evidence": {
+    "json_files": 1024,
+    "json_empty_count": 1,
+    "known_empty_path": "artifacts/verification/mcp-source-baseline-0026.json",
+    "json_bom_count": 14,
+    "json_errors": [],
+    "jsonl_files": 164,
+    "jsonl_records": 30085,
+    "jsonl_errors": []
+  },
+  "scans": {
+    "added_line_high_specificity_secret_hits": 0,
+    "untracked_high_specificity_secret_hit_paths": [],
+    "model_artifact_count": 0,
+    "surviving_runbook_container_count": 0
+  },
+  "governed_paths": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 101693,
+      "sha256": "af6b29fbb88e0a82f3abb5168e716da9a80cc4e9a358a75aa583308339e28349",
+      "git_blob_sha1": "a5a3f8a2959cf6b9a0c56edce4b8626db8fe18bf"
+    },
+    {
+      "path": "artifacts/verification/baseline-0031-review-and-merged-main-failures-001.json",
+      "bytes": 17021,
+      "sha256": "f874b652bb7a7b55449df06cec8f701b5d2a549451d270a694965edcd699e28b",
+      "git_blob_sha1": "edf715d9f0bf7a06a5957109725080d2ba424dab"
+    },
+    {
+      "path": "artifacts/verification/container-scout-critical-high-baseline-0031-final-audit-failure-001.json",
+      "bytes": 3269,
+      "sha256": "8c4436f7a886cd0b271ee20ffbbf3a5a537c120da635ced8095b3bfb897d5996",
+      "git_blob_sha1": "8d3f51c6028294024d3fec6e2ca50dddc7506a35"
+    },
+    {
+      "path": "artifacts/verification/release-audit-baseline-0031-attempt-001-blocked.json",
+      "bytes": 13877,
+      "sha256": "f3c7191c36831e9e05b9dafb3a80dc5a1fde534ef820dfd2d2cb8234f17ac2f4",
+      "git_blob_sha1": "daefae32ae0743f8c7db1256a90f7f596c94018e"
+    },
+    {
+      "path": "contracts/milestone-0031.json",
+      "bytes": 28350,
+      "sha256": "78bd3c5dffba0a863ec70c3a612eabec4d00e890887422a5237bfeb49e0c46bc",
+      "git_blob_sha1": "2ba4d7cafa8288b799d6ea6d5af018d04f5bf6f8"
+    },
+    {
+      "path": "docs/devlog.md",
+      "bytes": 421055,
+      "sha256": "fe43b127ef663ee1a05fc67203a5c1a7d93c364edacf1837c4d271bc1e581a62",
+      "git_blob_sha1": "225870c74fd72b0bdf6a84e71af74e630071d712"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "bytes": 202178,
+      "sha256": "d5924855db22ded2379213c3a3e79c44dcc8f6fc62a3fa9fd3bfa496e9279fa7",
+      "git_blob_sha1": "1ebcd858fea1a42c636fe78c170aa68a2d5f9a69"
+    },
+    {
+      "path": "docs/research-ledger.md",
+      "bytes": 25941,
+      "sha256": "43b307cef47f8ca82901c9f9d5948251c8f80a40249a449af30ceb19c8b2ab83",
+      "git_blob_sha1": "5cab69f38c9c76745b6fbddc137399df307afb18"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 77821,
+      "sha256": "4070e86c3b50e059347753d63254ae3fec64d0140c59486b5258d990f410e13f",
+      "git_blob_sha1": "26e487304fc403a49857e2a22ae06e9e9127ae05"
+    },
+    {
+      "path": "docs/status.md",
+      "bytes": 248294,
+      "sha256": "1190f73014ba05f25b39a4a70f13e8f9039aad8afa2ec6f0e254918be3f84f04",
+      "git_blob_sha1": "f933c23ab0ea36abf1eba79486318e764ba03bfb"
+    },
+    {
+      "path": "docs/threat-model.md",
+      "bytes": 19182,
+      "sha256": "fef1317c48219b2411c003fd8d6bc4f55cea26f3626e11a460172b4b489fb017",
+      "git_blob_sha1": "c9dd679e6aec690a111f90d6bf7985ccd1333ab2"
+    },
+    {
+      "path": "docs/version-history.md",
+      "bytes": 25978,
+      "sha256": "522e03e615f5b50fcb053fc4ce8464a21bee1e0c7e1f45254c47373fd12bea9a",
+      "git_blob_sha1": "e9294b0ca49ee1d4fe6f4d1dcb42daf4b8bdd93a"
+    }
+  ],
+  "boundaries": {
+    "runtime_source_changed": false,
+    "evaluation_or_grader_changed": false,
+    "security_gate_weakened": false,
+    "historical_zero_result_scan_rewritten": false,
+    "v0_0_31_tag_or_release_created": false,
+    "image_exported_pushed_published_or_redistributed": false,
+    "credential_secret_paid_service_or_real_infrastructure_used": false
+  },
+  "next_gate": "Commit, push, and anonymously reconcile this additive stopped-state payload before creating BASELINE-0032."
+}

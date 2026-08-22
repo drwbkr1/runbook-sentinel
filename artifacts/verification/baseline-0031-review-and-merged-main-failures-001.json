@@ -3,7 +3,8 @@
   "receipt_id": "baseline-0031-review-and-merged-main-failures-001",
   "checkpoint": "baseline-0031",
   "unit": "UNIT-005",
-  "observed_at_utc": "2026-08-22T16:55:58Z",
+  "observed_at_utc": "2026-08-22T17:03:52Z",
+  "last_updated_at_utc": "2026-08-22T17:25:14Z",
   "status": "retained_process_invalid_and_nonblocking_findings",
   "positive_evidence": false,
   "observations": [
@@ -147,6 +148,78 @@
       "observation": "The first resume-orientation wrapper used the older BASELINE-0030 rollout-summary filename after the current memory registry had advanced to the BASELINE-0031 pause summary, so the wrapper stopped before reading any skill instruction.",
       "containment": "The lookup was read-only and did not change repository or external state.",
       "correction": "The exact successor used the current registry path, read the BASELINE-0031 pause summary, and then read every required governing skill and release/reconciliation reference completely."
+    },
+    {
+      "id": "OBS-020",
+      "phase": "final-release-audit-orientation",
+      "classification": "powershell_wrapper_parse_error",
+      "observation": "The first artifact and Docker inventory wrapper placed a pipeline immediately after a foreach block, which PowerShell rejected as an empty pipeline element before executing any read.",
+      "containment": "The wrapper failed at parse time and changed neither repository nor external state.",
+      "correction": "The exact successor assigns the foreach results to an array before serializing and separates artifact, Docker, and source-reference probes."
+    },
+    {
+      "id": "OBS-021",
+      "phase": "final-release-audit-orientation",
+      "classification": "contract_path_guess_error",
+      "observation": "The first exact-identity inventory guessed three nonexistent contracts paths for the retrieval cap, package, and container records.",
+      "containment": "The read-only probe reported the paths missing and did not use them as negative product evidence.",
+      "correction": "Repository inventory identifies the exact paths as eval/retrieval-tier-cap-contract.json, eval/package-contract-0031.json, and eval/container-contract-0031-v11.json before hashing or audit use."
+    },
+    {
+      "id": "OBS-022",
+      "phase": "final-release-audit-orientation",
+      "classification": "local_verifier_environment_unavailable",
+      "observation": "The Docker 29.4.3 client was installed but the desktop-linux daemon pipe was absent at final-audit orientation, so live image inventory and renewed scan commands could not run.",
+      "containment": "No container command mutated state; the exact August 18 candidate-bound container-runtime-v11 receipts remain retained but are not misrepresented as a fresh August 22 observation.",
+      "correction": "Restart only the authorized local Docker verifier environment, then recheck exact image custody and rerun the point-in-time scan before relying on a current container claim."
+    },
+    {
+      "id": "OBS-023",
+      "phase": "final-release-audit-orientation",
+      "classification": "windows_wildcard_search_error",
+      "observation": "A read-only milestone search passed contracts/schema* literally to ripgrep on Windows, which rejected the invalid path after returning the useful explicit contract matches.",
+      "containment": "The search changed no repository or external state and its partial output was not used to infer schema validity.",
+      "correction": "Use explicit directories plus ripgrep -g filters and inspect the governed milestone validator before changing lifecycle fields."
+    },
+    {
+      "id": "OBS-024",
+      "phase": "final-release-audit-orientation",
+      "classification": "skill_asset_path_guess_error",
+      "observation": "The first audit-template read guessed a nonexistent templates directory after the exact skill inventory had already shown the file under assets.",
+      "containment": "The failed read was local and read-only; no audit was drafted from an unknown template.",
+      "correction": "Read the exact enumerated assets/release-audit-report.json and the independent evaluator before authoring the blocked audit."
+    },
+    {
+      "id": "OBS-025",
+      "phase": "final-release-audit-security-refresh",
+      "classification": "local_image_reference_error",
+      "observation": "The first renewed Docker Scout command targeted an unowned shorthand tag, attempted a registry fallback, and failed to pull before producing SARIF.",
+      "containment": "No image was pulled, exported, pushed, published, or redistributed; the failed command provided no positive or negative security evidence.",
+      "correction": "Inventory the exact local tags first and use the local:// prefix; the successor scanned image ID sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1 without registry fallback."
+    },
+    {
+      "id": "OBS-026",
+      "phase": "final-release-audit-public-truth-refresh",
+      "classification": "powershell_release_array_projection_error",
+      "observation": "A combined anonymous GitHub inventory correctly reconciled all four main refs and v0.0.31 absence but returned a null latest-release projection from a PowerShell array/filter expression.",
+      "containment": "The null was treated as incomplete wrapper output, not as release absence or project evidence.",
+      "correction": "Query the official releases/latest endpoint directly; it reports public non-draft non-prerelease v0.0.30 published at 2026-08-17T23:19:14Z."
+    },
+    {
+      "id": "OBS-027",
+      "phase": "stopped-state-verification",
+      "classification": "windows_wildcard_search_error",
+      "observation": "A read-only evidence search passed artifacts/verification/baseline-0031* literally to ripgrep on Windows, which rejected the invalid path after the exact merged-main regression summary had already been read.",
+      "containment": "The partial search output was not used as a complete validator inventory and no repository or external state changed.",
+      "correction": "Use the explicit artifacts/verification directory with -g baseline-0031*.json and retain the side-effecting verify_baseline.py exclusion."
+    },
+    {
+      "id": "OBS-028",
+      "phase": "stopped-state-verification",
+      "classification": "active_rollout_file_share_error",
+      "observation": "The first exact-command recovery reader used File.OpenText on the active Codex rollout and Windows denied the default exclusive-share request.",
+      "containment": "The read-only lookup produced no command inventory and changed no repository, product, or external state.",
+      "correction": "Open the active audit log explicitly with FileShare.ReadWrite; the successor recovered the exact side-effect-free 40-validator command set, which then passed unchanged."
     }
   ],
   "boundaries": {

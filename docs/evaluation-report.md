@@ -1,5 +1,13 @@
 # Evaluation report
 
+## BASELINE-0031 final release audit - stopped and unpublished
+
+Final audit attempt 001 binds public main candidate `b5657e70697f3f34c1d8bd6b7044280745214dea`, selected archive SHA-256 `0e355dffd06ad6854d529b74a0248600e7d5ae1a86dadb1767e5be851cb0e865`, and local image `sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1`. The independent evaluator reports a structurally valid `blocked` result with no errors or warnings, CHECK-007 as the only failed required check, and the required point-in-time scan surface unverified.
+
+The renewed local-only Docker Scout v1.20.4 run on 2026-08-22 produces six SARIF results across `libcrypto3`, `libssl3`, and `openssl` 3.6.3-r3 for two unique HIGH findings. CVE-2026-14456 affects versions below 3.6.3-r5; CVE-2026-54876 affects versions below 3.6.3-r4. The transient 14,143-byte SARIF stdout is audit-log-bound at SHA-256 `168653d6...`; the project receipt preserves exact packages, ranges, fixed versions, counts, image identity, and boundaries. The August 18 461-byte zero-result SARIF remains byte-exact and historical rather than being overwritten or represented as current.
+
+The frozen contract still requires zero current critical/high scanner findings. No severity suppression, threshold change, source/runtime mutation, or rescue interpretation is allowed. `v0.0.31` therefore remains untagged and unreleased; `v0.0.30` remains the latest verified public checkpoint. No image was exported, pushed, published, or redistributed. The next measurement cycle is a separately source-gated digest-only base refresh under BASELINE-0032.
+
 ## BASELINE-0031 reviewed merge and fresh public-main result
 
 Premerge audit `release-audit-baseline-0031-premerge.json` passes all ten checks and nineteen required real surfaces. Exact-head GitHub review binds `bcc5be719d8885598e858867e86f55171f94be2f`, retains the excluded v4 evidence and one nonblocking next-checkpoint gate-inventory hardening requirement, and finds no merge blocker. PR `#29` merged only under expected-head lock as `1b0ad59a59f566c8d10e7069d3ed8ffdb974f7fd`; reviewed and merged trees are identical at `f9fd2112b04d7a25592b23f8bef54aec34bad250`.
@@ -8,9 +16,9 @@ A fresh no-alternates public-main clone passes 93 tests and all 40 phase-correct
 
 Both source and package MCP negotiate protocol `2025-11-25`, expose exactly three diagnostic/read tools, and expose no approval or execution authority. Both Windows PowerShell authenticated APIs pass 131/131 checks; both persisted-state, audit, redaction, and anchored-telemetry inspections pass 72/72. Source, package, and container 1440 by 1000 dashboards are complete at original detail with all 35 metric cards, two incidents, authenticated external operator, and real infrastructure disconnected.
 
-Two full public-main builds and one separate no-alternates public-main clean build reproduce exact image `sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1`. The full verifier supplies 46 checks and the independent clean clone supplies the exact final identity check, composing 47/47. Container evaluation, MCP, API/approval/executor/replay, state, telemetry, hardening, extraction, dashboard, and observation-time zero-critical/high scan pass. No image was exported, pushed, published, or redistributed. Final release audit remains before v0.0.31 tag or asset publication.
+Two full public-main builds and one separate no-alternates public-main clean build reproduce exact image `sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1`. The full verifier supplies 46 checks and the independent clean clone supplies the exact final identity check, composing 47/47. Container evaluation, MCP, API/approval/executor/replay, state, telemetry, hardening, extraction, dashboard, and the August 18 observation-time zero-critical/high scan pass. No image was exported, pushed, published, or redistributed. This paragraph is historical merged-main evidence; the later final-audit scan above controls release disposition.
 
-Merged-main evidence commit `c621614445a8e0f93160dd64ace905a418ba62ff`, tree `5b55ca0044b89957f66ac927d4d713852c377879`, is exact across local and tracking refs, `ls-remote`, anonymous GitHub ref/commit/tree APIs, and all ten immutable raw paths. The passing receipt is 11,099 bytes at SHA-256 `74d80cb6ca63566452c32f64e788b443d0f2cade7fe76c50fca569853f7d297c`. The retained wrapper failures are not positive evidence. This closes public merged-main reconciliation; the final release-truth audit remains next.
+Merged-main evidence commit `c621614445a8e0f93160dd64ace905a418ba62ff`, tree `5b55ca0044b89957f66ac927d4d713852c377879`, is exact across local and tracking refs, `ls-remote`, anonymous GitHub ref/commit/tree APIs, and all ten immutable raw paths. The passing receipt is 11,099 bytes at SHA-256 `74d80cb6ca63566452c32f64e788b443d0f2cade7fe76c50fca569853f7d297c`. The retained wrapper failures are not positive evidence. This closes historical public merged-main reconciliation; the final audit above stops publication.
 
 ## BASELINE-0031 preimplementation orientation
 

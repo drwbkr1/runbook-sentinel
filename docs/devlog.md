@@ -1,5 +1,15 @@
 # Development log
 
+## 2026-08-22 BASELINE-0031 final audit stopped release
+
+- Resumed from public reconciled main `b5657e70697f3f34c1d8bd6b7044280745214dea`, exact across local, tracking, `ls-remote`, and anonymous GitHub main. `v0.0.31` tag/release are absent and public `v0.0.30` remains latest.
+- Restarted only the authorized local Docker verifier. Six BASELINE-0031 tags resolve to exact image `sha256:3736d003...`, no verifier container survives, and no image export, registry authentication, push, publication, or redistribution occurs.
+- Reran Docker Scout v1.20.4 with local-only resolution and the frozen critical/high filter. Six SARIF results across three Wolfi OpenSSL 3.6.3-r3 packages represent two unique HIGH findings: CVE-2026-14456 fixed in 3.6.3-r5 and CVE-2026-54876 fixed in 3.6.3-r4.
+- Preserved the August 18 zero-result SARIF as historical and added a separate exact failure receipt plus process-invalid observations. No unfavorable evidence, threshold, severity, scanner result, or frozen contract was rewritten.
+- Final release audit attempt 001 validates structurally with no error or warning and computes `blocked`; only CHECK-007 fails and only the required current scan surface is omitted from the verified matrix. BASELINE-0031 stops with disposition `remediate`. `v0.0.31` remains untagged and unreleased.
+- The stopped-state regression passes all 93 tests in 102.031 seconds and all 40 phase-correct side-effect-free validators in 5.696 seconds with the exact canonical container result required. The valid audit still computes blocked; passing code does not rescue a failed release security gate.
+- Selected BASELINE-0032 as the next bounded checkpoint: source-gate and publicly freeze one exact Chainguard Python digest update, then rerun the complete source/package/container/MCP/API/approval/executor/state/telemetry/dashboard/scan matrix without changing application behavior or authority.
+
 ## 2026-08-18 BASELINE-0031 reviewed merge and public-main verification
 
 - Premerge audit `release-audit-baseline-0031-premerge.json` verifies all ten checks and nineteen real surfaces. PR `#29` became ready at exact head `bcc5be719d8885598e858867e86f55171f94be2f`; 112 local and GitHub paths agree, GitHub reports CLEAN/MERGEABLE, and no CI/status context exists.
@@ -10,7 +20,7 @@
 - Source/package MCP remain bounded to three diagnostic/read tools with no approval or execution authority. Both Windows PowerShell authenticated APIs pass 131/131 checks and both native state/audit/telemetry inspections pass 72/72. Original-detail review accepts both complete 1440 by 1000 dashboards; the known Edge post-write diagnostic remains retained.
 - Two full public-main builds plus a second no-alternates public-main clean build reproduce image `sha256:3736d003...`. Composed container-runtime-v11 passes 47/47 including exact package/evaluation payloads, real CLI/MCP/API/executor/state/telemetry, hardened runtime, verified extraction, complete dashboard, local-only image events, and the observation-time zero-critical/high scan. No verifier container survives and no image was exported, pushed, published, or redistributed.
 - Retained process-invalid wrappers and the defense-in-depth finding in `baseline-0031-review-and-merged-main-failures-001.json`; no failed result is positive evidence. `merged-main-baseline-0031.json` binds the passing stack. Publish and reconcile these exact records before final release audit.
-- Published merged-main evidence commit `c621614445a8e0f93160dd64ace905a418ba62ff`. Local, tracking, `ls-remote`, anonymous GitHub ref/commit/tree APIs, and all ten immutable raw paths agree at tree `5b55ca0044b89957f66ac927d4d713852c377879`; the passing 11,099-byte receipt is SHA-256 `74d80cb6...`. The first recursive-tree URL wrapper and one stale memory-summary filename lookup remain retained as read-only process-invalid observations. Final release audit is next; v0.0.31 tag/release and all image distribution remain absent.
+- Published merged-main evidence commit `c621614445a8e0f93160dd64ace905a418ba62ff`. Local, tracking, `ls-remote`, anonymous GitHub ref/commit/tree APIs, and all ten immutable raw paths agree at tree `5b55ca0044b89957f66ac927d4d713852c377879`; the passing 11,099-byte receipt is SHA-256 `74d80cb6...`. The first recursive-tree URL wrapper and one stale memory-summary filename lookup remain retained as read-only process-invalid observations. This historical gate preceded the August 22 final audit that stopped v0.0.31; tag/release and all image distribution remain absent.
 
 ## 2026-08-17 BASELINE-0031 retrieval-focus orientation and local freeze
 
