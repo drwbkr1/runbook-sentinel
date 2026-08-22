@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0032-PACKAGE-SOURCE-FINAL-V2-PUBLIC",
+  "checkpoint": "baseline-0032",
+  "observed_at_utc": "2026-08-22T20:40:04Z",
+  "status": "pass",
+  "repository": {
+    "owner": "drwbkr1",
+    "name": "runbook-sentinel",
+    "visibility": "public",
+    "branch": "codex/baseline-0032-container-base-security-refresh"
+  },
+  "target": {
+    "commit": "3e892d5fb7830f2812531f8936aa811b93d5c424",
+    "tree": "3c366d8f465702d79651150435c83e8dc2e1a30e",
+    "parent": "09fcbe7a8fdc40cbd4be0101c2a83f5600135b18",
+    "commit_message": "test: seal corrected baseline 0032 package surfaces"
+  },
+  "checks": {
+    "local_ref_exact": true,
+    "explicit_tracking_ref_exact": true,
+    "ls_remote_branch_exact": true,
+    "anonymous_github_ref_exact": true,
+    "anonymous_github_commit_exact": true,
+    "anonymous_github_tree_exact": true,
+    "anonymous_github_parent_exact": true,
+    "github_tree_not_truncated": true,
+    "changed_git_blobs_exact": true,
+    "anonymous_raw_bytes_exact": true,
+    "public_main_unchanged": true
+  },
+  "counts": {
+    "repository_tree_entries": 1511,
+    "changed_paths": 20,
+    "changed_raw_bytes_total": 4716057,
+    "git_blob_mismatches": 0,
+    "raw_byte_mismatches": 0
+  },
+  "candidate": {
+    "package_sha256": "3be93953a367483e29c696af889ebfccc432424b8303c4f69ae00d10a38c2270",
+    "source_report_sha256": "ee91d65a13532422aa8a20710dd3af9c62bf488fab1d9c395b1319621201f763",
+    "package_report_sha256": "0b544367ce470c0814d6b903dd2dc9b28e9abe75572a58074c2723ed8a24eeb1",
+    "normalized_report_sha256": "0d5c762220bc922ac795bc9c83c834387a55056dfda6e37e05c816c1e30e3fc3",
+    "source_and_package_all_136_boolean_gates": true,
+    "source_and_package_mcp_api_native_and_dashboard_surfaces": "pass"
+  },
+  "public_main": {
+    "commit": "e12e638b98b1deacb4c5058ecb9d7c8652c96985",
+    "moved": false
+  },
+  "boundaries": {
+    "derived_container_image_built": false,
+    "container_runtime_started": false,
+    "real_infrastructure_contacted": false,
+    "tag_release_deployment_or_publication_created": false,
+    "container_image_exported_pushed_published_or_redistributed": false
+  },
+  "next_gate": "Publish and independently verify this record-only receipt, then run local and no-alternates clean-clone container-runtime-v12 verification."
+}

@@ -34,6 +34,8 @@ That verifier correction is public and exact at `7ef0eeefe073ec82e29adb8fa9ce387
 
 Record-only commit `09fcbe7a8fdc40cbd4be0101c2a83f5600135b18` is also exact across all eight changed Git blobs and raw files. Two replacement archives are byte-identical at 647,712 bytes and SHA-256 `3be93953...`. Source attempt 005 and package attempt 006 each pass all 136 gates with anchored traces and exact normalized parity at `0d5c7622...`; both MCP, API, native, and dashboard surfaces pass. Publish and independently reconcile `package-source-baseline-0032-final-v2.json` and its payload before starting v12 Docker verification.
 
+That corrected payload is public and exact at `3e892d5fb7830f2812531f8936aa811b93d5c424`, tree `3c366d8f465702d79651150435c83e8dc2e1a30e`, parent `09fcbe7a8fdc40cbd4be0101c2a83f5600135b18`. All refs, 20 Git blobs, and 20 anonymous raw files agree across 4,716,057 bytes; the 1,511-entry tree is untruncated and public main remains unchanged. Publish and verify the record-only public receipt, then run v12 local and no-alternates clean-clone verification without exporting image bytes.
+
 UNIT-004 reruns all separate evaluation families, exact terminal-state graders, source/package/CLI/MCP/API/approval/executor/dashboard/state/telemetry surfaces, two local builds, one no-alternates clean-clone build, hardening inspection, and a fresh local-only derived-image critical/high scan with target binding outside generic SARIF. UNIT-005 may create annotated v0.0.32 and selected project-authored zipapp/checksum assets only after warning-free premerge and final release audits pass. Container image bytes are never a release asset.
 
 ## Stopped checkpoint baseline-0031 - bounded trust-tier retrieval comparison
