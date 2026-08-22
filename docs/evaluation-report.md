@@ -949,7 +949,7 @@ Superseded evaluation generation: public source `a757ecf...` produced two exact 
 
 ## BASELINE-0032 merged-main complete-stack result
 
-Status: pass at public main `772e2a375e4cad1fc8697c75af886194656be6aa`, tree `4b891c9a9e9f09e8b51de399f9df2b3fefb69e2f`; public merged-main evidence is exact at `a5421577a3d9ee03a41c56a05acc03b375197c6d`. Final release audit is pending, so v0.0.32 remains untagged and unreleased.
+Status: pass at reviewed merge `772e2a375e4cad1fc8697c75af886194656be6aa`, public merged-main evidence `a5421577a3d9ee03a41c56a05acc03b375197c6d`, living-record reconciliation `208b1faa79f829d0ddeaaeae3698874a9504f6be`, and final audit-only commit `a2b1a179c0ee363fe0692cd9ea86fb00694de0d1`. The evaluator verifies all ten checks and twenty surfaces without warning. Exact closure, tag, selected assets, downloads, pages, and public-tag verification remain pending.
 
 The warning-free premerge audit verified ten checks and twenty required surfaces. PR `#30` merged exact reviewed head `200b455125aa60be938f7cb2289dba1d0194d930` with history preserved as `772e2a375e4cad1fc8697c75af886194656be6aa`; reviewed and merged trees are identical. A fresh credential-disabled no-alternates public-main clone passes 96 tests and all 40 phase-correct validators.
 

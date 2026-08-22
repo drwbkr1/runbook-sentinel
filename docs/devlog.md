@@ -1648,3 +1648,13 @@ Both three-tool MCP paths, both authenticated 131-check APIs, both 72-check pers
 Public merged-main evidence commit `a5421577a3d9ee03a41c56a05acc03b375197c6d`, tree `d026a682c8f7821ae7d2af6e8c2520ec202de818`, binds the passing receipt, retained process failures, and three inspected dashboards. All five anonymous raw files are exact. v0.0.32 remains untagged and unreleased; living-record reconciliation and the warning-free final release audit are the only next gates.
 
 A staging-summary wrapper used PowerShell wildcard `??` as though it were literal Git porcelain and therefore displayed staged rows in its untracked summary. `git diff --cached --name-status` still showed exactly the intended seven living records; the corrected literal porcelain check leaves only the four pre-existing quarantined local outputs untracked.
+
+## 2026-08-22 - BASELINE-0032 final release audit
+
+Published the seven exact merged-main living records at `208b1faa79f829d0ddeaaeae3698874a9504f6be`; every anonymous public byte stream matches. Public main then advanced by the sole 28,009-byte audit path at commit `a2b1a179c0ee363fe0692cd9ea86fb00694de0d1`, SHA-256 `d0d6c748ec8b7bf28dcf4ee068c2f7e82ce905ccc9d2a31424264ff01e483aab`.
+
+Immediately before audit creation, public main, merged PR #30, exact-head review, zero check/status contexts, latest v0.0.30 release, absent v0.0.32 tag/release, local Docker identity, surviving-container inventory, and a renewed Docker Scout 1.20.4 scan were read live. The scan tag resolved before and after to exact image `sha256:5cb0cb2d...` and the release-time critical/high result remained zero. The first combined live-state wrapper returned no usable output and a later anonymous-audit wrapper had a JavaScript quoting error; both remain process-invalid and bounded successor reads passed.
+
+The governing audit evaluator reports `verified`: ten of ten checks pass, all twenty required real surfaces are verified, authority is active and inherited, and errors, warnings, failed checks, missing surfaces, stale surfaces, unknown surfaces, and unrun checks are all empty. Only exact release closure, annotated v0.0.32, the selected zipapp/checksum, and immediate public verification are authorized. The container image remains local-only.
+
+A release-closure orientation wrapper passed an unquoted `HEAD^{tree}` revision expression through PowerShell, which transformed the argument and made `git rev-parse` fail. The same wrapper still returned exact remote branch refs and confirmed the v0.0.32 release is absent, but the malformed tree result supplies no evidence; a quoted successor probe is required before commit.

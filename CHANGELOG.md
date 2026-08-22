@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.32 - Unreleased
+## 0.0.32 - 2026-08-22
 
 - Opened BASELINE-0032 from exact public stopped-state commit `e12e638b98b1deacb4c5058ecb9d7c8652c96985`; public v0.0.30 remains latest, and v0.0.31 remains stopped, untagged, and unreleased.
 - Source-gated immutable Chainguard Python index `sha256:1f677977...` and linux/amd64 manifest `sha256:e15765ff...` from current primary publisher, registry, SBOM/provenance, package, rights, and security evidence. The gate permits anonymous local pull/build/scan only after public freeze and forbids mutable tags, authentication, paid/private assets, secrets, image redistribution, and real infrastructure.
@@ -39,6 +39,7 @@
 - Published and independently reconciled UNIT-004 record commit `a0fbde12ad4d562239320f72dceea6a1337d99d7`, tree `73d80834a2d92f63cdd441e6e099fb064a901ae4`: its eight changed paths and anonymous immutable bytes are exact, public main remains unchanged, and draft PR `#30` opened at that exact head. The first premerge control-plane inspection retained a stale milestone pointer separately and released no review, merge, tag, release, deployment, or image-publication action; this bounded truth correction must be public and exact before the audit can pass.
 - Published exact active-truth corrections `fad81d9...` and `a8563b8...`, followed by sole-path premerge audit commit `200b455...`. The evaluator verifies all ten checks and twenty surfaces without error, warning, stale, missing, unknown, or unrun state. Exact-head COMMENTED review `5001107103` found no merge blocker; PR `#30` merged reviewed head `200b455...` under expected-head lock as `772e2a3...`, preserving both parents and the identical reviewed tree.
 - Fresh public-main verification passes 96 tests, 40 validators, two exact archive rebuilds, source/package all-136-gate evaluations and anchored traces, bounded MCP, both 131-check APIs, both 72-check native inspections, three complete dashboards, and 49 composed container-runtime-v12 checks at image `sha256:5cb0cb2d...`. Public merged-main evidence commit `a542157...`, tree `d026a68...`, and all five anonymous raw paths are exact. No v0.0.32 tag, release, deployment, image export, push, publication, or redistribution exists; final release audit is next.
+- Reconciled seven living records at public main `208b1faa79f829d0ddeaaeae3698874a9504f6be`, then published sole-path final audit `a2b1a179c0ee363fe0692cd9ea86fb00694de0d1`. The release-truth evaluator reports `verified` across all ten checks and twenty required surfaces with active inherited authority and no error, warning, stale, missing, unknown, or unrun result. Release-time exact-image scanning remains zero critical/high. Only annotated v0.0.32, the selected zipapp/checksum, and immediate public verification are authorized; the container image remains local-only.
 
 ## 0.0.31 - Unreleased
 
