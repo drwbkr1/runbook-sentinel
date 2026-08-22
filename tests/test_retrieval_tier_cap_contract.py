@@ -35,6 +35,17 @@ class RetrievalTierCapContractTests(unittest.TestCase):
         self.assertEqual(result["status"], "pass")
         self.assertEqual(result["errors"], [])
 
+    def test_accepted_control_lifecycle_manifest_is_archived_not_mutable(self) -> None:
+        self.assertEqual(
+            verifier.ACCEPTED_CONTROL_LIFECYCLE_MANIFEST_PATH,
+            ROOT
+            / "artifacts/evaluations/runs/baseline-0031-final-source-attempt-002.manifest.json",
+        )
+        self.assertNotEqual(
+            verifier.ACCEPTED_CONTROL_LIFECYCLE_MANIFEST_PATH,
+            ROOT / "eval/manifest.json",
+        )
+
     def test_accepted_control_survives_latest_pointer_advance_exactly(self) -> None:
         control = self.frozen["accepted_control"]
         with tempfile.TemporaryDirectory(prefix="sentinel-control-") as directory:

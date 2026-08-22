@@ -19,7 +19,10 @@ from runbook_sentinel.evidence import (  # noqa: E402
 
 
 CONTRACT_PATH = ROOT / "eval/retrieval-tier-cap-contract.json"
-ACTIVE_MANIFEST_PATH = ROOT / "eval/manifest.json"
+ACCEPTED_CONTROL_LIFECYCLE_MANIFEST_PATH = (
+    ROOT
+    / "artifacts/evaluations/runs/baseline-0031-final-source-attempt-002.manifest.json"
+)
 ACCEPTED_CONTROL_ARCHIVE_PATH = (
     ROOT
     / "artifacts/evaluations/runs/baseline-0030-final-source-attempt-001.json"
@@ -221,7 +224,7 @@ def validate(
         control,
         declared_report_path,
         ACCEPTED_CONTROL_ARCHIVE_PATH,
-        ACTIVE_MANIFEST_PATH,
+        ACCEPTED_CONTROL_LIFECYCLE_MANIFEST_PATH,
         errors,
     )
     if report_path.is_file():

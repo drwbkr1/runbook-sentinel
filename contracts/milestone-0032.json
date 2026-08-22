@@ -209,7 +209,7 @@
       ],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "ready",
+      "status": "in_progress",
       "inputs": [
         "public implementation seal",
         "frozen source package container and security contracts"

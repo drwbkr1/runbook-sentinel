@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0032-PREBUILD-MANIFEST-SEAL-LOCAL",
+  "checkpoint": "BASELINE-0032",
+  "observed_at_utc": "2026-08-22T18:48:54Z",
+  "status": "local_pass_public_seal_pending",
+  "repository": {
+    "branch": "codex/baseline-0032-container-base-security-refresh",
+    "parent_commit": "614af723c3f5de3cb30798169ebcc4593aac0572",
+    "parent_tree": "bbd8786f6b3760eda4e0561b8d02af6ee334a615",
+    "public_implementation_commit": "ead044ee5da0e017a3a5af0c9891668a0a83d4a8",
+    "public_implementation_reconciliation_commit": "614af723c3f5de3cb30798169ebcc4593aac0572"
+  },
+  "manifest": {
+    "active_path": "eval/manifest.json",
+    "archived_path": "artifacts/verification/baseline-0032-prebuild-source-manifest.json",
+    "checkpoint": "baseline-0032",
+    "frozen_at_utc": "2026-08-22T18:44:50Z",
+    "file_count": 153,
+    "bytes": 18484,
+    "sha256": "07fcf36bff0f137062f6286f6e330c91441775120ee9a142868e59ca3e0ef1ae",
+    "active_and_archived_bytes_equal": true
+  },
+  "validator_correction": {
+    "scope": "historical accepted-control lifecycle manifest pointer only",
+    "from": "mutable eval/manifest.json",
+    "rejected_first_candidate": "artifacts/verification/baseline-0031-prebuild-source-manifest.json",
+    "to": "artifacts/evaluations/runs/baseline-0031-final-source-attempt-002.manifest.json",
+    "exact_retained_report_manifest_sha256": "e2ea1bcad45fe35e61ae84f3fb992400a737b46fa0daf94065e0ecb69a29a7e4",
+    "retrieval_behavior_changed": false,
+    "selected_or_default_configuration_changed": false,
+    "corpus_cases_metrics_thresholds_or_graders_changed": false
+  },
+  "verification": {
+    "manifest_validator": {
+      "status": "pass",
+      "file_count": 153
+    },
+    "retrieval_tier_contract": {
+      "status": "pass",
+      "implementation_phase": "implemented_experimental",
+      "candidate_selected": false
+    },
+    "focused_regression_tests": {
+      "status": "pass",
+      "count": 2
+    },
+    "first_full_suite": {
+      "status": "fail",
+      "passed": 93,
+      "failed": 1,
+      "total": 94,
+      "elapsed_seconds": 95.746
+    },
+    "final_full_suite": {
+      "status": "pass",
+      "passed": 95,
+      "failed": 0,
+      "total": 95,
+      "elapsed_seconds": 91.328
+    },
+    "diff_check": "pass",
+    "secret_scan": {
+      "added_lines": 30,
+      "unresolved_pattern_hits": 0
+    }
+  },
+  "changed_payload": {
+    "excludes_this_receipt": true,
+    "path_count": 12,
+    "files": [
+      {
+        "path": "artifacts/verification/baseline-0032-orientation-failures-001.json",
+        "bytes": 13867,
+        "sha256": "3dfa1d05eced9ac7c1a4a8c981efc96e1c68c2bc6637acc27af82dac47c8f99c"
+      },
+      {
+        "path": "artifacts/verification/baseline-0032-prebuild-source-manifest.json",
+        "bytes": 18484,
+        "sha256": "07fcf36bff0f137062f6286f6e330c91441775120ee9a142868e59ca3e0ef1ae"
+      },
+      {
+        "path": "CHANGELOG.md",
+        "bytes": 106544,
+        "sha256": "3a2127312c3126ef8fbfd8478673a5d26802fab3d8e9eeba74fa5a80436a132a"
+      },
+      {
+        "path": "contracts/milestone-0032.json",
+        "bytes": 14414,
+        "sha256": "31feb9308019741bde9f02dd3dc4678786ec9b09b3a9d89272c5cd28151c34a2"
+      },
+      {
+        "path": "docs/devlog.md",
+        "bytes": 427540,
+        "sha256": "8cd448975a65a69475a07e16648e469c538b1ef90cf2fcb19562e74c8037b45c"
+      },
+      {
+        "path": "docs/evaluation-report.md",
+        "bytes": 206974,
+        "sha256": "7dd3acdce3101274c2902ab5a5727b416565060154d677749bc8f0862dc90e35"
+      },
+      {
+        "path": "docs/roadmap.md",
+        "bytes": 82439,
+        "sha256": "733426b2d19cddf8d0c1ee6427a9fead51c8aec26e8d030cfb10540311b8df29"
+      },
+      {
+        "path": "docs/status.md",
+        "bytes": 251616,
+        "sha256": "7932d86fb39edde2ddcf14b06c9b17ae4e20c0a2eebcc0e3cc8c2ee8425fe721"
+      },
+      {
+        "path": "docs/version-history.md",
+        "bytes": 27298,
+        "sha256": "82eb8312d173d11de49aa84daac49145f6043db8c59177b9c703c67ad1d0a3d2"
+      },
+      {
+        "path": "eval/manifest.json",
+        "bytes": 18484,
+        "sha256": "07fcf36bff0f137062f6286f6e330c91441775120ee9a142868e59ca3e0ef1ae"
+      },
+      {
+        "path": "scripts/verify_retrieval_tier_cap_contract.py",
+        "bytes": 18236,
+        "sha256": "acc0f616aec887da7e4b48fd1da9a46e491071cfef7fef6c1f76873c67437fb5"
+      },
+      {
+        "path": "tests/test_retrieval_tier_cap_contract.py",
+        "bytes": 8466,
+        "sha256": "9e00413dab780551ec6bbf63514060081b2989d57df36d719b571b1f4fa95fab"
+      }
+    ]
+  },
+  "prebuild_state": {
+    "v0_0_32_package_exists": false,
+    "baseline_0032_derived_image_match_count": 0,
+    "candidate_evaluation_started": false,
+    "container_receipt_exists": false
+  },
+  "boundaries": {
+    "retrieval_or_model_behavior_changed": false,
+    "evaluation_case_grader_or_threshold_changed": false,
+    "package_or_derived_image_built": false,
+    "candidate_evaluation_started": false,
+    "dependency_secret_paid_service_or_real_infrastructure_added": false,
+    "tag_release_or_deployment_created": false,
+    "container_image_exported_pushed_published_or_redistributed": false
+  },
+  "next_gate": "Validate every changed byte, commit and publish the exact prebuild manifest seal, reconcile anonymous GitHub bytes, and only then build deterministic package attempts."
+}

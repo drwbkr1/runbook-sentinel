@@ -106,6 +106,46 @@
       "observation": "A wording-only version-history patch matched only the leading cells of a longer Markdown table row, so apply_patch could not find the incomplete expected line and rejected the edit.",
       "containment": "No file changed and the rejected patch was not used as evidence.",
       "correction": "Read the exact complete row and replace that full line once, changing evaluation active to the narrower evaluation unit ready claim."
+    },
+    {
+      "id": "OBS-014",
+      "phase": "unit-004-successor-manifest-freeze",
+      "classification": "powershell_byte_equality_precedence_error",
+      "observation": "The first explicit active-versus-archived manifest equality expression combined byte-array joins and comparison without grouping, producing a string-valued False even though both files had the same length and SHA-256.",
+      "containment": "The malformed equality output was not used to accept the manifest; both generated files remained unchanged and the manifest validator independently passed.",
+      "correction": "Compare Base64 encodings of the complete byte arrays with a case-sensitive equality operator, confirming both 18,484-byte files are exact at SHA-256 711b6016f2856cdd41c9eb7f9459320666e9b424e599bea52e1abad4e0fa7264."
+    },
+    {
+      "id": "OBS-015",
+      "phase": "unit-004-successor-manifest-validation",
+      "classification": "mutable_active_manifest_pointer_in_historical_retrieval_validator",
+      "observation": "The first full suite against the renewed BASELINE-0032 manifest passed 93 of 94 tests but failed retrieval-tier current_contract_phase because the production validator supplied mutable eval/manifest.json when authenticating the retained BASELINE-0031 lifecycle report.",
+      "containment": "No package, evaluation candidate, or derived image was built. The 95.746-second failed run, errors active_evaluation_lifecycle_identity and control_manifest_sha256, and unchanged selected retrieval configuration were retained.",
+      "correction": "Replace the mutable pointer with an immutable retained lifecycle manifest, add a regression test that forbids eval/manifest.json, and require exact report-to-manifest SHA-256 validation before refreezing BASELINE-0032 source identity; the first candidate archive is separately rejected in OBS-016."
+    },
+    {
+      "id": "OBS-016",
+      "phase": "unit-004-retrieval-validator-pointer-correction",
+      "classification": "wrong_immutable_lifecycle_manifest_selected",
+      "observation": "The first bounded pointer correction selected the general BASELINE-0031 prebuild manifest at SHA-256 9cdb30aa, but current retained latest.json binds the later attempt-002 lifecycle manifest at SHA-256 e2ea1bca; the validator and current-phase test correctly remained failed.",
+      "containment": "The two-test correction check passed only the new immutability assertion and failed current phase; no manifest refreeze, package, evaluation candidate, or derived image followed the mismatch.",
+      "correction": "Bind the production lifecycle check to immutable baseline-0031-final-source-attempt-002.manifest.json, whose SHA-256 exactly equals retained latest.json manifest_sha256, while leaving the frozen retrieval selection evidence and all behavior unchanged."
+    },
+    {
+      "id": "OBS-017",
+      "phase": "unit-004-retrieval-validator-manifest-inventory",
+      "classification": "powershell_compact_manifest_inventory_failed_without_output",
+      "observation": "A compact read-only PowerShell manifest-hash inventory exited 1 without producing usable output, so it could not localize the lifecycle mismatch.",
+      "containment": "No missing value was inferred, and the failed command changed no file or external state.",
+      "correction": "Use a read-only Python inventory to report retained latest.json checkpoint, bound manifest SHA-256, and all candidate manifest lengths and hashes before selecting the exact attempt-002 artifact."
+    },
+    {
+      "id": "OBS-018",
+      "phase": "unit-004-prebuild-living-record-update",
+      "classification": "combined_apply_patch_partial_table_row_rejected",
+      "observation": "The first combined prebuild documentation patch again supplied only the leading cells of the long v0.0.32 version-history row, so apply_patch rejected the entire multi-file patch before applying any hunk.",
+      "containment": "No living record changed and the rejected patch was not used as evidence.",
+      "correction": "Apply the non-table living-record changes in one atomic patch, read the exact complete version-history row, and replace that full row separately."
     }
   ],
   "boundaries": {
