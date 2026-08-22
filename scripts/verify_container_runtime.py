@@ -1106,7 +1106,7 @@ def full_verification(args: argparse.Namespace) -> dict:
     )
     base = image_inspect(BASE_REFERENCE)
     image_validation = validate_image(tags[0], builds[0], base)
-    keeper = f"rs-b0031-{token}"
+    keeper = f"rs-b0032-{token}"
     create_keeper(keeper, tags[0])
     api_process: subprocess.Popen[str] | None = None
     try:
@@ -1290,7 +1290,7 @@ def full_verification(args: argparse.Namespace) -> dict:
                 "image_pushed": False,
                 "local_image_events": local_events,
             },
-            "next_gate": "Rebuild the exact image from a clean public-branch clone, then compose the canonical receipt with all 43 checks true.",
+            "next_gate": "Rebuild the exact image from a clean public-branch clone, then compose the canonical receipt with all 49 checks true.",
         }
         write_json(args.receipt, result)
         return result

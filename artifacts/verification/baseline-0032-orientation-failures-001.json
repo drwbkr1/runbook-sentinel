@@ -298,6 +298,14 @@
       "observation": "The first bounded credential scan read complete modified documentation files and matched an old devlog sentence that intentionally records the literal private-key delimiter as a forbidden-pattern definition.",
       "containment": "Receipt bindings and JSONL parsing had passed independently, the scan remained fail, no historical text was relabeled or removed, and no credential-like value was accepted.",
       "correction": "Scan only added tracked lines plus the complete new text evidence files; 54 added lines and ten new files pass with zero credential-pattern matches."
+    },
+    {
+      "id": "OBS-038",
+      "phase": "unit-004-container-preexecution-inspection",
+      "classification": "stale_predecessor_keeper_and_check_count_literals",
+      "observation": "After the package/source reconciliation receipt became public but before any BASELINE-0032 derived-image build, source inspection found that the v12 verifier still named its ephemeral keeper rs-b0031 and described its clean-clone successor as composing 43 checks even though the active contract contains 49.",
+      "containment": "No BASELINE-0032 image or container had been built, no scan ran, the public package/source payload was classified as superseded-before-container, its reports and real-surface evidence remain retained, and no release or image publication followed.",
+      "correction": "Change only the two mechanical verifier literals to rs-b0032 and 49 checks, add regression assertions, renew manifest and package identity, and rerun package/source gates before the first derived-image build."
     }
   ],
   "boundaries": {

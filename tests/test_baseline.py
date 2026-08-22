@@ -160,6 +160,9 @@ class BaselineTest(unittest.TestCase):
     def test_container_v12_build_command_is_frozen_and_local_only(self):
         tag = "runbook-sentinel:baseline-0032-test"
         command = build_command(tag)
+        verifier_source = (ROOT / "scripts/verify_container_runtime.py").read_text(
+            encoding="utf-8"
+        )
         self.assertEqual(command[:3], ["docker", "buildx", "build"])
         self.assertNotIn("--load", command)
         self.assertNotIn("--push", command)
@@ -176,6 +179,10 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(SOURCE_DATE_EPOCH, "1787421483")
         self.assertEqual(SOURCE_DATE_EPOCH_UTC, "2026-08-22T17:58:03Z")
         self.assertEqual(EXPECTED_BUILDER["buildkit"], "0.29.0")
+        self.assertIn('keeper = f"rs-b0032-{token}"', verifier_source)
+        self.assertNotIn('keeper = f"rs-b0031-{token}"', verifier_source)
+        self.assertIn("all 49 checks true", verifier_source)
+        self.assertNotIn("all 43 checks true", verifier_source)
 
     def test_container_v12_prerequisite_requires_current_implementation_phase(self):
         contract = {

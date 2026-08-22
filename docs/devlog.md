@@ -10,6 +10,7 @@
 - Preserved separate source/package databases, traces, anchors, logs, native receipts, and dashboards. Original-detail inspection accepts both complete 1440 by 1000 images with all metrics, external-operator execution boundary, disconnected real infrastructure, and both persisted incident rows.
 - Retained two read-only evidence-summary wrapper failures as OBS-033 and OBS-034; corrected reruns pass without changing evidence. `package-source-baseline-0032.json` closes the local non-container gate. Docker build remains closed until this exact payload is committed, pushed, and anonymously reconciled.
 - Committed final package/source evidence as `08c71350718d90723662bb1d3299ce7100ce388c`, tree `a27d59737501c67528df0eb40b12b0bbe0d014c2`, and pushed it by fast-forward. Public repository/ref/commit/tree/parent views, all 21 Git blobs, and all 21 anonymous raw files match across 4,699,031 bytes; public main remains `e12e638...`. A record-only reconciliation receipt is the last publication boundary before local-only v12 container work.
+- Published and reconciled that receipt as `79c12cb097effe682293fda1785fdc801ab434a0`. Before invoking Docker, inspected the exact verifier and found two stale mechanical literals: keeper `rs-b0031-*` and 43 checks instead of the frozen 49. No image or container had been built. Preserved the exact passing package/source generation as superseded, corrected only those literals with regression assertions, and reclosed Docker until renewed source/package evidence is public.
 
 ## 2026-08-22 BASELINE-0031 final audit stopped release
 

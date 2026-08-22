@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0032-PACKAGE-SOURCE-ATTEMPT-002-SUPERSEDED-BY-CONTAINER-VERIFIER",
+  "checkpoint": "baseline-0032",
+  "observed_at_utc": "2026-08-22T20:05:01Z",
+  "status": "superseded_before_container_build",
+  "public_payload": {
+    "commit": "08c71350718d90723662bb1d3299ce7100ce388c",
+    "tree": "a27d59737501c67528df0eb40b12b0bbe0d014c2",
+    "record_reconciliation_commit": "79c12cb097effe682293fda1785fdc801ab434a0",
+    "all_public_bytes_exact": true
+  },
+  "package": {
+    "build_count": 2,
+    "bytes_each": 647712,
+    "entries_each": 43,
+    "sha256_each": "0fa7256a15441788f38c2738da083c54c6cf491c577f7c1fe3abb1caa9bf07f5",
+    "contract_status": "pass",
+    "preserved_under": "dist/superseded"
+  },
+  "evaluation": {
+    "source_report": "artifacts/evaluations/runs/baseline-0032-attempt-003.json",
+    "source_report_sha256": "4f90043cc9b503c4ad96e4f6ad044501c61a880b3068d0b9b5279d56f95187b0",
+    "package_report": "artifacts/evaluations/runs/baseline-0032-attempt-004.json",
+    "package_report_sha256": "feb807b2cd178b33d138a635d96268aedc1fdb9be7f24c0a595ddc78bec6f3ff",
+    "normalized_report_sha256": "828b7f9fa26a402fa2b3a3f0ba568ce83f340fe3ad6386a331d234a3b1886608",
+    "source_and_package_all_136_boolean_gates": true,
+    "source_and_package_traces_valid_and_anchored": true
+  },
+  "real_surfaces": {
+    "source_and_package_mcp": "pass",
+    "source_and_package_api": "pass_131_of_131_each",
+    "source_and_package_native": "pass_72_of_72_each",
+    "source_and_package_dashboards": "pass_visual_inspection"
+  },
+  "supersession_reason": {
+    "keeper_container_before": "rs-b0031-{token}",
+    "keeper_container_after": "rs-b0032-{token}",
+    "next_gate_before": "43 checks",
+    "next_gate_after": "49 checks",
+    "application_or_security_behavior_changed": false
+  },
+  "boundaries": {
+    "derived_container_image_built": false,
+    "container_runtime_started": false,
+    "real_infrastructure_contacted": false,
+    "tag_release_deployment_or_publication_created": false,
+    "container_image_exported_pushed_published_or_redistributed": false
+  },
+  "next_gate": "Publish and reconcile the two-literal verifier correction and renewed source manifest before rebuilding the package or repeating candidate gates."
+}
