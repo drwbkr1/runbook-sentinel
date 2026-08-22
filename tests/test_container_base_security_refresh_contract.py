@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class ContainerBaseSecurityRefreshContractTests(unittest.TestCase):
-    def test_frozen_contract_matches_unimplemented_repository(self) -> None:
+    def test_implemented_contract_matches_successor_repository(self) -> None:
         completed = subprocess.run(
             [
                 sys.executable,
@@ -19,7 +19,7 @@ class ContainerBaseSecurityRefreshContractTests(unittest.TestCase):
                 "--root",
                 str(ROOT),
                 "--phase",
-                "frozen",
+                "implemented",
             ],
             cwd=ROOT,
             capture_output=True,

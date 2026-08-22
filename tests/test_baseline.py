@@ -76,6 +76,10 @@ from scripts.verify_adversarial_exposure_stage_outcome_split_coverage_contract i
 )
 from scripts.verify_container_runtime import (
     ALLOWED_TMPFS_EXTRACTION_SOURCES,
+    BASE_INTAKE_RECEIPT_PATH,
+    BASE_INTAKE_RECEIPT_SHA256,
+    BASE_REFRESH_CONTRACT_PATH,
+    BASE_REFRESH_CONTRACT_SHA256,
     EVENT_WINDOW_GRACE_NANOSECONDS,
     EXPECTED_BUILDER,
     SOURCE_DATE_EPOCH,
@@ -153,8 +157,8 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(selected, active)
         self.assertEqual(errors, ["selection_manifest_archive_identity"])
 
-    def test_container_v11_build_command_is_frozen_and_local_only(self):
-        tag = "runbook-sentinel:baseline-0031-test"
+    def test_container_v12_build_command_is_frozen_and_local_only(self):
+        tag = "runbook-sentinel:baseline-0032-test"
         command = build_command(tag)
         self.assertEqual(command[:3], ["docker", "buildx", "build"])
         self.assertNotIn("--load", command)
@@ -166,17 +170,17 @@ class BaselineTest(unittest.TestCase):
         self.assertIn("--sbom=false", command)
         self.assertEqual(
             command[command.index("--output") + 1],
-            "type=image,name=runbook-sentinel:baseline-0031-test,"
+            "type=image,name=runbook-sentinel:baseline-0032-test,"
             "rewrite-timestamp=true,unpack=false,store=true,push=false",
         )
-        self.assertEqual(SOURCE_DATE_EPOCH, "1787016214")
-        self.assertEqual(SOURCE_DATE_EPOCH_UTC, "2026-08-18T01:23:34Z")
+        self.assertEqual(SOURCE_DATE_EPOCH, "1787421483")
+        self.assertEqual(SOURCE_DATE_EPOCH_UTC, "2026-08-22T17:58:03Z")
         self.assertEqual(EXPECTED_BUILDER["buildkit"], "0.29.0")
 
-    def test_container_v11_prerequisite_requires_current_implementation_phase(self):
+    def test_container_v12_prerequisite_requires_current_implementation_phase(self):
         contract = {
             "status": "pass",
-            "implementation_phase": "implemented_v11",
+            "implementation_phase": "implemented_v12",
         }
         manifest = {"status": "pass"}
         package = {"status": "pass"}
@@ -190,7 +194,7 @@ class BaselineTest(unittest.TestCase):
             "selected_configuration": "freshness-priority-lexical-v3",
         }
         evaluation = {
-            "checkpoint": "baseline-0031",
+            "checkpoint": "baseline-0032",
             "gates": {"baseline_disposition": "pass"},
         }
 
@@ -208,31 +212,47 @@ class BaselineTest(unittest.TestCase):
                 completed(contract),
                 completed(manifest),
                 completed(package),
+                completed({"valid": True, "phase": "implemented"}),
                 completed(model_selection),
                 completed(retrieval_selection),
             ],
         ), mock.patch(
             "scripts.verify_container_runtime.sha256_file",
-            return_value="0" * 64,
+            side_effect=lambda path: (
+                BASE_REFRESH_CONTRACT_SHA256
+                if Path(path) == BASE_REFRESH_CONTRACT_PATH
+                else BASE_INTAKE_RECEIPT_SHA256
+                if Path(path) == BASE_INTAKE_RECEIPT_PATH
+                else "0" * 64
+            ),
         ):
             result = validate_prerequisites(evaluation)
         self.assertTrue(result["checks"]["container_contract"])
         self.assertTrue(result["checks"]["model_selection"])
         self.assertTrue(result["checks"]["retrieval_selection"])
+        self.assertTrue(result["checks"]["base_security_refresh"])
+        self.assertTrue(result["checks"]["base_intake"])
 
-        contract["implementation_phase"] = "implemented_v10"
+        contract["implementation_phase"] = "implemented_v11"
         with mock.patch(
             "scripts.verify_container_runtime.run",
             side_effect=[
                 completed(contract),
                 completed(manifest),
                 completed(package),
+                completed({"valid": True, "phase": "implemented"}),
                 completed(model_selection),
                 completed(retrieval_selection),
             ],
         ), mock.patch(
             "scripts.verify_container_runtime.sha256_file",
-            return_value="0" * 64,
+            side_effect=lambda path: (
+                BASE_REFRESH_CONTRACT_SHA256
+                if Path(path) == BASE_REFRESH_CONTRACT_PATH
+                else BASE_INTAKE_RECEIPT_SHA256
+                if Path(path) == BASE_INTAKE_RECEIPT_PATH
+                else "0" * 64
+            ),
         ):
             with self.assertRaisesRegex(AssertionError, '"container_contract": false'):
                 validate_prerequisites(evaluation)
@@ -437,7 +457,7 @@ class BaselineTest(unittest.TestCase):
         )
         self.assertFalse(local_content_digest_matches_image_id({"Id": image_id, "RepoDigests": []}))
 
-        tags = ["runbook-sentinel:baseline-0031-a-test", "runbook-sentinel:baseline-0031-b-test"]
+        tags = ["runbook-sentinel:baseline-0032-a-test", "runbook-sentinel:baseline-0032-b-test"]
         events = [
             {
                 "Action": "tag",
@@ -1191,7 +1211,7 @@ class BaselineTest(unittest.TestCase):
         server = MCPServer(self.service)
         initialized = server.handle({"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
         self.assertEqual(initialized["result"]["protocolVersion"], "2025-11-25")
-        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.31")
+        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.32")
         listed = server.handle({"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         self.assertEqual({tool["name"] for tool in listed["result"]["tools"]}, names)
         called = server.handle(
@@ -1459,7 +1479,7 @@ class BaselineTest(unittest.TestCase):
                 )
                 self.assertIn("frame-ancestors 'none'", response.headers["Content-Security-Policy"])
             with urlopen(f"http://127.0.0.1:{server.server_port}/health") as response:
-                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0031")
+                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0032")
             with urlopen(
                 f"http://127.0.0.1:{server.server_port}/api/evaluation"
             ) as response:
@@ -1485,23 +1505,23 @@ class BaselineTest(unittest.TestCase):
     def test_live_api_verifier_requires_current_dashboard_checkpoint(self):
         verifier = (ROOT / "scripts/verify_live_api.ps1").read_text(encoding="utf-8")
         self.assertIn(
-            "dashboard_baseline_0031 = $dashboardResponse.Content.Contains('Baseline 0031')",
+            "dashboard_baseline_0032 = $dashboardResponse.Content.Contains('Baseline 0032')",
             verifier,
         )
         self.assertIn(
-            "dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0031",
+            "dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0032",
             verifier,
         )
         self.assertNotIn("dashboard_baseline_0027 =", verifier)
 
-    def test_container_v11_verifier_requires_current_dashboard_checkpoint(self):
+    def test_container_v12_verifier_requires_current_dashboard_checkpoint(self):
         runtime = (ROOT / "scripts/verify_container_runtime.py").read_text(encoding="utf-8")
         validator = (ROOT / "scripts/verify_container_contract.py").read_text(encoding="utf-8")
-        self.assertIn('b"Baseline 0031" in dashboard_raw', runtime)
-        self.assertNotIn('b"Baseline 0030" in dashboard_raw', runtime)
-        self.assertIn("'b\"Baseline 0030\" in dashboard_raw' not in runtime_text", validator)
+        self.assertIn('b"Baseline 0032" in dashboard_raw', runtime)
+        self.assertNotIn('b"Baseline 0031" in dashboard_raw', runtime)
+        self.assertIn("'b\"Baseline 0031\" in dashboard_raw' not in runtime_text", validator)
 
-    def test_container_v11_retrieval_quality_projection_fails_closed(self):
+    def test_container_v12_retrieval_quality_projection_fails_closed(self):
         report = json.loads(
             (
                 ROOT

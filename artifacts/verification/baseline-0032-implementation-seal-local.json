@@ -1,0 +1,266 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0032-IMPLEMENTATION-SEAL-LOCAL",
+  "checkpoint": "BASELINE-0032",
+  "observed_at_utc": "2026-08-22T18:32:41Z",
+  "status": "local_pass_public_seal_pending",
+  "repository": {
+    "worktree": "C:\\Projects\\Active\\runbook-sentinel-baseline-0032",
+    "branch": "codex/baseline-0032-container-base-security-refresh",
+    "parent_commit": "028e46bb7e44937113764c1921b1613a0cfd6509",
+    "parent_tree": "9936693377451f9b204d51cab747abd7cb41718c",
+    "public_main_commit": "e12e638b98b1deacb4c5058ecb9d7c8652c96985",
+    "preimplementation_freeze_commit": "a18da8678e0f03afb1cef4c65de44a6a9b4dff40",
+    "preimplementation_reconciliation_commit": "028e46bb7e44937113764c1921b1613a0cfd6509"
+  },
+  "bounded_implementation": {
+    "base_index_digest": "sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+    "linux_amd64_manifest_digest": "sha256:e15765ff7066a0eaf91e1b6fd5000c1bba47d62b9f9731f2da560711d910c4f3",
+    "functional_delta": [
+      "Dockerfile FROM uses the exact admitted index digest",
+      "Dockerfile dev.runbook-sentinel.base.digest label uses the same exact digest"
+    ],
+    "mechanical_identity": {
+      "checkpoint": "baseline-0032",
+      "version": "0.0.32",
+      "package_contract": "eval/package-contract-0032.json",
+      "container_contract": "eval/container-contract-0032-v12.json",
+      "container_contract_id": "container-runtime-v12"
+    },
+    "unchanged": [
+      "incident-agent diagnosis evidence-request proposal and abstention behavior",
+      "retrieval corpus ranking selection and frozen evaluation evidence",
+      "model configuration and deterministic product default",
+      "authorization capability approval executor idempotency replay and postcondition boundaries",
+      "dependencies paid services secrets credentials real infrastructure and final execution authority"
+    ]
+  },
+  "verification": {
+    "container_base_security_refresh": {
+      "status": "pass",
+      "phase": "implemented"
+    },
+    "package_contract": {
+      "status": "pass",
+      "sha256": "75f1b4de4cefda2f156fa7dbcae931a467a8ae58953992a912bbd1b8557c1079"
+    },
+    "container_contract": {
+      "status": "pass",
+      "implementation_phase": "implemented_v12",
+      "sha256": "de0fe568f1d5222731493277ab00d43feb06aa72e63b3b2b1e20ea081311d919",
+      "receipt_state": "absent"
+    },
+    "focused_tests": {
+      "status": "pass",
+      "count": 5
+    },
+    "full_python_suite": {
+      "status": "pass",
+      "passed": 94,
+      "failed": 0,
+      "errors": 0,
+      "elapsed_seconds": 93.903
+    },
+    "milestone_contract": {
+      "status": "active",
+      "valid": true,
+      "warnings": [],
+      "active_unit": "UNIT-003"
+    },
+    "diff_check": "pass",
+    "secret_scan": {
+      "added_line_count": 523,
+      "added_line_pattern_hits": 0,
+      "untracked_file_pattern_hits": 1,
+      "resolved_non_secret_hits": [
+        {
+          "path": "eval/package-contract-0032.json",
+          "line": 273,
+          "classification": "declared forbidden archive-content delimiter"
+        }
+      ],
+      "unresolved_hits": 0
+    }
+  },
+  "changed_payload": {
+    "excludes_this_receipt": true,
+    "path_count": 32,
+    "files": [
+      {
+        "path": ".dockerignore",
+        "bytes": 115,
+        "sha256": "a953ab3731c03494e53d58a2ca8f0d5555fdcf7438ed73ad695ef07dfee42003"
+      },
+      {
+        "path": "artifacts/verification/baseline-0032-orientation-failures-001.json",
+        "bytes": 8238,
+        "sha256": "906f3d796ec7aaaee7889ffdf7da77a0af3fb049a2f4e45034c7086c8b92cd15"
+      },
+      {
+        "path": "artifacts/verification/container-base-intake-baseline-0032.json",
+        "bytes": 4741,
+        "sha256": "1172c50f7794ec6cc6f855f8b61fc1cf448df2c76221d7487fc3f03829cdf142"
+      },
+      {
+        "path": "CHANGELOG.md",
+        "bytes": 105077,
+        "sha256": "ce28b177f8848427cf4b2a149cbb8c9542ff8b49dcf3535eb20a49f186db4d53"
+      },
+      {
+        "path": "contracts/milestone-0032.json",
+        "bytes": 13959,
+        "sha256": "ae76918357f1ea78d60334e47d86a44ec10025794dda56e67029fe1fff419541"
+      },
+      {
+        "path": "Dockerfile",
+        "bytes": 811,
+        "sha256": "e46770976398a9ead763f949a13e0d5415d7a0a44adccbe0c62a719e12b8b919"
+      },
+      {
+        "path": "docs/devlog.md",
+        "bytes": 425725,
+        "sha256": "a12203a9cd5358d33bd11c09a5c28db15e242fb62823b320e95161283603941b"
+      },
+      {
+        "path": "docs/evaluation-report.md",
+        "bytes": 206085,
+        "sha256": "c19dca2cdfc6add582dc0fa1e60a7ba15d17bc0866cd76fb935a13ea85910d2b"
+      },
+      {
+        "path": "docs/roadmap.md",
+        "bytes": 81101,
+        "sha256": "ed8fb0e3194fff7214e43ab841eee0aa07d9a372f4be70a72effb36b965e54e6"
+      },
+      {
+        "path": "docs/status.md",
+        "bytes": 251468,
+        "sha256": "ddaf9c906bf92e293252933e1aff78f1c344d59e186077627d883af455c1fa62"
+      },
+      {
+        "path": "docs/threat-model.md",
+        "bytes": 21685,
+        "sha256": "3a9507232bb847090342cdc7a055b150f2b950be6803d68f3213094a2289c32f"
+      },
+      {
+        "path": "docs/version-history.md",
+        "bytes": 26959,
+        "sha256": "b40d2080bfed9311ced8ced482d10d337a8a1278a05b7c6cd6095ef49d1022b7"
+      },
+      {
+        "path": "eval/container-contract-0032-v12.json",
+        "bytes": 14151,
+        "sha256": "de0fe568f1d5222731493277ab00d43feb06aa72e63b3b2b1e20ea081311d919"
+      },
+      {
+        "path": "eval/container-contract.json",
+        "bytes": 14151,
+        "sha256": "de0fe568f1d5222731493277ab00d43feb06aa72e63b3b2b1e20ea081311d919"
+      },
+      {
+        "path": "eval/package-contract-0032.json",
+        "bytes": 17698,
+        "sha256": "75f1b4de4cefda2f156fa7dbcae931a467a8ae58953992a912bbd1b8557c1079"
+      },
+      {
+        "path": "eval/package-contract.json",
+        "bytes": 17698,
+        "sha256": "75f1b4de4cefda2f156fa7dbcae931a467a8ae58953992a912bbd1b8557c1079"
+      },
+      {
+        "path": "pyproject.toml",
+        "bytes": 349,
+        "sha256": "7176d908683cf3d9bb37d1154a7839e5ac1df971e09ec81d17523d3e7fb9cdab"
+      },
+      {
+        "path": "scripts/build_zipapp.py",
+        "bytes": 4841,
+        "sha256": "f4a5865a0de1010db059e6412670c5dcea7f7918b850356acffa277566b4ed6a"
+      },
+      {
+        "path": "scripts/freeze_manifest.py",
+        "bytes": 9070,
+        "sha256": "4b7b2f5b79c6dd47277ff1529884350aa5d7cb948ec80babb2a4a2d2624f5f09"
+      },
+      {
+        "path": "scripts/inspect_runtime_evidence.py",
+        "bytes": 21081,
+        "sha256": "4806d19d9fc30f5876a83b1a3fb612ec389b1bb3bda4cceb1620bc23683c796e"
+      },
+      {
+        "path": "scripts/verify_baseline.py",
+        "bytes": 5192,
+        "sha256": "a08b093b24809447947e0b631b38c0289b006612b27cc56bd4e72b19c5f90051"
+      },
+      {
+        "path": "scripts/verify_container_contract.py",
+        "bytes": 94845,
+        "sha256": "5e9c8ac23cebb49fa645e15188bef5da318170d825c6d7351e6859744ceb21f4"
+      },
+      {
+        "path": "scripts/verify_container_runtime.py",
+        "bytes": 59968,
+        "sha256": "85dcccd1871f07c387cfafc506e5505c94d07f27c462d4fe855951af96bfabc8"
+      },
+      {
+        "path": "scripts/verify_live_api.ps1",
+        "bytes": 47419,
+        "sha256": "2439e0b729df118372e0be69db64b916ac137966c3671762b36fa00b485e5a54"
+      },
+      {
+        "path": "scripts/verify_mcp_stdio.py",
+        "bytes": 7247,
+        "sha256": "41ca381a696efaa48edb3fe72c018e10c34afbf71813302b477cec82de7ec4fd"
+      },
+      {
+        "path": "scripts/verify_package_contract.py",
+        "bytes": 16366,
+        "sha256": "0e35cd414426f31139916b1991660711d56a096df0fe7c669de11030269a905d"
+      },
+      {
+        "path": "src/runbook_sentinel/__init__.py",
+        "bytes": 65,
+        "sha256": "a913a47cfbe89b773fe59dea69893d1cb8a77f2131d01ad4c8920c1263ceb319"
+      },
+      {
+        "path": "src/runbook_sentinel/api.py",
+        "bytes": 23965,
+        "sha256": "f3f316c69dde67e390699b746ec1031b81bc2b14f9c63f79e7f1f6228aa7f3c5"
+      },
+      {
+        "path": "src/runbook_sentinel/cli.py",
+        "bytes": 7215,
+        "sha256": "766960374d6c3df81b30c013b8c99719e0208a3f6acf527a6b9c202a44ed664e"
+      },
+      {
+        "path": "src/runbook_sentinel/mcp_server.py",
+        "bytes": 5250,
+        "sha256": "af6e11d108311040dbf73f53e373a6db5970a056c12b42ceafb6d73324e6e6be"
+      },
+      {
+        "path": "tests/test_baseline.py",
+        "bytes": 141537,
+        "sha256": "2f03b08138c589beffb040fc9b7a5cdca9fcd6cf213e867a959ca7bda0757224"
+      },
+      {
+        "path": "tests/test_container_base_security_refresh_contract.py",
+        "bytes": 1082,
+        "sha256": "6ec73c4cbfe607b1298ec3477b07d723e8a34c21489f292b69225ac5b1891414"
+      }
+    ]
+  },
+  "prebuild_state": {
+    "v0_0_32_package_exists": false,
+    "baseline_0032_derived_image_match_count": 0,
+    "candidate_evaluation_run_created": false,
+    "container_verification_receipt_exists": false
+  },
+  "boundaries": {
+    "behavior_or_security_boundary_changed": false,
+    "dependency_secret_paid_service_or_real_infrastructure_added": false,
+    "package_or_derived_image_built": false,
+    "candidate_evaluation_run_started": false,
+    "tag_release_or_deployment_created": false,
+    "container_image_exported_pushed_published_or_redistributed": false
+  },
+  "next_gate": "Commit and push this exact implementation payload, reconcile public refs, tree, Git blobs, and anonymous raw bytes, and only then begin package, evaluation, or derived-image execution."
+}

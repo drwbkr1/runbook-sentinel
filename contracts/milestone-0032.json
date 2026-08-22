@@ -175,7 +175,7 @@
       ],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "ready",
+      "status": "in_progress",
       "inputs": [
         "publicly verified preimplementation freeze",
         "exact admitted digest",
@@ -185,7 +185,16 @@
         "baseline-0032/v0.0.32 source and package identity",
         "container-runtime v12 contract",
         "public implementation seal"
-      ]
+      ],
+      "gates": {
+        "exact_digest_intake_verified": "pass",
+        "bounded_implementation_valid": "pass",
+        "all_python_tests_pass": "pass",
+        "no_package_or_derived_image_built_before_public_seal": "pass",
+        "public_implementation_seal_verified": "pending"
+      },
+      "disposition": "in_progress",
+      "next_dependency": "public implementation seal before UNIT-004"
     },
     {
       "id": "UNIT-004",

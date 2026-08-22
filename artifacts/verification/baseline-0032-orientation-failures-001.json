@@ -34,6 +34,62 @@
       "observation": "The first bounded scan searched complete contents of every modified tracked file and reported one historical docs/devlog.md line that quotes the literal private-key delimiter as an earlier forbidden-pattern false positive.",
       "containment": "The result was treated as unresolved until located; it is historical explanatory text, not credential material, and no publication action followed the aggregate count.",
       "correction": "Scan only added lines for modified tracked files and full contents for untracked files, retain the historical literal as known non-secret text, and require zero unresolved current-delta hits before commit."
+    },
+    {
+      "id": "OBS-005",
+      "phase": "implementation-identity-inventory",
+      "classification": "powershell_pipeline_after_foreach_parse_error",
+      "observation": "The first read-only identity inventory placed a pipeline immediately after a foreach statement, and PowerShell rejected the empty pipeline before collecting measurements.",
+      "containment": "No repository, container, registry, or external state changed, and the rejected command produced no evidence used by the checkpoint.",
+      "correction": "Assign foreach output to an array before piping it to ConvertTo-Json, then recompute every file identity after implementation edits."
+    },
+    {
+      "id": "OBS-006",
+      "phase": "implementation-resume-reconciliation",
+      "classification": "powershell_git_revision_brace_parse_error",
+      "observation": "A read-only Git tree query passed HEAD^{tree} through PowerShell without a quoting-safe format, causing the shell to transform the brace expression and Git to reject the resulting revision.",
+      "containment": "The commit and status probes still completed, no repository or external state changed, and the rejected tree value was not used as evidence.",
+      "correction": "Use git show -s --format=%T HEAD for tree identity on PowerShell and retain the corrected exact tree separately."
+    },
+    {
+      "id": "OBS-007",
+      "phase": "implementation-side-effect-free-validation",
+      "classification": "versioned_contract_transport_trailing_blank_line",
+      "observation": "The first successor contract validation found that the package and container versioned copies each contained one extra terminal blank line introduced while transporting otherwise identical active-contract text into apply_patch.",
+      "containment": "Both validators failed closed on byte inequality; neither mismatched copy was committed, published, or used to authorize a build.",
+      "correction": "Remove the single extra blank line with apply_patch and require byte equality between each active and versioned contract before continuing."
+    },
+    {
+      "id": "OBS-008",
+      "phase": "implementation-targeted-unit-validation",
+      "classification": "stale_phase_test_and_unittest_class_name",
+      "observation": "The first targeted unittest command addressed BaselineTests instead of the actual BaselineTest class, while the base-refresh unit test still required the preimplementation frozen phase after the authorized implementation was present.",
+      "containment": "The test loader errors and stale-phase assertion were retained as failures; no build, repository publication, or external action followed them.",
+      "correction": "Advance the unit test to the implemented phase, use the exact singular test class, and rerun the complete targeted set before the full suite."
+    },
+    {
+      "id": "OBS-009",
+      "phase": "implementation-seal-file-inventory",
+      "classification": "powershell_nested_path_array_inventory",
+      "observation": "The first changed-file identity command wrapped tracked and untracked Git path lists as two nested arrays, causing Get-Item and Get-FileHash to emit aggregated array-valued records instead of one record per path.",
+      "containment": "The malformed 29-path and 3-path aggregate was rejected and not used in a seal, commit, or publication decision.",
+      "correction": "Append each Git path list into one flat array, sort unique paths, and require one path, byte count, and SHA-256 per record."
+    },
+    {
+      "id": "OBS-010",
+      "phase": "implementation-seal-secret-hit-location",
+      "classification": "repeated_powershell_pipeline_after_foreach_parse_error",
+      "observation": "The first exact secret-hit locator again piped directly from a foreach block, and PowerShell rejected the empty pipe before returning any locations.",
+      "containment": "No scan result was inferred from the parser failure and no repository, container, or external state changed.",
+      "correction": "Accumulate Select-String results in an explicit array, emit only after both loops finish, and force a successful read-only exit after exact localization."
+    },
+    {
+      "id": "OBS-011",
+      "phase": "implementation-seal-secret-hit-adjudication",
+      "classification": "declared_forbidden_pattern_literal_false_positive",
+      "observation": "The full-content scan of three untracked files found one private-key delimiter literal in eval/package-contract-0032.json, where the contract declares that delimiter as a forbidden archive-content pattern.",
+      "containment": "The exact line was inspected; it is a project-authored deny-list value, not key material. Added tracked lines had zero pattern hits and no unresolved secret-shaped value was accepted.",
+      "correction": "Retain the declared forbidden literal, classify the single hit as resolved non-secret contract text, and require zero unresolved added-line or untracked-file hits."
     }
   ],
   "boundaries": {
