@@ -258,6 +258,46 @@
       "observation": "The first seal-validation loop omitted whitespace between the JSON path variable and output redirection, causing PowerShell to pass a filename ending in greater-than to json.tool and stop on a false missing-file error.",
       "containment": "The milestone validator had passed, but no aggregate seal-validation result was emitted or used and no repository or external state changed.",
       "correction": "Place explicit whitespace before the redirection operator, rerun every JSON parse and bound-file identity check, and refresh the local seal because the retained failure record changed."
+    },
+    {
+      "id": "OBS-033",
+      "phase": "unit-004-final-package-source-evidence-summary",
+      "classification": "missing_explicit_pythonpath_for_standalone_trace_verifier",
+      "observation": "The first read-only final evaluation-trace summary invoked verify_evaluation_trace.py without PYTHONPATH, so both source and package verifier calls stopped at ModuleNotFoundError before reading either report or trace.",
+      "containment": "No report, trace, manifest, runtime surface, repository, container, or external state changed and the failed wrapper supplied no positive evidence.",
+      "correction": "Set PYTHONPATH to the exact source directory for the standalone trace verifier and rerun both retained report/trace pairs."
+    },
+    {
+      "id": "OBS-034",
+      "phase": "unit-004-final-package-source-evidence-summary",
+      "classification": "powershell_read_only_boolean_constant_collision",
+      "observation": "The same read-only summary attempted to assign a count to PowerShell's reserved case-insensitive $true constant and stopped before producing native-check totals.",
+      "containment": "The native receipts remained byte-unchanged and no count from the failed helper was accepted.",
+      "correction": "Use non-reserved passCount and failCount variables; both native receipts then report 72 true and zero false checks with pass status."
+    },
+    {
+      "id": "OBS-035",
+      "phase": "unit-004-final-package-source-post-record-validation",
+      "classification": "phase_aware_validators_invoked_with_frozen_defaults",
+      "observation": "The first aggregate post-record validator command omitted the implemented-phase arguments for both retrieval-tier and base-security-refresh validators; each correctly rejected current implemented files against its frozen-phase expectations, while PowerShell continued and printed an invalid aggregate pass label.",
+      "containment": "The manifest, package contract, container contract, compilation, JSON parsing, and milestone results remained independent, but the aggregate label was discarded and neither expected phase mismatch was treated as a product failure.",
+      "correction": "Enforce each native exit code and invoke retrieval-tier with --require-implementation and base-security-refresh with --phase implemented."
+    },
+    {
+      "id": "OBS-036",
+      "phase": "unit-004-final-package-source-post-record-validation",
+      "classification": "rejected_experimental_candidate_mistakenly_required_as_selected",
+      "observation": "The first phase-correct retrieval retry also supplied --require-selection, which asks for rejected bounded-trust-tier-lexical-v4 to be selected and therefore correctly failed with selection_required.",
+      "containment": "The selected/default freshness-priority-lexical-v3 configuration was not changed, the unfavorable v4 decision remained intact, and no later validator ran under the failed wrapper.",
+      "correction": "Require implementation only; the retrieval contract, implemented base refresh, v12 container contract, and governed milestone then all pass with explicit exit enforcement."
+    },
+    {
+      "id": "OBS-037",
+      "phase": "unit-004-final-package-source-credential-scan",
+      "classification": "historical_forbidden_pattern_definition_false_positive",
+      "observation": "The first bounded credential scan read complete modified documentation files and matched an old devlog sentence that intentionally records the literal private-key delimiter as a forbidden-pattern definition.",
+      "containment": "Receipt bindings and JSONL parsing had passed independently, the scan remained fail, no historical text was relabeled or removed, and no credential-like value was accepted.",
+      "correction": "Scan only added tracked lines plus the complete new text evidence files; 54 added lines and ten new files pass with zero credential-pattern matches."
     }
   ],
   "boundaries": {

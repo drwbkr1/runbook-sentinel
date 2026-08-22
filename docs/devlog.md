@@ -1,5 +1,15 @@
 # Development log
 
+## 2026-08-22 BASELINE-0032 final package and real-surface candidate
+
+- Verified public API-correction input `bf839de661dd567cfc2e66d27bb06c0ff7c19967`, tree `165219be25a758829aa1062cd31660e2301fe8ce`, before using it as build custody. Public main remains the stopped BASELINE-0031 record and v0.0.30 remains the latest release.
+- Built two byte-identical 647,712-byte, 43-entry v0.0.32 zipapps at SHA-256 `0fa7256a15441788f38c2738da083c54c6cf491c577f7c1fe3abb1caa9bf07f5`; both pass the frozen package contract. Earlier `6d4f8047...` and `1f16a926...` generations remain retained as superseded.
+- Ran source attempt 003 and package attempt 004 without overwriting prior attempts. Each passes 57 scenarios, 171 trials, all 136 Boolean gates, and a valid anchored 261-event trace under exact manifest `79ddea61...`. Full normalized reports are byte-identical at SHA-256 `828b7f9f...`; all 406 raw differences are confined to the same 17 declared per-launch keys.
+- Exercised both real MCP surfaces from their exact source and package import roots. Each exposes only three diagnosis/read tools and no approval or execution authority; stale payload remains absent and telemetry is anchored.
+- Exercised both authenticated real APIs. Each passes 131/131 checks for capability authentication, server-derived operator identity, hash-bound approval, idempotency, replay rejection, executor postconditions, persistence, telemetry, redaction, and dashboard assertions. Each native evidence receipt passes 72/72 checks.
+- Preserved separate source/package databases, traces, anchors, logs, native receipts, and dashboards. Original-detail inspection accepts both complete 1440 by 1000 images with all metrics, external-operator execution boundary, disconnected real infrastructure, and both persisted incident rows.
+- Retained two read-only evidence-summary wrapper failures as OBS-033 and OBS-034; corrected reruns pass without changing evidence. `package-source-baseline-0032.json` closes the local non-container gate. Docker build remains closed until this exact payload is committed, pushed, and anonymously reconciled.
+
 ## 2026-08-22 BASELINE-0031 final audit stopped release
 
 - Resumed from public reconciled main `b5657e70697f3f34c1d8bd6b7044280745214dea`, exact across local, tracking, `ls-remote`, and anonymous GitHub main. `v0.0.31` tag/release are absent and public `v0.0.30` remains latest.

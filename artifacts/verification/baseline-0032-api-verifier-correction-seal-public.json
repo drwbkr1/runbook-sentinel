@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0032-API-VERIFIER-CORRECTION-SEAL-PUBLIC",
+  "checkpoint": "baseline-0032",
+  "observed_at_utc": "2026-08-22T19:35:18Z",
+  "status": "pass",
+  "repository": {
+    "owner": "drwbkr1",
+    "name": "runbook-sentinel",
+    "visibility": "public",
+    "branch": "codex/baseline-0032-container-base-security-refresh"
+  },
+  "target": {
+    "commit": "bf839de661dd567cfc2e66d27bb06c0ff7c19967",
+    "tree": "165219be25a758829aa1062cd31660e2301fe8ce",
+    "parent": "a757ecf4bb7adff0013c5383054ff9b9fa01b62c",
+    "commit_message": "fix: verify API authentication challenge"
+  },
+  "checks": {
+    "local_ref_exact": true,
+    "explicit_tracking_ref_exact": true,
+    "ls_remote_branch_exact": true,
+    "anonymous_github_ref_exact": true,
+    "anonymous_github_commit_exact": true,
+    "anonymous_github_tree_exact": true,
+    "anonymous_github_parent_exact": true,
+    "github_tree_not_truncated": true,
+    "changed_git_blobs_exact": true,
+    "anonymous_raw_bytes_exact": true,
+    "public_main_unchanged": true
+  },
+  "counts": {
+    "repository_tree_entries": 1483,
+    "changed_paths": 25,
+    "changed_raw_bytes_total": 4887444,
+    "git_blob_mismatches": 0,
+    "raw_byte_mismatches": 0
+  },
+  "renewed_manifest": {
+    "file_count": 153,
+    "bytes": 18484,
+    "sha256": "79ddea612f664679ebf73cee54c8725942b17f07e626eb7883999f2d11019f4b",
+    "active_and_archived_bytes_equal": true
+  },
+  "real_source_api": {
+    "retained_first_attempt": "fail_129_of_131",
+    "correction_confirmation": "pass_131_of_131",
+    "server_authentication_behavior_changed": false
+  },
+  "public_main": {
+    "commit": "e12e638b98b1deacb4c5058ecb9d7c8652c96985",
+    "moved": false
+  },
+  "boundaries": {
+    "final_package_built_by_publication": false,
+    "final_candidate_evaluation_started": false,
+    "derived_container_image_built": false,
+    "real_infrastructure_contacted": false,
+    "tag_release_deployment_or_publication_created": false,
+    "container_image_exported_pushed_published_or_redistributed": false
+  },
+  "next_gate": "Build and verify two final deterministic zipapps from this public identity, then rerun source and package evaluations and all real surfaces."
+}
