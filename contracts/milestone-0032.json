@@ -17,7 +17,7 @@
       "public_verification"
     ],
     "active_contract": "contracts/milestone-0032.json",
-    "verified_at_utc": "2026-08-22T19:49:44Z",
+    "verified_at_utc": "2026-08-22T20:00:02Z",
     "expires_at_utc": null
   },
   "scope": {
@@ -237,7 +237,7 @@
         "Package/source receipt artifacts/verification/package-source-baseline-0032.json retains exact identities and keeps the container gate closed until public-byte reconciliation"
       ],
       "disposition": "in_progress",
-      "next_dependency": "publish and independently reconcile the exact final package/source payload, then run repeated local and no-alternates clean-clone container identity plus the fresh exact-image scan"
+      "next_dependency": "run repeated local and no-alternates clean-clone container identity, all real-container surfaces and hardening checks, then the fresh exact-image scan"
     },
     {
       "id": "UNIT-005",
@@ -260,7 +260,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Publish and independently reconcile the exact final package/source payload at artifacts/verification/package-source-baseline-0032.json; only then build the two local derived images and run clean-clone identity, runtime hardening, real-container surfaces, and the fresh exact-image critical/high scan without exporting or publishing image bytes.",
+  "next_action": "From public exact package/source payload 08c71350718d90723662bb1d3299ce7100ce388c and its reconciled receipt, build the two local derived images and run no-alternates clean-clone identity, runtime hardening, real-container surfaces, and the fresh exact-image critical/high scan without exporting or publishing image bytes.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -300,6 +300,7 @@
       "artifacts/verification/baseline-0032-orientation-failures-001.json",
       "artifacts/verification/baseline-0032-api-verifier-correction-seal-public.json",
       "artifacts/verification/package-source-baseline-0032.json",
+      "artifacts/verification/package-source-baseline-0032-public.json",
       "artifacts/verification/dashboard-source-final-baseline-0032.png",
       "artifacts/verification/dashboard-package-final-baseline-0032.png",
       "artifacts/verification/native-source-final-baseline-0032.json",
@@ -313,7 +314,7 @@
   "handoff": {
     "latest_verified_checkpoint": "public branch correction bf839de661dd567cfc2e66d27bb06c0ff7c19967 is exact; public v0.0.30 remains the latest release and public main e12e638b98b1deacb4c5058ecb9d7c8652c96985 retains the stopped BASELINE-0031 record",
     "retained_failed_checkpoint": "stopped unpublished BASELINE-0031 with exact derived image sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1 and failed CHECK-007",
-    "current_checkpoint": "BASELINE-0032 UNIT-004 has a locally passing final package/source payload under manifest 79ddea612f664679ebf73cee54c8725942b17f07e626eb7883999f2d11019f4b; container build remains closed until that exact payload is public and independently reconciled.",
+    "current_checkpoint": "BASELINE-0032 UNIT-004 final package/source payload 08c71350718d90723662bb1d3299ce7100ce388c is public and independently reconciled across all 21 changed blobs and anonymous raw files; local-only v12 container verification is now eligible.",
     "resume_rule": "Resume from the latest verified public BASELINE-0032 commit plus retained BASELINE-0031 failures; run the relevant verifier and inspect current evidence before acting, never use OneDrive, and never infer that v0.0.31 shipped."
   }
 }

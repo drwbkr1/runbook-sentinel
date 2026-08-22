@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "PACKAGE-SOURCE-BASELINE-0032-PUBLIC",
+  "checkpoint": "baseline-0032",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-22T20:00:02Z",
+  "status": "pass",
+  "repository": {
+    "owner": "drwbkr1",
+    "name": "runbook-sentinel",
+    "visibility": "public",
+    "branch": "codex/baseline-0032-container-base-security-refresh"
+  },
+  "target": {
+    "commit": "08c71350718d90723662bb1d3299ce7100ce388c",
+    "tree": "a27d59737501c67528df0eb40b12b0bbe0d014c2",
+    "parent": "bf839de661dd567cfc2e66d27bb06c0ff7c19967",
+    "commit_message": "test: seal baseline 0032 package surfaces"
+  },
+  "checks": {
+    "local_ref_exact": true,
+    "explicit_tracking_ref_exact": true,
+    "ls_remote_branch_exact": true,
+    "anonymous_repository_visibility_exact": true,
+    "anonymous_github_ref_exact": true,
+    "anonymous_github_commit_exact": true,
+    "anonymous_github_tree_exact": true,
+    "anonymous_github_parent_exact": true,
+    "github_tree_not_truncated": true,
+    "changed_git_blobs_exact": true,
+    "anonymous_raw_bytes_exact": true,
+    "public_main_unchanged": true
+  },
+  "counts": {
+    "repository_tree_entries": 1495,
+    "changed_paths": 21,
+    "changed_raw_bytes_total": 4699031,
+    "git_blob_mismatches": 0,
+    "raw_byte_mismatches": 0
+  },
+  "selected_evidence": {
+    "package_source_receipt": "artifacts/verification/package-source-baseline-0032.json",
+    "package_sha256": "0fa7256a15441788f38c2738da083c54c6cf491c577f7c1fe3abb1caa9bf07f5",
+    "source_report_sha256": "4f90043cc9b503c4ad96e4f6ad044501c61a880b3068d0b9b5279d56f95187b0",
+    "package_report_sha256": "feb807b2cd178b33d138a635d96268aedc1fdb9be7f24c0a595ddc78bec6f3ff",
+    "normalized_report_sha256": "828b7f9fa26a402fa2b3a3f0ba568ce83f340fe3ad6386a331d234a3b1886608",
+    "source_dashboard_sha256": "8bb0e82e2b81a814fee04a19c6bbc2a8ac1f1b2e2b45e2c3fefa9d2f932cdba7",
+    "package_dashboard_sha256": "48f56beacaae4a4594e09a4a9c685271fa5f65f6e328db3a352af45e1f612ed9"
+  },
+  "public_main": {
+    "commit": "e12e638b98b1deacb4c5058ecb9d7c8652c96985",
+    "moved": false
+  },
+  "boundaries": {
+    "derived_container_image_built_by_target_commit": false,
+    "real_infrastructure_contacted": false,
+    "tag_release_deployment_or_publication_created": false,
+    "container_image_exported_pushed_published_or_redistributed": false
+  },
+  "next_gate": "Publish and independently reconcile this record-only receipt, then run the frozen v12 repeated local image, no-alternates clean-clone, real-container surface, hardening, and fresh exact-image scan matrix."
+}
