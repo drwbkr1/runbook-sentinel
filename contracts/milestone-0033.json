@@ -140,7 +140,7 @@
       ],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": [
         "orientation-baseline-0033.json",
         "retrieval-candidate-admissibility-contract.json",
@@ -158,9 +158,11 @@
         "implementation_absent": "pass",
         "successor_result_absent": "pass",
         "full_regression": "pass",
-        "public_commit_exact": "pending",
-        "anonymous_changed_bytes_exact": "pending"
-      }
+        "public_commit_exact": "pass",
+        "anonymous_changed_bytes_exact": "pass"
+      },
+      "disposition": "pass",
+      "next_dependency": "UNIT-003"
     },
     {
       "id": "UNIT-003",
@@ -170,7 +172,7 @@
       ],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": [
         "public exact preimplementation contract",
         "exact retained v3 report v4 report and comparison"
@@ -244,8 +246,8 @@
       }
     }
   ],
-  "current_unit": "UNIT-002",
-  "next_action": "Complete the local preimplementation freeze gate, commit and push only the frozen overlay contract verifier tests ADR milestone evidence and living records, then anonymously reconcile every changed public byte before implementation.",
+  "current_unit": "UNIT-003",
+  "next_action": "Publish and anonymously reconcile the record-only public-freeze receipt, then implement only scripts/readjudicate_retrieval_candidate.py plus fail-closed tests; publish the exact implementation seal before generating a successor result.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -277,7 +279,8 @@
       "Required retrieval-stage coverage is 1.0 with zero missing cell zero ambiguity and exactly three frozen safe-superset pairs",
       "The original comparison keeps v3 selected and v4 excluded because median latency non-inferiority is false",
       "The frozen contract verifier passes in preimplementation mode and six focused fail-closed tests pass",
-      "The complete regression suite passes 102 tests in 134.996 seconds; the earlier detached 53-case partial attempt remains inconclusive and supplies no positive evidence"
+      "The complete regression suite passes 102 tests in 134.996 seconds; the earlier detached 53-case partial attempt remains inconclusive and supplies no positive evidence",
+      "Public freeze commit 027d237627b07180bdefa15f00ff62a037f9751e is exact across explicit tracking, ls-remote, anonymous ref, tree, parent, all 19 Git blobs, all 19 raw files, and rendered branch and commit pages while public main remains unchanged"
     ],
     "artifacts": [
       "artifacts/verification/orientation-baseline-0033.json",
@@ -285,14 +288,15 @@
       "eval/retrieval-candidate-admissibility-contract.json",
       "scripts/verify_retrieval_candidate_admissibility_contract.py",
       "tests/test_retrieval_candidate_admissibility_contract.py",
-      "docs/adr/0027-separate-default-retrieval-conformance-from-candidate-admissibility.md"
+      "docs/adr/0027-separate-default-retrieval-conformance-from-candidate-admissibility.md",
+      "artifacts/verification/baseline-0033-preimplementation-freeze-public.json"
     ],
     "disposition": "in_progress"
   },
   "handoff": {
     "latest_verified_checkpoint": "immutable public v0.0.32 at tag object ea203784e11afd611666bcd988f4d1e60259f6a8 peeled to audited closure f0e565015be2ca8ed155be600a61fe131dbfa012, with public receipt SHA-256 eebd1571dfab5942f7b1b6dfc2a42c5807629391564d01d7621b307a8c78726c and rendered-truth correction main 4b7dd999c13384a196746de5dbff872e93f9f2fe",
     "retained_failed_checkpoint": "stopped unpublished BASELINE-0031 release candidate v0.0.31 plus separately retained excluded bounded-trust-tier-lexical-v4 comparison",
-    "current_checkpoint": "BASELINE-0033 has selected a bounded evaluation-system correction only. The local contract verifier and six focused tests pass; readjudication implementation and successor result are absent until the exact freeze is public.",
+    "current_checkpoint": "BASELINE-0033 preimplementation freeze is public and exact at commit 027d237627b07180bdefa15f00ff62a037f9751e. The record-only reconciliation is being published; readjudication implementation and successor result remain absent.",
     "resume_rule": "Resume from public verified v0.0.32 and the exact BASELINE-0033 freeze state; inspect the active milestone and verifier before acting, never use OneDrive, never rewrite the original v4 exclusion, and never infer candidate selection from candidate evidence admissibility."
   }
 }

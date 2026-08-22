@@ -6,6 +6,8 @@ The read-only preimplementation verifier accepts the exact retained v3/v4 compar
 
 Six focused fail-closed tests and the complete 102-test regression suite pass; the latter completed in 134.996 seconds. The adjudicator and successor result are absent. An earlier 53-case partial process lost its terminal attachment and is retained as inconclusive rather than counted as a pass.
 
+The exact freeze is public at commit `027d237627b07180bdefa15f00ff62a037f9751e`, tree `e1ab1c5024071b37dad6dc0e0d74a53548a9a109`, parent `4b7dd999c13384a196746de5dbff872e93f9f2fe`. Explicit tracking, `ls-remote`, anonymous ref/commit/tree/parent, all 19 Git blobs and raw paths, and rendered branch/commit pages agree; public `main` remains unchanged. A first plain-fetch tracking-ref wrapper is retained as process-invalid and does not supply aggregate pass evidence.
+
 ## BASELINE-0032 local canonical container candidate
 
 The exact public package/source record at `001b6a19b38616d07a9995d19831b44c8a03a6a1` supplied the only admitted Docker input. Two independent no-cache, network-disabled full builds and one credential-disabled HTTPS no-alternates clean build reproduce image ID `sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9` at the frozen creation time. The clean clone first rebuilt the exact 43-entry, 647,712-byte zipapp at SHA-256 `3be93953a367483e29c696af889ebfccc432424b8303c4f69ae00d10a38c2270`.

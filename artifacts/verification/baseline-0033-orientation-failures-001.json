@@ -32,6 +32,24 @@
       "mutation": false,
       "correction": "Keep exact token-pattern checks and require both matching begin and end markers for a complete private-key block; inspect every changed file without excluding the historical devlog.",
       "positive_evidence": false
+    },
+    {
+      "id": "REMOTE-TRACKING-FETCH-001",
+      "class": "process_invalid",
+      "operation": "Reconcile the public preimplementation freeze across local, tracking, ls-remote, anonymous API, tree, and raw-file surfaces",
+      "failure": "A plain git fetch of the branch updated FETCH_HEAD but did not materialize the expected refs/remotes/origin branch, so git rev-parse returned the unresolved tracking-ref text and the wrapper exited nonzero. The same attempt independently proved the ls-remote ref, anonymous ref, commit, tree, parent, all 19 raw paths, and unchanged public main exact, but it is excluded as an aggregate pass.",
+      "mutation": false,
+      "correction": "Fetch the exact source branch to the exact refs/remotes/origin destination with an explicit refspec, then require local, tracking, ls-remote, anonymous, tree, parent, and raw identities together.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PUBLIC-MAIN-DNS-SUMMARY-001",
+      "class": "inconclusive",
+      "operation": "Recheck unchanged public main while validating the record-only receipt",
+      "failure": "The concurrent git ls-remote request could not resolve github.com, and the wrapper then attempted Split on the absent response instead of reporting the network result cleanly.",
+      "mutation": false,
+      "correction": "Keep the already-completed local receipt checks separate, rerun the public ref assertion after DNS recovers, and require a nonempty exact response before parsing it.",
+      "positive_evidence": false
     }
   ],
   "historical_candidate_results_rewritten": false,
