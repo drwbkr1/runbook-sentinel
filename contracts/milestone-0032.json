@@ -265,7 +265,7 @@
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Publish and independently reconcile the bounded active-truth correction after public record commit a0fbde12ad4d562239320f72dceea6a1337d99d7, then complete the governed premerge release-truth audit on draft PR #30 at the latest exact public branch head; mark review ready only if every required check and surface passes without warning.",
+  "next_action": "Publish and independently reconcile this merged-main living-record update, then run the final release-truth audit against exact public main 772e2a375e4cad1fc8697c75af886194656be6aa and public merged-main evidence commit a5421577a3d9ee03a41c56a05acc03b375197c6d; create annotated v0.0.32 and the selected zipapp/checksum release only if every required check and surface passes without warning.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -303,7 +303,10 @@
       "Container-runtime-v12 passes all 49 composed checks at exact image ID sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9 across two full local builds and one credential-disabled no-alternates public-branch clean build; the fresh exact-derived-image scan reports zero critical/high at observation time",
       "Post-container regression passes 96 of 96 tests and 40 of 40 phase-correct validators; repository structured parsing, high-specificity credential/capability scanning, model-artifact scanning, Git diff checking, trace validation, package validation, milestone validation, and live image/container inventory all pass",
       "Canonical container evidence commit f61caf6582e4095f9075f2ccc9a4de9f4f5c5f53 and tree 95c647595d89c15814e22d76a14e725b5c3d7d0f are public and exact; the GitHub tree is untruncated at 1,519 entries and all 16 changed Git blobs and anonymous raw paths match local bytes",
-      "UNIT-004 record commit a0fbde12ad4d562239320f72dceea6a1337d99d7 and tree 73d80834a2d92f63cdd441e6e099fb064a901ae4 are public and exact; all eight changed paths match anonymous immutable bytes, public main remains unchanged, and draft PR #30 opened from that exact head"
+      "UNIT-004 record commit a0fbde12ad4d562239320f72dceea6a1337d99d7 and tree 73d80834a2d92f63cdd441e6e099fb064a901ae4 are public and exact; all eight changed paths match anonymous immutable bytes, public main remains unchanged, and draft PR #30 opened from that exact head",
+      "Premerge audit commit 200b455125aa60be938f7cb2289dba1d0194d930 verifies all ten checks and twenty surfaces without warning; COMMENTED review 5001107103 is anchored to that exact head; PR #30 merged under expected-head lock as 772e2a375e4cad1fc8697c75af886194656be6aa with the reviewed tree preserved exactly",
+      "Fresh public-main verification passes 96 tests, 40 phase-correct validators, two exact archive rebuilds, source and package all-136-gate evaluations with anchored traces, bounded MCP, both 131-check APIs, both 72-check native inspections, three complete dashboards, and 49 composed container checks at exact image ID sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9",
+      "Public merged-main evidence commit a5421577a3d9ee03a41c56a05acc03b375197c6d and tree d026a682c8f7821ae7d2af6e8c2520ec202de818 are exact; all five anonymous raw paths match, v0.0.32 tag and release remain absent, and public v0.0.30 remains latest"
     ],
     "artifacts": [
       "artifacts/verification/container-source-gate-baseline-0032-chainguard-python.json",
@@ -334,6 +337,12 @@
       "artifacts/verification/artifact-scan-baseline-0032-container-phase.json",
       "artifacts/verification/container-baseline-0032-public.json",
       "artifacts/verification/baseline-0032-premerge-audit-orientation-failures-001.json",
+      "artifacts/verification/release-audit-baseline-0032-premerge.json",
+      "artifacts/verification/baseline-0032-review-and-merged-main-failures-001.json",
+      "artifacts/verification/merged-main-baseline-0032.json",
+      "artifacts/verification/dashboard-source-merged-main-baseline-0032.png",
+      "artifacts/verification/dashboard-package-merged-main-baseline-0032.png",
+      "artifacts/verification/dashboard-container-merged-main-baseline-0032.png",
       "eval/container-base-security-refresh-contract-0032.json",
       "scripts/verify_container_base_security_refresh_contract.py",
       "tests/test_container_base_security_refresh_contract.py"
@@ -341,9 +350,9 @@
     "disposition": "in_progress"
   },
   "handoff": {
-    "latest_verified_checkpoint": "public UNIT-004 record commit a0fbde12ad4d562239320f72dceea6a1337d99d7 and tree 73d80834a2d92f63cdd441e6e099fb064a901ae4 are exact; draft PR #30 opened from that head, public v0.0.30 remains the latest release, and public main e12e638b98b1deacb4c5058ecb9d7c8652c96985 retains the stopped BASELINE-0031 record",
+    "latest_verified_checkpoint": "public merged-main evidence commit a5421577a3d9ee03a41c56a05acc03b375197c6d and tree d026a682c8f7821ae7d2af6e8c2520ec202de818 are exact across the branch ref, commit API, tree, and all five anonymous raw paths; public main is exact merged commit 772e2a375e4cad1fc8697c75af886194656be6aa, public v0.0.30 remains the latest release, and v0.0.32 remains untagged and unreleased",
     "retained_failed_checkpoint": "stopped unpublished BASELINE-0031 with exact derived image sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1 and failed CHECK-007",
-    "current_checkpoint": "BASELINE-0032 UNIT-004 is complete: canonical receipt passes 49 of 49 at image ID sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9, public reconciliation commit a0fbde12ad4d562239320f72dceea6a1337d99d7 is independently exact, and draft PR #30 is open. UNIT-005 is reconciling a retained stale control pointer before the warning-free premerge audit; review remains draft.",
-    "resume_rule": "Resume from the latest verified public BASELINE-0032 commit plus retained BASELINE-0031 failures; run the relevant verifier and inspect current evidence before acting, never use OneDrive, and never infer that v0.0.31 shipped."
+    "current_checkpoint": "BASELINE-0032 UNIT-004 is complete and UNIT-005 has passed truth reconciliation, warning-free premerge audit, exact-head review, history-preserving merge, fresh public-main complete-stack verification, and public merged-main receipt reconciliation. Living-record publication and the final release-truth audit are next; no v0.0.32 tag, release, deployment, or image publication exists.",
+    "resume_rule": "Resume from public main 772e2a375e4cad1fc8697c75af886194656be6aa plus verified merged-main evidence a5421577a3d9ee03a41c56a05acc03b375197c6d and retained BASELINE-0031 failures; run the relevant verifier and inspect current evidence before acting, never use OneDrive, and never infer that v0.0.31 or v0.0.32 shipped."
   }
 }
