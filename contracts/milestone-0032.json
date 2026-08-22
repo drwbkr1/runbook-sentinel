@@ -237,7 +237,7 @@
         "Package/source receipt artifacts/verification/package-source-baseline-0032.json retains exact identities and keeps the container gate closed until public-byte reconciliation"
       ],
       "disposition": "in_progress",
-      "next_dependency": "publish and reconcile the two-literal container-verifier identity correction and renewed manifest, then rebuild package and repeat source/package evaluation and real surfaces before any image build"
+      "next_dependency": "publish and reconcile the public correction receipt, then rebuild package and repeat source/package evaluation and real surfaces before any image build"
     },
     {
       "id": "UNIT-005",
@@ -260,7 +260,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Publish and independently reconcile the two-literal container-verifier identity correction and renewed source manifest, then rebuild deterministic package bytes and rerun source/package evaluation and real surfaces before the first BASELINE-0032 derived-image build.",
+  "next_action": "Publish and independently reconcile the public correction receipt, then rebuild deterministic package bytes and rerun source/package evaluation and real surfaces before the first BASELINE-0032 derived-image build.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -292,7 +292,7 @@
       "Official publisher and anonymous registry metadata admit one exact patched digest for local use",
       "The source gate and side-effect-free frozen-phase remediation validator pass with zero errors",
       "Public preimplementation commit a18da8678e0f03afb1cef4c65de44a6a9b4dff40 is exact across four refs, all 15 Git blobs, and all 15 anonymous raw files",
-      "Public implementation, prebuild, record-reconciliation, lifecycle-correction, API-verifier-correction, package/source, and record-only checkpoints are exact; the latest is 79c12cb097effe682293fda1785fdc801ab434a0",
+      "Public implementation, prebuild, record-reconciliation, lifecycle-correction, API-verifier-correction, package/source, record-only, and container-verifier-correction checkpoints are exact; the latest is 7ef0eeefe073ec82e29adb8fa9ce387a2c57d2e9",
       "Superseded source and package evaluations, MCP, API, approval, executor, replay, postconditions, persisted state, telemetry, native inspection, and rendered dashboards pass under manifest 79ddea612f664679ebf73cee54c8725942b17f07e626eb7883999f2d11019f4b; none is relabeled as final"
     ],
     "artifacts": [
@@ -304,6 +304,7 @@
       "artifacts/verification/baseline-0032-package-source-attempt-002-superseded-by-container-verifier.json",
       "artifacts/verification/baseline-0032-container-verifier-identity-correction-source-manifest.json",
       "artifacts/verification/baseline-0032-container-verifier-identity-correction-seal-local.json",
+      "artifacts/verification/baseline-0032-container-verifier-identity-correction-seal-public.json",
       "artifacts/verification/dashboard-source-final-baseline-0032.png",
       "artifacts/verification/dashboard-package-final-baseline-0032.png",
       "artifacts/verification/native-source-final-baseline-0032.json",
@@ -317,7 +318,7 @@
   "handoff": {
     "latest_verified_checkpoint": "public branch correction bf839de661dd567cfc2e66d27bb06c0ff7c19967 is exact; public v0.0.30 remains the latest release and public main e12e638b98b1deacb4c5058ecb9d7c8652c96985 retains the stopped BASELINE-0031 record",
     "retained_failed_checkpoint": "stopped unpublished BASELINE-0031 with exact derived image sha256:3736d003e1c57fc30bf831145c151d2457593d5fc0596a16ad387b7db07a72c1 and failed CHECK-007",
-    "current_checkpoint": "BASELINE-0032 public package/source payload 08c71350718d90723662bb1d3299ce7100ce388c is exact but superseded-before-container after preexecution inspection found two stale verifier identity literals; no derived image exists and correction publication is next.",
+    "current_checkpoint": "BASELINE-0032 container-verifier correction 7ef0eeefe073ec82e29adb8fa9ce387a2c57d2e9 is public and independently reconciled; no derived image exists and publication of its record-only receipt is next.",
     "resume_rule": "Resume from the latest verified public BASELINE-0032 commit plus retained BASELINE-0031 failures; run the relevant verifier and inspect current evidence before acting, never use OneDrive, and never infer that v0.0.31 shipped."
   }
 }
