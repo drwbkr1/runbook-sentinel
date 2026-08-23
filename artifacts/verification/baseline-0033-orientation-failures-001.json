@@ -284,9 +284,99 @@
       "mutation": false,
       "correction": "Use a bounded multiline PEM structure check requiring matching begin/end labels and base64 body lines. The successor reports zero complete private-key blocks; the high-signal added-secret assignment scan and model-artifact inventory also report zero.",
       "positive_evidence": false
+    },
+    {
+      "id": "PUBLIC-PREBUILD-RECORD-COMPOSITE-NO-SUMMARY-001",
+      "class": "inconclusive",
+      "operation": "Reconcile the public prebuild record across refs metadata blobs raw bytes tree and rendered evidence in one anonymous wrapper",
+      "failure": "The first composite reconciliation exceeded its return window and produced no terminal summary. It made no repository mutation and supplies no aggregate positive evidence.",
+      "mutation": false,
+      "correction": "Split the read-only proof into bounded ref metadata tree blob raw-byte and rendered checks. The successors prove all eight record paths exact in the untruncated public tree while public main remains unchanged.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PACKAGE-PREFLIGHT-RG-WINDOWS-GLOB-001",
+      "class": "process_invalid",
+      "operation": "Inventory predecessor package/source evidence paths before the BASELINE-0033 build",
+      "failure": "The first ripgrep command treated artifacts/verification/baseline-0032-package* as a literal Windows path and exited without an inventory. No project or external state changed.",
+      "mutation": false,
+      "correction": "Enumerate repository paths with rg --files and filter the resulting stream. The successor returns the intended predecessor package/source evidence inventory.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PACKAGE-EVALUATION-TRACE-PYTHONPATH-001",
+      "class": "process_invalid",
+      "operation": "Independently verify the source and package evaluation trace anchors",
+      "failure": "The first source and package trace-validator invocations omitted the documented PYTHONPATH=src setting and failed module import before validating either trace. Neither report nor trace was changed.",
+      "mutation": false,
+      "correction": "Set PYTHONPATH to src and rerun both exact report/trace pairs. Each successor validates an anchored 261-event chain and its report-bound final digest.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PACKAGE-NORMALIZATION-COMPANION-PREMATURE-001",
+      "class": "process_invalid",
+      "operation": "Compare complete source and package evaluation reports after removing only declared launch-varying leaves",
+      "failure": "The first normalization attempt assumed immutable companion manifests already existed even though direct evaluator execution intentionally writes only reports and traces. It stopped on FileNotFoundError before comparison and made no evidence claim.",
+      "mutation": false,
+      "correction": "Materialize the exact frozen manifest to both previously absent companion paths, advance latest.json only after declared report and manifest hashes match, then restart normalization. The successors find 407 raw differences using only 17 declared leaf names and produce byte-exact normalized reports.",
+      "positive_evidence": false
+    },
+    {
+      "id": "LIVE-SURFACE-ARGUMENT-INVENTORY-NOMATCH-001",
+      "class": "process_invalid",
+      "operation": "Inspect real-surface verifier interfaces before source and package execution",
+      "failure": "A combined source-read and argument-search wrapper ended with ripgrep exit 1 because inspect_runtime_evidence.py defines no argparse matches. The source read was informative but the aggregate is not positive verification evidence.",
+      "mutation": false,
+      "correction": "Use the existing documented invocations and verify each generated API MCP native trace and dashboard output directly. Both source and package surfaces pass their independent checks.",
+      "positive_evidence": false
+    },
+    {
+      "id": "SOURCE-API-STRICT-BOOLEAN-COUNT-001",
+      "class": "process_invalid",
+      "operation": "Summarize the source authenticated API receipt",
+      "failure": "The first summary counted only values strictly equal to Boolean true and therefore displayed 130 rather than the receipt's 131 passing definitions; dashboard_csp_present is intentionally the observed CSP header array rather than a Boolean. No API or evidence byte changed.",
+      "mutation": false,
+      "correction": "Require overall status pass, zero false values, and exact inspection of the non-Boolean CSP header field. The source and package receipts each pass all 131 definitions with the required CSP value present.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PACKAGE-SOURCE-CONTAINER-CONTRACT-PATH-001",
+      "class": "process_invalid",
+      "operation": "Hash the package/source input contracts for the local seal",
+      "failure": "The first inventory guessed eval/container-runtime-contract-v13.json instead of the repository's eval/container-contract-0033-v13.json. PowerShell then displayed a stale prior hash beside a zero length after Get-Item and Get-FileHash failed, so that row is invalid and excluded.",
+      "mutation": false,
+      "correction": "Resolve the exact path from rg --files, hash eval/container-contract-0033-v13.json independently, and require the frozen 54067e1a identity before sealing the receipt.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PACKAGE-SOURCE-CONTAINER-CONTRACT-OPTION-001",
+      "class": "process_invalid",
+      "operation": "Revalidate the implemented container-runtime-v13 prerequisite during package/source sealing",
+      "failure": "The first focused wrapper guessed a --phase implemented option that verify_container_contract.py does not expose. All preceding JSON diff manifest package and release-identity checks passed, but the aggregate stopped at argument parsing and is not a complete gate.",
+      "mutation": false,
+      "correction": "Use the verifier's documented --require-implementation option and restart the bounded contract gate before staging the payload.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PACKAGE-SOURCE-MILESTONE-PROFILE-001",
+      "class": "process_invalid",
+      "operation": "Validate the updated BASELINE-0033 milestone against an optional project control profile",
+      "failure": "The first invocation guessed .codex/project.json, which does not exist in this repository. A follow-up inventory also named the absent .codex directory explicitly and ripgrep exited before a useful profile inventory. Neither command changed project state.",
+      "mutation": false,
+      "correction": "Inventory the repository root without naming an absent directory, confirm there is no project control profile, and run the governing milestone validator directly against contracts/milestone-0033.json.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PACKAGE-SOURCE-DOCKER-INVENTORY-SIMPLEMATCH-001",
+      "class": "process_invalid",
+      "operation": "Confirm no BASELINE-0033 image or container exists before payload publication",
+      "failure": "The first PowerShell inventory combined three alternatives with pipe characters while also selecting SimpleMatch, so it searched for the literal combined string instead of the intended alternatives. Its empty output is not absence evidence.",
+      "mutation": false,
+      "correction": "Rerun the complete image and container inventories with the alternatives interpreted as a regular expression and require zero matching rows.",
+      "positive_evidence": false
     }
   ],
   "historical_candidate_results_rewritten": false,
   "product_files_changed_by_failure": false,
-  "next_gate": "Publish and anonymously reconcile the renewed 153-file BASELINE-0033 prebuild manifest seal before building any v0.0.33 archive or image."
+  "next_gate": "Publish and anonymously reconcile the exact BASELINE-0033 package/source payload and its record-only receipt before any local container-runtime-v13 build."
 }

@@ -1,0 +1,344 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0033-PACKAGE-SOURCE-LOCAL",
+  "checkpoint": "baseline-0033",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-23T02:56:27Z",
+  "status": "pass_local_non_container_publication_pending",
+  "public_input": {
+    "repository": "https://github.com/drwbkr1/runbook-sentinel",
+    "visibility": "public",
+    "branch": "codex/baseline-0033-retrieval-candidate-admissibility",
+    "record_commit": "d64f97529e6bb34a2451ea087aac817d6fae6288",
+    "record_tree": "8633f0348b51a20e71187a400419cda8ad6f1867",
+    "record_parent": "a214475dd33d165d4e990819ffce391e911fa33b",
+    "record_reconciliation": {
+      "all_refs_commit_tree_and_parent_exact": true,
+      "repository_tree_entries": 1564,
+      "repository_tree_truncated": false,
+      "changed_paths": 8,
+      "git_blob_mismatches": 0,
+      "anonymous_raw_byte_mismatches": 0,
+      "rendered_commit_verified": true
+    },
+    "public_receipt": {
+      "path": "artifacts/verification/baseline-0033-prebuild-manifest-seal-public.json",
+      "bytes": 5187,
+      "sha256": "b8349dcd763f0756dd83220dfaf0b136c2a9eeae8aa8a72e94683ab20c2c299a"
+    },
+    "public_main": "4b7dd999c13384a196746de5dbff872e93f9f2fe",
+    "public_main_moved": false,
+    "one_drive_used": false
+  },
+  "source_identity": {
+    "manifest_path": "eval/manifest.json",
+    "archived_manifest_path": "artifacts/verification/baseline-0033-prebuild-source-manifest.json",
+    "manifest_bytes": 18484,
+    "manifest_sha256": "4f9e9880a9f3a7dd75e94f83018d3f2bef996d4f49b05fd42160f7f62f281b20",
+    "manifest_file_count": 153,
+    "active_and_archived_byte_exact": true,
+    "package_contract_path": "eval/package-contract-0033.json",
+    "package_contract_sha256": "3a3994c821490754144c22a7d19771218f1813971eb16a315cacc311113e7c8e",
+    "container_contract_path": "eval/container-contract-0033-v13.json",
+    "container_contract_sha256": "54067e1a7447f09eae990196dc8a5c90c0815ef35055ac4f95099afeb4f9fc54"
+  },
+  "archive": {
+    "path": "dist/runbook-sentinel-0.0.33.pyz",
+    "bytes": 647712,
+    "sha256": "b10384f2ff7f61ace6fe34ae08b47625b6ab6c39636063c440ff8731563e6cec",
+    "checksum_path": "dist/runbook-sentinel-0.0.33.pyz.sha256",
+    "checksum_bytes": 94,
+    "checksum_sha256": "9a17cfb837078f7f5d7ec2b022f54633a6b6f1b222917f5a9f5ebc6b966e8d63",
+    "repeat_path": "dist/runbook-sentinel-0.0.33-repeat.pyz",
+    "repeat_bytes": 647712,
+    "repeat_sha256": "b10384f2ff7f61ace6fe34ae08b47625b6ab6c39636063c440ff8731563e6cec",
+    "repeat_checksum_path": "dist/runbook-sentinel-0.0.33-repeat.pyz.sha256",
+    "repeat_checksum_bytes": 101,
+    "repeat_checksum_sha256": "ff884044aab359fb7598f392a289738616b9df6a94484ab61a67c7270eace44c",
+    "entry_count": 43,
+    "runtime_dependencies": [],
+    "both_package_contract_checks": "pass",
+    "cli_help": "pass",
+    "independent_build_bytes_exact": true
+  },
+  "evaluation": {
+    "source_report": {
+      "path": "artifacts/evaluations/runs/baseline-0033-attempt-001.json",
+      "bytes": 954139,
+      "sha256": "970bda04f3f9ae08296562d05cb8c858dcae1fd4782f5d4f0cabd973a31f5c8b"
+    },
+    "source_manifest": {
+      "path": "artifacts/evaluations/runs/baseline-0033-attempt-001.manifest.json",
+      "bytes": 18484,
+      "sha256": "4f9e9880a9f3a7dd75e94f83018d3f2bef996d4f49b05fd42160f7f62f281b20"
+    },
+    "source_trace": {
+      "path": "artifacts/evaluations/runs/baseline-0033-attempt-001.traces.jsonl",
+      "bytes": 195431,
+      "sha256": "8d197d61bfaf5d71a7fe4b206561e8350ba6d17b68d228980d7e98e26a33866d",
+      "events": 261,
+      "final_event_sha256": "8f563a7e2140acd84c4953d9f832b66d8bf2b12692eaf5905237393983a506b7",
+      "valid": true,
+      "anchored": true
+    },
+    "package_report": {
+      "path": "artifacts/evaluations/runs/baseline-0033-attempt-002.json",
+      "bytes": 953986,
+      "sha256": "cf72f72e91eb6b50b9d0e457a4f4201d9356e365c47c2c60979532b825b18dfc"
+    },
+    "package_manifest": {
+      "path": "artifacts/evaluations/runs/baseline-0033-attempt-002.manifest.json",
+      "bytes": 18484,
+      "sha256": "4f9e9880a9f3a7dd75e94f83018d3f2bef996d4f49b05fd42160f7f62f281b20"
+    },
+    "package_trace": {
+      "path": "artifacts/evaluations/runs/baseline-0033-attempt-002.traces.jsonl",
+      "bytes": 195367,
+      "sha256": "68cd0e69e85e0421ae783a404d8e3ea5d32ca293662aaa91420b2fcac692314b",
+      "events": 261,
+      "final_event_sha256": "3dba7a092317614cc819e26e374511ff0a7d3654147bfa2359e3bc91421a2f10",
+      "valid": true,
+      "anchored": true
+    },
+    "latest_report_sha256": "cf72f72e91eb6b50b9d0e457a4f4201d9356e365c47c2c60979532b825b18dfc",
+    "latest_is_byte_identical_to_package_report": true,
+    "previous_latest_report_sha256": "0b544367ce470c0814d6b903dd2dc9b28e9abe75572a58074c2723ed8a24eeb1",
+    "configuration": {
+      "agent": "deterministic-control-v2",
+      "retriever": "freshness-priority-lexical-v3",
+      "decision_context": "fresh-content-stale-metadata-context-v3"
+    },
+    "candidate_adjudication": {
+      "candidate": "bounded-trust-tier-lexical-v4",
+      "evidence_admissible": true,
+      "candidate_selected": false,
+      "selected_default": "freshness-priority-lexical-v3",
+      "exclusion_retained": "median_latency_non_inferior_false"
+    },
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "boolean_gates": {
+      "source_true": 136,
+      "source_false": 0,
+      "package_true": 136,
+      "package_false": 0
+    },
+    "raw_leaf_difference_count": 407,
+    "declared_runtime_varying_leaf_keys": [
+      "latency_ms",
+      "diagnosis_latency_ms",
+      "state_after_approval_sha256",
+      "state_before_sha256",
+      "trace_sha256_after",
+      "database_sha256_after",
+      "trace_sha256_before",
+      "database_sha256_before",
+      "operator_identity",
+      "final_event_sha256",
+      "diagnosis_median_ms",
+      "file_name",
+      "median_ms",
+      "diagnosis_p95_ms",
+      "median",
+      "p95",
+      "p95_ms"
+    ],
+    "unexpected_leaf_keys": [],
+    "normalized_report_bytes": 930485,
+    "normalized_report_sha256": "880f6988a9c39ebb3e3e15d3189b277e9194053e43d2cb824ba910b0366691df",
+    "source_package_normalized_reports_exact": true,
+    "source_latency_ms": {
+      "median": 113.665,
+      "p95": 210.815,
+      "diagnosis_median": 14.451,
+      "diagnosis_p95": 37.222
+    },
+    "package_latency_ms": {
+      "median": 84.525,
+      "p95": 144.77,
+      "diagnosis_median": 9.475,
+      "diagnosis_p95": 24.511
+    },
+    "model_calls": 0,
+    "external_api_cost": 0,
+    "metric_families_reported_separately": [
+      "approval_lifetime",
+      "behavioral_relations",
+      "cost",
+      "coverage",
+      "generation",
+      "idempotency_authorization",
+      "latency",
+      "live_trace_endpoint_anchor",
+      "operator_authentication",
+      "policy",
+      "proposal",
+      "reliability",
+      "retrieval",
+      "retrieval_quality",
+      "retrieval_stress",
+      "security",
+      "stale_evidence_stress",
+      "stale_payload_projection",
+      "telemetry_integrity",
+      "terminal_state",
+      "tool_trajectory",
+      "utility"
+    ]
+  },
+  "mcp": {
+    "protocol_version": "2025-11-25",
+    "server_version": "0.0.33",
+    "tool_names": [
+      "list_synthetic_scenarios",
+      "diagnose_synthetic_incident",
+      "get_synthetic_incident"
+    ],
+    "approval_or_execution_tool_exposed": false,
+    "attack_document_in_decision_context": false,
+    "full_retrieval_audit_retained": true,
+    "source": {
+      "database_sha256": "080b7637b984b1634b1b400b5692c2981fd537fdf230ba2329d5bf863e95199f",
+      "trace_sha256": "46e8e7af6a4a623a923d0911acb105d80adb11227fe14a86e2d96b7f0610d0e4",
+      "trace_events": 2,
+      "trace_final_event_sha256": "b098d7253117ca83c1b011cfdcd2b32381bf6987db5a6f6be1334ef6a511e45a",
+      "trace_anchor_sha256": "64cc8c22a8ba698dc70924d17c612704d20bf7cedc3cb0e948c1147d972700bb",
+      "anchor_file_sha256": "19972e9984c53869b2b586e72919d4f76f54b7da7a98b892615fde9f3e5b89e2"
+    },
+    "package": {
+      "database_sha256": "cbee13c464cca0704e3101e4988f5a61c389333723594df98a3218efa6321ed0",
+      "trace_sha256": "bd0a573ad9c79a9e153c1b1a76a54e2bbb9a6269d69ba3081131fe420b173325",
+      "trace_events": 2,
+      "trace_final_event_sha256": "99d820f6cacc267461521af8328e29e799c6b85b93c93b2c03ca059c1516f9f2",
+      "trace_anchor_sha256": "02e7e3a3d204d1485d701ac1686f5ce0afd38f5f5d1ef38bfcfef55e8c0709c3",
+      "anchor_file_sha256": "539c4a83f339d4b041f287b71849f97b5b7c66a1d5341498107a949f8c6ac395"
+    },
+    "both_trace_chains_valid_and_anchored": true
+  },
+  "authenticated_api": {
+    "check_definitions": 131,
+    "source_status": "pass",
+    "package_status": "pass",
+    "source_false_checks": 0,
+    "package_false_checks": 0,
+    "dashboard_csp_present_is_observed_header_array": true,
+    "operator_identity_server_derived": true,
+    "authorization_approval_action_hash_idempotency_replay_and_postconditions_exact": true,
+    "authentication_material_absent_from_trace_anchor_dashboard_database_and_logs": true,
+    "source": {
+      "database_sha256": "e0ad0fb8492eb3119cd51f0162c942a0cae903f82a64e06ef9e739cbd2c35afb",
+      "trace_sha256": "376c2e95a3c042b49c61e912a2a0e9571b62c1cc868e6f0774c620573f30b619",
+      "trace_events": 5,
+      "trace_final_event_sha256": "4842d23458c2b6d8a62594b016bb96146e14e1b08f7818120dd9cc4ace6cf866",
+      "trace_anchor_sha256": "0bd26364e9e841574b474d0ff6d605bcc2e416f35ce07ba47b2b11b7b6db7ba6",
+      "anchor_file_sha256": "7036474f1d7f7fb7a81a2405495beaeb066b3594760e7c57a743c6df00c5b7f4"
+    },
+    "package": {
+      "database_sha256": "8bf0df123f9191dda2827199a20cc6fc7904db849efdd932129f342a1236564f",
+      "trace_sha256": "6989a2af45969d0ac5deba6fe4be6ca2d64e9b39f8d29b74a07aa0a9bd321212",
+      "trace_events": 5,
+      "trace_final_event_sha256": "e589bbb6111324ba76951d139be8489ad80336dcee675faea84f1b603a0ef0a0",
+      "trace_anchor_sha256": "bcd49fbb6bd552078d3a42d11d2ba6a9fc5bfd484c109a1d7ba7f827e4bd9580",
+      "anchor_file_sha256": "b6bfaf81f75b0674b4653d3158917d36d5d14eb634011afb9c7c5dbb4b01df36"
+    }
+  },
+  "native_evidence": {
+    "source": {
+      "path": "artifacts/verification/native-source-baseline-0033.json",
+      "bytes": 12476,
+      "sha256": "348b25635652d6eb2eb253dfe2e30fe469c45315433991e36c694caf6a462edb",
+      "checks": "72/72"
+    },
+    "package": {
+      "path": "artifacts/verification/native-package-baseline-0033.json",
+      "bytes": 12476,
+      "sha256": "93b637de17a0cd22e0d39ee8c237a3bae5f64073fc3af93341f2d0319b654532",
+      "checks": "72/72"
+    },
+    "check_names_exact": true,
+    "database_counts_and_audit_event_sequence_exact": true,
+    "logs_exact": true,
+    "launch_specific_operator_database_telemetry_and_dashboard_hashes_observed_separately": true
+  },
+  "dashboards": {
+    "source": {
+      "path": "artifacts/verification/dashboard-source-baseline-0033.png",
+      "bytes": 101856,
+      "sha256": "fa4f74758c746ff1cfc2cae3b71fbf25b3c386bd2706292ef8bfd88de739aea3",
+      "dimensions": [1440, 1000]
+    },
+    "package": {
+      "path": "artifacts/verification/dashboard-package-baseline-0033.png",
+      "bytes": 101677,
+      "sha256": "c41ed9e2edb68e7b7e2298d39cc23049c14f3776bcb77dfac08e866a876608a8",
+      "dimensions": [1440, 1000]
+    },
+    "both_freshly_rendered": true,
+    "both_visually_inspected_at_original_detail": true,
+    "baseline_identity_and_35_metric_cards_visible": true,
+    "authorization_and_execution_boundaries_visible": true,
+    "persisted_incident_header_and_two_rows_visible": true,
+    "real_infrastructure_disconnected_visible": true,
+    "clipping_observed": false,
+    "renderer_diagnostic": "Headless Edge printed its known fallback task-manager diagnostic after producing each valid complete PNG; the diagnostic is retained and is not treated as a surface pass."
+  },
+  "retained_failures_and_superseded_evidence": {
+    "process_failure_record": {
+      "path": "artifacts/verification/baseline-0033-orientation-failures-001.json",
+      "bytes": 30570,
+      "sha256": "65e1f79c5b2362f39dab5941eb37642e2f49b5d50b4af7ddba966f37a8316851",
+      "items": 41
+    },
+    "unfavorable_retrieval_candidate_remains_excluded": "bounded-trust-tier-lexical-v4",
+    "median_latency_failure_remains_controlling": true,
+    "historical_candidate_results_rewritten": false,
+    "known_zero_byte_historical_json": "artifacts/verification/mcp-source-baseline-0026.json",
+    "known_zero_byte_historical_json_excluded_from_parse_pass": true
+  },
+  "verification": {
+    "source_evaluation_trace": "pass_valid_anchored_261",
+    "package_evaluation_trace": "pass_valid_anchored_261",
+    "source_retrieval_quality": "pass",
+    "package_retrieval_quality": "pass",
+    "manifest_validator": "pass_153_files",
+    "selected_package_contract": "pass_43_entries",
+    "repeat_package_contract": "pass_43_entries",
+    "release_identity_contract": "pass_implemented",
+    "container_v13_contract": "pass_implemented_receipt_absent",
+    "milestone_contract": "pass_active_no_warnings",
+    "full_tests_passed": 121,
+    "full_tests_failed": 0,
+    "full_test_seconds": 170.097,
+    "execution_phase_validators_passed": 42,
+    "execution_phase_validators_failed": 0,
+    "execution_phase_validator_seconds": 9.325,
+    "repository_json_files": 1125,
+    "repository_nonempty_json_files_parsed": 1124,
+    "repository_json_parse_errors": 0,
+    "repository_json_files_with_bom": 14,
+    "repository_jsonl_files": 176,
+    "repository_jsonl_records": 32187,
+    "repository_jsonl_parse_errors": 0,
+    "png_signatures_valid": true,
+    "archive_duplicate_entries": 0,
+    "bounded_credential_capability_private_key_and_model_scan": "pass",
+    "actual_capability_values_found": 0,
+    "bearer_values_found": 0,
+    "complete_private_key_blocks_found": 0,
+    "raw_approval_token_fields_found": 0,
+    "model_artifacts_found": 0
+  },
+  "boundaries": {
+    "model_has_credentials": false,
+    "model_has_final_execution_authority": false,
+    "mcp_has_approval_or_execution_authority": false,
+    "real_infrastructure_contacted": false,
+    "new_dependency_secret_paid_service_or_external_asset_added": false,
+    "derived_container_image_built": false,
+    "container_runtime_started": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "tag_release_deployment_or_publication_created": false,
+    "public_main_moved": false
+  },
+  "next_gate": "Publish and independently reconcile this exact package/source payload and a record-only public receipt before starting local-only container-runtime-v13 verification."
+}
