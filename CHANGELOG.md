@@ -25,6 +25,7 @@
 - Published correction-only commit `8dc04ef...` from exact parent `2d81bd4...`. All 11 blobs and anonymous raw paths, the untruncated tree, credential-disabled clone, and rendered commit reconcile; its public tree remains v0.0.32/baseline-0032 with successor contracts and artifacts absent. Eight focused and all 121 regression tests pass.
 - Published exact correction record `b5c9a22...`, then implemented only the frozen v0.0.33 identities and inherited package/container contracts. Package SHA-256 `3a3994c8...` preserves 43 entries; container-runtime-v13 SHA-256 `54067e1a...` preserves v12, its receipt, the admitted base, all 49 checks, and local-only boundaries while adding the corrected release identity as a prerequisite.
 - Retained one 120/121 historical-base-verifier lifecycle failure, left the v0.0.32 verifier unchanged, and verified it against an exact released-v12 fixture while separately checking the current base. All 121 tests and 41 applicable non-manifest validators pass. The old manifest rejects exactly 17 bounded paths; no v0.0.33 manifest, archive, image, receipt, tag, release, or deployment exists.
+- Published implementation seal `1a8864c...` exact across 31 Git blobs and anonymous raw paths, untruncated tree, and rendered evidence. Both successor contracts are public; the predecessor manifest remains active and no v0.0.33 archive, checksum, container receipt, or image exists.
 
 ## 0.0.32 - 2026-08-22
 
