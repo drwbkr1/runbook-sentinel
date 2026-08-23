@@ -30,7 +30,7 @@ class ReleaseIdentityContract0033Tests(unittest.TestCase):
         phase = "implemented" if (ROOT / "eval/container-contract-0033-v13.json").is_file() else "frozen"
         if successor_runtime_is_allowed(ROOT):
             with self.fixture() as directory:
-                result = MODULE.evaluate(Path(directory), phase)
+                result = MODULE.evaluate(Path(directory), "frozen")
         else:
             result = MODULE.evaluate(ROOT, phase)
         self.assertTrue(result["valid"], result["errors"])

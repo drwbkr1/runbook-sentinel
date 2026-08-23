@@ -210,7 +210,8 @@
         "meta_test_helper_addendum_freeze_public_and_exact": "pass",
         "meta_test_helper_addendum_public_record": "pass",
         "phase_aware_meta_test_local_regression": "pass",
-        "phase_aware_meta_test_public_and_exact": "pending",
+        "phase_aware_meta_test_public_and_exact": "pass",
+        "corrected_fixture_test_local_regression": "pass",
         "corrected_fixture_test_public_and_exact": "pending"
       },
       "next_dependency": "UNIT-003"
@@ -299,7 +300,7 @@
     }
   ],
   "current_unit": "UNIT-002A",
-  "next_action": "Publish and anonymously reconcile the exact two-test phase-aware implementation, then retry and publish only the frozen release-test correction before v5.",
+  "next_action": "Publish and anonymously reconcile the exact 6,944-byte release-test correction. Then close UNIT-002A and retry only the frozen v5 runtime without generating benchmark or comparison results.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -356,8 +357,8 @@
   },
   "handoff": {
     "resume_from": "contracts/milestone-0034.json",
-    "latest_verified_checkpoint": "public helper-addendum record 9875ff3ce9d84bd85022db5e84eff569bfed9b64 over freeze f74cce6fb9fa073107c2cff5a981c3a3439bd068 and verified v0.0.33 main d62e7cba675997eade87169f5acba14de6452c9b",
-    "resume_rule": "Run UNIT-002A from the verified local two-test phase-aware implementation. Keep runtime and release-test predecessor bytes exact until this implementation is public and reconciled; then retry only the frozen release-test correction before v5.",
+    "latest_verified_checkpoint": "public two-test phase-aware implementation 12b848394e5c6a843b913082cba9d0c3dc3e8bbb over helper record 9875ff3ce9d84bd85022db5e84eff569bfed9b64 and verified v0.0.33 main d62e7cba675997eade87169f5acba14de6452c9b",
+    "resume_rule": "Run UNIT-002A from the verified local 6,944-byte release-test correction. Keep runtime predecessor bytes and results absent until this test correction is public and reconciled; then close UNIT-002A and retry only exact v5 before any benchmark."
     "blocked_on_human": false
   }
 }

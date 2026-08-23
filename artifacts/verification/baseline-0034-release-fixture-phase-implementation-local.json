@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0034-release-fixture-phase-implementation-local",
+  "checkpoint": "baseline-0034",
+  "observed_at_utc": "2026-08-23T22:10:00Z",
+  "status": "pass",
+  "starting_public_checkpoint": {
+    "commit": "12b848394e5c6a843b913082cba9d0c3dc3e8bbb",
+    "tree": "40bc20987787aa7185e840f25bce86dd273c8c6d",
+    "parent": "9875ff3ce9d84bd85022db5e84eff569bfed9b64",
+    "changed_path_count": 7,
+    "changed_raw_bytes": 943967,
+    "public_exact": true
+  },
+  "implementation": {
+    "path": "tests/test_release_identity_contract_0033.py",
+    "bytes": 6944,
+    "sha256": "861d8f346b77a4faffc981c98f18d091b2a1ef9fb3ade288bb4f7abc9b348a09",
+    "exact_replacement_applied": true
+  },
+  "verification": {
+    "lifecycle_phase": "bridge_public_predecessor",
+    "focused_test_count": 41,
+    "focused_seconds": 23.570,
+    "focused_result": "OK",
+    "complete_test_count": 145,
+    "complete_seconds": 154.231,
+    "complete_result": "OK"
+  },
+  "boundaries": {
+    "product_runtime_changed": false,
+    "release_identity_verifier_changed": false,
+    "current_tree_bridge_validators_changed": false,
+    "default_changed": false,
+    "benchmark_or_comparison_result_created": false,
+    "security_or_authority_changed": false,
+    "container_image_exported_pushed_published_or_redistributed": false
+  },
+  "next_gate": "Publish and anonymously reconcile this exact release-test correction before retrying v5."
+}
