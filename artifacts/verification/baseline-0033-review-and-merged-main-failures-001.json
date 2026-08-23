@@ -1,0 +1,217 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0033-REVIEW-AND-MERGED-MAIN-FAILURES-001",
+  "checkpoint": "baseline-0033",
+  "observed_through_utc": "2026-08-23T04:31:46Z",
+  "status": "retained_process_failures_no_positive_evidence",
+  "items": [
+    {
+      "id": "CANONICAL-CONTAINER-SUMMARY-JSON-PATH-001",
+      "class": "process_invalid",
+      "operation": "Summarize the canonical container receipt",
+      "failure": "The first summary read image identities from a nonexistent JSON path and returned blank values.",
+      "mutation": false,
+      "correction": "Inspect the receipt schema and read image.independent_image_ids. The exact canonical image ID is retained separately.",
+      "positive_evidence": false
+    },
+    {
+      "id": "POST-CONTAINER-HISTORICAL-PHASE-MAP-001",
+      "class": "process_invalid",
+      "operation": "Run the phase-aware post-container validator inventory",
+      "failure": "The first map invoked the closed BASELINE-0032 base-refresh verifier as though it were a current BASELINE-0033 validator.",
+      "mutation": false,
+      "correction": "Replace the closed historical phase check with the current anchored container evaluation trace. The corrected 42-validator inventory passed.",
+      "positive_evidence": false
+    },
+    {
+      "id": "POST-CONTAINER-RETRIEVAL-SELECTION-FLAG-001",
+      "class": "process_invalid",
+      "operation": "Validate the retrieval-tier contract after candidate adjudication",
+      "failure": "The first wrapper required v4 selection even though BASELINE-0033 intentionally retained v3 after v4 failed median-latency non-inferiority.",
+      "mutation": false,
+      "correction": "Require the implemented contract only and validate the result separately with control and result required. The corrected inventory passed while preserving v3 selection.",
+      "positive_evidence": false
+    },
+    {
+      "id": "POST-CONTAINER-HASH-SUMMARY-PARSER-001",
+      "class": "process_invalid",
+      "operation": "Summarize post-container artifact hashes",
+      "failure": "A PowerShell pipeline expression failed parsing before producing its summary.",
+      "mutation": false,
+      "correction": "Use explicit per-path statements. Exact hashes were then recorded from completed artifacts.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PUBLIC-CONTAINER-LSREMOTE-SCALAR-001",
+      "class": "process_invalid",
+      "operation": "Summarize the successful public push of container evidence commit 0bf67a1",
+      "failure": "The first live summary indexed a scalar ls-remote result and displayed 0 even though the push itself succeeded.",
+      "mutation": "public branch already advanced successfully to the exact expected commit",
+      "correction": "Reconcile the exact remote ref, commit, tree, parent, blobs, anonymous raw bytes, and rendered page. The retained public receipt records the corrected proof.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PUBLIC-CONTAINER-RENDERED-TITLE-001",
+      "class": "process_invalid",
+      "operation": "Inspect the rendered public container-evidence commit",
+      "failure": "The first browser read called an unsupported playwright.title helper.",
+      "mutation": false,
+      "correction": "Read the rendered body with a supported locator operation and verify the exact commit identity and evidence paths.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PR31-VIEW-SELECTOR-001",
+      "class": "process_invalid",
+      "operation": "Inspect newly created draft pull request 31",
+      "failure": "The first gh pr view command omitted the pull-request selector and returned an invalid null summary after PR creation had already succeeded.",
+      "mutation": "draft pull request 31 already existed",
+      "correction": "Inspect explicit pull request 31 and bind all later review and merge evidence to its exact head.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PREMERGE-VALIDATOR-FOREACH-PARSER-001",
+      "class": "process_invalid",
+      "operation": "Run the 42-validator premerge inventory",
+      "failure": "The first wrapper omitted required whitespace in foreach($v in $validators) and failed parsing before running the inventory.",
+      "mutation": false,
+      "correction": "Use valid PowerShell syntax. The exact candidate then passed 42 of 42 phase-correct validators.",
+      "positive_evidence": false
+    },
+    {
+      "id": "AUDIT-COMMIT-ANONYMOUS-RECONCILIATION-001",
+      "class": "process_invalid",
+      "operation": "Anonymously reconcile the audit-only commit",
+      "failure": "The first request encountered an HTTP error and a malformed throw token then obscured the aggregate status.",
+      "mutation": false,
+      "correction": "Repeat the bounded anonymous metadata, raw-byte, tree, and rendered checks. The successor proved the audit-only commit exact.",
+      "positive_evidence": false
+    },
+    {
+      "id": "FRESH-MAIN-PACKAGE-FOREACH-PARSER-001",
+      "class": "process_invalid",
+      "operation": "Build two fresh-main zipapp archives",
+      "failure": "The first wrapper used foreach($p in@(...)) and failed parsing before creating files.",
+      "mutation": false,
+      "correction": "Use valid PowerShell syntax. Two independent archives and their checksums were then built and verified.",
+      "positive_evidence": false
+    },
+    {
+      "id": "FRESH-MAIN-PACKAGE-CHECKSUM-SUMMARY-001",
+      "class": "process_invalid",
+      "operation": "Summarize the two completed fresh-main package builds",
+      "failure": "The first summary constructed the checksum path as an expression with incorrect precedence and searched for a literal .sha256 path.",
+      "mutation": false,
+      "correction": "Resolve each exact archive and checksum path separately. Both archives are 647712 bytes at SHA-256 b10384f2ff7f61ace6fe34ae08b47625b6ab6c39636063c440ff8731563e6cec and both package validators pass.",
+      "positive_evidence": false
+    },
+    {
+      "id": "FRESH-MAIN-SOURCE-EVALUATOR-SESSION-LOST-001",
+      "class": "inconclusive_recovered",
+      "operation": "Run the fresh-main source evaluation",
+      "failure": "The evaluator process completed after its attached session was compacted, so direct process status was unavailable on resume.",
+      "mutation": "three previously absent immutable evaluation outputs were created",
+      "correction": "Inspect all three outputs directly, require all 136 Boolean gates true, validate exact retrieval-quality projection, and verify the anchored 261-event companion trace. The complete attempt passed and was retained without rerun.",
+      "positive_evidence": false
+    },
+    {
+      "id": "FRESH-MAIN-SOURCE-VALIDATOR-INVOCATION-001",
+      "class": "process_invalid",
+      "operation": "Validate the recovered fresh-main source evaluation",
+      "failure": "The first wrapper guessed a nonexistent verify_retrieval_quality.py filename and supplied only one positional argument to the evaluation-trace verifier.",
+      "mutation": false,
+      "correction": "Use verify_retrieval_quality_observability_contract.py with --require-implementation and --report, then pass both report and trace paths to verify_evaluation_trace.py.",
+      "positive_evidence": false
+    },
+    {
+      "id": "FRESH-MAIN-SOURCE-TRACE-PYTHONPATH-001",
+      "class": "process_invalid",
+      "operation": "Validate the recovered fresh-main source companion trace",
+      "failure": "The corrected positional invocation still omitted PYTHONPATH=src and stopped at module import.",
+      "mutation": false,
+      "correction": "Set PYTHONPATH=src. The exact trace then passed as valid and anchored with 261 events.",
+      "positive_evidence": false
+    },
+    {
+      "id": "FRESH-MAIN-API-WINDOWS-POWERSHELL-001",
+      "class": "environment_invocation_invalid",
+      "operation": "Exercise the fresh-source authenticated API, approval flow, executor, state, telemetry, and dashboard",
+      "failure": "The first wrapper explicitly launched Windows PowerShell 5.1. Its Invoke-RestMethod exception surface did not expose WwwAuthenticate through the PowerShell 7 property shape expected by the verifier, so the verifier failed while summarizing the expected unauthenticated 401 response.",
+      "mutation": "local synthetic runtime files were created and preserved under C:/Projects/Verification/runbook-sentinel-baseline-0033-main-1a8380d-20260823T035300-surfaces/source-api-windows-powershell-failure-001",
+      "correction": "Run the repository verifier with PowerShell 7.6.4. Source and package runs each passed the complete API boundary and rendered-surface checks.",
+      "positive_evidence": false
+    },
+    {
+      "id": "FRESH-MAIN-CONTAINER-SUMMARY-SCHEMA-001",
+      "class": "process_invalid",
+      "operation": "Summarize the fresh full-container receipt and locate the zipapp builder",
+      "failure": "The first summary read nonexistent image.image_id and dashboard.png_* fields and guessed a nonexistent build_release_package.py filename.",
+      "mutation": false,
+      "correction": "Inspect the receipt schema, read image.independent_image_ids and dashboard bytes/hash, and use scripts/build_zipapp.py.",
+      "positive_evidence": false
+    },
+    {
+      "id": "FRESH-MAIN-CLEAN-CLONE-TREE-REVISION-001",
+      "class": "process_invalid",
+      "operation": "Summarize the second clean clone before its package and image builds",
+      "failure": "PowerShell transformed the unquoted HEAD^{tree} revision syntax and produced an invalid tree row even though clone and package build continued successfully.",
+      "mutation": "the fresh public clone and exact local package outputs were created",
+      "correction": "Use git show -s --format=%T HEAD. The clone tree is 6d4187ab5c44be7122476502ab4d2b61da86733e and the subsequent clean-build receipt passed with the expected image ID.",
+      "positive_evidence": false
+    },
+    {
+      "id": "MERGED-MAIN-NONEXISTENT-VALIDATOR-PATHS-001",
+      "class": "process_invalid",
+      "operation": "Revalidate the composed merged-main receipt and active milestone before staging",
+      "failure": "The first wrapper guessed repository-local scripts/validate_json_files.py and scripts/validate_milestone.py entry points; neither file exists.",
+      "mutation": false,
+      "correction": "Parse the bounded JSON inputs directly and invoke the installed run-controlled-milestone validator at its actual path. The corrected checks are recorded separately.",
+      "positive_evidence": false
+    },
+    {
+      "id": "MERGED-MAIN-VALIDATOR-DISCOVERY-RG-SCOPE-001",
+      "class": "process_invalid",
+      "operation": "Locate the actual milestone-validation interface",
+      "failure": "A discovery command passed a Windows wildcard and a missing .github directory to ripgrep, causing an invocation error while still returning partial matches.",
+      "mutation": false,
+      "correction": "Search the known project and installed-skill paths without invalid wildcard or absent-path arguments. The repository has no dedicated milestone validator; the governed validator is supplied by the installed skill.",
+      "positive_evidence": false
+    },
+    {
+      "id": "MERGED-MAIN-CONTAINER-EVALUATION-PATH-GUESS-001",
+      "class": "process_invalid",
+      "operation": "Parse every changed JSON document before staging",
+      "failure": "The first bounded list guessed report.json and manifest.json inside the merged-main container evaluation directory; the retained files are container-evaluation.json and container-evaluation.traces.jsonl.",
+      "mutation": false,
+      "correction": "Enumerate the exact directory and parse container-evaluation.json under its actual name. No manifest was copied into this container-evaluation directory.",
+      "positive_evidence": false
+    },
+    {
+      "id": "MERGED-MAIN-SCAN-DISCOVERY-WINDOWS-WILDCARD-001",
+      "class": "process_invalid",
+      "operation": "Locate the high-specificity security-scan implementation or evidence",
+      "failure": "The discovery command passed artifacts/verification/*.json directly to ripgrep on Windows; ripgrep rejected that wildcard path after returning the script matches.",
+      "mutation": false,
+      "correction": "Use exact directories or PowerShell file enumeration for the successor structured and high-specificity scan.",
+      "positive_evidence": false
+    },
+    {
+      "id": "MERGED-MAIN-CHANGED-FILE-SECRET-SCAN-HISTORICAL-LITERAL-001",
+      "class": "process_invalid",
+      "operation": "Run a final high-specificity safety scan over every entire changed file",
+      "failure": "The first successor classified an unchanged historical devlog sentence that quotes the private-key marker used by an earlier forbidden-pattern definition. It did not identify key material.",
+      "mutation": false,
+      "correction": "Scan newly added text plus complete untracked text, while separately preserving the full structured-artifact and model/export inventory. The historical quoted marker remains unchanged and is not positive evidence.",
+      "positive_evidence": false
+    }
+  ],
+  "summary": {
+    "item_count": 22,
+    "positive_evidence_from_failed_attempts": 0,
+    "unfavorable_retrieval_candidate_preserved": "bounded-trust-tier-lexical-v4",
+    "selected_retrieval_configuration_unchanged": "freshness-priority-lexical-v3",
+    "historical_results_rewritten": false,
+    "real_infrastructure_contacted": false,
+    "image_exported_pushed_published_or_redistributed": false
+  },
+  "next_gate": "Use only corrected successor evidence in the merged-main release audit while retaining this file as process history."
+}

@@ -241,9 +241,9 @@
         "public reconciliation and exact resume point"
       ],
       "gates": {
-        "premerge_release_truth_audit": "pending",
-        "exact_reviewed_merge": "pending",
-        "fresh_public_main_complete_stack": "pending",
+        "premerge_release_truth_audit": "pass",
+        "exact_reviewed_merge": "pass",
+        "fresh_public_main_complete_stack": "pass",
         "final_release_truth_audit": "pending",
         "annotated_tag_and_selected_assets": "pending",
         "public_tag_complete_stack": "pending",
@@ -252,7 +252,7 @@
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Run the governed exact-head premerge release-truth audit, then review and merge only the audited expected head if every gate passes.",
+  "next_action": "Publish and anonymously reconcile the fresh public-main complete-stack receipt, then run the final governed release-truth audit before tag or release creation.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -320,6 +320,9 @@
       ,"Artifact scan artifact-scan-baseline-0033-container-phase.json is 4906 bytes at SHA-256 f0f77e0b54bc9f57d9aa12924e50c5368ac512b28ead8f75fcba9daba9dd0c2c; 49 retained observations remain excluded from positive evidence and no image was exported pushed published or redistributed"
       ,"Public container-evidence commit 0bf67a1be175606aa28214ccc20cadb1f32eeb55 tree ee47a2be1b90245d4e3735b422869131179e8505 parent c63809108892f798d8886472ceb3e5f8abc331a4 is exact across refs anonymous metadata all 14 Git blobs all 14 raw paths totaling 1505789 bytes an untruncated 1582-entry tree unchanged public main and rendered evidence"
       ,"Public container receipt container-baseline-0033-public.json is 7057 bytes at SHA-256 90f3e4269692a856c338e761c7f716e8c14438c89a43ffd145cf0810493878d1; UNIT-004 passes without review merge tag release deployment image export push publication or redistribution"
+      ,"Premerge audit release-audit-baseline-0033-premerge.json verifies all ten checks and twenty required surfaces without error warning stale missing unknown or unrun state; exact-head review 5001607878 finds no blocker"
+      ,"PR 31 merged exact reviewed head 4ea656ee44fc517529a40e7741cbdd0ad3d9bf81 under expected-head lock as 1a8380d89ff04f8e7ed5b700a8fd1f5167b2d520 with reviewed and merged tree 6d4187ab5c44be7122476502ab4d2b61da86733e identical"
+      ,"Fresh credential-disabled public main passes 121 tests 42 phase-correct validators three exact zipapps source package and container evaluations bounded MCP both authenticated APIs both native inspections three complete dashboards structured scans and two full plus one clean image build at sha256:00b378aba27e914eebf1d67aa95652bf949939dc8ed2fe2bef2854e41daa9265"
     ],
     "artifacts": [
       "artifacts/verification/orientation-baseline-0033.json",
@@ -365,13 +368,16 @@
       ,"artifacts/verification/container-scout-critical-high-baseline-0033.sarif.json"
       ,"artifacts/verification/artifact-scan-baseline-0033-container-phase.json"
       ,"artifacts/verification/container-baseline-0033-public.json"
+      ,"artifacts/verification/merged-main-baseline-0033.json"
+      ,"artifacts/verification/artifact-scan-baseline-0033-merged-main.json"
+      ,"artifacts/verification/baseline-0033-review-and-merged-main-failures-001.json"
     ],
     "disposition": "in_progress"
   },
   "handoff": {
     "latest_verified_checkpoint": "immutable public v0.0.32 at tag object ea203784e11afd611666bcd988f4d1e60259f6a8 peeled to audited closure f0e565015be2ca8ed155be600a61fe131dbfa012, with public receipt SHA-256 eebd1571dfab5942f7b1b6dfc2a42c5807629391564d01d7621b307a8c78726c and rendered-truth correction main 4b7dd999c13384a196746de5dbff872e93f9f2fe",
     "retained_failed_checkpoint": "stopped unpublished BASELINE-0031 release candidate v0.0.31 plus separately retained excluded bounded-trust-tier-lexical-v4 comparison",
-    "current_checkpoint": "BASELINE-0033 UNIT-004 passes at exact public container-evidence commit 0bf67a1be175606aa28214ccc20cadb1f32eeb55 with canonical local-only image ID sha256:00b378aba27e914eebf1d67aa95652bf949939dc8ed2fe2bef2854e41daa9265 and all 14 public evidence paths reconciled. UNIT-005 exact-head premerge audit is active. No image was exported pushed published or redistributed.",
+    "current_checkpoint": "BASELINE-0033 premerge audit review merge and fresh public-main complete-stack reproduction pass at merge 1a8380d89ff04f8e7ed5b700a8fd1f5167b2d520 and exact local-only image ID sha256:00b378aba27e914eebf1d67aa95652bf949939dc8ed2fe2bef2854e41daa9265. Publish and reconcile merged-main evidence before the final audit. No image was exported pushed published or redistributed.",
     "resume_rule": "Resume from public verified v0.0.32 and the exact BASELINE-0033 freeze state; inspect the active milestone and verifier before acting, never use OneDrive, never rewrite the original v4 exclusion, and never infer candidate selection from candidate evidence admissibility."
   }
 }

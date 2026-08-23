@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0033-MERGED-MAIN-ARTIFACT-SCAN",
+  "checkpoint": "baseline-0033",
+  "observed_at_utc": "2026-08-23T04:11:00Z",
+  "status": "pass",
+  "scope": {
+    "repository_commit": "1a8380d89ff04f8e7ed5b700a8fd1f5167b2d520",
+    "repository_tree": "6d4187ab5c44be7122476502ab4d2b61da86733e",
+    "includes_selected_uncommitted_merged_main_evidence": true,
+    "changed_path_count_before_this_receipt": 17,
+    "excluded_directories": [
+      ".git",
+      "__pycache__"
+    ]
+  },
+  "structured_artifacts": {
+    "json_files": 1141,
+    "valid_nonempty_json_files": 1140,
+    "known_zero_byte_json_files": [
+      "artifacts/verification/mcp-source-baseline-0026.json"
+    ],
+    "json_parse_errors": [],
+    "json_files_with_utf8_bom": 14,
+    "jsonl_files": 175,
+    "jsonl_records": 32956,
+    "jsonl_parse_errors": [],
+    "png_files": 121,
+    "invalid_png_signatures": 0
+  },
+  "selected_dashboards": [
+    {
+      "path": "artifacts/verification/dashboard-source-merged-main-baseline-0033.png",
+      "bytes": 101782,
+      "sha256": "b9d132a246331101b87584a37a96f6fb2670bcb8d16e769694c4d1ed17825f3a",
+      "dimensions": [1440, 1000],
+      "visual_review": "pass_original_detail"
+    },
+    {
+      "path": "artifacts/verification/dashboard-package-merged-main-baseline-0033.png",
+      "bytes": 101834,
+      "sha256": "9aad6e075442482f7279b1fdd3511a47b6f823b1894040b6f2089c29acdce68a",
+      "dimensions": [1440, 1000],
+      "visual_review": "pass_original_detail"
+    },
+    {
+      "path": "artifacts/verification/dashboard-container-merged-main-baseline-0033.png",
+      "bytes": 101927,
+      "sha256": "8eb3122b3a2d6f6835cd62e9f3469099d958beb9996a39b76e56244d4b000afa",
+      "dimensions": [1440, 1000],
+      "visual_review": "pass_original_detail"
+    }
+  ],
+  "package": {
+    "path": "dist/runbook-sentinel-0.0.33.pyz",
+    "bytes": 647712,
+    "sha256": "b10384f2ff7f61ace6fe34ae08b47625b6ab6c39636063c440ff8731563e6cec",
+    "entry_count": 43,
+    "duplicate_entry_count": 0,
+    "zip_test_error": null,
+    "runtime_dependencies": [],
+    "embedded_manifest_sha256": "4f9e9880a9f3a7dd75e94f83018d3f2bef996d4f49b05fd42160f7f62f281b20",
+    "embedded_manifest_matches_active": true
+  },
+  "bounded_security_scan": {
+    "actual_sentinel_capability_values": 0,
+    "bearer_values": 0,
+    "complete_private_key_blocks": 0,
+    "raw_approval_token_fields": 0,
+    "model_artifacts": 0,
+    "container_image_export_artifacts": 0,
+    "classified_protocol_realm_label_occurrences": 14,
+    "classified_protocol_realm_label": "Sentinel-Capability realm=\"runbook-sentinel-operator\"",
+    "unresolved_high_signal_hits": []
+  },
+  "retained_initial_scan": {
+    "status": "fail_closed",
+    "finding_count": 2,
+    "finding_paths": [
+      "artifacts/evaluations/runs/baseline-0033-merged-main-source-attempt-001.json",
+      "artifacts/evaluations/runs/baseline-0033-merged-main-package-attempt-001.json"
+    ],
+    "reason": "The first byte-substring scan classified the public authentication challenge scheme and realm as if it were a capability value.",
+    "correction": "Inspect every occurrence, require the exact public realm challenge form, and use a separate high-specificity token-value pattern. Fourteen realm labels are present and zero capability values are present.",
+    "positive_evidence": false
+  },
+  "boundaries": {
+    "real_operational_infrastructure_used": false,
+    "secret_or_paid_service_added": false,
+    "image_exported_pushed_published_or_redistributed": false,
+    "unfavorable_or_failed_evidence_removed": false
+  },
+  "next_gate": "Bind this scan, the fresh-main runtime evidence, and the retained failure record into the merged-main checkpoint receipt."
+}
