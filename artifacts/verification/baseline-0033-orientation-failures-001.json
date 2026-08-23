@@ -4,7 +4,7 @@
   "receipt_id": "baseline-0033-orientation-failures-001",
   "status": "retained",
   "disposition": "excluded_from_positive_evidence",
-  "observed_at_utc": "2026-08-22T23:24:06Z",
+  "observed_at_utc": "2026-08-23T00:41:36Z",
   "items": [
     {
       "id": "POWERSHELL-BRANCH-PREFLIGHT-001",
@@ -104,9 +104,36 @@
       "mutation": false,
       "correction": "Confirm the remote branch still pointed to predecessor 38593b13a280409f7064e4afffdfd7e0ace4fd64, then retry the exact unchanged commit after DNS recovered; the successor push and full public reconciliation pass.",
       "positive_evidence": false
+    },
+    {
+      "id": "RELEASE-IDENTITY-FOCUSED-TEST-001",
+      "class": "test_invalid",
+      "operation": "Run the frozen BASELINE-0033 release-identity verifier and six focused fail-closed tests before successor identity implementation",
+      "failure": "The first run used one mistyped retained-result SHA-256 constant in the new verifier and treated TemporaryDirectory context values as Path objects in five negative tests. The verifier failed the exact immutable result rather than accepting the wrong identity; the tests stopped before any release identity or artifact was created.",
+      "mutation": false,
+      "correction": "Correct the verifier constant to the already recorded immutable result hash and wrap each context value in Path. The unchanged contract then passes and all six focused tests pass, including result, runtime-inventory, runtime-byte, premature-successor, and base-source fail-closed cases.",
+      "positive_evidence": false
+    },
+    {
+      "id": "RELEASE-IDENTITY-BROAD-PREFLIGHT-001",
+      "class": "process_invalid",
+      "operation": "Parse changed structured records and validate the active milestone before the full regression run",
+      "failure": "The first wrapper recursively parsed every historical JSON file, including a deliberately retained empty invalid MCP receipt, and invoked a guessed repository-local milestone verifier path that does not exist. Its later focused checks passed, but the aggregate wrapper is not positive evidence.",
+      "mutation": false,
+      "correction": "Parse only governed changed JSON paths, identify the retained invalid historical file explicitly, and invoke the actual run-controlled-milestone validator from its installed skill path. All changed JSON parses and the milestone validates with UNIT-004 active and no error or warning.",
+      "positive_evidence": false
+    },
+    {
+      "id": "RELEASE-IDENTITY-HASH-INVENTORY-001",
+      "class": "process_invalid",
+      "operation": "Hash the complete changed-path inventory after compilation parsing diff scan and successor-absence checks",
+      "failure": "The wrapper completed every preceding gate, then passed a null repository variable to Join-Path in only the final hash-summary expression and exited without a complete inventory.",
+      "mutation": false,
+      "correction": "Declare the exact C:/Projects active worktree explicitly, materialize all 13 absolute paths, and hash their complete byte inventory in a bounded successor command.",
+      "positive_evidence": false
     }
   ],
   "historical_candidate_results_rewritten": false,
   "product_files_changed_by_failure": false,
-  "next_gate": "Validate and publish the complete candidate-admissibility preimplementation freeze before implementation."
+  "next_gate": "Complete regression and phase-correct validation, then publish and anonymously reconcile the release-identity freeze before any v0.0.33 identity or artifact is created."
 }

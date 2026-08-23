@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0033",
+  "receipt_id": "baseline-0033-release-identity-freeze-local",
+  "phase": "frozen_before_successor_identity_implementation",
+  "status": "pass",
+  "observed_at_utc": "2026-08-23T00:59:13Z",
+  "repository": {
+    "worktree": "C:/Projects/Active/runbook-sentinel-baseline-0033",
+    "branch": "codex/baseline-0033-retrieval-candidate-admissibility",
+    "starting_public_record_commit": "b125b5ecef4b3b3a406d3dc903a6de5ec4e02952",
+    "starting_public_record_tree": "b5250a3ce5e3c4542bc4380b4eba4a45035ddf9a",
+    "public_main_at_observation": "4b7dd999c13384a196746de5dbff872e93f9f2fe",
+    "one_drive_authoritative": false
+  },
+  "adjudication": {
+    "result_path": "artifacts/evaluations/baseline-0033-retrieval-candidate-admissibility.json",
+    "result_sha256": "6b81820e3942dd9ec4e603147fde0b58d73404effa46984ebc370bd44e5d454f",
+    "public_result_record_commit": "b125b5ecef4b3b3a406d3dc903a6de5ec4e02952",
+    "candidate_evidence_admissible": true,
+    "candidate_selected": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "candidate_disposition": "excluded_latency_noninferior_and_retained",
+    "remaining_failed_selection_checks": [
+      "median_latency_non_inferior"
+    ]
+  },
+  "release_identity": {
+    "contract": "eval/release-identity-contract-0033.json",
+    "contract_sha256": "b44145ab20610945ec511b98b427edf0e5e65aa338f605eeb748408ea1aff199",
+    "functional_product_delta_count": 0,
+    "mechanical_product_identity_path_count": 4,
+    "unchanged_product_runtime_path_count": 20,
+    "closed_product_runtime_path_count": 24,
+    "package_entry_count": 43,
+    "predecessor_package_contract_sha256": "75f1b4de4cefda2f156fa7dbcae931a467a8ae58953992a912bbd1b8557c1079",
+    "predecessor_container_contract_sha256": "de0fe568f1d5222731493277ab00d43feb06aa72e63b3b2b1e20ea081311d919",
+    "predecessor_container_receipt_sha256": "b1ffc6b22385d2d359e8215a1f498fcefbed171895bd80e9f76bb7a391b0def0",
+    "base_reference": "cgr.dev/chainguard/python@sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+    "base_platform_manifest_digest": "sha256:e15765ff7066a0eaf91e1b6fd5000c1bba47d62b9f9731f2da560711d910c4f3",
+    "new_external_asset_count": 0
+  },
+  "verification": {
+    "release_identity_verifier": "pass_frozen",
+    "focused_fail_closed_tests": {
+      "status": "pass",
+      "count": 6,
+      "elapsed_seconds": 4.728
+    },
+    "complete_regression": {
+      "status": "pass",
+      "count": 119,
+      "elapsed_seconds": 100.719
+    },
+    "phase_correct_side_effect_free_project_validators": {
+      "status": "pass",
+      "count": 42,
+      "elapsed_seconds": 3.513
+    },
+    "milestone_validator": "pass_no_warnings_unit_004_active",
+    "python_compile": "pass",
+    "changed_json_parse": "pass",
+    "git_diff_check": "pass",
+    "high_signal_credential_token_match_count": 0,
+    "complete_private_key_block_count": 0,
+    "model_artifact_match_count": 0,
+    "successor_package_contract_absent": true,
+    "successor_container_contract_absent": true,
+    "successor_archive_absent": true,
+    "successor_checksum_absent": true,
+    "retained_failure_ledger": "artifacts/verification/baseline-0033-orientation-failures-001.json",
+    "failed_process_attempts_counted_as_positive_evidence": false
+  },
+  "frozen_paths_excluding_this_receipt": [
+    {
+      "path": "artifacts/verification/baseline-0033-orientation-failures-001.json",
+      "bytes": 10759,
+      "sha256": "7ff95bb460a76a050a6129e911324f63936911debaa22c2eb8539ff27d3bc7a0"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 123237,
+      "sha256": "cd04235c7cdeacf2be06e167f79f15eabc3c612711a8a49784373eeb40116259"
+    },
+    {
+      "path": "contracts/milestone-0033.json",
+      "bytes": 18910,
+      "sha256": "61df95c6d72fdf3f5d4ed602d9e05accaeebe7ca90ccbd61976135fc533a1662"
+    },
+    {
+      "path": "docs/adr/0028-release-adjudicated-checkpoints-through-an-identity-only-transition.md",
+      "bytes": 2876,
+      "sha256": "aa226617b282f78e72645680963413f7fadc8e680e1e43b887d5b1830ff6a1c0"
+    },
+    {
+      "path": "docs/devlog.md",
+      "bytes": 457902,
+      "sha256": "a0a531bdb9080bef90b2c2b3d3a93d24f9116698b7c9fdadd1dcc08dd541871f"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "bytes": 231946,
+      "sha256": "fc94d15b0434a971d3e69bae7ae49b2dea78fff219687c41e9f11e1bd13772f1"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 97100,
+      "sha256": "ab78b72891e10fed357fe15372719463684b5f3dc3bb0305be57b8a401c85fb0"
+    },
+    {
+      "path": "docs/status.md",
+      "bytes": 266100,
+      "sha256": "b9b67d56843d81308e4b0a98d8c4805dd2b7489e36808d93ee6f0c5582329ad6"
+    },
+    {
+      "path": "docs/threat-model.md",
+      "bytes": 23247,
+      "sha256": "40927df004beb83f6a67eefee05942b8d1cb3a159bdc8d49e64409e92b150594"
+    },
+    {
+      "path": "docs/version-history.md",
+      "bytes": 28708,
+      "sha256": "dd573bae9bc9b907edf78c4bf29cf21c6ccc964d57496e52a4275ff4850d45b1"
+    },
+    {
+      "path": "eval/release-identity-contract-0033.json",
+      "bytes": 15694,
+      "sha256": "b44145ab20610945ec511b98b427edf0e5e65aa338f605eeb748408ea1aff199"
+    },
+    {
+      "path": "scripts/verify_release_identity_contract_0033.py",
+      "bytes": 18372,
+      "sha256": "13a3506df9c734b05a7c981969d61d1180b9827f14a8800503a0742cd7746ae7"
+    },
+    {
+      "path": "tests/test_release_identity_contract_0033.py",
+      "bytes": 5271,
+      "sha256": "2bcd267a612ca6fc736e202fd78289f869d7e1d28c9bd34bc99a5e6358472809"
+    }
+  ],
+  "frozen_path_count_excluding_this_receipt": 13,
+  "total_commit_path_count_expected": 14,
+  "boundaries": {
+    "runtime_behavior_or_default_changed": false,
+    "candidate_v4_selected_or_promoted": false,
+    "historical_result_rewritten": false,
+    "security_or_authority_weakened": false,
+    "dependency_model_service_secret_or_paid_asset_added": false,
+    "external_asset_or_base_identity_changed": false,
+    "real_operational_infrastructure_contacted": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "tag_release_or_deployment_created": false
+  },
+  "next_gate": "Commit and publish only these 14 freeze paths on the candidate branch, anonymously reconcile every changed public byte while main remains unchanged, and create a separate public receipt before successor identity implementation."
+}
