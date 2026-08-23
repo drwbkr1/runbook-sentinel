@@ -274,6 +274,26 @@
       "mutation": false,
       "correction": "Pass contracts/milestone-0034.json as the validator's positional contract argument and require a clean successor result before publication.",
       "positive_evidence": false
+    },
+    {
+      "id": "POWERSHELL-UPSTREAM-HASH-LITERAL-0034-001",
+      "class": "process_invalid",
+      "operation": "Publish the schema-1.2 correction freeze and compare its upstream ref",
+      "observed_at_utc": "2026-08-23T21:34:18Z",
+      "failure": "The first PowerShell wrapper left @{u} unquoted, so the parser treated it as a hashtable literal and rejected the entire command before push or inspection.",
+      "mutation": false,
+      "correction": "Quote the Git upstream token. The corrected successor pushed exact commit 35a22a94795def34c6e4772aabb2011ed4554770 and local upstream plus ls-remote both resolve to it.",
+      "positive_evidence": false
+    },
+    {
+      "id": "GIT-SHOW-BINARY-RECEIPT-CHECK-0034-001",
+      "class": "process_invalid",
+      "operation": "Revalidate every schema-1.2 public receipt row against the committed binary bytes",
+      "observed_at_utc": "2026-08-23T21:36:03Z",
+      "failure": "The first local wrapper used an unsupported git show output form, created no temporary binary file, and then emitted fourteen derivative identity mismatches from missing input bytes.",
+      "mutation": false,
+      "correction": "Read every receipt row from its anonymous raw GitHub URL and compare byte count plus SHA-256 directly, while separately matching every commit-tree blob identity. Only a clean successor is positive evidence.",
+      "positive_evidence": false
     }
   ]
 }
