@@ -2,6 +2,7 @@
 
 ## 0.0.33 - Unreleased
 
+- Published merged-main evidence commit `acf4cd9...`, tree `a59da1b...`, from exact merge parent `1a8380d...`. Local and remote refs, anonymous commit/tree metadata, all 26 Git blobs and raw files totaling 5,150,586 bytes, the untruncated 1,604-entry tree, and the signed-out rendered commit agree. Transient GitHub timeouts and corrected wrapper defects are retained; v0.0.33 remains untagged and unreleased pending the final audit.
 - Resumed from verified public v0.0.32 at main `4b7dd999c13384a196746de5dbff872e93f9f2fe`, annotated tag object `ea203784...`, audited release closure `f0e5650...`, and public receipt SHA-256 `eebd1571...`; no OneDrive path is authoritative.
 - Inspected the fresh public-tag 57-scenario, 171-attempt, all-136-gate source run and anchored 261-event trace. Retrieval, generation, trajectory, policy, utility, attack success, reliability, latency, and cost remain separate; model calls and external API cost remain zero.
 - Selected candidate-comparison validity as the highest-leverage measurable weakness. V3 still returns 123 extra records across 87 of 153 eligible attempts. Retained v4 reduces extras to 93 and preserves required evidence, ranks, behavior, policy, utility, attack outcomes, and reliability, but five exact v3 observational fingerprints make its top-level disposition remediate.

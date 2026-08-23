@@ -2,6 +2,8 @@
 
 ## Active checkpoint baseline-0033 - retrieval candidate admissibility
 
+Merged-main evidence is public and exact at commit `acf4cd94ed3c50bf23071afa3722308eb9df3d55`, tree `a59da1b130a5a763455e7018e0ec5fe2611d6ebd`, over exact merge parent `1a8380d...`. All refs, 26 Git blobs, 26 anonymous raw files totaling 5,150,586 bytes, the untruncated 1,604-entry tree, and rendered commit evidence agree. Publish this record-only reconciliation, then run the final release-truth audit; tag and release remain closed.
+
 Resume from verified public v0.0.32 and rendered-truth correction main `4b7dd999c13384a196746de5dbff872e93f9f2fe`, not from new ideation. A fresh no-alternates public-tag run passes 57 scenarios, 171 attempts, all 136 Boolean gates, and an anchored 261-event trace. Selected/default v3 still returns 123 extra records across 87 of 153 eligible attempts with mean expected-document share 0.683006535948.
 
 The best retained candidate, bounded-trust-tier v4, reduces extras to 93 and improves share to 0.709150326797 while preserving all required IDs and ranks, scenario/terminal/trajectory behavior, policy, utility, attack outcomes, repeated-trial reliability, p95 latency, and cost. Its report nevertheless has five false Boolean gates because the universal baseline disposition includes exact v3 guidance-count, guidance-rank, expected-share, and observed-pair fingerprints. All other 131 Boolean gates pass; required retrieval-stage coverage remains 1.0 with zero missing cell or ambiguity.

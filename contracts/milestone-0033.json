@@ -244,6 +244,7 @@
         "premerge_release_truth_audit": "pass",
         "exact_reviewed_merge": "pass",
         "fresh_public_main_complete_stack": "pass",
+        "merged_main_evidence_public_exact": "pass",
         "final_release_truth_audit": "pending",
         "annotated_tag_and_selected_assets": "pending",
         "public_tag_complete_stack": "pending",
@@ -252,7 +253,7 @@
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Publish and anonymously reconcile the fresh public-main complete-stack receipt, then run the final governed release-truth audit before tag or release creation.",
+  "next_action": "Publish and anonymously reconcile the record-only merged-main public receipt, then run the final governed release-truth audit before tag or release creation.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -323,6 +324,8 @@
       ,"Premerge audit release-audit-baseline-0033-premerge.json verifies all ten checks and twenty required surfaces without error warning stale missing unknown or unrun state; exact-head review 5001607878 finds no blocker"
       ,"PR 31 merged exact reviewed head 4ea656ee44fc517529a40e7741cbdd0ad3d9bf81 under expected-head lock as 1a8380d89ff04f8e7ed5b700a8fd1f5167b2d520 with reviewed and merged tree 6d4187ab5c44be7122476502ab4d2b61da86733e identical"
       ,"Fresh credential-disabled public main passes 121 tests 42 phase-correct validators three exact zipapps source package and container evaluations bounded MCP both authenticated APIs both native inspections three complete dashboards structured scans and two full plus one clean image build at sha256:00b378aba27e914eebf1d67aa95652bf949939dc8ed2fe2bef2854e41daa9265"
+      ,"Merged-main evidence commit acf4cd94ed3c50bf23071afa3722308eb9df3d55 tree a59da1b130a5a763455e7018e0ec5fe2611d6ebd parent 1a8380d89ff04f8e7ed5b700a8fd1f5167b2d520 is public and exact across refs all 26 Git blobs all 26 anonymous raw files totaling 5150586 bytes an untruncated 1604-entry tree and rendered evidence"
+      ,"The record-only merged-main reconciliation passes all 121 tests in 165.005 seconds governed milestone validation without warning and Git diff checks before publication"
     ],
     "artifacts": [
       "artifacts/verification/orientation-baseline-0033.json",
@@ -371,13 +374,15 @@
       ,"artifacts/verification/merged-main-baseline-0033.json"
       ,"artifacts/verification/artifact-scan-baseline-0033-merged-main.json"
       ,"artifacts/verification/baseline-0033-review-and-merged-main-failures-001.json"
+      ,"artifacts/verification/merged-main-baseline-0033-public.json"
+      ,"artifacts/verification/baseline-0033-publication-and-release-failures-001.json"
     ],
     "disposition": "in_progress"
   },
   "handoff": {
     "latest_verified_checkpoint": "immutable public v0.0.32 at tag object ea203784e11afd611666bcd988f4d1e60259f6a8 peeled to audited closure f0e565015be2ca8ed155be600a61fe131dbfa012, with public receipt SHA-256 eebd1571dfab5942f7b1b6dfc2a42c5807629391564d01d7621b307a8c78726c and rendered-truth correction main 4b7dd999c13384a196746de5dbff872e93f9f2fe",
     "retained_failed_checkpoint": "stopped unpublished BASELINE-0031 release candidate v0.0.31 plus separately retained excluded bounded-trust-tier-lexical-v4 comparison",
-    "current_checkpoint": "BASELINE-0033 premerge audit review merge and fresh public-main complete-stack reproduction pass at merge 1a8380d89ff04f8e7ed5b700a8fd1f5167b2d520 and exact local-only image ID sha256:00b378aba27e914eebf1d67aa95652bf949939dc8ed2fe2bef2854e41daa9265. Publish and reconcile merged-main evidence before the final audit. No image was exported pushed published or redistributed.",
+    "current_checkpoint": "BASELINE-0033 merged-main evidence commit acf4cd94ed3c50bf23071afa3722308eb9df3d55 is public and exact after complete-stack reproduction at merge 1a8380d89ff04f8e7ed5b700a8fd1f5167b2d520 and exact local-only image ID sha256:00b378aba27e914eebf1d67aa95652bf949939dc8ed2fe2bef2854e41daa9265. Publish the record-only reconciliation before the final audit. No image was exported pushed published or redistributed.",
     "resume_rule": "Resume from public verified v0.0.32 and the exact BASELINE-0033 freeze state; inspect the active milestone and verifier before acting, never use OneDrive, never rewrite the original v4 exclusion, and never infer candidate selection from candidate evidence admissibility."
   }
 }

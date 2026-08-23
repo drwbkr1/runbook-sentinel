@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0033-PUBLICATION-AND-RELEASE-FAILURES-001",
+  "checkpoint": "baseline-0033",
+  "unit": "UNIT-005",
+  "observed_through_utc": "2026-08-23T04:38:37Z",
+  "status": "retained_process_evidence",
+  "positive_evidence_supplied_by_failures": false,
+  "observations": [
+    {
+      "id": "OBS-001",
+      "stage": "anonymous merged-main commit reconciliation",
+      "classification": "transient_external_timeout",
+      "observation": "The first anonymous PowerShell GitHub REST request returned GitHub's Unicorn timeout page before any commit, tree, or byte comparison ran.",
+      "effect": "The public evidence commit was unchanged and the request supplied no positive evidence.",
+      "correction": "A later anonymous curl successor verified the exact commit and untruncated recursive tree; anonymous raw-file checks and rendered public evidence passed separately."
+    },
+    {
+      "id": "OBS-002",
+      "stage": "anonymous merged-main commit reconciliation",
+      "classification": "repeated_transient_external_timeout",
+      "observation": "An immediate second anonymous PowerShell GitHub REST request returned the same GitHub Unicorn timeout page.",
+      "effect": "No comparison, repository mutation, tag, release, or deployment occurred.",
+      "correction": "The independent curl path later returned exact anonymous commit and tree metadata without an Authorization header."
+    },
+    {
+      "id": "OBS-003",
+      "stage": "alternate anonymous metadata probe",
+      "classification": "viewer_url_rejected_before_request",
+      "observation": "The web viewer refused direct GitHub API URLs as unsafe and returned no repository evidence.",
+      "effect": "No external state changed and no result was used.",
+      "correction": "Use bounded curl for anonymous REST metadata and the signed-out in-app browser for rendered public evidence."
+    },
+    {
+      "id": "OBS-004",
+      "stage": "authenticated recursive-tree successor",
+      "classification": "powershell_interpolation_error",
+      "observation": "The first gh tree URL used $tree?recursive inside a double-quoted PowerShell string, so interpolation removed the tree identity and GitHub returned 404.",
+      "effect": "The authenticated commit endpoint had already matched, but the malformed tree request supplied no tree evidence.",
+      "correction": "Use ${tree}?recursive=1. The corrected authenticated and anonymous successors returned the exact untruncated 1,604-entry tree."
+    },
+    {
+      "id": "OBS-005",
+      "stage": "authenticated commit and tree summary",
+      "classification": "powershell_boolean_literal_error",
+      "observation": "After the corrected authenticated metadata and all 26 blob comparisons passed, the wrapper used bare true instead of PowerShell $true while constructing its summary and exited nonzero.",
+      "effect": "The partial wrapper is not counted as aggregate pass evidence.",
+      "correction": "A complete successor reran the same checks and emitted a valid exact summary."
+    }
+  ],
+  "boundaries": {
+    "runtime_or_release_bytes_changed_by_failures": false,
+    "tag_release_or_deployment_created_by_failures": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "real_operational_infrastructure_contacted": false,
+    "secret_paid_service_or_external_asset_added": false
+  },
+  "disposition": "retained; none of these observations is positive release evidence"
+}
