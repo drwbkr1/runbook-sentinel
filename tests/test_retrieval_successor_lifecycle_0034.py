@@ -18,13 +18,18 @@ class RetrievalSuccessorLifecycle0034Tests(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.contract = json.loads(verifier.CONTRACT_PATH.read_text(encoding="utf-8"))
 
-    def test_current_bridge_freeze_passes_with_predecessor_exact(self) -> None:
-        result = verifier.validate(require_phase="bridge_frozen")
+    def test_current_predecessor_bridge_phase_passes(self) -> None:
+        result = verifier.validate()
         self.assertEqual(result["status"], "pass")
         self.assertEqual(result["errors"], [])
-        self.assertTrue(result["targets_original"])
-        self.assertFalse(result["implementation_result_present"])
-        self.assertFalse(result["public_bridge_receipt_present"])
+        self.assertIn(
+            result["phase"],
+            {
+                "bridge_frozen",
+                "bridge_implemented_predecessor",
+                "bridge_public_predecessor",
+            },
+        )
         self.assertFalse(result["held_out_loaded_by_bridge"])
 
     def test_exact_future_candidate_identity_is_frozen(self) -> None:
@@ -72,6 +77,22 @@ class RetrievalSuccessorLifecycle0034Tests(unittest.TestCase):
         self.assertFalse(result["benchmark_result_present"])
         self.assertFalse(result["comparison_result_present"])
         self.assertEqual(result["default_configuration"], verifier.CONTROL_CONFIGURATION)
+
+    def test_two_current_tree_validators_use_the_bridge(self) -> None:
+        for relative in self.contract["bridge_implementation"]["allowed_validator_paths"]:
+            source = (ROOT / relative).read_text(encoding="utf-8")
+            self.assertIn("successor_runtime_is_allowed", source)
+
+    def test_release_identity_verifier_remains_byte_exact(self) -> None:
+        release = next(
+            record
+            for record in self.contract["historical_validator_predecessors"]
+            if record["path"] == "scripts/verify_release_identity_contract_0033.py"
+        )
+        self.assertEqual(
+            verifier._identity(ROOT / release["path"]),
+            {"bytes": release["bytes"], "sha256": release["sha256"]},
+        )
 
 
 if __name__ == "__main__":

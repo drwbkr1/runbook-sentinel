@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0034-retrieval-successor-bridge-implementation-local",
+  "checkpoint": "baseline-0034",
+  "contract_id": "retrieval-predecessor-successor-lifecycle-v1",
+  "contract_schema_version": "1.1",
+  "observed_at_utc": "2026-08-23T19:32:02Z",
+  "status": "pass",
+  "public_correction_freeze": {
+    "commit": "6503c24e216c075dda828f534b18368553c6c41b",
+    "tree": "5179f92074313dcdb6bdec2dc772ee1a52ddbcc6",
+    "parent": "b1e40b50f8788dd88cc3483c54f7f5efcb58d2e3",
+    "changed_path_count": 14,
+    "changed_raw_bytes": 1421302,
+    "anonymous_bytes_exact": true,
+    "rendered_commit_exact": true
+  },
+  "changed_paths": [
+    {
+      "path": "scripts/verify_retrieval_candidate_admissibility_contract.py",
+      "bytes": 12227,
+      "sha256": "25713aa74495ab8e5d326b654b7b567fe5d03587464043301177597c1f1d5a4c"
+    },
+    {
+      "path": "scripts/verify_retrieval_tier_cap_contract.py",
+      "bytes": 19669,
+      "sha256": "d6f004648f91ad72cee78203b02069e8c4f589313315f66979f614db92aba06f"
+    },
+    {
+      "path": "tests/test_release_identity_contract_0033.py",
+      "bytes": 6941,
+      "sha256": "3000e914733f96d4f9513f53be7296b956ce7fb4979aa29b13b4ccae12427917"
+    },
+    {
+      "path": "tests/test_retrieval_successor_lifecycle_0034.py",
+      "bytes": 4029,
+      "sha256": "7d019d8dcf1bc96ed4365d2482a66839bd2d05d1a067afb5bc47cb2d45b57caa"
+    }
+  ],
+  "unchanged_release_identity_verifier": {
+    "path": "scripts/verify_release_identity_contract_0033.py",
+    "bytes": 18374,
+    "sha256": "cfe4f8b88bc18c6574d9bf0ec3b19f654b213d8d68a5deda6f0392a0090d2767",
+    "git_diff_count": 0
+  },
+  "implementation": {
+    "current_tree_bridge_validator_count": 2,
+    "frozen_fixture_release_validator_count": 1,
+    "product_runtime_path_count": 0,
+    "released_predecessor_still_accepted": true,
+    "unknown_retrieval_hash_still_rejected": true,
+    "later_successor_requires_exact_frozen_hash": true,
+    "later_successor_requires_public_bridge_receipt": true,
+    "later_successor_requires_development_v4_equivalence": true,
+    "held_out_loaded_by_bridge": false,
+    "default_change_authorized": false
+  },
+  "verification": {
+    "python_compile": "pass",
+    "bridge_phase": "bridge_implemented_predecessor",
+    "standalone_bridge_validators": 4,
+    "standalone_bridge_validators_passed": 4,
+    "focused_tests": "pass",
+    "focused_tests_passed": 33,
+    "focused_tests_failed": 0,
+    "focused_tests_elapsed_seconds": 8.491,
+    "complete_regression": "pass",
+    "complete_regression_passed": 137,
+    "complete_regression_failed": 0,
+    "complete_regression_errors": 0,
+    "complete_regression_elapsed_seconds": 97.661,
+    "finalized_record_set_repeat_passed": 137,
+    "finalized_record_set_repeat_failed": 0,
+    "finalized_record_set_repeat_errors": 0,
+    "finalized_record_set_repeat_elapsed_seconds": 122.304,
+    "governed_milestone": "pass",
+    "governed_milestone_warnings": 0,
+    "retained_process_invalid_invocation": "PYTEST-RUNTIME-ABSENT-001"
+  },
+  "boundaries": {
+    "runtime_retrieval_changed": false,
+    "release_identity_verifier_changed": false,
+    "product_default_changed": false,
+    "historical_contract_report_trace_result_or_disposition_changed": false,
+    "held_out_used_for_bridge_or_optimization": false,
+    "policy_approval_executor_credential_authority_or_security_changed": false,
+    "dependency_model_service_secret_paid_asset_external_asset_or_real_infrastructure_added": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "tag_release_or_deployment_created": false
+  },
+  "next_gate": "Publish this exact no-runtime bridge implementation and anonymously reconcile it before retrying v5."
+}

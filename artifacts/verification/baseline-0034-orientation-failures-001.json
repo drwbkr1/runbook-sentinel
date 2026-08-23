@@ -212,6 +212,16 @@
       "correction": "Restore all three validator and focused-test files exactly. Keep the release-identity verifier immutable and use its frozen v0.0.33 fixture once a later successor is active; narrow the bridge to candidate-admissibility and tier-cap validators only. Publish this lifecycle correction before a second bridge implementation.",
       "restored_release_identity_verifier_sha256": "cfe4f8b88bc18c6574d9bf0ec3b19f654b213d8d68a5deda6f0392a0090d2767",
       "positive_evidence": false
+    },
+    {
+      "id": "PYTEST-RUNTIME-ABSENT-001",
+      "class": "process_invalid",
+      "operation": "Run the corrected lifecycle bridge focused regression checks",
+      "observed_at_utc": "2026-08-23T19:35:32Z",
+      "failure": "The first focused command invoked python -m pytest, but Runbook Sentinel intentionally has no runtime or development dependencies and the system Python reported No module named pytest before collecting any test.",
+      "mutation": false,
+      "correction": "Use the repository-documented standard-library unittest discovery or exact unittest modules. No dependency was installed and no test disposition is inferred from the zero-collection command.",
+      "positive_evidence": false
     }
   ]
 }

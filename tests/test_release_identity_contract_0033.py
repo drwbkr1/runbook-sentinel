@@ -5,11 +5,18 @@ import json
 from pathlib import Path
 import shutil
 import subprocess
+import sys
 import tempfile
 import unittest
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+
+from verify_retrieval_successor_lifecycle_0034 import (  # noqa: E402
+    successor_runtime_is_allowed,
+)
+
 SCRIPT = ROOT / "scripts/verify_release_identity_contract_0033.py"
 SPEC = importlib.util.spec_from_file_location("verify_release_identity_contract_0033", SCRIPT)
 assert SPEC and SPEC.loader
@@ -21,7 +28,11 @@ START_COMMIT = "2d81bd4e4f4fe89192f88485ea616d36f59358a2"
 class ReleaseIdentityContract0033Tests(unittest.TestCase):
     def test_current_contract_matches_repository_phase(self) -> None:
         phase = "implemented" if (ROOT / "eval/container-contract-0033-v13.json").is_file() else "frozen"
-        result = MODULE.evaluate(ROOT, phase)
+        if successor_runtime_is_allowed(ROOT):
+            with self.fixture() as directory:
+                result = MODULE.evaluate(Path(directory), phase)
+        else:
+            result = MODULE.evaluate(ROOT, phase)
         self.assertTrue(result["valid"], result["errors"])
         self.assertFalse(result["candidate_selected"])
         self.assertEqual(result["selected_configuration"], "freshness-priority-lexical-v3")

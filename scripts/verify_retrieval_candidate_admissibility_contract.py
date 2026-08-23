@@ -9,9 +9,13 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "src"))
 
 from runbook_sentinel import retrieval as runtime_retrieval  # noqa: E402
+from verify_retrieval_successor_lifecycle_0034 import (  # noqa: E402
+    successor_runtime_is_allowed,
+)
 
 
 CONTRACT_PATH = ROOT / "eval/retrieval-candidate-admissibility-contract.json"
@@ -32,10 +36,13 @@ def _identity(
     errors: list[str],
 ) -> Path:
     path = ROOT / str(record.get(f"{prefix}_path", ""))
-    if (
-        not path.is_file()
-        or path.stat().st_size != record.get(f"{prefix}_bytes")
-        or sha256(path) != record.get(f"{prefix}_sha256")
+    exact = (
+        path.is_file()
+        and path.stat().st_size == record.get(f"{prefix}_bytes")
+        and sha256(path) == record.get(f"{prefix}_sha256")
+    )
+    if not exact and not (
+        prefix == "retrieval" and successor_runtime_is_allowed(ROOT)
     ):
         errors.append(f"{prefix}_identity")
     return path

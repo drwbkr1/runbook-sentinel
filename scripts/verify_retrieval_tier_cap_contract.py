@@ -9,12 +9,16 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "src"))
 
 from runbook_sentinel import retrieval as runtime_retrieval  # noqa: E402
 from runbook_sentinel.evidence import (  # noqa: E402
     PROJECT_EVIDENCE_KINDS,
     is_fresh_project_evidence,
+)
+from verify_retrieval_successor_lifecycle_0034 import (  # noqa: E402
+    successor_runtime_is_allowed,
 )
 
 
@@ -427,7 +431,10 @@ def validate(
         result = frozen.get("implementation_result")
         if not isinstance(result, dict):
             errors.append("implementation_result_missing")
-        elif sha256(retrieval_path) != result.get("retrieval_sha256"):
+        elif (
+            sha256(retrieval_path) != result.get("retrieval_sha256")
+            and not successor_runtime_is_allowed(ROOT)
+        ):
             errors.append("implementation_result_identity")
         if not selected and runtime_retrieval.DEFAULT_RETRIEVAL_CONFIGURATION != CONTROL_CONFIGURATION:
             errors.append("default_changed_before_selection")
