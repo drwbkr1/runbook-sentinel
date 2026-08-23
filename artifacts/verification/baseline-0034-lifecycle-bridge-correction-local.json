@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0034-lifecycle-bridge-correction-local",
+  "checkpoint": "baseline-0034",
+  "contract_id": "retrieval-predecessor-successor-lifecycle-v1",
+  "contract_schema_version": "1.1",
+  "observed_at_utc": "2026-08-23T19:28:55Z",
+  "status": "pass",
+  "starting_public_freeze": {
+    "commit": "b1e40b50f8788dd88cc3483c54f7f5efcb58d2e3",
+    "tree": "178d3f618ef26379380fa8698d8f91122a5b50c0",
+    "parent": "e554cd152466d87575da1ab653429e22007aa8d1",
+    "changed_path_count": 16,
+    "changed_raw_bytes": 1445026,
+    "anonymous_bytes_exact": true,
+    "rendered_commit_exact": true
+  },
+  "retained_failed_bridge_attempt": {
+    "id": "BRIDGE-RELEASE-VERIFIER-BOUND-001",
+    "complete_tests": 136,
+    "passed": 135,
+    "failed": 1,
+    "errors": 0,
+    "custody_root": "C:/Projects/Verification/runbook-sentinel-baseline-0034-bridge-attempt-001",
+    "receipt_name": "baseline-0034-retrieval-successor-bridge-implementation-local.json",
+    "receipt_bytes": 2691,
+    "receipt_sha256": "4011842a5faed6905e3a76baec13594cfd53657bb77a14ff7ff5f2822f4fda4a",
+    "positive_evidence": false
+  },
+  "correction": {
+    "release_identity_verifier_path": "scripts/verify_release_identity_contract_0033.py",
+    "release_identity_verifier_bytes": 18374,
+    "release_identity_verifier_sha256": "cfe4f8b88bc18c6574d9bf0ec3b19f654b213d8d68a5deda6f0392a0090d2767",
+    "release_identity_verifier_changed": false,
+    "bridge_validator_paths": [
+      "scripts/verify_retrieval_candidate_admissibility_contract.py",
+      "scripts/verify_retrieval_tier_cap_contract.py"
+    ],
+    "later_release_identity_validation_surface": "frozen v0.0.33 fixture",
+    "product_runtime_path_count": 0
+  },
+  "frozen_payload": {
+    "path_count_excluding_this_receipt": 13,
+    "total_bytes_excluding_this_receipt": 1415769,
+    "paths": [
+      {
+        "path": "CHANGELOG.md",
+        "bytes": 136565,
+        "sha256": "5fdc7782eaa2f39f83ad8ac0c36853905e8145d936ae6788e0358629dc0791d6"
+      },
+      {
+        "path": "artifacts/verification/baseline-0034-orientation-failures-001.json",
+        "bytes": 15253,
+        "sha256": "d734f2399150d75ce44008b5894030fc5e27fff7a7c5fb4a8e5198b1925fd17b"
+      },
+      {
+        "path": "contracts/milestone-0034.json",
+        "bytes": 16940,
+        "sha256": "f147544e072e126ee3f63e801148aabfae73e521cd33d40709194ef1bc5a4f80"
+      },
+      {
+        "path": "docs/devlog.md",
+        "bytes": 484899,
+        "sha256": "27874e7fa090bdc7fc03866238e8ef9ac29e2792dee8452fa360533bb7559f85"
+      },
+      {
+        "path": "docs/evaluation-contract.md",
+        "bytes": 47508,
+        "sha256": "a6796258684f1dab1ae39ac52a1d250d7749c65cff4910a64ef989796310a4e3"
+      },
+      {
+        "path": "docs/evaluation-report.md",
+        "bytes": 249464,
+        "sha256": "0ea320e342a1ae4731a427d8a06f768c81825ef8642be845e6c1d8e39c62a05d"
+      },
+      {
+        "path": "docs/roadmap.md",
+        "bytes": 104372,
+        "sha256": "0a38f142c5caa2b9e2435ddb4e83f87b2efbfe6a69b79c2739a1a5f08c634fc9"
+      },
+      {
+        "path": "docs/status.md",
+        "bytes": 283013,
+        "sha256": "cdf5392b86a399986f61a38d6e9a2a681fa1e7c61bb15679dc3f31e6d651205f"
+      },
+      {
+        "path": "docs/threat-model.md",
+        "bytes": 24642,
+        "sha256": "a278ff67429e8919e588f402729f023194b1e20bb9d21265f2348f94cd4aa5b7"
+      },
+      {
+        "path": "docs/version-history.md",
+        "bytes": 30209,
+        "sha256": "dd7efd59c75a1516dfd86b57de7e1e2b627f91aefb9683d64281f100bf8adbd5"
+      },
+      {
+        "path": "eval/retrieval-successor-lifecycle-contract-0034.json",
+        "bytes": 6262,
+        "sha256": "06d5b90ba711cd214b9c8c31e77dd21bb6f419ab9d2a383aeff7d00e2451cb7b"
+      },
+      {
+        "path": "scripts/verify_retrieval_successor_lifecycle_0034.py",
+        "bytes": 13353,
+        "sha256": "46fb6afa64df63639a993fe846bd6696cf5a25d5c3fd33ae645e48b0d403c161"
+      },
+      {
+        "path": "tests/test_retrieval_successor_lifecycle_0034.py",
+        "bytes": 3289,
+        "sha256": "5215df0590050ae819609e36f052a79e9ec98aaef5da326b414f804c6f11041e"
+      }
+    ]
+  },
+  "verification": {
+    "bridge_phase": "bridge_frozen",
+    "focused_tests_passed": 5,
+    "complete_regression_passed": 135,
+    "complete_regression_failed": 0,
+    "complete_regression_elapsed_seconds": 117.784,
+    "retrieval_sha256": "6eb5227b2e20141bf978670cfbbe9edd6d55ca1db69b76a4007b830e13ff864a",
+    "all_historical_validator_predecessors_exact": true,
+    "candidate_implemented": false,
+    "benchmark_result_present": false,
+    "comparison_result_present": false,
+    "held_out_loaded_by_bridge": false,
+    "governed_milestone": "pass",
+    "python_compile": "pass",
+    "json_parse": "pass",
+    "git_diff_check": "pass"
+  },
+  "boundaries": {
+    "runtime_retrieval_changed": false,
+    "product_default_changed": false,
+    "historical_release_identity_weakened": false,
+    "historical_contract_report_trace_result_or_disposition_changed": false,
+    "held_out_used_for_bridge_or_optimization": false,
+    "policy_approval_executor_credential_authority_or_security_changed": false,
+    "dependency_model_service_secret_paid_asset_external_asset_or_real_infrastructure_added": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "tag_release_or_deployment_created": false
+  },
+  "next_gate": "Publish and anonymously reconcile this exact schema-1.1 correction before implementing the two-validator bridge."
+}

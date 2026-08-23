@@ -53,10 +53,18 @@ class RetrievalSuccessorLifecycle0034Tests(unittest.TestCase):
         self.assertEqual(
             bridge["allowed_validator_paths"],
             [
-                "scripts/verify_release_identity_contract_0033.py",
                 "scripts/verify_retrieval_candidate_admissibility_contract.py",
                 "scripts/verify_retrieval_tier_cap_contract.py",
             ],
+        )
+        release = next(
+            record
+            for record in self.contract["historical_validator_predecessors"]
+            if record["path"] == "scripts/verify_release_identity_contract_0033.py"
+        )
+        self.assertEqual(
+            verifier._identity(ROOT / release["path"]),
+            {"bytes": release["bytes"], "sha256": release["sha256"]},
         )
 
     def test_results_remain_absent_at_bridge_freeze(self) -> None:

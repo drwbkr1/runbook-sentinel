@@ -169,14 +169,25 @@ def validate(
         errors,
         "contract",
     )
-    if contract.get("schema_version") != "1.0":
+    if contract.get("schema_version") != "1.1":
         errors.append("schema_version")
     if contract.get("checkpoint") != "baseline-0034":
         errors.append("checkpoint")
     if contract.get("contract_id") != "retrieval-predecessor-successor-lifecycle-v1":
         errors.append("contract_id")
-    if contract.get("status") != "frozen_before_bridge_implementation":
+    if contract.get("status") != "frozen_lifecycle_corrected":
         errors.append("contract_status")
+    correction = contract.get("lifecycle_correction", {})
+    if any(
+        correction.get(key) is not False
+        for key in (
+            "admissibility_or_selection_rule_changed",
+            "historical_release_identity_weakened",
+            "product_runtime_changed",
+            "security_or_authority_changed",
+        )
+    ):
+        errors.append("lifecycle_correction_boundary")
 
     public = contract.get("public_preimplementation_sequence", {})
     public_receipt = root / str(public.get("receipt_path", ""))
@@ -273,7 +284,7 @@ def validate(
 
     errors = sorted(set(errors))
     return {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "checkpoint": contract.get("checkpoint"),
         "contract_id": contract.get("contract_id"),
         "status": "pass" if not errors else "fail",

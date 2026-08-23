@@ -196,6 +196,22 @@
       "mutation": false,
       "correction": "Map only receipt_bytes and receipt_sha256 into the generic identity shape. Keep the contract field names and receipt bytes unchanged, then require a clean focused successor.",
       "positive_evidence": false
+    },
+    {
+      "id": "BRIDGE-RELEASE-VERIFIER-BOUND-001",
+      "class": "fail",
+      "operation": "Run the complete regression after the first local predecessor-successor validator bridge implementation",
+      "failure": "The 136-test suite completed with 135 passes and one failure. The BASELINE-0027 container-v5 weakening test detected that scripts/verify_release_identity_contract_0033.py no longer matched the exact release_identity_verifier_path bytes inherited by the active container contract.",
+      "mutation": false,
+      "generated_evidence_custody": {
+        "root": "C:/Projects/Verification/runbook-sentinel-baseline-0034-bridge-attempt-001",
+        "path": "baseline-0034-retrieval-successor-bridge-implementation-local.json",
+        "bytes": 2691,
+        "sha256": "4011842a5faed6905e3a76baec13594cfd53657bb77a14ff7ff5f2822f4fda4a"
+      },
+      "correction": "Restore all three validator and focused-test files exactly. Keep the release-identity verifier immutable and use its frozen v0.0.33 fixture once a later successor is active; narrow the bridge to candidate-admissibility and tier-cap validators only. Publish this lifecycle correction before a second bridge implementation.",
+      "restored_release_identity_verifier_sha256": "cfe4f8b88bc18c6574d9bf0ec3b19f654b213d8d68a5deda6f0392a0090d2767",
+      "positive_evidence": false
     }
   ]
 }

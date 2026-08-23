@@ -1,16 +1,26 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "checkpoint": "baseline-0034",
   "contract_id": "retrieval-predecessor-successor-lifecycle-v1",
-  "status": "frozen_before_bridge_implementation",
+  "status": "frozen_lifecycle_corrected",
   "frozen_at_utc": "2026-08-23T19:08:15Z",
+  "lifecycle_correction": {
+    "corrected_at_utc": "2026-08-23T19:25:00Z",
+    "retained_failure": "BRIDGE-RELEASE-VERIFIER-BOUND-001",
+    "finding": "The BASELINE-0033 release-identity verifier is itself hash-bound by the inherited container contract and must remain byte-exact. It should verify its frozen release fixture, not accept a later current-tree runtime.",
+    "correction": "Keep verify_release_identity_contract_0033.py exact, bridge only the candidate-admissibility and tier-cap validators, and update the release-identity test to use the frozen v0.0.33 fixture whenever the exact later successor is active.",
+    "admissibility_or_selection_rule_changed": false,
+    "historical_release_identity_weakened": false,
+    "product_runtime_changed": false,
+    "security_or_authority_changed": false
+  },
   "cause": {
     "retained_failure": "V5-PREDECESSOR-LIFECYCLE-REGRESSION-001",
     "complete_regression_tests": 131,
     "passed": 121,
     "failed": 5,
     "errors": 5,
-    "finding": "Three historical validators bind the released retrieval.py as though no later retrieval successor can exist; five readjudicator errors derive from the same candidate-admissibility identity stop.",
+    "finding": "Two historical evaluation validators bind the released retrieval.py as though no later retrieval successor can exist; the release-identity validator must remain immutable and validate its frozen release fixture. Five readjudicator errors derive from candidate-admissibility identity stop.",
     "candidate_behavior_failed": false,
     "security_boundary_failed": false
   },
@@ -66,7 +76,6 @@
   "bridge_implementation": {
     "allowed_product_runtime_paths": [],
     "allowed_validator_paths": [
-      "scripts/verify_release_identity_contract_0033.py",
       "scripts/verify_retrieval_candidate_admissibility_contract.py",
       "scripts/verify_retrieval_tier_cap_contract.py"
     ],
@@ -80,6 +89,7 @@
     "public_receipt_path": "artifacts/verification/baseline-0034-retrieval-successor-bridge-public.json",
     "required_behavior": [
       "Continue to accept the exact released predecessor bytes and historical fixtures.",
+      "Keep scripts/verify_release_identity_contract_0033.py byte-exact and validate it against its frozen v0.0.33 fixture when a later successor is active.",
       "Accept a later retrieval file only when its bytes and SHA-256 equal the frozen v5 identity.",
       "Require the public bridge receipt before accepting v5.",
       "Require v4 and v5 development returned IDs and order to be exact without loading held-out scenarios.",

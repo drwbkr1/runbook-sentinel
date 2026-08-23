@@ -18,6 +18,10 @@ Freeze `b45cdea...` and record `e554cd1...` are public and independently exact. 
 
 ADR 0030 freezes a prerequisite predecessor-successor bridge without a product runtime change. It binds the released and sole acceptable future retrieval hashes, requires public correction evidence, v4/v5 development equivalence, v3 default until selection, no held-out bridge access, and exact result lifecycle. Unknown hashes fail closed. Five focused tests pass and the restored complete suite passes all 135 tests in 117.795 seconds. Public correction-freeze reconciliation remains before validator implementation.
 
+The first bridge implementation passed 32 focused checks but its complete suite stopped at 135/136: a historical container test proved the release-identity verifier is itself hash-bound. The implementation receipt is preserved in external custody and every attempted file is restored. Corrected schema 1.1 keeps that verifier byte-exact, moves its later-checkpoint test to the frozen v0.0.33 fixture, and limits the current-tree successor bridge to two evaluation validators. This is a stricter lifecycle correction, not a waiver.
+
+The corrected freeze passes five focused tests and all 135 regression tests in 117.784 seconds with the released retrieval identity exact, all three predecessor validators exact, v5 absent, results absent, and held-out unloaded.
+
 ## BASELINE-0033 frozen candidate-admissibility overlay
 
 Fresh merged-main evidence commit `acf4cd94ed3c50bf23071afa3722308eb9df3d55`, reconciliation `8ff7f9e985f5dcf4cc83ccd056e9bf12af89131b`, and final audit `29ca0e55d55ee4fa6765c85abf7995ba6624f782` are public and exact. Audited closure `5918f614caae96fe5b9bb3815c1d4a1c90908394`, annotated tag object `522cc2243650568e0a063f8a0918041dca98e111`, non-draft latest release `375120109`, the selected zipapp/checksum, anonymous downloads, and signed-out rendered pages all reconcile. No container-image publication exists.
