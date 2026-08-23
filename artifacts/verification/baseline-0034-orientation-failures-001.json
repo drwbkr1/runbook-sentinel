@@ -97,6 +97,52 @@
       "mutation": false,
       "correction": "Inspect the script source before invocation, classify it as a mutating baseline builder rather than a side-effect-free validator, and exclude it from preimplementation static validation.",
       "positive_evidence": false
+    },
+    {
+      "id": "GIT-UPSTREAM-REF-ABSENT-001",
+      "class": "process_invalid",
+      "operation": "Verify the pushed BASELINE-0034 freeze against its configured upstream",
+      "failure": "The first push created the public branch, but the local origin remote fetched only main, so @{upstream} did not resolve and could not supply tracking evidence.",
+      "mutation": true,
+      "external_effect": "The intended public branch was created at b45cdea83a7eac6c1488a25d6a7d34254e75f44a; no other ref changed.",
+      "correction": "Fetch the exact branch into an explicit remote-tracking ref, add only that exact fetch mapping to origin, set the branch upstream, and require local, tracking, ls-remote, and anonymous ref identities to agree.",
+      "positive_evidence": false
+    },
+    {
+      "id": "POWERSHELL-FETCH-REFSPEC-INTERPOLATION-001",
+      "class": "process_invalid",
+      "operation": "Populate the exact BASELINE-0034 remote-tracking ref",
+      "failure": "The first PowerShell double-quoted refspec interpreted $branch:refs as a scoped variable and produced an invalid refs/heads//remotes/... refspec.",
+      "mutation": false,
+      "correction": "Use an explicitly braced branch variable in the exact refspec. The corrected fetch created origin/codex/baseline-0034-retrieval-tier-cap-latency at the intended commit.",
+      "positive_evidence": false
+    },
+    {
+      "id": "GIT-UPSTREAM-FETCHSPEC-MISSING-001",
+      "class": "process_invalid",
+      "operation": "Bind the local BASELINE-0034 branch to the exact remote-tracking branch",
+      "failure": "After the explicit fetch created the tracking ref, git branch --set-upstream-to still refused it because origin's configured fetch specification covered only main.",
+      "mutation": false,
+      "correction": "Add the single exact BASELINE-0034 branch fetch specification, then set upstream. Local HEAD, tracking HEAD, ls-remote, and anonymous GitHub ref all resolve to b45cdea83a7eac6c1488a25d6a7d34254e75f44a.",
+      "positive_evidence": false
+    },
+    {
+      "id": "POWERSHELL-EMPTY-DEPLOYMENT-COUNT-001",
+      "class": "process_invalid",
+      "operation": "Count GitHub deployments while confirming the freeze did not deploy",
+      "failure": "The first wrapper applied @(...).Count to a wrapped empty API result and reported one object rather than zero deployments.",
+      "mutation": false,
+      "correction": "Inspect the raw GitHub API response and parse its JSON array directly. HTTP 200 returned the exact two-byte body [] and the corrected deployment count is zero.",
+      "positive_evidence": false
+    },
+    {
+      "id": "MILESTONE-VALIDATOR-PATH-001",
+      "class": "process_invalid",
+      "operation": "Revalidate the governed milestone after drafting the public-freeze receipt",
+      "failure": "The first compact validation command guessed a repository-local scripts/verify_milestone.py path that does not exist and Python exited before milestone validation.",
+      "mutation": false,
+      "correction": "Invoke the governing run-controlled-milestone skill validator at its exact installed path and use only its terminal successor result as milestone evidence.",
+      "positive_evidence": false
     }
   ]
 }

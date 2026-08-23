@@ -1,0 +1,236 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0034-preimplementation-freeze-public",
+  "checkpoint": "baseline-0034",
+  "observed_at_utc": "2026-08-23T18:53:52Z",
+  "status": "pass",
+  "subject": "docs: freeze baseline 0034 retrieval optimization",
+  "public_commit": {
+    "branch": "codex/baseline-0034-retrieval-tier-cap-latency",
+    "commit": "b45cdea83a7eac6c1488a25d6a7d34254e75f44a",
+    "tree": "91723cdc2e6618b3fc83c700d802d76099858547",
+    "parent": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "path_count": 18,
+    "changed_raw_bytes": 1454724,
+    "recursive_tree_entry_count": 1619,
+    "recursive_tree_truncated": false
+  },
+  "ref_reconciliation": {
+    "local_head": "b45cdea83a7eac6c1488a25d6a7d34254e75f44a",
+    "explicit_tracking_head": "b45cdea83a7eac6c1488a25d6a7d34254e75f44a",
+    "ls_remote_head": "b45cdea83a7eac6c1488a25d6a7d34254e75f44a",
+    "anonymous_github_ref_head": "b45cdea83a7eac6c1488a25d6a7d34254e75f44a",
+    "all_exact": true
+  },
+  "changed_paths": [
+    {
+      "path": "CHANGELOG.md",
+      "mode": "100644",
+      "blob": "7cf2c27a1d0a2635d3fbeb921df953df3f58fe8a",
+      "bytes": 134678,
+      "sha256": "3cbbd6e7399827e7e84b67285fa8590a056900c819057b8b8e46301b2628460c"
+    },
+    {
+      "path": "artifacts/verification/baseline-0034-orientation-failures-001.json",
+      "mode": "100644",
+      "blob": "20ea0aa50f44b85c9b0187dd5c1cf26ef54aa1db",
+      "bytes": 6616,
+      "sha256": "3711c7fb5ed2505b3f69d69297f827061bc39825edac30fa78dd3855788aa1be"
+    },
+    {
+      "path": "artifacts/verification/baseline-0034-preimplementation-freeze-local.json",
+      "mode": "100644",
+      "blob": "15f54ceb826ff38af896ebca05e37d49e3077d0a",
+      "bytes": 6719,
+      "sha256": "aa35142db7ee0f2f0e71099ef9139474e282054df53c7415dfa207a52b1ae43c"
+    },
+    {
+      "path": "artifacts/verification/orientation-baseline-0034.json",
+      "mode": "100644",
+      "blob": "43a04f322709399808187f324200214ca4bf8cea",
+      "bytes": 8402,
+      "sha256": "1ae6a7698fe32a6d5b7be7027452a7317ca2ddf1b55e32db2296330034ef2c32"
+    },
+    {
+      "path": "artifacts/verification/research-source-gate-baseline-0034-retrieval-latency.json",
+      "mode": "100644",
+      "blob": "9b7553c5b9e92eeb5db160c104b4b22bfa6e7d47",
+      "bytes": 3012,
+      "sha256": "fec4beab29bb32b7744d8976ce2f6af2c3d5a4443bd85c5b5690d7dec6993aac"
+    },
+    {
+      "path": "contracts/milestone-0034.json",
+      "mode": "100644",
+      "blob": "64899752fed7161830ef06ce67216405b2ce02d9",
+      "bytes": 14316,
+      "sha256": "a4221f97cafe0f20f178eca0e580c4a40e7c09972ea688ac6614443cb549ada9"
+    },
+    {
+      "path": "docs/adr/0029-classify-bounded-retrieval-tiers-in-one-pass.md",
+      "mode": "100644",
+      "blob": "578e9ed7733fd987cef23716079f346e9748d144",
+      "bytes": 5077,
+      "sha256": "548158ff0e6c2ba4d22c80880c3cb8573bc34470a8d7914ae71e6905d01ed4b3"
+    },
+    {
+      "path": "docs/devlog.md",
+      "mode": "100644",
+      "blob": "c845363b06e8af3eba7e2ae7593cc1395ed6c07b",
+      "bytes": 481081,
+      "sha256": "53137df008c44908cf485895e2ee309080c83639d0e0ed1e7afd93f25eaecb11"
+    },
+    {
+      "path": "docs/evaluation-contract.md",
+      "mode": "100644",
+      "blob": "49ddb6f5d42c4fc4f77e113c8fc82f8ec3977cf8",
+      "bytes": 46859,
+      "sha256": "f343b47f1239b8892b4b2e9bd5bb3f615b649d262a464a5262a09bf2eacac56a"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "mode": "100644",
+      "blob": "0657e8266d48760db20fbbd95b6b582fdce64912",
+      "bytes": 247890,
+      "sha256": "266c18d1d31054c19b43669a828423dbb15a103b46fcb4b12efad21dc296662c"
+    },
+    {
+      "path": "docs/research-ledger.md",
+      "mode": "100644",
+      "blob": "ba361476a3355fd53f0986015b4adec4f3de5781",
+      "bytes": 29082,
+      "sha256": "e38e475f84c62ee8db9cc14d2487ad4a1439301ff05d75ea6f5bf7032df61dde"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "mode": "100644",
+      "blob": "7d2cfc8bea211849d10cfa484d30853fd2b45ced",
+      "bytes": 103227,
+      "sha256": "9d3bdbbb0a37e9387331c9f4c0809aac1156f1718227e0e326d03615f2cbca45"
+    },
+    {
+      "path": "docs/status.md",
+      "mode": "100644",
+      "blob": "dff214cffcbd76ce061fb3a34e3f5b6d8325c95a",
+      "bytes": 280011,
+      "sha256": "da48d9bf6f50e896ffa2f24be7216499b66d392ed34fe6f87ebfc8e295a2469f"
+    },
+    {
+      "path": "docs/threat-model.md",
+      "mode": "100644",
+      "blob": "e7375e5a5256a8f915bda99df4df839fd58cd893",
+      "bytes": 23856,
+      "sha256": "8aab812b726576068ee943f26272f3ded2368329522220144af6ed1e8958a303"
+    },
+    {
+      "path": "docs/version-history.md",
+      "mode": "100644",
+      "blob": "8ac851be012840c6483379e83e7be60f97e1a27c",
+      "bytes": 30001,
+      "sha256": "8cee9696df0499bfb70a4a86cb4dc29e70fb28f0aef94e555d4d2ec36d79ac4f"
+    },
+    {
+      "path": "eval/retrieval-single-pass-contract-0034.json",
+      "mode": "100644",
+      "blob": "71e8f695d8ffc04e77b2cda141b1cb30c80db73c",
+      "bytes": 11007,
+      "sha256": "c85e79b5a0fe8b7a6d9a944f947cb0f4c245e3d8f51f90d89d817c3e0db9a578"
+    },
+    {
+      "path": "scripts/verify_retrieval_single_pass_contract_0034.py",
+      "mode": "100644",
+      "blob": "6a61f79f7fe0427d51b1cd637448e99ca1e25fa2",
+      "bytes": 17570,
+      "sha256": "9eba25c4034740c926dfeae8a91ba2bca63d7a43a4f2fbbc5b2ce92003a93ca6"
+    },
+    {
+      "path": "tests/test_retrieval_single_pass_contract_0034.py",
+      "mode": "100644",
+      "blob": "d9cabe53094d74b3bde78a7e36548616d8f25d66",
+      "bytes": 5320,
+      "sha256": "f63f8a14d3eb355b1caf10167cabae43543525d938f13e87aab8eb17bf8aef2f"
+    }
+  ],
+  "anonymous_content_reconciliation": {
+    "git_blob_count_exact": 18,
+    "raw_path_count_exact": 18,
+    "raw_path_bytes_exact": 1454724,
+    "all_git_blobs_exact": true,
+    "all_raw_sha256_exact": true,
+    "missing_paths": [],
+    "mismatched_paths": []
+  },
+  "rendered_signed_out_surfaces": {
+    "branch_page": {
+      "status": "pass",
+      "repository_public": true,
+      "branch_name_exact": true,
+      "one_commit_ahead_main": true,
+      "subject_exact": true,
+      "short_commit_exact": true,
+      "latest_release_v0_0_33_visible": true,
+      "research_informed_boundary_visible": true
+    },
+    "freeze_commit_page": {
+      "status": "pass",
+      "subject_exact": true,
+      "full_commit_exact": true,
+      "changed_file_count_18_visible": true,
+      "milestone_path_visible": true,
+      "verifier_path_visible": true,
+      "adr_path_visible": true
+    },
+    "main_and_selected_commit": {
+      "status": "pass",
+      "selected_main_commit": "d62e7cba675997eade87169f5acba14de6452c9b",
+      "selected_main_subject": "docs: close baseline 0033",
+      "selected_commit_page_exact": true,
+      "repository_page_v0_0_33_visible": true,
+      "repository_page_research_informed_boundary_visible": true
+    }
+  },
+  "unchanged_public_release_state": {
+    "public_main": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "annotated_tag_ref": "522cc2243650568e0a063f8a0918041dca98e111",
+    "tag": "v0.0.33",
+    "tag_peels_to": "5918f614caae96fe5b9bb3815c1d4a1c90908394",
+    "latest_release_id": 375120109,
+    "release_draft": false,
+    "release_prerelease": false,
+    "selected_asset_count": 2,
+    "deployment_api_http_status": 200,
+    "deployment_api_raw_body": "[]",
+    "deployment_count": 0
+  },
+  "freeze_phase": {
+    "candidate_configuration": "single-pass-bounded-trust-tier-lexical-v5",
+    "candidate_implemented": false,
+    "benchmark_result_present": false,
+    "comparison_result_present": false,
+    "selected_default": "freshness-priority-lexical-v3",
+    "historical_v4_disposition": "excluded_latency_noninferior_and_retained",
+    "held_out_used_for_optimization": false
+  },
+  "retained_non_positive_observations": [
+    "GIT-UPSTREAM-REF-ABSENT-001",
+    "POWERSHELL-FETCH-REFSPEC-INTERPOLATION-001",
+    "GIT-UPSTREAM-FETCHSPEC-MISSING-001",
+    "POWERSHELL-EMPTY-DEPLOYMENT-COUNT-001",
+    "MILESTONE-VALIDATOR-PATH-001"
+  ],
+  "boundaries": {
+    "public_main_changed": false,
+    "runtime_retrieval_changed": false,
+    "product_default_changed": false,
+    "historical_evidence_changed": false,
+    "policy_approval_executor_credential_or_authority_changed": false,
+    "dependency_model_service_secret_paid_asset_or_external_asset_added": false,
+    "real_infrastructure_connected": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "tag_release_or_deployment_created": false,
+    "research_informed_synthetic_only_boundary_changed": false
+  },
+  "record_publication": {
+    "this_receipt_public_at_observation_time": false,
+    "implementation_gate": "Publish and reconcile this record-only receipt before adding v5 to runtime code."
+  }
+}

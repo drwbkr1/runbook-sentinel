@@ -160,8 +160,9 @@
         "v5_implementation_absent": "pass",
         "benchmark_and_comparison_results_absent": "pass",
         "full_regression": "pass",
-        "public_commit_exact": "pending",
-        "anonymous_changed_bytes_exact": "pending"
+        "public_commit_exact": "pass",
+        "anonymous_changed_bytes_exact": "pass",
+        "public_reconciliation_record_exact": "pending"
       },
       "next_dependency": "UNIT-003"
     },
@@ -249,7 +250,7 @@
     }
   ],
   "current_unit": "UNIT-002",
-  "next_action": "Add and run the independent phase-aware contract verifier and focused fail-closed tests, then publish and anonymously reconcile the exact preimplementation freeze before adding v5 to runtime code.",
+  "next_action": "Publish and anonymously reconcile the record-only preimplementation freeze receipt before adding v5 to runtime code.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -285,6 +286,7 @@
       ,"The complete regression passes 130 tests in 116.473 seconds"
       ,"Ten explicit current-phase validators pass in 1.024 seconds; the mutating predecessor aggregate is retained separately and supplies no positive evidence"
       ,"The unintended aggregate run is preserved in external custody and artifacts/evaluations/latest.json is restored with zero Git diff"
+      ,"Public freeze b45cdea83a7eac6c1488a25d6a7d34254e75f44a is exact across refs, anonymous commit/tree/parent, all 18 blobs/raw paths, the untruncated tree, and signed-out rendered surfaces"
     ],
     "evidence_paths": [
       "artifacts/verification/orientation-baseline-0034.json",
