@@ -1,8 +1,9 @@
 {
   "schema_version": "1.2",
+  "schema_revision": 3,
   "checkpoint": "baseline-0034",
   "contract_id": "retrieval-predecessor-successor-lifecycle-v1",
-  "status": "frozen_fixture_phase_corrected",
+  "status": "frozen_meta_test_lifecycle_corrected",
   "frozen_at_utc": "2026-08-23T19:08:15Z",
   "lifecycle_correction": {
     "corrected_at_utc": "2026-08-23T19:25:00Z",
@@ -35,6 +36,31 @@
     "release_identity_verifier_changed": false,
     "current_tree_bridge_validators_changed": false,
     "product_runtime_changed": false,
+    "admissibility_or_selection_rule_changed": false,
+    "security_or_authority_changed": false
+  },
+  "meta_test_lifecycle_correction": {
+    "corrected_at_utc": "2026-08-23T21:40:53Z",
+    "retained_failure": "FIXTURE-PHASE-META-TEST-0034-001",
+    "finding": "The schema-1.2 meta-test proved the future release-test identity only from predecessor bytes and therefore failed after that exact future identity was implemented.",
+    "allowed_test_path": "tests/test_retrieval_fixture_phase_correction_0034.py",
+    "released_meta_test_identity": {
+      "bytes": 2741,
+      "sha256": "b4f2b66058a4d3ad8de7b0e4cdf3affed96c2014aa7040cfddd365376a4c187f"
+    },
+    "corrected_meta_test_identity": {
+      "bytes": 3159,
+      "sha256": "ee7c67c27d222761e30e6c45a24b4054cbf5e4e439b16e2b3720370bf026a63f"
+    },
+    "exact_block_replacement": {
+      "from": "        source = path.read_text(encoding=\"utf-8\")\n        replacement = self.correction[\"exact_replacement\"]\n        self.assertEqual(source.count(replacement[\"from\"]), 1)\n        future = source.replace(replacement[\"from\"], replacement[\"to\"])\n        payload = future.encode(\"utf-8\")\n        self.assertEqual(len(payload), self.correction[\"corrected_test_identity\"][\"bytes\"])\n        self.assertEqual(\n            hashlib.sha256(payload).hexdigest(),\n            self.correction[\"corrected_test_identity\"][\"sha256\"],\n        )\n",
+      "to": "        payload = path.read_bytes()\n        identity = {\"bytes\": len(payload), \"sha256\": hashlib.sha256(payload).hexdigest()}\n        released = self.correction[\"released_bridge_test_identity\"]\n        corrected = self.correction[\"corrected_test_identity\"]\n        self.assertIn(identity, (released, corrected))\n        if identity == released:\n            source = payload.decode(\"utf-8\")\n            replacement = self.correction[\"exact_replacement\"]\n            self.assertEqual(\n                source.count(replacement[\"from\"]),\n                replacement[\"required_occurrence_count\"],\n            )\n            payload = source.replace(\n                replacement[\"from\"],\n                replacement[\"to\"],\n                replacement[\"required_occurrence_count\"],\n            ).encode(\"utf-8\")\n        self.assertEqual(len(payload), corrected[\"bytes\"])\n        self.assertEqual(hashlib.sha256(payload).hexdigest(), corrected[\"sha256\"])\n",
+      "required_occurrence_count": 1
+    },
+    "release_test_changed": false,
+    "product_runtime_changed": false,
+    "release_identity_verifier_changed": false,
+    "current_tree_bridge_validators_changed": false,
     "admissibility_or_selection_rule_changed": false,
     "security_or_authority_changed": false
   },
@@ -135,5 +161,5 @@
     "dependency_model_service_secret_paid_asset_external_asset_or_real_infrastructure_added": false,
     "container_image_exported_pushed_published_or_redistributed": false
   },
-  "next_gate": "Publish and anonymously reconcile this exact schema-1.2 test-only correction freeze while retrieval.py and the public bridge test remain exact, then apply and publish only the precomputed frozen-fixture phase replacement before retrying v5."
+  "next_gate": "Publish and anonymously reconcile this exact schema-1.2 revision-3 meta-test lifecycle freeze while retrieval.py and the release test remain at public predecessor identities, then apply and publish only the precomputed phase-aware meta-test replacement before retrying the frozen release-test replacement."
 }

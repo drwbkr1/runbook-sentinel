@@ -28,3 +28,7 @@ The bridge is a prerequisite correction, not a second product improvement. Runti
 ## Schema 1.2 fixture-phase correction
 
 The first exact v5 retry exposed a test-only phase mismatch: the bridge correctly selected the frozen v0.0.33 release fixture, but the test passed the current implemented phase to that frozen fixture. Schema 1.2 freezes one exact replacement in `tests/test_release_identity_contract_0033.py`, from the variable `phase` argument to literal `"frozen"`, and precomputes the resulting byte identity. The immutable release verifier, both current-tree bridge validators, product runtime, selection rules, and security boundaries remain unchanged. Unknown test bytes still fail closed.
+
+## Schema 1.2 revision 3 meta-test lifecycle correction
+
+The first schema-1.2 implementation retry reached the exact corrected release-test identity and passed every inherited release check, but its new meta-test still assumed predecessor source bytes. Revision 3 freezes a phase-aware meta-test while retaining schema-version compatibility: when the release test is still public predecessor bytes it projects and verifies the exact corrected identity; when the release test is already corrected it validates those bytes directly. Unknown meta-test bytes fail closed. Runtime, release verifier, bridge validators, selection rules, and security boundaries remain unchanged.

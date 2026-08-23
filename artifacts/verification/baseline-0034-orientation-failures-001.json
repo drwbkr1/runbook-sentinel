@@ -294,6 +294,25 @@
       "mutation": false,
       "correction": "Read every receipt row from its anonymous raw GitHub URL and compare byte count plus SHA-256 directly, while separately matching every commit-tree blob identity. Only a clean successor is positive evidence.",
       "positive_evidence": false
+    },
+    {
+      "id": "FIXTURE-PHASE-META-TEST-0034-001",
+      "class": "fail",
+      "operation": "Apply the exact public schema-1.2 release-fixture phase replacement and run focused predecessor regression",
+      "observed_at_utc": "2026-08-23T21:38:42Z",
+      "failure": "The release test changed to the exact precomputed 6,944-byte identity and every inherited release/lifecycle check passed, but the schema-1.2 meta-test still required the old source line to occur once after implementation. The focused suite stopped at 36/37 on that preimplementation-only assertion.",
+      "mutation": false,
+      "candidate_attempt": {
+        "release_test_bytes": 6944,
+        "release_test_sha256": "861d8f346b77a4faffc981c98f18d091b2a1ef9fb3ade288bb4f7abc9b348a09",
+        "lifecycle_valid": true,
+        "inherited_release_tests_failed": 0,
+        "focused_passed": 36,
+        "focused_failed": 1
+      },
+      "correction": "Restore the exact 6,941-byte public bridge test. Freeze and publish a schema-1.3 phase-aware meta-test identity that projects the correction only from predecessor bytes and validates corrected bytes directly, then implement that meta-test before retrying the release-test replacement.",
+      "restored_release_test_sha256": "3000e914733f96d4f9513f53be7296b956ce7fb4979aa29b13b4ccae12427917",
+      "positive_evidence": false
     }
   ]
 }
