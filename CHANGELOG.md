@@ -14,6 +14,7 @@
 - The lifecycle correction passes eight focused tests and all 104 regression tests; the adjudicator and successor result remain absent pending public correction reconciliation.
 - Published lifecycle correction `4e22e38ee274c6c8a53c8b3ee3874203412ab18c` exact across all refs, 14 blobs and raw paths, and rendered commit evidence while public `main` remains unchanged. Its record-only receipt precedes implementation.
 - Published exact lifecycle record `100f3fb68584988bc1c45a988d63628f70ac7b97`, then added the read-only standard-library adjudicator and implementation tests. Default evaluation is in memory; explicit frozen-path writing is exclusive and postvalidated. Seventeen focused and 113 full tests pass; no successor result exists at the local implementation seal.
+- Published implementation seal `f5e2a843aa77028d005116265225e5d858c6488c` exact across all refs, 15 blobs and raw paths, and rendered commit evidence. The public tree contains no successor result; its record-only receipt precedes the one-time write.
 
 ## 0.0.32 - 2026-08-22
 

@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0033",
+  "receipt_id": "baseline-0033-adjudicator-implementation-public",
+  "status": "pass",
+  "phase": "implementation_sealed_no_result",
+  "observed_at_utc": "2026-08-23T00:22:46.9398250Z",
+  "repository": {
+    "branch": "codex/baseline-0033-retrieval-candidate-admissibility",
+    "commit": "f5e2a843aa77028d005116265225e5d858c6488c",
+    "tree": "2cf90765fa09b70254d9fe286461e3bef0100ffd",
+    "parent": "100f3fb68584988bc1c45a988d63628f70ac7b97",
+    "public_main": "4b7dd999c13384a196746de5dbff872e93f9f2fe"
+  },
+  "verification": {
+    "local_tracking_ls_remote_and_anonymous_ref_exact": true,
+    "anonymous_commit_tree_and_parent_exact": true,
+    "recursive_tree_truncated": false,
+    "recursive_tree_entry_count": 1545,
+    "changed_path_count": 15,
+    "git_blob_identity_count": 15,
+    "anonymous_raw_exact_count": 15,
+    "rendered_commit_subject_hash_parent_path_count_and_adjudicator_visible": true,
+    "successor_result_absent_in_public_tree": true,
+    "public_main_unchanged": true
+  },
+  "paths": [
+    {
+      "path": "artifacts/verification/baseline-0033-adjudicator-implementation-local.json",
+      "bytes": 4922,
+      "sha256": "082020aadfdb088e49292b64c292cf641581847c67ee6c0366335204ccb78a70",
+      "git_blob": "a72751c671c7f742d6654682b906cca1bdb52492"
+    },
+    {
+      "path": "artifacts/verification/baseline-0033-orientation-failures-001.json",
+      "bytes": 6263,
+      "sha256": "ad8c553f1dc8d39f227b645da50937bc2df2ea5f00d4abadae945c41bf52a2b4",
+      "git_blob": "bbc0da86c9b52ab618cbaaa0e19b1e4e86243c0e"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 121243,
+      "sha256": "81b11c601c16cdec6e8c72de4bfe1b62277cc385f4ef0e9b0593f0a7015e618c",
+      "git_blob": "810050dacf33aea687752f045ce652676fd29242"
+    },
+    {
+      "path": "contracts/milestone-0033.json",
+      "bytes": 16256,
+      "sha256": "7357005b36340dab069f254cf6c0ab356927b49300f5f0f37b987c495c045211",
+      "git_blob": "d7248d46b1dac11926109a64cb0d37a2462f0cfd"
+    },
+    {
+      "path": "docs/architecture.md",
+      "bytes": 12196,
+      "sha256": "3be0c3018a3db90d23c6badd28899a31d121a70d2f17bf33824d5be84d8e462d",
+      "git_blob": "b9ed1b3bf98c7ea18c06b081458c492ddd4d7b70"
+    },
+    {
+      "path": "docs/devlog.md",
+      "bytes": 454019,
+      "sha256": "626da7484288530c2e1dd5cdd7868eadefae12641410d2802e16e5baad3232d6",
+      "git_blob": "317222e7b1058b44110bbcf83d2d314c08c4bda9"
+    },
+    {
+      "path": "docs/evaluation-contract.md",
+      "bytes": 44524,
+      "sha256": "3e5b02acecb3bf5aff399f6cc1ebd16f0d34a45debb34fd552986c012fbf35e5",
+      "git_blob": "1289a98a6bde146ad39b8f6223b7b95d75a1b875"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "bytes": 228658,
+      "sha256": "0d4c0b1a56848e844ee568f031d749e872c6c46743a38796a1456fc39078a90d",
+      "git_blob": "31e398fcf905bb876c47bade417e8211c68f53eb"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 95831,
+      "sha256": "0db41b50e9d51d7499c96093d708c379fd8db34fb66ffaed85feeedc9f9acc40",
+      "git_blob": "862061160535611c94b2c7e416103c7d983cc3ed"
+    },
+    {
+      "path": "docs/status.md",
+      "bytes": 262367,
+      "sha256": "8b1fbeac1e70f890779059994c3e63f56f84bbdf13c0cbcf308b88e58fa3ef28",
+      "git_blob": "9eea59a9ffa0b0051a2efc2601b8777761e7f677"
+    },
+    {
+      "path": "docs/threat-model.md",
+      "bytes": 22680,
+      "sha256": "49e67b8fc876a77c8ccffe1eb42d9296d408a44333b103d4e66ee0a6ac868017",
+      "git_blob": "b32a83973c70dd3e531e861a40f07bf98548b461"
+    },
+    {
+      "path": "docs/version-history.md",
+      "bytes": 28736,
+      "sha256": "23a20aff5355c0f5a1f0158d1239b4159948e368d4f10c469acb68e3fbc15661",
+      "git_blob": "46d8e9f5edf0f9cb251852e353ae38003eeba2f8"
+    },
+    {
+      "path": "scripts/readjudicate_retrieval_candidate.py",
+      "bytes": 9779,
+      "sha256": "70f169f0b2166a34d28591c2c7fde0f74f0105b89efdc25efd1fca669c4db741",
+      "git_blob": "8a9dbc21e24f5859a5ee10f64f50ef8522db022b"
+    },
+    {
+      "path": "tests/test_readjudicate_retrieval_candidate.py",
+      "bytes": 4344,
+      "sha256": "7fc7d2a9656ce755ebac584d50f4f4eaff74c11c085f501c20b71251aad873cc",
+      "git_blob": "56cb2eb7fd3943c1203fdf2b56632fd14836a6be"
+    },
+    {
+      "path": "tests/test_retrieval_candidate_admissibility_contract.py",
+      "bytes": 6990,
+      "sha256": "4ba794fb2bc27a891969b31ad682afb81d3dbfb0d8729dcc97042015b516a4a5",
+      "git_blob": "a5dae29f5e664bb01c13f6a87941ee9f84493ac4"
+    }
+  ],
+  "boundaries": {
+    "successor_result_present_at_public_implementation_seal": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "candidate_selected": false,
+    "runtime_or_default_changed": false,
+    "retrieval_or_evaluator_changed": false,
+    "historical_result_rewritten": false,
+    "security_or_authority_changed": false,
+    "public_main_changed": false,
+    "tag_release_or_deployment_created": false
+  },
+  "next_gate": "Publish and reconcile this record-only receipt, then run the exact public adjudicator writer once and independently verify the immutable successor result."
+}

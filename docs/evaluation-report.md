@@ -16,6 +16,8 @@ Correction commit `4e22e38ee274c6c8a53c8b3ee3874203412ab18c`, tree `50d2e63747b5
 
 Lifecycle record `100f3fb68584988bc1c45a988d63628f70ac7b97` is public and exact. The local adjudicator now builds the expected `complete_candidate_admissible_not_selected` result in memory while keeping v3 selected and writing no file. It preserves source hashes, produces deterministic canonical bytes, rejects an unlisted false gate or missing safe-superset pair, limits writing to the frozen path, refuses overwrite, flushes and fsyncs exclusive creation, and postvalidates a temporary written result. Seventeen focused tests pass in 0.701 seconds and all 113 tests pass in 134.879 seconds; the real successor result remains absent.
 
+Implementation seal `f5e2a843aa77028d005116265225e5d858c6488c`, tree `2cf90765fa09b70254d9fe286461e3bef0100ffd`, is public and exact across explicit tracking, `ls-remote`, anonymous ref/commit/tree/parent, all 15 blobs and raw paths, and rendered commit evidence. The successor result is absent from the public tree; this is implementation evidence only.
+
 ## BASELINE-0032 local canonical container candidate
 
 The exact public package/source record at `001b6a19b38616d07a9995d19831b44c8a03a6a1` supplied the only admitted Docker input. Two independent no-cache, network-disabled full builds and one credential-disabled HTTPS no-alternates clean build reproduce image ID `sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9` at the frozen creation time. The clean clone first rebuilt the exact 43-entry, 647,712-byte zipapp at SHA-256 `3be93953a367483e29c696af889ebfccc432424b8303c4f69ae00d10a38c2270`.

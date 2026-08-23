@@ -172,7 +172,7 @@
       ],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": [
         "public exact preimplementation contract",
         "exact retained v3 report v4 report and comparison"
@@ -187,8 +187,10 @@
         "historical_inputs_unchanged": "pass",
         "runtime_default_unchanged": "pass",
         "security_and_authority_unchanged": "pass",
-        "implementation_public_and_exact": "pending"
-      }
+        "implementation_public_and_exact": "pass"
+      },
+      "disposition": "pass",
+      "next_dependency": "UNIT-004"
     },
     {
       "id": "UNIT-004",
@@ -198,7 +200,7 @@
       ],
       "action_class": "local_verification",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": [
         "public exact implementation seal",
         "immutable v3 v4 and original comparison artifacts"
@@ -246,8 +248,8 @@
       }
     }
   ],
-  "current_unit": "UNIT-003",
-  "next_action": "Publish and anonymously reconcile the exact read-only adjudicator implementation seal while the successor result remains absent, then record that public seal before the one immutable result generation.",
+  "current_unit": "UNIT-004",
+  "next_action": "Publish and anonymously reconcile the record-only public implementation receipt, then run the exact public adjudicator writer once, independently verify the immutable result, and begin the risk-matched real-surface matrix.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -284,7 +286,8 @@
       "A repository-free simulation proves the public frozen verifier lacks the required implementation-present result-absent phase; a schema-1.1 three-phase lifecycle correction passes locally without changing any admissibility inventory runtime default security boundary or historical result",
       "The lifecycle-only correction passes eight focused fail-closed tests and the complete 104-test regression suite in 140.325 seconds while implementation and successor result remain absent",
       "Lifecycle correction 4e22e38ee274c6c8a53c8b3ee3874203412ab18c is exact across local tracking ls-remote anonymous ref commit tree parent all 14 Git blobs all 14 raw paths and rendered commit while public main remains unchanged",
-      "The adjudicator default mode completes in memory without writing a result; 17 focused tests and 113 complete regression tests pass, inputs remain exact, nonfrozen paths and overwrite attempts fail closed, and the real repository phase is implementation_sealed_no_result"
+      "The adjudicator default mode completes in memory without writing a result; 17 focused tests and 113 complete regression tests pass, inputs remain exact, nonfrozen paths and overwrite attempts fail closed, and the real repository phase is implementation_sealed_no_result",
+      "Implementation seal f5e2a843aa77028d005116265225e5d858c6488c is exact across local tracking ls-remote anonymous ref commit tree parent all 15 Git blobs all 15 raw paths and rendered commit; the successor result is absent from the public tree and public main is unchanged"
     ],
     "artifacts": [
       "artifacts/verification/orientation-baseline-0033.json",
@@ -295,14 +298,15 @@
       "docs/adr/0027-separate-default-retrieval-conformance-from-candidate-admissibility.md",
       "artifacts/verification/baseline-0033-preimplementation-freeze-public.json",
       "artifacts/verification/baseline-0033-implementation-phase-gap-attempt-001.json",
-      "artifacts/verification/baseline-0033-lifecycle-correction-public.json"
+      "artifacts/verification/baseline-0033-lifecycle-correction-public.json",
+      "artifacts/verification/baseline-0033-adjudicator-implementation-public.json"
     ],
     "disposition": "in_progress"
   },
   "handoff": {
     "latest_verified_checkpoint": "immutable public v0.0.32 at tag object ea203784e11afd611666bcd988f4d1e60259f6a8 peeled to audited closure f0e565015be2ca8ed155be600a61fe131dbfa012, with public receipt SHA-256 eebd1571dfab5942f7b1b6dfc2a42c5807629391564d01d7621b307a8c78726c and rendered-truth correction main 4b7dd999c13384a196746de5dbff872e93f9f2fe",
     "retained_failed_checkpoint": "stopped unpublished BASELINE-0031 release candidate v0.0.31 plus separately retained excluded bounded-trust-tier-lexical-v4 comparison",
-    "current_checkpoint": "BASELINE-0033 lifecycle correction 4e22e38ee274c6c8a53c8b3ee3874203412ab18c and record 100f3fb68584988bc1c45a988d63628f70ac7b97 are public and exact. The local read-only adjudicator implementation passes its seal; the successor result remains absent until that implementation is public and exact.",
+    "current_checkpoint": "BASELINE-0033 read-only adjudicator implementation seal f5e2a843aa77028d005116265225e5d858c6488c is public and exact with the successor result absent. Its record-only receipt is being published before the one-time writer runs.",
     "resume_rule": "Resume from public verified v0.0.32 and the exact BASELINE-0033 freeze state; inspect the active milestone and verifier before acting, never use OneDrive, never rewrite the original v4 exclusion, and never infer candidate selection from candidate evidence admissibility."
   }
 }
