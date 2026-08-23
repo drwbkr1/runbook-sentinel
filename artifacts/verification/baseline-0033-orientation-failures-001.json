@@ -131,9 +131,45 @@
       "mutation": false,
       "correction": "Declare the exact C:/Projects active worktree explicitly, materialize all 13 absolute paths, and hash their complete byte inventory in a bounded successor command.",
       "positive_evidence": false
+    },
+    {
+      "id": "RELEASE-IDENTITY-RECORD-AGGREGATE-001",
+      "class": "process_invalid",
+      "operation": "Reconcile the eight-path public release-identity record across refs metadata raw bytes and unchanged main",
+      "failure": "The compact PowerShell array omitted spaces around comparison operators, producing null aggregate check fields after all eight raw paths and Git blobs had already matched exactly.",
+      "mutation": false,
+      "correction": "Run named comparisons with explicit operators. Local tracking ls-remote anonymous ref commit tree parent untruncated tree unchanged main and the prior raw/blob inventory all pass for 2d81bd4e4f4fe89192f88485ea616d36f59358a2.",
+      "positive_evidence": false
+    },
+    {
+      "id": "RELEASE-IDENTITY-LIVE-DASHBOARD-TARGET-001",
+      "class": "contract_incomplete",
+      "operation": "Validate the exact frozen implemented projection before any successor manifest package or image build",
+      "failure": "The implemented release-identity verifier rejected scripts/verify_live_api.ps1 because the v1 precomputed target hash covered the lower-case checkpoint paths but omitted the required rendered Baseline 0033 assertion and matching verifier-local field rename. Package and container contracts were exact and their independent validators passed; no artifact was built.",
+      "mutation": false,
+      "correction": "Publish a schema-1.1 lifecycle correction that changes only this verifier target hash and explicitly binds the rendered identity literal and local field rename before any successor identity is public. Runtime behavior candidate selection security authority external assets and the admitted base remain unchanged.",
+      "positive_evidence": false
+    },
+    {
+      "id": "RELEASE-IDENTITY-FROZEN-FIXTURE-001",
+      "class": "test_invalid",
+      "operation": "Verify the schema-1.1 correction against the exact public predecessor tree while successor implementation remains locally unstaged",
+      "failure": "The first frozen fixture restored all source and mechanical files from public predecessor 2d81bd4 but still copied the two active package and container contracts from the locally implemented worktree, so the frozen verifier rejected both active hashes.",
+      "mutation": false,
+      "correction": "Restore the two active contracts from the same exact public predecessor as every other frozen identity. The corrected fixture proves the correction passes before implementation while the separate current-tree test proves the intended implemented phase.",
+      "positive_evidence": false
+    },
+    {
+      "id": "UPSTREAM-REF-POWERSHELL-HASH-LITERAL-001",
+      "class": "process_invalid",
+      "operation": "Read the configured upstream ref while resuming the BASELINE-0033 lifecycle correction",
+      "failure": "An unquoted @{u} token was parsed by PowerShell as a hash literal and the compact status command stopped before the upstream lookup. The separate status and HEAD reads completed, and no repository or external state changed.",
+      "mutation": false,
+      "correction": "Use the exact public branch ref through git ls-remote and an explicit refspec rather than relying on the missing remote-tracking branch. The successor proves the public branch remains 2d81bd4e4f4fe89192f88485ea616d36f59358a2 and public main remains 4b7dd999c13384a196746de5dbff872e93f9f2fe.",
+      "positive_evidence": false
     }
   ],
   "historical_candidate_results_rewritten": false,
   "product_files_changed_by_failure": false,
-  "next_gate": "Complete regression and phase-correct validation, then publish and anonymously reconcile the release-identity freeze before any v0.0.33 identity or artifact is created."
+  "next_gate": "Publish and anonymously reconcile only the schema-1.1 release-identity lifecycle correction from exact public predecessor 2d81bd4e4f4fe89192f88485ea616d36f59358a2, proving every locally started successor implementation path is excluded from that public correction tree; then resume the bounded v0.0.33 identity and package/container implementation."
 }

@@ -4,6 +4,7 @@ import importlib.util
 import json
 from pathlib import Path
 import shutil
+import subprocess
 import tempfile
 import unittest
 
@@ -14,16 +15,37 @@ SPEC = importlib.util.spec_from_file_location("verify_release_identity_contract_
 assert SPEC and SPEC.loader
 MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)
+START_COMMIT = "2d81bd4e4f4fe89192f88485ea616d36f59358a2"
 
 
 class ReleaseIdentityContract0033Tests(unittest.TestCase):
-    def test_frozen_contract_matches_repository(self) -> None:
-        result = MODULE.evaluate(ROOT, "frozen")
+    def test_current_contract_matches_repository_phase(self) -> None:
+        phase = "implemented" if (ROOT / "eval/container-contract-0033-v13.json").is_file() else "frozen"
+        result = MODULE.evaluate(ROOT, phase)
         self.assertTrue(result["valid"], result["errors"])
         self.assertFalse(result["candidate_selected"])
         self.assertEqual(result["selected_configuration"], "freshness-priority-lexical-v3")
         self.assertEqual(result["product_runtime_file_count"], 24)
         self.assertEqual(result["new_external_asset_count"], 0)
+
+    def test_rendered_dashboard_successor_identity_is_hash_bound(self) -> None:
+        contract = json.loads(
+            (ROOT / "eval/release-identity-contract-0033.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            contract["mechanical_file_identities"]["scripts/verify_live_api.ps1"]["after_sha256"],
+            "7a4e33095266acd30ae53341de4b7e880d3d6bd50c042cae21f11456d9c633dd",
+        )
+        correction = contract["lifecycle_correction"]
+        self.assertEqual(correction["status"], "corrected_before_public_successor_identity_implementation")
+        self.assertFalse(correction["runtime_behavior_changed"])
+        self.assertFalse(correction["security_or_authority_changed"])
+
+    def test_frozen_correction_matches_public_predecessor_tree(self) -> None:
+        with self.fixture() as directory:
+            result = MODULE.evaluate(Path(directory), "frozen")
+            self.assertTrue(result["valid"], result["errors"])
+            self.assertFalse(result["candidate_selected"])
 
     def test_candidate_selection_fails_closed(self) -> None:
         with self.fixture() as directory:
@@ -75,33 +97,35 @@ class ReleaseIdentityContract0033Tests(unittest.TestCase):
     def fixture(self):
         temporary = tempfile.TemporaryDirectory()
         root = Path(temporary.name)
+        contract = json.loads(
+            (ROOT / "eval/release-identity-contract-0033.json").read_text(encoding="utf-8")
+        )
         for relative in (
             "eval/release-identity-contract-0033.json",
             "artifacts/evaluations/baseline-0033-retrieval-candidate-admissibility.json",
             "artifacts/verification/baseline-0033-adjudication-result-public.json",
             "eval/package-contract-0032.json",
-            "eval/package-contract.json",
             "eval/container-contract-0032-v12.json",
-            "eval/container-contract.json",
             "artifacts/verification/container-baseline-0032.json",
             "artifacts/verification/container-source-gate-baseline-0032-chainguard-python.json",
             "artifacts/verification/container-base-intake-baseline-0032.json",
-            "pyproject.toml",
-            "Dockerfile",
-            ".dockerignore",
-            "scripts/verify_baseline.py",
-            "scripts/verify_live_api.ps1",
-            "scripts/verify_mcp_stdio.py",
-            "scripts/inspect_runtime_evidence.py",
-            "scripts/build_zipapp.py",
-            "scripts/verify_package_contract.py",
-            "scripts/freeze_manifest.py",
         ):
             source = ROOT / relative
             destination = root / relative
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(source, destination)
-        shutil.copytree(ROOT / "src/runbook_sentinel", root / "src/runbook_sentinel", ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
+        frozen_paths = sorted(
+            set(contract["mechanical_file_identities"])
+            | set(contract["runtime_identity"]["mechanical_paths"])
+            | set(contract["runtime_identity"]["unchanged_paths"])
+            | {"eval/package-contract.json", "eval/container-contract.json"}
+        )
+        for relative in frozen_paths:
+            destination = root / relative
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(
+                subprocess.check_output(["git", "show", f"{START_COMMIT}:{relative}"], cwd=ROOT)
+            )
         return temporary
 
 

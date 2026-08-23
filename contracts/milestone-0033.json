@@ -250,7 +250,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Publish and anonymously reconcile the record-only release-identity freeze receipt, then implement only the exact frozen v0.0.33 identity projection and successor package/container contracts.",
+  "next_action": "Publish and anonymously reconcile only the schema-1.1 release-identity lifecycle correction from exact public predecessor 2d81bd4e4f4fe89192f88485ea616d36f59358a2, proving the public correction tree excludes every locally started successor implementation path; then resume the bounded v0.0.33 identity and package/container implementation.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -296,6 +296,8 @@
       ,"The corrected frozen release-identity verifier and six fail-closed tests pass before any v0.0.33 source identity, successor package or container contract, archive, image, tag, release, or deployment exists; the initial verifier-hash and temporary-path test failure remains retained"
       ,"The complete pre-freeze suite passes 119 tests in 100.719 seconds and all 42 phase-correct side-effect-free project validators in 3.513 seconds; milestone, compilation, changed-JSON, diff, high-signal secret and model-artifact scans, and successor-absence checks pass"
       ,"Release-identity freeze 53b3738dbb80e1fd5537e2b776207e19d3d2b205 is public and exact across local tracking ls-remote anonymous ref commit tree parent all 14 Git blobs all 14 raw paths and rendered commit evidence while public main remains unchanged"
+      ,"Release-identity record 2d81bd4e4f4fe89192f88485ea616d36f59358a2 is public and exact across its eight paths; public main remains unchanged and the bounded successor implementation exists only in the local unstaged worktree"
+      ,"The first implemented-phase check failed closed only on an incomplete future scripts/verify_live_api.ps1 target hash; schema-1.1 binds the visible Baseline 0033 assertion and matching local field rename, and eight focused tests pass against both the exact public predecessor fixture and intended local implemented projection"
     ],
     "artifacts": [
       "artifacts/verification/orientation-baseline-0033.json",
@@ -315,13 +317,14 @@
       ,"docs/adr/0028-release-adjudicated-checkpoints-through-an-identity-only-transition.md"
       ,"artifacts/verification/baseline-0033-release-identity-freeze-local.json"
       ,"artifacts/verification/baseline-0033-release-identity-freeze-public.json"
+      ,"artifacts/verification/baseline-0033-release-identity-lifecycle-correction-local.json"
     ],
     "disposition": "in_progress"
   },
   "handoff": {
     "latest_verified_checkpoint": "immutable public v0.0.32 at tag object ea203784e11afd611666bcd988f4d1e60259f6a8 peeled to audited closure f0e565015be2ca8ed155be600a61fe131dbfa012, with public receipt SHA-256 eebd1571dfab5942f7b1b6dfc2a42c5807629391564d01d7621b307a8c78726c and rendered-truth correction main 4b7dd999c13384a196746de5dbff872e93f9f2fe",
     "retained_failed_checkpoint": "stopped unpublished BASELINE-0031 release candidate v0.0.31 plus separately retained excluded bounded-trust-tier-lexical-v4 comparison",
-    "current_checkpoint": "BASELINE-0033 immutable result and record remain public and exact. Release-identity freeze 53b3738dbb80e1fd5537e2b776207e19d3d2b205 is also public and exact with an empty functional product delta, v3 selected, v4 excluded, and the admitted container base unchanged. Publish and reconcile its record-only receipt before any v0.0.33 identity or artifact.",
+    "current_checkpoint": "BASELINE-0033 immutable result, release-identity freeze, and freeze record remain public and exact through 2d81bd4e4f4fe89192f88485ea616d36f59358a2. The first local implemented-phase check failed closed on one incomplete rendered-dashboard target identity. Publish and reconcile only the schema-1.1 correction before any locally started v0.0.33 identity or package/container implementation becomes public; no archive or image exists.",
     "resume_rule": "Resume from public verified v0.0.32 and the exact BASELINE-0033 freeze state; inspect the active milestone and verifier before acting, never use OneDrive, never rewrite the original v4 exclusion, and never infer candidate selection from candidate evidence admissibility."
   }
 }

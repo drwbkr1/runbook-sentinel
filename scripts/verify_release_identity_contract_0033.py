@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 
-SCHEMA = "runbook-sentinel/release-identity-transition/v1"
+SCHEMA = "runbook-sentinel/release-identity-transition/v1.1"
 RESULT_SHA256 = "6b81820e3942dd9ec4e603147fde0b58d73404effa46984ebc370bd44e5d454f"
 RECEIPT_SHA256 = "8b597077247cb4b5b43455d090dd127dd737e1ecec2476fffd7adcb25874bd10"
 PACKAGE_V32_SHA256 = "75f1b4de4cefda2f156fa7dbcae931a467a8ae58953992a912bbd1b8557c1079"

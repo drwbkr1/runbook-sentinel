@@ -1,7 +1,19 @@
 {
-  "schema_version": "runbook-sentinel/release-identity-transition/v1",
+  "schema_version": "runbook-sentinel/release-identity-transition/v1.1",
   "checkpoint": "baseline-0033",
   "contract_status": "frozen_before_successor_identity_implementation",
+  "lifecycle_correction": {
+    "status": "corrected_before_public_successor_identity_implementation",
+    "reason": "The v1 target hash for scripts/verify_live_api.ps1 covered lower-case baseline path substitutions but omitted the matching rendered Baseline 0033 assertion and its result-field rename.",
+    "scope": [
+      "replace the rendered dashboard identity literal Baseline 0032 with Baseline 0033",
+      "rename the verifier-local dashboard_baseline_0032 field to dashboard_baseline_0033"
+    ],
+    "runtime_behavior_changed": false,
+    "security_or_authority_changed": false,
+    "candidate_selection_changed": false,
+    "external_asset_changed": false
+  },
   "frozen_at_utc": "2026-08-23T00:41:36Z",
   "starting_checkpoint": {
     "branch": "codex/baseline-0033-retrieval-candidate-admissibility",
@@ -152,7 +164,7 @@
     },
     "scripts/verify_live_api.ps1": {
       "before_sha256": "f7f7fc25217585bc95860a4426a3220242e133708de6d15f89f8afe76f808862",
-      "after_sha256": "beb8ade9ab278f597fb8812a176461b9fc5b25ccbdb284c52829e877fc62e55a"
+      "after_sha256": "7a4e33095266acd30ae53341de4b7e880d3d6bd50c042cae21f11456d9c633dd"
     },
     "scripts/verify_mcp_stdio.py": {
       "before_sha256": "41ca381a696efaa48edb3fe72c018e10c34afbf71813302b477cec82de7ec4fd",
