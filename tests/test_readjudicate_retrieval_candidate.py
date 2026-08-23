@@ -16,6 +16,16 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import readjudicate_retrieval_candidate as adjudicator  # noqa: E402
 
 
+def build_without_repository_result() -> dict[str, object]:
+    with tempfile.TemporaryDirectory() as directory:
+        absent_result = Path(directory) / "absent-result.json"
+        with (
+            mock.patch.object(adjudicator, "RESULT_PATH", absent_result),
+            mock.patch.object(adjudicator.verifier, "RESULT_PATH", absent_result),
+        ):
+            return adjudicator.build_result()
+
+
 class RetrievalCandidateReadjudicationTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
@@ -31,7 +41,7 @@ class RetrievalCandidateReadjudicationTests(unittest.TestCase):
         )
 
     def test_in_memory_result_matches_frozen_expected_readjudication(self) -> None:
-        result = adjudicator.build_result()
+        result = build_without_repository_result()
         for key, value in self.contract["frozen_expected_readjudication"].items():
             self.assertEqual(result[key], value)
         self.assertTrue(result["candidate_evidence_admissible"])
@@ -41,17 +51,26 @@ class RetrievalCandidateReadjudicationTests(unittest.TestCase):
         )
 
     def test_result_bytes_are_deterministic(self) -> None:
-        first = adjudicator.canonical_bytes(adjudicator.build_result())
-        second = adjudicator.canonical_bytes(adjudicator.build_result())
+        first = adjudicator.canonical_bytes(build_without_repository_result())
+        second = adjudicator.canonical_bytes(build_without_repository_result())
         self.assertEqual(first, second)
         self.assertEqual(
             hashlib.sha256(first).hexdigest(), hashlib.sha256(second).hexdigest()
         )
 
-    def test_in_memory_evaluation_does_not_create_successor_result(self) -> None:
-        self.assertFalse(adjudicator.RESULT_PATH.exists())
-        adjudicator.build_result()
-        self.assertFalse(adjudicator.RESULT_PATH.exists())
+    def test_in_memory_evaluation_does_not_modify_successor_result(self) -> None:
+        before = (
+            adjudicator.RESULT_PATH.read_bytes()
+            if adjudicator.RESULT_PATH.exists()
+            else None
+        )
+        build_without_repository_result()
+        after = (
+            adjudicator.RESULT_PATH.read_bytes()
+            if adjudicator.RESULT_PATH.exists()
+            else None
+        )
+        self.assertEqual(before, after)
 
     def test_unlisted_false_gate_fails_closed(self) -> None:
         candidate = copy.deepcopy(self.candidate)
@@ -100,7 +119,7 @@ class RetrievalCandidateReadjudicationTests(unittest.TestCase):
 
     def test_source_identities_are_unchanged_by_build(self) -> None:
         before = adjudicator._source_snapshot(self.contract)
-        adjudicator.build_result()
+        build_without_repository_result()
         after = adjudicator._source_snapshot(self.contract)
         self.assertEqual(before, after)
 

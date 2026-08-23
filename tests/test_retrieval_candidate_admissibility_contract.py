@@ -30,8 +30,12 @@ class RetrievalCandidateAdmissibilityContractTests(unittest.TestCase):
     def test_frozen_preimplementation_contract_passes(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             absent_implementation = Path(directory) / "absent.py"
-            with mock.patch.object(
-                verifier, "IMPLEMENTATION_PATH", absent_implementation
+            absent_result = Path(directory) / "absent-result.json"
+            with (
+                mock.patch.object(
+                    verifier, "IMPLEMENTATION_PATH", absent_implementation
+                ),
+                mock.patch.object(verifier, "RESULT_PATH", absent_result),
             ):
                 result = verifier.validate("frozen_preimplementation")
         self.assertEqual(result["status"], "pass")
@@ -40,19 +44,28 @@ class RetrievalCandidateAdmissibilityContractTests(unittest.TestCase):
         self.assertFalse(result["candidate_selected"])
         self.assertEqual(result["selected_configuration"], "freshness-priority-lexical-v3")
 
-    def test_current_repository_is_valid_implementation_seal(self) -> None:
+    def test_current_repository_lifecycle_is_valid(self) -> None:
         result = verifier.validate("auto")
         self.assertEqual(result["status"], "pass")
         self.assertEqual(result["errors"], [])
-        self.assertEqual(result["phase"], "implementation_sealed_no_result")
+        expected_phase = (
+            "implemented_overlay"
+            if verifier.RESULT_PATH.exists()
+            else "implementation_sealed_no_result"
+        )
+        self.assertEqual(result["phase"], expected_phase)
         self.assertTrue(result["implementation_present"])
-        self.assertFalse(result["result_present"])
+        self.assertEqual(result["result_present"], verifier.RESULT_PATH.exists())
 
     def test_implementation_seal_without_result_is_a_valid_phase(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             implementation = Path(directory) / "readjudicate_retrieval_candidate.py"
             implementation.write_text("# simulated implementation\n", encoding="utf-8")
-            with mock.patch.object(verifier, "IMPLEMENTATION_PATH", implementation):
+            absent_result = Path(directory) / "absent-result.json"
+            with (
+                mock.patch.object(verifier, "IMPLEMENTATION_PATH", implementation),
+                mock.patch.object(verifier, "RESULT_PATH", absent_result),
+            ):
                 result = verifier.validate("auto")
         self.assertEqual(result["status"], "pass")
         self.assertEqual(result["errors"], [])

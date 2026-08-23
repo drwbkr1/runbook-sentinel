@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0033",
+  "receipt_id": "baseline-0033-adjudication-result-local",
+  "status": "pass",
+  "phase": "implemented_overlay",
+  "observed_at_utc": "2026-08-23T00:32:03.6623002Z",
+  "starting_public_record": {
+    "commit": "38593b13a280409f7064e4afffdfd7e0ace4fd64",
+    "tree": "00c6804075b5a0cf2bb1fae21d853dba6f6d0a7a",
+    "parent": "f5e2a843aa77028d005116265225e5d858c6488c",
+    "explicit_tracking_ls_remote_anonymous_ref_tree_parent_exact": true,
+    "anonymous_raw_path_count": 8,
+    "anonymous_raw_exact_count": 8,
+    "successor_result_absent_before_writer": true,
+    "public_main_unchanged": true
+  },
+  "generation": {
+    "command": "python scripts/readjudicate_retrieval_candidate.py --write",
+    "successful_invocation_count": 1,
+    "writer_exit": 0,
+    "path": "artifacts/evaluations/baseline-0033-retrieval-candidate-admissibility.json",
+    "bytes": 5086,
+    "sha256": "6b81820e3942dd9ec4e603147fde0b58d73404effa46984ebc370bd44e5d454f",
+    "source_implementation_sha256": "70f169f0b2166a34d28591c2c7fde0f74f0105b89efdc25efd1fca669c4db741",
+    "exclusive_create": true,
+    "overwrite_attempted": false,
+    "canonical_reproduction_exact": true,
+    "retained_input_identity_errors": [],
+    "independent_verifier_status": "pass",
+    "independent_verifier_errors": []
+  },
+  "adjudication": {
+    "status": "complete_candidate_admissible_not_selected",
+    "candidate_evidence_admissible": true,
+    "candidate_selected": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "candidate_disposition": "excluded_latency_noninferior_and_retained",
+    "nonfingerprint_boolean_gates_passed": 131,
+    "control_fingerprint_gate_count": 5,
+    "safe_superset_pair_count": 3,
+    "remaining_failed_selection_checks": [
+      "median_latency_non_inferior"
+    ],
+    "broad_pareto_claimed": false
+  },
+  "post_result_verification": {
+    "focused_test_count": 17,
+    "focused_test_elapsed_seconds": 0.349,
+    "complete_regression_test_count": 113,
+    "complete_regression_elapsed_seconds": 96.498,
+    "milestone_valid_no_warnings": true,
+    "changed_json_parse_count_before_receipt": 3,
+    "git_diff_check": "pass",
+    "changed_path_token_match_count": 0,
+    "changed_path_complete_private_key_block_count": 0,
+    "sealed_implementation_changed": false,
+    "result_hash_unchanged": true
+  },
+  "retained_negative_evidence": [
+    {
+      "id": "IMPLEMENTATION-RECORD-RECONCILIATION-TIMEOUT-001",
+      "counted_as_positive_evidence": false
+    },
+    {
+      "id": "IMPLEMENTATION-RECORD-RAW-HTTPCLIENT-001",
+      "counted_as_positive_evidence": false
+    }
+  ],
+  "boundaries": {
+    "v4_promoted": false,
+    "runtime_or_default_changed": false,
+    "retrieval_or_evaluator_changed": false,
+    "admissibility_inventory_or_threshold_changed": false,
+    "historical_input_or_result_rewritten": false,
+    "security_or_authority_changed": false,
+    "dependency_or_external_asset_added": false,
+    "secret_or_paid_service_added": false,
+    "real_infrastructure_contacted": false,
+    "container_exported_pushed_published_or_redistributed": false,
+    "tag_release_or_deployment_created": false
+  },
+  "frozen_paths_excluding_this_receipt": [
+    {
+      "path": "artifacts/evaluations/baseline-0033-retrieval-candidate-admissibility.json",
+      "bytes": 5086,
+      "sha256": "6b81820e3942dd9ec4e603147fde0b58d73404effa46984ebc370bd44e5d454f"
+    },
+    {
+      "path": "artifacts/verification/baseline-0033-orientation-failures-001.json",
+      "bytes": 7536,
+      "sha256": "1a5740efc265b9631b53d598fc99824d14216bd7c1af6bc24e0853c8b9970857"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 121847,
+      "sha256": "3d8aea40066805e1f99820ce288671becb728e36cb3120f1d7f69d4e056bafbe"
+    },
+    {
+      "path": "contracts/milestone-0033.json",
+      "bytes": 17223,
+      "sha256": "4ff04ceebe74a961e8c63712ccdae052bbe7dc0cc884ca7153f529684841db8c"
+    },
+    {
+      "path": "docs/devlog.md",
+      "bytes": 455383,
+      "sha256": "973fe87f611b6018f21867d293b6c6afce93049f06a7b4e1ad025a380568d150"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "bytes": 229954,
+      "sha256": "824f11b19ebf97658d1a765789bee863d7812abac0673a94eb15721b5cbdb82c"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 96251,
+      "sha256": "772733ea3ed1d2afc43d7dbcd6c8795ae6d449cc95b5979568915170883c2917"
+    },
+    {
+      "path": "docs/status.md",
+      "bytes": 264006,
+      "sha256": "bd71cc053fd43c96f99da64a554b56afd53ea9769f76fc149e0e7b488b79ad63"
+    },
+    {
+      "path": "docs/version-history.md",
+      "bytes": 28518,
+      "sha256": "23daa67515a7e7d3b8d9bf97bdd0b1d023b3fb9b0a7544e8a1a3b65a9b01882b"
+    },
+    {
+      "path": "tests/test_readjudicate_retrieval_candidate.py",
+      "bytes": 5003,
+      "sha256": "52f901170013c0d2de77a08823981e17aabac5e1148574ac8ed883d6ed9a6fc8"
+    },
+    {
+      "path": "tests/test_retrieval_candidate_admissibility_contract.py",
+      "bytes": 7517,
+      "sha256": "87ac84a02d40e718c3f947f22042c2b84b8f7087c4d03077a708d619d4aca971"
+    }
+  ],
+  "frozen_path_count_excluding_this_receipt": 11,
+  "expected_commit_path_count": 12,
+  "next_gate": "Publish and anonymously reconcile this immutable result seal before source package API MCP dashboard state telemetry clean-clone or container verification."
+}

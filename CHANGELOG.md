@@ -15,6 +15,7 @@
 - Published lifecycle correction `4e22e38ee274c6c8a53c8b3ee3874203412ab18c` exact across all refs, 14 blobs and raw paths, and rendered commit evidence while public `main` remains unchanged. Its record-only receipt precedes implementation.
 - Published exact lifecycle record `100f3fb68584988bc1c45a988d63628f70ac7b97`, then added the read-only standard-library adjudicator and implementation tests. Default evaluation is in memory; explicit frozen-path writing is exclusive and postvalidated. Seventeen focused and 113 full tests pass; no successor result exists at the local implementation seal.
 - Published implementation seal `f5e2a843aa77028d005116265225e5d858c6488c` exact across all refs, 15 blobs and raw paths, and rendered commit evidence. The public tree contains no successor result; its record-only receipt precedes the one-time write.
+- Published exact implementation record `38593b13a280409f7064e4afffdfd7e0ace4fd64`, then ran the writer once. The 5,086-byte result at SHA-256 `6b81820e...` reproduces exactly and passes independent verification. V4 evidence is admissible but still excluded on median latency; v3 remains selected. Seventeen focused and 113 full post-result tests pass.
 
 ## 0.0.32 - 2026-08-22
 

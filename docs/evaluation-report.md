@@ -18,6 +18,10 @@ Lifecycle record `100f3fb68584988bc1c45a988d63628f70ac7b97` is public and exact.
 
 Implementation seal `f5e2a843aa77028d005116265225e5d858c6488c`, tree `2cf90765fa09b70254d9fe286461e3bef0100ffd`, is public and exact across explicit tracking, `ls-remote`, anonymous ref/commit/tree/parent, all 15 blobs and raw paths, and rendered commit evidence. The successor result is absent from the public tree; this is implementation evidence only.
 
+After exact implementation record `38593b13a280409f7064e4afffdfd7e0ace4fd64`, the writer ran once and emitted 5,086 bytes at SHA-256 `6b81820e3942dd9ec4e603147fde0b58d73404effa46984ebc370bd44e5d454f`. Independent canonical reproduction matches every byte, all retained source identities remain exact, and the implemented-overlay verifier reports no error. The result is `complete_candidate_admissible_not_selected`: all 131 nonfingerprint gates pass, exactly five control fingerprints differ, the three safe-superset pairs are exact, v3 remains selected, v4 remains `excluded_latency_noninferior_and_retained`, and median-latency non-inferiority is the sole remaining failed selection check. This is not a Pareto or promotion claim.
+
+Post-result lifecycle checks pass 17 focused tests in 0.349 seconds and all 113 tests in 96.498 seconds without modifying the sealed adjudicator or result. The broader real-surface matrix remains pending.
+
 ## BASELINE-0032 local canonical container candidate
 
 The exact public package/source record at `001b6a19b38616d07a9995d19831b44c8a03a6a1` supplied the only admitted Docker input. Two independent no-cache, network-disabled full builds and one credential-disabled HTTPS no-alternates clean build reproduce image ID `sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9` at the frozen creation time. The clean clone first rebuilt the exact 43-entry, 647,712-byte zipapp at SHA-256 `3be93953a367483e29c696af889ebfccc432424b8303c4f69ae00d10a38c2270`.

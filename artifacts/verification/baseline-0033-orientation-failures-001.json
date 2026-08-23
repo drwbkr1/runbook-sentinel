@@ -77,6 +77,24 @@
       "mutation": false,
       "correction": "Patch the historical freeze test to simulate an absent implementation and add a separate assertion for the current implementation-sealed result-absent state; the successor 17-test run passes.",
       "positive_evidence": false
+    },
+    {
+      "id": "IMPLEMENTATION-RECORD-RECONCILIATION-TIMEOUT-001",
+      "class": "inconclusive",
+      "operation": "Reconcile the public implementation record across refs tree raw files absent result and unchanged main in one wrapper",
+      "failure": "The wrapper reached its 30-second tool boundary without returning a terminal summary. It made no repository or external mutation beyond an exact branch fetch, and no partial output is used as positive evidence.",
+      "mutation": false,
+      "correction": "Split the proof into a bounded ref tree parent absent-result check and a separate raw-byte check, each with explicit terminal output.",
+      "positive_evidence": false
+    },
+    {
+      "id": "IMPLEMENTATION-RECORD-RAW-HTTPCLIENT-001",
+      "class": "process_invalid",
+      "operation": "Compare all eight anonymous raw record paths to local bytes",
+      "failure": "The first split raw-byte wrapper passed a null HttpClient byte array to SequenceEqual and exited before producing a complete path inventory.",
+      "mutation": false,
+      "correction": "Use Invoke-WebRequest raw content streams with explicit HTTP 200 length and byte equality checks; the corrected successor proves all eight paths exact.",
+      "positive_evidence": false
     }
   ],
   "historical_candidate_results_rewritten": false,

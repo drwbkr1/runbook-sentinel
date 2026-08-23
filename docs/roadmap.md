@@ -14,7 +14,9 @@ Record-only reconciliation `50205ee80c1e4af87fbddd64ab026beac9b1ec13` is public 
 
 Lifecycle record `100f3fb68584988bc1c45a988d63628f70ac7b97` is public and exact. The bounded standard-library adjudicator passes in `implementation_sealed_no_result`: default execution is in memory, explicit writing is limited to the frozen path and refuses overwrite, retained inputs remain exact, 17 focused tests pass, and all 113 regression tests pass. Implementation seal `f5e2a843aa77028d005116265225e5d858c6488c` is public and exact across all 15 paths and rendered evidence with no result present. Publish the record-only receipt, then run the writer once.
 
-After the implementation seal is public, emit one immutable successor adjudication. Full source/package/API/MCP/dashboard/state/telemetry/clean-clone/local-container and release-truth verification still applies. No runtime retriever, evaluator, model, scenario, policy, authority, dependency, secret, paid service, external asset, container distribution, or real-infrastructure change is permitted.
+Implementation record `38593b13a280409f7064e4afffdfd7e0ace4fd64` is public and exact. The one-time writer has now emitted the immutable 5,086-byte result at SHA-256 `6b81820e...`; independent reproduction and verification pass. V4 evidence is admissible but v4 remains excluded on median latency and v3 remains selected. Publish and reconcile this result before broader verification.
+
+Full source/package/API/MCP/dashboard/state/telemetry/clean-clone/local-container and release-truth verification still applies. No runtime retriever, evaluator, model, scenario, policy, authority, dependency, secret, paid service, external asset, container distribution, or real-infrastructure change is permitted.
 
 ## Completed checkpoint baseline-0032 - digest-only container-base security refresh
 
