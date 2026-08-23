@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0034-release-fixture-phase-seal-correction-local",
+  "checkpoint": "baseline-0034",
+  "observed_at_utc": "2026-08-23T22:13:30Z",
+  "status": "pass",
+  "retained_invalid_public_seal": {
+    "commit": "02544a0aacf773356ee7e533c208cc5daec00f7f",
+    "tree": "6dcc41e5036c30fc2612f422a153649fb93b6fc4",
+    "parent": "12b848394e5c6a843b913082cba9d0c3dc3e8bbb",
+    "failure": "contracts/milestone-0034.json missing one comma after handoff.resume_rule",
+    "positive_evidence": false
+  },
+  "correction": {
+    "path": "contracts/milestone-0034.json",
+    "change": "add one JSON comma",
+    "release_test_unchanged": {"bytes":6944,"sha256":"861d8f346b77a4faffc981c98f18d091b2a1ef9fb3ade288bb4f7abc9b348a09"},
+    "product_runtime_changed": false,
+    "result_created": false,
+    "security_or_authority_changed": false
+  },
+  "next_gate": "Pass JSON parsing, governed milestone validation, lifecycle validation, focused regression, and diff checks in fail-fast commands before publishing the corrected seal."
+}

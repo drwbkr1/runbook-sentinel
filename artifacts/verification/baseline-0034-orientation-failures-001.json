@@ -331,6 +331,17 @@
       "correction": "Restore the exact 2,741-byte public meta-test. Freeze and publish one helper addendum that admits only the current 2,708-byte helper or a precomputed 3,029-byte phase-aware helper, then change both exact test-only paths together.",
       "restored_meta_test_sha256": "b4f2b66058a4d3ad8de7b0e4cdf3affed96c2014aa7040cfddd365376a4c187f",
       "positive_evidence": false
+    },
+    {
+      "id": "RELEASE-FIXTURE-SEAL-MILESTONE-JSON-0034-001",
+      "class": "process_invalid",
+      "operation": "Validate and publish the local 6,944-byte release-fixture correction seal",
+      "observed_at_utc": "2026-08-23T22:12:18Z",
+      "failure": "The milestone parser reported a missing comma between handoff.resume_rule and blocked_on_human, but the compound PowerShell wrapper did not stop and pushed commit 02544a0aacf773356ee7e533c208cc5daec00f7f. That public commit is invalid and supplies no positive seal evidence.",
+      "mutation": true,
+      "public_invalid_commit": "02544a0aacf773356ee7e533c208cc5daec00f7f",
+      "correction": "Add only the missing JSON comma, retain the invalid public commit, and run parsing plus the governed milestone validator in separate fail-fast commands before publishing a corrected seal. Runtime and result bytes remain unchanged.",
+      "positive_evidence": false
     }
   ]
 }

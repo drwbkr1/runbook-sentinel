@@ -358,7 +358,7 @@
   "handoff": {
     "resume_from": "contracts/milestone-0034.json",
     "latest_verified_checkpoint": "public two-test phase-aware implementation 12b848394e5c6a843b913082cba9d0c3dc3e8bbb over helper record 9875ff3ce9d84bd85022db5e84eff569bfed9b64 and verified v0.0.33 main d62e7cba675997eade87169f5acba14de6452c9b",
-    "resume_rule": "Run UNIT-002A from the verified local 6,944-byte release-test correction. Keep runtime predecessor bytes and results absent until this test correction is public and reconciled; then close UNIT-002A and retry only exact v5 before any benchmark."
+    "resume_rule": "Run UNIT-002A from the verified local 6,944-byte release-test correction. Keep runtime predecessor bytes and results absent until this test correction is public and reconciled; then close UNIT-002A and retry only exact v5 before any benchmark.",
     "blocked_on_human": false
   }
 }
