@@ -20,6 +20,7 @@
 - Published record-only implementation receipt `38593b13a280409f7064e4afffdfd7e0ace4fd64`. A combined reconciliation wrapper timed out without a summary and a split HttpClient raw wrapper passed a null array to `SequenceEqual`; both are retained. Corrected bounded checks prove refs, tree, parent, absent result, unchanged `main`, and all eight raw paths exact.
 - Ran `scripts/readjudicate_retrieval_candidate.py --write` exactly once from that clean public record. The exclusive writer produced 5,086 bytes at SHA-256 `6b81820e...`. Independent reproduction is byte-exact, every retained input identity remains exact, and the implemented-overlay verifier passes. V4 is evidence-admissible but remains excluded on median latency; v3 remains selected.
 - Updated lifecycle tests only, leaving the sealed adjudicator and result unchanged. Seventeen focused tests pass in 0.349 seconds and the complete 113-test suite passes in 96.498 seconds in the post-result state.
+- The first result push failed before remote mutation because DNS could not resolve GitHub. After confirming the branch still pointed to `38593b1...`, retried exact unchanged commit `e43bc3eccd38a780f7a3f1a13490ac1c149d1716`. Local, tracking, `ls-remote`, anonymous ref/commit/tree/parent, all 12 blobs and raw paths, rendered commit, public result hash, and unchanged public `main` now reconcile exactly.
 
 ## 2026-08-22 BASELINE-0032 public release and external reconciliation
 

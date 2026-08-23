@@ -95,6 +95,15 @@
       "mutation": false,
       "correction": "Use Invoke-WebRequest raw content streams with explicit HTTP 200 length and byte equality checks; the corrected successor proves all eight paths exact.",
       "positive_evidence": false
+    },
+    {
+      "id": "ADJUDICATION-RESULT-PUSH-DNS-001",
+      "class": "blocked_external",
+      "operation": "Push immutable adjudication result commit e43bc3eccd38a780f7a3f1a13490ac1c149d1716 to the candidate branch",
+      "failure": "The first push could not resolve github.com and exited before the remote branch changed.",
+      "mutation": false,
+      "correction": "Confirm the remote branch still pointed to predecessor 38593b13a280409f7064e4afffdfd7e0ace4fd64, then retry the exact unchanged commit after DNS recovered; the successor push and full public reconciliation pass.",
+      "positive_evidence": false
     }
   ],
   "historical_candidate_results_rewritten": false,

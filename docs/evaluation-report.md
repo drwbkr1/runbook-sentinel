@@ -22,6 +22,8 @@ After exact implementation record `38593b13a280409f7064e4afffdfd7e0ace4fd64`, th
 
 Post-result lifecycle checks pass 17 focused tests in 0.349 seconds and all 113 tests in 96.498 seconds without modifying the sealed adjudicator or result. The broader real-surface matrix remains pending.
 
+Result commit `e43bc3eccd38a780f7a3f1a13490ac1c149d1716`, tree `ed82acb4784de10505fcdd176db5bfbfa088df32`, is public and exact across all refs, 12 blobs and raw paths, and rendered commit evidence. The public result remains exact at SHA-256 `6b81820e...` and public `main` is unchanged. The initial DNS-blocked push is retained and changed no remote state.
+
 ## BASELINE-0032 local canonical container candidate
 
 The exact public package/source record at `001b6a19b38616d07a9995d19831b44c8a03a6a1` supplied the only admitted Docker input. Two independent no-cache, network-disabled full builds and one credential-disabled HTTPS no-alternates clean build reproduce image ID `sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9` at the frozen creation time. The clean clone first rebuilt the exact 43-entry, 647,712-byte zipapp at SHA-256 `3be93953a367483e29c696af889ebfccc432424b8303c4f69ae00d10a38c2270`.
