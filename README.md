@@ -14,7 +14,7 @@ Release checkpoint `v0.0.30` was verified and published as a public synthetic-on
 
 Release checkpoint `v0.0.32` is verified and published as the current public synthetic-only research-informed preview. It remediates the stopped v0.0.31 container-base security gate by changing only the exact admitted Chainguard Python digest plus mechanical release identity; incident-agent behavior, selected/default `freshness-priority-lexical-v3`, excluded v4 evidence, evaluation contracts, policy, approval, executor, and authority remain unchanged. PR `#30` merged exact reviewed head `200b455125aa60be938f7cb2289dba1d0194d930` with history preserved as `772e2a375e4cad1fc8697c75af886194656be6aa`; annotated tag object `ea203784e11afd611666bcd988f4d1e60259f6a8` peels to audited closure `f0e565015be2ca8ed155be600a61fe131dbfa012`. Public release `375056941` contains only the selected 647,712-byte zipapp at SHA-256 `3be93953a367483e29c696af889ebfccc432424b8303c4f69ae00d10a38c2270` and its 94-byte checksum. Anonymous downloads, rendered repository/release/tag pages, and a fresh no-alternates public-tag source, downloaded-package, MCP, API, state, telemetry, dashboard, scan, and local-container stack reconcile; all 49 composed container checks pass at image `sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9`. The image was not exported, pushed, attached, published, or redistributed; this is not a cross-builder, production-readiness, universal-safety, broad-Pareto, or perpetual-vulnerability claim.
 
-Release checkpoint `v0.0.33` is verified on merged public `main` and prepared for source/zipapp publication. It adds a fail-closed evaluation overlay that can classify exact non-default retrieval evidence as admissible without changing selected-default conformance; retained v4 evidence is admissible but remains excluded on median latency, and `freshness-priority-lexical-v3` remains selected. PR `#31` merged exact reviewed head `4ea656ee44fc517529a40e7741cbdd0ad3d9bf81` with history preserved as `1a8380d89ff04f8e7ed5b700a8fd1f5167b2d520`; final audit `29ca0e55d55ee4fa6765c85abf7995ba6624f782` verifies all ten checks and twenty real surfaces. Only the selected 647,712-byte zipapp and checksum are release assets. The image is not exported, pushed, attached, published, or redistributed; consult `docs/status.md` for live publication state.
+Release checkpoint `v0.0.33` is verified and published as the current public synthetic-only research-informed preview. It adds a fail-closed evaluation overlay that can classify exact non-default retrieval evidence as admissible without changing selected-default conformance; retained v4 evidence is admissible but remains excluded on median latency, and `freshness-priority-lexical-v3` remains selected. PR `#31` merged exact reviewed head `4ea656ee44fc517529a40e7741cbdd0ad3d9bf81` with history preserved as `1a8380d89ff04f8e7ed5b700a8fd1f5167b2d520`; final audit `29ca0e55d55ee4fa6765c85abf7995ba6624f782` verifies all ten checks and twenty real surfaces. Annotated tag object `522cc2243650568e0a063f8a0918041dca98e111` peels to audited closure `5918f614caae96fe5b9bb3815c1d4a1c90908394`. Public release `375120109` contains only the selected 647,712-byte zipapp at SHA-256 `b10384f2...` and its 94-byte checksum. Anonymous downloads, signed-out rendered pages, and fresh public-tag source, downloaded-package, MCP, API, state, telemetry, dashboard, scan, and local-container paths reconcile. The image was not exported, pushed, attached, published, or redistributed.
 
 PR `#24` merged exact reviewed head `48eb7669582b372ef2d0c8986374fa0823133f61` with history preserved as `2fac52759e0d3f6857491f40d1958f62a85e70b4`. Annotated tag object `2c8593ec5f77ab76e12da926336dfa06b97a67eb` peels to release closure `74bf5cba93b0697e74163a335c3dbfcc4d5d7418`. Selected public assets, downloaded bytes, live repository/release/tag pages, and a fresh public-tag clone repeat 31 validators, 47 tests, two independent archive rebuilds, source/package 171-attempt evaluations with exact 261-event anchors, bounded MCP, real API/approval/executor/state/telemetry, parsing, scans, and complete dashboards. Candidate `v0.0.11` remains rejected and unpublished. Synthetic eighteen-cell coverage is not universal prompt-injection resistance or production readiness.
 
@@ -22,7 +22,7 @@ The bounded agent can diagnose, request evidence, propose an action, or abstain.
 
 The selected freshness-priority lexical retriever first preserves externally project-classified telemetry and status that pass a fail-closed one-hour freshness rule, then ranks stale project evidence and untrusted guidance. Full returned records remain available for audit. The decision context receives complete fresh telemetry/status records and projects stale records to exactly `id`, `kind`, and `observed_at`; stale `title` and `content` never cross that boundary. Missing, malformed, naive, or future timestamps never receive fresh treatment. Runbook prose never grants authority.
 
-Active research checkpoint `BASELINE-0033` has passed its warning-free final release audit and is at exact release closure before tag publication. It addresses an evaluation-system defect, not runtime behavior: the candidate-admissibility overlay preserves every default-release gate and historical result, permits only the exact frozen five-gate fingerprint difference, and keeps `freshness-priority-lexical-v3` selected because retained v4 median-latency non-inferiority still fails. No production, universal-safety, broad-Pareto, learned-model-utility, or container-distribution claim is made.
+Active research checkpoint `BASELINE-0033` has passed its warning-free final audit, public release, and fresh public-tag complete-stack verification. It addresses an evaluation-system defect, not runtime behavior: the candidate-admissibility overlay preserves every default-release gate and historical result, permits only the exact frozen five-gate fingerprint difference, and keeps `freshness-priority-lexical-v3` selected because retained v4 median-latency non-inferiority still fails. Publication and exact verification of the external reconciliation record are the only remaining milestone action. No production, universal-safety, broad-Pareto, learned-model-utility, or container-distribution claim is made.
 
 ## Baseline commands
 
@@ -30,7 +30,7 @@ Run all commands from the repository root with Python 3.12 or newer.
 
 ```powershell
 $env:PYTHONPATH = 'src'
-python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0032-manual.json
+python -m runbook_sentinel evaluate --output artifacts/evaluations/runs/baseline-0033-manual.json
 python -m unittest discover -s tests -v
 python -m runbook_sentinel serve --host 127.0.0.1 --port 8765
 ```
@@ -41,11 +41,11 @@ Build and verify the standard-library-only zipapp without installing a build bac
 
 ```powershell
 python scripts/build_zipapp.py
-python scripts/verify_package_contract.py --contract eval/package-contract-0032.json --archive dist/runbook-sentinel-0.0.32.pyz
-python dist/runbook-sentinel-0.0.32.pyz --help
+python scripts/verify_package_contract.py --contract eval/package-contract-0033.json --archive dist/runbook-sentinel-0.0.33.pyz
+python dist/runbook-sentinel-0.0.33.pyz --help
 ```
 
-The v0.0.30 builder uses an exact 43-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. The container is a digest-pinned local verification surface; no package-registry or container-image publication claim is made.
+The v0.0.33 builder uses an exact 43-entry allowlist, fixed ZIP metadata, an embedded frozen evaluation manifest, and a package manifest containing per-entry hashes. Repeated builds must be byte-identical. The container is a digest-pinned local verification surface; no package-registry or container-image publication claim is made.
 
 The MCP server uses JSON-RPC over standard input/output:
 
@@ -66,7 +66,7 @@ Baseline 0004 adds an optional direct-loopback Ollama evaluation adapter. The me
 
 The repository never downloads a model or supplies tools, credentials, approvals, or execution authority. See `artifacts/verification/model-source-gate-baseline-0004.json`, `artifacts/evaluations/baseline-0004-comparison.json`, and ADR 0003 for the exact source gate, evidence, and decision.
 
-Container image publication remains out of scope. Docker is live for local verification, the earlier three official Python base candidates remain excluded, and one exact Chainguard digest is admitted only under the frozen local build/runtime contract. The dependency-free zipapp remains the only selected release artifact; see `artifacts/verification/container-baseline-0027.json` for the 43-of-43 local and clean-clone evidence.
+Container image publication remains out of scope. Docker is live for local verification, the earlier three official Python base candidates remain excluded, and one exact Chainguard digest is admitted only under the frozen local build/runtime contract. The dependency-free zipapp and checksum remain the only selected uploaded release assets; see `artifacts/verification/public-tag-baseline-0033.json` for the public release and composed 49-of-49 local-container evidence.
 
 ## Security boundary
 

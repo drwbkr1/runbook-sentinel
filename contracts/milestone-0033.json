@@ -247,14 +247,14 @@
         "merged_main_evidence_public_exact": "pass",
         "final_release_truth_audit": "pass",
         "release_closure": "pass",
-        "annotated_tag_and_selected_assets": "pending",
-        "public_tag_complete_stack": "pending",
+        "annotated_tag_and_selected_assets": "pass",
+        "public_tag_complete_stack": "pass",
         "external_reconciliation": "pending"
       }
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Commit and push this exact release closure, create annotated v0.0.33 at that commit, publish only the selected zipapp and checksum, then immediately reconcile every public surface and a fresh public-tag source, package, and local-container stack without exporting container bytes.",
+  "next_action": "Publish the exact public-tag receipt and appended failure ledger, verify the public record commit across refs and immutable bytes, then close UNIT-005 and BASELINE-0033 before beginning the next cycle from verified public v0.0.33.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -329,6 +329,9 @@
       ,"The record-only merged-main reconciliation passes all 121 tests in 165.005 seconds governed milestone validation without warning and Git diff checks before publication"
       ,"Public reconciliation 8ff7f9e985f5dcf4cc83ccd056e9bf12af89131b is exact; final audit-only commit 29ca0e55d55ee4fa6765c85abf7995ba6624f782 evaluates verified across all ten checks and twenty required surfaces with active inherited authority and no error warning failed stale missing unknown or unrun result"
       ,"The nine-path release closure changes no runtime evaluation contract selected-product package-input Dockerfile policy authority or image-input path and passes all 121 tests in 168.269 seconds while the final audit and governed milestone remain valid without warning"
+      ,"Audited closure 5918f614caae96fe5b9bb3815c1d4a1c90908394 is public main; annotated tag object 522cc2243650568e0a063f8a0918041dca98e111 peels exactly to it and public non-draft latest release 375120109 contains only the selected 647712-byte zipapp at SHA-256 b10384f2ff7f61ace6fe34ae08b47625b6ab6c39636063c440ff8731563e6cec plus its 94-byte checksum"
+      ,"Anonymous downloads signed-out repository tag and release pages and official metadata reconcile; a credential-disabled public-tag clone passes 121 tests 42 validators exact three-way archive identity both 171-attempt evaluations both MCP API state telemetry and dashboard paths and full-plus-clean 49-check local-container reproduction at image sha256:00b378aba27e914eebf1d67aa95652bf949939dc8ed2fe2bef2854e41daa9265"
+      ,"Fresh exact-image scanning reports zero critical/high findings no verifier container survives and no image byte was exported pushed attached published or redistributed; public-tag-baseline-0033.json binds the complete result while publication of that record remains the final external reconciliation gate"
     ],
     "artifacts": [
       "artifacts/verification/orientation-baseline-0033.json",
@@ -380,13 +383,14 @@
       ,"artifacts/verification/merged-main-baseline-0033-public.json"
       ,"artifacts/verification/baseline-0033-publication-and-release-failures-001.json"
       ,"artifacts/verification/release-audit-baseline-0033.json"
+      ,"artifacts/verification/public-tag-baseline-0033.json"
     ],
     "disposition": "in_progress"
   },
   "handoff": {
-    "latest_verified_checkpoint": "public final audit-only commit 29ca0e55d55ee4fa6765c85abf7995ba6624f782 and tree 32b55b65eea6c6050c148447f67111259251665d are exact; its sole 28477-byte path is publicly exact at SHA-256 eb4b08a259bcbc795f805438c4a3782c467461bc45f2d32f24fb275bb9f5deca and evaluates verified across all ten checks and twenty surfaces; public v0.0.32 remains latest until v0.0.33 publication",
+    "latest_verified_checkpoint": "public v0.0.33 release closure 5918f614caae96fe5b9bb3815c1d4a1c90908394 tag object 522cc2243650568e0a063f8a0918041dca98e111 release 375120109 selected zipapp and checksum anonymous downloads rendered pages and fresh public-tag complete stack are verified; exact external record publication remains pending",
     "retained_failed_checkpoint": "stopped unpublished BASELINE-0031 release candidate v0.0.31 plus separately retained excluded bounded-trust-tier-lexical-v4 comparison",
-    "current_checkpoint": "BASELINE-0033 has passed premerge audit exact reviewed merge fresh public-main complete stack merged-main receipt living-record reconciliation release-time exact-image scan and final release audit. Audit-only commit 29ca0e55d55ee4fa6765c85abf7995ba6624f782 authorizes exact closure annotated v0.0.33 selected zipapp and checksum publication and immediate public verification. No v0.0.33 tag release deployment or image publication exists before this closure.",
-    "resume_rule": "Resume from public verified v0.0.32 and the exact BASELINE-0033 freeze state; inspect the active milestone and verifier before acting, never use OneDrive, never rewrite the original v4 exclusion, and never infer candidate selection from candidate evidence admissibility."
+    "current_checkpoint": "BASELINE-0033 has passed release and fresh public-tag verification. The public release contains only the selected zipapp and checksum; the image remains local-only. Publish and independently verify the exact reconciliation record, then close UNIT-005 and the milestone.",
+    "resume_rule": "Resume from verified public v0.0.33 and the exact public-tag receipt once its record commit is public; inspect the active milestone before acting, never use OneDrive, never rewrite the original v4 exclusion, and never infer candidate selection from candidate evidence admissibility."
   }
 }

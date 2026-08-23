@@ -3,7 +3,7 @@
   "receipt_id": "BASELINE-0033-PUBLICATION-AND-RELEASE-FAILURES-001",
   "checkpoint": "baseline-0033",
   "unit": "UNIT-005",
-  "observed_through_utc": "2026-08-23T04:58:34Z",
+  "observed_through_utc": "2026-08-23T18:04:59Z",
   "status": "retained_process_evidence",
   "positive_evidence_supplied_by_failures": false,
   "observations": [
@@ -62,6 +62,102 @@
       "observation": "The explicitly bounded anonymous recursive-tree successor returned the same HTTP 504 and stopped before blob comparison.",
       "effect": "No branch, tag, release, deployment, or repository byte changed.",
       "correction": "GitHub's authenticated API returned the exact untruncated 1,607-entry tree; the audit's public raw blob and signed-out rendered commit independently remained exact."
+    },
+    {
+      "id": "OBS-008",
+      "stage": "post-release GitHub CLI summary",
+      "classification": "unsupported_json_field",
+      "observation": "The first gh release view query requested isLatest, which this installed GitHub CLI does not expose for release view JSON, and exited before producing a summary.",
+      "effect": "The already-created release was unchanged and the failed query supplied no positive evidence.",
+      "correction": "A supported release-view query plus the official latest-release API independently proved the exact non-draft latest release and its two assets."
+    },
+    {
+      "id": "OBS-009",
+      "stage": "fresh public-tag deterministic archive reproduction",
+      "classification": "immutable_output_target_occupied",
+      "observation": "The second archive build correctly refused to overwrite the first immutable v0.0.33 archive already present in dist.",
+      "effect": "The first archive remained exact and no release or repository byte changed.",
+      "correction": "The first generated archive and checksum were moved into external custody without overwrite; the second build then completed and matched both the first build and anonymous public download."
+    },
+    {
+      "id": "OBS-010",
+      "stage": "fresh public-tag retrieval-quality validator",
+      "classification": "historical_default_pointer_used",
+      "observation": "The first validator invocation omitted the current report argument and therefore inspected its archived BASELINE-0028 default instead of the fresh public-tag report.",
+      "effect": "The invocation was excluded from positive evidence and did not mutate any evaluation artifact.",
+      "correction": "The successor supplied the exact fresh public-tag report path and passed the implemented retrieval-quality contract."
+    },
+    {
+      "id": "OBS-011",
+      "stage": "fresh public-tag retrieval-tier-cap validator",
+      "classification": "excluded_candidate_selection_incorrectly_required",
+      "observation": "The first phase map required selection of v4 even though the frozen result deliberately keeps v4 excluded on median latency.",
+      "effect": "The fail-closed result was correct and supplied no pass evidence.",
+      "correction": "The phase-correct successor requires implementation and the exact v3 control/result without requiring v4 selection; all 42 applicable validators pass."
+    },
+    {
+      "id": "OBS-012",
+      "stage": "fresh public-tag evaluation trace verification",
+      "classification": "missing_python_import_path",
+      "observation": "The first trace verifier invocation omitted PYTHONPATH and failed to import the local package before validating either trace.",
+      "effect": "No trace byte changed and the invocation supplied no positive evidence.",
+      "correction": "The successor bound PYTHONPATH to the exact source or selected public zipapp and verified both 261-event anchored traces."
+    },
+    {
+      "id": "OBS-013",
+      "stage": "fresh public-tag evaluation summary",
+      "classification": "schema_shape_assumption",
+      "observation": "An exploratory read-only summary probe guessed a top-level configuration member and stopped with KeyError because the current report nests that data elsewhere.",
+      "effect": "The report remained unchanged and the failed probe supplied no positive evidence.",
+      "correction": "The corrected probe inspected the actual schema and independently confirmed the exact configurations, split metrics, Boolean counts, costs, and trace identities."
+    },
+    {
+      "id": "OBS-014",
+      "stage": "fresh public-tag source-package parity",
+      "classification": "noncanonical_diagnostic_serialization",
+      "observation": "An exploratory compact-JSON normalization produced a different internally consistent hash because it did not use the frozen canonical indentation and newline representation.",
+      "effect": "The diagnostic hash was not selected and no canonical report or contract changed.",
+      "correction": "The exact frozen normalization replaces every declared launch-varying value, serializes with sorted keys and two-space indentation plus one newline, and reproduces canonical SHA-256 880f6988a9c39ebb3e3e15d3189b277e9194053e43d2cb824ba910b0366691df."
+    },
+    {
+      "id": "OBS-015",
+      "stage": "fresh public-tag surface inventory",
+      "classification": "powershell_empty_pipeline_parser_error",
+      "observation": "The first read-only file inventory placed a pipeline directly after a foreach block in a form PowerShell parsed as an empty pipe element.",
+      "effect": "No file was read past setup, no artifact changed, and the wrapper supplied no positive evidence.",
+      "correction": "The successor accumulated rows explicitly and verified all four evaluation artifacts plus the canonical latest pointer by exact size and SHA-256."
+    },
+    {
+      "id": "OBS-016",
+      "stage": "fresh public-tag clean-container clone setup",
+      "classification": "tracked_directory_incorrectly_assumed_absent",
+      "observation": "The setup wrapper cloned the exact tag successfully, then stopped when New-Item tried to recreate the already tracked dist directory containing historical release archives.",
+      "effect": "The clone remained exact and clean; the wrapper stopped before copying v0.0.33 bytes or building an image.",
+      "correction": "The existing tracked directory was inspected and reused. Only the exact ignored anonymous v0.0.33 archive and checksum were received, and the clean build reproduced the canonical image ID."
+    },
+    {
+      "id": "OBS-017",
+      "stage": "fresh public-tag container composition search",
+      "classification": "windows_wildcard_passed_literally",
+      "observation": "A read-only rg search passed artifacts/verification/*.json literally on Windows and reported an invalid filename before the remaining directory searches completed.",
+      "effect": "No repository or external evidence changed and the wildcard error supplied no positive evidence.",
+      "correction": "Direct receipt parsing and directory-scoped searches confirmed the frozen 48-plus-1 composition and exact canonical 49-check shape."
+    },
+    {
+      "id": "OBS-018",
+      "stage": "GitHub release creation response",
+      "classification": "truncated_command_output",
+      "observation": "The release-creation command response was truncated before it could serve as complete release evidence.",
+      "effect": "The create action was never repeated; release existence and exact state were treated as unknown until separate read-only verification completed.",
+      "correction": "GitHub release/tag/latest APIs, remote refs, signed-out rendered release inspection, and anonymous asset downloads independently proved that one exact release landed with only the selected assets."
+    },
+    {
+      "id": "OBS-019",
+      "stage": "external reconciliation precommit secret scan",
+      "classification": "forbidden_pattern_definition_false_positive",
+      "observation": "The first high-signal scan matched a historical devlog sentence that quotes the literal private-key begin marker as a previously classified pattern; it did not find a key body or end marker.",
+      "effect": "The wrapper stopped before staging or committing and supplied no positive evidence.",
+      "correction": "The successor requires a complete begin/end private-key block, retains token-pattern checks, and passes with zero unresolved secret-like content."
     }
   ],
   "boundaries": {
