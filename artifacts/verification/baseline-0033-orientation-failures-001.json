@@ -167,9 +167,36 @@
       "mutation": false,
       "correction": "Use the exact public branch ref through git ls-remote and an explicit refspec rather than relying on the missing remote-tracking branch. The successor proves the public branch remains 2d81bd4e4f4fe89192f88485ea616d36f59358a2 and public main remains 4b7dd999c13384a196746de5dbff872e93f9f2fe.",
       "positive_evidence": false
+    },
+    {
+      "id": "CORRECTION-TREE-POWERSHELL-BRACE-001",
+      "class": "process_invalid",
+      "operation": "Read the local correction commit tree identity with rev-parse brace syntax",
+      "failure": "PowerShell transformed the unquoted HEAD^{tree} token and git rejected an unrelated encoded token before producing the tree identity. The same read-only wrapper independently returned the exact commit parent and changed paths and did not mutate repository state.",
+      "mutation": false,
+      "correction": "Use git show -s --format=%T HEAD. The successor returns exact tree afabfc2784adac9ef1b105db9f136d85b8f3cea8.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PUBLIC-CORRECTION-AGGREGATE-POLICY-001",
+      "class": "process_invalid",
+      "operation": "Reconcile refs metadata Git blobs raw bytes and main in one composite PowerShell wrapper",
+      "failure": "The command policy rejected the composite wrapper before process creation. It made no filesystem repository network or external-state change and supplies no positive evidence.",
+      "mutation": false,
+      "correction": "Split reconciliation into a credential-disabled public clone, anonymous GitHub metadata calls, bounded Git-blob comparison, bounded raw-byte downloads, and rendered browser inspection. Every successor check passes independently.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PUBLIC-CORRECTION-CLONE-DNS-001",
+      "class": "blocked_external",
+      "operation": "Create the first credential-disabled no-local-object public correction clone",
+      "failure": "The first clone could not resolve github.com and exited without a repository checkout. Its incomplete attempt directory is preserved under C:/Projects/Verification and is not positive evidence.",
+      "mutation": false,
+      "correction": "A uniquely named attempt-002 clone completed from the public HTTPS branch with credentials disabled, no object alternates, exact commit tree and parent, and a clean worktree.",
+      "positive_evidence": false
     }
   ],
   "historical_candidate_results_rewritten": false,
   "product_files_changed_by_failure": false,
-  "next_gate": "Publish and anonymously reconcile only the schema-1.1 release-identity lifecycle correction from exact public predecessor 2d81bd4e4f4fe89192f88485ea616d36f59358a2, proving every locally started successor implementation path is excluded from that public correction tree; then resume the bounded v0.0.33 identity and package/container implementation."
+  "next_gate": "Publish and anonymously reconcile the record-only receipt for exact public correction 8dc04efa9fa07fe61de88f462e647275a4457cd2, then resume and publish only the bounded v0.0.33 identity and inherited package/container implementation after its full implemented-phase gates pass."
 }
