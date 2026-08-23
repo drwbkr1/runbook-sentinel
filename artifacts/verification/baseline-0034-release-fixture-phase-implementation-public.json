@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0034-release-fixture-phase-implementation-public",
+  "checkpoint": "baseline-0034",
+  "observed_at_utc": "2026-08-23T22:14:55Z",
+  "status": "pass",
+  "public_implementation_seal": {
+    "repository": "https://github.com/drwbkr1/runbook-sentinel",
+    "branch": "codex/baseline-0034-retrieval-tier-cap-latency",
+    "commit": "8b5ba20a26a5728e7c82ee7d55cbbed3e98c35de",
+    "tree": "e17b5e04041118355d35851e7faca770fc85b6e8",
+    "parent": "02544a0aacf773356ee7e533c208cc5daec00f7f",
+    "subject": "fix: correct baseline 0034 release fixture seal",
+    "local_tracking_ls_remote_anonymous_ref_commit_tree_parent_exact": true,
+    "recursive_tree_truncated": false,
+    "recursive_tree_entry_count": 1639,
+    "changed_path_count": 5,
+    "changed_raw_bytes": 675906,
+    "git_blob_exact_count": 5,
+    "anonymous_raw_exact_count": 5,
+    "rendered_commit_exact": true,
+    "rendered_files_changed": 5,
+    "rendered_receipt_path_visible": true
+  },
+  "changed_paths": [
+    {"path":"CHANGELOG.md","bytes":140823,"blob":"435c913ecc5765a19d7315ccba6f037b98e57f79","sha256":"93a1dc157e79f5330d5a96028a1bad0c2cc16bc8bc616f52d8d9b70fefe78af0"},
+    {"path":"artifacts/verification/baseline-0034-orientation-failures-001.json","bytes":24811,"blob":"6c0720b2693ed2eedb0c94ef744d3b79b0fc12d0","sha256":"e353eb3c92a0f7519399af357643a5ca7c8990dabc45e871e9331130697b897d"},
+    {"path":"artifacts/verification/baseline-0034-release-fixture-phase-seal-correction-local.json","bytes":1063,"blob":"8a49a541f25b41721376357fe67d315b2a5af79e","sha256":"8f2dab5148817245e919dc451b58387f832dd30349a62b569812fa241b1e1632"},
+    {"path":"contracts/milestone-0034.json","bytes":18447,"blob":"58bedbb4f637cf48442f9764f04d23fc4be80e1b","sha256":"90dcbe442e19f6741cceb8698cc0511d81b5a5458abf7dd2f18b8a58a1f1a9ea"},
+    {"path":"docs/devlog.md","bytes":490762,"blob":"8b978707681849e099e646d04941ddf9db82f5dd","sha256":"14f4bdbaef6cec2aaf079500a13428a49f7f04f07a4f2f72683c801e5febbf8a"}
+  ],
+  "implementation": {
+    "path": "tests/test_release_identity_contract_0033.py",
+    "bytes": 6944,
+    "sha256": "861d8f346b77a4faffc981c98f18d091b2a1ef9fb3ade288bb4f7abc9b348a09",
+    "phase_aware_meta_test": {"bytes":3159,"sha256":"ee7c67c27d222761e30e6c45a24b4054cbf5e4e439b16e2b3720370bf026a63f"},
+    "phase_aware_helper": {"bytes":3029,"sha256":"a9f499dc4960748bb498ea2370688eec252ebc6fa4114b9e54ead8a873b8909d"}
+  },
+  "verification": {
+    "json_document_count": 3,
+    "governed_milestone_error_count": 0,
+    "governed_milestone_warning_count": 0,
+    "lifecycle_result": "pass",
+    "corrected_fail_fast_focused_test_count": 41,
+    "corrected_fail_fast_focused_seconds": 22.072,
+    "complete_regression_test_count": 145,
+    "complete_regression_seconds": 154.231,
+    "complete_regression_result": "OK"
+  },
+  "retained_invalid_parent": {
+    "commit": "02544a0aacf773356ee7e533c208cc5daec00f7f",
+    "failure_id": "RELEASE-FIXTURE-SEAL-MILESTONE-JSON-0034-001",
+    "positive_evidence": false
+  },
+  "unchanged_public_release_state": {
+    "main": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "latest_release_id": 375120109,
+    "latest_tag": "v0.0.33",
+    "latest_asset_count": 2,
+    "deployment_count": 0,
+    "container_image_exported_pushed_published_or_redistributed": false
+  },
+  "boundaries": {
+    "product_runtime_changed": false,
+    "benchmark_or_comparison_result_created": false,
+    "default_changed": false,
+    "security_or_authority_changed": false,
+    "dependency_model_service_secret_paid_asset_external_asset_or_real_infrastructure_added": false
+  },
+  "next_gate": "Close UNIT-002A, apply only the exact frozen v5 runtime and focused-test identities, verify without creating results, and publish the implementation seal before benchmarking."
+}

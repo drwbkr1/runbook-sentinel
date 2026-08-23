@@ -175,7 +175,7 @@
       ],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": [
         "retained 121-of-131 predecessor-lifecycle regression",
         "restored released retrieval identity",
@@ -212,8 +212,9 @@
         "phase_aware_meta_test_local_regression": "pass",
         "phase_aware_meta_test_public_and_exact": "pass",
         "corrected_fixture_test_local_regression": "pass",
-        "corrected_fixture_test_public_and_exact": "pending"
+        "corrected_fixture_test_public_and_exact": "pass"
       },
+      "disposition": "pass",
       "next_dependency": "UNIT-003"
     },
     {
@@ -224,7 +225,7 @@
       ],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": [
         "public exact preimplementation freeze",
         "single allowed runtime path src/runbook_sentinel/retrieval.py"
@@ -299,8 +300,8 @@
       }
     }
   ],
-  "current_unit": "UNIT-002A",
-  "next_action": "Publish and anonymously reconcile the exact 6,944-byte release-test correction. Then close UNIT-002A and retry only the frozen v5 runtime without generating benchmark or comparison results.",
+  "current_unit": "UNIT-003",
+  "next_action": "Apply only the exact frozen 6,079-byte v5 runtime and 6,998-byte focused-test identities, prove v4-exact development behavior with v3 still default and results absent, then publish and anonymously reconcile the implementation seal before any benchmark or comparison process.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -357,8 +358,8 @@
   },
   "handoff": {
     "resume_from": "contracts/milestone-0034.json",
-    "latest_verified_checkpoint": "public two-test phase-aware implementation 12b848394e5c6a843b913082cba9d0c3dc3e8bbb over helper record 9875ff3ce9d84bd85022db5e84eff569bfed9b64 and verified v0.0.33 main d62e7cba675997eade87169f5acba14de6452c9b",
-    "resume_rule": "Run UNIT-002A from the verified local 6,944-byte release-test correction. Keep runtime predecessor bytes and results absent until this test correction is public and reconciled; then close UNIT-002A and retry only exact v5 before any benchmark.",
+    "latest_verified_checkpoint": "public exact release-fixture phase implementation 8b5ba20a26a5728e7c82ee7d55cbbed3e98c35de over retained process-invalid parent 02544a0aacf773356ee7e533c208cc5daec00f7f and verified v0.0.33 main d62e7cba675997eade87169f5acba14de6452c9b",
+    "resume_rule": "Run UNIT-003 from exact public 8b5ba20a26a5728e7c82ee7d55cbbed3e98c35de. Apply only the frozen v5 runtime and focused-test bytes, keep v3 default and both results absent, and make the implementation public and exact before any benchmark.",
     "blocked_on_human": false
   }
 }

@@ -342,6 +342,16 @@
       "public_invalid_commit": "02544a0aacf773356ee7e533c208cc5daec00f7f",
       "correction": "Add only the missing JSON comma, retain the invalid public commit, and run parsing plus the governed milestone validator in separate fail-fast commands before publishing a corrected seal. Runtime and result bytes remain unchanged.",
       "positive_evidence": false
+    },
+    {
+      "id": "MILESTONE-VALIDATOR-CLI-SHAPE-0034-001",
+      "class": "process_invalid",
+      "operation": "Validate the UNIT-002A closure and UNIT-003 transition with the governed milestone validator",
+      "observed_at_utc": "2026-08-23T22:23:24Z",
+      "failure": "The first invocation used obsolete --repo-root and --milestone flags. The validator rejected the arguments before reading the contract, so it supplies no milestone evidence.",
+      "mutation": false,
+      "correction": "Run the same project-owned validator with contracts/milestone-0034.json as its documented positional argument and count only that terminal result.",
+      "positive_evidence": false
     }
   ]
 }
