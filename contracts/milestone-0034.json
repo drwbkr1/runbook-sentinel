@@ -207,7 +207,7 @@
         "schema_1_2_revision_3_public_reconciliation_record": "pass",
         "meta_test_helper_failure_retained": "pass",
         "meta_test_helper_addendum_freeze_local": "pass",
-        "meta_test_helper_addendum_freeze_public_and_exact": "pending",
+        "meta_test_helper_addendum_freeze_public_and_exact": "pass",
         "meta_test_helper_addendum_public_record": "pending",
         "phase_aware_meta_test_public_and_exact": "pending",
         "corrected_fixture_test_public_and_exact": "pending"
@@ -298,7 +298,7 @@
     }
   ],
   "current_unit": "UNIT-002A",
-  "next_action": "Publish and anonymously reconcile the exact helper addendum, then implement and publish only the two precomputed phase-aware test replacements before retrying the frozen release-test correction.",
+  "next_action": "Publish and anonymously reconcile the helper-addendum public receipt, then implement and publish only the two precomputed phase-aware test replacements before retrying the frozen release-test correction.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -355,8 +355,8 @@
   },
   "handoff": {
     "resume_from": "contracts/milestone-0034.json",
-    "latest_verified_checkpoint": "public revision-3 meta-test freeze record e3fb6bf805e0a84c1b95be7014b614743fda87de over freeze de7830fe1319a0152b1fc20eb39886a19138ebda and verified v0.0.33 main d62e7cba675997eade87169f5acba14de6452c9b",
-    "resume_rule": "Run UNIT-002A from the verified local helper-addendum freeze. Keep runtime, release test, meta-test, and helper predecessor bytes exact until that addendum and its record are public; then apply only the two precomputed test replacements together, publish them, and retry the release-test correction before v5.",
+    "latest_verified_checkpoint": "public helper-addendum freeze f74cce6fb9fa073107c2cff5a981c3a3439bd068 over exact revision-3 record e3fb6bf805e0a84c1b95be7014b614743fda87de and verified v0.0.33 main d62e7cba675997eade87169f5acba14de6452c9b",
+    "resume_rule": "Run UNIT-002A from the verified public helper-addendum freeze. Keep runtime and all three test predecessor bytes exact until its record-only receipt is public; then apply only the two precomputed phase-aware test replacements together, publish them, and retry the release-test correction before v5.",
     "blocked_on_human": false
   }
 }

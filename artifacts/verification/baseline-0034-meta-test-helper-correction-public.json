@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0034-meta-test-helper-correction-public",
+  "checkpoint": "baseline-0034",
+  "observed_at_utc": "2026-08-23T22:00:05Z",
+  "status": "pass",
+  "public_freeze": {
+    "repository": "https://github.com/drwbkr1/runbook-sentinel",
+    "branch": "codex/baseline-0034-retrieval-tier-cap-latency",
+    "commit": "f74cce6fb9fa073107c2cff5a981c3a3439bd068",
+    "tree": "7aaa4037a0c4286bc55919b7e76d4eac91721a31",
+    "parent": "e3fb6bf805e0a84c1b95be7014b614743fda87de",
+    "subject": "docs: freeze baseline 0034 meta test helper",
+    "local_tracking_ls_remote_anonymous_ref_commit_tree_parent_exact": true,
+    "recursive_tree_truncated": false,
+    "recursive_tree_entry_count": 1635,
+    "changed_path_count": 13,
+    "changed_raw_bytes": 1433734,
+    "git_blob_exact_count": 13,
+    "anonymous_raw_exact_count": 13,
+    "rendered_commit_exact": true,
+    "rendered_files_changed": 13,
+    "rendered_receipt_path_visible": true
+  },
+  "changed_paths": [
+    {"path":"CHANGELOG.md","bytes":139476,"blob":"c46d0b42a668afe367aee7fe9900069968e61f30","sha256":"e9e2edbcd72d020f8a82dc523d014afacee6427abbcd81b44fb09e8bc849c828"},
+    {"path":"artifacts/verification/baseline-0034-meta-test-helper-correction-local.json","bytes":2176,"blob":"b715e555d48987deb0c4a4055ebbaec8e310e12b","sha256":"8f977372c0c17b548a0fde1c884c3e96ced5218224c2cbac607252bfa6fa67ee"},
+    {"path":"artifacts/verification/baseline-0034-orientation-failures-001.json","bytes":23878,"blob":"972ce5a2a94637e7fd0132353214c2fa9709deb9","sha256":"3f93132f375ec5e4bbe270536c69d78569ab7d802cd22bf1d9164d7443cedce3"},
+    {"path":"contracts/milestone-0034.json","bytes":18402,"blob":"a1ff11827fd4efd23d0f86d796e47241e155c26e","sha256":"644a36f52ed608fe6c5251d3b2abf1779359bfc745c9c08509db64836e26db32"},
+    {"path":"docs/adr/0030-bridge-frozen-retrieval-identities-across-checkpoints.md","bytes":4162,"blob":"871546a1be875e756eac3e8967d1c48688d0a450","sha256":"c3c1527321914058fd35d0aab1f69e8bdfc34c95173d512ed9e483b04c30d493"},
+    {"path":"docs/devlog.md","bytes":489747,"blob":"bc9da36bb065502579d4250134cbc1dcc8b058a9","sha256":"99d1232f2f89f3f941dbad7b8a416099cde6fb6bbef2c6111145d020d3c11886"},
+    {"path":"docs/evaluation-contract.md","bytes":48539,"blob":"3ec8d8c083a4740b64187e21ecd19ef94172762c","sha256":"cbe7127d81cd64227fab83a7e362382048c643539000f4fd7367cc8205070abf"},
+    {"path":"docs/evaluation-report.md","bytes":253107,"blob":"df0948e7fab81ce71ce59aeebd6b2afc28b0bb05","sha256":"46db1c1985ce51434a294c7c6197dbecf9482149d061da420ac859e39a7157fb"},
+    {"path":"docs/roadmap.md","bytes":104446,"blob":"b9a9ebce047b8de1189c6361bea41940be9ebf58","sha256":"d230cf684ab0a7899c765bb4a821f9dc9596ff59f74381a0def86b88d085fbb5"},
+    {"path":"docs/status.md","bytes":286973,"blob":"e0b932ed0a69a187b3cba897859c4406ccddd4e0","sha256":"46b52c71ce1b84d7ffad21efabc4845f8bacb47890a2cf716576f3ef4fc35c34"},
+    {"path":"docs/version-history.md","bytes":29962,"blob":"0a1841e1f52cb702a91443895392c79a21305f45","sha256":"35a01465c41926a59f7c953abbd03c940e1d4ba5de0341e4d99e7923496f6987"},
+    {"path":"eval/retrieval-successor-lifecycle-contract-0034.json","bytes":13109,"blob":"e2204d6cb5dd1d8c70114c8fe360e686028f816f","sha256":"8a7cf3bf0a3638dc53a6b1711bf9e566d4bce4037ffb0bcea50576f3389be431"},
+    {"path":"scripts/verify_retrieval_successor_lifecycle_0034.py","bytes":19757,"blob":"e283ec873969f7e02d78cee14956417e5c48a744","sha256":"2fa486df33d838b32dfa9210a45eb888c884e303fe651181bf2675284bc9f9ae"}
+  ],
+  "boundaries": {
+    "test_replacements_applied": false,
+    "release_test_runtime_verifier_bridge_validators_or_results_changed": false,
+    "default_security_or_authority_changed": false,
+    "container_image_exported_pushed_published_or_redistributed": false
+  },
+  "next_gate": "Publish and independently reconcile this record-only receipt, then apply only the two precomputed phase-aware test replacements together."
+}
