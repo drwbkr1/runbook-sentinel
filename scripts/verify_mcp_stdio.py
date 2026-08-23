@@ -26,8 +26,8 @@ def request(process: subprocess.Popen, payload: dict) -> dict:
 
 
 def main() -> None:
-    database = ROOT / "var/live-mcp-baseline-0032.db"
-    trace = ROOT / "artifacts/runtime/live-mcp-baseline-0032-traces.jsonl"
+    database = ROOT / "var/live-mcp-baseline-0033.db"
+    trace = ROOT / "artifacts/runtime/live-mcp-baseline-0033-traces.jsonl"
     anchor = live_trace_anchor_path(trace)
     for generated in (
         database,
@@ -46,9 +46,9 @@ def main() -> None:
             "runbook_sentinel",
             "mcp",
             "--db",
-            "var/live-mcp-baseline-0032.db",
+            "var/live-mcp-baseline-0033.db",
             "--trace",
-            "artifacts/runtime/live-mcp-baseline-0032-traces.jsonl",
+            "artifacts/runtime/live-mcp-baseline-0033-traces.jsonl",
         ],
         cwd=ROOT,
         env=env,
@@ -59,7 +59,7 @@ def main() -> None:
     )
     try:
         initialized = request(process, {"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
-        if initialized["result"]["serverInfo"]["version"] != "0.0.32":
+        if initialized["result"]["serverInfo"]["version"] != "0.0.33":
             raise AssertionError("MCP reported an unexpected release version")
         listed = request(process, {"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         names = [tool["name"] for tool in listed["result"]["tools"]]

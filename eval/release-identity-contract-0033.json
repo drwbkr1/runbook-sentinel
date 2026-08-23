@@ -1,0 +1,274 @@
+{
+  "schema_version": "runbook-sentinel/release-identity-transition/v1.1",
+  "checkpoint": "baseline-0033",
+  "contract_status": "frozen_before_successor_identity_implementation",
+  "lifecycle_correction": {
+    "status": "corrected_before_public_successor_identity_implementation",
+    "reason": "The v1 target hash for scripts/verify_live_api.ps1 covered lower-case baseline path substitutions but omitted the matching rendered Baseline 0033 assertion and its result-field rename.",
+    "scope": [
+      "replace the rendered dashboard identity literal Baseline 0032 with Baseline 0033",
+      "rename the verifier-local dashboard_baseline_0032 field to dashboard_baseline_0033"
+    ],
+    "runtime_behavior_changed": false,
+    "security_or_authority_changed": false,
+    "candidate_selection_changed": false,
+    "external_asset_changed": false
+  },
+  "frozen_at_utc": "2026-08-23T00:41:36Z",
+  "starting_checkpoint": {
+    "branch": "codex/baseline-0033-retrieval-candidate-admissibility",
+    "public_record_commit": "b125b5ecef4b3b3a406d3dc903a6de5ec4e02952",
+    "public_record_tree": "b5250a3ce5e3c4542bc4380b4eba4a45035ddf9a",
+    "public_main_commit": "4b7dd999c13384a196746de5dbff872e93f9f2fe",
+    "released_version": "0.0.32",
+    "released_checkpoint": "baseline-0032",
+    "released_tag": "v0.0.32"
+  },
+  "adjudication": {
+    "result_path": "artifacts/evaluations/baseline-0033-retrieval-candidate-admissibility.json",
+    "result_bytes": 5086,
+    "result_sha256": "6b81820e3942dd9ec4e603147fde0b58d73404effa46984ebc370bd44e5d454f",
+    "public_receipt_path": "artifacts/verification/baseline-0033-adjudication-result-public.json",
+    "public_receipt_bytes": 4652,
+    "public_receipt_sha256": "8b597077247cb4b5b43455d090dd127dd737e1ecec2476fffd7adcb25874bd10",
+    "status": "complete_candidate_admissible_not_selected",
+    "candidate_evidence_admissible": true,
+    "candidate_selected": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "candidate_disposition": "excluded_latency_noninferior_and_retained",
+    "remaining_failed_selection_checks": [
+      "median_latency_non_inferior"
+    ]
+  },
+  "bounded_change": {
+    "functional_product_delta": [],
+    "mechanical_release_identity": {
+      "from_checkpoint": "baseline-0032",
+      "to_checkpoint": "baseline-0033",
+      "from_version": "0.0.32",
+      "to_version": "0.0.33",
+      "from_package_contract": "eval/package-contract-0032.json",
+      "to_package_contract": "eval/package-contract-0033.json",
+      "from_container_contract": "eval/container-contract-0032-v12.json",
+      "to_container_contract": "eval/container-contract-0033-v13.json",
+      "purpose": "Make source, package, API, MCP, dashboard, container, and public release identities describe the already adjudicated BASELINE-0033 checkpoint without changing incident-agent behavior."
+    },
+    "new_project_dependencies": [],
+    "new_external_assets": [],
+    "new_model_or_retrieval_configuration": [],
+    "allowed_changes": [
+      "mechanical baseline-0033 and 0.0.33 identities in the four enumerated product identity files",
+      "mechanical successor package and container contracts that preserve the exact predecessor archive entry set and container base",
+      "release verification harness identities, phase checks, tests, manifests, reports, receipts, screenshots, and living records",
+      "project-authored v0.0.33 package and checksum after a public prebuild seal",
+      "local-only derived container image after package and source evidence are public"
+    ],
+    "forbidden_changes": [
+      "agent diagnosis evidence-request action-proposal or abstention behavior",
+      "retrieval corpus index ranking selected freshness-priority-lexical-v3 configuration or excluded v4 disposition",
+      "generation decision-context prompt model adapter or model configuration",
+      "synthetic scenarios frozen splits expected terminal states graders or thresholds",
+      "authorization capabilities approval proposal hashing expiry idempotency replay postconditions credentials or execution authority",
+      "new dependency framework model service secret account paid asset external code data or real-infrastructure connector",
+      "container base digest security controls image export registry authentication push publication or redistribution",
+      "rewriting removing relabeling or rescuing failed blocked stale superseded stopped or unfavorable evidence"
+    ]
+  },
+  "runtime_identity": {
+    "enumerated_source_root": "src/runbook_sentinel",
+    "mechanical_paths": {
+      "src/runbook_sentinel/__init__.py": {
+        "before_sha256": "a913a47cfbe89b773fe59dea69893d1cb8a77f2131d01ad4c8920c1263ceb319",
+        "after_sha256": "95cc2ef7e0245f372c6059781325b9d7d5aaa6e7c4d48cc2fc20af1f74b43d41",
+        "replacements": [
+          [
+            "0.0.32",
+            "0.0.33",
+            1
+          ]
+        ]
+      },
+      "src/runbook_sentinel/api.py": {
+        "before_sha256": "f3f316c69dde67e390699b746ec1031b81bc2b14f9c63f79e7f1f6228aa7f3c5",
+        "after_sha256": "606dc0f57c7f0bebb4adb29fea3ef301cd233091c0c5208cec1c1418872d02a1",
+        "replacements": [
+          [
+            "baseline-0032",
+            "baseline-0033",
+            1
+          ]
+        ]
+      },
+      "src/runbook_sentinel/cli.py": {
+        "before_sha256": "766960374d6c3df81b30c013b8c99719e0208a3f6acf527a6b9c202a44ed664e",
+        "after_sha256": "3bb3119995118860b08714c2acca8667af6ecde69f3ff38edd03b444ff20d913",
+        "replacements": [
+          [
+            "baseline-0032",
+            "baseline-0033",
+            1
+          ]
+        ]
+      },
+      "src/runbook_sentinel/mcp_server.py": {
+        "before_sha256": "af6e11d108311040dbf73f53e373a6db5970a056c12b42ceafb6d73324e6e6be",
+        "after_sha256": "7b245ea84de9716038a757069ccc0436dcdf9a84f2332ae172812fcb685836ed",
+        "replacements": [
+          [
+            "0.0.32",
+            "0.0.33",
+            1
+          ]
+        ]
+      }
+    },
+    "unchanged_paths": {
+      "src/runbook_sentinel/__main__.py": "eff3aef1ed0a4e55867dea88e940fc652ce7d3dee819930d58b48b4935b75f55",
+      "src/runbook_sentinel/agent.py": "b04ac41d48708028733a31ff2d8b11a6f7f109a17f1f52f6f9ca273a171579e6",
+      "src/runbook_sentinel/approval_lifetime_evaluation.py": "59f39d5d94968c32b199e201a04d068339d221c189f82544ea66d82b7924430b",
+      "src/runbook_sentinel/catalog.py": "85c4b98e252106b1ec056a76e99bb5390fc943d41a111459ca469f0acdc1113c",
+      "src/runbook_sentinel/data/scenarios.json": "f9e3fb24bf1cb74487796de0cd7c78b3594fa9fc46d1cacb957f755c0ca8a242",
+      "src/runbook_sentinel/errors.py": "5214806e489726f6dc5625afd4aa128e2b4ef2ba5874cf0f45d07295ca31d6ca",
+      "src/runbook_sentinel/evaluation.py": "2d93c112b4ad59ad9a7f3ff718bc105b5e066ed72e2342b02233c21a645b66c2",
+      "src/runbook_sentinel/evidence.py": "6614bac067bbe0487cce416339c8da80d7a9a7c61a72e02258dc2fd24563d0d2",
+      "src/runbook_sentinel/idempotency_authorization_evaluation.py": "e3d7aa31ae6d88b7e3c0945bfe5e796d3302c40c2bad486bda9e5b5d5f7739fb",
+      "src/runbook_sentinel/live_trace_anchor_evaluation.py": "c415eabb77e67c0eb94e2dbd7f5bb2bc5dba61b47803bbf0c45a8152a3007108",
+      "src/runbook_sentinel/model_adapter.py": "a769b4b8f871eff813562e6149aef6adbf74ded15037fe8c004a64d98e154ec4",
+      "src/runbook_sentinel/operator_auth.py": "9431e7101a0289c68893c51a245aa9db594d9df275dccbb196b3cc4835859ea0",
+      "src/runbook_sentinel/operator_authentication_evaluation.py": "0a8594d64d220f15cb65c3e2bb97c1172d3605a746b95b0a4d57b26275ff917b",
+      "src/runbook_sentinel/policy.py": "1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa",
+      "src/runbook_sentinel/retrieval.py": "6eb5227b2e20141bf978670cfbbe9edd6d55ca1db69b76a4007b830e13ff864a",
+      "src/runbook_sentinel/retrieval_quality.py": "dbd230ed8274c686a99bc67551be1349cf76139a871c10718ff7ef79c95ac387",
+      "src/runbook_sentinel/service.py": "9c19a3d597b06a53adfa45c77ea6f83b820c54e808b555e1a6618a7cb3a6beb0",
+      "src/runbook_sentinel/storage.py": "1a02cbc9b7250941e264b28a2a9d7e106f961c5cae03c0e762199f5f2d337212",
+      "src/runbook_sentinel/telemetry.py": "1e136b8642fc37f76bd803e720d5849123867fe8565426c8ce43ec5b21245815",
+      "src/runbook_sentinel/trace_integrity_evaluation.py": "aab63e902297aa2c26734cbaef46b9106c07074696c5cf1d4cef2a1b70690d4a"
+    }
+  },
+  "mechanical_file_identities": {
+    "pyproject.toml": {
+      "before_sha256": "7176d908683cf3d9bb37d1154a7839e5ac1df971e09ec81d17523d3e7fb9cdab",
+      "after_sha256": "e71fb4bbd6067a48088b3ab892b7dda1b308ca625399796ac4488956db1da2f2"
+    },
+    "Dockerfile": {
+      "before_sha256": "e46770976398a9ead763f949a13e0d5415d7a0a44adccbe0c62a719e12b8b919",
+      "after_sha256": "b55757ecceb9e5515f210e2253d8a856482cc3b014193898cd2f224f03f8de86"
+    },
+    ".dockerignore": {
+      "before_sha256": "a953ab3731c03494e53d58a2ca8f0d5555fdcf7438ed73ad695ef07dfee42003",
+      "after_sha256": "82b3868691753181b021379a609d6534f4313817ab35dd548dc6caa0fec2983b"
+    },
+    "scripts/verify_baseline.py": {
+      "before_sha256": "a08b093b24809447947e0b631b38c0289b006612b27cc56bd4e72b19c5f90051",
+      "after_sha256": "ed6d573b492df89f9572831693e5c4c18adc1671299738bdeaafdb473f5fe3c8"
+    },
+    "scripts/verify_live_api.ps1": {
+      "before_sha256": "f7f7fc25217585bc95860a4426a3220242e133708de6d15f89f8afe76f808862",
+      "after_sha256": "7a4e33095266acd30ae53341de4b7e880d3d6bd50c042cae21f11456d9c633dd"
+    },
+    "scripts/verify_mcp_stdio.py": {
+      "before_sha256": "41ca381a696efaa48edb3fe72c018e10c34afbf71813302b477cec82de7ec4fd",
+      "after_sha256": "376acb6605495b0ed401a324b8e0599f9975b5af67f877be774ef98d41a2b144"
+    },
+    "scripts/inspect_runtime_evidence.py": {
+      "before_sha256": "4806d19d9fc30f5876a83b1a3fb612ec389b1bb3bda4cceb1620bc23683c796e",
+      "after_sha256": "cb4e6d973cdcf5781b224e5985536ac7595ee40342af9bf37e2fa47aa92769b4"
+    },
+    "scripts/build_zipapp.py": {
+      "before_sha256": "f4a5865a0de1010db059e6412670c5dcea7f7918b850356acffa277566b4ed6a",
+      "after_sha256": "dfcea42f7bf09c886ec3dff34c0cd2a3cb00e1c3e1b5dca6e078416ed745389e"
+    },
+    "scripts/verify_package_contract.py": {
+      "before_sha256": "0e35cd414426f31139916b1991660711d56a096df0fe7c669de11030269a905d",
+      "after_sha256": "4e782e69a60a4f44974f039084b80dbebf57448e3fffea1141c658838e267d12"
+    },
+    "scripts/freeze_manifest.py": {
+      "before_sha256": "4b7b2f5b79c6dd47277ff1529884350aa5d7cb948ec80babb2a4a2d2624f5f09",
+      "after_sha256": "7474e7765e593430981289faf3ac8b8930b1cdcea1e3c991e2dbb5514fba2334"
+    }
+  },
+  "package_successor": {
+    "predecessor_path": "eval/package-contract-0032.json",
+    "predecessor_sha256": "75f1b4de4cefda2f156fa7dbcae931a467a8ae58953992a912bbd1b8557c1079",
+    "active_path": "eval/package-contract.json",
+    "versioned_path": "eval/package-contract-0033.json",
+    "checkpoint": "baseline-0033",
+    "version": "0.0.33",
+    "artifact": "dist/runbook-sentinel-0.0.33.pyz",
+    "checksum_artifact": "dist/runbook-sentinel-0.0.33.pyz.sha256",
+    "entry_count": 43,
+    "entry_set_must_equal_predecessor": true,
+    "archive_metadata_must_equal_predecessor": true,
+    "content_exclusions_must_equal_predecessor": true,
+    "security_boundaries_must_equal_predecessor": true
+  },
+  "container_successor": {
+    "predecessor_path": "eval/container-contract-0032-v12.json",
+    "predecessor_contract_id": "container-runtime-v12",
+    "predecessor_sha256": "de0fe568f1d5222731493277ab00d43feb06aa72e63b3b2b1e20ea081311d919",
+    "predecessor_receipt": "artifacts/verification/container-baseline-0032.json",
+    "predecessor_receipt_sha256": "b1ffc6b22385d2d359e8215a1f498fcefbed171895bd80e9f76bb7a391b0def0",
+    "active_path": "eval/container-contract.json",
+    "versioned_path": "eval/container-contract-0033-v13.json",
+    "contract_id": "container-runtime-v13",
+    "checkpoint": "baseline-0033",
+    "version": "0.0.33",
+    "package_artifact": "dist/runbook-sentinel-0.0.33.pyz",
+    "receipt": "artifacts/verification/container-baseline-0033.json",
+    "base_reference": "cgr.dev/chainguard/python@sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+    "base_platform_manifest_digest": "sha256:e15765ff7066a0eaf91e1b6fd5000c1bba47d62b9f9731f2da560711d910c4f3",
+    "source_gate": "artifacts/verification/container-source-gate-baseline-0032-chainguard-python.json",
+    "source_gate_sha256": "f6317c0a7c4d01041c4676e221dff705475c1e7f171e356c2c344122c8994fc4",
+    "intake_receipt": "artifacts/verification/container-base-intake-baseline-0032.json",
+    "intake_receipt_sha256": "1172c50f7794ec6cc6f855f8b61fc1cf448df2c76221d7487fc3f03829cdf142",
+    "reuse_decision": "Reuse the same exact admitted content-addressed local base; no new source access, import, credential, rights decision, export, push, publication, or redistribution.",
+    "docker_security_controls_must_equal_predecessor": true,
+    "verification_checks_must_equal_predecessor": true,
+    "published_image": false,
+    "exported_image_archive": false
+  },
+  "verification_contract": {
+    "preimplementation": [
+      "adjudication result and public receipt are exact and v4 remains excluded",
+      "all enumerated product runtime bytes are either exact predecessor bytes or an explicitly hashed future identity-only successor",
+      "active package and container contracts remain exact predecessor bytes",
+      "v0.0.33 package and container contracts and archive are absent before this freeze is public",
+      "the exact base source gate and intake receipt are reused without new external access"
+    ],
+    "implementation": [
+      "the four product identity files match their precomputed successor hashes and every other enumerated product runtime file remains byte-identical",
+      "the active and versioned package contracts are byte-identical and preserve the exact 43-entry predecessor allowlist metadata exclusions parity and no-go boundaries",
+      "the active and versioned container contracts are byte-identical inherit the exact v12 contract and receipt and preserve the exact base reference security controls and required checks",
+      "source manifest package verifier API MCP dashboard state telemetry and container harnesses use the successor identity without widening authority"
+    ],
+    "real_surfaces": [
+      "source and two byte-identical packages pass 57 scenarios 171 attempts all Boolean gates and anchored trace validation",
+      "retrieval generation trajectory policy utility attacks reliability latency and cost remain separately reported",
+      "real CLI MCP authenticated API approval executor replay postconditions persisted state telemetry and complete rendered dashboard pass",
+      "fresh clean clone reproduces package and local-only image identity",
+      "two local builds and clean clone pass the full inherited container contract and fresh critical-high scan"
+    ],
+    "release": [
+      "premerge and postmerge release-truth audits have no unknown failed blocked or stale required surface",
+      "reviewed tree merged tree public main tag package checksums release assets and rendered surfaces reconcile independently",
+      "no image bytes are exported pushed published attached or redistributed"
+    ]
+  },
+  "release_rule": {
+    "status_if_any_required_gate_fails": "stop_and_retain",
+    "status_if_product_runtime_hash_outside_identity_changes": "stop_and_retain",
+    "status_if_candidate_selected_or_v4_promoted": "stop_and_retain",
+    "status_if_external_base_identity_changes": "stop_and_retain",
+    "promotion_rule": "Release v0.0.33 only if the adjudication remains exact, the product delta is identity-only, all separate metrics and real surfaces pass, and public source package tag and release bytes are independently verifiable."
+  },
+  "no_go_boundaries": {
+    "candidate_v4_selected_or_promoted": false,
+    "runtime_behavior_or_default_changed": false,
+    "security_or_authority_boundary_weakened": false,
+    "dependency_model_service_secret_or_paid_asset_added": false,
+    "external_asset_or_base_identity_changed": false,
+    "real_operational_infrastructure_contacted": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "failed_blocked_stale_superseded_or_unfavorable_evidence_rewritten": false
+  }
+}

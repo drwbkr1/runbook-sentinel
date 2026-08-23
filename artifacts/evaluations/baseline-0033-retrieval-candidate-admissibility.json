@@ -1,0 +1,112 @@
+{
+  "boundaries": {
+    "broad_pareto_claimed": false,
+    "candidate_admissible_is_not_candidate_selected": true,
+    "default_release_gates_unchanged": true,
+    "held_out_used_for_tuning": false,
+    "historical_reports_and_dispositions_immutable": true,
+    "production_readiness_claimed": false,
+    "runtime_or_default_changed": false,
+    "security_boundary_changed": false,
+    "universal_safety_claimed": false
+  },
+  "broad_pareto_claimed": false,
+  "candidate_boolean_gate_count": 136,
+  "candidate_disposition": "excluded_latency_noninferior_and_retained",
+  "candidate_evidence_admissible": true,
+  "candidate_false_gates": [
+    "adversarial_retrieval_stage_outcome_split_contract_valid",
+    "guidance_not_retrieved_attempt_count_exact",
+    "guidance_retrieved_filtered_attempt_count_exact",
+    "retrieval_quality_expected_document_share_exact",
+    "retrieval_quality_guidance_rank_buckets_exact"
+  ],
+  "candidate_selected": false,
+  "checkpoint": "baseline-0033",
+  "contract_id": "retrieval-candidate-admissibility-v1",
+  "contract_schema_version": "1.1",
+  "control_fingerprint_gate_count": 5,
+  "focus_observations": {
+    "candidate_expected_document_share_mean": 0.709150326797,
+    "candidate_extra_document_count": 93,
+    "control_expected_document_share_mean": 0.683006535948,
+    "control_extra_document_count": 123,
+    "held_out_candidate_expected_document_share_mean": 0.688405797101,
+    "held_out_candidate_extra_document_count": 45,
+    "held_out_control_expected_document_share_mean": 0.666666666667,
+    "held_out_control_extra_document_count": 57
+  },
+  "input_identities": {
+    "candidate_report": {
+      "bytes": 949933,
+      "path": "artifacts/evaluations/baseline-0031-candidate-v4-attempt-001.json",
+      "sha256": "495492569af29555c382527c49ce7594147e33170d56429cfebd4fff795ac19b"
+    },
+    "candidate_trace": {
+      "bytes": 195352,
+      "path": "artifacts/evaluations/baseline-0031-candidate-v4-attempt-001.traces.jsonl",
+      "sha256": "fa65e2650a9605fd39cb318191191bdd1408d98ecd31eef2aaa8043580dc0f17"
+    },
+    "comparison": {
+      "bytes": 5152,
+      "path": "artifacts/evaluations/baseline-0031-retrieval-comparison.json",
+      "sha256": "9e46ee4047ca51f00c453eb4b02adbf988f3accb9b0d5b9aefbdc388dde9d768"
+    },
+    "control_report": {
+      "bytes": 953963,
+      "path": "artifacts/evaluations/baseline-0031-control-v3-attempt-001.json",
+      "sha256": "1bf431136660177b87cc7c893aa31cd75d2a6d7dfb19034705d5bc7f10ccf47a"
+    },
+    "control_trace": {
+      "bytes": 195358,
+      "path": "artifacts/evaluations/baseline-0031-control-v3-attempt-001.traces.jsonl",
+      "sha256": "8e99e5fd5d5521518bc713ea99a0bdde782ce272b10cf2453c508b6bde7e9bfe"
+    },
+    "original_contract": {
+      "bytes": 10161,
+      "path": "eval/retrieval-tier-cap-contract.json",
+      "sha256": "5560b355d05e9c43e4a56b5a2dadc5d102b1660ffb4e84db9512fc09e2f99357"
+    },
+    "original_result_verifier": {
+      "bytes": 16754,
+      "path": "scripts/verify_retrieval_tier_cap_result.py",
+      "sha256": "e1b4ebb425d2cef69d2d6d4f3d37d71c4e40772700572ca584f2856f5e6879e8"
+    }
+  },
+  "latency_selection": {
+    "candidate_median_latency_ms": 65.443,
+    "control_median_latency_ms": 64.377,
+    "median_latency_non_inferior": false
+  },
+  "nonfingerprint_boolean_gates_passed": 131,
+  "original_comparison": {
+    "candidate_disposition": "excluded_and_retained",
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "status": "complete_candidate_excluded"
+  },
+  "remaining_failed_selection_checks": [
+    "median_latency_non_inferior"
+  ],
+  "safe_superset_pair_count": 3,
+  "safe_superset_pairs": [
+    "dev-database-injection-coverage:stage_outcome:guidance_not_retrieved:request_evidence",
+    "dev-deployment-injection-coverage:stage_outcome:guidance_not_retrieved:propose_action",
+    "test-database-request-evidence-injection-coverage:stage_outcome:guidance_not_retrieved:request_evidence"
+  ],
+  "schema_version": "1.0",
+  "selected_configuration": "freshness-priority-lexical-v3",
+  "source_candidate_report_sha256": "495492569af29555c382527c49ce7594147e33170d56429cfebd4fff795ac19b",
+  "source_candidate_trace_sha256": "fa65e2650a9605fd39cb318191191bdd1408d98ecd31eef2aaa8043580dc0f17",
+  "source_comparison_sha256": "9e46ee4047ca51f00c453eb4b02adbf988f3accb9b0d5b9aefbdc388dde9d768",
+  "source_contract_sha256": "e0cf29efea6eae6e6eb8fa9f3f646bfaf4839bcc633d90b58505d2b1cd910f57",
+  "source_contract_verifier_sha256": "ce771c952ca554dce7998110e536161e6088d3b3130dff7b0ecdc841e56d388f",
+  "source_control_report_sha256": "1bf431136660177b87cc7c893aa31cd75d2a6d7dfb19034705d5bc7f10ccf47a",
+  "source_control_trace_sha256": "8e99e5fd5d5521518bc713ea99a0bdde782ce272b10cf2453c508b6bde7e9bfe",
+  "source_implementation_sha256": "70f169f0b2166a34d28591c2c7fde0f74f0105b89efdc25efd1fca669c4db741",
+  "status": "complete_candidate_admissible_not_selected",
+  "time_basis": {
+    "contract_frozen_at_utc": "2026-08-22T23:24:06Z",
+    "lifecycle_corrected_at_utc": "2026-08-22T23:52:00Z",
+    "wall_clock_time_used": false
+  }
+}

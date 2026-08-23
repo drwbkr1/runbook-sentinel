@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0033",
+  "receipt_id": "baseline-0033-release-identity-lifecycle-correction-public",
+  "status": "pass",
+  "observed_at_utc": "2026-08-23T01:35:16Z",
+  "public_identity": {
+    "repository": "https://github.com/drwbkr1/runbook-sentinel",
+    "branch": "codex/baseline-0033-retrieval-candidate-admissibility",
+    "commit": "8dc04efa9fa07fe61de88f462e647275a4457cd2",
+    "tree": "afabfc2784adac9ef1b105db9f136d85b8f3cea8",
+    "parent": "2d81bd4e4f4fe89192f88485ea616d36f59358a2",
+    "main": "4b7dd999c13384a196746de5dbff872e93f9f2fe",
+    "subject": "Correct BASELINE-0033 rendered identity target",
+    "changed_path_count": 11,
+    "recursive_tree_entry_count": 1556,
+    "recursive_tree_truncated": false
+  },
+  "changed_paths": [
+    {
+      "path": "CHANGELOG.md",
+      "git_blob": "16e092834bc62e5df6066983822e1d75144908aa",
+      "bytes": 124098,
+      "sha256": "93bb1a5bcd0431cf4fa5f8b38b5234c0d41cc1d4045a1abd7ae909cd4b3429d9"
+    },
+    {
+      "path": "artifacts/verification/baseline-0033-orientation-failures-001.json",
+      "git_blob": "1f34e927fb295eda402bd87635d5cd48575797db",
+      "bytes": 14368,
+      "sha256": "100d753918d94160952a1e912d37dfeb943444c745a1605dff6ce20cd24816e8"
+    },
+    {
+      "path": "artifacts/verification/baseline-0033-release-identity-lifecycle-correction-local.json",
+      "git_blob": "4322a4f76ee6f22d00add90adad93778b7b11080",
+      "bytes": 2589,
+      "sha256": "0b5d460987d6548e79e8e6fe03b1331d645fcf2795adaa4d78d8cedbae043bce"
+    },
+    {
+      "path": "contracts/milestone-0033.json",
+      "git_blob": "37ba24f4a211cff10ad15603381f80490e9c1150",
+      "bytes": 20205,
+      "sha256": "bfc8a711e9ecd23f5f814a72de788baeb2f5de95c7cfee11bc145ee6095eef80"
+    },
+    {
+      "path": "docs/devlog.md",
+      "git_blob": "ec35cfd26f60eebf4e2ad6dbc9d049d6ca0346c3",
+      "bytes": 459436,
+      "sha256": "3ee45a178bb3d1cb9c5b49907af99c2362d2501d34027622edc3a60bb0d1df09"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "git_blob": "2061b59774712879269c08a2c98d0d931692bc66",
+      "bytes": 233190,
+      "sha256": "6a90dc33a247230190df92af5827fd49be4829cb042efb1d27e2b3286a90dd76"
+    },
+    {
+      "path": "docs/status.md",
+      "git_blob": "cbb4f351038f6ff38a6885ec3277a3b8dfcda9ca",
+      "bytes": 267724,
+      "sha256": "75b39f8f7bf90f619ff77b73c7cea424e2edbcd3c69716a322a3d5492195a41c"
+    },
+    {
+      "path": "docs/version-history.md",
+      "git_blob": "11770155c6c800f355e6723500b77fa3fde7a3e4",
+      "bytes": 28866,
+      "sha256": "94ab282e7c4738806684836c1d2337f2f0762b2d6ac98398ae2ea7140f8abdac"
+    },
+    {
+      "path": "eval/release-identity-contract-0033.json",
+      "git_blob": "2a1001d07e4cafbc4b9606bc3dba0bd0526f7082",
+      "bytes": 16370,
+      "sha256": "29856492cc38634725bb18aac57cd915dfcd388e6e05b27ab4510e218a35f0a2"
+    },
+    {
+      "path": "scripts/verify_release_identity_contract_0033.py",
+      "git_blob": "1f4a020ab614111830b4744706b6f636e7fbb33d",
+      "bytes": 18374,
+      "sha256": "cfe4f8b88bc18c6574d9bf0ec3b19f654b213d8d68a5deda6f0392a0090d2767"
+    },
+    {
+      "path": "tests/test_release_identity_contract_0033.py",
+      "git_blob": "a4952cf6c15fa9b3fce39d34a5e1cfcaf9489fd5",
+      "bytes": 6604,
+      "sha256": "fa6bc6178016b5f28e1efe594d29bf075506eb9cb462176df1fa17086abd8906"
+    }
+  ],
+  "verification": {
+    "local_head_exact": true,
+    "explicit_tracking_ref_exact": true,
+    "ls_remote_ref_exact": true,
+    "anonymous_ref_exact": true,
+    "anonymous_commit_tree_parent_exact": true,
+    "all_changed_git_blobs_exact": true,
+    "all_changed_raw_bytes_exact": true,
+    "credential_disabled_public_clone_exact": true,
+    "public_clone_object_alternates_absent": true,
+    "public_clone_clean": true,
+    "rendered_commit_subject_parent_and_11_paths_visible": true,
+    "public_main_unchanged": true,
+    "clean_commit_focused_tests": {
+      "count": 8,
+      "passed": 8,
+      "elapsed_seconds": 7.276
+    },
+    "clean_commit_full_regression": {
+      "count": 121,
+      "passed": 121,
+      "elapsed_seconds": 99.580
+    },
+    "frozen_release_identity_verifier": "pass",
+    "milestone_validator": "pass_no_errors_no_warnings_unit_004_active"
+  },
+  "public_tree_boundaries": {
+    "product_identity": "v0.0.32/baseline-0032",
+    "successor_package_contract_present": false,
+    "successor_container_contract_present": false,
+    "successor_archive_present": false,
+    "successor_image_artifact_present": false,
+    "runtime_behavior_changed": false,
+    "security_or_authority_changed": false,
+    "candidate_selection_changed": false,
+    "dependency_model_service_secret_or_external_asset_changed": false,
+    "container_base_changed": false,
+    "real_operational_infrastructure_contacted": false,
+    "tag_release_or_deployment_created": false
+  },
+  "retained_failures": [
+    "CORRECTION-TREE-POWERSHELL-BRACE-001",
+    "PUBLIC-CORRECTION-AGGREGATE-POLICY-001",
+    "PUBLIC-CORRECTION-CLONE-DNS-001"
+  ],
+  "next_gate": "Publish and anonymously reconcile this record-only receipt, then resume the bounded local v0.0.33 identity and exact inherited package/container implementation."
+}

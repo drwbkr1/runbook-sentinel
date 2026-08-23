@@ -1,0 +1,166 @@
+{
+  "schema_version": "runbook-sentinel/public-container-evidence/v1",
+  "receipt_id": "container-baseline-0033-public",
+  "checkpoint": "baseline-0033",
+  "unit": "UNIT-004",
+  "status": "pass",
+  "observed_at_utc": "2026-08-23T03:37:55Z",
+  "repository": {
+    "url": "https://github.com/drwbkr1/runbook-sentinel",
+    "visibility": "public",
+    "branch": "codex/baseline-0033-retrieval-candidate-admissibility",
+    "commit": "0bf67a1be175606aa28214ccc20cadb1f32eeb55",
+    "tree": "ee47a2be1b90245d4e3735b422869131179e8505",
+    "parent": "c63809108892f798d8886472ceb3e5f8abc331a4",
+    "public_main": "4b7dd999c13384a196746de5dbff872e93f9f2fe",
+    "public_main_unchanged": true
+  },
+  "ref_reconciliation": {
+    "local_head": "0bf67a1be175606aa28214ccc20cadb1f32eeb55",
+    "explicit_tracking_head": "0bf67a1be175606aa28214ccc20cadb1f32eeb55",
+    "live_ls_remote_head": "0bf67a1be175606aa28214ccc20cadb1f32eeb55",
+    "anonymous_ref_api_head": "0bf67a1be175606aa28214ccc20cadb1f32eeb55",
+    "all_exact": true
+  },
+  "anonymous_git_metadata": {
+    "commit_exact": true,
+    "tree_exact": true,
+    "single_parent_exact": true,
+    "recursive_tree_truncated": false,
+    "recursive_tree_entries": 1582,
+    "changed_path_count": 14,
+    "changed_git_blob_count": 14,
+    "anonymous_raw_path_count": 14,
+    "anonymous_raw_bytes_total": 1505789,
+    "all_git_blobs_and_raw_bytes_exact": true
+  },
+  "changed_files": [
+    {
+      "path": "CHANGELOG.md",
+      "git_blob": "0f41ab7cb23388ea5d6500a4255e90209794be46",
+      "bytes": 128676,
+      "sha256": "f85f130b8eb140ebe744d3576fff415cf4bb4010a87c15225eb5e73df6922519"
+    },
+    {
+      "path": "artifacts/verification/artifact-scan-baseline-0033-container-phase.json",
+      "git_blob": "3f95a6132e937d3449b28d40b60d627e8239b645",
+      "bytes": 4906,
+      "sha256": "f0f77e0b54bc9f57d9aa12924e50c5368ac512b28ead8f75fcba9daba9dd0c2c"
+    },
+    {
+      "path": "artifacts/verification/baseline-0033-orientation-failures-001.json",
+      "git_blob": "d8e5d0fcf98b85ed146850164b5f0462219df618",
+      "bytes": 36906,
+      "sha256": "9484425fc6b5dc87abaf9d708b731752f766eaccfd2341b166ba2d7bdbae4a6d"
+    },
+    {
+      "path": "artifacts/verification/clean-container-baseline-0033-local-attempt-001.json",
+      "git_blob": "430cbeac88b4d1093203a44f102dc8f896e6fdda",
+      "bytes": 17042,
+      "sha256": "afb9b708025122d84d2a8d2aaf3d3a555c4942f47f3a1b772a3d8ae2809bbf95"
+    },
+    {
+      "path": "artifacts/verification/container-baseline-0033-local-attempt-001.json",
+      "git_blob": "21faa89a2b9ee752730f8fda52721b3f506c4cf6",
+      "bytes": 36762,
+      "sha256": "4355ac9c2e4f1c569127f130f3607187e52b94f98fe442680f926bb1258fa03f"
+    },
+    {
+      "path": "artifacts/verification/container-baseline-0033.json",
+      "git_blob": "d3094bf17d5bf543dc30b06572e03999bac30ceb",
+      "bytes": 39159,
+      "sha256": "3c2970c2cf3684c956ab9b38040ca3160d6f6e8388636a3549ac9d42f4ca0d0e"
+    },
+    {
+      "path": "artifacts/verification/container-scout-critical-high-baseline-0033.sarif.json",
+      "git_blob": "16d5629e4d20740c36cbd4dc2e329c4b789777d0",
+      "bytes": 461,
+      "sha256": "7749b34be7a069559b10b1b9d53cc8897576fdd104071a9e0f907f9a301ee303"
+    },
+    {
+      "path": "artifacts/verification/dashboard-container-baseline-0033.png",
+      "git_blob": "8cb5c1ea568e2ff9ea10ec278932a480eec142a6",
+      "bytes": 101838,
+      "sha256": "6cc80228d4f818737ecc6b4c15006cfcc088bba639e4a3a173eb15f99b9e6d46"
+    },
+    {
+      "path": "contracts/milestone-0033.json",
+      "git_blob": "ae13be1b35d661bc8e3de4a7e5d0db2eb8cee92d",
+      "bytes": 26940,
+      "sha256": "e6a4ea5fa41ad66e282b38418d7dc9ff9296168a8f6fd28b2e742c98e681da00"
+    },
+    {
+      "path": "docs/devlog.md",
+      "git_blob": "7fc3d1c34b16a0e1d61ee5cabc252fabd4e7ba13",
+      "bytes": 469102,
+      "sha256": "894fe97fab461e45e274f622fd96f7e199151297b73436ddd11d9d60cb2821dd"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "git_blob": "f944641e3bcea077fa5cd5724a10606659e8bb8b",
+      "bytes": 241553,
+      "sha256": "d02776fb5f083208ba4ed2745dc9f8a08567f956d7f90935a792f448e950e9b5"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "git_blob": "202e9e14d4e8e3ea6cc3f4c65edbb80c567ed5eb",
+      "bytes": 98571,
+      "sha256": "7cbb2211406016082480abd88983a42ceac4ef2c6d66c7193b453509e7dbfad2"
+    },
+    {
+      "path": "docs/status.md",
+      "git_blob": "e906b758439a2a5cb733043aa5516e02f673fa7e",
+      "bytes": 275099,
+      "sha256": "18eec03e1c1d13c84ab8907cd6a418f0b99d58267e1a9a9ccc74a0fe7a3e44aa"
+    },
+    {
+      "path": "docs/version-history.md",
+      "git_blob": "a003a4131fed44b2384fc47bbe4e3797f0c78a2f",
+      "bytes": 28774,
+      "sha256": "f1496c451fc3645096e8cb29df4ea2f0d56aa8ed227c73d2031b2e0020baf98d"
+    }
+  ],
+  "rendered_commit": {
+    "url": "https://github.com/drwbkr1/runbook-sentinel/commit/0bf67a1be175606aa28214ccc20cadb1f32eeb55",
+    "repository_public": true,
+    "subject_exact": true,
+    "short_commit_exact": true,
+    "parent_exact": true,
+    "fourteen_files_changed_visible": true,
+    "complete_file_inventory_visible": true,
+    "canonical_receipt_path_visible": true,
+    "tab_marked_for_handoff": true
+  },
+  "retained_observations": [
+    {
+      "id": "PUBLIC-PUSH-POSTCHECK-POWERSHELL-STRING-INDEX-001",
+      "class": "process_invalid",
+      "failure": "The push succeeded, but direct indexing of a scalar ls-remote string returned the first character and made the first aggregate display live as 0 and all_exact false.",
+      "mutation": "The intended exact branch push had already succeeded; the failed summary made no additional mutation.",
+      "correction": "Wrap ls-remote output in an explicit array before selecting its first row, then split that row. Local, tracking, live, and anonymous refs all equal the exact commit.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PUBLIC-RENDERED-COMMIT-TITLE-HELPER-001",
+      "class": "process_invalid",
+      "failure": "After navigating and preserving the exact rendered commit tab, the first read attempted a nonexistent playwright.title helper and returned no aggregate result.",
+      "mutation": false,
+      "correction": "Read the rendered body through the supported locator interface, remark the unchanged tab for handoff, and require the exact URL, subject, commit, parent, 14-file count, and file inventory.",
+      "positive_evidence": false
+    }
+  ],
+  "boundaries": {
+    "review_performed": false,
+    "merge_performed": false,
+    "tag_created": false,
+    "release_created": false,
+    "deployment_performed": false,
+    "container_image_exported": false,
+    "container_image_pushed": false,
+    "container_image_published": false,
+    "container_image_redistributed": false,
+    "real_operational_infrastructure_used": false
+  },
+  "disposition": "unit_004_public_container_evidence_exact",
+  "next_gate": "Begin UNIT-005 with a governed exact-head premerge release-truth audit before review, merge, tag, release, deployment, or image publication."
+}

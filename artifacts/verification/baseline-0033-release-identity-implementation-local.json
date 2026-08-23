@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0033",
+  "receipt_id": "baseline-0033-release-identity-implementation-local",
+  "status": "pass",
+  "observed_at_utc": "2026-08-23T01:50:18Z",
+  "starting_public_state": {
+    "branch_commit": "b5c9a224e5bc52cd5d2fe59a9d55836d4a1e63fb",
+    "branch_record_status": "public_exact",
+    "main_commit": "4b7dd999c13384a196746de5dbff872e93f9f2fe",
+    "released_tag": "v0.0.32",
+    "one_drive_authoritative": false
+  },
+  "release_identity": {
+    "contract_schema": "runbook-sentinel/release-identity-transition/v1.1",
+    "phase": "implemented",
+    "valid": true,
+    "functional_product_delta_count": 0,
+    "product_runtime_file_count": 24,
+    "mechanical_identity_path_count": 4,
+    "unchanged_runtime_path_count": 20,
+    "candidate_evidence_admissible": true,
+    "candidate_selected": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "new_external_asset_count": 0
+  },
+  "package_contract": {
+    "active_and_versioned_equal": true,
+    "sha256": "3a3994c821490754144c22a7d19771218f1813971eb16a315cacc311113e7c8e",
+    "entry_count": 43,
+    "status": "frozen_before_archive_build",
+    "archive_checked": false
+  },
+  "container_contract": {
+    "active_and_versioned_equal": true,
+    "contract_id": "container-runtime-v13",
+    "sha256": "54067e1a7447f09eae990196dc8a5c90c0815ef35055ac4f95099afeb4f9fc54",
+    "implementation_phase": "implemented_v13",
+    "required_check_count": 49,
+    "receipt_state": "absent",
+    "inherited_contract": "eval/container-contract-0032-v12.json",
+    "inherited_contract_sha256": "de0fe568f1d5222731493277ab00d43feb06aa72e63b3b2b1e20ea081311d919",
+    "inherited_receipt_sha256": "b1ffc6b22385d2d359e8215a1f498fcefbed171895bd80e9f76bb7a391b0def0",
+    "base_reference": "cgr.dev/chainguard/python@sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+    "base_platform_manifest_digest": "sha256:e15765ff7066a0eaf91e1b6fd5000c1bba47d62b9f9731f2da560711d910c4f3",
+    "release_identity_prerequisite_required": true
+  },
+  "verification": {
+    "focused_tests": {
+      "count": 12,
+      "passed": 12,
+      "elapsed_seconds": 7.680
+    },
+    "historical_base_fixture_tests": {
+      "count": 2,
+      "passed": 2,
+      "elapsed_seconds": 0.168
+    },
+    "complete_regression": {
+      "count": 121,
+      "passed": 121,
+      "elapsed_seconds": 94.811
+    },
+    "applicable_non_manifest_validators": {
+      "count": 41,
+      "passed": 41
+    },
+    "predecessor_manifest": {
+      "status": "expected_mismatch",
+      "mismatch_count": 17,
+      "paths": [
+        ".dockerignore",
+        "Dockerfile",
+        "eval/container-contract.json",
+        "eval/package-contract.json",
+        "pyproject.toml",
+        "scripts/build_zipapp.py",
+        "scripts/inspect_runtime_evidence.py",
+        "scripts/verify_baseline.py",
+        "scripts/verify_container_contract.py",
+        "scripts/verify_container_runtime.py",
+        "scripts/verify_live_api.ps1",
+        "scripts/verify_mcp_stdio.py",
+        "scripts/verify_package_contract.py",
+        "src/runbook_sentinel/__init__.py",
+        "src/runbook_sentinel/api.py",
+        "src/runbook_sentinel/cli.py",
+        "src/runbook_sentinel/mcp_server.py"
+      ],
+      "positive_claim": "The predecessor manifest fails closed on the bounded implementation; it is not relabeled as current."
+    },
+    "python_compile": "pass",
+    "changed_json_parse": "pass",
+    "git_diff_check": "pass",
+    "high_signal_credential_token_match_count": 0,
+    "complete_private_key_block_count": 0,
+    "model_artifact_match_count": 0,
+    "docker_server_version": "29.4.3",
+    "baseline_0033_image_tag_count": 0,
+    "baseline_0033_container_count": 0
+  },
+  "implementation_identities": {
+    ".dockerignore": "82b3868691753181b021379a609d6534f4313817ab35dd548dc6caa0fec2983b",
+    "Dockerfile": "b55757ecceb9e5515f210e2253d8a856482cc3b014193898cd2f224f03f8de86",
+    "artifacts/verification/baseline-0033-orientation-failures-001.json": "fcb84811d290efe4d22f3c4b7c5ad5991f45a061d986895a38b0c4208c00f54b",
+    "eval/container-contract.json": "54067e1a7447f09eae990196dc8a5c90c0815ef35055ac4f95099afeb4f9fc54",
+    "eval/container-contract-0033-v13.json": "54067e1a7447f09eae990196dc8a5c90c0815ef35055ac4f95099afeb4f9fc54",
+    "eval/package-contract.json": "3a3994c821490754144c22a7d19771218f1813971eb16a315cacc311113e7c8e",
+    "eval/package-contract-0033.json": "3a3994c821490754144c22a7d19771218f1813971eb16a315cacc311113e7c8e",
+    "pyproject.toml": "e71fb4bbd6067a48088b3ab892b7dda1b308ca625399796ac4488956db1da2f2",
+    "scripts/build_zipapp.py": "dfcea42f7bf09c886ec3dff34c0cd2a3cb00e1c3e1b5dca6e078416ed745389e",
+    "scripts/freeze_manifest.py": "7474e7765e593430981289faf3ac8b8930b1cdcea1e3c991e2dbb5514fba2334",
+    "scripts/inspect_runtime_evidence.py": "cb4e6d973cdcf5781b224e5985536ac7595ee40342af9bf37e2fa47aa92769b4",
+    "scripts/verify_baseline.py": "ed6d573b492df89f9572831693e5c4c18adc1671299738bdeaafdb473f5fe3c8",
+    "scripts/verify_container_contract.py": "b33254431b703226087042294ce4f3c478b4ed21c6437da45af501643e9407f1",
+    "scripts/verify_container_runtime.py": "d79d11eca2b795fe2ee157c7353dea1a171688315e8f0c1999ef60507a9c4a20",
+    "scripts/verify_live_api.ps1": "7a4e33095266acd30ae53341de4b7e880d3d6bd50c042cae21f11456d9c633dd",
+    "scripts/verify_mcp_stdio.py": "376acb6605495b0ed401a324b8e0599f9975b5af67f877be774ef98d41a2b144",
+    "scripts/verify_package_contract.py": "4e782e69a60a4f44974f039084b80dbebf57448e3fffea1141c658838e267d12",
+    "src/runbook_sentinel/__init__.py": "95cc2ef7e0245f372c6059781325b9d7d5aaa6e7c4d48cc2fc20af1f74b43d41",
+    "src/runbook_sentinel/api.py": "606dc0f57c7f0bebb4adb29fea3ef301cd233091c0c5208cec1c1418872d02a1",
+    "src/runbook_sentinel/cli.py": "3bb3119995118860b08714c2acca8667af6ecde69f3ff38edd03b444ff20d913",
+    "src/runbook_sentinel/mcp_server.py": "7b245ea84de9716038a757069ccc0436dcdf9a84f2332ae172812fcb685836ed",
+    "tests/test_baseline.py": "c7f7c2b8271f01fd4e43d39e2b3c70ea025f7021def57766ada5341c4a5b749c",
+    "tests/test_container_base_security_refresh_contract.py": "1c9585bbd868fe60c20dac17f90c446577b9c2382d608b1324dfacef9dd5ce54"
+  },
+  "artifact_boundaries": {
+    "v0_0_33_archive_present": false,
+    "v0_0_33_checksum_present": false,
+    "container_receipt_present": false,
+    "container_image_built": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "tag_release_or_deployment_created": false,
+    "runtime_behavior_or_default_changed": false,
+    "security_or_authority_changed": false,
+    "dependency_model_service_secret_or_external_asset_changed": false,
+    "real_operational_infrastructure_contacted": false
+  },
+  "retained_failure": "IMPLEMENTED-FULL-REGRESSION-V32-LIFECYCLE-001",
+  "next_gate": "Publish and anonymously reconcile this implementation seal before freezing a successor 153-file release manifest or building any v0.0.33 archive or image."
+}

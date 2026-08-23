@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0033",
+  "receipt_id": "baseline-0033-adjudication-result-public",
+  "status": "pass",
+  "phase": "implemented_overlay",
+  "observed_at_utc": "2026-08-23T00:34:44.6064969Z",
+  "repository": {
+    "branch": "codex/baseline-0033-retrieval-candidate-admissibility",
+    "commit": "e43bc3eccd38a780f7a3f1a13490ac1c149d1716",
+    "tree": "ed82acb4784de10505fcdd176db5bfbfa088df32",
+    "parent": "38593b13a280409f7064e4afffdfd7e0ace4fd64",
+    "public_main": "4b7dd999c13384a196746de5dbff872e93f9f2fe"
+  },
+  "verification": {
+    "local_tracking_ls_remote_and_anonymous_ref_exact": true,
+    "anonymous_commit_tree_and_parent_exact": true,
+    "recursive_tree_truncated": false,
+    "recursive_tree_entry_count": 1548,
+    "changed_path_count": 12,
+    "git_blob_identity_count": 12,
+    "anonymous_raw_exact_count": 12,
+    "rendered_commit_subject_hash_parent_path_count_and_result_visible": true,
+    "public_result_bytes": 5086,
+    "public_result_sha256": "6b81820e3942dd9ec4e603147fde0b58d73404effa46984ebc370bd44e5d454f",
+    "public_main_unchanged": true
+  },
+  "paths": [
+    {
+      "path": "artifacts/evaluations/baseline-0033-retrieval-candidate-admissibility.json",
+      "bytes": 5086,
+      "sha256": "6b81820e3942dd9ec4e603147fde0b58d73404effa46984ebc370bd44e5d454f",
+      "git_blob": "12c354e79a466e43d43b6ec3a464c51329baf255"
+    },
+    {
+      "path": "artifacts/verification/baseline-0033-adjudication-result-local.json",
+      "bytes": 5379,
+      "sha256": "8f7fa00f59e4c6af55d54d82576c89118f1aa098a6e87f7b58c96fc150e5a567",
+      "git_blob": "20108af66a1ab9e0ae3169d6824d5ac9d41a284b"
+    },
+    {
+      "path": "artifacts/verification/baseline-0033-orientation-failures-001.json",
+      "bytes": 7536,
+      "sha256": "1a5740efc265b9631b53d598fc99824d14216bd7c1af6bc24e0853c8b9970857",
+      "git_blob": "813750d92a0a0c5190c3bec6eb2be33bd7cd65d5"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 121847,
+      "sha256": "3d8aea40066805e1f99820ce288671becb728e36cb3120f1d7f69d4e056bafbe",
+      "git_blob": "0f1ec2280b663273ff5ec7e87489d46826e61c1f"
+    },
+    {
+      "path": "contracts/milestone-0033.json",
+      "bytes": 17223,
+      "sha256": "4ff04ceebe74a961e8c63712ccdae052bbe7dc0cc884ca7153f529684841db8c",
+      "git_blob": "75a7e99fd1990a4ea2bba9d6516624260eea3c55"
+    },
+    {
+      "path": "docs/devlog.md",
+      "bytes": 455383,
+      "sha256": "973fe87f611b6018f21867d293b6c6afce93049f06a7b4e1ad025a380568d150",
+      "git_blob": "a125b47991d12b5427852e3148d28617b04dbf2d"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "bytes": 229954,
+      "sha256": "824f11b19ebf97658d1a765789bee863d7812abac0673a94eb15721b5cbdb82c",
+      "git_blob": "d4838e9090a161ba9c509a6f97d16a5493fea662"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 96251,
+      "sha256": "772733ea3ed1d2afc43d7dbcd6c8795ae6d449cc95b5979568915170883c2917",
+      "git_blob": "a56a5b1c8f551c432eba4e9c7b83a9ff2b2aac3a"
+    },
+    {
+      "path": "docs/status.md",
+      "bytes": 264006,
+      "sha256": "bd71cc053fd43c96f99da64a554b56afd53ea9769f76fc149e0e7b488b79ad63",
+      "git_blob": "b112d3dece9d552f2806b86bfad7aa8f2be808ad"
+    },
+    {
+      "path": "docs/version-history.md",
+      "bytes": 28518,
+      "sha256": "23daa67515a7e7d3b8d9bf97bdd0b1d023b3fb9b0a7544e8a1a3b65a9b01882b",
+      "git_blob": "4d73bbd6fb64ff16706881d50532f8dc5ce81dd0"
+    },
+    {
+      "path": "tests/test_readjudicate_retrieval_candidate.py",
+      "bytes": 5003,
+      "sha256": "52f901170013c0d2de77a08823981e17aabac5e1148574ac8ed883d6ed9a6fc8",
+      "git_blob": "616ac3b73502373a0dfc260899bad6e7996ab0a1"
+    },
+    {
+      "path": "tests/test_retrieval_candidate_admissibility_contract.py",
+      "bytes": 7517,
+      "sha256": "87ac84a02d40e718c3f947f22042c2b84b8f7087c4d03077a708d619d4aca971",
+      "git_blob": "8b6221122a83fe7c8c0ae5bd85957813adddf70b"
+    }
+  ],
+  "negative_evidence": {
+    "first_push_dns_failure_retained": true,
+    "first_push_changed_remote": false,
+    "failure_counted_as_positive_evidence": false
+  },
+  "boundaries": {
+    "candidate_selected": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "v4_promoted": false,
+    "runtime_or_default_changed": false,
+    "historical_result_rewritten": false,
+    "security_or_authority_changed": false,
+    "public_main_changed": false,
+    "tag_release_or_deployment_created": false
+  },
+  "next_gate": "Publish and reconcile this record-only receipt, then run the risk-matched source package API MCP dashboard state telemetry clean-clone and local-container matrix."
+}

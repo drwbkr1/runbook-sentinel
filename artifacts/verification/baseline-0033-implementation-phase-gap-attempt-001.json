@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0033",
+  "receipt_id": "baseline-0033-implementation-phase-gap-attempt-001",
+  "status": "retained",
+  "disposition": "contract_invalid_requires_lifecycle_correction",
+  "observed_at_utc": "2026-08-22T23:52:00Z",
+  "public_freeze_commit": "027d237627b07180bdefa15f00ff62a037f9751e",
+  "public_freeze_record_commit": "50205ee80c1e4af87fbddd64ab026beac9b1ec13",
+  "probe": {
+    "repository_implementation_created": false,
+    "temporary_placeholder_used": true,
+    "temporary_placeholder_retained": false,
+    "successor_result_present": false,
+    "requested_phase": "auto",
+    "observed_phase": "frozen_preimplementation",
+    "observed_status": "fail",
+    "observed_errors": [
+      "implementation_present_before_public_freeze"
+    ],
+    "candidate_evidence_admissible": true,
+    "candidate_selected": false,
+    "selected_configuration": "freshness-priority-lexical-v3"
+  },
+  "root_cause": "The frozen verifier selected implemented_overlay only when both implementation and result existed and otherwise selected frozen_preimplementation. The required public implementation seal with no result had no representable passing state.",
+  "correction_scope": {
+    "contract_schema": "1.1",
+    "phases": [
+      "frozen_preimplementation",
+      "implementation_sealed_no_result",
+      "implemented_overlay"
+    ],
+    "admissibility_threshold_or_inventory_changed": false,
+    "runtime_or_default_changed": false,
+    "security_boundary_changed": false,
+    "historical_result_rewritten": false,
+    "adjudicator_created": false,
+    "successor_result_created": false
+  },
+  "predecessor_identities": {
+    "contract_bytes": 10548,
+    "contract_sha256": "16a859d27f0155f92d5c8a08fbe401a8b49d1763af56379a5624fc82069c137d",
+    "verifier_bytes": 10942,
+    "verifier_sha256": "92f64bdfbbaf07bdc10aae143c74b7ab015df111eb3286f5615d90fe65bd7f89",
+    "focused_test_bytes": 4296,
+    "focused_test_sha256": "631dfed16a9be71d70e0740b904893b6f92d1df54a97a19d981d3fda340bc6cc"
+  },
+  "positive_evidence": false,
+  "next_gate": "Validate and publish the exact lifecycle-only correction before creating scripts/readjudicate_retrieval_candidate.py or any successor result."
+}

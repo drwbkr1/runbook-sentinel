@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0033",
+  "receipt_id": "baseline-0033-release-identity-lifecycle-correction-local",
+  "status": "pass",
+  "observed_at_utc": "2026-08-23T01:23:01Z",
+  "public_predecessor": {
+    "branch": "codex/baseline-0033-retrieval-candidate-admissibility",
+    "commit": "2d81bd4e4f4fe89192f88485ea616d36f59358a2",
+    "main": "4b7dd999c13384a196746de5dbff872e93f9f2fe",
+    "refs_exact": true
+  },
+  "correction": {
+    "contract_schema": "runbook-sentinel/release-identity-transition/v1.1",
+    "reason": "The frozen future scripts/verify_live_api.ps1 hash omitted the visible Baseline 0033 assertion and matching verifier-local result-field rename.",
+    "corrected_target_sha256": "7a4e33095266acd30ae53341de4b7e880d3d6bd50c042cae21f11456d9c633dd",
+    "runtime_behavior_changed": false,
+    "security_or_authority_changed": false,
+    "candidate_selection_changed": false,
+    "dependency_or_external_asset_changed": false,
+    "container_base_changed": false
+  },
+  "core_identities": {
+    "eval/release-identity-contract-0033.json": {
+      "bytes": 16370,
+      "sha256": "29856492cc38634725bb18aac57cd915dfcd388e6e05b27ab4510e218a35f0a2"
+    },
+    "scripts/verify_release_identity_contract_0033.py": {
+      "bytes": 18374,
+      "sha256": "cfe4f8b88bc18c6574d9bf0ec3b19f654b213d8d68a5deda6f0392a0090d2767"
+    },
+    "tests/test_release_identity_contract_0033.py": {
+      "bytes": 6604,
+      "sha256": "fa6bc6178016b5f28e1efe594d29bf075506eb9cb462176df1fa17086abd8906"
+    }
+  },
+  "focused_verification": {
+    "command": "python -m unittest tests.test_release_identity_contract_0033 -v",
+    "tests": 8,
+    "passed": 8,
+    "elapsed_seconds": 6.358,
+    "frozen_public_predecessor_fixture_valid": true,
+    "intended_local_implemented_projection_valid": true
+  },
+  "publication_boundary": {
+    "local_successor_implementation_present_unstaged": true,
+    "public_successor_implementation_present": false,
+    "successor_archive_built": false,
+    "successor_image_built": false,
+    "required_correction_commit_content": "Only this lifecycle correction, its fail-closed evidence, and living records; every v0.0.33 product identity and successor package/container implementation path must be absent from the public correction tree."
+  },
+  "next_gate": "Create and publish a correction-only commit from exact predecessor 2d81bd4e4f4fe89192f88485ea616d36f59358a2, verify its changed path inventory and prove successor implementation paths absent, then reconcile anonymous refs metadata blobs raw files and rendered evidence."
+}

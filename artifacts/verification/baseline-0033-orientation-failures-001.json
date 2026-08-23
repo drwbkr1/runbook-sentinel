@@ -1,0 +1,454 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0033",
+  "receipt_id": "baseline-0033-orientation-failures-001",
+  "status": "retained",
+  "disposition": "excluded_from_positive_evidence",
+  "observed_at_utc": "2026-08-23T00:41:36Z",
+  "items": [
+    {
+      "id": "POWERSHELL-BRANCH-PREFLIGHT-001",
+      "class": "process_invalid",
+      "operation": "Check whether the BASELINE-0033 path and branch already existed before worktree creation",
+      "failure": "The first compact PowerShell expression embedded a semicolon and if statement inside a cast and failed parsing with a missing closing parenthesis before any Git or filesystem mutation.",
+      "mutation": false,
+      "correction": "The successor ran git show-ref separately, captured its exit code, and proved the path and branch absent while local HEAD and public main both equaled 4b7dd999c13384a196746de5dbff872e93f9f2fe.",
+      "positive_evidence": false
+    },
+    {
+      "id": "FULL-REGRESSION-ATTACHMENT-001",
+      "class": "inconclusive",
+      "operation": "Run the complete preimplementation regression suite across the context-compaction boundary",
+      "failure": "The attached process reported 53 passing cases and no failure before context compaction, but its final exit status, total count, and elapsed time were no longer recoverable because the process attachment was gone.",
+      "mutation": false,
+      "correction": "Run the complete suite once more in a fresh process and use only its complete terminal result as positive regression evidence.",
+      "positive_evidence": false
+    },
+    {
+      "id": "BOUNDED-SECRET-SCAN-LITERAL-001",
+      "class": "process_invalid",
+      "operation": "Scan every changed path for credential material and private-key blocks",
+      "failure": "The first scan treated a historical devlog sentence containing the literal forbidden-pattern definition -----BEGIN PRIVATE KEY----- as credential material even though no key body or matching end marker was present.",
+      "mutation": false,
+      "correction": "Keep exact token-pattern checks and require both matching begin and end markers for a complete private-key block; inspect every changed file without excluding the historical devlog.",
+      "positive_evidence": false
+    },
+    {
+      "id": "REMOTE-TRACKING-FETCH-001",
+      "class": "process_invalid",
+      "operation": "Reconcile the public preimplementation freeze across local, tracking, ls-remote, anonymous API, tree, and raw-file surfaces",
+      "failure": "A plain git fetch of the branch updated FETCH_HEAD but did not materialize the expected refs/remotes/origin branch, so git rev-parse returned the unresolved tracking-ref text and the wrapper exited nonzero. The same attempt independently proved the ls-remote ref, anonymous ref, commit, tree, parent, all 19 raw paths, and unchanged public main exact, but it is excluded as an aggregate pass.",
+      "mutation": false,
+      "correction": "Fetch the exact source branch to the exact refs/remotes/origin destination with an explicit refspec, then require local, tracking, ls-remote, anonymous, tree, parent, and raw identities together.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PUBLIC-MAIN-DNS-SUMMARY-001",
+      "class": "inconclusive",
+      "operation": "Recheck unchanged public main while validating the record-only receipt",
+      "failure": "The concurrent git ls-remote request could not resolve github.com, and the wrapper then attempted Split on the absent response instead of reporting the network result cleanly.",
+      "mutation": false,
+      "correction": "Keep the already-completed local receipt checks separate, rerun the public ref assertion after DNS recovers, and require a nonempty exact response before parsing it.",
+      "positive_evidence": false
+    },
+    {
+      "id": "POWERSHELL-HASH-PIPE-001",
+      "class": "process_invalid",
+      "operation": "Summarize predecessor contract verifier and test identities before lifecycle correction",
+      "failure": "The first PowerShell expression piped directly from a foreach statement and failed parsing with an empty pipe element before reading or changing a project file.",
+      "mutation": false,
+      "correction": "Accumulate the three identity rows in an array and pipe the completed array to JSON conversion; the successor returned all three exact sizes and SHA-256 values.",
+      "positive_evidence": false
+    },
+    {
+      "id": "IMPLEMENTATION-SEAL-PHASE-GAP-001",
+      "class": "contract_invalid",
+      "operation": "Simulate the required implementation-present result-absent lifecycle state without creating a repository implementation",
+      "failure": "The public frozen verifier auto-classified implementation-present and result-absent as frozen_preimplementation, then failed with implementation_present_before_public_freeze. It had no valid phase for the contract-required implementation seal before result generation.",
+      "mutation": false,
+      "correction": "Publish a successor lifecycle-only contract verifier and test correction with exact frozen_preimplementation implementation_sealed_no_result and implemented_overlay states before creating the adjudicator.",
+      "positive_evidence": false
+    },
+    {
+      "id": "IMPLEMENTATION-FOCUSED-TEST-001",
+      "class": "test_invalid",
+      "operation": "Run the adjudicator and contract-focused implementation suite after adding the read-only adjudicator",
+      "failure": "The first 16-test run had one failure because the predecessor contract test still asserted that the current repository was in the historical implementation-absent state. The adjudicator's read-only execution and implementation-phase verifier both passed, and no result was created.",
+      "mutation": false,
+      "correction": "Patch the historical freeze test to simulate an absent implementation and add a separate assertion for the current implementation-sealed result-absent state; the successor 17-test run passes.",
+      "positive_evidence": false
+    },
+    {
+      "id": "IMPLEMENTATION-RECORD-RECONCILIATION-TIMEOUT-001",
+      "class": "inconclusive",
+      "operation": "Reconcile the public implementation record across refs tree raw files absent result and unchanged main in one wrapper",
+      "failure": "The wrapper reached its 30-second tool boundary without returning a terminal summary. It made no repository or external mutation beyond an exact branch fetch, and no partial output is used as positive evidence.",
+      "mutation": false,
+      "correction": "Split the proof into a bounded ref tree parent absent-result check and a separate raw-byte check, each with explicit terminal output.",
+      "positive_evidence": false
+    },
+    {
+      "id": "IMPLEMENTATION-RECORD-RAW-HTTPCLIENT-001",
+      "class": "process_invalid",
+      "operation": "Compare all eight anonymous raw record paths to local bytes",
+      "failure": "The first split raw-byte wrapper passed a null HttpClient byte array to SequenceEqual and exited before producing a complete path inventory.",
+      "mutation": false,
+      "correction": "Use Invoke-WebRequest raw content streams with explicit HTTP 200 length and byte equality checks; the corrected successor proves all eight paths exact.",
+      "positive_evidence": false
+    },
+    {
+      "id": "ADJUDICATION-RESULT-PUSH-DNS-001",
+      "class": "blocked_external",
+      "operation": "Push immutable adjudication result commit e43bc3eccd38a780f7a3f1a13490ac1c149d1716 to the candidate branch",
+      "failure": "The first push could not resolve github.com and exited before the remote branch changed.",
+      "mutation": false,
+      "correction": "Confirm the remote branch still pointed to predecessor 38593b13a280409f7064e4afffdfd7e0ace4fd64, then retry the exact unchanged commit after DNS recovered; the successor push and full public reconciliation pass.",
+      "positive_evidence": false
+    },
+    {
+      "id": "RELEASE-IDENTITY-FOCUSED-TEST-001",
+      "class": "test_invalid",
+      "operation": "Run the frozen BASELINE-0033 release-identity verifier and six focused fail-closed tests before successor identity implementation",
+      "failure": "The first run used one mistyped retained-result SHA-256 constant in the new verifier and treated TemporaryDirectory context values as Path objects in five negative tests. The verifier failed the exact immutable result rather than accepting the wrong identity; the tests stopped before any release identity or artifact was created.",
+      "mutation": false,
+      "correction": "Correct the verifier constant to the already recorded immutable result hash and wrap each context value in Path. The unchanged contract then passes and all six focused tests pass, including result, runtime-inventory, runtime-byte, premature-successor, and base-source fail-closed cases.",
+      "positive_evidence": false
+    },
+    {
+      "id": "RELEASE-IDENTITY-BROAD-PREFLIGHT-001",
+      "class": "process_invalid",
+      "operation": "Parse changed structured records and validate the active milestone before the full regression run",
+      "failure": "The first wrapper recursively parsed every historical JSON file, including a deliberately retained empty invalid MCP receipt, and invoked a guessed repository-local milestone verifier path that does not exist. Its later focused checks passed, but the aggregate wrapper is not positive evidence.",
+      "mutation": false,
+      "correction": "Parse only governed changed JSON paths, identify the retained invalid historical file explicitly, and invoke the actual run-controlled-milestone validator from its installed skill path. All changed JSON parses and the milestone validates with UNIT-004 active and no error or warning.",
+      "positive_evidence": false
+    },
+    {
+      "id": "RELEASE-IDENTITY-HASH-INVENTORY-001",
+      "class": "process_invalid",
+      "operation": "Hash the complete changed-path inventory after compilation parsing diff scan and successor-absence checks",
+      "failure": "The wrapper completed every preceding gate, then passed a null repository variable to Join-Path in only the final hash-summary expression and exited without a complete inventory.",
+      "mutation": false,
+      "correction": "Declare the exact C:/Projects active worktree explicitly, materialize all 13 absolute paths, and hash their complete byte inventory in a bounded successor command.",
+      "positive_evidence": false
+    },
+    {
+      "id": "RELEASE-IDENTITY-RECORD-AGGREGATE-001",
+      "class": "process_invalid",
+      "operation": "Reconcile the eight-path public release-identity record across refs metadata raw bytes and unchanged main",
+      "failure": "The compact PowerShell array omitted spaces around comparison operators, producing null aggregate check fields after all eight raw paths and Git blobs had already matched exactly.",
+      "mutation": false,
+      "correction": "Run named comparisons with explicit operators. Local tracking ls-remote anonymous ref commit tree parent untruncated tree unchanged main and the prior raw/blob inventory all pass for 2d81bd4e4f4fe89192f88485ea616d36f59358a2.",
+      "positive_evidence": false
+    },
+    {
+      "id": "RELEASE-IDENTITY-LIVE-DASHBOARD-TARGET-001",
+      "class": "contract_incomplete",
+      "operation": "Validate the exact frozen implemented projection before any successor manifest package or image build",
+      "failure": "The implemented release-identity verifier rejected scripts/verify_live_api.ps1 because the v1 precomputed target hash covered the lower-case checkpoint paths but omitted the required rendered Baseline 0033 assertion and matching verifier-local field rename. Package and container contracts were exact and their independent validators passed; no artifact was built.",
+      "mutation": false,
+      "correction": "Publish a schema-1.1 lifecycle correction that changes only this verifier target hash and explicitly binds the rendered identity literal and local field rename before any successor identity is public. Runtime behavior candidate selection security authority external assets and the admitted base remain unchanged.",
+      "positive_evidence": false
+    },
+    {
+      "id": "RELEASE-IDENTITY-FROZEN-FIXTURE-001",
+      "class": "test_invalid",
+      "operation": "Verify the schema-1.1 correction against the exact public predecessor tree while successor implementation remains locally unstaged",
+      "failure": "The first frozen fixture restored all source and mechanical files from public predecessor 2d81bd4 but still copied the two active package and container contracts from the locally implemented worktree, so the frozen verifier rejected both active hashes.",
+      "mutation": false,
+      "correction": "Restore the two active contracts from the same exact public predecessor as every other frozen identity. The corrected fixture proves the correction passes before implementation while the separate current-tree test proves the intended implemented phase.",
+      "positive_evidence": false
+    },
+    {
+      "id": "UPSTREAM-REF-POWERSHELL-HASH-LITERAL-001",
+      "class": "process_invalid",
+      "operation": "Read the configured upstream ref while resuming the BASELINE-0033 lifecycle correction",
+      "failure": "An unquoted @{u} token was parsed by PowerShell as a hash literal and the compact status command stopped before the upstream lookup. The separate status and HEAD reads completed, and no repository or external state changed.",
+      "mutation": false,
+      "correction": "Use the exact public branch ref through git ls-remote and an explicit refspec rather than relying on the missing remote-tracking branch. The successor proves the public branch remains 2d81bd4e4f4fe89192f88485ea616d36f59358a2 and public main remains 4b7dd999c13384a196746de5dbff872e93f9f2fe.",
+      "positive_evidence": false
+    },
+    {
+      "id": "CORRECTION-TREE-POWERSHELL-BRACE-001",
+      "class": "process_invalid",
+      "operation": "Read the local correction commit tree identity with rev-parse brace syntax",
+      "failure": "PowerShell transformed the unquoted HEAD^{tree} token and git rejected an unrelated encoded token before producing the tree identity. The same read-only wrapper independently returned the exact commit parent and changed paths and did not mutate repository state.",
+      "mutation": false,
+      "correction": "Use git show -s --format=%T HEAD. The successor returns exact tree afabfc2784adac9ef1b105db9f136d85b8f3cea8.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PUBLIC-CORRECTION-AGGREGATE-POLICY-001",
+      "class": "process_invalid",
+      "operation": "Reconcile refs metadata Git blobs raw bytes and main in one composite PowerShell wrapper",
+      "failure": "The command policy rejected the composite wrapper before process creation. It made no filesystem repository network or external-state change and supplies no positive evidence.",
+      "mutation": false,
+      "correction": "Split reconciliation into a credential-disabled public clone, anonymous GitHub metadata calls, bounded Git-blob comparison, bounded raw-byte downloads, and rendered browser inspection. Every successor check passes independently.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PUBLIC-CORRECTION-CLONE-DNS-001",
+      "class": "blocked_external",
+      "operation": "Create the first credential-disabled no-local-object public correction clone",
+      "failure": "The first clone could not resolve github.com and exited without a repository checkout. Its incomplete attempt directory is preserved under C:/Projects/Verification and is not positive evidence.",
+      "mutation": false,
+      "correction": "A uniquely named attempt-002 clone completed from the public HTTPS branch with credentials disabled, no object alternates, exact commit tree and parent, and a clean worktree.",
+      "positive_evidence": false
+    },
+    {
+      "id": "IMPLEMENTED-FULL-REGRESSION-V32-LIFECYCLE-001",
+      "class": "test_invalid",
+      "operation": "Run the complete 121-test suite after implementing the v0.0.33 identity and inherited package/container contracts",
+      "failure": "The suite passed 120 tests and failed only the historical BASELINE-0032 base-refresh test because it ran the frozen v0.0.32 implementation verifier against the intentionally advanced v0.0.33 Dockerfile identity. The verifier correctly retained the exact admitted base and rejected only version and package labels. No archive or image was built.",
+      "mutation": false,
+      "correction": "Exercise the unchanged historical verifier against a temporary fixture reconstructed from the exact released v12 Dockerfile contract and immutable BASELINE-0032 evidence, while separately asserting the current v0.0.33 Dockerfile retains the exact admitted base and digest label. The v13 runtime prerequisite now composes the exact frozen refresh-contract hash with the independently passing v13 contract instead of misapplying the v0.0.32 identity verifier to a later release.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PREBUILD-MANIFEST-POWERSHELL-COUNT-001",
+      "class": "process_invalid",
+      "operation": "Display the renewed manifest file count in the first freeze wrapper",
+      "failure": "PowerShell projected the Count member over every JSON property and displayed 153 individual one values instead of the scalar property count. Both generated manifests were byte-identical, but this display is not count evidence.",
+      "mutation": false,
+      "correction": "Read the frozen JSON with Python and apply len to the files object. The independent successor reports exactly 153 files and verify_manifest.py passes all 153 identities.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PREBUILD-VALIDATOR-INVENTORY-WINDOWS-GLOB-001",
+      "class": "process_invalid",
+      "operation": "Inspect validator argument definitions with ripgrep on Windows",
+      "failure": "The first command passed scripts/verify_*.py as a literal Windows path and ripgrep rejected the invalid wildcard path before inventory output. No file or external state changed.",
+      "mutation": false,
+      "correction": "Use ripgrep with -g verify_*.py and an explicit scripts search root. The successor identifies the phase-bearing validators without mutating repository state.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PREBUILD-PYTEST-INTERPRETER-001",
+      "class": "process_invalid",
+      "operation": "Run the complete BASELINE-0033 prebuild regression",
+      "failure": "The first invocation guessed pytest, but the dependency-free repository uses standard-library unittest and the global Python has no pytest module. Zero tests ran and no repository state changed.",
+      "mutation": false,
+      "correction": "Run the documented python -m unittest discover -s tests -v command. The successor passes all 121 tests in 90.994 seconds.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PREBUILD-VALIDATOR-PYTHONPATH-001",
+      "class": "process_invalid",
+      "operation": "Run all 42 applicable prebuild validators in one aggregate",
+      "failure": "The first aggregate omitted the documented PYTHONPATH=src setting. It stopped at verify_mcp_stdio.py after 23 earlier passes because runbook_sentinel could not be imported; the partial aggregate is not release evidence.",
+      "mutation": false,
+      "correction": "Set PYTHONPATH to src and restart the complete validator set from the beginning.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PREBUILD-RETRIEVAL-OBSERVABILITY-PHASE-001",
+      "class": "process_invalid",
+      "operation": "Run the retrieval-quality observability validator in the prebuild aggregate",
+      "failure": "The second aggregate supplied require-implementation without implementation-only, so the validator evaluated an execution-phase historical report and correctly rejected it after 32 preceding passes. No candidate evaluation had started.",
+      "mutation": false,
+      "correction": "Use the validator's explicit implementation-only lifecycle mode at this prebuild gate and restart the complete aggregate.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PREBUILD-RETRIEVAL-SELECTION-FLAG-001",
+      "class": "process_invalid",
+      "operation": "Run the retained retrieval-tier implementation and selection checks in the prebuild aggregate",
+      "failure": "The third aggregate interpreted require-selection as requiring candidate v4 selection. The verifier correctly rejected that flag because v4 remains excluded; 34 preceding passes are not promoted as a complete aggregate.",
+      "mutation": false,
+      "correction": "Require the v4 implementation without requiring its selection, and independently require the frozen comparison result and selected v3 control. The focused successors pass, followed by one complete 42-of-42 aggregate in 3.157 seconds.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PREBUILD-FAILURE-RECORD-PATCH-CONTEXT-001",
+      "class": "process_invalid",
+      "operation": "Append the prebuild failures to the retained failure ledger",
+      "failure": "The first apply-patch context used released-v12 while the exact file said released v12, so patch verification rejected the edit before mutation.",
+      "mutation": false,
+      "correction": "Use the exact retained line as context. The successor adds the failure records and the JSON parses independently.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PREBUILD-PREFLIGHT-POWERSHELL-PARSER-001",
+      "class": "process_invalid",
+      "operation": "Aggregate compilation diff Docker and successor-artifact absence checks",
+      "failure": "PowerShell rejected a semicolon expression embedded in one object field before executing any part of the composite command. Repository Docker and external state were unchanged.",
+      "mutation": false,
+      "correction": "Split structured parsing compilation diff checks and Docker artifact absence into simple successor commands. All successors pass and Docker 29.4.3 reports zero BASELINE-0033 image or container matches.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PREBUILD-PRIVATE-KEY-MARKER-SCAN-001",
+      "class": "process_invalid",
+      "operation": "Scan the repository for complete private-key blocks",
+      "failure": "A broad first marker search counted 29 documentation contract verifier and retained-receipt references to the words BEGIN PRIVATE KEY; it did not distinguish pattern literals from a complete encoded key block and is not scan evidence.",
+      "mutation": false,
+      "correction": "Use a bounded multiline PEM structure check requiring matching begin/end labels and base64 body lines. The successor reports zero complete private-key blocks; the high-signal added-secret assignment scan and model-artifact inventory also report zero.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PUBLIC-PREBUILD-RECORD-COMPOSITE-NO-SUMMARY-001",
+      "class": "inconclusive",
+      "operation": "Reconcile the public prebuild record across refs metadata blobs raw bytes tree and rendered evidence in one anonymous wrapper",
+      "failure": "The first composite reconciliation exceeded its return window and produced no terminal summary. It made no repository mutation and supplies no aggregate positive evidence.",
+      "mutation": false,
+      "correction": "Split the read-only proof into bounded ref metadata tree blob raw-byte and rendered checks. The successors prove all eight record paths exact in the untruncated public tree while public main remains unchanged.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PACKAGE-PREFLIGHT-RG-WINDOWS-GLOB-001",
+      "class": "process_invalid",
+      "operation": "Inventory predecessor package/source evidence paths before the BASELINE-0033 build",
+      "failure": "The first ripgrep command treated artifacts/verification/baseline-0032-package* as a literal Windows path and exited without an inventory. No project or external state changed.",
+      "mutation": false,
+      "correction": "Enumerate repository paths with rg --files and filter the resulting stream. The successor returns the intended predecessor package/source evidence inventory.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PACKAGE-EVALUATION-TRACE-PYTHONPATH-001",
+      "class": "process_invalid",
+      "operation": "Independently verify the source and package evaluation trace anchors",
+      "failure": "The first source and package trace-validator invocations omitted the documented PYTHONPATH=src setting and failed module import before validating either trace. Neither report nor trace was changed.",
+      "mutation": false,
+      "correction": "Set PYTHONPATH to src and rerun both exact report/trace pairs. Each successor validates an anchored 261-event chain and its report-bound final digest.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PACKAGE-NORMALIZATION-COMPANION-PREMATURE-001",
+      "class": "process_invalid",
+      "operation": "Compare complete source and package evaluation reports after removing only declared launch-varying leaves",
+      "failure": "The first normalization attempt assumed immutable companion manifests already existed even though direct evaluator execution intentionally writes only reports and traces. It stopped on FileNotFoundError before comparison and made no evidence claim.",
+      "mutation": false,
+      "correction": "Materialize the exact frozen manifest to both previously absent companion paths, advance latest.json only after declared report and manifest hashes match, then restart normalization. The successors find 407 raw differences using only 17 declared leaf names and produce byte-exact normalized reports.",
+      "positive_evidence": false
+    },
+    {
+      "id": "LIVE-SURFACE-ARGUMENT-INVENTORY-NOMATCH-001",
+      "class": "process_invalid",
+      "operation": "Inspect real-surface verifier interfaces before source and package execution",
+      "failure": "A combined source-read and argument-search wrapper ended with ripgrep exit 1 because inspect_runtime_evidence.py defines no argparse matches. The source read was informative but the aggregate is not positive verification evidence.",
+      "mutation": false,
+      "correction": "Use the existing documented invocations and verify each generated API MCP native trace and dashboard output directly. Both source and package surfaces pass their independent checks.",
+      "positive_evidence": false
+    },
+    {
+      "id": "SOURCE-API-STRICT-BOOLEAN-COUNT-001",
+      "class": "process_invalid",
+      "operation": "Summarize the source authenticated API receipt",
+      "failure": "The first summary counted only values strictly equal to Boolean true and therefore displayed 130 rather than the receipt's 131 passing definitions; dashboard_csp_present is intentionally the observed CSP header array rather than a Boolean. No API or evidence byte changed.",
+      "mutation": false,
+      "correction": "Require overall status pass, zero false values, and exact inspection of the non-Boolean CSP header field. The source and package receipts each pass all 131 definitions with the required CSP value present.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PACKAGE-SOURCE-CONTAINER-CONTRACT-PATH-001",
+      "class": "process_invalid",
+      "operation": "Hash the package/source input contracts for the local seal",
+      "failure": "The first inventory guessed eval/container-runtime-contract-v13.json instead of the repository's eval/container-contract-0033-v13.json. PowerShell then displayed a stale prior hash beside a zero length after Get-Item and Get-FileHash failed, so that row is invalid and excluded.",
+      "mutation": false,
+      "correction": "Resolve the exact path from rg --files, hash eval/container-contract-0033-v13.json independently, and require the frozen 54067e1a identity before sealing the receipt.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PACKAGE-SOURCE-CONTAINER-CONTRACT-OPTION-001",
+      "class": "process_invalid",
+      "operation": "Revalidate the implemented container-runtime-v13 prerequisite during package/source sealing",
+      "failure": "The first focused wrapper guessed a --phase implemented option that verify_container_contract.py does not expose. All preceding JSON diff manifest package and release-identity checks passed, but the aggregate stopped at argument parsing and is not a complete gate.",
+      "mutation": false,
+      "correction": "Use the verifier's documented --require-implementation option and restart the bounded contract gate before staging the payload.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PACKAGE-SOURCE-MILESTONE-PROFILE-001",
+      "class": "process_invalid",
+      "operation": "Validate the updated BASELINE-0033 milestone against an optional project control profile",
+      "failure": "The first invocation guessed .codex/project.json, which does not exist in this repository. A follow-up inventory also named the absent .codex directory explicitly and ripgrep exited before a useful profile inventory. Neither command changed project state.",
+      "mutation": false,
+      "correction": "Inventory the repository root without naming an absent directory, confirm there is no project control profile, and run the governing milestone validator directly against contracts/milestone-0033.json.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PACKAGE-SOURCE-DOCKER-INVENTORY-SIMPLEMATCH-001",
+      "class": "process_invalid",
+      "operation": "Confirm no BASELINE-0033 image or container exists before payload publication",
+      "failure": "The first PowerShell inventory combined three alternatives with pipe characters while also selecting SimpleMatch, so it searched for the literal combined string instead of the intended alternatives. Its empty output is not absence evidence.",
+      "mutation": false,
+      "correction": "Rerun the complete image and container inventories with the alternatives interpreted as a regular expression and require zero matching rows.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PACKAGE-SOURCE-PUSH-LEASE-POWERSHELL-BINDING-001",
+      "class": "process_invalid",
+      "operation": "Publish exact package/source commit 24e6be34b7b5fcaf60b22b70b1f1377ed9ff731c under a predecessor-bound lease",
+      "failure": "The first push independently proved the remote predecessor exact, then passed a parenthesized PowerShell expression directly after --force-with-lease=. Git interpreted the lease text as the remote and origin as a refspec, rejected the command, and left the public branch unchanged.",
+      "mutation": false,
+      "correction": "Materialize the exact lease and refspec as quoted PowerShell strings, retry the unchanged commit, and require the live branch to equal 24e6be34b7b5fcaf60b22b70b1f1377ed9ff731c. The successor push and full public reconciliation pass.",
+      "positive_evidence": false
+    },
+    {
+      "id": "CONTAINER-LOCAL-SUMMARY-RESERVED-VARIABLE-001",
+      "class": "process_invalid",
+      "operation": "Summarize the completed local container-runtime-v13 receipt",
+      "failure": "The first PowerShell summary attempted to assign arrays to the read-only automatic variables false and true. The receipt itself was unchanged, but the displayed true/false counts are invalid and excluded.",
+      "mutation": false,
+      "correction": "Use task-specific falseChecks and trueChecks variable names, then independently require 48 true checks and only clean_clone_container_rebuild_image_id_exact false before clean-clone execution.",
+      "positive_evidence": false
+    },
+    {
+      "id": "CONTAINER-LOCAL-SUMMARY-PROPERTY-COUNT-001",
+      "class": "process_invalid",
+      "operation": "Display the total check count in the corrected local container summary",
+      "failure": "PowerShell projected Count over every check property and displayed 49 individual one values instead of one scalar. The separately computed 48 true checks and exact one false check passed, but the projected total is not count evidence.",
+      "mutation": false,
+      "correction": "Wrap the property collection in an array before reading Count. The successor reports exactly 49 checks, 48 true, and only the clean-clone identity pending.",
+      "positive_evidence": false
+    },
+    {
+      "id": "CONTAINER-CLEAN-CLONE-DIST-DIRECTORY-001",
+      "class": "process_invalid",
+      "operation": "Place the exact selected ignored archive into the credential-disabled public clone",
+      "failure": "The clone completed exact and clean, then the wrapper assumed dist was absent and New-Item rejected the already tracked directory containing older public release assets. It stopped before copying the v0.0.33 archive.",
+      "mutation": true,
+      "correction": "Inspect the existing tracked dist directory, prove the v0.0.33 destination absent, copy only the exact selected archive, and require SHA-256 b10384f2 plus a clean Git status and no object alternates. The successor package gate and clean build pass.",
+      "positive_evidence": false
+    },
+    {
+      "id": "CONTAINER-CANONICAL-SUMMARY-IMAGE-PATH-001",
+      "class": "process_invalid",
+      "operation": "Revalidate canonical container-runtime-v13 custody and image identity after moving generated runtime evidence to external verification custody",
+      "failure": "The first read-only summary looked for independent_image_ids under builds even though builds is the command-record array and the image identities live under image.independent_image_ids. The null projection triggered an image identity mismatch before the remaining checks and made no project or external mutation.",
+      "mutation": false,
+      "correction": "Read both repeated full-build identities from image.independent_image_ids and the third identity from clean_clone.image_id, then restart the complete canonical receipt and custody validation.",
+      "positive_evidence": false
+    },
+    {
+      "id": "POST-CONTAINER-HISTORICAL-BASE-REFRESH-PHASE-001",
+      "class": "process_invalid",
+      "operation": "Run the complete post-container phase-correct validator set",
+      "failure": "The first wrapper incorrectly treated the closed BASELINE-0032 base-security-refresh verifier as current for BASELINE-0033 and invoked its implemented phase. That historical verifier intentionally requires v0.0.32 Dockerfile and package identity, so it rejected the mechanically advanced v0.0.33 identity after the first eighteen current validators passed. No artifact or external state changed.",
+      "mutation": false,
+      "correction": "Exclude the closed predecessor-specific base-refresh lifecycle validator from the current set and include the current canonical container evaluation-trace verifier. Restart all 42 applicable read-only validators from the beginning with the BASELINE-0033 result and archive required.",
+      "positive_evidence": false
+    },
+    {
+      "id": "POST-CONTAINER-RETRIEVAL-SELECTION-FLAG-001",
+      "class": "process_invalid",
+      "operation": "Run the corrected complete post-container phase-aware validator set",
+      "failure": "The wrapper incorrectly added --require-selection to the historical retrieval-tier-cap contract. The verifier rejected selection_required because experimental v4 is deliberately not selected; thirty-four preceding validators passed, no evidence byte changed, and the rejection is not a product regression.",
+      "mutation": false,
+      "correction": "Require the exact v4 implementation without requiring its selection, while separately requiring the frozen result that retains v3 as control and selected default. Restart all 42 applicable validators from the beginning.",
+      "positive_evidence": false
+    },
+    {
+      "id": "POST-CONTAINER-HASH-SUMMARY-PIPE-001",
+      "class": "process_invalid",
+      "operation": "Summarize final canonical and component artifact identities before composing the structured artifact-scan receipt",
+      "failure": "PowerShell rejected a pipeline placed directly after the foreach statement as an empty pipe element. The command stopped at parsing before reading or mutating any artifact.",
+      "mutation": false,
+      "correction": "Collect the per-file objects into a task-specific array, then serialize that completed array after the loop.",
+      "positive_evidence": false
+    }
+  ],
+  "historical_candidate_results_rewritten": false,
+  "product_files_changed_by_failure": false,
+  "next_gate": "Pass the complete post-container regression and repository gate, then publish and anonymously reconcile the canonical 49-of-49 local-only container-runtime-v13 result before premerge audit."
+}

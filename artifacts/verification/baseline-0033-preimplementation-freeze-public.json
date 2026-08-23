@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0033",
+  "receipt_id": "baseline-0033-preimplementation-freeze-public",
+  "phase": "frozen_preimplementation",
+  "status": "pass",
+  "observed_at_utc": "2026-08-22T23:46:02.6976170Z",
+  "repository": {
+    "branch": "codex/baseline-0033-retrieval-candidate-admissibility",
+    "commit": "027d237627b07180bdefa15f00ff62a037f9751e",
+    "tree": "e1ab1c5024071b37dad6dc0e0d74a53548a9a109",
+    "parent": "4b7dd999c13384a196746de5dbff872e93f9f2fe",
+    "public_main": "4b7dd999c13384a196746de5dbff872e93f9f2fe",
+    "public_main_changed": false
+  },
+  "surfaces": {
+    "local_head_exact": true,
+    "explicit_tracking_ref_exact": true,
+    "ls_remote_ref_exact": true,
+    "anonymous_github_ref_exact": true,
+    "anonymous_github_commit_tree_exact": true,
+    "anonymous_github_commit_parent_exact": true,
+    "recursive_tree_truncated": false,
+    "recursive_tree_entry_count": 1538,
+    "anonymous_raw_path_count": 19,
+    "anonymous_raw_paths_exact": 19,
+    "rendered_branch_url": "https://github.com/drwbkr1/runbook-sentinel/tree/codex/baseline-0033-retrieval-candidate-admissibility",
+    "rendered_branch_boundaries_visible": true,
+    "rendered_commit_url": "https://github.com/drwbkr1/runbook-sentinel/commit/027d237627b07180bdefa15f00ff62a037f9751e",
+    "rendered_commit_subject_hash_parent_and_19_paths_visible": true
+  },
+  "paths": [
+    {
+      "path": "artifacts/verification/baseline-0033-orientation-failures-001.json",
+      "bytes": 2493,
+      "sha256": "3de2a3147389e5cbce9f459be936be3bf43f629686dd08b40627a3a7bfb4ce3b",
+      "git_blob": "c8f2234762093e34669e89bdd2bbd628899f7a0b"
+    },
+    {
+      "path": "artifacts/verification/baseline-0033-preimplementation-freeze-local.json",
+      "bytes": 6768,
+      "sha256": "95e726e01a7f9400a8ca667069435436da56dfe1216c23bd419b8067dd610135",
+      "git_blob": "893b56fa82d9ee44e04259f8d7964a5358648c98"
+    },
+    {
+      "path": "artifacts/verification/orientation-baseline-0033.json",
+      "bytes": 7232,
+      "sha256": "aa7a5abc6cda69183cde3929129be18c3eb9c9de79bca105a38ba5c8b4b3c555",
+      "git_blob": "517b0f2a71c958ee4b2ae24e85429a655f8e0c5a"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 119743,
+      "sha256": "ac3e2173e094fe3f52df32e850497279cdba89cad1d983398fe42705b17966cb",
+      "git_blob": "1fc88c06dc30a94130dce0476f142c2efe936910"
+    },
+    {
+      "path": "contracts/milestone-0033.json",
+      "bytes": 14654,
+      "sha256": "3c8938fd2db1181dfa1ffd737985083932e8cd883569cd581d8169ee75202a6a",
+      "git_blob": "dc9094109ee97e2df2ce8c79372b89189497f20c"
+    },
+    {
+      "path": "docs/adr/0027-separate-default-retrieval-conformance-from-candidate-admissibility.md",
+      "bytes": 4037,
+      "sha256": "132848d3fd2e97fd4066f90b0f227310bfcb88787e5364cccf02f02da1d5763e",
+      "git_blob": "d1f0ebcf46cad78ac41a21792ac4108b470d9812"
+    },
+    {
+      "path": "docs/architecture.md",
+      "bytes": 11872,
+      "sha256": "93699fb72bf0aff717ade52fd071795057801689641919dacca653c851503fdb",
+      "git_blob": "d3335455c85e754d5be134a2f25f75ca1690f2b0"
+    },
+    {
+      "path": "docs/devlog.md",
+      "bytes": 450817,
+      "sha256": "52f9688c46193fb391e9a146431e6be41a22e7e6483b5e76e390c6048ff8de57",
+      "git_blob": "36736614d9d009338d74646ffc6af76078cd9fc4"
+    },
+    {
+      "path": "docs/evaluation-contract.md",
+      "bytes": 43804,
+      "sha256": "64f1cdb2ae3130eeae5c0b3299c90419a51614f302a51fb2da76b5460c14087f",
+      "git_blob": "0f9125fd738da5b4c90a1918ac8bdeb695015266"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "bytes": 226336,
+      "sha256": "f9a3142ec45abfa7d73e7c03655ebe43e805b36ebc3888323b88cc854c4dcc00",
+      "git_blob": "84b399fe83982645c13ea49c753a3fdf00246cab"
+    },
+    {
+      "path": "docs/research-ledger.md",
+      "bytes": 28099,
+      "sha256": "fb53fdda864fea55e540b81877348d534c883351da938a4e3d125c7914bff8d5",
+      "git_blob": "05b1e00a9120f03570c720a88cbded265a672d4e"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 94658,
+      "sha256": "518bbdc6516c160d0306468674036d751075434a4051bd6dda39f72ba57a70b6",
+      "git_blob": "f35fe3ad5c27faa2ca12c9a4da76c4e048cbc0b2"
+    },
+    {
+      "path": "docs/status.md",
+      "bytes": 259240,
+      "sha256": "e8b61715013e12ce96453f188aa6288fe5e68575dcdd68c45d8267e230828aa9",
+      "git_blob": "e52f635c17a979232768ca7288018417b9ea6c05"
+    },
+    {
+      "path": "docs/threat-model.md",
+      "bytes": 22236,
+      "sha256": "a375ccd1e126c13a17d0793b0a772854f26667a6eb64d0b92aea000191cb54d5",
+      "git_blob": "7c0836a7b5ae51c67d4581157d782e307ba4ca6d"
+    },
+    {
+      "path": "docs/version-history.md",
+      "bytes": 28557,
+      "sha256": "264aacf1f29c699e3b862d2a287259fd21a9d359e28dc63f102a74888c42b14c",
+      "git_blob": "472d6167ccdcc0dd960b3d3458365e535e298339"
+    },
+    {
+      "path": "eval/retrieval-candidate-admissibility-contract.json",
+      "bytes": 10548,
+      "sha256": "16a859d27f0155f92d5c8a08fbe401a8b49d1763af56379a5624fc82069c137d",
+      "git_blob": "638190e27393c042f659d55443b9fc9b9b70c9ad"
+    },
+    {
+      "path": "README.md",
+      "bytes": 13548,
+      "sha256": "e49f3b06614ba50d414faf9ed9fd2e55f003caca28c7850b6c6527ad606ba898",
+      "git_blob": "ed64e60470e91aa0aa4508014008b031d53a6d2d"
+    },
+    {
+      "path": "scripts/verify_retrieval_candidate_admissibility_contract.py",
+      "bytes": 10942,
+      "sha256": "92f64bdfbbaf07bdc10aae143c74b7ab015df111eb3286f5615d90fe65bd7f89",
+      "git_blob": "a7f5253ae13e65b7683061faaad1aea83dd70967"
+    },
+    {
+      "path": "tests/test_retrieval_candidate_admissibility_contract.py",
+      "bytes": 4296,
+      "sha256": "631dfed16a9be71d70e0740b904893b6f92d1df54a97a19d981d3fda340bc6cc",
+      "git_blob": "ace5155dd5e059a847e5f077ffb81c883c6ce504"
+    }
+  ],
+  "path_count": 19,
+  "negative_evidence": {
+    "plain_fetch_tracking_ref_attempt": "process_invalid",
+    "plain_fetch_attempt_counted_as_aggregate_pass": false,
+    "failure_ledger": "artifacts/verification/baseline-0033-orientation-failures-001.json"
+  },
+  "boundaries": {
+    "implementation_present_at_public_freeze": false,
+    "successor_result_present_at_public_freeze": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "candidate_selected": false,
+    "runtime_or_default_changed": false,
+    "historical_result_rewritten": false,
+    "security_gate_weakened": false,
+    "public_main_changed": false,
+    "tag_release_or_deployment_created": false
+  },
+  "next_gate": "Publish and reconcile this record-only receipt, then implement only the frozen read-only adjudicator before generating any successor result."
+}

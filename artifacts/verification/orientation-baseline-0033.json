@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0033-orientation",
+  "observed_at_utc": "2026-08-22T23:24:06Z",
+  "repository": {
+    "authoritative_root": "C:/Projects/Active/runbook-sentinel-baseline-0033",
+    "one_drive_authoritative": false,
+    "branch": "codex/baseline-0033-retrieval-candidate-admissibility",
+    "starting_head": "4b7dd999c13384a196746de5dbff872e93f9f2fe",
+    "starting_tree": "c96b18658ac684142e2bec0fa178d8af03c8c0d7",
+    "remote": "https://github.com/drwbkr1/runbook-sentinel.git",
+    "remote_main": "4b7dd999c13384a196746de5dbff872e93f9f2fe",
+    "visibility": "public",
+    "starting_worktree_clean": true
+  },
+  "verified_public_checkpoint": {
+    "version": "0.0.32",
+    "tag": "v0.0.32",
+    "tag_object": "ea203784e11afd611666bcd988f4d1e60259f6a8",
+    "peeled_release_commit": "f0e565015be2ca8ed155be600a61fe131dbfa012",
+    "release_id": 375056941,
+    "release_reconciliation_commit": "612c7eccdeb22a30df569557dac137d69aaa3ee5",
+    "rendered_truth_correction_commit": "4b7dd999c13384a196746de5dbff872e93f9f2fe",
+    "release_url": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.32",
+    "release_draft": false,
+    "release_prerelease": false,
+    "release_latest": true,
+    "selected_release_asset_count": 2,
+    "container_image_published": false,
+    "public_receipt": {
+      "path": "artifacts/verification/public-tag-baseline-0032.json",
+      "bytes": 18278,
+      "sha256": "eebd1571dfab5942f7b1b6dfc2a42c5807629391564d01d7621b307a8c78726c"
+    }
+  },
+  "fresh_cycle_run": {
+    "source_checkout": "C:/Projects/Verification/runbook-sentinel-baseline-0032-public-tag-attempt-001",
+    "source_commit": "f0e565015be2ca8ed155be600a61fe131dbfa012",
+    "source_tag": "v0.0.32",
+    "object_alternates_present": false,
+    "external_output_root": "C:/Projects/Verification/runbook-sentinel-baseline-0032-public-tag-evaluation-attempt-001",
+    "report": {
+      "path": "public-tag-source-baseline-0032-attempt-001.json",
+      "bytes": 953903,
+      "sha256": "e3908067d54c10d150e77af6efe9bd783d5b488cb0d370124ef20ff75ee44d25",
+      "scenario_count": 57,
+      "attempt_count": 171,
+      "boolean_gates_true": 136,
+      "boolean_gates_false": 0,
+      "baseline_disposition": "pass"
+    },
+    "trace": {
+      "path": "public-tag-source-baseline-0032-attempt-001.traces.jsonl",
+      "bytes": 195317,
+      "sha256": "6219c3e391acebf1d24a33d00d203ceadf2e40a4c850168db2a212223ab2829a",
+      "event_count": 261,
+      "final_event_sha256": "3c3088ba63338c3bcc19602b16fdb05c891498df1fef1021d958fd2ece73a437",
+      "anchored_chain_valid": true,
+      "event_type_counts": {
+        "sentinel.run": 171,
+        "sentinel.approval": 45,
+        "sentinel.execute": 45
+      }
+    },
+    "retrieved_document_count_distribution": {
+      "1": 57,
+      "2": 90,
+      "3": 12,
+      "4": 12
+    },
+    "decision_document_count_distribution": {
+      "0": 6,
+      "1": 129,
+      "2": 30,
+      "4": 6
+    },
+    "separate_metrics": {
+      "retrieval_expected_evidence_recall_at_4": 1.0,
+      "retrieval_expected_document_share_mean": 0.683006535948,
+      "retrieval_attempts_with_extra_documents_rate": 0.56862745098,
+      "retrieval_extra_document_count": 123,
+      "generation_diagnosis_accuracy": 1.0,
+      "generation_outcome_accuracy": 1.0,
+      "tool_trajectory_exact": 1.0,
+      "policy_compliance": 1.0,
+      "terminal_state_exact": 1.0,
+      "benign_utility": 1.0,
+      "proposal_attack_success": 0.0,
+      "terminal_attack_success": 0.0,
+      "repeated_trial_pass_cubed": 1.0,
+      "diagnosis_median_ms": 7.261,
+      "diagnosis_p95_ms": 15.43,
+      "end_to_end_median_ms": 51.452,
+      "end_to_end_p95_ms": 82.671,
+      "model_calls": 0,
+      "estimated_external_api_cost_usd": 0.0
+    },
+    "real_surfaces_and_container_reconciled": true
+  },
+  "measured_weakness": {
+    "description": "The leading accepted-system weakness remains broad returned context. The best retained candidate measurably improves focus, but candidate evidence validity is conflated with exact default-retriever fingerprints, so experimental selection cannot distinguish configuration change from genuine policy, security, utility, coverage, or reliability regression.",
+    "control_extra_document_count": 123,
+    "candidate_extra_document_count": 93,
+    "control_expected_document_share_mean": 0.683006535948,
+    "candidate_expected_document_share_mean": 0.709150326797,
+    "candidate_false_boolean_gate_count": 5,
+    "candidate_true_boolean_gate_count": 131,
+    "candidate_required_retrieval_stage_coverage": 1.0,
+    "candidate_missing_required_cells": 0,
+    "candidate_cross_trial_ambiguity": 0,
+    "candidate_median_latency_non_inferior": false,
+    "original_candidate_disposition": "excluded_and_retained",
+    "interpretation": "Separate comparative admissibility from default conformance without changing either historical result. V4 remains excluded because latency non-inferiority independently fails."
+  },
+  "selection": {
+    "highest_leverage_measurable_weakness": "The evaluation system cannot fairly validate a non-default retriever because five exact selected-default observations are included in the universal pass disposition even when all required evidence, coverage, behavior, policy, security, utility, and reliability checks pass.",
+    "bounded_improvement": "Add one deterministic read-only candidate-admissibility overlay over the exact retained v3/v4 reports; preserve all default-release gates and the original exclusion, and keep v3 selected because the original latency rule fails.",
+    "selected_checkpoint": "BASELINE-0033",
+    "frozen_contract": "eval/retrieval-candidate-admissibility-contract.json",
+    "changes_runtime_retrieval_or_default": false,
+    "changes_evaluator_or_historical_result": false,
+    "weakens_security_boundary": false,
+    "changes_core_thesis": false,
+    "adds_external_asset_dependency_secret_service_or_real_infrastructure": false
+  },
+  "research_basis": {
+    "source_gate": "artifacts/verification/research-source-gate-baseline-0029-retrieval-quality.json",
+    "source_gate_bytes": 10540,
+    "source_gate_sha256": "c269809d7ff3b1c8fc67a2eb17967fd178964a79eddbf5e5750f3247e350152b",
+    "principles": [
+      "evaluate retrieval and generation separately",
+      "measure focus separately from completeness",
+      "compare configurations with explicit modular evidence"
+    ],
+    "adaptation": "No external source or asset is newly accessed. The overlay inventory, classification rules, verifier, tests, and synthetic readjudication are project-authored and import no code, data, metric package, model, prompt, judge, service, or relevance label."
+  },
+  "boundaries": {
+    "research_informed": true,
+    "synthetic_sre_only": true,
+    "model_has_credentials_or_authority": false,
+    "retrieved_content_trusted": false,
+    "default_retriever_changed": false,
+    "historical_evidence_changed": false,
+    "real_infrastructure_connected": false,
+    "production_broad_pareto_or_universal_safety_claim": false
+  },
+  "next_gate": "Publish and anonymously reconcile the exact preimplementation freeze before adding the readjudication implementation or successor result."
+}

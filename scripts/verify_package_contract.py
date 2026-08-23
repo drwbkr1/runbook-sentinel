@@ -9,7 +9,7 @@ import zipfile
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_CONTRACT = ROOT / "eval/package-contract-0032.json"
+DEFAULT_CONTRACT = ROOT / "eval/package-contract-0033.json"
 CURRENT_CONTRACT = ROOT / "eval/package-contract.json"
 PACKAGE_MANIFEST_PATH = "runbook_sentinel/data/package-manifest.json"
 ALLOWED_SOURCE_KINDS = {

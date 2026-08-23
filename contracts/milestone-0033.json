@@ -1,0 +1,377 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0033",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "active_contract": "contracts/milestone-0033.json",
+    "verified_at_utc": "2026-08-23T00:41:36Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Separate non-default retrieval candidate admissibility from selected-default observational conformance, using an exact read-only overlay over retained v3/v4 evidence while preserving every historical result, every default-release and security gate, and the selected v3 product behavior.",
+    "allowed_paths": [
+      "C:/Projects/Active/runbook-sentinel-baseline-0033",
+      "C:/Projects/Verification"
+    ],
+    "forbidden_work": [
+      "Use OneDrive for repository or verification work",
+      "Change runtime retrieval evaluator agent decision context model prompt scenario split grader policy approval executor replay postcondition API MCP credential or authority behavior",
+      "Modify relabel delete or rescue any BASELINE-0031 report trace comparison contract verifier failed gate remediate disposition or excluded result",
+      "Treat a control-fingerprint exemption as a policy security utility terminal trajectory reliability latency cost evidence-rank coverage or ambiguity exemption",
+      "Promote bounded-trust-tier-lexical-v4 or change the freshness-priority-lexical-v3 product default in this checkpoint",
+      "Use held-out evidence for tuning or add a dependency model service secret paid asset external code data or real-infrastructure connector",
+      "Export push publish attach or redistribute container image bytes",
+      "Create v0.0.33 tag release or deployment before every required release-truth gate passes"
+    ],
+    "reversible_actions": [
+      "Publish project-authored orientation contract verifier tests ADR milestone and living records",
+      "Add one standard-library read-only adjudicator after the exact preimplementation freeze is public",
+      "Emit one new successor result that binds and preserves immutable historical inputs",
+      "Run source package clean-clone container dashboard API MCP approval executor state telemetry and public-surface verification",
+      "Version commit push review merge tag release and verify only a fully passing project-authored checkpoint"
+    ],
+    "stop_conditions": [
+      "Core product thesis would change",
+      "A security boundary or explicit no-go would weaken",
+      "Spend paid service secret access ownership or authentication is required",
+      "External rights integrity provenance or safety remains unresolved",
+      "Real operational infrastructure interaction is required",
+      "An irreversible action is required",
+      "The candidate or any shipped surface cannot be verified"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public main and the new clean worktree start exact at 4b7dd999c13384a196746de5dbff872e93f9f2fe",
+        "Annotated v0.0.32 tag object ea203784e11afd611666bcd988f4d1e60259f6a8 peels to audited release closure f0e565015be2ca8ed155be600a61fe131dbfa012",
+        "Public receipt artifacts/verification/public-tag-baseline-0032.json is exact at SHA-256 eebd1571dfab5942f7b1b6dfc2a42c5807629391564d01d7621b307a8c78726c"
+      ]
+    },
+    {
+      "id": "ENTRY-002",
+      "status": "pass",
+      "evidence": [
+        "Fresh public-tag v0.0.32 source execution passes 57 scenarios 171 attempts all 136 Boolean gates and an anchored 261-event trace",
+        "The accepted retriever still returns 123 extra document instances across 87 of 153 eligible attempts with expected-document share 0.683006535948",
+        "Retained v4 reduces extras to 93 and improves focus while five exact v3 observational fingerprints remain false and all other 131 Boolean gates pass"
+      ]
+    },
+    {
+      "id": "ENTRY-003",
+      "status": "pass",
+      "evidence": [
+        "The original v4 exclusion and median-latency non-inferiority failure remain retained",
+        "The active director goal authorizes continuous bounded checkpoint work and verified public releases under the declared stop gates",
+        "No unresolved product or architecture choice is required because this checkpoint cannot change the product default or any security boundary"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "EXIT-002",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "EXIT-003",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "EXIT-004",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Run the verified system, inspect current traces and separated metrics, and select the highest-leverage measurable weakness without restarting ideation.",
+      "depends_on": [],
+      "action_class": "evidence_preservation",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "verified public v0.0.32",
+        "fresh public-tag source report and anchored trace",
+        "retained BASELINE-0031 v3/v4 comparison"
+      ],
+      "outputs": [
+        "exact candidate-admissibility weakness",
+        "bounded overlay recommendation",
+        "retained original exclusion and latency failure"
+      ],
+      "gates": {
+        "public_checkpoint_reconciled": "pass",
+        "current_system_run_and_trace_inspected": "pass",
+        "separate_metric_families_inspected": "pass",
+        "highest_leverage_weakness_selected": "pass",
+        "historical_evidence_preserved": "pass"
+      },
+      "disposition": "pass",
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze and publish the exact candidate-admissibility overlay contract before implementation or successor result creation.",
+      "depends_on": [
+        "UNIT-001"
+      ],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "orientation-baseline-0033.json",
+        "retrieval-candidate-admissibility-contract.json",
+        "ADR 0027",
+        "independent phase-aware verifier and focused tests"
+      ],
+      "outputs": [
+        "public preimplementation freeze",
+        "anonymous byte reconciliation",
+        "proof that implementation and result were absent at freeze"
+      ],
+      "gates": {
+        "local_contract_valid": "pass",
+        "focused_fail_closed_tests": "pass",
+        "implementation_absent": "pass",
+        "successor_result_absent": "pass",
+        "full_regression": "pass",
+        "public_commit_exact": "pass",
+        "anonymous_changed_bytes_exact": "pass"
+      },
+      "disposition": "pass",
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement one read-only deterministic adjudicator over exact retained evidence without changing runtime or historical bytes.",
+      "depends_on": [
+        "UNIT-002"
+      ],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "public exact preimplementation contract",
+        "exact retained v3 report v4 report and comparison"
+      ],
+      "outputs": [
+        "scripts/readjudicate_retrieval_candidate.py",
+        "fail-closed implementation tests",
+        "implementation seal before result generation"
+      ],
+      "gates": {
+        "only_allowed_implementation_path": "pass",
+        "historical_inputs_unchanged": "pass",
+        "runtime_default_unchanged": "pass",
+        "security_and_authority_unchanged": "pass",
+        "implementation_public_and_exact": "pass"
+      },
+      "disposition": "pass",
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Generate the successor adjudication once, verify it independently, preserve v4 exclusion on latency, and rerun every risk-matched real surface.",
+      "depends_on": [
+        "UNIT-003"
+      ],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "public exact implementation seal",
+        "immutable v3 v4 and original comparison artifacts"
+      ],
+      "outputs": [
+        "one immutable baseline-0033 adjudication",
+        "publicly frozen identity-only v0.0.33 transition",
+        "source package clean-clone and local-container evidence",
+        "rendered dashboard API MCP state telemetry and audit evidence"
+      ],
+      "gates": {
+        "candidate_evidence_admissible": "pass",
+        "candidate_selected_false": "pass",
+        "median_latency_failure_retained": "pass",
+        "all_nonfingerprint_gates_pass": "pass",
+        "full_real_surface_matrix": "pass",
+        "container_local_only": "pass"
+      },
+      "disposition": "pass",
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "Audit review merge and release v0.0.33 only after exact source package container and public-surface verification pass.",
+      "depends_on": [
+        "UNIT-004"
+      ],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "in_progress",
+      "inputs": [
+        "passing bounded evaluation improvement",
+        "complete risk-matched release evidence"
+      ],
+      "outputs": [
+        "verified or retained stopped BASELINE-0033",
+        "annotated v0.0.33 and selected project-authored assets only if every gate passes",
+        "public reconciliation and exact resume point"
+      ],
+      "gates": {
+        "premerge_release_truth_audit": "pending",
+        "exact_reviewed_merge": "pending",
+        "fresh_public_main_complete_stack": "pending",
+        "final_release_truth_audit": "pending",
+        "annotated_tag_and_selected_assets": "pending",
+        "public_tag_complete_stack": "pending",
+        "external_reconciliation": "pending"
+      }
+    }
+  ],
+  "current_unit": "UNIT-005",
+  "next_action": "Run the governed exact-head premerge release-truth audit, then review and merge only the audited expected head if every gate passes.",
+  "path_efficiency": {
+    "max_consecutive_no_progress_units": 3,
+    "review_action_class": "local_verification",
+    "review_human_gate": false
+  },
+  "verification": {
+    "changed_risks": [
+      "A candidate-specific exemption can accidentally become a general release-gate waiver",
+      "A safe-superset classification can hide a missing required cell or ambiguous retrieval audit",
+      "Historical unfavorable v4 evidence can be silently relabeled or replaced",
+      "Held-out results can leak into tuning or selection criteria",
+      "An admissible evidence result can be misrepresented as candidate selection or Pareto improvement",
+      "Source-only evaluation success can diverge from package API MCP dashboard state telemetry or container surfaces"
+    ],
+    "required_checks": [
+      "Exact public v0.0.32 starting checkpoint receipt and fresh source-run identity",
+      "Exact retained v3 v4 comparison contract verifier report and trace identities",
+      "Exactly five allowed control-fingerprint false gates and all other 131 Boolean gates true",
+      "All required retrieval-stage cells present zero ambiguity and exact three-pair safe superset",
+      "Required evidence ranks terminal trajectory policy utility security reliability latency and cost kept separate",
+      "Original remediate disposition exclusion and median-latency failure preserved",
+      "No runtime evaluator default scenario policy authority dependency secret service external asset or real-infrastructure change",
+      "Source package API MCP dashboard state telemetry clean-clone container audit review release and public-tag verification"
+    ],
+    "completed_checks": [
+      "Public main and clean BASELINE-0033 worktree start exact at 4b7dd999c13384a196746de5dbff872e93f9f2fe",
+      "Fresh public-tag v0.0.32 source run passes 57 scenarios 171 attempts all 136 Boolean gates and anchored 261-event trace",
+      "Retained v4 has exactly five false selected-default fingerprints and 131 passing nonfingerprint Boolean gates",
+      "Required retrieval-stage coverage is 1.0 with zero missing cell zero ambiguity and exactly three frozen safe-superset pairs",
+      "The original comparison keeps v3 selected and v4 excluded because median latency non-inferiority is false",
+      "The frozen contract verifier passes in preimplementation mode and six focused fail-closed tests pass",
+      "The complete regression suite passes 102 tests in 134.996 seconds; the earlier detached 53-case partial attempt remains inconclusive and supplies no positive evidence",
+      "Public freeze commit 027d237627b07180bdefa15f00ff62a037f9751e is exact across explicit tracking, ls-remote, anonymous ref, tree, parent, all 19 Git blobs, all 19 raw files, and rendered branch and commit pages while public main remains unchanged",
+      "A repository-free simulation proves the public frozen verifier lacks the required implementation-present result-absent phase; a schema-1.1 three-phase lifecycle correction passes locally without changing any admissibility inventory runtime default security boundary or historical result",
+      "The lifecycle-only correction passes eight focused fail-closed tests and the complete 104-test regression suite in 140.325 seconds while implementation and successor result remain absent",
+      "Lifecycle correction 4e22e38ee274c6c8a53c8b3ee3874203412ab18c is exact across local tracking ls-remote anonymous ref commit tree parent all 14 Git blobs all 14 raw paths and rendered commit while public main remains unchanged",
+      "The adjudicator default mode completes in memory without writing a result; 17 focused tests and 113 complete regression tests pass, inputs remain exact, nonfrozen paths and overwrite attempts fail closed, and the real repository phase is implementation_sealed_no_result",
+      "Implementation seal f5e2a843aa77028d005116265225e5d858c6488c is exact across local tracking ls-remote anonymous ref commit tree parent all 15 Git blobs all 15 raw paths and rendered commit; the successor result is absent from the public tree and public main is unchanged",
+      "The exact public adjudicator writer ran once after record 38593b13a280409f7064e4afffdfd7e0ace4fd64 was reconciled; the 5086-byte result SHA-256 6b81820e3942dd9ec4e603147fde0b58d73404effa46984ebc370bd44e5d454f reproduces exactly, passes independent verification, keeps v3 selected, and retains v4 exclusion on median latency",
+      "Post-result lifecycle tests pass 17 focused cases and the complete 113-test suite in 96.498 seconds without changing the sealed adjudicator or result",
+      "Result commit e43bc3eccd38a780f7a3f1a13490ac1c149d1716 is exact across local tracking ls-remote anonymous ref commit tree parent all 12 Git blobs all 12 raw paths and rendered commit; public result bytes match SHA-256 6b81820e3942dd9ec4e603147fde0b58d73404effa46984ebc370bd44e5d454f and public main is unchanged"
+      ,"Result-record commit b125b5ecef4b3b3a406d3dc903a6de5ec4e02952 is public and exact across nine changed paths; the local release-identity contract now freezes an empty functional product delta, four prehashed successor identity files, 20 unchanged runtime files, the closed 24-file product inventory, exact 43-entry package inheritance, exact v12 container receipt and unchanged admitted base"
+      ,"The corrected frozen release-identity verifier and six fail-closed tests pass before any v0.0.33 source identity, successor package or container contract, archive, image, tag, release, or deployment exists; the initial verifier-hash and temporary-path test failure remains retained"
+      ,"The complete pre-freeze suite passes 119 tests in 100.719 seconds and all 42 phase-correct side-effect-free project validators in 3.513 seconds; milestone, compilation, changed-JSON, diff, high-signal secret and model-artifact scans, and successor-absence checks pass"
+      ,"Release-identity freeze 53b3738dbb80e1fd5537e2b776207e19d3d2b205 is public and exact across local tracking ls-remote anonymous ref commit tree parent all 14 Git blobs all 14 raw paths and rendered commit evidence while public main remains unchanged"
+      ,"Release-identity record 2d81bd4e4f4fe89192f88485ea616d36f59358a2 is public and exact across its eight paths; public main remains unchanged and the bounded successor implementation exists only in the local unstaged worktree"
+      ,"The first implemented-phase check failed closed only on an incomplete future scripts/verify_live_api.ps1 target hash; schema-1.1 binds the visible Baseline 0033 assertion and matching local field rename, and eight focused tests pass against both the exact public predecessor fixture and intended local implemented projection"
+      ,"Schema-1.1 correction 8dc04efa9fa07fe61de88f462e647275a4457cd2 is public and exact across refs anonymous metadata all 11 Git blobs all 11 raw files an untruncated 1556-entry tree a clean credential-disabled clone and rendered evidence; its tree remains v0.0.32/baseline-0032 and excludes successor contracts archives and images"
+      ,"The exact clean correction commit passes eight focused tests and all 121 regressions in 99.580 seconds plus frozen release-identity and governed milestone validation; public main remains unchanged"
+      ,"Correction record b5c9a224e5bc52cd5d2fe59a9d55836d4a1e63fb is public and exact across refs anonymous metadata all eight Git blobs all eight raw paths an untruncated 1557-entry tree and rendered evidence; public main remains unchanged"
+      ,"The local release-identity implemented phase passes with zero functional product delta four mechanical identities 20 unchanged runtime files candidate selected false v3 selected and zero new external assets"
+      ,"Active and versioned package contracts are byte-identical at SHA-256 3a3994c821490754144c22a7d19771218f1813971eb16a315cacc311113e7c8e with 43 entries and no archive; active and versioned container-runtime-v13 contracts are byte-identical at 54067e1a7447f09eae990196dc8a5c90c0815ef35055ac4f95099afeb4f9fc54 and inherit exact v12 receipt base and 49 checks"
+      ,"The first implemented suite retained a 120-of-121 historical verifier lifecycle failure; the immutable v0.0.32 verifier now runs against an exact released-v12 fixture while the current base is checked separately, after which all 121 tests pass in 94.811 seconds and all 41 applicable non-manifest validators pass"
+      ,"The predecessor manifest fails closed on exactly 17 bounded implementation paths; no successor manifest archive checksum container receipt image tag release or deployment exists"
+      ,"Implementation seal 1a8864c049a01ed6b0286a3a19798747fd39357d is public and exact across refs anonymous metadata all 31 Git blobs all 31 raw files an untruncated 1560-entry tree and rendered evidence; public main remains unchanged and artifact paths remain absent"
+      ,"Implementation record e1547e541f57e1031d7cec1862e0b7c099efead7 is public and exact across branch anonymous metadata all eight Git blobs all eight raw files an untruncated 1561-entry tree and rendered evidence; public main remains unchanged"
+      ,"Byte-identical active and archived BASELINE-0033 manifests freeze 153 files at 18484 bytes and SHA-256 4f9e9880a9f3a7dd75e94f83018d3f2bef996d4f49b05fd42160f7f62f281b20; all 121 tests pass in 90.994 seconds and all 42 phase-correct validators pass in 3.157 seconds before any archive image evaluation tag release or deployment"
+      ,"Prebuild seal a214475dd33d165d4e990819ffce391e911fa33b is public and exact across branch anonymous metadata all 11 Git blobs all 11 raw files an untruncated 1563-entry tree and rendered evidence; public main remains unchanged and downstream artifacts remain absent"
+      ,"Prebuild record d64f97529e6bb34a2451ea087aac817d6fae6288 is public and exact across all eight paths in an untruncated 1564-entry tree; two independent 43-entry archives reproduce 647712 bytes at SHA-256 b10384f2ff7f61ace6fe34ae08b47625b6ab6c39636063c440ff8731563e6cec"
+      ,"Source and package attempts each pass 57 scenarios 171 attempts all 136 Boolean gates and anchored 261-event traces; 407 raw differences use only 17 declared launch-varying fields and normalize byte-exact at SHA-256 880f6988a9c39ebb3e3e15d3189b277e9194053e43d2cb824ba910b0366691df"
+      ,"Both three-tool MCP surfaces both authenticated APIs with all 131 definitions and zero false checks both 72-check native inspections and both complete 1440 by 1000 dashboards pass; 121 post-surface tests and 42 execution-phase validators pass while no BASELINE-0033 image exists"
+      ,"Package/source payload 24e6be34b7b5fcaf60b22b70b1f1377ed9ff731c is public and exact across refs anonymous metadata all 20 Git blobs all 20 raw files totaling 4819808 bytes an untruncated 1575-entry tree and rendered evidence while public main remains unchanged"
+      ,"Public package/source record c63809108892f798d8886472ceb3e5f8abc331a4 is exact; two full local builds and one credential-disabled no-alternates public-clone build reproduce image ID sha256:00b378aba27e914eebf1d67aa95652bf949939dc8ed2fe2bef2854e41daa9265 and all 49 container-runtime-v13 checks pass without image export or publication"
+      ,"The complete post-container gate passes 121 tests in 138.583 seconds and all 42 current phase-aware validators in 7.250 seconds with the canonical result required; structured parsing compilation diff milestone public-input live-image bounded credential capability private-key model and export checks pass"
+      ,"Artifact scan artifact-scan-baseline-0033-container-phase.json is 4906 bytes at SHA-256 f0f77e0b54bc9f57d9aa12924e50c5368ac512b28ead8f75fcba9daba9dd0c2c; 49 retained observations remain excluded from positive evidence and no image was exported pushed published or redistributed"
+      ,"Public container-evidence commit 0bf67a1be175606aa28214ccc20cadb1f32eeb55 tree ee47a2be1b90245d4e3735b422869131179e8505 parent c63809108892f798d8886472ceb3e5f8abc331a4 is exact across refs anonymous metadata all 14 Git blobs all 14 raw paths totaling 1505789 bytes an untruncated 1582-entry tree unchanged public main and rendered evidence"
+      ,"Public container receipt container-baseline-0033-public.json is 7057 bytes at SHA-256 90f3e4269692a856c338e761c7f716e8c14438c89a43ffd145cf0810493878d1; UNIT-004 passes without review merge tag release deployment image export push publication or redistribution"
+    ],
+    "artifacts": [
+      "artifacts/verification/orientation-baseline-0033.json",
+      "artifacts/verification/baseline-0033-orientation-failures-001.json",
+      "eval/retrieval-candidate-admissibility-contract.json",
+      "scripts/verify_retrieval_candidate_admissibility_contract.py",
+      "tests/test_retrieval_candidate_admissibility_contract.py",
+      "docs/adr/0027-separate-default-retrieval-conformance-from-candidate-admissibility.md",
+      "artifacts/verification/baseline-0033-preimplementation-freeze-public.json",
+      "artifacts/verification/baseline-0033-implementation-phase-gap-attempt-001.json",
+      "artifacts/verification/baseline-0033-lifecycle-correction-public.json",
+      "artifacts/verification/baseline-0033-adjudicator-implementation-public.json",
+      "artifacts/verification/baseline-0033-adjudication-result-public.json"
+      ,"eval/release-identity-contract-0033.json"
+      ,"scripts/verify_release_identity_contract_0033.py"
+      ,"tests/test_release_identity_contract_0033.py"
+      ,"docs/adr/0028-release-adjudicated-checkpoints-through-an-identity-only-transition.md"
+      ,"artifacts/verification/baseline-0033-release-identity-freeze-local.json"
+      ,"artifacts/verification/baseline-0033-release-identity-freeze-public.json"
+      ,"artifacts/verification/baseline-0033-release-identity-lifecycle-correction-local.json"
+      ,"artifacts/verification/baseline-0033-release-identity-lifecycle-correction-public.json"
+      ,"artifacts/verification/baseline-0033-release-identity-implementation-local.json"
+      ,"artifacts/verification/baseline-0033-release-identity-implementation-public.json"
+      ,"artifacts/verification/baseline-0033-prebuild-source-manifest.json"
+      ,"artifacts/verification/baseline-0033-prebuild-manifest-seal-local.json"
+      ,"artifacts/verification/baseline-0033-prebuild-manifest-seal-public.json"
+      ,"artifacts/verification/package-source-baseline-0033.json"
+      ,"artifacts/evaluations/runs/baseline-0033-attempt-001.json"
+      ,"artifacts/evaluations/runs/baseline-0033-attempt-001.manifest.json"
+      ,"artifacts/evaluations/runs/baseline-0033-attempt-001.traces.jsonl"
+      ,"artifacts/evaluations/runs/baseline-0033-attempt-002.json"
+      ,"artifacts/evaluations/runs/baseline-0033-attempt-002.manifest.json"
+      ,"artifacts/evaluations/runs/baseline-0033-attempt-002.traces.jsonl"
+      ,"artifacts/verification/dashboard-source-baseline-0033.png"
+      ,"artifacts/verification/dashboard-package-baseline-0033.png"
+      ,"artifacts/verification/native-source-baseline-0033.json"
+      ,"artifacts/verification/native-package-baseline-0033.json"
+      ,"artifacts/verification/package-source-baseline-0033-public.json"
+      ,"artifacts/verification/container-baseline-0033-local-attempt-001.json"
+      ,"artifacts/verification/clean-container-baseline-0033-local-attempt-001.json"
+      ,"artifacts/verification/container-baseline-0033.json"
+      ,"artifacts/verification/dashboard-container-baseline-0033.png"
+      ,"artifacts/verification/container-scout-critical-high-baseline-0033.sarif.json"
+      ,"artifacts/verification/artifact-scan-baseline-0033-container-phase.json"
+      ,"artifacts/verification/container-baseline-0033-public.json"
+    ],
+    "disposition": "in_progress"
+  },
+  "handoff": {
+    "latest_verified_checkpoint": "immutable public v0.0.32 at tag object ea203784e11afd611666bcd988f4d1e60259f6a8 peeled to audited closure f0e565015be2ca8ed155be600a61fe131dbfa012, with public receipt SHA-256 eebd1571dfab5942f7b1b6dfc2a42c5807629391564d01d7621b307a8c78726c and rendered-truth correction main 4b7dd999c13384a196746de5dbff872e93f9f2fe",
+    "retained_failed_checkpoint": "stopped unpublished BASELINE-0031 release candidate v0.0.31 plus separately retained excluded bounded-trust-tier-lexical-v4 comparison",
+    "current_checkpoint": "BASELINE-0033 UNIT-004 passes at exact public container-evidence commit 0bf67a1be175606aa28214ccc20cadb1f32eeb55 with canonical local-only image ID sha256:00b378aba27e914eebf1d67aa95652bf949939dc8ed2fe2bef2854e41daa9265 and all 14 public evidence paths reconciled. UNIT-005 exact-head premerge audit is active. No image was exported pushed published or redistributed.",
+    "resume_rule": "Resume from public verified v0.0.32 and the exact BASELINE-0033 freeze state; inspect the active milestone and verifier before acting, never use OneDrive, never rewrite the original v4 exclusion, and never infer candidate selection from candidate evidence admissibility."
+  }
+}

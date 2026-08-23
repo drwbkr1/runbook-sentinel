@@ -26,14 +26,14 @@ def sha256(path: Path) -> str:
 
 
 def main() -> None:
-    database = ROOT / "var/live-api-baseline-0032.db"
-    trace = ROOT / "artifacts/runtime/live-api-baseline-0032-traces.jsonl"
+    database = ROOT / "var/live-api-baseline-0033.db"
+    trace = ROOT / "artifacts/runtime/live-api-baseline-0033-traces.jsonl"
     trace_anchor = live_trace_anchor_path(trace)
     evaluation = ROOT / "artifacts/evaluations/latest.json"
     manifest = ROOT / "eval/manifest.json"
-    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0032.png"
-    stdout_log = ROOT / "artifacts/runtime/live-api-baseline-0032-stdout.log"
-    stderr_log = ROOT / "artifacts/runtime/live-api-baseline-0032-stderr.log"
+    screenshot = ROOT / "artifacts/verification/dashboard-baseline-0033.png"
+    stdout_log = ROOT / "artifacts/runtime/live-api-baseline-0033-stdout.log"
+    stderr_log = ROOT / "artifacts/runtime/live-api-baseline-0033-stderr.log"
     required = [
         database,
         trace,
@@ -272,7 +272,7 @@ def main() -> None:
         },
         "dashboard": {"sha256": sha256(screenshot), "width": width, "height": height},
     }
-    output = ROOT / "artifacts/verification/native-baseline-0032.json"
+    output = ROOT / "artifacts/verification/native-baseline-0033.json"
     output.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(receipt, indent=2, sort_keys=True))
     if receipt["status"] != "pass":

@@ -1,0 +1,183 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0033-PREBUILD-MANIFEST-SEAL-LOCAL",
+  "checkpoint": "BASELINE-0033",
+  "observed_at_utc": "2026-08-23T02:19:47Z",
+  "status": "local_pass_public_seal_pending",
+  "repository": {
+    "branch": "codex/baseline-0033-retrieval-candidate-admissibility",
+    "parent_commit": "e1547e541f57e1031d7cec1862e0b7c099efead7",
+    "parent_tree": "e0daab778174a7024e9a4edefb314004de10df6a",
+    "public_implementation_commit": "1a8864c049a01ed6b0286a3a19798747fd39357d",
+    "public_implementation_record_commit": "e1547e541f57e1031d7cec1862e0b7c099efead7",
+    "public_main_commit": "4b7dd999c13384a196746de5dbff872e93f9f2fe"
+  },
+  "manifest": {
+    "active_path": "eval/manifest.json",
+    "archived_path": "artifacts/verification/baseline-0033-prebuild-source-manifest.json",
+    "checkpoint": "baseline-0033",
+    "frozen_at_utc": "2026-08-23T02:03:44Z",
+    "file_count": 153,
+    "bytes": 18484,
+    "sha256": "4f9e9880a9f3a7dd75e94f83018d3f2bef996d4f49b05fd42160f7f62f281b20",
+    "active_and_archived_bytes_equal": true,
+    "predecessor_sha256": "2641b57f17a47bab60d2c9258b1f08b6bd66f22e7cc99529fa0f41436150e27f",
+    "changed_identity_count": 17,
+    "changed_identity_paths": [
+      ".dockerignore",
+      "Dockerfile",
+      "eval/container-contract.json",
+      "eval/package-contract.json",
+      "pyproject.toml",
+      "scripts/build_zipapp.py",
+      "scripts/inspect_runtime_evidence.py",
+      "scripts/verify_baseline.py",
+      "scripts/verify_container_contract.py",
+      "scripts/verify_container_runtime.py",
+      "scripts/verify_live_api.ps1",
+      "scripts/verify_mcp_stdio.py",
+      "scripts/verify_package_contract.py",
+      "src/runbook_sentinel/__init__.py",
+      "src/runbook_sentinel/api.py",
+      "src/runbook_sentinel/cli.py",
+      "src/runbook_sentinel/mcp_server.py"
+    ]
+  },
+  "release_identity": {
+    "phase": "implemented",
+    "functional_product_delta_count": 0,
+    "candidate_evidence_admissible": true,
+    "candidate_selected": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "new_external_asset_count": 0
+  },
+  "verification": {
+    "manifest_validator": {
+      "status": "pass",
+      "file_count": 153
+    },
+    "complete_regression": {
+      "status": "pass",
+      "passed": 121,
+      "failed": 0,
+      "total": 121,
+      "elapsed_seconds": 90.994
+    },
+    "applicable_phase_correct_validators": {
+      "status": "pass",
+      "passed": 42,
+      "failed": 0,
+      "total": 42,
+      "elapsed_seconds": 3.157
+    },
+    "post_record_validator_rerun": {
+      "status": "pass",
+      "passed": 42,
+      "failed": 0,
+      "total": 42,
+      "elapsed_seconds": 9.714
+    },
+    "milestone": {
+      "status": "active",
+      "valid": true,
+      "active_unit": "UNIT-004",
+      "errors": 0,
+      "warnings": 0
+    },
+    "python_compile": "pass",
+    "changed_json_parse": "pass",
+    "git_diff_check": "pass",
+    "high_signal_added_secret_assignment_count": 0,
+    "complete_private_key_block_count": 0,
+    "model_artifact_path_count": 0,
+    "docker_server_version": "29.4.3",
+    "baseline_0033_image_match_count": 0,
+    "baseline_0033_container_match_count": 0
+  },
+  "changed_payload": {
+    "excludes_this_receipt": true,
+    "path_count": 10,
+    "files": [
+      {
+        "path": "CHANGELOG.md",
+        "bytes": 126221,
+        "sha256": "d26ffec547a7ce843c0a4be1c10ac3183b3f411e6980a813c9b5c6723cb13d31"
+      },
+      {
+        "path": "artifacts/verification/baseline-0033-orientation-failures-001.json",
+        "bytes": 23271,
+        "sha256": "f20bcb721ce3d2ca32f0f81d55a8fbaa954de9c3b02ca9505dbeaee4e126435e"
+      },
+      {
+        "path": "artifacts/verification/baseline-0033-prebuild-source-manifest.json",
+        "bytes": 18484,
+        "sha256": "4f9e9880a9f3a7dd75e94f83018d3f2bef996d4f49b05fd42160f7f62f281b20"
+      },
+      {
+        "path": "contracts/milestone-0033.json",
+        "bytes": 23212,
+        "sha256": "2c48009949d839a13007482fd35ddaa7b082dc568a00d2a8034cccf00dcab265"
+      },
+      {
+        "path": "docs/devlog.md",
+        "bytes": 464169,
+        "sha256": "fbf73e4b3339832d262a96f11baaf627138380637eae350618e3e834b81c2908"
+      },
+      {
+        "path": "docs/evaluation-report.md",
+        "bytes": 236078,
+        "sha256": "c5c4ab9f4ad9c97b9265b656dfdf3b76bf832a08703f0cccc1232332b16d2d79"
+      },
+      {
+        "path": "docs/roadmap.md",
+        "bytes": 97449,
+        "sha256": "7f535855357eacf0f6ebb385b433dfeb65db1579879e1898ab207b750a188e93"
+      },
+      {
+        "path": "docs/status.md",
+        "bytes": 271096,
+        "sha256": "597547de5c208d90d78707780e4e88e15629ce820de862bfb1a1e7ef312d6824"
+      },
+      {
+        "path": "docs/version-history.md",
+        "bytes": 28989,
+        "sha256": "b5d2ddf41c8f93b5be4ff2818edf53a439fb68755ee2385e3cd96745b43ca394"
+      },
+      {
+        "path": "eval/manifest.json",
+        "bytes": 18484,
+        "sha256": "4f9e9880a9f3a7dd75e94f83018d3f2bef996d4f49b05fd42160f7f62f281b20"
+      }
+    ]
+  },
+  "prebuild_state": {
+    "v0_0_33_archive_exists": false,
+    "v0_0_33_checksum_exists": false,
+    "container_receipt_exists": false,
+    "baseline_0033_derived_image_match_count": 0,
+    "candidate_evaluation_started": false
+  },
+  "retained_process_invalid_ids": [
+    "PREBUILD-MANIFEST-POWERSHELL-COUNT-001",
+    "PREBUILD-VALIDATOR-INVENTORY-WINDOWS-GLOB-001",
+    "PREBUILD-PYTEST-INTERPRETER-001",
+    "PREBUILD-VALIDATOR-PYTHONPATH-001",
+    "PREBUILD-RETRIEVAL-OBSERVABILITY-PHASE-001",
+    "PREBUILD-RETRIEVAL-SELECTION-FLAG-001",
+    "PREBUILD-FAILURE-RECORD-PATCH-CONTEXT-001",
+    "PREBUILD-PREFLIGHT-POWERSHELL-PARSER-001",
+    "PREBUILD-PRIVATE-KEY-MARKER-SCAN-001"
+  ],
+  "boundaries": {
+    "runtime_retriever_model_or_default_changed": false,
+    "evaluation_case_grader_or_threshold_changed": false,
+    "security_or_authority_changed": false,
+    "package_or_derived_image_built": false,
+    "candidate_evaluation_started": false,
+    "dependency_secret_paid_service_or_external_asset_added": false,
+    "real_operational_infrastructure_contacted": false,
+    "tag_release_or_deployment_created": false,
+    "container_image_exported_pushed_published_or_redistributed": false
+  },
+  "next_gate": "Validate every changed byte, commit and publish the exact prebuild manifest seal, reconcile anonymous GitHub and rendered bytes, and only then build deterministic v0.0.33 package attempts."
+}
