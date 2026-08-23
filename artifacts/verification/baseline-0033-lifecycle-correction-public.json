@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0033",
+  "receipt_id": "baseline-0033-lifecycle-correction-public",
+  "status": "pass",
+  "observed_at_utc": "2026-08-23T00:05:57.7565501Z",
+  "repository": {
+    "branch": "codex/baseline-0033-retrieval-candidate-admissibility",
+    "commit": "4e22e38ee274c6c8a53c8b3ee3874203412ab18c",
+    "tree": "50d2e63747b52046a39f08926863194c6621cd68",
+    "parent": "50205ee80c1e4af87fbddd64ab026beac9b1ec13",
+    "public_main": "4b7dd999c13384a196746de5dbff872e93f9f2fe"
+  },
+  "verification": {
+    "local_tracking_ls_remote_and_anonymous_ref_exact": true,
+    "anonymous_commit_tree_and_parent_exact": true,
+    "recursive_tree_truncated": false,
+    "recursive_tree_entry_count": 1541,
+    "changed_path_count": 14,
+    "git_blob_identity_count": 14,
+    "anonymous_raw_exact_count": 14,
+    "rendered_commit_subject_hash_parent_and_path_count_visible": true,
+    "public_main_unchanged": true
+  },
+  "paths": [
+    {
+      "path": "artifacts/verification/baseline-0033-implementation-phase-gap-attempt-001.json",
+      "bytes": 2227,
+      "sha256": "8371011d67c47f8dc09d2cdf79b8684e6e960c40b12374462746fc5e62019943",
+      "git_blob": "cf56b03b6cde0aded55b5c8dae9b7a1c6f1d8ab4"
+    },
+    {
+      "path": "artifacts/verification/baseline-0033-lifecycle-correction-local.json",
+      "bytes": 4185,
+      "sha256": "93cf3abe042de9587897605ea3d667c6cf034d8774ae398997d48fdc5f26282f",
+      "git_blob": "78afcbd8464160ec4b602ac259ca5bf73aa1d0cf"
+    },
+    {
+      "path": "artifacts/verification/baseline-0033-orientation-failures-001.json",
+      "bytes": 5474,
+      "sha256": "7b180a75d7f85c4c24ba753c40833711e179eb7f87ee754581272ea7349c8630",
+      "git_blob": "741fd28dd0502a59d30b230f5536c1265aa91cf4"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 120646,
+      "sha256": "47ea0bc4bc1862244c99cad56381cfb4f4e34dbdabbf10051817641396895826",
+      "git_blob": "29a535e0afb8ac100a11f6d550f51a84110a8cc9"
+    },
+    {
+      "path": "contracts/milestone-0033.json",
+      "bytes": 15825,
+      "sha256": "123f5c5748bb3d98aae4b7af05b9d45073d6137a6e727d15a17f0e694d7eb54c",
+      "git_blob": "5a10d665265555bfdaaa35141e723d81e3f3ce9f"
+    },
+    {
+      "path": "docs/devlog.md",
+      "bytes": 452758,
+      "sha256": "f171157a0773215b838af31ebe6119a28664f2ddeb75944e6e442bca2b0da0bb",
+      "git_blob": "0b962a9fcd624fa70ad4a2b32923370ae8b24601"
+    },
+    {
+      "path": "docs/evaluation-contract.md",
+      "bytes": 44145,
+      "sha256": "b6a871306b63ff8b8dbd6893fcb27c01ddca4ba25caa01c4573007b7a07e2042",
+      "git_blob": "d103ec76ae1df0c9e43aa472d1b2a3e518d0ee53"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "bytes": 227686,
+      "sha256": "b81e2b0329d342c709d4580ff1a11f8cc186e966b45a68195c2eccf6a709b7a1",
+      "git_blob": "9a9cc04779b3a5d3f8556239191ba90bf83aacc8"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 95425,
+      "sha256": "b6e490fa8fa86cfeef2dd964130dc5144cf61cce65e57afe34e0bddaf2525409",
+      "git_blob": "929530d4b2c50801e2de6a34a4fcf13bdedea728"
+    },
+    {
+      "path": "docs/status.md",
+      "bytes": 261057,
+      "sha256": "f40c267e2a8006c0f24f141eee23566d40a0aeb505cf0029dce4c57ce2e13b6a",
+      "git_blob": "fb93dabac8d94c1450b8c655ef1ead5cb50ee376"
+    },
+    {
+      "path": "docs/version-history.md",
+      "bytes": 28803,
+      "sha256": "99fac4949edc5dd95159097ddae0e17a9eec168c04a0f59fac279d6e71204051",
+      "git_blob": "5618ec04f667c44df51b8a010776fbf6d243b7a8"
+    },
+    {
+      "path": "eval/retrieval-candidate-admissibility-contract.json",
+      "bytes": 11767,
+      "sha256": "e0cf29efea6eae6e6eb8fa9f3f646bfaf4839bcc633d90b58505d2b1cd910f57",
+      "git_blob": "ad9dff7ab8a43c01a2383a0c7fb0a0d232dc9269"
+    },
+    {
+      "path": "scripts/verify_retrieval_candidate_admissibility_contract.py",
+      "bytes": 11974,
+      "sha256": "ce771c952ca554dce7998110e536161e6088d3b3130dff7b0ecdc841e56d388f",
+      "git_blob": "2144bf93484fe54d50a5aa341b5a6dbfced30f24"
+    },
+    {
+      "path": "tests/test_retrieval_candidate_admissibility_contract.py",
+      "bytes": 6333,
+      "sha256": "49746a5b0fe29fd8f18e9ffa77443568cb7cd2be877bd2ae7874e0f4fd70a963",
+      "git_blob": "f86340b56bf7aaf0c812ee694a738bdc9d4dad2f"
+    }
+  ],
+  "boundaries": {
+    "adjudicator_present": false,
+    "successor_result_present": false,
+    "admissibility_threshold_or_inventory_changed": false,
+    "runtime_or_default_changed": false,
+    "security_boundary_changed": false,
+    "historical_result_rewritten": false,
+    "candidate_selected": false,
+    "public_main_changed": false,
+    "tag_release_or_deployment_created": false
+  },
+  "next_gate": "Publish and reconcile this record-only receipt, then implement only the read-only adjudicator and fail-closed implementation tests without generating the successor result."
+}

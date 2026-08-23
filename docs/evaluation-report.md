@@ -12,6 +12,8 @@ Record commit `50205ee80c1e4af87fbddd64ab026beac9b1ec13` is separately public an
 
 The lifecycle correction passes eight focused tests in 0.200 seconds and the complete 104-test suite in 140.325 seconds. Its real repository phase remains `frozen_preimplementation`; simulated tests prove the implementation-only state passes and a premature result fails. This is correction evidence only, not candidate readjudication.
 
+Correction commit `4e22e38ee274c6c8a53c8b3ee3874203412ab18c`, tree `50d2e63747b52046a39f08926863194c6621cd68`, is public and exact across explicit tracking, `ls-remote`, anonymous ref/commit/tree/parent, all 14 blobs and raw paths, and the rendered commit. Public `main` is unchanged. No implementation or result exists at this seal.
+
 ## BASELINE-0032 local canonical container candidate
 
 The exact public package/source record at `001b6a19b38616d07a9995d19831b44c8a03a6a1` supplied the only admitted Docker input. Two independent no-cache, network-disabled full builds and one credential-disabled HTTPS no-alternates clean build reproduce image ID `sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9` at the frozen creation time. The clean clone first rebuilt the exact 43-entry, 647,712-byte zipapp at SHA-256 `3be93953a367483e29c696af889ebfccc432424b8303c4f69ae00d10a38c2270`.
