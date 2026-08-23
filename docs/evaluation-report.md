@@ -30,6 +30,8 @@ The successor package must preserve the exact 43-entry predecessor allowlist, ar
 
 The complete pre-freeze regression passes 119 tests in 100.719 seconds. All 42 phase-correct side-effect-free validators pass in 3.513 seconds, including the immutable adjudication, selected-v3/excluded-v4 boundary, predecessor package and container result, active manifest, and new frozen transition. Milestone, compilation, changed-JSON, diff, high-signal credential/private-key, model-artifact, and explicit successor-absence gates pass. Process-invalid broad-parse and hash-summary attempts remain retained.
 
+Public freeze `53b3738dbb80e1fd5537e2b776207e19d3d2b205`, tree `1cf3d42e27ed7fac7dcec31ba0f61ac9f75fefa6`, is exact across all refs, the single parent, 14 Git blobs, 14 anonymous raw files, an untruncated 1,554-entry tree, and the rendered commit page. Public `main` remains unchanged. No successor identity or artifact existed in that tree; the separately published receipt is the final prerequisite for implementation.
+
 ## BASELINE-0032 local canonical container candidate
 
 The exact public package/source record at `001b6a19b38616d07a9995d19831b44c8a03a6a1` supplied the only admitted Docker input. Two independent no-cache, network-disabled full builds and one credential-disabled HTTPS no-alternates clean build reproduce image ID `sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9` at the frozen creation time. The clean clone first rebuilt the exact 43-entry, 647,712-byte zipapp at SHA-256 `3be93953a367483e29c696af889ebfccc432424b8303c4f69ae00d10a38c2270`.

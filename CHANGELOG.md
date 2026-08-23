@@ -20,6 +20,7 @@
 - Published result-record commit `b125b5e...` exact across all nine paths. Added ADR 0028 and a preimplementation release-identity contract: v0.0.33 has no functional product delta, only four prehashed product identity substitutions; the other 20 runtime files, closed 24-file inventory, predecessor 43-entry package allowlist, exact v12 container receipt, digest-pinned base, required checks, and security boundaries remain fixed.
 - Added an independent frozen/implemented release-identity verifier and six fail-closed tests. The first run rejected a mistyped result hash and exposed a temporary-path test defect; the corrected run passes without any successor identity, package contract, archive, container contract, image, tag, release, or deployment present.
 - The complete pre-freeze gate passes 119 tests, all 42 phase-correct validators, governed milestone validation, compilation, changed-JSON parsing, diff checks, high-signal secret/private-key and model-artifact scans, and explicit successor-artifact absence. Failed broad-parse and hash-summary wrappers are retained without changing product or evidence bytes.
+- Published release-identity freeze `53b3738...` exact across refs, commit/tree/parent, all 14 blobs and anonymous raw paths, an untruncated tree, rendered commit evidence, and unchanged public `main`. Its record-only receipt precedes any v0.0.33 source or contract implementation.
 
 ## 0.0.32 - 2026-08-22
 

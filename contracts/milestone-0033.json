@@ -250,7 +250,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Complete regression and phase-correct validation, then publish and anonymously reconcile the release-identity freeze before implementing any v0.0.33 identity or successor contract.",
+  "next_action": "Publish and anonymously reconcile the record-only release-identity freeze receipt, then implement only the exact frozen v0.0.33 identity projection and successor package/container contracts.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -295,6 +295,7 @@
       ,"Result-record commit b125b5ecef4b3b3a406d3dc903a6de5ec4e02952 is public and exact across nine changed paths; the local release-identity contract now freezes an empty functional product delta, four prehashed successor identity files, 20 unchanged runtime files, the closed 24-file product inventory, exact 43-entry package inheritance, exact v12 container receipt and unchanged admitted base"
       ,"The corrected frozen release-identity verifier and six fail-closed tests pass before any v0.0.33 source identity, successor package or container contract, archive, image, tag, release, or deployment exists; the initial verifier-hash and temporary-path test failure remains retained"
       ,"The complete pre-freeze suite passes 119 tests in 100.719 seconds and all 42 phase-correct side-effect-free project validators in 3.513 seconds; milestone, compilation, changed-JSON, diff, high-signal secret and model-artifact scans, and successor-absence checks pass"
+      ,"Release-identity freeze 53b3738dbb80e1fd5537e2b776207e19d3d2b205 is public and exact across local tracking ls-remote anonymous ref commit tree parent all 14 Git blobs all 14 raw paths and rendered commit evidence while public main remains unchanged"
     ],
     "artifacts": [
       "artifacts/verification/orientation-baseline-0033.json",
@@ -312,13 +313,15 @@
       ,"scripts/verify_release_identity_contract_0033.py"
       ,"tests/test_release_identity_contract_0033.py"
       ,"docs/adr/0028-release-adjudicated-checkpoints-through-an-identity-only-transition.md"
+      ,"artifacts/verification/baseline-0033-release-identity-freeze-local.json"
+      ,"artifacts/verification/baseline-0033-release-identity-freeze-public.json"
     ],
     "disposition": "in_progress"
   },
   "handoff": {
     "latest_verified_checkpoint": "immutable public v0.0.32 at tag object ea203784e11afd611666bcd988f4d1e60259f6a8 peeled to audited closure f0e565015be2ca8ed155be600a61fe131dbfa012, with public receipt SHA-256 eebd1571dfab5942f7b1b6dfc2a42c5807629391564d01d7621b307a8c78726c and rendered-truth correction main 4b7dd999c13384a196746de5dbff872e93f9f2fe",
     "retained_failed_checkpoint": "stopped unpublished BASELINE-0031 release candidate v0.0.31 plus separately retained excluded bounded-trust-tier-lexical-v4 comparison",
-    "current_checkpoint": "BASELINE-0033 immutable result commit e43bc3eccd38a780f7a3f1a13490ac1c149d1716 and record b125b5ecef4b3b3a406d3dc903a6de5ec4e02952 are public and exact. A local preimplementation release-identity contract keeps the product delta empty, v3 selected, v4 excluded, and the admitted container base unchanged; publish and reconcile that freeze before any v0.0.33 identity or artifact.",
+    "current_checkpoint": "BASELINE-0033 immutable result and record remain public and exact. Release-identity freeze 53b3738dbb80e1fd5537e2b776207e19d3d2b205 is also public and exact with an empty functional product delta, v3 selected, v4 excluded, and the admitted container base unchanged. Publish and reconcile its record-only receipt before any v0.0.33 identity or artifact.",
     "resume_rule": "Resume from public verified v0.0.32 and the exact BASELINE-0033 freeze state; inspect the active milestone and verifier before acting, never use OneDrive, never rewrite the original v4 exclusion, and never infer candidate selection from candidate evidence admissibility."
   }
 }

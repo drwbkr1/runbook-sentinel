@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0033",
+  "receipt_id": "baseline-0033-release-identity-freeze-public",
+  "status": "pass",
+  "phase": "frozen_before_successor_identity_implementation",
+  "observed_at_utc": "2026-08-23T01:02:48Z",
+  "repository": {
+    "branch": "codex/baseline-0033-retrieval-candidate-admissibility",
+    "commit": "53b3738dbb80e1fd5537e2b776207e19d3d2b205",
+    "tree": "1cf3d42e27ed7fac7dcec31ba0f61ac9f75fefa6",
+    "parent": "b125b5ecef4b3b3a406d3dc903a6de5ec4e02952",
+    "public_main": "4b7dd999c13384a196746de5dbff872e93f9f2fe"
+  },
+  "verification": {
+    "local_tracking_ls_remote_and_anonymous_ref_exact": true,
+    "anonymous_commit_tree_and_parent_exact": true,
+    "recursive_tree_truncated": false,
+    "recursive_tree_entry_count": 1554,
+    "changed_path_count": 14,
+    "git_blob_identity_count": 14,
+    "anonymous_raw_exact_count": 14,
+    "rendered_commit_subject_parent_path_count_and_contract_visible": true,
+    "public_main_unchanged": true
+  },
+  "paths": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 123237,
+      "sha256": "cd04235c7cdeacf2be06e167f79f15eabc3c612711a8a49784373eeb40116259",
+      "git_blob": "adbff7b1cd6e5ce266aaa7baf67b92688dddb314"
+    },
+    {
+      "path": "artifacts/verification/baseline-0033-orientation-failures-001.json",
+      "bytes": 10759,
+      "sha256": "7ff95bb460a76a050a6129e911324f63936911debaa22c2eb8539ff27d3bc7a0",
+      "git_blob": "20a68e7b8dd2504a146fcb57624c990f820988cb"
+    },
+    {
+      "path": "artifacts/verification/baseline-0033-release-identity-freeze-local.json",
+      "bytes": 6440,
+      "sha256": "2cee0f3b96ed861dcc22a7e13c70702f3e30317162c597b850765059f3ceecc7",
+      "git_blob": "5c8f0e08d5daeafabddfdf4ddb9da29423404af7"
+    },
+    {
+      "path": "contracts/milestone-0033.json",
+      "bytes": 18910,
+      "sha256": "61df95c6d72fdf3f5d4ed602d9e05accaeebe7ca90ccbd61976135fc533a1662",
+      "git_blob": "d6f5895763b97374345a95a39e9eff251d249bbc"
+    },
+    {
+      "path": "docs/adr/0028-release-adjudicated-checkpoints-through-an-identity-only-transition.md",
+      "bytes": 2876,
+      "sha256": "aa226617b282f78e72645680963413f7fadc8e680e1e43b887d5b1830ff6a1c0",
+      "git_blob": "98b7c3a06b5847426bc8d9730c920d3f7f8deff6"
+    },
+    {
+      "path": "docs/devlog.md",
+      "bytes": 457902,
+      "sha256": "a0a531bdb9080bef90b2c2b3d3a93d24f9116698b7c9fdadd1dcc08dd541871f",
+      "git_blob": "2755b243cd6cf2b74bd662b0514fbd4108f822e5"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "bytes": 231946,
+      "sha256": "fc94d15b0434a971d3e69bae7ae49b2dea78fff219687c41e9f11e1bd13772f1",
+      "git_blob": "1280bf925aa4719d84c5906202b9e3f646e998e3"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 97100,
+      "sha256": "ab78b72891e10fed357fe15372719463684b5f3dc3bb0305be57b8a401c85fb0",
+      "git_blob": "487b214c2a026daadae3922e4b95d3c1bc913e94"
+    },
+    {
+      "path": "docs/status.md",
+      "bytes": 266100,
+      "sha256": "b9b67d56843d81308e4b0a98d8c4805dd2b7489e36808d93ee6f0c5582329ad6",
+      "git_blob": "f903cc5640da44a26f19351903f7c4d9a42af88a"
+    },
+    {
+      "path": "docs/threat-model.md",
+      "bytes": 23247,
+      "sha256": "40927df004beb83f6a67eefee05942b8d1cb3a159bdc8d49e64409e92b150594",
+      "git_blob": "8ec0c27688279f97914937fe41d901d5e0fdf6b5"
+    },
+    {
+      "path": "docs/version-history.md",
+      "bytes": 28708,
+      "sha256": "dd573bae9bc9b907edf78c4bf29cf21c6ccc964d57496e52a4275ff4850d45b1",
+      "git_blob": "e869df0bbeef984134c066875fbd2b2ab99926a1"
+    },
+    {
+      "path": "eval/release-identity-contract-0033.json",
+      "bytes": 15694,
+      "sha256": "b44145ab20610945ec511b98b427edf0e5e65aa338f605eeb748408ea1aff199",
+      "git_blob": "69d1b9f5f220bbbfdeffe85980c3699910f8e8c3"
+    },
+    {
+      "path": "scripts/verify_release_identity_contract_0033.py",
+      "bytes": 18372,
+      "sha256": "13a3506df9c734b05a7c981969d61d1180b9827f14a8800503a0742cd7746ae7",
+      "git_blob": "60188eb7daff0f2063f21ddf3b75793ff5039369"
+    },
+    {
+      "path": "tests/test_release_identity_contract_0033.py",
+      "bytes": 5271,
+      "sha256": "2bcd267a612ca6fc736e202fd78289f869d7e1d28c9bd34bc99a5e6358472809",
+      "git_blob": "0cb9a646b9646a4b4271026811cdfa60a3b3b756"
+    }
+  ],
+  "boundaries": {
+    "candidate_selected": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "v4_promoted": false,
+    "functional_product_delta_implemented": false,
+    "successor_source_identity_present": false,
+    "successor_package_contract_present": false,
+    "successor_container_contract_present": false,
+    "successor_archive_present": false,
+    "external_asset_or_base_changed": false,
+    "security_or_authority_changed": false,
+    "public_main_changed": false,
+    "tag_release_or_deployment_created": false
+  },
+  "next_gate": "Publish and reconcile this record-only receipt, then implement only the exact frozen v0.0.33 identity projection and successor package/container contracts before renewed manifest or artifact construction."
+}
