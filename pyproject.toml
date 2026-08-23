@@ -1,6 +1,6 @@
 [project]
 name = "runbook-sentinel"
-version = "0.0.32"
+version = "0.0.33"
 description = "A bounded, retrieval-grounded synthetic SRE incident agent"
 requires-python = ">=3.12"
 dependencies = []
@@ -9,5 +9,5 @@ dependencies = []
 runbook-sentinel = "runbook_sentinel.cli:main"
 
 [tool.runbook-sentinel]
-checkpoint = "baseline-0032"
+checkpoint = "baseline-0033"
 runtime_dependencies = "python-standard-library-only"

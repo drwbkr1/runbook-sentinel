@@ -250,7 +250,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Publish and anonymously reconcile the record-only receipt for exact public schema-1.1 correction 8dc04efa9fa07fe61de88f462e647275a4457cd2, then resume the bounded v0.0.33 identity and inherited package/container implementation and require its full implemented-phase gates before publication.",
+  "next_action": "Publish and anonymously reconcile the bounded v0.0.33 identity and inherited package/container implementation seal from exact public record b5c9a224e5bc52cd5d2fe59a9d55836d4a1e63fb, then freeze and publish the renewed 153-file source manifest before building any archive or image.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -300,6 +300,11 @@
       ,"The first implemented-phase check failed closed only on an incomplete future scripts/verify_live_api.ps1 target hash; schema-1.1 binds the visible Baseline 0033 assertion and matching local field rename, and eight focused tests pass against both the exact public predecessor fixture and intended local implemented projection"
       ,"Schema-1.1 correction 8dc04efa9fa07fe61de88f462e647275a4457cd2 is public and exact across refs anonymous metadata all 11 Git blobs all 11 raw files an untruncated 1556-entry tree a clean credential-disabled clone and rendered evidence; its tree remains v0.0.32/baseline-0032 and excludes successor contracts archives and images"
       ,"The exact clean correction commit passes eight focused tests and all 121 regressions in 99.580 seconds plus frozen release-identity and governed milestone validation; public main remains unchanged"
+      ,"Correction record b5c9a224e5bc52cd5d2fe59a9d55836d4a1e63fb is public and exact across refs anonymous metadata all eight Git blobs all eight raw paths an untruncated 1557-entry tree and rendered evidence; public main remains unchanged"
+      ,"The local release-identity implemented phase passes with zero functional product delta four mechanical identities 20 unchanged runtime files candidate selected false v3 selected and zero new external assets"
+      ,"Active and versioned package contracts are byte-identical at SHA-256 3a3994c821490754144c22a7d19771218f1813971eb16a315cacc311113e7c8e with 43 entries and no archive; active and versioned container-runtime-v13 contracts are byte-identical at 54067e1a7447f09eae990196dc8a5c90c0815ef35055ac4f95099afeb4f9fc54 and inherit exact v12 receipt base and 49 checks"
+      ,"The first implemented suite retained a 120-of-121 historical verifier lifecycle failure; the immutable v0.0.32 verifier now runs against an exact released-v12 fixture while the current base is checked separately, after which all 121 tests pass in 94.811 seconds and all 41 applicable non-manifest validators pass"
+      ,"The predecessor manifest fails closed on exactly 17 bounded implementation paths; no successor manifest archive checksum container receipt image tag release or deployment exists"
     ],
     "artifacts": [
       "artifacts/verification/orientation-baseline-0033.json",
@@ -321,13 +326,14 @@
       ,"artifacts/verification/baseline-0033-release-identity-freeze-public.json"
       ,"artifacts/verification/baseline-0033-release-identity-lifecycle-correction-local.json"
       ,"artifacts/verification/baseline-0033-release-identity-lifecycle-correction-public.json"
+      ,"artifacts/verification/baseline-0033-release-identity-implementation-local.json"
     ],
     "disposition": "in_progress"
   },
   "handoff": {
     "latest_verified_checkpoint": "immutable public v0.0.32 at tag object ea203784e11afd611666bcd988f4d1e60259f6a8 peeled to audited closure f0e565015be2ca8ed155be600a61fe131dbfa012, with public receipt SHA-256 eebd1571dfab5942f7b1b6dfc2a42c5807629391564d01d7621b307a8c78726c and rendered-truth correction main 4b7dd999c13384a196746de5dbff872e93f9f2fe",
     "retained_failed_checkpoint": "stopped unpublished BASELINE-0031 release candidate v0.0.31 plus separately retained excluded bounded-trust-tier-lexical-v4 comparison",
-    "current_checkpoint": "BASELINE-0033 immutable result, release-identity freeze and record, and schema-1.1 correction remain public and exact through 8dc04efa9fa07fe61de88f462e647275a4457cd2. The public correction tree remains v0.0.32/baseline-0032 and excludes successor contracts archives and images. Publish and reconcile its record-only receipt before any locally started v0.0.33 identity or package/container implementation becomes public.",
+    "current_checkpoint": "BASELINE-0033 immutable result, release-identity freeze and records, schema-1.1 correction, and correction record remain public and exact through b5c9a224e5bc52cd5d2fe59a9d55836d4a1e63fb. The bounded local v0.0.33 identity and inherited package/container implementation passes 121 tests and 41 applicable non-manifest validators with no archive or image. Publish and reconcile this implementation seal before renewing the manifest.",
     "resume_rule": "Resume from public verified v0.0.32 and the exact BASELINE-0033 freeze state; inspect the active milestone and verifier before acting, never use OneDrive, never rewrite the original v4 exclusion, and never infer candidate selection from candidate evidence admissibility."
   }
 }

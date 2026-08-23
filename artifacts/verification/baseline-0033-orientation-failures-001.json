@@ -194,9 +194,18 @@
       "mutation": false,
       "correction": "A uniquely named attempt-002 clone completed from the public HTTPS branch with credentials disabled, no object alternates, exact commit tree and parent, and a clean worktree.",
       "positive_evidence": false
+    },
+    {
+      "id": "IMPLEMENTED-FULL-REGRESSION-V32-LIFECYCLE-001",
+      "class": "test_invalid",
+      "operation": "Run the complete 121-test suite after implementing the v0.0.33 identity and inherited package/container contracts",
+      "failure": "The suite passed 120 tests and failed only the historical BASELINE-0032 base-refresh test because it ran the frozen v0.0.32 implementation verifier against the intentionally advanced v0.0.33 Dockerfile identity. The verifier correctly retained the exact admitted base and rejected only version and package labels. No archive or image was built.",
+      "mutation": false,
+      "correction": "Exercise the unchanged historical verifier against a temporary fixture reconstructed from the exact released v12 Dockerfile contract and immutable BASELINE-0032 evidence, while separately asserting the current v0.0.33 Dockerfile retains the exact admitted base and digest label. The v13 runtime prerequisite now composes the exact frozen refresh-contract hash with the independently passing v13 contract instead of misapplying the v0.0.32 identity verifier to a later release.",
+      "positive_evidence": false
     }
   ],
   "historical_candidate_results_rewritten": false,
   "product_files_changed_by_failure": false,
-  "next_gate": "Publish and anonymously reconcile the record-only receipt for exact public correction 8dc04efa9fa07fe61de88f462e647275a4457cd2, then resume and publish only the bounded v0.0.33 identity and inherited package/container implementation after its full implemented-phase gates pass."
+  "next_gate": "Publish and anonymously reconcile the bounded v0.0.33 identity and inherited package/container implementation seal before freezing a successor release manifest or building any v0.0.33 archive or image."
 }
