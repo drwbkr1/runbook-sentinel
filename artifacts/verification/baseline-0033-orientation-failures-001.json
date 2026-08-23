@@ -383,9 +383,72 @@
       "mutation": false,
       "correction": "Materialize the exact lease and refspec as quoted PowerShell strings, retry the unchanged commit, and require the live branch to equal 24e6be34b7b5fcaf60b22b70b1f1377ed9ff731c. The successor push and full public reconciliation pass.",
       "positive_evidence": false
+    },
+    {
+      "id": "CONTAINER-LOCAL-SUMMARY-RESERVED-VARIABLE-001",
+      "class": "process_invalid",
+      "operation": "Summarize the completed local container-runtime-v13 receipt",
+      "failure": "The first PowerShell summary attempted to assign arrays to the read-only automatic variables false and true. The receipt itself was unchanged, but the displayed true/false counts are invalid and excluded.",
+      "mutation": false,
+      "correction": "Use task-specific falseChecks and trueChecks variable names, then independently require 48 true checks and only clean_clone_container_rebuild_image_id_exact false before clean-clone execution.",
+      "positive_evidence": false
+    },
+    {
+      "id": "CONTAINER-LOCAL-SUMMARY-PROPERTY-COUNT-001",
+      "class": "process_invalid",
+      "operation": "Display the total check count in the corrected local container summary",
+      "failure": "PowerShell projected Count over every check property and displayed 49 individual one values instead of one scalar. The separately computed 48 true checks and exact one false check passed, but the projected total is not count evidence.",
+      "mutation": false,
+      "correction": "Wrap the property collection in an array before reading Count. The successor reports exactly 49 checks, 48 true, and only the clean-clone identity pending.",
+      "positive_evidence": false
+    },
+    {
+      "id": "CONTAINER-CLEAN-CLONE-DIST-DIRECTORY-001",
+      "class": "process_invalid",
+      "operation": "Place the exact selected ignored archive into the credential-disabled public clone",
+      "failure": "The clone completed exact and clean, then the wrapper assumed dist was absent and New-Item rejected the already tracked directory containing older public release assets. It stopped before copying the v0.0.33 archive.",
+      "mutation": true,
+      "correction": "Inspect the existing tracked dist directory, prove the v0.0.33 destination absent, copy only the exact selected archive, and require SHA-256 b10384f2 plus a clean Git status and no object alternates. The successor package gate and clean build pass.",
+      "positive_evidence": false
+    },
+    {
+      "id": "CONTAINER-CANONICAL-SUMMARY-IMAGE-PATH-001",
+      "class": "process_invalid",
+      "operation": "Revalidate canonical container-runtime-v13 custody and image identity after moving generated runtime evidence to external verification custody",
+      "failure": "The first read-only summary looked for independent_image_ids under builds even though builds is the command-record array and the image identities live under image.independent_image_ids. The null projection triggered an image identity mismatch before the remaining checks and made no project or external mutation.",
+      "mutation": false,
+      "correction": "Read both repeated full-build identities from image.independent_image_ids and the third identity from clean_clone.image_id, then restart the complete canonical receipt and custody validation.",
+      "positive_evidence": false
+    },
+    {
+      "id": "POST-CONTAINER-HISTORICAL-BASE-REFRESH-PHASE-001",
+      "class": "process_invalid",
+      "operation": "Run the complete post-container phase-correct validator set",
+      "failure": "The first wrapper incorrectly treated the closed BASELINE-0032 base-security-refresh verifier as current for BASELINE-0033 and invoked its implemented phase. That historical verifier intentionally requires v0.0.32 Dockerfile and package identity, so it rejected the mechanically advanced v0.0.33 identity after the first eighteen current validators passed. No artifact or external state changed.",
+      "mutation": false,
+      "correction": "Exclude the closed predecessor-specific base-refresh lifecycle validator from the current set and include the current canonical container evaluation-trace verifier. Restart all 42 applicable read-only validators from the beginning with the BASELINE-0033 result and archive required.",
+      "positive_evidence": false
+    },
+    {
+      "id": "POST-CONTAINER-RETRIEVAL-SELECTION-FLAG-001",
+      "class": "process_invalid",
+      "operation": "Run the corrected complete post-container phase-aware validator set",
+      "failure": "The wrapper incorrectly added --require-selection to the historical retrieval-tier-cap contract. The verifier rejected selection_required because experimental v4 is deliberately not selected; thirty-four preceding validators passed, no evidence byte changed, and the rejection is not a product regression.",
+      "mutation": false,
+      "correction": "Require the exact v4 implementation without requiring its selection, while separately requiring the frozen result that retains v3 as control and selected default. Restart all 42 applicable validators from the beginning.",
+      "positive_evidence": false
+    },
+    {
+      "id": "POST-CONTAINER-HASH-SUMMARY-PIPE-001",
+      "class": "process_invalid",
+      "operation": "Summarize final canonical and component artifact identities before composing the structured artifact-scan receipt",
+      "failure": "PowerShell rejected a pipeline placed directly after the foreach statement as an empty pipe element. The command stopped at parsing before reading or mutating any artifact.",
+      "mutation": false,
+      "correction": "Collect the per-file objects into a task-specific array, then serialize that completed array after the loop.",
+      "positive_evidence": false
     }
   ],
   "historical_candidate_results_rewritten": false,
   "product_files_changed_by_failure": false,
-  "next_gate": "Publish and anonymously reconcile the exact BASELINE-0033 package/source payload and its record-only receipt before any local container-runtime-v13 build."
+  "next_gate": "Pass the complete post-container regression and repository gate, then publish and anonymously reconcile the canonical 49-of-49 local-only container-runtime-v13 result before premerge audit."
 }
