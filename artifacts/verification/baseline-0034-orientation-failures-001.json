@@ -222,6 +222,58 @@
       "mutation": false,
       "correction": "Use the repository-documented standard-library unittest discovery or exact unittest modules. No dependency was installed and no test disposition is inferred from the zero-collection command.",
       "positive_evidence": false
+    },
+    {
+      "id": "RELEASE-IDENTITY-CURRENT-ROOT-0034-001",
+      "class": "process_invalid",
+      "operation": "Run inherited release-identity validation after the exact v5 successor appeared",
+      "observed_at_utc": "2026-08-23T19:55:11Z",
+      "failure": "The first standalone command evaluated the immutable BASELINE-0033 release verifier against the current v5 tree. It correctly rejected the successor retrieval hash because that historical verifier must remain byte-exact and has no later-checkpoint lifecycle logic.",
+      "mutation": false,
+      "correction": "Evaluate the unchanged release verifier against its frozen v0.0.33 fixture while the separate schema-1.1 successor lifecycle verifier checks the current exact v5 hash, public bridge receipt, v3 default, absent results, and development equivalence.",
+      "positive_evidence": false
+    },
+    {
+      "id": "V5-RELEASE-FIXTURE-PHASE-001",
+      "class": "fail",
+      "operation": "Run the exact frozen v5 successor through the public schema-1.1 predecessor-successor bridge",
+      "observed_at_utc": "2026-08-23T19:56:51Z",
+      "failure": "The exact 6,079-byte v5 runtime passed both successor and single-pass lifecycle verifiers with zero development mismatches, v3 default, absent results, and no held-out use. The focused BASELINE-0033 release-identity test then failed because its frozen v0.0.33 fixture was evaluated in the current implemented phase, yielding fourteen mechanical predecessor-path mismatches and two intentionally absent implemented-contract paths.",
+      "mutation": false,
+      "candidate_attempt": {
+        "runtime_bytes": 6079,
+        "runtime_sha256": "f5514cb7cb0b7686987d3374bcd80849f868509a2d32676a88585dd40d456b37",
+        "focused_test_bytes": 6998,
+        "focused_test_sha256": "11beafbfc65013b0acbedf897dad07c2522d052816750d1d9acc8e10c7f5cfe3",
+        "successor_lifecycle_phase": "implementation_sealed_no_result",
+        "development_mismatch_count": 0,
+        "default_configuration": "freshness-priority-lexical-v3",
+        "benchmark_result_present": false,
+        "comparison_result_present": false,
+        "held_out_loaded": false
+      },
+      "correction": "Restore the exact released retrieval and preimplementation test bytes. Freeze and publish one schema-1.2 test-only lifecycle correction that evaluates the frozen release fixture in its frozen phase, while keeping the immutable release verifier and both current-tree bridge validators unchanged. Retry v5 only after the corrected test identity and public bridge receipt are exact.",
+      "positive_evidence": false
+    },
+    {
+      "id": "POWERSHELL-FREEZE-HASH-PIPE-001",
+      "class": "process_invalid",
+      "operation": "Inventory schema-1.2 correction-freeze identities",
+      "observed_at_utc": "2026-08-23T21:28:58Z",
+      "failure": "The first compact PowerShell hash inventory piped directly from a foreach block and the parser rejected an empty pipe element before reading any file.",
+      "mutation": false,
+      "correction": "Collect the foreach results into a task-specific array before ConvertTo-Json. The corrected successor returned all nine requested byte and SHA-256 identities and git diff --check passed.",
+      "positive_evidence": false
+    },
+    {
+      "id": "MILESTONE-VALIDATOR-OPTION-0034-001",
+      "class": "process_invalid",
+      "operation": "Validate the schema-1.2 freeze milestone projection with the installed governed validator",
+      "observed_at_utc": "2026-08-23T21:34:14Z",
+      "failure": "The first invocation used the stale --contract option and argparse rejected it before reading the project contract.",
+      "mutation": false,
+      "correction": "Pass contracts/milestone-0034.json as the validator's positional contract argument and require a clean successor result before publication.",
+      "positive_evidence": false
     }
   ]
 }

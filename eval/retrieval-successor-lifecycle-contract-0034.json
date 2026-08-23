@@ -1,8 +1,8 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "checkpoint": "baseline-0034",
   "contract_id": "retrieval-predecessor-successor-lifecycle-v1",
-  "status": "frozen_lifecycle_corrected",
+  "status": "frozen_fixture_phase_corrected",
   "frozen_at_utc": "2026-08-23T19:08:15Z",
   "lifecycle_correction": {
     "corrected_at_utc": "2026-08-23T19:25:00Z",
@@ -12,6 +12,30 @@
     "admissibility_or_selection_rule_changed": false,
     "historical_release_identity_weakened": false,
     "product_runtime_changed": false,
+    "security_or_authority_changed": false
+  },
+  "fixture_phase_correction": {
+    "corrected_at_utc": "2026-08-23T19:56:51Z",
+    "retained_failure": "V5-RELEASE-FIXTURE-PHASE-001",
+    "finding": "The schema-1.1 release-identity test correctly chose the frozen v0.0.33 fixture for an exact v5 successor but incorrectly passed the current implemented phase to that frozen fixture.",
+    "allowed_test_path": "tests/test_release_identity_contract_0033.py",
+    "released_bridge_test_identity": {
+      "bytes": 6941,
+      "sha256": "3000e914733f96d4f9513f53be7296b956ce7fb4979aa29b13b4ccae12427917"
+    },
+    "corrected_test_identity": {
+      "bytes": 6944,
+      "sha256": "861d8f346b77a4faffc981c98f18d091b2a1ef9fb3ade288bb4f7abc9b348a09"
+    },
+    "exact_replacement": {
+      "from": "result = MODULE.evaluate(Path(directory), phase)",
+      "to": "result = MODULE.evaluate(Path(directory), \"frozen\")",
+      "required_occurrence_count": 1
+    },
+    "release_identity_verifier_changed": false,
+    "current_tree_bridge_validators_changed": false,
+    "product_runtime_changed": false,
+    "admissibility_or_selection_rule_changed": false,
     "security_or_authority_changed": false
   },
   "cause": {
@@ -111,5 +135,5 @@
     "dependency_model_service_secret_paid_asset_external_asset_or_real_infrastructure_added": false,
     "container_image_exported_pushed_published_or_redistributed": false
   },
-  "next_gate": "Publish and anonymously reconcile this exact lifecycle-correction freeze while retrieval.py remains at the released predecessor identity, then implement only the declared validator bridge."
+  "next_gate": "Publish and anonymously reconcile this exact schema-1.2 test-only correction freeze while retrieval.py and the public bridge test remain exact, then apply and publish only the precomputed frozen-fixture phase replacement before retrying v5."
 }

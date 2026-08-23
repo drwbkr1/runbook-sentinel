@@ -19,8 +19,12 @@ Add a narrow predecessor-successor lifecycle bridge before reattempting runtime 
 4. V4 remains installed and v5 returns the exact same development IDs and order without loading held-out scenarios.
 5. Benchmark and comparison results obey their frozen lifecycle.
 
-The historical reports, traces, contracts, results, dispositions, release bytes, and selected-default evidence do not change. Only the three validators that currently emit the identity stops and their focused tests may gain the bridge. Unknown hashes, missing receipts, behavior mismatch, premature promotion, and malformed results fail closed.
+The historical reports, traces, contracts, results, dispositions, release bytes, and selected-default evidence do not change. Only the candidate-admissibility and tier-cap validators may recognize the later current-tree identity; the release verifier remains byte-exact and is exercised against its frozen fixture. Unknown hashes, missing receipts, behavior mismatch, premature promotion, and malformed results fail closed.
 
 ## Consequences
 
 The bridge is a prerequisite correction, not a second product improvement. Runtime bytes remain at the released v0.0.33 identity until the bridge freeze and implementation are each public and reconciled. The retained 131-test failure remains non-positive evidence. This adds checkpoint lifecycle machinery, but it avoids weakening frozen history or pretending a current source tree is byte-identical to an older release.
+
+## Schema 1.2 fixture-phase correction
+
+The first exact v5 retry exposed a test-only phase mismatch: the bridge correctly selected the frozen v0.0.33 release fixture, but the test passed the current implemented phase to that frozen fixture. Schema 1.2 freezes one exact replacement in `tests/test_release_identity_contract_0033.py`, from the variable `phase` argument to literal `"frozen"`, and precomputes the resulting byte identity. The immutable release verifier, both current-tree bridge validators, product runtime, selection rules, and security boundaries remain unchanged. Unknown test bytes still fail closed.

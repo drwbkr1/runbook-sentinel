@@ -61,6 +61,22 @@ def _exact(path: Path, record: dict[str, Any]) -> bool:
     )
 
 
+def _bridge_changed_path_exact(
+    root: Path,
+    relative: str,
+    record: dict[str, Any],
+    contract: dict[str, Any],
+) -> bool:
+    path = root / relative
+    if _exact(path, record):
+        return True
+    correction = contract.get("fixture_phase_correction", {})
+    return (
+        relative == correction.get("allowed_test_path")
+        and _exact(path, correction.get("corrected_test_identity", {}))
+    )
+
+
 def _public_receipt_valid(root: Path, contract: dict[str, Any], errors: list[str]) -> bool:
     receipt_path = root / contract.get("bridge_implementation", {}).get(
         "public_receipt_path", ""
@@ -147,7 +163,7 @@ def _validate_implementation_result(
         if relative not in allowed:
             errors.append("bridge_implementation_path_outside_allowlist")
             continue
-        if not _exact(root / relative, record):
+        if not _bridge_changed_path_exact(root, relative, record, contract):
             errors.append(f"bridge_implementation_identity:{relative}")
     required = set(
         contract.get("bridge_implementation", {}).get("allowed_validator_paths", [])
@@ -169,13 +185,13 @@ def validate(
         errors,
         "contract",
     )
-    if contract.get("schema_version") != "1.1":
+    if contract.get("schema_version") != "1.2":
         errors.append("schema_version")
     if contract.get("checkpoint") != "baseline-0034":
         errors.append("checkpoint")
     if contract.get("contract_id") != "retrieval-predecessor-successor-lifecycle-v1":
         errors.append("contract_id")
-    if contract.get("status") != "frozen_lifecycle_corrected":
+    if contract.get("status") != "frozen_fixture_phase_corrected":
         errors.append("contract_status")
     correction = contract.get("lifecycle_correction", {})
     if any(
@@ -188,6 +204,38 @@ def validate(
         )
     ):
         errors.append("lifecycle_correction_boundary")
+    fixture_correction = contract.get("fixture_phase_correction", {})
+    if fixture_correction.get("retained_failure") != "V5-RELEASE-FIXTURE-PHASE-001":
+        errors.append("fixture_phase_retained_failure")
+    if fixture_correction.get("allowed_test_path") != "tests/test_release_identity_contract_0033.py":
+        errors.append("fixture_phase_allowed_path")
+    if fixture_correction.get("released_bridge_test_identity") != {
+        "bytes": 6941,
+        "sha256": "3000e914733f96d4f9513f53be7296b956ce7fb4979aa29b13b4ccae12427917",
+    }:
+        errors.append("fixture_phase_released_identity")
+    if fixture_correction.get("corrected_test_identity") != {
+        "bytes": 6944,
+        "sha256": "861d8f346b77a4faffc981c98f18d091b2a1ef9fb3ade288bb4f7abc9b348a09",
+    }:
+        errors.append("fixture_phase_corrected_identity")
+    if fixture_correction.get("exact_replacement") != {
+        "from": "result = MODULE.evaluate(Path(directory), phase)",
+        "to": "result = MODULE.evaluate(Path(directory), \"frozen\")",
+        "required_occurrence_count": 1,
+    }:
+        errors.append("fixture_phase_replacement")
+    if any(
+        fixture_correction.get(key) is not False
+        for key in (
+            "release_identity_verifier_changed",
+            "current_tree_bridge_validators_changed",
+            "product_runtime_changed",
+            "admissibility_or_selection_rule_changed",
+            "security_or_authority_changed",
+        )
+    ):
+        errors.append("fixture_phase_boundary")
 
     public = contract.get("public_preimplementation_sequence", {})
     public_receipt = root / str(public.get("receipt_path", ""))
@@ -284,7 +332,7 @@ def validate(
 
     errors = sorted(set(errors))
     return {
-        "schema_version": "1.1",
+        "schema_version": contract.get("schema_version"),
         "checkpoint": contract.get("checkpoint"),
         "contract_id": contract.get("contract_id"),
         "status": "pass" if not errors else "fail",
