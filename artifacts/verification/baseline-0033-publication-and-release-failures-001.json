@@ -3,7 +3,7 @@
   "receipt_id": "BASELINE-0033-PUBLICATION-AND-RELEASE-FAILURES-001",
   "checkpoint": "baseline-0033",
   "unit": "UNIT-005",
-  "observed_through_utc": "2026-08-23T04:38:37Z",
+  "observed_through_utc": "2026-08-23T04:58:34Z",
   "status": "retained_process_evidence",
   "positive_evidence_supplied_by_failures": false,
   "observations": [
@@ -46,6 +46,22 @@
       "observation": "After the corrected authenticated metadata and all 26 blob comparisons passed, the wrapper used bare true instead of PowerShell $true while constructing its summary and exited nonzero.",
       "effect": "The partial wrapper is not counted as aggregate pass evidence.",
       "correction": "A complete successor reran the same checks and emitted a valid exact summary."
+    },
+    {
+      "id": "OBS-006",
+      "stage": "public final-audit reconciliation",
+      "classification": "transient_external_timeout_with_secondary_summary_error",
+      "observation": "The first anonymous recursive-tree request for final-audit commit 29ca0e55d55ee4fa6765c85abf7995ba6624f782 returned HTTP 504. Because that wrapper did not stop immediately, it then emitted a secondary tree-blob mismatch against the absent response.",
+      "effect": "The public audit commit was unchanged; neither the timeout nor the derivative mismatch supplied positive evidence.",
+      "correction": "Use explicit per-request exit checks. Authenticated GitHub commit and untruncated tree metadata, anonymous raw audit bytes, and the signed-out rendered page passed separately."
+    },
+    {
+      "id": "OBS-007",
+      "stage": "public final-audit reconciliation",
+      "classification": "repeated_transient_external_timeout",
+      "observation": "The explicitly bounded anonymous recursive-tree successor returned the same HTTP 504 and stopped before blob comparison.",
+      "effect": "No branch, tag, release, deployment, or repository byte changed.",
+      "correction": "GitHub's authenticated API returned the exact untruncated 1,607-entry tree; the audit's public raw blob and signed-out rendered commit independently remained exact."
     }
   ],
   "boundaries": {

@@ -2,7 +2,7 @@
 
 ## BASELINE-0033 frozen candidate-admissibility overlay
 
-Fresh merged-main evidence commit `acf4cd94ed3c50bf23071afa3722308eb9df3d55` is public and exact: commit/tree/parent, local and remote refs, all 26 Git blobs, 26 anonymous raw files totaling 5,150,586 bytes, an untruncated 1,604-entry recursive tree, and the signed-out rendered page agree. Transient anonymous API timeouts and corrected PowerShell wrapper defects are retained separately and supply no positive evidence. The final release-truth audit remains pending; no v0.0.33 tag, release, deployment, or container-image publication exists.
+Fresh merged-main evidence commit `acf4cd94ed3c50bf23071afa3722308eb9df3d55` and reconciliation `8ff7f9e985f5dcf4cc83ccd056e9bf12af89131b` are public and exact. Final audit `29ca0e55d55ee4fa6765c85abf7995ba6624f782` evaluates verified across all ten checks and twenty required surfaces with no warning; its exact raw blob and signed-out rendered commit agree, and two anonymous recursive-tree 504s remain retained while authenticated tree verification passes. Exact closure, tag, selected assets, downloads, pages, and public-tag verification remain pending; no container-image publication exists.
 
 The read-only preimplementation verifier accepts the exact retained v3/v4 comparison as candidate evidence while keeping candidate selection false. V4 has exactly five allowed selected-v3 observational fingerprints false, every other 131 Boolean gate true, complete required retrieval-stage coverage, zero ambiguity, and exactly three frozen safe-superset classification pairs. The original remediate disposition and median-latency failure remain immutable, so v3 stays selected and no Pareto claim is made.
 

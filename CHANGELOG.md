@@ -1,7 +1,8 @@
 # Changelog
 
-## 0.0.33 - Unreleased
+## 0.0.33 - 2026-08-23
 
+- Published final audit commit `29ca0e5...`, tree `32b55b6...`, over exact candidate `8ff7f9e...`. The evaluator verifies all ten checks and twenty surfaces with active inherited authority and no error, warning, failed, stale, missing, unknown, or unrun state. The exact audit blob and signed-out rendered commit reconcile; two anonymous recursive-tree 504s are retained while the authenticated untruncated tree passes. Only closure, annotated v0.0.33, the selected zipapp/checksum, and immediate public verification are authorized; container bytes remain local-only.
 - Published merged-main evidence commit `acf4cd9...`, tree `a59da1b...`, from exact merge parent `1a8380d...`. Local and remote refs, anonymous commit/tree metadata, all 26 Git blobs and raw files totaling 5,150,586 bytes, the untruncated 1,604-entry tree, and the signed-out rendered commit agree. Transient GitHub timeouts and corrected wrapper defects are retained; v0.0.33 remains untagged and unreleased pending the final audit.
 - Resumed from verified public v0.0.32 at main `4b7dd999c13384a196746de5dbff872e93f9f2fe`, annotated tag object `ea203784...`, audited release closure `f0e5650...`, and public receipt SHA-256 `eebd1571...`; no OneDrive path is authoritative.
 - Inspected the fresh public-tag 57-scenario, 171-attempt, all-136-gate source run and anchored 261-event trace. Retrieval, generation, trajectory, policy, utility, attack success, reliability, latency, and cost remain separate; model calls and external API cost remain zero.

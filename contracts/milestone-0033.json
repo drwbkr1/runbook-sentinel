@@ -245,7 +245,8 @@
         "exact_reviewed_merge": "pass",
         "fresh_public_main_complete_stack": "pass",
         "merged_main_evidence_public_exact": "pass",
-        "final_release_truth_audit": "pending",
+        "final_release_truth_audit": "pass",
+        "release_closure": "pass",
         "annotated_tag_and_selected_assets": "pending",
         "public_tag_complete_stack": "pending",
         "external_reconciliation": "pending"
@@ -253,7 +254,7 @@
     }
   ],
   "current_unit": "UNIT-005",
-  "next_action": "Publish and anonymously reconcile the record-only merged-main public receipt, then run the final governed release-truth audit before tag or release creation.",
+  "next_action": "Commit and push this exact release closure, create annotated v0.0.33 at that commit, publish only the selected zipapp and checksum, then immediately reconcile every public surface and a fresh public-tag source, package, and local-container stack without exporting container bytes.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -326,6 +327,8 @@
       ,"Fresh credential-disabled public main passes 121 tests 42 phase-correct validators three exact zipapps source package and container evaluations bounded MCP both authenticated APIs both native inspections three complete dashboards structured scans and two full plus one clean image build at sha256:00b378aba27e914eebf1d67aa95652bf949939dc8ed2fe2bef2854e41daa9265"
       ,"Merged-main evidence commit acf4cd94ed3c50bf23071afa3722308eb9df3d55 tree a59da1b130a5a763455e7018e0ec5fe2611d6ebd parent 1a8380d89ff04f8e7ed5b700a8fd1f5167b2d520 is public and exact across refs all 26 Git blobs all 26 anonymous raw files totaling 5150586 bytes an untruncated 1604-entry tree and rendered evidence"
       ,"The record-only merged-main reconciliation passes all 121 tests in 165.005 seconds governed milestone validation without warning and Git diff checks before publication"
+      ,"Public reconciliation 8ff7f9e985f5dcf4cc83ccd056e9bf12af89131b is exact; final audit-only commit 29ca0e55d55ee4fa6765c85abf7995ba6624f782 evaluates verified across all ten checks and twenty required surfaces with active inherited authority and no error warning failed stale missing unknown or unrun result"
+      ,"The nine-path release closure changes no runtime evaluation contract selected-product package-input Dockerfile policy authority or image-input path and passes all 121 tests in 168.269 seconds while the final audit and governed milestone remain valid without warning"
     ],
     "artifacts": [
       "artifacts/verification/orientation-baseline-0033.json",
@@ -376,13 +379,14 @@
       ,"artifacts/verification/baseline-0033-review-and-merged-main-failures-001.json"
       ,"artifacts/verification/merged-main-baseline-0033-public.json"
       ,"artifacts/verification/baseline-0033-publication-and-release-failures-001.json"
+      ,"artifacts/verification/release-audit-baseline-0033.json"
     ],
     "disposition": "in_progress"
   },
   "handoff": {
-    "latest_verified_checkpoint": "immutable public v0.0.32 at tag object ea203784e11afd611666bcd988f4d1e60259f6a8 peeled to audited closure f0e565015be2ca8ed155be600a61fe131dbfa012, with public receipt SHA-256 eebd1571dfab5942f7b1b6dfc2a42c5807629391564d01d7621b307a8c78726c and rendered-truth correction main 4b7dd999c13384a196746de5dbff872e93f9f2fe",
+    "latest_verified_checkpoint": "public final audit-only commit 29ca0e55d55ee4fa6765c85abf7995ba6624f782 and tree 32b55b65eea6c6050c148447f67111259251665d are exact; its sole 28477-byte path is publicly exact at SHA-256 eb4b08a259bcbc795f805438c4a3782c467461bc45f2d32f24fb275bb9f5deca and evaluates verified across all ten checks and twenty surfaces; public v0.0.32 remains latest until v0.0.33 publication",
     "retained_failed_checkpoint": "stopped unpublished BASELINE-0031 release candidate v0.0.31 plus separately retained excluded bounded-trust-tier-lexical-v4 comparison",
-    "current_checkpoint": "BASELINE-0033 merged-main evidence commit acf4cd94ed3c50bf23071afa3722308eb9df3d55 is public and exact after complete-stack reproduction at merge 1a8380d89ff04f8e7ed5b700a8fd1f5167b2d520 and exact local-only image ID sha256:00b378aba27e914eebf1d67aa95652bf949939dc8ed2fe2bef2854e41daa9265. Publish the record-only reconciliation before the final audit. No image was exported pushed published or redistributed.",
+    "current_checkpoint": "BASELINE-0033 has passed premerge audit exact reviewed merge fresh public-main complete stack merged-main receipt living-record reconciliation release-time exact-image scan and final release audit. Audit-only commit 29ca0e55d55ee4fa6765c85abf7995ba6624f782 authorizes exact closure annotated v0.0.33 selected zipapp and checksum publication and immediate public verification. No v0.0.33 tag release deployment or image publication exists before this closure.",
     "resume_rule": "Resume from public verified v0.0.32 and the exact BASELINE-0033 freeze state; inspect the active milestone and verifier before acting, never use OneDrive, never rewrite the original v4 exclusion, and never infer candidate selection from candidate evidence admissibility."
   }
 }
