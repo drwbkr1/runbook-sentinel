@@ -1,0 +1,182 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0034-orientation",
+  "observed_at_utc": "2026-08-23T18:25:38Z",
+  "repository": {
+    "authoritative_root": "C:/Projects/Active/runbook-sentinel-baseline-0034",
+    "one_drive_authoritative": false,
+    "branch": "codex/baseline-0034-retrieval-tier-cap-latency",
+    "starting_head": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "starting_tree": "59d76aa037a7b56bb82258f1c8705e8117e4dae9",
+    "remote": "https://github.com/drwbkr1/runbook-sentinel.git",
+    "remote_main": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "visibility": "public",
+    "starting_worktree_clean": true
+  },
+  "verified_public_checkpoint": {
+    "version": "0.0.33",
+    "tag": "v0.0.33",
+    "tag_object": "522cc2243650568e0a063f8a0918041dca98e111",
+    "peeled_release_commit": "5918f614caae96fe5b9bb3815c1d4a1c90908394",
+    "release_id": 375120109,
+    "release_reconciliation_commit": "bce808053aa50c9e467e624c89887257761ba828",
+    "milestone_close_commit": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "release_url": "https://github.com/drwbkr1/runbook-sentinel/releases/tag/v0.0.33",
+    "release_draft": false,
+    "release_prerelease": false,
+    "release_latest": true,
+    "selected_release_asset_count": 2,
+    "deployment_count": 0,
+    "container_image_published": false,
+    "public_tag_receipt": {
+      "path": "artifacts/verification/public-tag-baseline-0033.json",
+      "bytes": 15996,
+      "sha256": "063e5cd9b292c8983827410eda0e6d878500b2ae250415d1f3f76bff35240ae3"
+    },
+    "public_reconciliation_receipt": {
+      "path": "artifacts/verification/public-tag-baseline-0033-public.json",
+      "bytes": 3758,
+      "sha256": "947a910b4b5f0e860050c6b3c776ee44044ed4388e0dc855e01d80507fe4b4e7"
+    }
+  },
+  "development_environment": {
+    "operating_system": "Windows PowerShell",
+    "python": "Python 3.12.10",
+    "git": "git version 2.52.0.windows.1",
+    "docker_client_server": "29.4.3/29.4.3",
+    "logical_processors": 12,
+    "physical_memory_gib": 31.67,
+    "local_container_verification_available": true,
+    "container_export_push_publication_or_redistribution_authorized": false
+  },
+  "fresh_cycle_run": {
+    "source_checkout": "C:/Projects/Verification/runbook-sentinel-baseline-0033-main-1a8380d-20260823T035300",
+    "source_commit": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "external_output_root": "C:/Projects/Verification/runbook-sentinel-baseline-0034-orientation-attempt-001",
+    "report": {
+      "path": "accepted-v3.json",
+      "bytes": 953913,
+      "sha256": "92825ecda0332dbb91d646994b0dda321b46241f147d9e25f5d23acb0699a311",
+      "checkpoint": "baseline-0033",
+      "manifest_sha256": "4f9e9880a9f3a7dd75e94f83018d3f2bef996d4f49b05fd42160f7f62f281b20",
+      "scenario_count": 57,
+      "attempt_count": 171,
+      "boolean_gates_true": 136,
+      "boolean_gates_false": 0,
+      "baseline_disposition": "pass"
+    },
+    "trace": {
+      "path": "accepted-v3.traces.jsonl",
+      "bytes": 195330,
+      "sha256": "71dbebabac504273df9fe5897707fbb9b9497f9a39d112a3f310106192beb25a",
+      "event_count": 261,
+      "final_event_sha256": "dece7455df6a0f38104781b23603aeebf0feff9f3c4f5a3c2769fc948af924d9",
+      "anchored_chain_valid": true,
+      "event_type_counts": {
+        "sentinel.run": 171,
+        "sentinel.approval": 45,
+        "sentinel.execute": 45
+      }
+    },
+    "retrieved_document_count_distribution": {
+      "0": 0,
+      "1": 57,
+      "2": 90,
+      "3": 12,
+      "4": 12
+    },
+    "decision_document_count_distribution": {
+      "0": 6,
+      "1": 129,
+      "2": 30,
+      "3": 0,
+      "4": 6
+    },
+    "separate_metrics": {
+      "retrieval_expected_evidence_recall_at_4": 1.0,
+      "retrieval_expected_document_share_mean": 0.683006535948,
+      "retrieval_attempts_with_extra_documents_rate": 0.56862745098,
+      "retrieval_extra_document_count": 123,
+      "generation_diagnosis_accuracy": 1.0,
+      "generation_outcome_accuracy": 1.0,
+      "tool_trajectory_exact": 1.0,
+      "policy_compliance": 1.0,
+      "terminal_state_exact": 1.0,
+      "benign_utility": 1.0,
+      "proposal_attack_success": 0.0,
+      "terminal_attack_success": 0.0,
+      "repeated_trial_pass_cubed": 1.0,
+      "diagnosis_median_ms": 8.023,
+      "diagnosis_p95_ms": 19.328,
+      "end_to_end_median_ms": 62.288,
+      "end_to_end_p95_ms": 111.486,
+      "model_calls": 0,
+      "estimated_external_api_cost_usd": 0.0
+    }
+  },
+  "retained_comparison": {
+    "control_configuration": "freshness-priority-lexical-v3",
+    "candidate_configuration": "bounded-trust-tier-lexical-v4",
+    "control_extra_document_count": 123,
+    "candidate_extra_document_count": 93,
+    "control_expected_document_share_mean": 0.683006535948,
+    "candidate_expected_document_share_mean": 0.709150326797,
+    "control_median_latency_ms": 64.377,
+    "candidate_median_latency_ms": 65.443,
+    "control_p95_latency_ms": 106.58,
+    "candidate_p95_latency_ms": 105.279,
+    "candidate_evidence_admissible": true,
+    "median_latency_non_inferior": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "candidate_disposition": "excluded_latency_noninferior_and_retained",
+    "comparison_path": "artifacts/evaluations/baseline-0031-retrieval-comparison.json",
+    "comparison_sha256": "9e46ee4047ca51f00c453eb4b02adbf988f3accb9b0d5b9aefbdc388dde9d768"
+  },
+  "development_only_diagnostic_preflight": {
+    "status": "diagnostic_not_selection_evidence",
+    "split": "development",
+    "scenario_count": 31,
+    "held_out_accessed_for_optimization": false,
+    "candidate_shape": "rank once, parse as_of once, classify each eligible project-evidence record once, preserve v4 tier caps and no-backfill behavior",
+    "returned_id_mismatch_count_against_v4": 0,
+    "warmup_sweeps": 100,
+    "balanced_round_count": 120,
+    "scenario_sweeps_per_round": 80,
+    "clock": "time.perf_counter_ns",
+    "current_v4_median_ns_per_call": 19899.859,
+    "single_pass_reference_median_ns_per_call": 17006.028,
+    "candidate_over_current_ratio": 0.85458,
+    "candidate_reduction_percent": 14.542,
+    "interpretation": "The reference shape is behaviorally exact on development and cheaper at the retriever boundary. It does not rescue the retained whole-system latency failure and cannot select or promote a candidate."
+  },
+  "selection": {
+    "highest_leverage_measurable_weakness": "The retained v4 tier cap narrows untrusted returned context without behavioral or security regression, but redundant freshness parsing adds avoidable retriever work and its one-shot whole-system median failed non-inferiority.",
+    "bounded_improvement": "Implement one single-pass v5 tier classifier with v4-exact returned sets, then compare it against selected v3 using a frozen development-only microbenchmark and a balanced multi-run whole-system protocol before any default change.",
+    "selected_checkpoint": "BASELINE-0034",
+    "frozen_contract": "eval/retrieval-single-pass-contract-0034.json",
+    "changes_runtime_before_public_freeze": false,
+    "changes_default_before_complete_comparison": false,
+    "changes_policy_approval_executor_credentials_or_authority": false,
+    "changes_core_thesis": false,
+    "adds_external_code_data_model_dependency_secret_service_or_real_infrastructure": false
+  },
+  "research_basis": {
+    "prior_primary_research_gate": "artifacts/verification/research-source-gate-baseline-0029-retrieval-quality.json",
+    "prior_primary_research_gate_sha256": "c269809d7ff3b1c8fc67a2eb17967fd178964a79eddbf5e5750f3247e350152b",
+    "current_official_specification_gate": "artifacts/verification/research-source-gate-baseline-0034-retrieval-latency.json",
+    "new_external_asset_imported": false,
+    "project_authored_implementation_and_benchmark": true
+  },
+  "boundaries": {
+    "research_informed": true,
+    "synthetic_sre_only": true,
+    "model_has_credentials_or_authority": false,
+    "retrieved_content_trusted": false,
+    "product_default_at_freeze": "freshness-priority-lexical-v3",
+    "historical_evidence_changed": false,
+    "held_out_used_for_optimization": false,
+    "real_infrastructure_connected": false,
+    "production_broad_pareto_or_universal_safety_claim": false
+  },
+  "next_gate": "Publish and anonymously reconcile the exact preimplementation freeze before adding v5 to the runtime or creating any BASELINE-0034 comparison result."
+}

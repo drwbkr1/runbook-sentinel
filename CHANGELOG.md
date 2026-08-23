@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased - BASELINE-0034
+
+- Resumed from verified public v0.0.33 at exact public main `d62e7cb...`; a fresh accepted-v3 run passes 57 scenarios, 171 attempts, all 136 Boolean gates, and an anchored 261-event trace while reproducing 123 extra returned records across 87 eligible attempts.
+- Froze `single-pass-bounded-trust-tier-lexical-v5` before implementation. It must preserve v4 IDs, ranks, caps, no-backfill behavior, audit records, and decision projection while parsing `as_of` once and classifying each eligible project-evidence item once. V3 remains default.
+- Added ADR 0029, `retrieval-single-pass-contract-0034.json`, the active milestone, orientation/failure/source-gate records, a phase-aware verifier, and nine focused fail-closed tests. The verifier passes with v5 and both successor results absent and held-out optimization prohibited.
+- The complete 130-test regression and ten explicit current-phase validators pass. A mutating predecessor aggregate is retained as process-invalid; its generated passing BASELINE-0033 report/manifest/trace were moved intact to external custody and the accepted latest pointer was restored byte-exact.
+- Development-only diagnostics have zero v4/v5 returned-ID mismatches and lower retriever-boundary median time, but they are not whole-system selection evidence. Selection requires five benchmark processes plus the frozen balanced six-report comparison; any failed or inconclusive result is retained and excluded.
+- No model, agent, policy, approval, executor, credential, authority, dependency, cache, service, secret, external asset, real-infrastructure connector, package, image, tag, release, deployment, or historical evidence changed.
+
 ## 0.0.33 - 2026-08-23
 
 - Published audited closure `5918f614caae96fe5b9bb3815c1d4a1c90908394`; annotated tag object `522cc2243650568e0a063f8a0918041dca98e111` peels exactly to it. Public non-draft latest release `375120109` contains only the selected 647,712-byte zipapp at SHA-256 `b10384f2...` and its 94-byte checksum at SHA-256 `9a17cfb8...`. Anonymous downloads and the signed-out rendered repository, tag, and release surfaces reconcile.

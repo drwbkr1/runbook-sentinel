@@ -1,0 +1,303 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0034",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "active_contract": "contracts/milestone-0034.json",
+    "verified_at_utc": "2026-08-23T18:25:38Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Preserve v4's bounded returned-set focus while removing redundant freshness parsing in one v5 retrieval path, then select or exclude it using frozen retriever-level and whole-system latency evidence without changing any security or authority boundary.",
+    "allowed_paths": [
+      "C:/Projects/Active/runbook-sentinel-baseline-0034",
+      "C:/Projects/Verification"
+    ],
+    "forbidden_work": [
+      "Use OneDrive for repository or verification work",
+      "Inspect or use held-out results for implementation tuning",
+      "Change v4 historical reports traces comparison exclusion or latency failure",
+      "Change lexical scoring tier caps no-backfill behavior decision projection model agent prompt policy approval executor credential capability authorization replay postcondition scenario split or grader behavior before the frozen comparison permits the exact default transition",
+      "Promote v5 or change the v3 product default before every frozen benchmark and whole-system selection gate passes",
+      "Add a cache dependency model multi-agent system fine-tuning Kubernetes service secret paid asset external code data benchmark or real-infrastructure connector",
+      "Export push publish attach or redistribute container image bytes",
+      "Create v0.0.34 tag release or deployment before every required release-truth gate passes"
+    ],
+    "reversible_actions": [
+      "Publish project-authored orientation source gate contract verifier tests ADR milestone and living records",
+      "Add one standard-library v5 retrieval configuration after the exact preimplementation freeze is public",
+      "Run the exact five-process retriever benchmark and balanced six-report comparison once under the frozen protocol",
+      "Retain and exclude any failed or inconclusive candidate while keeping v3 selected",
+      "If and only if selection passes, apply the identity-bound default transition and run source package clean-clone container dashboard API MCP approval executor state telemetry and public-surface verification",
+      "Version commit push review merge tag release and verify only a fully passing project-authored checkpoint"
+    ],
+    "stop_conditions": [
+      "Core product thesis would change",
+      "A security boundary or explicit no-go would weaken",
+      "Spend paid service secret access ownership or authentication is required",
+      "External rights integrity provenance or safety remains unresolved",
+      "Real operational infrastructure interaction is required",
+      "An irreversible action is required",
+      "The candidate or any shipped surface cannot be verified"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public local upstream and remote main start exact at d62e7cba675997eade87169f5acba14de6452c9b",
+        "Annotated v0.0.33 tag object 522cc2243650568e0a063f8a0918041dca98e111 peels to audited release closure 5918f614caae96fe5b9bb3815c1d4a1c90908394",
+        "The clean BASELINE-0034 worktree is outside OneDrive on codex/baseline-0034-retrieval-tier-cap-latency"
+      ]
+    },
+    {
+      "id": "ENTRY-002",
+      "status": "pass",
+      "evidence": [
+        "Fresh accepted-v3 source execution passes 57 scenarios 171 attempts all 136 Boolean gates and an anchored 261-event trace",
+        "The accepted retriever still returns 123 extra document instances across 87 of 153 eligible attempts with expected-document share 0.683006535948",
+        "Retained admissible v4 reduces extras to 93 but remains excluded because median latency non-inferiority is false"
+      ]
+    },
+    {
+      "id": "ENTRY-003",
+      "status": "pass",
+      "evidence": [
+        "A development-only single-pass reference returns exact v4 IDs across 31 scenarios and measures 14.542 percent lower retriever-boundary median time in a balanced diagnostic",
+        "Official Python 3.12 specification review passes without external asset import",
+        "The active director goal authorizes this bounded checkpoint under the declared stop gates"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "id": "EXIT-001",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "EXIT-002",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "EXIT-003",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "EXIT-004",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Run verified public v0.0.33, inspect current traces and separated metrics, and select one highest-leverage measurable weakness.",
+      "depends_on": [],
+      "action_class": "evidence_preservation",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": [
+        "verified public v0.0.33",
+        "fresh accepted-v3 source report and anchored trace",
+        "retained BASELINE-0031 v3/v4 comparison and BASELINE-0033 admissibility result"
+      ],
+      "outputs": [
+        "orientation-baseline-0034.json",
+        "single-pass latency weakness",
+        "retained historical v4 exclusion"
+      ],
+      "gates": {
+        "public_checkpoint_reconciled": "pass",
+        "current_system_run_and_trace_inspected": "pass",
+        "separate_metric_families_inspected": "pass",
+        "highest_leverage_weakness_selected": "pass",
+        "historical_evidence_preserved": "pass"
+      },
+      "disposition": "pass",
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze, verify, publish, and anonymously reconcile the exact v5 behavior and comparison protocol before runtime implementation.",
+      "depends_on": [
+        "UNIT-001"
+      ],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "in_progress",
+      "inputs": [
+        "orientation-baseline-0034.json",
+        "research-source-gate-baseline-0034-retrieval-latency.json",
+        "retrieval-single-pass-contract-0034.json",
+        "ADR 0029"
+      ],
+      "outputs": [
+        "phase-aware independent verifier and focused tests",
+        "public preimplementation freeze",
+        "anonymous byte reconciliation",
+        "proof that v5 and successor results were absent at freeze"
+      ],
+      "gates": {
+        "local_contract_valid": "pass",
+        "focused_fail_closed_tests": "pass",
+        "v5_implementation_absent": "pass",
+        "benchmark_and_comparison_results_absent": "pass",
+        "full_regression": "pass",
+        "public_commit_exact": "pending",
+        "anonymous_changed_bytes_exact": "pending"
+      },
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement exactly one standard-library v5 retrieval configuration with v4-exact returned sets and no default change.",
+      "depends_on": [
+        "UNIT-002"
+      ],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": [
+        "public exact preimplementation freeze",
+        "single allowed runtime path src/runbook_sentinel/retrieval.py"
+      ],
+      "outputs": [
+        "single-pass-bounded-trust-tier-lexical-v5",
+        "behavioral and fail-closed tests",
+        "public implementation seal before result generation"
+      ],
+      "gates": {
+        "only_allowed_runtime_path": "pending",
+        "development_v4_returned_ids_exact": "pending",
+        "default_remains_v3": "pending",
+        "security_and_authority_unchanged": "pending",
+        "implementation_public_and_exact": "pending"
+      },
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Run the frozen five-process retriever benchmark and balanced six-report whole-system comparison exactly once, then select or exclude v5 from evidence.",
+      "depends_on": [
+        "UNIT-003"
+      ],
+      "action_class": "local_verification",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": [
+        "public exact implementation seal",
+        "frozen BASELINE-0034 manifest and comparison protocol"
+      ],
+      "outputs": [
+        "immutable retriever benchmark",
+        "six immutable reports and traces",
+        "one independent comparison result",
+        "selected or excluded candidate disposition"
+      ],
+      "gates": {
+        "benchmark_protocol_exact": "pending",
+        "v4_v5_returned_ids_exact_both_splits": "pending",
+        "all_separate_metric_invariants_exact": "pending",
+        "retriever_latency_gate": "pending",
+        "whole_system_latency_gate": "pending",
+        "selection_or_exclusion_explicit": "pending"
+      },
+      "next_dependency": "UNIT-005"
+    },
+    {
+      "id": "UNIT-005",
+      "purpose": "If and only if v5 is selected, apply the identity-bound default transition and verify every real source package clean-clone local-container and public release surface; otherwise close the experiment excluded without release.",
+      "depends_on": [
+        "UNIT-004"
+      ],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": [
+        "frozen comparison disposition",
+        "passing selection evidence or retained exclusion"
+      ],
+      "outputs": [
+        "verified released BASELINE-0034 or retained excluded experiment",
+        "annotated v0.0.34 and selected project-authored assets only if every gate passes",
+        "public reconciliation and exact resume point"
+      ],
+      "gates": {
+        "disposition_bound_transition": "pending",
+        "full_real_surface_matrix_if_selected": "pending",
+        "container_local_only": "pending",
+        "release_truth_audit_if_selected": "pending",
+        "public_reconciliation": "pending"
+      }
+    }
+  ],
+  "current_unit": "UNIT-002",
+  "next_action": "Add and run the independent phase-aware contract verifier and focused fail-closed tests, then publish and anonymously reconcile the exact preimplementation freeze before adding v5 to runtime code.",
+  "path_efficiency": {
+    "max_consecutive_no_progress_units": 3,
+    "review_action_class": "local_verification",
+    "review_human_gate": false
+  },
+  "verification": {
+    "changed_risks": [
+      "A latency optimization can change freshness semantics or document order",
+      "A microbenchmark can be misrepresented as whole-system evidence",
+      "Held-out outcomes can leak into implementation tuning",
+      "Candidate fingerprint differences can be mistaken for policy or security waivers",
+      "Whole-system timing can drift with launch order or ambient load",
+      "A selected-default transition can leave API MCP package dashboard state telemetry or container contracts stale"
+    ],
+    "required_checks": [
+      "Exact public v0.0.33 starting checkpoint and fresh accepted-system run",
+      "Exact retained v3 v4 reports comparison exclusion and candidate-admissibility identities",
+      "V4-exact returned IDs and ranks on both frozen splits",
+      "Development-only five-process balanced perf_counter_ns benchmark with no held-out tuning",
+      "Balanced six-report whole-system control candidate sequence with aggregate diagnosis median end-to-end median and p95 non-inferiority",
+      "Exactly five allowed selected-v3 observational fingerprints and all other 131 Boolean gates true before selection",
+      "Required evidence generation trajectory policy terminal utility attack reliability latency and cost kept separate",
+      "No policy authority dependency service secret external asset real-infrastructure or image-publication boundary change",
+      "If selected source package API MCP dashboard state telemetry clean-clone container audit review release and public-tag verification"
+    ],
+    "completed_checks": [
+      "Public local upstream and remote main start exact at d62e7cba675997eade87169f5acba14de6452c9b",
+      "Fresh accepted-v3 source run passes 57 scenarios 171 attempts all 136 Boolean gates and anchored 261-event trace",
+      "Retained v4 focus improvement admissibility original latency failure and exclusion remain exact",
+      "Development-only diagnostic reference has zero returned-ID mismatches and 14.542 percent lower retriever-boundary median time",
+      "Official Python 3.12 specification gate passes without importing external bytes or executable content"
+      ,"The independent frozen-phase verifier and nine focused fail-closed tests pass with v5 and both result paths absent"
+      ,"The complete regression passes 130 tests in 116.473 seconds"
+      ,"Ten explicit current-phase validators pass in 1.024 seconds; the mutating predecessor aggregate is retained separately and supplies no positive evidence"
+      ,"The unintended aggregate run is preserved in external custody and artifacts/evaluations/latest.json is restored with zero Git diff"
+    ],
+    "evidence_paths": [
+      "artifacts/verification/orientation-baseline-0034.json",
+      "artifacts/verification/baseline-0034-orientation-failures-001.json",
+      "artifacts/verification/research-source-gate-baseline-0034-retrieval-latency.json",
+      "artifacts/verification/baseline-0034-preimplementation-freeze-local.json",
+      "eval/retrieval-single-pass-contract-0034.json"
+    ]
+  },
+  "handoff": {
+    "resume_from": "contracts/milestone-0034.json",
+    "latest_verified_checkpoint": "public v0.0.33 and completed BASELINE-0033 at d62e7cba675997eade87169f5acba14de6452c9b",
+    "resume_rule": "Run the current unit's exact next action; do not restart retrieval ideation or inspect held-out results for optimization.",
+    "blocked_on_human": false
+  }
+}

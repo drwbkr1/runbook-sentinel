@@ -1,5 +1,16 @@
 # Evaluation contract
 
+## BASELINE-0034 single-pass bounded retrieval
+
+- `single-pass-bounded-trust-tier-retrieval-v1` freezes v3 as control, v4 as the exact returned-set reference, and experimental `single-pass-bounded-trust-tier-lexical-v5` before runtime implementation. V5 must preserve scoring, ranks, 2/1/1 caps, no backfill, four-document maximum, full audit records, and decision projection.
+- Development-only optimization parses `as_of` once and each eligible project-evidence timestamp at most once. A cross-request cache is forbidden. Held-out scenarios cannot be inspected or used for tuning.
+- Five fresh processes each run 100 warmup sweeps and 120 balanced rounds over all 31 development scenarios, with 80 scenario sweeps per round and alternating v4/v5 order measured by `perf_counter_ns`. Every process must have zero returned-ID mismatches and a strictly faster v5 median; the median v5/v4 ratio across processes must be at most 0.95.
+- Whole-system selection uses six fresh three-trial reports in exact order `v3`, `v5`, `v5`, `v3`, `v3`, `v5`, yielding 513 attempts per configuration under one frozen manifest. Aggregate candidate diagnosis median, end-to-end median, and end-to-end p95 must be no greater than control at recorded precision.
+- Development expected-document share must strictly improve and extra-document count strictly decrease from v3. V5 IDs and ranks must equal v4 on both splits; required evidence must remain complete on development and held-out.
+- Before promotion, only the exact five frozen selected-v3 observational fingerprints may be false and all other 131 Boolean gates must pass. Generation, trajectory, policy, terminal state, utility, proposal and terminal attack success, repeated-trial reliability, and cost cannot regress.
+- V3 remains default until both benchmark and whole-system results pass. Promotion requires a separate identity-bound transition and a post-promotion default run with all 136 Boolean gates true across source, package, clean-clone, and local-container surfaces. Failure or inconclusive evidence is retained and excluded.
+- Microbenchmark improvement cannot rescue whole-system failure, and whole-system timing cannot rescue a retriever-boundary failure. Synthetic ID focus is not exhaustive semantic relevance, production performance, or universal prompt-injection resistance.
+
 ## BASELINE-0033 retrieval candidate admissibility
 
 - `retrieval-candidate-admissibility-v1` operates only on the exact retained BASELINE-0031 v3 report, v4 report, traces, comparison, contract, and verifier. It cannot rewrite a historical artifact or change the selected/default runtime.

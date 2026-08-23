@@ -1,0 +1,191 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0034-preimplementation-freeze-local",
+  "checkpoint": "baseline-0034",
+  "observed_at_utc": "2026-08-23T18:45:58Z",
+  "status": "pass",
+  "repository": {
+    "root": "C:/Projects/Active/runbook-sentinel-baseline-0034",
+    "branch": "codex/baseline-0034-retrieval-tier-cap-latency",
+    "starting_head": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "starting_tree": "59d76aa037a7b56bb82258f1c8705e8117e4dae9",
+    "remote_main": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "one_drive_authoritative": false
+  },
+  "frozen_payload": {
+    "path_count_excluding_this_receipt": 17,
+    "paths": [
+      {
+        "path": "artifacts/verification/baseline-0034-orientation-failures-001.json",
+        "bytes": 6616,
+        "sha256": "3711c7fb5ed2505b3f69d69297f827061bc39825edac30fa78dd3855788aa1be"
+      },
+      {
+        "path": "artifacts/verification/orientation-baseline-0034.json",
+        "bytes": 8402,
+        "sha256": "1ae6a7698fe32a6d5b7be7027452a7317ca2ddf1b55e32db2296330034ef2c32"
+      },
+      {
+        "path": "artifacts/verification/research-source-gate-baseline-0034-retrieval-latency.json",
+        "bytes": 3012,
+        "sha256": "fec4beab29bb32b7744d8976ce2f6af2c3d5a4443bd85c5b5690d7dec6993aac"
+      },
+      {
+        "path": "CHANGELOG.md",
+        "bytes": 134678,
+        "sha256": "3cbbd6e7399827e7e84b67285fa8590a056900c819057b8b8e46301b2628460c"
+      },
+      {
+        "path": "contracts/milestone-0034.json",
+        "bytes": 14316,
+        "sha256": "a4221f97cafe0f20f178eca0e580c4a40e7c09972ea688ac6614443cb549ada9"
+      },
+      {
+        "path": "docs/adr/0029-classify-bounded-retrieval-tiers-in-one-pass.md",
+        "bytes": 5077,
+        "sha256": "548158ff0e6c2ba4d22c80880c3cb8573bc34470a8d7914ae71e6905d01ed4b3"
+      },
+      {
+        "path": "docs/devlog.md",
+        "bytes": 481081,
+        "sha256": "53137df008c44908cf485895e2ee309080c83639d0e0ed1e7afd93f25eaecb11"
+      },
+      {
+        "path": "docs/evaluation-contract.md",
+        "bytes": 46859,
+        "sha256": "f343b47f1239b8892b4b2e9bd5bb3f615b649d262a464a5262a09bf2eacac56a"
+      },
+      {
+        "path": "docs/evaluation-report.md",
+        "bytes": 247890,
+        "sha256": "266c18d1d31054c19b43669a828423dbb15a103b46fcb4b12efad21dc296662c"
+      },
+      {
+        "path": "docs/research-ledger.md",
+        "bytes": 29082,
+        "sha256": "e38e475f84c62ee8db9cc14d2487ad4a1439301ff05d75ea6f5bf7032df61dde"
+      },
+      {
+        "path": "docs/roadmap.md",
+        "bytes": 103227,
+        "sha256": "9d3bdbbb0a37e9387331c9f4c0809aac1156f1718227e0e326d03615f2cbca45"
+      },
+      {
+        "path": "docs/status.md",
+        "bytes": 280011,
+        "sha256": "da48d9bf6f50e896ffa2f24be7216499b66d392ed34fe6f87ebfc8e295a2469f"
+      },
+      {
+        "path": "docs/threat-model.md",
+        "bytes": 23856,
+        "sha256": "8aab812b726576068ee943f26272f3ded2368329522220144af6ed1e8958a303"
+      },
+      {
+        "path": "docs/version-history.md",
+        "bytes": 30001,
+        "sha256": "8cee9696df0499bfb70a4a86cb4dc29e70fb28f0aef94e555d4d2ec36d79ac4f"
+      },
+      {
+        "path": "eval/retrieval-single-pass-contract-0034.json",
+        "bytes": 11007,
+        "sha256": "c85e79b5a0fe8b7a6d9a944f947cb0f4c245e3d8f51f90d89d817c3e0db9a578"
+      },
+      {
+        "path": "scripts/verify_retrieval_single_pass_contract_0034.py",
+        "bytes": 17570,
+        "sha256": "9eba25c4034740c926dfeae8a91ba2bca63d7a43a4f2fbbc5b2ce92003a93ca6"
+      },
+      {
+        "path": "tests/test_retrieval_single_pass_contract_0034.py",
+        "bytes": 5320,
+        "sha256": "f63f8a14d3eb355b1caf10167cabae43543525d938f13e87aab8eb17bf8aef2f"
+      }
+    ]
+  },
+  "verification": {
+    "contract": {
+      "status": "pass",
+      "phase": "frozen_preimplementation",
+      "development_scenario_count": 31,
+      "development_returned_id_mismatch_count": 0,
+      "candidate_implemented": false,
+      "benchmark_result_present": false,
+      "comparison_result_present": false,
+      "default_configuration": "freshness-priority-lexical-v3",
+      "held_out_used_for_optimization": false
+    },
+    "focused_tests": {
+      "status": "pass",
+      "passed": 9,
+      "failed": 0,
+      "elapsed_seconds": 0.107
+    },
+    "complete_regression": {
+      "status": "pass",
+      "passed": 130,
+      "failed": 0,
+      "elapsed_seconds": 116.473,
+      "wrapper_elapsed_seconds": 118.228
+    },
+    "explicit_current_phase_validators": {
+      "status": "pass",
+      "passed": 10,
+      "failed": 0,
+      "elapsed_seconds": 1.024,
+      "names": [
+        "manifest",
+        "package_contract",
+        "container_contract",
+        "release_identity_0033",
+        "candidate_admissibility",
+        "retrieval_quality",
+        "tier_cap_contract",
+        "tier_cap_result",
+        "model_output_result",
+        "single_pass_0034"
+      ]
+    },
+    "governed_milestone": {
+      "valid": true,
+      "errors": 0,
+      "warnings": 0,
+      "active_units": [
+        "UNIT-002"
+      ],
+      "authority_active": true
+    },
+    "python_compile": "pass",
+    "changed_json_parse_count": 5,
+    "git_diff_check": "pass",
+    "added_secret_assignment_count": 0,
+    "complete_private_key_block_count": 0,
+    "latest_json_diff_count": 0,
+    "untracked_evaluation_run_count": 0
+  },
+  "retained_non_positive_attempt": {
+    "receipt_item": "INHERITED-VALIDATOR-AGGREGATE-001",
+    "custody_root": "C:/Projects/Verification/runbook-sentinel-baseline-0034-invalid-aggregate-attempt-001",
+    "generated_file_count": 3,
+    "accepted_latest_pointer_restored_exact": true,
+    "used_as_baseline_0034_evidence": false
+  },
+  "boundaries": {
+    "runtime_retrieval_changed": false,
+    "product_default_changed": false,
+    "historical_evidence_changed": false,
+    "held_out_used_for_optimization": false,
+    "policy_approval_executor_credential_or_authority_changed": false,
+    "dependency_model_service_secret_paid_asset_or_external_asset_added": false,
+    "real_infrastructure_connected": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "tag_release_or_deployment_created": false,
+    "research_informed_synthetic_only_boundary_changed": false
+  },
+  "public_state": {
+    "freeze_commit_created": false,
+    "branch_pushed": false,
+    "anonymous_changed_bytes_reconciled": false,
+    "public_main_changed": false
+  },
+  "next_gate": "Commit and push this exact preimplementation freeze, then reconcile the public branch commit, tree, parent, every Git blob, every anonymous raw path, rendered branch and commit pages, and unchanged public main before adding v5 to runtime code."
+}

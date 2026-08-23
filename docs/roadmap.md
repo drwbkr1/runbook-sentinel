@@ -1,12 +1,22 @@
 # Roadmap
 
+## Active checkpoint baseline-0034 - single-pass bounded retrieval latency
+
+Begin from verified public v0.0.33 at exact public main `d62e7cba675997eade87169f5acba14de6452c9b`, not new ideation. A fresh accepted-v3 run passes 57 scenarios, 171 attempts, all 136 Boolean gates, and an anchored 261-event trace while reproducing 123 extra document instances across 87 eligible attempts. Retained admissible v4 still reduces extras to 93 but remains excluded on its immutable 65.443 ms versus 64.377 ms median-latency comparison.
+
+BASELINE-0034 freezes one v5 candidate that preserves v4 returned IDs, ranks, tier caps, no-backfill rule, and decision projection while parsing `as_of` once and classifying each eligible project-evidence record once. A development-only diagnostic has zero v4/v5 mismatches and lower retriever-boundary time; official Python 3.12 review imports no external asset. This is not yet selection evidence.
+
+UNIT-002 is active. The independent verifier, nine focused tests, complete 130-test regression, governed milestone validation, and ten explicit current-phase validators pass locally. Publish and anonymously reconcile the exact orientation, source gate, ADR 0029, contract, milestone, verifier, tests, and living records before v5 exists in runtime. Then implement the single allowed path, seal it publicly with v3 still default, and run exactly five development-only benchmark processes plus the balanced whole-system order `v3`, `v5`, `v5`, `v3`, `v3`, `v5`. Held-out data cannot tune.
+
+If every focus, required-evidence, rank, generation, trajectory, policy, terminal, utility, attack, reliability, retriever-latency, whole-system-latency, and cost gate passes, apply a separate identity-bound default transition and verify source, package, clean clone, API, MCP, approval/executor, dashboard, state, telemetry, local container, audit, review, release, and public tag. If any gate fails or is inconclusive, retain and exclude v5, keep v3 selected, and do not claim or release a Pareto improvement.
+
 ## Completed checkpoint baseline-0033 - retrieval candidate admissibility
 
 Audited closure `5918f614caae96fe5b9bb3815c1d4a1c90908394` and tree `4e70c23db7e700c3f6253a6512b8bfa6688c1642` are public `main`. Annotated tag object `522cc2243650568e0a063f8a0918041dca98e111` peels exactly to that closure. Public non-draft latest release `375120109` contains only the selected 647,712-byte zipapp and 94-byte checksum; anonymous downloads match their exact hashes and content, and the signed-out repository, tag, and release surfaces render the intended boundaries.
 
 Fresh credential-disabled public-tag evidence passes 121 tests, 42 phase-correct validators, exact three-way archive identity, both 57-scenario/171-attempt/all-136-gate evaluations and anchored 261-event traces, both bounded MCP and authenticated API/state/telemetry paths, three complete dashboards, and full-plus-clean 49-check local-container reproduction at image ID `sha256:00b378ab...`. The fresh exact-image scan has zero critical/high findings and no verifier container survives. `artifacts/verification/public-tag-baseline-0033.json` binds the result. External reconciliation commit `bce808053aa50c9e467e624c89887257761ba828` is exact across refs, authenticated metadata, an untruncated 1,608-entry tree, all ten Git blobs, all ten anonymous raw files totaling 1,335,007 bytes, and signed-out rendered commit/main pages; release, tag, assets, and zero-deployment state remain exact. UNIT-005 and BASELINE-0033 close pass. Container bytes remain local-only.
 
-The next checkpoint is not yet frozen. It must begin by running verified public v0.0.33, inspecting fresh traces and separately reported retrieval, generation, tool-trajectory, policy, terminal-state, utility, attack, reliability, latency, and cost results, and selecting one highest-leverage measurable weakness. Completion of BASELINE-0033 implies no successor behavior, metric, architecture, dependency, model, or authority change.
+The successor is now locally frozen as BASELINE-0034, but it has no public freeze, runtime implementation, result, default change, or release yet. Completion of BASELINE-0033 alone still implies no successor behavior, metric, architecture, dependency, model, or authority change.
 
 Resume from verified public v0.0.32 and rendered-truth correction main `4b7dd999c13384a196746de5dbff872e93f9f2fe`, not from new ideation. A fresh no-alternates public-tag run passes 57 scenarios, 171 attempts, all 136 Boolean gates, and an anchored 261-event trace. Selected/default v3 still returns 123 extra records across 87 of 153 eligible attempts with mean expected-document share 0.683006535948.
 

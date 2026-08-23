@@ -1,5 +1,21 @@
 # Evaluation report
 
+## BASELINE-0034 preimplementation orientation
+
+Exact public main `d62e7cba675997eade87169f5acba14de6452c9b` is the clean start. Public v0.0.33 remains latest at audited closure `5918f614caae96fe5b9bb3815c1d4a1c90908394`, annotated tag object `522cc2243650568e0a063f8a0918041dca98e111`, release `375120109`, two selected uploads, zero deployments, and no container-image publication.
+
+A fresh accepted-v3 source run is 953,913 bytes at SHA-256 `92825ecd...`; it passes all 136 Boolean gates across 57 scenarios and 171 attempts. Its 195,330-byte trace at SHA-256 `71dbebab...` has 261 valid chained events and final event SHA-256 `dece7455...`. Retrieval completeness, generation, trajectory, policy, terminal state, utility, and `pass^3` are 1.0; both attack-success rates are zero; model calls and external API cost are zero. End-to-end median/p95 are 62.288/111.486 ms and diagnosis median/p95 are 8.023/19.328 ms.
+
+The run reproduces the accepted retrieval weakness: 123 additional records across 87 of 153 eligible attempts, mean expected-document share 0.683006535948. Immutable v4 evidence still reduces extras to 93 and raises share to 0.709150326797, but its original median latency 65.443 ms exceeds v3 64.377 ms. V4 remains excluded; no historical result is rewritten.
+
+A development-only single-pass reference matches v4 document IDs across all 31 development scenarios. The orientation diagnostic measured 17,006.028 ns versus 19,899.859 ns per call, a 14.542% reduction; an independent verifier process measured a 28.608% reduction. These results only justify freezing the candidate and do not select it or repair the historical whole-system failure.
+
+The phase-aware contract verifier passes with v5 absent, benchmark and comparison results absent, v3 still default, zero held-out optimization, and zero errors. Nine focused fail-closed tests pass in 0.107 seconds, the complete suite passes 130 tests in 116.473 seconds, and ten explicit current-phase validators pass in 1.024 seconds.
+
+One predecessor validator aggregate was process-invalid because its first item was the mutating `verify_baseline.py` orchestrator. It created a fresh passing BASELINE-0033 report, manifest, and trace before interruption and promoted the report to `latest.json`. All three generated files are preserved intact in external verification custody; `latest.json` was restored from its exact tracked twin and has zero Git diff. No partial aggregate result supports BASELINE-0034.
+
+Public freeze reconciliation remains pending; no runtime, default, package, image, tag, release, deployment, authority, or security boundary has changed.
+
 ## BASELINE-0033 frozen candidate-admissibility overlay
 
 Fresh merged-main evidence commit `acf4cd94ed3c50bf23071afa3722308eb9df3d55`, reconciliation `8ff7f9e985f5dcf4cc83ccd056e9bf12af89131b`, and final audit `29ca0e55d55ee4fa6765c85abf7995ba6624f782` are public and exact. Audited closure `5918f614caae96fe5b9bb3815c1d4a1c90908394`, annotated tag object `522cc2243650568e0a063f8a0918041dca98e111`, non-draft latest release `375120109`, the selected zipapp/checksum, anonymous downloads, and signed-out rendered pages all reconcile. No container-image publication exists.

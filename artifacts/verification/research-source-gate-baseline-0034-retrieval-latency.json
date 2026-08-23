@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0034",
+  "gate_id": "research-source-gate-baseline-0034-retrieval-latency",
+  "status": "pass",
+  "reviewed_at_utc": "2026-08-23T18:25:38Z",
+  "decision": "use_for_narrow_specification_basis_without_import",
+  "scope": "Official Python 3.12 semantics for timezone-aware ISO parsing and short-duration monotonic timing; no external implementation or asset intake.",
+  "sources": [
+    {
+      "source_id": "python-3.12-datetime",
+      "title": "datetime - Basic date and time types",
+      "publisher": "Python Software Foundation",
+      "url": "https://docs.python.org/3.12/library/datetime.html#datetime.datetime.fromisoformat",
+      "authority": "official_language_documentation",
+      "used_principle": "Preserve the existing datetime.fromisoformat-based aware timestamp semantics while avoiding duplicate parsing within one retrieval call."
+    },
+    {
+      "source_id": "python-3.12-time",
+      "title": "time - Time access and conversions",
+      "publisher": "Python Software Foundation",
+      "url": "https://docs.python.org/3.12/library/time.html#time.perf_counter_ns",
+      "authority": "official_language_documentation",
+      "used_principle": "Use perf_counter_ns differences for high-resolution monotonic short-duration measurements without float precision loss."
+    },
+    {
+      "source_id": "python-3.12-timeit",
+      "title": "timeit - Measure execution time of small code snippets",
+      "publisher": "Python Software Foundation",
+      "url": "https://docs.python.org/3.12/library/timeit.html",
+      "authority": "official_language_documentation",
+      "used_principle": "Use repeated measurements and warmup for a bounded retriever-level comparison; do not infer whole-system dominance from a microbenchmark."
+    }
+  ],
+  "review": {
+    "identity": "pass_official_docs_python_org_versioned_3_12",
+    "authority": "pass_primary_official_specification",
+    "rights": "pass_no_external_bytes_code_data_or_assets_imported",
+    "integrity": "pass_https_official_domain_and_versioned_paths",
+    "fitness": "pass_narrowly_matches_local_python_3_12_runtime_and_existing_standard_library_apis",
+    "reproducibility": "pass_versioned_urls_and_project_authored_protocol_recorded",
+    "security": "pass_read_only_factual_review_no_executable_content_or_dependency",
+    "currentness": "pass_reviewed_2026_08_23_against_python_3_12_documentation"
+  },
+  "imports": {
+    "external_code": false,
+    "external_data": false,
+    "external_model": false,
+    "external_prompt": false,
+    "external_metric_package": false,
+    "external_benchmark": false,
+    "paid_service": false,
+    "secret": false
+  },
+  "limitations": [
+    "Official API semantics do not establish Runbook Sentinel performance or product utility.",
+    "The project-authored development microbenchmark is diagnostic and must remain separate from frozen whole-system evaluation.",
+    "Runbook Sentinel remains synthetic-only and research-informed."
+  ]
+}

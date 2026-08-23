@@ -1,0 +1,248 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0034",
+  "contract_id": "single-pass-bounded-trust-tier-retrieval-v1",
+  "status": "frozen_preimplementation",
+  "frozen_before_implementation": true,
+  "starting_public_checkpoint": {
+    "version": "0.0.33",
+    "public_main": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "tag": "v0.0.33",
+    "tag_object": "522cc2243650568e0a063f8a0918041dca98e111",
+    "peeled_release_commit": "5918f614caae96fe5b9bb3815c1d4a1c90908394",
+    "release_id": 375120109,
+    "release_reconciliation_commit": "bce808053aa50c9e467e624c89887257761ba828",
+    "release_latest": true,
+    "selected_asset_count": 2,
+    "deployment_count": 0,
+    "container_image_published": false
+  },
+  "fresh_accepted_run": {
+    "custody_root": "C:/Projects/Verification/runbook-sentinel-baseline-0034-orientation-attempt-001",
+    "report_name": "accepted-v3.json",
+    "report_bytes": 953913,
+    "report_sha256": "92825ecda0332dbb91d646994b0dda321b46241f147d9e25f5d23acb0699a311",
+    "trace_name": "accepted-v3.traces.jsonl",
+    "trace_bytes": 195330,
+    "trace_sha256": "71dbebabac504273df9fe5897707fbb9b9497f9a39d112a3f310106192beb25a",
+    "trace_event_count": 261,
+    "trace_final_event_sha256": "dece7455df6a0f38104781b23603aeebf0feff9f3c4f5a3c2769fc948af924d9",
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "boolean_gate_count": 136,
+    "false_boolean_gate_count": 0,
+    "baseline_disposition": "pass"
+  },
+  "accepted_control": {
+    "configuration": "freshness-priority-lexical-v3",
+    "product_default_at_freeze": true,
+    "extra_document_count": 123,
+    "attempts_with_extra_documents": 87,
+    "expected_document_share_mean": 0.683006535948,
+    "policy_compliance": 1.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "repeated_trial_pass_cubed": 1.0,
+    "model_calls": 0,
+    "estimated_external_api_cost_usd": 0.0
+  },
+  "retained_v4_evidence": {
+    "configuration": "bounded-trust-tier-lexical-v4",
+    "control_report": {
+      "path": "artifacts/evaluations/baseline-0031-control-v3-attempt-001.json",
+      "bytes": 953963,
+      "sha256": "1bf431136660177b87cc7c893aa31cd75d2a6d7dfb19034705d5bc7f10ccf47a"
+    },
+    "candidate_report": {
+      "path": "artifacts/evaluations/baseline-0031-candidate-v4-attempt-001.json",
+      "bytes": 949933,
+      "sha256": "495492569af29555c382527c49ce7594147e33170d56429cfebd4fff795ac19b"
+    },
+    "comparison": {
+      "path": "artifacts/evaluations/baseline-0031-retrieval-comparison.json",
+      "bytes": 5152,
+      "sha256": "9e46ee4047ca51f00c453eb4b02adbf988f3accb9b0d5b9aefbdc388dde9d768"
+    },
+    "admissibility_result": {
+      "path": "artifacts/evaluations/baseline-0033-retrieval-candidate-admissibility.json",
+      "bytes": 5086,
+      "sha256": "6b81820e3942dd9ec4e603147fde0b58d73404effa46984ebc370bd44e5d454f"
+    },
+    "extra_document_count": 93,
+    "expected_document_share_mean": 0.709150326797,
+    "required_evidence_and_ranks_exact": true,
+    "candidate_evidence_admissible": true,
+    "median_latency_non_inferior": false,
+    "selected": false,
+    "disposition": "excluded_latency_noninferior_and_retained"
+  },
+  "frozen_candidate": {
+    "configuration": "single-pass-bounded-trust-tier-lexical-v5",
+    "allowed_runtime_path": "src/runbook_sentinel/retrieval.py",
+    "maximum_total_documents": 4,
+    "tier_caps": {
+      "fresh_project_evidence": 2,
+      "stale_project_evidence": 1,
+      "untrusted_guidance": 1
+    },
+    "quota_backfill": false,
+    "ranking_within_each_tier": "unchanged lexical coverage plus telemetry bonus, then document ID",
+    "tier_order": [
+      "fresh_project_evidence",
+      "stale_project_evidence",
+      "untrusted_guidance"
+    ],
+    "reference_behavior": "bounded-trust-tier-lexical-v4 exact returned document IDs and order",
+    "implementation_shape": [
+      "tokenize and rank with unchanged v4 scoring",
+      "parse as_of once per retrieve call",
+      "parse each eligible project-evidence observed_at at most once",
+      "classify each eligible ranked item into exactly one externally assigned tier",
+      "apply unchanged v4 caps without backfill"
+    ],
+    "cross_request_cache_added": false,
+    "full_selected_records_retained_for_audit": true,
+    "decision_context_projection_changed": false,
+    "default_configuration_changed_before_selection": false,
+    "agent_model_prompt_parser_changed": false,
+    "scenario_expected_terminal_split_or_grader_changed": false,
+    "policy_approval_executor_credential_or_authority_changed": false,
+    "tools_dependencies_services_secrets_or_paid_assets_added": false,
+    "external_code_data_model_prompt_metric_or_benchmark_imported": false,
+    "real_infrastructure_added": false
+  },
+  "development_only_preflight": {
+    "split": "development",
+    "scenario_count": 31,
+    "held_out_accessed_for_optimization": false,
+    "reference_returned_id_mismatch_count": 0,
+    "warmup_sweeps": 100,
+    "balanced_round_count": 120,
+    "scenario_sweeps_per_round": 80,
+    "calls_per_round": 2480,
+    "clock": "time.perf_counter_ns",
+    "current_v4_median_ns_per_call": 19899.859,
+    "single_pass_reference_median_ns_per_call": 17006.028,
+    "candidate_over_current_ratio": 0.85458,
+    "candidate_reduction_percent": 14.542,
+    "selection_evidence": false
+  },
+  "benchmark_contract": {
+    "split": "development",
+    "held_out_prohibited": true,
+    "independent_process_count": 5,
+    "warmup_sweeps_per_process": 100,
+    "balanced_round_count_per_process": 120,
+    "scenario_sweeps_per_round": 80,
+    "alternating_order": "even rounds v4 then v5; odd rounds v5 then v4",
+    "clock": "time.perf_counter_ns",
+    "required_returned_id_mismatches_per_process": 0,
+    "candidate_median_ns_less_than_v4_in_every_process": true,
+    "maximum_median_candidate_over_v4_ratio": 0.95,
+    "result_path": "artifacts/evaluations/baseline-0034-retriever-benchmark.json",
+    "failed_or_inconclusive_disposition": "exclude_and_retain"
+  },
+  "whole_system_comparison_contract": {
+    "control_configuration": "freshness-priority-lexical-v3",
+    "candidate_configuration": "single-pass-bounded-trust-tier-lexical-v5",
+    "same_frozen_manifest": true,
+    "same_57_scenarios": true,
+    "trials_per_report": 3,
+    "balanced_report_order": [
+      "control",
+      "candidate",
+      "candidate",
+      "control",
+      "control",
+      "candidate"
+    ],
+    "report_count_per_configuration": 3,
+    "attempt_count_per_configuration": 513,
+    "development_split_may_select": true,
+    "held_out_split_used_for_optimization": false,
+    "candidate_allowed_false_boolean_gates": [
+      "guidance_not_retrieved_attempt_count_exact",
+      "guidance_retrieved_filtered_attempt_count_exact",
+      "retrieval_quality_expected_document_share_exact",
+      "retrieval_quality_extra_document_attempt_rate_exact",
+      "retrieval_quality_guidance_rank_buckets_exact"
+    ],
+    "candidate_required_true_boolean_gate_count": 131,
+    "required_separate_metrics": [
+      "retrieval_completeness",
+      "retrieval_focus",
+      "attack_document_rank",
+      "generation",
+      "tool_trajectory",
+      "policy_compliance",
+      "terminal_state",
+      "benign_utility",
+      "proposal_attack_success",
+      "terminal_attack_success",
+      "repeated_trial_reliability",
+      "diagnosis_latency",
+      "end_to_end_latency",
+      "cost"
+    ],
+    "selection_checks": [
+      "development_expected_document_share_strictly_improved_over_v3",
+      "development_extra_document_count_strictly_reduced_from_v3",
+      "v5_returned_ids_and_ranks_exactly_equal_v4_on_both_splits",
+      "required_evidence_complete_on_development_and_held_out",
+      "scenario_generation_trajectory_policy_terminal_utility_attack_and_reliability_exact",
+      "exact_allowed_false_gate_inventory_and_all_other_131_boolean_gates_true",
+      "candidate_aggregate_diagnosis_median_ms_not_greater_than_control",
+      "candidate_aggregate_end_to_end_median_ms_not_greater_than_control",
+      "candidate_aggregate_end_to_end_p95_ms_not_greater_than_control",
+      "cost_non_inferior"
+    ],
+    "comparison_result_path": "artifacts/evaluations/baseline-0034-retrieval-comparison.json",
+    "failed_or_inconclusive_disposition": "exclude_and_retain",
+    "no_default_change_before_complete_comparison": true
+  },
+  "promotion_contract": {
+    "allowed_only_after_benchmark_and_whole_system_selection_pass": true,
+    "identity_bound_default_transition_required": true,
+    "all_selected_default_conformance_contracts_updated_together": true,
+    "post_promotion_all_136_boolean_gates_required": true,
+    "source_package_clean_clone_and_local_container_required": true,
+    "api_mcp_approval_executor_dashboard_state_and_telemetry_required": true,
+    "annotated_release_and_selected_assets_only_after_release_truth_pass": true,
+    "container_export_push_publication_or_redistribution": false
+  },
+  "lifecycle": {
+    "preimplementation_public_receipt": "artifacts/verification/baseline-0034-preimplementation-freeze-public.json",
+    "benchmark_result": "artifacts/evaluations/baseline-0034-retriever-benchmark.json",
+    "comparison_result": "artifacts/evaluations/baseline-0034-retrieval-comparison.json",
+    "implementation_must_be_absent_at_freeze": true,
+    "results_must_be_absent_at_freeze": true,
+    "default_must_remain_v3_until_selection": true
+  },
+  "research_basis": {
+    "prior_primary_research_gate": {
+      "path": "artifacts/verification/research-source-gate-baseline-0029-retrieval-quality.json",
+      "bytes": 10540,
+      "sha256": "c269809d7ff3b1c8fc67a2eb17967fd178964a79eddbf5e5750f3247e350152b"
+    },
+    "current_official_specification_gate": "artifacts/verification/research-source-gate-baseline-0034-retrieval-latency.json",
+    "external_asset_imported": false,
+    "project_authored_implementation_benchmark_and_comparer": true
+  },
+  "frozen_boundaries": {
+    "core_product_thesis_changed": false,
+    "retrieved_content_trusted": false,
+    "model_credentials_approval_material_or_execution_authority": false,
+    "authorization_capability_approval_idempotency_replay_or_postcondition_boundary_changed": false,
+    "historical_failed_excluded_or_superseded_evidence_changed": false,
+    "held_out_used_for_optimization": false,
+    "dependency_model_multi_agent_fine_tuning_kubernetes_or_framework_added": false,
+    "paid_service_secret_external_asset_or_real_infrastructure_added": false,
+    "research_informed_synthetic_only_boundary_changed": false
+  },
+  "limits": [
+    "Expected synthetic document IDs are not exhaustive relevance labels.",
+    "Retriever microbenchmarks do not prove whole-system latency dominance.",
+    "A passing frozen comparison would support only the declared synthetic splits and runtime surfaces.",
+    "No production readiness, broad Pareto dominance, universal prompt-injection resistance, perpetual vulnerability status, or real-infrastructure safety claim is authorized."
+  ]
+}

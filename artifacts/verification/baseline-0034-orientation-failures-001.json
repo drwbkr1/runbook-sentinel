@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0034",
+  "receipt_id": "baseline-0034-orientation-failures-001",
+  "status": "retained",
+  "disposition": "excluded_from_positive_evidence",
+  "observed_at_utc": "2026-08-23T18:25:38Z",
+  "items": [
+    {
+      "id": "POWERSHELL-BRANCH-PREFLIGHT-001",
+      "class": "process_invalid",
+      "operation": "Check whether the BASELINE-0034 path and branch already existed before worktree creation",
+      "failure": "The first compact PowerShell hashtable expression embedded git show-ref and a semicolon while deriving the branch-existence value and failed parsing before any Git or filesystem mutation.",
+      "mutation": false,
+      "correction": "Run git show-ref separately, capture LASTEXITCODE, and then construct the summary object. The corrected successor proved the target path and branch absent and local, upstream, and public main exact at d62e7cba675997eade87169f5acba14de6452c9b.",
+      "positive_evidence": false
+    },
+    {
+      "id": "POWERSHELL-RG-PATH-INVENTORY-001",
+      "class": "process_invalid",
+      "operation": "Locate BASELINE-0033 control records while orienting the successor",
+      "failure": "The first path inventory named repository-root STATUS.md, ROADMAP.md, VERSION*, and DEVLOG.md even though the living files are under docs; the Windows VERSION* argument was also invalid. Ripgrep returned nonzero after reporting the path errors.",
+      "mutation": false,
+      "correction": "Use exact repository paths docs/status.md, docs/roadmap.md, docs/version-history.md, and docs/devlog.md. The corrected successor returned the authoritative BASELINE-0033 records.",
+      "positive_evidence": false
+    },
+    {
+      "id": "POWERSHELL-RG-DEVELOPMENT-PATH-001",
+      "class": "process_invalid",
+      "operation": "Inspect evaluation CLI documentation and command definitions",
+      "failure": "The first bounded search included absent docs/development.md and returned nonzero after still showing valid pyproject, README, CLI, and evaluation matches.",
+      "mutation": false,
+      "correction": "Read the exact CLI source and README paths separately; use only their complete successor output as positive command evidence.",
+      "positive_evidence": false
+    },
+    {
+      "id": "POWERSHELL-HASHTABLE-SERIALIZATION-001",
+      "class": "process_invalid",
+      "operation": "Summarize environment, retained evidence identities, and fresh-run document-count distributions",
+      "failure": "The first summary used integer keys in PowerShell hashtables and ConvertTo-Json rejected the dictionary as unsupported.",
+      "mutation": false,
+      "correction": "Initialize ordered string-key dictionaries for counts zero through four. The corrected successor returned all identities, distributions, and environment facts.",
+      "positive_evidence": false
+    },
+    {
+      "id": "MILESTONE-UNIT-STATUS-VOCABULARY-001",
+      "class": "contract_invalid",
+      "operation": "Validate the initial BASELINE-0034 governed milestone projection",
+      "failure": "The first draft used active for UNIT-002 and pending for later units. The governed validator accepts in_progress and planned for those states and returned four invalid-status errors.",
+      "mutation": false,
+      "correction": "Change only UNIT-002 to in_progress and UNIT-003 through UNIT-005 to planned, preserving every purpose, dependency, authority, scope, gate, and exit condition. Use only a clean successor validation as positive evidence.",
+      "positive_evidence": false
+    },
+    {
+      "id": "POWERSHELL-RG-WINDOWS-WILDCARD-002",
+      "class": "process_invalid",
+      "operation": "Locate historical BASELINE-0033 validator command inventories",
+      "failure": "The first ripgrep command passed artifacts/verification/baseline-0033-*.json as a literal Windows path and ripgrep rejected the invalid wildcard path.",
+      "mutation": false,
+      "correction": "Use an explicit artifacts/verification root with --glob baseline-0033-*.json. The corrected successor returned the historical validator evidence references.",
+      "positive_evidence": false
+    },
+    {
+      "id": "INHERITED-VALIDATOR-AGGREGATE-001",
+      "class": "inconclusive",
+      "operation": "Run the predecessor 42-script validator inventory using each script's default invocation",
+      "failure": "The aggregate suppressed child output and had no terminal summary after two minutes. Its first item was mutating verify_baseline.py, which completed far enough to create and promote a fresh passing BASELINE-0033 attempt before the outer aggregate was interrupted; completed count and current child remained unknown.",
+      "mutation": true,
+      "generated_evidence_custody": {
+        "root": "C:/Projects/Verification/runbook-sentinel-baseline-0034-invalid-aggregate-attempt-001",
+        "files": [
+          {
+            "name": "baseline-0033-attempt-003.json",
+            "bytes": 953928,
+            "sha256": "d165631d421ee29925eee2d9f7362fc8666015cc3b2af621993b6e6d5caa078f"
+          },
+          {
+            "name": "baseline-0033-attempt-003.manifest.json",
+            "bytes": 18484,
+            "sha256": "4f9e9880a9f3a7dd75e94f83018d3f2bef996d4f49b05fd42160f7f62f281b20"
+          },
+          {
+            "name": "baseline-0033-attempt-003.traces.jsonl",
+            "bytes": 195337,
+            "sha256": "dc280179fae4512ee8ad523523ff6c22791afa52a532939e6c0b6081945a966c"
+          }
+        ]
+      },
+      "correction": "Move all three generated files intact to exact external verification custody, restore artifacts/evaluations/latest.json from its byte-identical tracked twin baseline-0033-attempt-002.json, and prove the latest pointer has no Git diff. Use only explicit current-phase read-only validators with declared inputs and observable terminal results.",
+      "positive_evidence": false
+    },
+    {
+      "id": "VERIFY-BASELINE-HELP-PROBE-001",
+      "class": "process_invalid",
+      "operation": "Inspect validator command help before selecting current-phase invocations",
+      "failure": "verify_baseline.py has no argument parser, so passing --help started its mutating orchestration instead of returning usage. A bounded output pipeline terminated the probe before it created an evaluation; no second untracked attempt existed.",
+      "mutation": false,
+      "correction": "Inspect the script source before invocation, classify it as a mutating baseline builder rather than a side-effect-free validator, and exclude it from preimplementation static validation.",
+      "positive_evidence": false
+    }
+  ]
+}
