@@ -28,6 +28,7 @@
 - Published implementation seal `1a8864c...` exact across 31 Git blobs and anonymous raw paths, untruncated tree, and rendered evidence. Both successor contracts are public; the predecessor manifest remains active and no v0.0.33 archive, checksum, container receipt, or image exists.
 - Published exact eight-path implementation record `e1547e5...`; branch, commit/tree/parent, all Git blobs and anonymous raw files, an untruncated 1,561-entry tree, rendered evidence, and unchanged public `main` reconcile.
 - Refroze byte-identical 18,484-byte active and archived BASELINE-0033 manifests at SHA-256 `4f9e9880a9f3a7dd75e94f83018d3f2bef996d4f49b05fd42160f7f62f281b20`. Exact verification covers 153 files, all 121 tests pass in 90.994 seconds, and all 42 phase-correct validators pass in 3.157 seconds. Rejected interpreter and lifecycle wrappers remain retained; no archive, checksum, container receipt, image, evaluation run, tag, release, or deployment exists before the public prebuild seal.
+- Published prebuild seal `a214475...`, tree `289363f...`, exact across branch and anonymous metadata, all 11 Git blobs and raw files, an untruncated 1,563-entry tree, rendered evidence, and unchanged public `main`. Deterministic package construction opens only after this record-only public receipt is itself published and verified.
 
 ## 0.0.32 - 2026-08-22
 

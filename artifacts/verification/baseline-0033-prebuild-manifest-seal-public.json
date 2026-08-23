@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0033-PREBUILD-MANIFEST-SEAL-PUBLIC",
+  "checkpoint": "BASELINE-0033",
+  "observed_at_utc": "2026-08-23T02:23:22Z",
+  "status": "pass",
+  "repository": {
+    "owner": "drwbkr1",
+    "name": "runbook-sentinel",
+    "visibility": "public",
+    "branch": "codex/baseline-0033-retrieval-candidate-admissibility"
+  },
+  "target": {
+    "commit": "a214475dd33d165d4e990819ffce391e911fa33b",
+    "tree": "289363f688fe17ff3c15228d8366f6fd30dc0feb",
+    "parent": "e1547e541f57e1031d7cec1862e0b7c099efead7",
+    "commit_message": "Freeze BASELINE-0033 prebuild manifest"
+  },
+  "checks": {
+    "local_ref_exact": true,
+    "ls_remote_branch_exact": true,
+    "anonymous_github_commit_exact": true,
+    "anonymous_github_tree_exact": true,
+    "anonymous_github_parent_exact": true,
+    "github_tree_not_truncated": true,
+    "changed_git_blobs_exact": true,
+    "anonymous_raw_bytes_exact": true,
+    "rendered_commit_exact": true,
+    "public_main_unchanged": true
+  },
+  "counts": {
+    "repository_tree_entries": 1563,
+    "changed_paths": 11,
+    "git_blob_mismatches": 0,
+    "raw_byte_mismatches": 0
+  },
+  "manifest": {
+    "active_path": "eval/manifest.json",
+    "archived_path": "artifacts/verification/baseline-0033-prebuild-source-manifest.json",
+    "checkpoint": "baseline-0033",
+    "frozen_at_utc": "2026-08-23T02:03:44Z",
+    "file_count": 153,
+    "bytes": 18484,
+    "sha256": "4f9e9880a9f3a7dd75e94f83018d3f2bef996d4f49b05fd42160f7f62f281b20",
+    "active_and_archived_bytes_equal": true
+  },
+  "verification": {
+    "local_receipt_path": "artifacts/verification/baseline-0033-prebuild-manifest-seal-local.json",
+    "local_receipt_bytes": 6476,
+    "local_receipt_sha256": "821bc30b238f0aead667a1bd3ebb41cc003cdea4654896dc5104745d9d38241a",
+    "complete_regression_passed": 121,
+    "applicable_phase_correct_validators_passed": 42,
+    "manifest_file_count_verified": 153,
+    "candidate_selected": false,
+    "selected_configuration": "freshness-priority-lexical-v3"
+  },
+  "changed_payload": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 126221,
+      "sha256": "d26ffec547a7ce843c0a4be1c10ac3183b3f411e6980a813c9b5c6723cb13d31",
+      "git_blob": "c1a6f039c6ff1831e1fb073990c9727a1cfb300c"
+    },
+    {
+      "path": "artifacts/verification/baseline-0033-orientation-failures-001.json",
+      "bytes": 23271,
+      "sha256": "f20bcb721ce3d2ca32f0f81d55a8fbaa954de9c3b02ca9505dbeaee4e126435e",
+      "git_blob": "9f8030dadf0238431cd1ca61bef0bee9a2aec88a"
+    },
+    {
+      "path": "artifacts/verification/baseline-0033-prebuild-manifest-seal-local.json",
+      "bytes": 6476,
+      "sha256": "821bc30b238f0aead667a1bd3ebb41cc003cdea4654896dc5104745d9d38241a",
+      "git_blob": "d9e5d0533d2156de5fb1641e43cc4a41dc00d2a5"
+    },
+    {
+      "path": "artifacts/verification/baseline-0033-prebuild-source-manifest.json",
+      "bytes": 18484,
+      "sha256": "4f9e9880a9f3a7dd75e94f83018d3f2bef996d4f49b05fd42160f7f62f281b20",
+      "git_blob": "3528d2e124e0a39f1d19033ad1c13c5183eb1d77"
+    },
+    {
+      "path": "contracts/milestone-0033.json",
+      "bytes": 23212,
+      "sha256": "2c48009949d839a13007482fd35ddaa7b082dc568a00d2a8034cccf00dcab265",
+      "git_blob": "dc9065d9047102816f2c25e790aafa57c69195b3"
+    },
+    {
+      "path": "docs/devlog.md",
+      "bytes": 464169,
+      "sha256": "fbf73e4b3339832d262a96f11baaf627138380637eae350618e3e834b81c2908",
+      "git_blob": "e6fc9997d6775893bd8397174a29042ffe25315b"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "bytes": 236078,
+      "sha256": "c5c4ab9f4ad9c97b9265b656dfdf3b76bf832a08703f0cccc1232332b16d2d79",
+      "git_blob": "a229fb702d1006b95fc530924543e83c58b3360b"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 97449,
+      "sha256": "7f535855357eacf0f6ebb385b433dfeb65db1579879e1898ab207b750a188e93",
+      "git_blob": "8f90d64689e12568a675bfaec04062e083c89ebd"
+    },
+    {
+      "path": "docs/status.md",
+      "bytes": 271096,
+      "sha256": "597547de5c208d90d78707780e4e88e15629ce820de862bfb1a1e7ef312d6824",
+      "git_blob": "1182d15d3013f2b552fda6aa8cc4c2a67f74aae9"
+    },
+    {
+      "path": "docs/version-history.md",
+      "bytes": 28989,
+      "sha256": "b5d2ddf41c8f93b5be4ff2818edf53a439fb68755ee2385e3cd96745b43ca394",
+      "git_blob": "8c44d703b340655c31963c73a45c2cc6542655d2"
+    },
+    {
+      "path": "eval/manifest.json",
+      "bytes": 18484,
+      "sha256": "4f9e9880a9f3a7dd75e94f83018d3f2bef996d4f49b05fd42160f7f62f281b20",
+      "git_blob": "3528d2e124e0a39f1d19033ad1c13c5183eb1d77"
+    }
+  ],
+  "boundaries": {
+    "public_main_moved": false,
+    "package_or_derived_image_built_by_publication": false,
+    "candidate_evaluation_started": false,
+    "dependency_secret_paid_service_or_external_asset_added": false,
+    "real_operational_infrastructure_contacted": false,
+    "tag_release_or_deployment_created": false,
+    "container_image_exported_pushed_published_or_redistributed": false
+  },
+  "next_gate": "Publish this public reconciliation receipt and living-record update, verify that record-only commit, and only then build two deterministic v0.0.33 zipapp attempts."
+}
