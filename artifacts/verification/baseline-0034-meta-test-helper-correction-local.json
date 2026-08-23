@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0034-meta-test-helper-correction-local",
+  "checkpoint": "baseline-0034",
+  "contract_id": "retrieval-predecessor-successor-lifecycle-v1",
+  "contract_schema_version": "1.2",
+  "contract_schema_revision": 3,
+  "meta_test_helper_addendum": 1,
+  "observed_at_utc": "2026-08-23T21:57:44Z",
+  "status": "pass",
+  "starting_public_checkpoint": {
+    "commit": "e3fb6bf805e0a84c1b95be7014b614743fda87de",
+    "tree": "0480be95dcbb10f38deda25053716ab46266fae3",
+    "parent": "de7830fe1319a0152b1fc20eb39886a19138ebda",
+    "public_record_exact": true
+  },
+  "retained_failure": {
+    "id": "META-TEST-HELPER-LIFECYCLE-0034-001",
+    "positive_evidence": false,
+    "meta_test_bytes": 3159,
+    "meta_test_sha256": "ee7c67c27d222761e30e6c45a24b4054cbf5e4e439b16e2b3720370bf026a63f",
+    "focused_total": 23,
+    "focused_passed": 22,
+    "focused_failed": 1
+  },
+  "frozen_test_identities": {
+    "meta_test_released": {"bytes":2741,"sha256":"b4f2b66058a4d3ad8de7b0e4cdf3affed96c2014aa7040cfddd365376a4c187f"},
+    "meta_test_corrected": {"bytes":3159,"sha256":"ee7c67c27d222761e30e6c45a24b4054cbf5e4e439b16e2b3720370bf026a63f"},
+    "helper_released": {"bytes":2708,"sha256":"fe1e1d9ef5d341dd0bb62de3559aefe9d844a0857e6a7d95635d33c739c4c261"},
+    "helper_corrected": {"bytes":3029,"sha256":"a9f499dc4960748bb498ea2370688eec252ebc6fa4114b9e54ead8a873b8909d"}
+  },
+  "verification": {
+    "lifecycle_phase": "bridge_public_predecessor",
+    "focused_test_count": 15,
+    "focused_result": "OK",
+    "complete_test_count": 145,
+    "complete_seconds": 176.266,
+    "complete_result": "OK"
+  },
+  "boundaries": {
+    "test_replacements_applied": false,
+    "release_test_changed": false,
+    "product_runtime_changed": false,
+    "release_identity_verifier_changed": false,
+    "current_tree_bridge_validators_changed": false,
+    "default_changed": false,
+    "result_created": false,
+    "security_or_authority_changed": false,
+    "container_image_exported_pushed_published_or_redistributed": false
+  },
+  "next_gate": "Publish and anonymously reconcile this exact helper addendum before changing either governed test path."
+}

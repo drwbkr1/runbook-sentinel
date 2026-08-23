@@ -32,3 +32,7 @@ The first exact v5 retry exposed a test-only phase mismatch: the bridge correctl
 ## Schema 1.2 revision 3 meta-test lifecycle correction
 
 The first schema-1.2 implementation retry reached the exact corrected release-test identity and passed every inherited release check, but its new meta-test still assumed predecessor source bytes. Revision 3 freezes a phase-aware meta-test while retaining schema-version compatibility: when the release test is still public predecessor bytes it projects and verifies the exact corrected identity; when the release test is already corrected it validates those bytes directly. Unknown meta-test bytes fail closed. Runtime, release verifier, bridge validators, selection rules, and security boundaries remain unchanged.
+
+## Revision 3 helper addendum
+
+The first meta-test implementation exposed the same lifecycle assumption in the helper that proves the meta-test projection. The addendum freezes one exact phase-aware helper identity and allows the target plus helper to move together. It adds no further self-referential projection test: the independent lifecycle verifier accepts only the two precomputed identities for each path and rejects unknown bytes. Product and security boundaries remain unchanged.

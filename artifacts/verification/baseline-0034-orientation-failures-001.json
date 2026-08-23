@@ -313,6 +313,24 @@
       "correction": "Restore the exact 6,941-byte public bridge test. Freeze and publish a schema-1.3 phase-aware meta-test identity that projects the correction only from predecessor bytes and validates corrected bytes directly, then implement that meta-test before retrying the release-test replacement.",
       "restored_release_test_sha256": "3000e914733f96d4f9513f53be7296b956ce7fb4979aa29b13b4ccae12427917",
       "positive_evidence": false
+    },
+    {
+      "id": "META-TEST-HELPER-LIFECYCLE-0034-001",
+      "class": "fail",
+      "operation": "Apply the exact public revision-3 phase-aware meta-test replacement and run focused predecessor regression",
+      "observed_at_utc": "2026-08-23T21:53:22Z",
+      "failure": "The target meta-test changed to exact precomputed 3,159-byte identity and the lifecycle validator accepted it, but the new helper that proved that projection also required predecessor bytes after implementation. The focused suite stopped at 22/23 on that helper-only assertion.",
+      "mutation": false,
+      "candidate_attempt": {
+        "meta_test_bytes": 3159,
+        "meta_test_sha256": "ee7c67c27d222761e30e6c45a24b4054cbf5e4e439b16e2b3720370bf026a63f",
+        "lifecycle_valid": true,
+        "focused_passed": 22,
+        "focused_failed": 1
+      },
+      "correction": "Restore the exact 2,741-byte public meta-test. Freeze and publish one helper addendum that admits only the current 2,708-byte helper or a precomputed 3,029-byte phase-aware helper, then change both exact test-only paths together.",
+      "restored_meta_test_sha256": "b4f2b66058a4d3ad8de7b0e4cdf3affed96c2014aa7040cfddd365376a4c187f",
+      "positive_evidence": false
     }
   ]
 }

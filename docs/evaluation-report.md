@@ -32,6 +32,8 @@ The record-only public receipt is exact at `79c6893ecbcb5a9207be84b14e11804ebbad
 
 Revision-3 freeze `de7830fe1319a0152b1fc20eb39886a19138ebda` is public and exact across tree `6d621b5d...`, parent `79c6893...`, all 14 blobs/raw paths totaling 1,426,206 bytes, an untruncated 1,633-entry tree, and the rendered commit. This remains preimplementation evidence: meta-test, release test, runtime, and results are unchanged.
 
+Record `e3fb6bf805e0a84c1b95be7014b614743fda87de` is exact. The first phase-aware meta-test implementation reached the frozen 3,159-byte identity and passed lifecycle validation, but its proof helper still assumed predecessor bytes and stopped at 22/23. The helper addendum retains that failure and freezes a 3,029-byte phase-aware helper so both exact test paths can move together without another projection layer. With both restored, all 145 tests pass in 176.266 seconds. Product and result bytes remain unchanged.
+
 ## BASELINE-0033 frozen candidate-admissibility overlay
 
 Fresh merged-main evidence commit `acf4cd94ed3c50bf23071afa3722308eb9df3d55`, reconciliation `8ff7f9e985f5dcf4cc83ccd056e9bf12af89131b`, and final audit `29ca0e55d55ee4fa6765c85abf7995ba6624f782` are public and exact. Audited closure `5918f614caae96fe5b9bb3815c1d4a1c90908394`, annotated tag object `522cc2243650568e0a063f8a0918041dca98e111`, non-draft latest release `375120109`, the selected zipapp/checksum, anonymous downloads, and signed-out rendered pages all reconcile. No container-image publication exists.

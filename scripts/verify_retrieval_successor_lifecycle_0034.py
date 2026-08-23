@@ -85,6 +85,14 @@ def _fixture_meta_test_exact(root: Path, contract: dict[str, Any]) -> bool:
     )
 
 
+def _meta_test_helper_exact(root: Path, contract: dict[str, Any]) -> bool:
+    correction = contract.get("meta_test_helper_correction", {})
+    path = root / str(correction.get("allowed_test_path", ""))
+    return _exact(path, correction.get("released_helper_identity", {})) or _exact(
+        path, correction.get("corrected_helper_identity", {})
+    )
+
+
 def _public_receipt_valid(root: Path, contract: dict[str, Any], errors: list[str]) -> bool:
     receipt_path = root / contract.get("bridge_implementation", {}).get(
         "public_receipt_path", ""
@@ -197,11 +205,13 @@ def validate(
         errors.append("schema_version")
     if contract.get("schema_revision") != 3:
         errors.append("schema_revision")
+    if contract.get("meta_test_helper_addendum") != 1:
+        errors.append("meta_test_helper_addendum")
     if contract.get("checkpoint") != "baseline-0034":
         errors.append("checkpoint")
     if contract.get("contract_id") != "retrieval-predecessor-successor-lifecycle-v1":
         errors.append("contract_id")
-    if contract.get("status") != "frozen_meta_test_lifecycle_corrected":
+    if contract.get("status") != "frozen_meta_test_helper_lifecycle_corrected":
         errors.append("contract_status")
     correction = contract.get("lifecycle_correction", {})
     if any(
@@ -281,6 +291,41 @@ def validate(
         errors.append("meta_test_boundary")
     if not _fixture_meta_test_exact(root, contract):
         errors.append("meta_test_identity")
+    helper_correction = contract.get("meta_test_helper_correction", {})
+    if helper_correction.get("retained_failure") != "META-TEST-HELPER-LIFECYCLE-0034-001":
+        errors.append("meta_test_helper_retained_failure")
+    if helper_correction.get("allowed_test_path") != "tests/test_retrieval_meta_test_lifecycle_correction_0034.py":
+        errors.append("meta_test_helper_allowed_path")
+    if helper_correction.get("released_helper_identity") != {
+        "bytes": 2708,
+        "sha256": "fe1e1d9ef5d341dd0bb62de3559aefe9d844a0857e6a7d95635d33c739c4c261",
+    }:
+        errors.append("meta_test_helper_released_identity")
+    if helper_correction.get("corrected_helper_identity") != {
+        "bytes": 3029,
+        "sha256": "a9f499dc4960748bb498ea2370688eec252ebc6fa4114b9e54ead8a873b8909d",
+    }:
+        errors.append("meta_test_helper_corrected_identity")
+    helper_block = helper_correction.get("exact_block_replacement", {})
+    if helper_block.get("required_occurrence_count") != 1 or not all(
+        isinstance(helper_block.get(key), str) and helper_block.get(key)
+        for key in ("from", "to")
+    ):
+        errors.append("meta_test_helper_replacement")
+    if any(
+        helper_correction.get(key) is not False
+        for key in (
+            "release_test_changed",
+            "product_runtime_changed",
+            "release_identity_verifier_changed",
+            "current_tree_bridge_validators_changed",
+            "admissibility_or_selection_rule_changed",
+            "security_or_authority_changed",
+        )
+    ):
+        errors.append("meta_test_helper_boundary")
+    if not _meta_test_helper_exact(root, contract):
+        errors.append("meta_test_helper_identity")
 
     public = contract.get("public_preimplementation_sequence", {})
     public_receipt = root / str(public.get("receipt_path", ""))
@@ -379,6 +424,7 @@ def validate(
     return {
         "schema_version": contract.get("schema_version"),
         "schema_revision": contract.get("schema_revision"),
+        "meta_test_helper_addendum": contract.get("meta_test_helper_addendum"),
         "checkpoint": contract.get("checkpoint"),
         "contract_id": contract.get("contract_id"),
         "status": "pass" if not errors else "fail",

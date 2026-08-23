@@ -1,9 +1,10 @@
 {
   "schema_version": "1.2",
   "schema_revision": 3,
+  "meta_test_helper_addendum": 1,
   "checkpoint": "baseline-0034",
   "contract_id": "retrieval-predecessor-successor-lifecycle-v1",
-  "status": "frozen_meta_test_lifecycle_corrected",
+  "status": "frozen_meta_test_helper_lifecycle_corrected",
   "frozen_at_utc": "2026-08-23T19:08:15Z",
   "lifecycle_correction": {
     "corrected_at_utc": "2026-08-23T19:25:00Z",
@@ -55,6 +56,31 @@
     "exact_block_replacement": {
       "from": "        source = path.read_text(encoding=\"utf-8\")\n        replacement = self.correction[\"exact_replacement\"]\n        self.assertEqual(source.count(replacement[\"from\"]), 1)\n        future = source.replace(replacement[\"from\"], replacement[\"to\"])\n        payload = future.encode(\"utf-8\")\n        self.assertEqual(len(payload), self.correction[\"corrected_test_identity\"][\"bytes\"])\n        self.assertEqual(\n            hashlib.sha256(payload).hexdigest(),\n            self.correction[\"corrected_test_identity\"][\"sha256\"],\n        )\n",
       "to": "        payload = path.read_bytes()\n        identity = {\"bytes\": len(payload), \"sha256\": hashlib.sha256(payload).hexdigest()}\n        released = self.correction[\"released_bridge_test_identity\"]\n        corrected = self.correction[\"corrected_test_identity\"]\n        self.assertIn(identity, (released, corrected))\n        if identity == released:\n            source = payload.decode(\"utf-8\")\n            replacement = self.correction[\"exact_replacement\"]\n            self.assertEqual(\n                source.count(replacement[\"from\"]),\n                replacement[\"required_occurrence_count\"],\n            )\n            payload = source.replace(\n                replacement[\"from\"],\n                replacement[\"to\"],\n                replacement[\"required_occurrence_count\"],\n            ).encode(\"utf-8\")\n        self.assertEqual(len(payload), corrected[\"bytes\"])\n        self.assertEqual(hashlib.sha256(payload).hexdigest(), corrected[\"sha256\"])\n",
+      "required_occurrence_count": 1
+    },
+    "release_test_changed": false,
+    "product_runtime_changed": false,
+    "release_identity_verifier_changed": false,
+    "current_tree_bridge_validators_changed": false,
+    "admissibility_or_selection_rule_changed": false,
+    "security_or_authority_changed": false
+  },
+  "meta_test_helper_correction": {
+    "corrected_at_utc": "2026-08-23T21:55:00Z",
+    "retained_failure": "META-TEST-HELPER-LIFECYCLE-0034-001",
+    "finding": "The revision-3 helper proved the phase-aware meta-test only from predecessor bytes and therefore failed after the exact corrected meta-test identity was applied.",
+    "allowed_test_path": "tests/test_retrieval_meta_test_lifecycle_correction_0034.py",
+    "released_helper_identity": {
+      "bytes": 2708,
+      "sha256": "fe1e1d9ef5d341dd0bb62de3559aefe9d844a0857e6a7d95635d33c739c4c261"
+    },
+    "corrected_helper_identity": {
+      "bytes": 3029,
+      "sha256": "a9f499dc4960748bb498ea2370688eec252ebc6fa4114b9e54ead8a873b8909d"
+    },
+    "exact_block_replacement": {
+      "from": "        path = ROOT / self.correction[\"allowed_test_path\"]\n        source = path.read_text(encoding=\"utf-8\")\n        replacement = self.correction[\"exact_block_replacement\"]\n        self.assertEqual(\n            source.count(replacement[\"from\"]),\n            replacement[\"required_occurrence_count\"],\n        )\n        future = source.replace(\n            replacement[\"from\"],\n            replacement[\"to\"],\n            replacement[\"required_occurrence_count\"],\n        ).encode(\"utf-8\")\n        expected = self.correction[\"corrected_meta_test_identity\"]\n        self.assertEqual(len(future), expected[\"bytes\"])\n        self.assertEqual(hashlib.sha256(future).hexdigest(), expected[\"sha256\"])\n",
+      "to": "        path = ROOT / self.correction[\"allowed_test_path\"]\n        payload = path.read_bytes()\n        identity = {\"bytes\": len(payload), \"sha256\": hashlib.sha256(payload).hexdigest()}\n        released = self.correction[\"released_meta_test_identity\"]\n        corrected = self.correction[\"corrected_meta_test_identity\"]\n        self.assertIn(identity, (released, corrected))\n        if identity == released:\n            source = payload.decode(\"utf-8\")\n            replacement = self.correction[\"exact_block_replacement\"]\n            self.assertEqual(\n                source.count(replacement[\"from\"]),\n                replacement[\"required_occurrence_count\"],\n            )\n            payload = source.replace(\n                replacement[\"from\"],\n                replacement[\"to\"],\n                replacement[\"required_occurrence_count\"],\n            ).encode(\"utf-8\")\n        self.assertEqual(len(payload), corrected[\"bytes\"])\n        self.assertEqual(hashlib.sha256(payload).hexdigest(), corrected[\"sha256\"])\n",
       "required_occurrence_count": 1
     },
     "release_test_changed": false,
@@ -161,5 +187,5 @@
     "dependency_model_service_secret_paid_asset_external_asset_or_real_infrastructure_added": false,
     "container_image_exported_pushed_published_or_redistributed": false
   },
-  "next_gate": "Publish and anonymously reconcile this exact schema-1.2 revision-3 meta-test lifecycle freeze while retrieval.py and the release test remain at public predecessor identities, then apply and publish only the precomputed phase-aware meta-test replacement before retrying the frozen release-test replacement."
+  "next_gate": "Publish and anonymously reconcile this exact revision-3 helper addendum while runtime and both test targets remain public predecessor identities, then apply and publish only the two precomputed phase-aware test replacements before retrying the frozen release-test replacement."
 }
