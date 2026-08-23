@@ -203,9 +203,90 @@
       "mutation": false,
       "correction": "Exercise the unchanged historical verifier against a temporary fixture reconstructed from the exact released v12 Dockerfile contract and immutable BASELINE-0032 evidence, while separately asserting the current v0.0.33 Dockerfile retains the exact admitted base and digest label. The v13 runtime prerequisite now composes the exact frozen refresh-contract hash with the independently passing v13 contract instead of misapplying the v0.0.32 identity verifier to a later release.",
       "positive_evidence": false
+    },
+    {
+      "id": "PREBUILD-MANIFEST-POWERSHELL-COUNT-001",
+      "class": "process_invalid",
+      "operation": "Display the renewed manifest file count in the first freeze wrapper",
+      "failure": "PowerShell projected the Count member over every JSON property and displayed 153 individual one values instead of the scalar property count. Both generated manifests were byte-identical, but this display is not count evidence.",
+      "mutation": false,
+      "correction": "Read the frozen JSON with Python and apply len to the files object. The independent successor reports exactly 153 files and verify_manifest.py passes all 153 identities.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PREBUILD-VALIDATOR-INVENTORY-WINDOWS-GLOB-001",
+      "class": "process_invalid",
+      "operation": "Inspect validator argument definitions with ripgrep on Windows",
+      "failure": "The first command passed scripts/verify_*.py as a literal Windows path and ripgrep rejected the invalid wildcard path before inventory output. No file or external state changed.",
+      "mutation": false,
+      "correction": "Use ripgrep with -g verify_*.py and an explicit scripts search root. The successor identifies the phase-bearing validators without mutating repository state.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PREBUILD-PYTEST-INTERPRETER-001",
+      "class": "process_invalid",
+      "operation": "Run the complete BASELINE-0033 prebuild regression",
+      "failure": "The first invocation guessed pytest, but the dependency-free repository uses standard-library unittest and the global Python has no pytest module. Zero tests ran and no repository state changed.",
+      "mutation": false,
+      "correction": "Run the documented python -m unittest discover -s tests -v command. The successor passes all 121 tests in 90.994 seconds.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PREBUILD-VALIDATOR-PYTHONPATH-001",
+      "class": "process_invalid",
+      "operation": "Run all 42 applicable prebuild validators in one aggregate",
+      "failure": "The first aggregate omitted the documented PYTHONPATH=src setting. It stopped at verify_mcp_stdio.py after 23 earlier passes because runbook_sentinel could not be imported; the partial aggregate is not release evidence.",
+      "mutation": false,
+      "correction": "Set PYTHONPATH to src and restart the complete validator set from the beginning.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PREBUILD-RETRIEVAL-OBSERVABILITY-PHASE-001",
+      "class": "process_invalid",
+      "operation": "Run the retrieval-quality observability validator in the prebuild aggregate",
+      "failure": "The second aggregate supplied require-implementation without implementation-only, so the validator evaluated an execution-phase historical report and correctly rejected it after 32 preceding passes. No candidate evaluation had started.",
+      "mutation": false,
+      "correction": "Use the validator's explicit implementation-only lifecycle mode at this prebuild gate and restart the complete aggregate.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PREBUILD-RETRIEVAL-SELECTION-FLAG-001",
+      "class": "process_invalid",
+      "operation": "Run the retained retrieval-tier implementation and selection checks in the prebuild aggregate",
+      "failure": "The third aggregate interpreted require-selection as requiring candidate v4 selection. The verifier correctly rejected that flag because v4 remains excluded; 34 preceding passes are not promoted as a complete aggregate.",
+      "mutation": false,
+      "correction": "Require the v4 implementation without requiring its selection, and independently require the frozen comparison result and selected v3 control. The focused successors pass, followed by one complete 42-of-42 aggregate in 3.157 seconds.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PREBUILD-FAILURE-RECORD-PATCH-CONTEXT-001",
+      "class": "process_invalid",
+      "operation": "Append the prebuild failures to the retained failure ledger",
+      "failure": "The first apply-patch context used released-v12 while the exact file said released v12, so patch verification rejected the edit before mutation.",
+      "mutation": false,
+      "correction": "Use the exact retained line as context. The successor adds the failure records and the JSON parses independently.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PREBUILD-PREFLIGHT-POWERSHELL-PARSER-001",
+      "class": "process_invalid",
+      "operation": "Aggregate compilation diff Docker and successor-artifact absence checks",
+      "failure": "PowerShell rejected a semicolon expression embedded in one object field before executing any part of the composite command. Repository Docker and external state were unchanged.",
+      "mutation": false,
+      "correction": "Split structured parsing compilation diff checks and Docker artifact absence into simple successor commands. All successors pass and Docker 29.4.3 reports zero BASELINE-0033 image or container matches.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PREBUILD-PRIVATE-KEY-MARKER-SCAN-001",
+      "class": "process_invalid",
+      "operation": "Scan the repository for complete private-key blocks",
+      "failure": "A broad first marker search counted 29 documentation contract verifier and retained-receipt references to the words BEGIN PRIVATE KEY; it did not distinguish pattern literals from a complete encoded key block and is not scan evidence.",
+      "mutation": false,
+      "correction": "Use a bounded multiline PEM structure check requiring matching begin/end labels and base64 body lines. The successor reports zero complete private-key blocks; the high-signal added-secret assignment scan and model-artifact inventory also report zero.",
+      "positive_evidence": false
     }
   ],
   "historical_candidate_results_rewritten": false,
   "product_files_changed_by_failure": false,
-  "next_gate": "Publish and anonymously reconcile the bounded v0.0.33 identity and inherited package/container implementation seal before freezing a successor release manifest or building any v0.0.33 archive or image."
+  "next_gate": "Publish and anonymously reconcile the renewed 153-file BASELINE-0033 prebuild manifest seal before building any v0.0.33 archive or image."
 }
