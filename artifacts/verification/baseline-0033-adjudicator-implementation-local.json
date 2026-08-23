@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0033",
+  "receipt_id": "baseline-0033-adjudicator-implementation-local",
+  "status": "pass",
+  "phase": "implementation_sealed_no_result",
+  "observed_at_utc": "2026-08-23T00:20:42.6007607Z",
+  "starting_commit": "100f3fb68584988bc1c45a988d63628f70ac7b97",
+  "starting_tree": "50162c4cb6a6baa0bf93d615fb04476c83b1af9f",
+  "implementation": {
+    "path": "scripts/readjudicate_retrieval_candidate.py",
+    "standard_library_only": true,
+    "default_read_only_in_memory": true,
+    "explicit_write_required": true,
+    "frozen_output_path_only": true,
+    "exclusive_create": true,
+    "overwrite_refused": true,
+    "flush_and_fsync": true,
+    "source_identity_recheck": true,
+    "independent_postwrite_verification": true
+  },
+  "verification": {
+    "read_only_execution": "pass",
+    "implementation_phase_verifier": "pass",
+    "candidate_evidence_admissible": true,
+    "candidate_selected": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "focused_test_count": 17,
+    "focused_test_elapsed_seconds": 0.701,
+    "complete_regression_test_count": 113,
+    "complete_regression_elapsed_seconds": 134.879,
+    "python_compile": "pass",
+    "milestone_valid_no_warnings": true,
+    "changed_json_parse_count_before_receipt": 2,
+    "stdlib_import_check": "pass",
+    "git_diff_check": "pass",
+    "changed_path_token_match_count": 0,
+    "changed_path_complete_private_key_block_count": 0,
+    "source_or_eval_runtime_path_changes": 0,
+    "successor_result_absent": true
+  },
+  "retained_negative_evidence": {
+    "first_focused_test_count": 16,
+    "first_focused_failure_count": 1,
+    "failure_id": "IMPLEMENTATION-FOCUSED-TEST-001",
+    "failure_counted_as_positive_evidence": false
+  },
+  "boundaries": {
+    "runtime_or_default_changed": false,
+    "retrieval_or_evaluator_changed": false,
+    "admissibility_inventory_or_threshold_changed": false,
+    "historical_input_or_result_rewritten": false,
+    "security_or_authority_changed": false,
+    "dependency_or_external_asset_added": false,
+    "secret_or_paid_service_added": false,
+    "network_or_real_infrastructure_used_by_adjudicator": false,
+    "successor_result_generated": false,
+    "tag_release_or_deployment_created": false
+  },
+  "frozen_paths_excluding_this_receipt": [
+    {
+      "path": "artifacts/verification/baseline-0033-orientation-failures-001.json",
+      "bytes": 6263,
+      "sha256": "ad8c553f1dc8d39f227b645da50937bc2df2ea5f00d4abadae945c41bf52a2b4"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 121243,
+      "sha256": "81b11c601c16cdec6e8c72de4bfe1b62277cc385f4ef0e9b0593f0a7015e618c"
+    },
+    {
+      "path": "contracts/milestone-0033.json",
+      "bytes": 16256,
+      "sha256": "7357005b36340dab069f254cf6c0ab356927b49300f5f0f37b987c495c045211"
+    },
+    {
+      "path": "docs/architecture.md",
+      "bytes": 12196,
+      "sha256": "3be0c3018a3db90d23c6badd28899a31d121a70d2f17bf33824d5be84d8e462d"
+    },
+    {
+      "path": "docs/devlog.md",
+      "bytes": 454019,
+      "sha256": "626da7484288530c2e1dd5cdd7868eadefae12641410d2802e16e5baad3232d6"
+    },
+    {
+      "path": "docs/evaluation-contract.md",
+      "bytes": 44524,
+      "sha256": "3e5b02acecb3bf5aff399f6cc1ebd16f0d34a45debb34fd552986c012fbf35e5"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "bytes": 228658,
+      "sha256": "0d4c0b1a56848e844ee568f031d749e872c6c46743a38796a1456fc39078a90d"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 95831,
+      "sha256": "0db41b50e9d51d7499c96093d708c379fd8db34fb66ffaed85feeedc9f9acc40"
+    },
+    {
+      "path": "docs/status.md",
+      "bytes": 262367,
+      "sha256": "8b1fbeac1e70f890779059994c3e63f56f84bbdf13c0cbcf308b88e58fa3ef28"
+    },
+    {
+      "path": "docs/threat-model.md",
+      "bytes": 22680,
+      "sha256": "49e67b8fc876a77c8ccffe1eb42d9296d408a44333b103d4e66ee0a6ac868017"
+    },
+    {
+      "path": "docs/version-history.md",
+      "bytes": 28736,
+      "sha256": "23a20aff5355c0f5a1f0158d1239b4159948e368d4f10c469acb68e3fbc15661"
+    },
+    {
+      "path": "scripts/readjudicate_retrieval_candidate.py",
+      "bytes": 9779,
+      "sha256": "70f169f0b2166a34d28591c2c7fde0f74f0105b89efdc25efd1fca669c4db741"
+    },
+    {
+      "path": "tests/test_readjudicate_retrieval_candidate.py",
+      "bytes": 4344,
+      "sha256": "7fc7d2a9656ce755ebac584d50f4f4eaff74c11c085f501c20b71251aad873cc"
+    },
+    {
+      "path": "tests/test_retrieval_candidate_admissibility_contract.py",
+      "bytes": 6990,
+      "sha256": "4ba794fb2bc27a891969b31ad682afb81d3dbfb0d8729dcc97042015b516a4a5"
+    }
+  ],
+  "frozen_path_count_excluding_this_receipt": 14,
+  "expected_commit_path_count": 15,
+  "next_gate": "Publish and anonymously reconcile this 15-path implementation seal while the successor result remains absent, then record the public seal before running the writer once."
+}

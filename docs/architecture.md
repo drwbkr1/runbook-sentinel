@@ -40,6 +40,8 @@ Baseline 0027 proposes a container plane around the existing dependency-free zip
 
 Baseline 0033 adds a read-only adjudication plane to evaluation, not runtime. It consumes exact immutable control, candidate, and comparison artifacts and emits one successor classification. Default-release conformance remains bound to the selected retriever's full gate inventory. Candidate admissibility instead asks whether every nonfingerprint gate, required coverage cell, evidence rank, policy, security, utility, trajectory, reliability, latency, and cost boundary is correctly represented. The plane has no retriever, model, tool, approval, executor, credential, persistence, network, or real-infrastructure authority and cannot promote a candidate.
 
+The adjudicator is a standard-library script outside the runtime package. Default execution is in-memory and side-effect free. Its explicit writer accepts only the frozen successor path, refuses overwrite, preserves and rechecks all bound input identities, and requires the independent phase-aware verifier after creation.
+
 ## Ports and trust boundaries
 
 - CLI and HTTP API are local operator surfaces.

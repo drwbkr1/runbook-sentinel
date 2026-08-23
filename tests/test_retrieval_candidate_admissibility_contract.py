@@ -28,12 +28,25 @@ class RetrievalCandidateAdmissibilityContractTests(unittest.TestCase):
         )
 
     def test_frozen_preimplementation_contract_passes(self) -> None:
-        result = verifier.validate("frozen_preimplementation")
+        with tempfile.TemporaryDirectory() as directory:
+            absent_implementation = Path(directory) / "absent.py"
+            with mock.patch.object(
+                verifier, "IMPLEMENTATION_PATH", absent_implementation
+            ):
+                result = verifier.validate("frozen_preimplementation")
         self.assertEqual(result["status"], "pass")
         self.assertEqual(result["errors"], [])
         self.assertTrue(result["candidate_evidence_admissible"])
         self.assertFalse(result["candidate_selected"])
         self.assertEqual(result["selected_configuration"], "freshness-priority-lexical-v3")
+
+    def test_current_repository_is_valid_implementation_seal(self) -> None:
+        result = verifier.validate("auto")
+        self.assertEqual(result["status"], "pass")
+        self.assertEqual(result["errors"], [])
+        self.assertEqual(result["phase"], "implementation_sealed_no_result")
+        self.assertTrue(result["implementation_present"])
+        self.assertFalse(result["result_present"])
 
     def test_implementation_seal_without_result_is_a_valid_phase(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

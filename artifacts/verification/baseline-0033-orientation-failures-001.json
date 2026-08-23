@@ -68,6 +68,15 @@
       "mutation": false,
       "correction": "Publish a successor lifecycle-only contract verifier and test correction with exact frozen_preimplementation implementation_sealed_no_result and implemented_overlay states before creating the adjudicator.",
       "positive_evidence": false
+    },
+    {
+      "id": "IMPLEMENTATION-FOCUSED-TEST-001",
+      "class": "test_invalid",
+      "operation": "Run the adjudicator and contract-focused implementation suite after adding the read-only adjudicator",
+      "failure": "The first 16-test run had one failure because the predecessor contract test still asserted that the current repository was in the historical implementation-absent state. The adjudicator's read-only execution and implementation-phase verifier both passed, and no result was created.",
+      "mutation": false,
+      "correction": "Patch the historical freeze test to simulate an absent implementation and add a separate assertion for the current implementation-sealed result-absent state; the successor 17-test run passes.",
+      "positive_evidence": false
     }
   ],
   "historical_candidate_results_rewritten": false,

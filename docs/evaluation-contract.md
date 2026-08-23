@@ -9,6 +9,7 @@
 - Evidence admissibility is not candidate selection. The successor must retain the original v4 exclusion and select v3 because median-latency non-inferiority is false. No broad Pareto, semantic relevance, production-readiness, or universal-safety claim is allowed.
 - Default v3 release evaluations still require all 136 Boolean gates. A future candidate requires its own public preimplementation contract; this overlay is not a reusable waiver without a new frozen inventory.
 - Lifecycle schema 1.1 has three exact states: no implementation/no result, implementation present/result absent, and implementation plus result. The middle state is required for a public implementation seal. Any other presence combination or explicit phase mismatch fails closed; this correction changes no admissibility or selection rule.
+- The adjudicator's default mode is read-only and in-memory. Result creation requires explicit `--write`, the exact frozen output path, an absent destination, exact retained input identities, and a passing implementation-only phase. It uses exclusive creation, then requires the independent implemented-overlay verifier to pass; overwrite and alternate output paths fail closed.
 
 ## BASELINE-0030 model-output contract conformance
 
