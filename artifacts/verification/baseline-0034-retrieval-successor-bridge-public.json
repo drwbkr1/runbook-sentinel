@@ -1,0 +1,158 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0034-retrieval-successor-bridge-public",
+  "checkpoint": "baseline-0034",
+  "contract_id": "retrieval-predecessor-successor-lifecycle-v1",
+  "contract_schema_version": "1.1",
+  "observed_at_utc": "2026-08-23T19:47:41Z",
+  "status": "pass",
+  "public_implementation": {
+    "repository": "https://github.com/drwbkr1/runbook-sentinel",
+    "branch": "codex/baseline-0034-retrieval-tier-cap-latency",
+    "commit": "c1278bb4b95140967d6e5769de29b70a8993c62c",
+    "tree": "53fb952011dfae99dc829c90b1659b61c141c2fc",
+    "parent": "6503c24e216c075dda828f534b18368553c6c41b",
+    "subject": "fix: bridge baseline 0034 retrieval lifecycle",
+    "local_ref_exact": true,
+    "tracking_ref_exact": true,
+    "ls_remote_ref_exact": true,
+    "anonymous_ref_exact": true,
+    "anonymous_commit_exact": true,
+    "anonymous_tree_exact": true,
+    "anonymous_parent_exact": true,
+    "recursive_tree_truncated": false,
+    "recursive_tree_entry_count": 1627,
+    "changed_path_count": 13,
+    "changed_raw_bytes": 1371978,
+    "git_blob_exact_count": 13,
+    "anonymous_raw_exact_count": 13,
+    "rendered_commit_exact": true,
+    "rendered_commit_heading": "Commit c1278bb",
+    "rendered_files_changed": 13,
+    "rendered_receipt_path_visible": true
+  },
+  "changed_paths": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 137066,
+      "blob": "2180da3a055dfb2832fa09c2cbd2a4b3efae925b",
+      "sha256": "36e9d252f4ea619b0d8ae9cdbd6666a7679de598b0493ab9a4b425ae0aa2c867"
+    },
+    {
+      "path": "artifacts/verification/baseline-0034-orientation-failures-001.json",
+      "bytes": 15977,
+      "blob": "a4ef20f733855bc152a27f62229b631aed17ca08",
+      "sha256": "90e4d043354ed47fdb667e5bf98950bf080bf4d9e96f3b6932dbaf145a3cd499"
+    },
+    {
+      "path": "artifacts/verification/baseline-0034-retrieval-successor-bridge-implementation-local.json",
+      "bytes": 3743,
+      "blob": "380c3c6791a79887c82317d01a37d28fb763edc7",
+      "sha256": "a2710d21ee5c4bd3751a879e9c4c778484174fc51c4ba19255d5cdf4827bbdba"
+    },
+    {
+      "path": "contracts/milestone-0034.json",
+      "bytes": 17340,
+      "blob": "c329a9076917b24915eecbfc66d61b63d998d7ba",
+      "sha256": "7fcd15bb44de4bae8fb088660bf5eedb40fdcf24671f4e8c466edc83e806725c"
+    },
+    {
+      "path": "docs/devlog.md",
+      "bytes": 486218,
+      "blob": "115dcda04687f55648486337b195e11776a12ba7",
+      "sha256": "7bcee84d174e3b6c3365763131ce71019cf2b48b775fde823c68a96ef75657d7"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "bytes": 250157,
+      "blob": "5426b732cecf884160190da573b72b95190be9a9",
+      "sha256": "0adf51bc0c68eff9f636aac41eacf0d188cc1b2801112e758ac8b640c128c70a"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 104591,
+      "blob": "7046482b68166289d99859d1d76b2ad7bbfdc7f8",
+      "sha256": "f2f676d4eee621fdf333be79463b294390007651fe2d52dae62b31c600c7d920"
+    },
+    {
+      "path": "docs/status.md",
+      "bytes": 283651,
+      "blob": "9fb9b323e9e8b3136e82c3cb3f010d87c89fd217",
+      "sha256": "900b877eb8f9c00bcf0cab89fae219397429d5941d241010deecd3d870b7fbc0"
+    },
+    {
+      "path": "docs/version-history.md",
+      "bytes": 30369,
+      "blob": "7cc7822a739b8176c65e1f6b7e6a205219b6a9ec",
+      "sha256": "8d20221c8b365037c74ecae53fb6bbb72742b01c0e31f4cc6cdbc6c0012cfd38"
+    },
+    {
+      "path": "scripts/verify_retrieval_candidate_admissibility_contract.py",
+      "bytes": 12227,
+      "blob": "f85d7b354a539e3024b684fa95afb21bc440fbbb",
+      "sha256": "25713aa74495ab8e5d326b654b7b567fe5d03587464043301177597c1f1d5a4c"
+    },
+    {
+      "path": "scripts/verify_retrieval_tier_cap_contract.py",
+      "bytes": 19669,
+      "blob": "4ff3c172b0bce690b05340a82de3ef4c085e34d9",
+      "sha256": "d6f004648f91ad72cee78203b02069e8c4f589313315f66979f614db92aba06f"
+    },
+    {
+      "path": "tests/test_release_identity_contract_0033.py",
+      "bytes": 6941,
+      "blob": "ff6c41d65e57bde4df4a268c928f233d76122071",
+      "sha256": "3000e914733f96d4f9513f53be7296b956ce7fb4979aa29b13b4ccae12427917"
+    },
+    {
+      "path": "tests/test_retrieval_successor_lifecycle_0034.py",
+      "bytes": 4029,
+      "blob": "6327d5c7c84064dc02518bc48201b0ec0b41b14f",
+      "sha256": "7d019d8dcf1bc96ed4365d2482a66839bd2d05d1a067afb5bc47cb2d45b57caa"
+    }
+  ],
+  "verification": {
+    "bridge_phase_before_receipt": "bridge_implemented_predecessor",
+    "standalone_validators_passed": 4,
+    "focused_tests_passed": 33,
+    "complete_regression_passed": 137,
+    "finalized_record_set_repeat_passed": 137,
+    "bridge_public_predecessor_focused_tests_passed": 33,
+    "bridge_public_predecessor_focused_tests_elapsed_seconds": 8.211,
+    "bridge_public_predecessor_complete_regression_passed": 137,
+    "bridge_public_predecessor_complete_regression_failed": 0,
+    "bridge_public_predecessor_complete_regression_errors": 0,
+    "bridge_public_predecessor_complete_regression_elapsed_seconds": 101.025,
+    "governed_milestone_valid": true,
+    "governed_milestone_warnings": 0,
+    "protected_release_identity_verifier_sha256": "cfe4f8b88bc18c6574d9bf0ec3b19f654b213d8d68a5deda6f0392a0090d2767",
+    "protected_release_identity_verifier_changed": false,
+    "runtime_retrieval_sha256": "6eb5227b2e20141bf978670cfbbe9edd6d55ca1db69b76a4007b830e13ff864a",
+    "product_default": "freshness-priority-lexical-v3",
+    "benchmark_result_present": false,
+    "comparison_result_present": false,
+    "held_out_loaded_by_bridge": false
+  },
+  "public_release_state": {
+    "main": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "latest_release_id": 375120109,
+    "latest_release_tag": "v0.0.33",
+    "latest_release_draft": false,
+    "latest_release_prerelease": false,
+    "latest_release_asset_count": 2,
+    "v0_0_33_tag_object": "522cc2243650568e0a063f8a0918041dca98e111",
+    "deployment_count": 0
+  },
+  "boundaries": {
+    "runtime_retrieval_changed": false,
+    "release_identity_verifier_changed": false,
+    "product_default_changed": false,
+    "historical_contract_report_trace_result_or_disposition_changed": false,
+    "held_out_used_for_bridge_or_optimization": false,
+    "policy_approval_executor_credential_authority_or_security_changed": false,
+    "dependency_model_service_secret_paid_asset_external_asset_or_real_infrastructure_added": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "tag_release_or_deployment_created": false
+  },
+  "next_gate": "Publish and independently reconcile this record-only receipt. Only then may UNIT-002A close and the exact v5 implementation be retried without benchmark or comparison generation."
+}
