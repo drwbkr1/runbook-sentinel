@@ -50,6 +50,24 @@
       "mutation": false,
       "correction": "Keep the already-completed local receipt checks separate, rerun the public ref assertion after DNS recovers, and require a nonempty exact response before parsing it.",
       "positive_evidence": false
+    },
+    {
+      "id": "POWERSHELL-HASH-PIPE-001",
+      "class": "process_invalid",
+      "operation": "Summarize predecessor contract verifier and test identities before lifecycle correction",
+      "failure": "The first PowerShell expression piped directly from a foreach statement and failed parsing with an empty pipe element before reading or changing a project file.",
+      "mutation": false,
+      "correction": "Accumulate the three identity rows in an array and pipe the completed array to JSON conversion; the successor returned all three exact sizes and SHA-256 values.",
+      "positive_evidence": false
+    },
+    {
+      "id": "IMPLEMENTATION-SEAL-PHASE-GAP-001",
+      "class": "contract_invalid",
+      "operation": "Simulate the required implementation-present result-absent lifecycle state without creating a repository implementation",
+      "failure": "The public frozen verifier auto-classified implementation-present and result-absent as frozen_preimplementation, then failed with implementation_present_before_public_freeze. It had no valid phase for the contract-required implementation seal before result generation.",
+      "mutation": false,
+      "correction": "Publish a successor lifecycle-only contract verifier and test correction with exact frozen_preimplementation implementation_sealed_no_result and implemented_overlay states before creating the adjudicator.",
+      "positive_evidence": false
     }
   ],
   "historical_candidate_results_rewritten": false,

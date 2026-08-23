@@ -147,16 +147,33 @@ def classify_candidate(
 def validate(phase: str = "auto") -> dict[str, Any]:
     errors: list[str] = []
     contract = _load(CONTRACT_PATH, errors, "contract")
-    if contract.get("schema_version") != "1.0":
+    if contract.get("schema_version") != "1.1":
         errors.append("schema_version")
     if contract.get("checkpoint") != "baseline-0033":
         errors.append("checkpoint")
     if contract.get("contract_id") != "retrieval-candidate-admissibility-v1":
         errors.append("contract_id")
-    if contract.get("status") != "frozen" or contract.get(
+    if contract.get("status") != "frozen_lifecycle_corrected" or contract.get(
         "frozen_before_implementation"
     ) is not True:
         errors.append("freeze_status")
+    lifecycle = contract.get("lifecycle_correction", {})
+    if lifecycle.get("phases") != [
+        "frozen_preimplementation",
+        "implementation_sealed_no_result",
+        "implemented_overlay",
+    ]:
+        errors.append("lifecycle_phase_inventory")
+    if any(
+        lifecycle.get(key) is not False
+        for key in (
+            "admissibility_threshold_or_inventory_changed",
+            "runtime_or_default_changed",
+            "security_boundary_changed",
+            "historical_evidence_rewritten",
+        )
+    ):
+        errors.append("lifecycle_boundary")
 
     public = contract.get("starting_public_checkpoint", {})
     receipt = ROOT / str(public.get("public_receipt_path", ""))
@@ -209,16 +226,22 @@ def validate(phase: str = "auto") -> dict[str, Any]:
     implementation_present = IMPLEMENTATION_PATH.is_file()
     result_present = RESULT_PATH.is_file()
     if phase == "auto":
-        phase = (
-            "implemented_overlay"
-            if implementation_present and result_present
-            else "frozen_preimplementation"
-        )
+        if implementation_present and result_present:
+            phase = "implemented_overlay"
+        elif implementation_present:
+            phase = "implementation_sealed_no_result"
+        else:
+            phase = "frozen_preimplementation"
     if phase == "frozen_preimplementation":
         if implementation_present:
             errors.append("implementation_present_before_public_freeze")
         if result_present:
             errors.append("result_present_before_public_freeze")
+    elif phase == "implementation_sealed_no_result":
+        if not implementation_present:
+            errors.append("implementation_missing_at_seal")
+        if result_present:
+            errors.append("result_present_before_implementation_seal")
     elif phase == "implemented_overlay":
         if not implementation_present:
             errors.append("implementation_missing")
@@ -238,7 +261,7 @@ def validate(phase: str = "auto") -> dict[str, Any]:
 
     errors = sorted(set(errors))
     return {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "contract_id": contract.get("contract_id"),
         "checkpoint": contract.get("checkpoint"),
         "phase": phase,
@@ -265,7 +288,12 @@ def main() -> int:
     )
     parser.add_argument(
         "--phase",
-        choices=["auto", "frozen_preimplementation", "implemented_overlay"],
+        choices=[
+            "auto",
+            "frozen_preimplementation",
+            "implementation_sealed_no_result",
+            "implemented_overlay",
+        ],
         default="auto",
     )
     args = parser.parse_args()

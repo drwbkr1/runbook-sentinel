@@ -8,6 +8,7 @@
 - Required evidence and ranks, scenario/terminal/trajectory behavior, policy, utility, proposal and terminal attack success, repeated-trial reliability, and cost must remain exact. Latency stays separate and is never exempted.
 - Evidence admissibility is not candidate selection. The successor must retain the original v4 exclusion and select v3 because median-latency non-inferiority is false. No broad Pareto, semantic relevance, production-readiness, or universal-safety claim is allowed.
 - Default v3 release evaluations still require all 136 Boolean gates. A future candidate requires its own public preimplementation contract; this overlay is not a reusable waiver without a new frozen inventory.
+- Lifecycle schema 1.1 has three exact states: no implementation/no result, implementation present/result absent, and implementation plus result. The middle state is required for a public implementation seal. Any other presence combination or explicit phase mismatch fails closed; this correction changes no admissibility or selection rule.
 
 ## BASELINE-0030 model-output contract conformance
 

@@ -1,10 +1,32 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "checkpoint": "baseline-0033",
   "contract_id": "retrieval-candidate-admissibility-v1",
-  "status": "frozen",
+  "status": "frozen_lifecycle_corrected",
   "frozen_at_utc": "2026-08-22T23:24:06Z",
   "frozen_before_implementation": true,
+  "lifecycle_correction": {
+    "corrected_at_utc": "2026-08-22T23:52:00Z",
+    "predecessor_freeze_commit": "027d237627b07180bdefa15f00ff62a037f9751e",
+    "predecessor_record_commit": "50205ee80c1e4af87fbddd64ab026beac9b1ec13",
+    "predecessor_contract_bytes": 10548,
+    "predecessor_contract_sha256": "16a859d27f0155f92d5c8a08fbe401a8b49d1763af56379a5624fc82069c137d",
+    "predecessor_verifier_bytes": 10942,
+    "predecessor_verifier_sha256": "92f64bdfbbaf07bdc10aae143c74b7ab015df111eb3286f5615d90fe65bd7f89",
+    "reason": "The frozen verifier had no valid state for the required public implementation seal after the adjudicator exists but before any successor result is generated.",
+    "phases": [
+      "frozen_preimplementation",
+      "implementation_sealed_no_result",
+      "implemented_overlay"
+    ],
+    "implementation_phase_requires_implementation_present": true,
+    "implementation_phase_requires_result_absent": true,
+    "result_phase_requires_implementation_and_result_present": true,
+    "admissibility_threshold_or_inventory_changed": false,
+    "runtime_or_default_changed": false,
+    "security_boundary_changed": false,
+    "historical_evidence_rewritten": false
+  },
   "starting_public_checkpoint": {
     "version": "0.0.32",
     "main_commit": "4b7dd999c13384a196746de5dbff872e93f9f2fe",

@@ -3,8 +3,10 @@ from __future__ import annotations
 import copy
 import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -32,6 +34,32 @@ class RetrievalCandidateAdmissibilityContractTests(unittest.TestCase):
         self.assertTrue(result["candidate_evidence_admissible"])
         self.assertFalse(result["candidate_selected"])
         self.assertEqual(result["selected_configuration"], "freshness-priority-lexical-v3")
+
+    def test_implementation_seal_without_result_is_a_valid_phase(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            implementation = Path(directory) / "readjudicate_retrieval_candidate.py"
+            implementation.write_text("# simulated implementation\n", encoding="utf-8")
+            with mock.patch.object(verifier, "IMPLEMENTATION_PATH", implementation):
+                result = verifier.validate("auto")
+        self.assertEqual(result["status"], "pass")
+        self.assertEqual(result["errors"], [])
+        self.assertEqual(result["phase"], "implementation_sealed_no_result")
+        self.assertTrue(result["implementation_present"])
+        self.assertFalse(result["result_present"])
+
+    def test_implementation_seal_rejects_a_result(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            implementation = Path(directory) / "readjudicate_retrieval_candidate.py"
+            implementation.write_text("# simulated implementation\n", encoding="utf-8")
+            result_path = Path(directory) / "result.json"
+            result_path.write_text("{}\n", encoding="utf-8")
+            with (
+                mock.patch.object(verifier, "IMPLEMENTATION_PATH", implementation),
+                mock.patch.object(verifier, "RESULT_PATH", result_path),
+            ):
+                result = verifier.validate("implementation_sealed_no_result")
+        self.assertEqual(result["status"], "fail")
+        self.assertIn("result_present_before_implementation_seal", result["errors"])
 
     def test_only_exact_control_fingerprints_are_exemptible(self) -> None:
         result = verifier.classify_candidate(
@@ -98,9 +126,16 @@ class RetrievalCandidateAdmissibilityContractTests(unittest.TestCase):
             self.contract["frozen_expected_readjudication"]["candidate_selected"]
         )
 
-    def test_implementation_and_result_are_absent_at_freeze(self) -> None:
-        self.assertFalse(verifier.IMPLEMENTATION_PATH.exists())
-        self.assertFalse(verifier.RESULT_PATH.exists())
+    def test_public_freeze_receipt_proves_implementation_and_result_absent(self) -> None:
+        receipt_path = (
+            ROOT
+            / "artifacts/verification/baseline-0033-preimplementation-freeze-public.json"
+        )
+        receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+        self.assertFalse(receipt["boundaries"]["implementation_present_at_public_freeze"])
+        self.assertFalse(receipt["boundaries"]["successor_result_present_at_public_freeze"])
+        self.assertFalse(receipt["boundaries"]["runtime_or_default_changed"])
+        self.assertFalse(receipt["boundaries"]["security_gate_weakened"])
 
 
 if __name__ == "__main__":

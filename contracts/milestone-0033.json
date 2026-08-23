@@ -247,7 +247,7 @@
     }
   ],
   "current_unit": "UNIT-003",
-  "next_action": "Publish and anonymously reconcile the record-only public-freeze receipt, then implement only scripts/readjudicate_retrieval_candidate.py plus fail-closed tests; publish the exact implementation seal before generating a successor result.",
+  "next_action": "Publish and anonymously reconcile the lifecycle-only three-phase verifier correction exposed by the retained implementation-seal gap probe, then implement only scripts/readjudicate_retrieval_candidate.py plus fail-closed tests and publish the implementation seal before generating a result.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -280,7 +280,9 @@
       "The original comparison keeps v3 selected and v4 excluded because median latency non-inferiority is false",
       "The frozen contract verifier passes in preimplementation mode and six focused fail-closed tests pass",
       "The complete regression suite passes 102 tests in 134.996 seconds; the earlier detached 53-case partial attempt remains inconclusive and supplies no positive evidence",
-      "Public freeze commit 027d237627b07180bdefa15f00ff62a037f9751e is exact across explicit tracking, ls-remote, anonymous ref, tree, parent, all 19 Git blobs, all 19 raw files, and rendered branch and commit pages while public main remains unchanged"
+      "Public freeze commit 027d237627b07180bdefa15f00ff62a037f9751e is exact across explicit tracking, ls-remote, anonymous ref, tree, parent, all 19 Git blobs, all 19 raw files, and rendered branch and commit pages while public main remains unchanged",
+      "A repository-free simulation proves the public frozen verifier lacks the required implementation-present result-absent phase; a schema-1.1 three-phase lifecycle correction passes locally without changing any admissibility inventory runtime default security boundary or historical result",
+      "The lifecycle-only correction passes eight focused fail-closed tests and the complete 104-test regression suite in 140.325 seconds while implementation and successor result remain absent"
     ],
     "artifacts": [
       "artifacts/verification/orientation-baseline-0033.json",
@@ -289,14 +291,15 @@
       "scripts/verify_retrieval_candidate_admissibility_contract.py",
       "tests/test_retrieval_candidate_admissibility_contract.py",
       "docs/adr/0027-separate-default-retrieval-conformance-from-candidate-admissibility.md",
-      "artifacts/verification/baseline-0033-preimplementation-freeze-public.json"
+      "artifacts/verification/baseline-0033-preimplementation-freeze-public.json",
+      "artifacts/verification/baseline-0033-implementation-phase-gap-attempt-001.json"
     ],
     "disposition": "in_progress"
   },
   "handoff": {
     "latest_verified_checkpoint": "immutable public v0.0.32 at tag object ea203784e11afd611666bcd988f4d1e60259f6a8 peeled to audited closure f0e565015be2ca8ed155be600a61fe131dbfa012, with public receipt SHA-256 eebd1571dfab5942f7b1b6dfc2a42c5807629391564d01d7621b307a8c78726c and rendered-truth correction main 4b7dd999c13384a196746de5dbff872e93f9f2fe",
     "retained_failed_checkpoint": "stopped unpublished BASELINE-0031 release candidate v0.0.31 plus separately retained excluded bounded-trust-tier-lexical-v4 comparison",
-    "current_checkpoint": "BASELINE-0033 preimplementation freeze is public and exact at commit 027d237627b07180bdefa15f00ff62a037f9751e. The record-only reconciliation is being published; readjudication implementation and successor result remain absent.",
+    "current_checkpoint": "BASELINE-0033 preimplementation freeze 027d237627b07180bdefa15f00ff62a037f9751e and record 50205ee80c1e4af87fbddd64ab026beac9b1ec13 are public and exact. A lifecycle-only correction is being frozen because the predecessor verifier could not represent an implementation seal without a result; readjudication implementation and successor result remain absent.",
     "resume_rule": "Resume from public verified v0.0.32 and the exact BASELINE-0033 freeze state; inspect the active milestone and verifier before acting, never use OneDrive, never rewrite the original v4 exclusion, and never infer candidate selection from candidate evidence admissibility."
   }
 }

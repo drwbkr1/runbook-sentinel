@@ -8,6 +8,10 @@ Six focused fail-closed tests and the complete 102-test regression suite pass; t
 
 The exact freeze is public at commit `027d237627b07180bdefa15f00ff62a037f9751e`, tree `e1ab1c5024071b37dad6dc0e0d74a53548a9a109`, parent `4b7dd999c13384a196746de5dbff872e93f9f2fe`. Explicit tracking, `ls-remote`, anonymous ref/commit/tree/parent, all 19 Git blobs and raw paths, and rendered branch/commit pages agree; public `main` remains unchanged. A first plain-fetch tracking-ref wrapper is retained as process-invalid and does not supply aggregate pass evidence.
 
+Record commit `50205ee80c1e4af87fbddd64ab026beac9b1ec13` is separately public and exact across all nine changed paths. Before implementation, a repository-free placeholder probe exposed that the frozen verifier cannot represent the required implementation-present, result-absent seal and returns `implementation_present_before_public_freeze`. The retained failure motivates a three-phase lifecycle-only correction; no adjudicator or result was created, and no admissibility, runtime, security, historical-evidence, or selection rule changed.
+
+The lifecycle correction passes eight focused tests in 0.200 seconds and the complete 104-test suite in 140.325 seconds. Its real repository phase remains `frozen_preimplementation`; simulated tests prove the implementation-only state passes and a premature result fails. This is correction evidence only, not candidate readjudication.
+
 ## BASELINE-0032 local canonical container candidate
 
 The exact public package/source record at `001b6a19b38616d07a9995d19831b44c8a03a6a1` supplied the only admitted Docker input. Two independent no-cache, network-disabled full builds and one credential-disabled HTTPS no-alternates clean build reproduce image ID `sha256:5cb0cb2dfecdccd3f105fea4e5a0f0b8419951b6ca25921639f02a6189959ec9` at the frozen creation time. The clean clone first rebuilt the exact 43-entry, 647,712-byte zipapp at SHA-256 `3be93953a367483e29c696af889ebfccc432424b8303c4f69ae00d10a38c2270`.

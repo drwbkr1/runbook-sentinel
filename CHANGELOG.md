@@ -10,6 +10,8 @@
 - Added ADR 0027, the active BASELINE-0033 milestone, orientation and failure receipts, an independent phase-aware verifier, and six focused fail-closed tests. The read-only adjudicator and successor result remain absent until this exact freeze is public and anonymously reconciled.
 - Passed the complete 102-test regression suite in 134.996 seconds. A detached 53-case partial run is retained as inconclusive and excluded from positive evidence.
 - Published freeze commit `027d237627b07180bdefa15f00ff62a037f9751e`; explicit tracking, `ls-remote`, anonymous ref/commit/tree/parent, all 19 blobs and raw paths, and rendered branch/commit pages match while public `main` stays unchanged. A plain-fetch tracking-ref wrapper failure remains retained. The adjudicator and successor result were absent at the public freeze.
+- Published exact record-only reconciliation `50205ee80c1e4af87fbddd64ab026beac9b1ec13`. A repository-free probe then exposed the missing implementation-present/result-absent verifier state; schema 1.1 adds only that fail-closed lifecycle phase before adjudicator creation, with no admissibility, runtime/default, security, history, or selection change.
+- The lifecycle correction passes eight focused tests and all 104 regression tests; the adjudicator and successor result remain absent pending public correction reconciliation.
 
 ## 0.0.32 - 2026-08-22
 
