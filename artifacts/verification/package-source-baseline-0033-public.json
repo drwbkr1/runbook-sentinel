@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0033-PACKAGE-SOURCE-PUBLIC",
+  "checkpoint": "baseline-0033",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-23T03:02:55Z",
+  "status": "pass",
+  "repository": {
+    "owner": "drwbkr1",
+    "name": "runbook-sentinel",
+    "visibility": "public",
+    "branch": "codex/baseline-0033-retrieval-candidate-admissibility"
+  },
+  "target": {
+    "commit": "24e6be34b7b5fcaf60b22b70b1f1377ed9ff731c",
+    "tree": "bb79d80b05e91855a9df16481f79f4b39b9c4d00",
+    "parent": "d64f97529e6bb34a2451ea087aac817d6fae6288",
+    "commit_message": "Seal BASELINE-0033 package surfaces"
+  },
+  "checks": {
+    "local_ref_exact": true,
+    "explicit_tracking_ref_exact": true,
+    "ls_remote_branch_exact": true,
+    "anonymous_github_ref_exact": true,
+    "anonymous_github_commit_exact": true,
+    "anonymous_github_tree_exact": true,
+    "anonymous_github_parent_exact": true,
+    "github_tree_not_truncated": true,
+    "changed_git_blobs_exact": true,
+    "anonymous_raw_bytes_exact": true,
+    "rendered_commit_subject_exact": true,
+    "rendered_commit_parent_exact": true,
+    "rendered_commit_path_count_exact": true,
+    "rendered_commit_file_inventory_exact": true,
+    "public_main_unchanged": true
+  },
+  "counts": {
+    "repository_tree_entries": 1575,
+    "changed_paths": 20,
+    "changed_raw_bytes_total": 4819808,
+    "git_blob_mismatches": 0,
+    "raw_byte_mismatches": 0
+  },
+  "candidate": {
+    "local_receipt_path": "artifacts/verification/package-source-baseline-0033.json",
+    "local_receipt_bytes": 14606,
+    "local_receipt_sha256": "2c7660b3dd6ccdffa9c6ebcd8726f3dbbe5c1b844e277dcca59ba9ce3a353123",
+    "package_sha256": "b10384f2ff7f61ace6fe34ae08b47625b6ab6c39636063c440ff8731563e6cec",
+    "source_report_sha256": "970bda04f3f9ae08296562d05cb8c858dcae1fd4782f5d4f0cabd973a31f5c8b",
+    "package_report_sha256": "cf72f72e91eb6b50b9d0e457a4f4201d9356e365c47c2c60979532b825b18dfc",
+    "normalized_report_sha256": "880f6988a9c39ebb3e3e15d3189b277e9194053e43d2cb824ba910b0366691df",
+    "source_and_package_all_136_boolean_gates": true,
+    "source_and_package_mcp_api_native_and_dashboard_surfaces": "pass",
+    "candidate_evidence_admissible": true,
+    "candidate_selected": false,
+    "selected_default": "freshness-priority-lexical-v3",
+    "excluded_candidate": "bounded-trust-tier-lexical-v4"
+  },
+  "retained_process_failure": {
+    "id": "PACKAGE-SOURCE-PUSH-LEASE-POWERSHELL-BINDING-001",
+    "remote_mutation": false,
+    "positive_evidence": false,
+    "successor_uses_unchanged_commit": true
+  },
+  "public_main": {
+    "commit": "4b7dd999c13384a196746de5dbff872e93f9f2fe",
+    "moved": false
+  },
+  "boundaries": {
+    "derived_container_image_built": false,
+    "container_runtime_started": false,
+    "real_infrastructure_contacted": false,
+    "tag_release_deployment_or_publication_created": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "new_dependency_secret_paid_service_or_external_asset_added": false
+  },
+  "next_gate": "Publish and independently verify this record-only receipt, then run local and credential-disabled no-alternates clean-clone container-runtime-v13 verification without image export or publication."
+}

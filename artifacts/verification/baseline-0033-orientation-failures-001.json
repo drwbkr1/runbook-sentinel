@@ -374,6 +374,15 @@
       "mutation": false,
       "correction": "Rerun the complete image and container inventories with the alternatives interpreted as a regular expression and require zero matching rows.",
       "positive_evidence": false
+    },
+    {
+      "id": "PACKAGE-SOURCE-PUSH-LEASE-POWERSHELL-BINDING-001",
+      "class": "process_invalid",
+      "operation": "Publish exact package/source commit 24e6be34b7b5fcaf60b22b70b1f1377ed9ff731c under a predecessor-bound lease",
+      "failure": "The first push independently proved the remote predecessor exact, then passed a parenthesized PowerShell expression directly after --force-with-lease=. Git interpreted the lease text as the remote and origin as a refspec, rejected the command, and left the public branch unchanged.",
+      "mutation": false,
+      "correction": "Materialize the exact lease and refspec as quoted PowerShell strings, retry the unchanged commit, and require the live branch to equal 24e6be34b7b5fcaf60b22b70b1f1377ed9ff731c. The successor push and full public reconciliation pass.",
+      "positive_evidence": false
     }
   ],
   "historical_candidate_results_rewritten": false,
