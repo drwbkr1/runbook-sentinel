@@ -14,7 +14,9 @@ The phase-aware contract verifier passes with v5 absent, benchmark and compariso
 
 One predecessor validator aggregate was process-invalid because its first item was the mutating `verify_baseline.py` orchestrator. It created a fresh passing BASELINE-0033 report, manifest, and trace before interruption and promoted the report to `latest.json`. All three generated files are preserved intact in external verification custody; `latest.json` was restored from its exact tracked twin and has zero Git diff. No partial aggregate result supports BASELINE-0034.
 
-Public freeze reconciliation remains pending; no runtime, default, package, image, tag, release, deployment, authority, or security boundary has changed.
+Freeze `b45cdea...` and record `e554cd1...` are public and independently exact. The first local v5 attempt passed zero-mismatch development equivalence but the complete suite stopped 121/131 because three predecessor validators treated the later retrieval hash as corruption. The attempt is retained at SHA-256 `f5514cb7...`; it was never published and produced no benchmark or comparison result. Runtime and focused tests were restored exactly.
+
+ADR 0030 freezes a prerequisite predecessor-successor bridge without a product runtime change. It binds the released and sole acceptable future retrieval hashes, requires public correction evidence, v4/v5 development equivalence, v3 default until selection, no held-out bridge access, and exact result lifecycle. Unknown hashes fail closed. Five focused tests pass and the restored complete suite passes all 135 tests in 117.795 seconds. Public correction-freeze reconciliation remains before validator implementation.
 
 ## BASELINE-0033 frozen candidate-admissibility overlay
 

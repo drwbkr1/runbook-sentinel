@@ -1,0 +1,145 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0034-lifecycle-bridge-freeze-local",
+  "checkpoint": "baseline-0034",
+  "contract_id": "retrieval-predecessor-successor-lifecycle-v1",
+  "observed_at_utc": "2026-08-23T19:17:11Z",
+  "status": "pass",
+  "starting_public_record": {
+    "commit": "e554cd152466d87575da1ab653429e22007aa8d1",
+    "tree": "5e062f57c33ba20ae9712d07d04830581ff700c4",
+    "public_main": "d62e7cba675997eade87169f5acba14de6452c9b"
+  },
+  "retained_failure": {
+    "id": "V5-PREDECESSOR-LIFECYCLE-REGRESSION-001",
+    "complete_tests": 131,
+    "passed": 121,
+    "failed": 5,
+    "errors": 5,
+    "candidate_runtime_bytes": 6079,
+    "candidate_runtime_sha256": "f5514cb7cb0b7686987d3374bcd80849f868509a2d32676a88585dd40d456b37",
+    "used_as_positive_evidence": false
+  },
+  "restored_state": {
+    "retrieval_path": "src/runbook_sentinel/retrieval.py",
+    "retrieval_bytes": 4643,
+    "retrieval_sha256": "6eb5227b2e20141bf978670cfbbe9edd6d55ca1db69b76a4007b830e13ff864a",
+    "candidate_implemented": false,
+    "benchmark_result_present": false,
+    "comparison_result_present": false,
+    "default_configuration": "freshness-priority-lexical-v3"
+  },
+  "frozen_payload": {
+    "path_count_excluding_this_receipt": 15,
+    "total_bytes_excluding_this_receipt": 1439603,
+    "paths": [
+      {
+        "path": "CHANGELOG.md",
+        "bytes": 136046,
+        "sha256": "5e47dbd776d1e2ed3df251b34857fdb89b5db06810e6d84ff317d06a0efdd9dc"
+      },
+      {
+        "path": "artifacts/verification/baseline-0034-orientation-failures-001.json",
+        "bytes": 13885,
+        "sha256": "719c105b127cf8b92908ea5da3f9915a9602c4c2a7baf809510ce2957f852adc"
+      },
+      {
+        "path": "contracts/milestone-0034.json",
+        "bytes": 16612,
+        "sha256": "0e9d445efe752f7ebd476b6d4306d0d0121e9a27db71da9dd5c2bddc56ec1798"
+      },
+      {
+        "path": "docs/devlog.md",
+        "bytes": 483666,
+        "sha256": "46ad3c820a4e3849bb1ef7140e1636e1594fa1e7b3538077fa921716aeab0cad"
+      },
+      {
+        "path": "docs/evaluation-contract.md",
+        "bytes": 47341,
+        "sha256": "cdd95618d8a34b7a360a550fd65b6fb6fa9db308abb0946f72ba742fd1632c2e"
+      },
+      {
+        "path": "docs/evaluation-report.md",
+        "bytes": 248702,
+        "sha256": "66336d3ee49ccb5b7d6fc77ce61f4789d6cb2bbe9618b0a1793ca824e76ce19a"
+      },
+      {
+        "path": "docs/research-ledger.md",
+        "bytes": 29186,
+        "sha256": "9ceedf0b0846101e5b1d6349304f455b3fcb5fe0bacc0896498b93a705686b1e"
+      },
+      {
+        "path": "docs/roadmap.md",
+        "bytes": 103927,
+        "sha256": "2c494e2ade32ed4176bece863a1a04d2f53ccdacf0d5b43e2fb12e49b0113ac0"
+      },
+      {
+        "path": "docs/status.md",
+        "bytes": 282118,
+        "sha256": "9a3b299e0495c963be740da36968509bb420dcc7a8af5a6381268d1d74b850c8"
+      },
+      {
+        "path": "docs/threat-model.md",
+        "bytes": 24512,
+        "sha256": "16ebba5687b8ea6f112271d078aa7f2db869809c2d9d50c1a432c905ebb7863e"
+      },
+      {
+        "path": "docs/version-history.md",
+        "bytes": 30103,
+        "sha256": "2e0bdd3d1d13c92ea87fc85dcb8ab4777dcbd6c1429723d5e253941dd226e408"
+      },
+      {
+        "path": "docs/adr/0030-bridge-frozen-retrieval-identities-across-checkpoints.md",
+        "bytes": 2298,
+        "sha256": "ebe954068b8f8a5bc78c08b2b464c81c10c8b02dd1fab40bf00688ee3ae2f32a"
+      },
+      {
+        "path": "eval/retrieval-successor-lifecycle-contract-0034.json",
+        "bytes": 5259,
+        "sha256": "ac90ae013246374785e25e39d67b2b0d04ab89cabe9b23acd6d9a1eced08fe70"
+      },
+      {
+        "path": "scripts/verify_retrieval_successor_lifecycle_0034.py",
+        "bytes": 12967,
+        "sha256": "8ae6e20ca48108151e9e9ee5c055fd91e8ec1cb12647b50c89054a5c74a79945"
+      },
+      {
+        "path": "tests/test_retrieval_successor_lifecycle_0034.py",
+        "bytes": 2981,
+        "sha256": "46638d01eb8bb1d2ec8e4bbc90df330741625a67920c344f752353da0bac5e93"
+      }
+    ]
+  },
+  "verification": {
+    "bridge_contract_phase": "bridge_frozen",
+    "bridge_contract_valid": true,
+    "focused_tests_passed": 5,
+    "complete_regression_passed": 135,
+    "complete_regression_failed": 0,
+    "complete_regression_elapsed_seconds": 117.795,
+    "governed_milestone_valid": true,
+    "governed_milestone_warnings": 0,
+    "single_pass_contract_phase": "frozen_preimplementation",
+    "single_pass_contract_valid": true,
+    "held_out_loaded_by_bridge": false,
+    "python_compile": "pass",
+    "json_parse": "pass",
+    "git_diff_check": "pass"
+  },
+  "boundaries": {
+    "runtime_retrieval_changed": false,
+    "product_default_changed": false,
+    "historical_contract_report_trace_result_or_disposition_changed": false,
+    "held_out_used_for_bridge_or_optimization": false,
+    "policy_approval_executor_credential_authority_or_security_changed": false,
+    "dependency_model_service_secret_paid_asset_external_asset_or_real_infrastructure_added": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "tag_release_or_deployment_created": false
+  },
+  "public_state": {
+    "correction_freeze_commit_created": false,
+    "branch_pushed": false,
+    "anonymous_changed_bytes_reconciled": false
+  },
+  "next_gate": "Commit, publish, and anonymously reconcile this exact lifecycle-correction freeze before modifying any predecessor validator or retrying v5."
+}

@@ -143,6 +143,59 @@
       "mutation": false,
       "correction": "Invoke the governing run-controlled-milestone skill validator at its exact installed path and use only its terminal successor result as milestone evidence.",
       "positive_evidence": false
+    },
+    {
+      "id": "V5-TEST-TELEMETRY-BONUS-FIXTURE-001",
+      "class": "test_invalid",
+      "operation": "Prove v5 parses only eligible project-evidence timestamps",
+      "failure": "The first focused fixture labeled its intended zero-score record as telemetry. The frozen lexical scorer adds a 0.05 telemetry bonus, so that record was correctly eligible and returned; the test's expected list was wrong.",
+      "mutation": false,
+      "correction": "Use status for the zero-overlap project-evidence record so its score is exactly zero, then retain the same assertion that only the two eligible evidence records are classified and the reference timestamp is parsed once.",
+      "positive_evidence": false
+    },
+    {
+      "id": "V5-PREDECESSOR-LIFECYCLE-REGRESSION-001",
+      "class": "fail",
+      "operation": "Run the complete regression after the first local v5 implementation attempt",
+      "failure": "The 131-test suite completed with 121 passes, five failures, and five errors. BASELINE-0031 tier-cap, BASELINE-0033 candidate-admissibility, release-identity, and readjudication checks rejected the changed retrieval.py hash because their frozen predecessor lifecycle had no exact rule for a later retrieval successor.",
+      "mutation": false,
+      "candidate_attempt": {
+        "runtime_path": "src/runbook_sentinel/retrieval.py",
+        "runtime_bytes": 6079,
+        "runtime_sha256": "f5514cb7cb0b7686987d3374bcd80849f868509a2d32676a88585dd40d456b37",
+        "focused_test_path": "tests/test_retrieval_single_pass_contract_0034.py",
+        "focused_test_bytes": 6998,
+        "focused_test_sha256": "11beafbfc65013b0acbedf897dad07c2522d052816750d1d9acc8e10c7f5cfe3",
+        "single_pass_contract_status": "pass",
+        "development_returned_id_mismatch_count": 0,
+        "default_configuration": "freshness-priority-lexical-v3"
+      },
+      "failed_boundaries": [
+        "baseline-0031 implementation_result_identity",
+        "baseline-0033 retrieval_identity",
+        "baseline-0033 release path hash mismatch for src/runbook_sentinel/retrieval.py"
+      ],
+      "correction": "Restore the exact public predecessor retrieval and focused-test bytes, keep v5 and both result paths absent, then freeze and publish a fail-closed successor-lifecycle bridge that accepts only the exact predecessor or the precomputed v5 hash while preserving v3 default and historical v4 behavior. Reattempt runtime implementation only after that bridge is public and reconciled.",
+      "restored_predecessor_retrieval_sha256": "6eb5227b2e20141bf978670cfbbe9edd6d55ca1db69b76a4007b830e13ff864a",
+      "positive_evidence": false
+    },
+    {
+      "id": "POWERSHELL-FOREACH-PIPE-001",
+      "class": "process_invalid",
+      "operation": "Inventory predecessor validator and test identities for the lifecycle-correction freeze",
+      "failure": "The first compact PowerShell expression piped directly from a foreach statement and the parser rejected an empty pipe element before reading any file.",
+      "mutation": false,
+      "correction": "Assign the foreach results to a task-specific array and pipe that array to ConvertTo-Json. The corrected successor returned all six exact byte and SHA-256 identities.",
+      "positive_evidence": false
+    },
+    {
+      "id": "LIFECYCLE-BRIDGE-RECEIPT-FIELD-MAP-001",
+      "class": "test_invalid",
+      "operation": "Validate the lifecycle-correction freeze and its exact public preimplementation receipt",
+      "failure": "The first bridge verifier passed the surrounding public sequence object directly to the generic identity helper, but that object names the fields receipt_bytes and receipt_sha256. The helper correctly expected bytes and sha256 and failed the exact receipt despite the file itself matching.",
+      "mutation": false,
+      "correction": "Map only receipt_bytes and receipt_sha256 into the generic identity shape. Keep the contract field names and receipt bytes unchanged, then require a clean focused successor.",
+      "positive_evidence": false
     }
   ]
 }

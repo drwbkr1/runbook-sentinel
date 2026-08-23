@@ -2,6 +2,7 @@
 
 ## BASELINE-0034 single-pass bounded retrieval
 
+- Predecessor lifecycle is a prerequisite gate. `retrieval-predecessor-successor-lifecycle-v1` preserves the released 4,643-byte retrieval identity and permits a later source only at exact precomputed v5 SHA-256 `f5514cb7...`, with a public bridge receipt, v4/v5 development equivalence, v3 default before selection, no held-out bridge access, and fail-closed benchmark/comparison presence. The bridge changes no product runtime path and cannot rewrite BASELINE-0031/0033 evidence.
 - `single-pass-bounded-trust-tier-retrieval-v1` freezes v3 as control, v4 as the exact returned-set reference, and experimental `single-pass-bounded-trust-tier-lexical-v5` before runtime implementation. V5 must preserve scoring, ranks, 2/1/1 caps, no backfill, four-document maximum, full audit records, and decision projection.
 - Development-only optimization parses `as_of` once and each eligible project-evidence timestamp at most once. A cross-request cache is forbidden. Held-out scenarios cannot be inspected or used for tuning.
 - Five fresh processes each run 100 warmup sweeps and 120 balanced rounds over all 31 development scenarios, with 80 scenario sweeps per round and alternating v4/v5 order measured by `perf_counter_ns`. Every process must have zero returned-ID mismatches and a strictly faster v5 median; the median v5/v4 ratio across processes must be at most 0.95.

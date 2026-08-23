@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0034",
+  "contract_id": "retrieval-predecessor-successor-lifecycle-v1",
+  "status": "frozen_before_bridge_implementation",
+  "frozen_at_utc": "2026-08-23T19:08:15Z",
+  "cause": {
+    "retained_failure": "V5-PREDECESSOR-LIFECYCLE-REGRESSION-001",
+    "complete_regression_tests": 131,
+    "passed": 121,
+    "failed": 5,
+    "errors": 5,
+    "finding": "Three historical validators bind the released retrieval.py as though no later retrieval successor can exist; five readjudicator errors derive from the same candidate-admissibility identity stop.",
+    "candidate_behavior_failed": false,
+    "security_boundary_failed": false
+  },
+  "public_preimplementation_sequence": {
+    "freeze_commit": "b45cdea83a7eac6c1488a25d6a7d34254e75f44a",
+    "freeze_tree": "91723cdc2e6618b3fc83c700d802d76099858547",
+    "record_commit": "e554cd152466d87575da1ab653429e22007aa8d1",
+    "record_tree": "5e062f57c33ba20ae9712d07d04830581ff700c4",
+    "public_main_unchanged": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "receipt_path": "artifacts/verification/baseline-0034-preimplementation-freeze-public.json",
+    "receipt_bytes": 8751,
+    "receipt_sha256": "4001efb5e025501b75584a82c34921177a819b479bcc69ed2eb01bbc3e8276ac"
+  },
+  "retrieval_lifecycle": {
+    "path": "src/runbook_sentinel/retrieval.py",
+    "released_predecessor": {
+      "checkpoint": "baseline-0033",
+      "configuration": "freshness-priority-lexical-v3",
+      "bytes": 4643,
+      "sha256": "6eb5227b2e20141bf978670cfbbe9edd6d55ca1db69b76a4007b830e13ff864a"
+    },
+    "exact_experimental_successor": {
+      "checkpoint": "baseline-0034",
+      "configuration": "single-pass-bounded-trust-tier-lexical-v5",
+      "bytes": 6079,
+      "sha256": "f5514cb7cb0b7686987d3374bcd80849f868509a2d32676a88585dd40d456b37",
+      "default_before_selection": "freshness-priority-lexical-v3",
+      "reference_configuration": "bounded-trust-tier-lexical-v4",
+      "development_returned_ids_and_order_must_match_reference": true,
+      "held_out_may_not_be_loaded_by_bridge": true
+    }
+  },
+  "historical_validator_predecessors": [
+    {
+      "path": "scripts/verify_release_identity_contract_0033.py",
+      "bytes": 18374,
+      "sha256": "cfe4f8b88bc18c6574d9bf0ec3b19f654b213d8d68a5deda6f0392a0090d2767",
+      "historical_error": "path hash mismatch: src/runbook_sentinel/retrieval.py"
+    },
+    {
+      "path": "scripts/verify_retrieval_candidate_admissibility_contract.py",
+      "bytes": 11974,
+      "sha256": "ce771c952ca554dce7998110e536161e6088d3b3130dff7b0ecdc841e56d388f",
+      "historical_error": "retrieval_identity"
+    },
+    {
+      "path": "scripts/verify_retrieval_tier_cap_contract.py",
+      "bytes": 19442,
+      "sha256": "88ba656219ef27a4899c504f2bb8a9e273a4d5c42e186e1fa0578d32b167058d",
+      "historical_error": "implementation_result_identity"
+    }
+  ],
+  "bridge_implementation": {
+    "allowed_product_runtime_paths": [],
+    "allowed_validator_paths": [
+      "scripts/verify_release_identity_contract_0033.py",
+      "scripts/verify_retrieval_candidate_admissibility_contract.py",
+      "scripts/verify_retrieval_tier_cap_contract.py"
+    ],
+    "allowed_test_paths": [
+      "tests/test_release_identity_contract_0033.py",
+      "tests/test_retrieval_candidate_admissibility_contract.py",
+      "tests/test_retrieval_tier_cap_contract.py",
+      "tests/test_retrieval_successor_lifecycle_0034.py"
+    ],
+    "implementation_result_path": "artifacts/verification/baseline-0034-retrieval-successor-bridge-implementation-local.json",
+    "public_receipt_path": "artifacts/verification/baseline-0034-retrieval-successor-bridge-public.json",
+    "required_behavior": [
+      "Continue to accept the exact released predecessor bytes and historical fixtures.",
+      "Accept a later retrieval file only when its bytes and SHA-256 equal the frozen v5 identity.",
+      "Require the public bridge receipt before accepting v5.",
+      "Require v4 and v5 development returned IDs and order to be exact without loading held-out scenarios.",
+      "Require v3 to remain default before a complete passing selection result.",
+      "Reject every unknown retrieval hash, missing receipt, mismatched behavior, premature default change, and malformed result."
+    ]
+  },
+  "successor_results": {
+    "retriever_benchmark": "artifacts/evaluations/baseline-0034-retriever-benchmark.json",
+    "whole_system_comparison": "artifacts/evaluations/baseline-0034-retrieval-comparison.json",
+    "must_be_absent_at_bridge_freeze": true
+  },
+  "frozen_boundaries": {
+    "historical_contract_report_trace_result_or_disposition_changed": false,
+    "v4_removed_or_reclassified": false,
+    "v3_default_changed": false,
+    "held_out_used_for_bridge_or_optimization": false,
+    "policy_approval_executor_credential_authority_or_security_changed": false,
+    "dependency_model_service_secret_paid_asset_external_asset_or_real_infrastructure_added": false,
+    "container_image_exported_pushed_published_or_redistributed": false
+  },
+  "next_gate": "Publish and anonymously reconcile this exact lifecycle-correction freeze while retrieval.py remains at the released predecessor identity, then implement only the declared validator bridge."
+}
