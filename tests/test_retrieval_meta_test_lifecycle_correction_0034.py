@@ -29,20 +29,25 @@ class RetrievalMetaTestLifecycleCorrection0034Tests(unittest.TestCase):
 
     def test_phase_aware_meta_test_identity_is_precomputed_exactly(self) -> None:
         path = ROOT / self.correction["allowed_test_path"]
-        source = path.read_text(encoding="utf-8")
-        replacement = self.correction["exact_block_replacement"]
-        self.assertEqual(
-            source.count(replacement["from"]),
-            replacement["required_occurrence_count"],
-        )
-        future = source.replace(
-            replacement["from"],
-            replacement["to"],
-            replacement["required_occurrence_count"],
-        ).encode("utf-8")
-        expected = self.correction["corrected_meta_test_identity"]
-        self.assertEqual(len(future), expected["bytes"])
-        self.assertEqual(hashlib.sha256(future).hexdigest(), expected["sha256"])
+        payload = path.read_bytes()
+        identity = {"bytes": len(payload), "sha256": hashlib.sha256(payload).hexdigest()}
+        released = self.correction["released_meta_test_identity"]
+        corrected = self.correction["corrected_meta_test_identity"]
+        self.assertIn(identity, (released, corrected))
+        if identity == released:
+            source = payload.decode("utf-8")
+            replacement = self.correction["exact_block_replacement"]
+            self.assertEqual(
+                source.count(replacement["from"]),
+                replacement["required_occurrence_count"],
+            )
+            payload = source.replace(
+                replacement["from"],
+                replacement["to"],
+                replacement["required_occurrence_count"],
+            ).encode("utf-8")
+        self.assertEqual(len(payload), corrected["bytes"])
+        self.assertEqual(hashlib.sha256(payload).hexdigest(), corrected["sha256"])
 
     def test_unknown_meta_test_identity_fails_closed(self) -> None:
         with tempfile.TemporaryDirectory(prefix="sentinel-meta-test-0034-") as directory:

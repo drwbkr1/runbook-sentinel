@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0034-meta-test-helper-implementation-local",
+  "checkpoint": "baseline-0034",
+  "observed_at_utc": "2026-08-23T22:05:00Z",
+  "status": "pass",
+  "starting_public_checkpoint": {
+    "commit": "9875ff3ce9d84bd85022db5e84eff569bfed9b64",
+    "tree": "0c274a58526f3a5fe73fcc106bbf4d3e6b66af26",
+    "parent": "f74cce6fb9fa073107c2cff5a981c3a3439bd068",
+    "public_record_exact": true
+  },
+  "changed_paths": [
+    {"path":"tests/test_retrieval_fixture_phase_correction_0034.py","bytes":3159,"sha256":"ee7c67c27d222761e30e6c45a24b4054cbf5e4e439b16e2b3720370bf026a63f"},
+    {"path":"tests/test_retrieval_meta_test_lifecycle_correction_0034.py","bytes":3029,"sha256":"a9f499dc4960748bb498ea2370688eec252ebc6fa4114b9e54ead8a873b8909d"}
+  ],
+  "verification": {
+    "lifecycle_phase": "bridge_public_predecessor",
+    "focused_test_count": 23,
+    "focused_seconds": 23.516,
+    "focused_result": "OK",
+    "complete_test_count": 145,
+    "complete_seconds": 145.435,
+    "complete_result": "OK"
+  },
+  "boundaries": {
+    "release_test_changed": false,
+    "product_runtime_changed": false,
+    "release_identity_verifier_changed": false,
+    "current_tree_bridge_validators_changed": false,
+    "default_changed": false,
+    "result_created": false,
+    "security_or_authority_changed": false,
+    "container_image_exported_pushed_published_or_redistributed": false
+  },
+  "next_gate": "Publish and anonymously reconcile this exact two-test implementation before changing the release test or runtime."
+}

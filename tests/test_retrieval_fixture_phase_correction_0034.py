@@ -28,16 +28,25 @@ class RetrievalFixturePhaseCorrection0034Tests(unittest.TestCase):
 
     def test_corrected_test_identity_is_precomputed_exactly(self) -> None:
         path = ROOT / self.correction["allowed_test_path"]
-        source = path.read_text(encoding="utf-8")
-        replacement = self.correction["exact_replacement"]
-        self.assertEqual(source.count(replacement["from"]), 1)
-        future = source.replace(replacement["from"], replacement["to"])
-        payload = future.encode("utf-8")
-        self.assertEqual(len(payload), self.correction["corrected_test_identity"]["bytes"])
-        self.assertEqual(
-            hashlib.sha256(payload).hexdigest(),
-            self.correction["corrected_test_identity"]["sha256"],
-        )
+        payload = path.read_bytes()
+        identity = {"bytes": len(payload), "sha256": hashlib.sha256(payload).hexdigest()}
+        released = self.correction["released_bridge_test_identity"]
+        corrected = self.correction["corrected_test_identity"]
+        self.assertIn(identity, (released, corrected))
+        if identity == released:
+            source = payload.decode("utf-8")
+            replacement = self.correction["exact_replacement"]
+            self.assertEqual(
+                source.count(replacement["from"]),
+                replacement["required_occurrence_count"],
+            )
+            payload = source.replace(
+                replacement["from"],
+                replacement["to"],
+                replacement["required_occurrence_count"],
+            ).encode("utf-8")
+        self.assertEqual(len(payload), corrected["bytes"])
+        self.assertEqual(hashlib.sha256(payload).hexdigest(), corrected["sha256"])
 
     def test_unknown_test_identity_fails_closed(self) -> None:
         with tempfile.TemporaryDirectory(prefix="sentinel-fixture-phase-0034-") as directory:
