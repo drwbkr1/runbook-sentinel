@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0033-MILESTONE-CLOSURE-FAILURES-001",
+  "checkpoint": "baseline-0033",
+  "unit": "UNIT-005",
+  "observed_through_utc": "2026-08-23T18:12:32Z",
+  "status": "retained_process_evidence",
+  "positive_evidence_supplied_by_failures": false,
+  "observations": [
+    {
+      "id": "OBS-001",
+      "stage": "governed milestone completion validation",
+      "classification": "terminal_unit_disposition_missing",
+      "observation": "The first close-state projection marked UNIT-005 and the milestone complete and set verification.disposition to pass, but omitted the required UNIT-005 disposition member. The governed validator returned valid false with error terminal unit UNIT-005 needs a valid disposition.",
+      "effect": "No file was staged committed or pushed and the failed projection supplied no milestone-completion evidence.",
+      "correction": "Add only UNIT-005 disposition pass after every unit gate is pass, retain the milestone-level disposition, and rerun the governed validator plus regression and record checks before publication."
+    }
+  ],
+  "boundaries": {
+    "runtime_evaluation_contract_package_image_policy_or_authority_changed": false,
+    "release_tag_asset_or_deployment_changed": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "real_operational_infrastructure_contacted": false,
+    "secret_paid_service_external_asset_access_or_ownership_changed": false
+  },
+  "disposition": "retained; corrected successor validation alone may support milestone completion"
+}

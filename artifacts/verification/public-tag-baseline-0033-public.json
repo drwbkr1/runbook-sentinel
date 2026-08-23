@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0033-public-tag-record-reconciliation",
+  "checkpoint": "baseline-0033",
+  "unit": "UNIT-005",
+  "status": "pass",
+  "disposition": "external_reconciliation_verified",
+  "observed_at_utc": "2026-08-23T18:08:00Z",
+  "inputs": {
+    "public_tag_receipt": {
+      "path": "artifacts/verification/public-tag-baseline-0033.json",
+      "bytes": 15996,
+      "sha256": "063e5cd9b292c8983827410eda0e6d878500b2ae250415d1f3f76bff35240ae3",
+      "status": "pass"
+    },
+    "retained_failure_ledger": {
+      "path": "artifacts/verification/baseline-0033-publication-and-release-failures-001.json",
+      "bytes": 12338,
+      "sha256": "6f9f1d1af292a56aeb5cb9d8b025b8b3c74ebbdd9d7fbbe236897f7fd9c0964d",
+      "observation_count": 19,
+      "positive_evidence_supplied": false
+    }
+  },
+  "public_record": {
+    "repository": "https://github.com/drwbkr1/runbook-sentinel",
+    "commit": "bce808053aa50c9e467e624c89887257761ba828",
+    "tree": "7120856484d044411233cf21f3d5b7eec98c8341",
+    "parent": "5918f614caae96fe5b9bb3815c1d4a1c90908394",
+    "subject": "docs: reconcile v0.0.33 public tag",
+    "changed_path_count": 10,
+    "anonymous_raw_bytes": 1335007,
+    "recursive_tree_entry_count": 1608,
+    "recursive_tree_truncated": false,
+    "local_tracking_remote_refs_exact": true,
+    "authenticated_commit_tree_parent_exact": true,
+    "all_changed_git_blobs_exact": true,
+    "all_changed_anonymous_raw_bytes_exact": true,
+    "signed_out_commit_subject_path_count_and_receipt_visible": true,
+    "signed_out_main_public_current_v0_0_33_and_receipt_visible": true,
+    "paths": [
+      "CHANGELOG.md",
+      "README.md",
+      "artifacts/verification/baseline-0033-publication-and-release-failures-001.json",
+      "artifacts/verification/public-tag-baseline-0033.json",
+      "contracts/milestone-0033.json",
+      "docs/devlog.md",
+      "docs/evaluation-report.md",
+      "docs/roadmap.md",
+      "docs/status.md",
+      "docs/version-history.md"
+    ]
+  },
+  "release_reverification": {
+    "release_closure_commit": "5918f614caae96fe5b9bb3815c1d4a1c90908394",
+    "annotated_tag_object": "522cc2243650568e0a063f8a0918041dca98e111",
+    "tag_peeled_commit": "5918f614caae96fe5b9bb3815c1d4a1c90908394",
+    "release_id": 375120109,
+    "latest": true,
+    "draft": false,
+    "prerelease": false,
+    "uploaded_asset_count": 2,
+    "selected_archive_digest": "sha256:b10384f2ff7f61ace6fe34ae08b47625b6ab6c39636063c440ff8731563e6cec",
+    "selected_checksum_digest": "sha256:9a17cfb837078f7f5d7ec2b022f54633a6b6f1b222917f5a9f5ebc6b966e8d63",
+    "deployment_count": 0,
+    "release_state_unchanged_by_record_publication": true
+  },
+  "gates": {
+    "public_record_commit_exact": "pass",
+    "public_recursive_tree_untruncated": "pass",
+    "public_git_blobs_and_anonymous_raw_bytes_exact": "pass",
+    "signed_out_rendered_commit_and_main_exact": "pass",
+    "tag_release_and_assets_unchanged": "pass",
+    "deployment_absence_exact": "pass",
+    "failed_and_blocked_attempts_retained": "pass",
+    "external_reconciliation": "pass"
+  },
+  "boundaries": {
+    "runtime_evaluation_contract_package_or_image_input_changed": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "real_operational_infrastructure_contacted": false,
+    "secret_paid_service_external_asset_access_or_ownership_changed": false,
+    "production_universal_safety_broad_pareto_cross_builder_or_perpetual_cve_claimed": false
+  },
+  "next_gate": "Close UNIT-005 and BASELINE-0033 in the living records, then begin the next bounded cycle from verified public v0.0.33 by running the accepted system and inspecting traces and separately reported metrics before selecting one measurable weakness."
+}
