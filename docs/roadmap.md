@@ -14,6 +14,8 @@ UNIT-002 is complete. The preimplementation verifier passes with classifier/resu
 
 UNIT-003 implementation is public and exact at `e972ec9a22f67539b8365e85b49c87da7f03e391`, tree `610151cde61d729cdf05dd154302d69bb3ff7524`, while the result is absent from the public tree and returns anonymous HTTP 404. The production classifier matches the independent oracle on exact evidence, adds a stricter report-backed stage proof, produces deterministic dry bytes, and refuses overwrite. Sixteen focused and all 171 tests pass. Publish this receipt record, then write and verify exactly one immutable result before UNIT-004 opens.
 
+UNIT-003 is complete. One exclusive write produced 10,198-byte result SHA-256 `99c32fb6...`; result-present verification, sixteen focused tests, and all 171 tests pass. Public commit `8b57f7220449ad8fe762ea2c1de83782fc5adbe8`, tree `c6ee3e460e662acca211de2fa828134ed0bbb089`, is exact across both anonymous raw paths, and anonymous semantics preserve no selection, v3 selected, and the historical excluded disposition. UNIT-004 now validates every current real surface and release gate before any merge or release.
+
 No BASELINE-0035 result, default transition, package, image, tag, release, or deployment exists. Revealed held-out evidence is used only to diagnose evaluation machinery; it cannot tune or select a retriever.
 
 ## Active checkpoint baseline-0034 - single-pass bounded retrieval latency
