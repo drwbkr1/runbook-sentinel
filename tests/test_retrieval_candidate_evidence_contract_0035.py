@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import verify_retrieval_candidate_evidence_contract_0035 as verifier  # noqa: E402
+import classify_retrieval_candidate_evidence_0035 as classifier  # noqa: E402
 
 
 class RetrievalCandidateEvidenceContract0035Tests(unittest.TestCase):
@@ -74,6 +75,57 @@ class RetrievalCandidateEvidenceContract0035Tests(unittest.TestCase):
                 [item["source_error"] for item in result["safe_superset_pairs"]],
                 sorted(expected["observed_safe_superset_pairs"]),
             )
+
+    def test_production_classifier_matches_independent_oracle(self) -> None:
+        comparable_keys = (
+            "candidate_evidence_admissible",
+            "candidate_selected",
+            "selection_performed",
+            "boolean_gate_count",
+            "false_gates",
+            "selected_default_observation_differences",
+            "contextual_safe_superset_gate_differences",
+            "safe_superset_pairs",
+            "hard_invariant_failures",
+            "errors",
+        )
+        for report in [*self.controls, *self.candidates]:
+            expected = verifier.reference_classify(self.contract, report)
+            actual = classifier.classify_report(self.contract, report)
+            self.assertEqual(
+                {key: actual[key] for key in comparable_keys},
+                {key: expected[key] for key in comparable_keys},
+            )
+
+    def test_production_build_is_deterministic_and_does_not_select(self) -> None:
+        first = classifier.render_result(classifier.build_result())
+        second = classifier.render_result(classifier.build_result())
+        self.assertEqual(first, second)
+        result = json.loads(first)
+        self.assertTrue(result["all_reports_candidate_evidence_admissible"])
+        self.assertEqual(result["all_reports_hard_invariant_failure_count"], 0)
+        self.assertFalse(result["candidate_selected"])
+        self.assertFalse(result["selection_performed"])
+        self.assertFalse(result["historical_result_changed"])
+        self.assertEqual(result["historical_candidate_disposition"], "exclude_and_retain")
+
+    def test_production_stage_proof_rejects_unbacked_error_stage(self) -> None:
+        changed = copy.deepcopy(self.candidates[0])
+        changed["metrics"]["coverage"]["guidance_not_retrieved_scenarios"].remove(
+            "dev-database-injection-coverage"
+        )
+        result = classifier.classify_report(self.contract, changed)
+        self.assertFalse(result["candidate_evidence_admissible"])
+        self.assertIn("safe_superset_stage_evidence", result["errors"])
+
+    def test_result_writer_refuses_overwrite(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / "result.json"
+            classifier.write_once(target, b"first\n")
+            self.assertEqual(target.read_bytes(), b"first\n")
+            with self.assertRaises(FileExistsError):
+                classifier.write_once(target, b"second\n")
+            self.assertEqual(target.read_bytes(), b"first\n")
 
     def test_all_v3_controls_remain_exact(self) -> None:
         for report in self.controls:
