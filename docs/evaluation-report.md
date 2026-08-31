@@ -1,5 +1,13 @@
 # Evaluation report
 
+## BASELINE-0035 rendered-dashboard release-gate correction
+
+Real-surface inspection rejected the first v0.0.35 package path before release. Source API attempt 001 passed 130 of 131 checks but Edge produced its PNG only after the verifier had stopped the API; attempt 002 then passed all 131 API and 72 native checks while original-detail inspection showed that the 1440-by-1000 image was only Edge's `ERR_CONNECTION_REFUSED` page. The two exact failures remain retained and neither machine result is counted as positive rendered-surface evidence.
+
+The bounded correction changes only the project-authored API verification harness and one focused guard. It removes stale screenshots, launches Edge with a unique repository-local profile, waits for the hidden process tree to finish while the synthetic API is still live, requires zero exit and a produced PNG, and removes the validated temporary profile. The corrected diagnostic passes 131/131 API and 72/72 native checks and renders a complete 101,938-byte dashboard; original-detail inspection confirms all 35 metric/boundary cards and two persisted incidents without clipping. Because that diagnostic preceded renewed source identity, it validates the correction but is not release evidence.
+
+The prior archive is retained externally as superseded and is absent from `dist`. A renewed 164-file manifest and companion are byte-identical at 20,021 bytes and SHA-256 `e7a097883f2ee4f61aac695af1b2d7b3034a7c6470739f0cf60693a5c0c8e29f`. The complete suite passes 180/180 in 110.406 seconds. Fresh source attempt 006 passes 57 scenarios, 171 attempts, all 136 Boolean gates, retrieval-quality verification, and an anchored 261-event trace; `latest.json` is byte-exact to it. Public resealing remains required before any replacement archive is built.
+
 ## BASELINE-0035 semantic classification and release-identity freeze
 
 The immutable 10,198-byte BASELINE-0035 result at SHA-256 `99c32fb6917fae5481898f375cd2ba22b0ede6a646bcc646e5338db607c8321d` classifies all three exact retained v5 reports as evidence-admissible with zero hard invariant failures. It does not perform selection: `candidate_selected` and `selection_performed` remain false, `freshness-priority-lexical-v3` remains selected, and the historical candidate disposition remains `exclude_and_retain`. Public result commit `8b57f7220449ad8fe762ea2c1de83782fc5adbe8` and its record are anonymously exact.

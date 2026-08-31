@@ -92,6 +92,25 @@ class ReleaseIdentityContract0035Tests(unittest.TestCase):
             result = verifier.evaluate(root, "frozen")
             self.assertIn("base_source_gate_identity", result["errors"])
 
+    def test_live_api_dashboard_render_is_fresh_and_synchronous(self) -> None:
+        script = (ROOT / "scripts/verify_live_api.ps1").read_text(encoding="utf-8")
+        generated_files = script.index("$generatedRuntimeFiles = @(")
+        generated_cleanup = script.index("foreach ($generatedPath", generated_files)
+        screenshot_entry = script.index("$screenshotPath", generated_files)
+        edge_launch = script.index("$edgeProcess = Start-Process")
+        server_stop = script.index("if (-not $serverProcess.HasExited)", edge_launch)
+
+        self.assertLess(screenshot_entry, generated_cleanup)
+        self.assertIn("--user-data-dir=$edgeProfilePathFull", script)
+        self.assertIn("-WindowStyle Hidden", script[edge_launch:server_stop])
+        self.assertIn("-Wait", script[edge_launch:server_stop])
+        self.assertIn("Microsoft Edge produced no dashboard screenshot", script)
+        self.assertIn(
+            "Remove-Item -LiteralPath $edgeProfilePathFull -Recurse -Force",
+            script,
+        )
+        self.assertLess(edge_launch, server_stop)
+
     def fixture(self):
         temporary = tempfile.TemporaryDirectory()
         root = Path(temporary.name)

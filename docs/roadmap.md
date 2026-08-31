@@ -30,6 +30,8 @@ The local prebuild seal now passes: active and archived manifests are byte-ident
 
 Prebuild seal `9df5aaa581c6b939ad91499bba47802e3aef9db1` is public and exact across twelve changed blobs/raw paths and an untruncated 1,692-entry tree. Main, v0.0.33, two assets, deployments, and v0.0.35 tag absence are unchanged. Publish and verify its record-only receipt; then build two independent v0.0.35 archives before source/package and real-surface evaluation. Container construction remains deferred until Docker is live.
 
+The first real rendered-source gate rejected that package path before release: one run stopped at 130/131 while Edge wrote asynchronously, and a nominal 131/131 plus 72/72 successor rendered only `ERR_CONNECTION_REFUSED`. Both exact dashboards and runtime artifacts are retained. The bounded harness correction makes the PNG fresh and the Edge process synchronous without changing product runtime or evaluation semantics. A diagnostic corrected dashboard is complete at original detail; renewed manifest `e7a09788...`, 180/180 regression, and fresh source attempt 006 with all 136 gates now pass locally. The earlier archive is superseded in external custody and absent from `dist`. Publish and independently verify this corrected prebuild seal before any replacement archive build.
+
 The BASELINE-0035 classification result exists and is public, but no default transition, v0.0.35 package, image, tag, release, or deployment exists. Revealed held-out evidence is used only to diagnose evaluation machinery; it cannot tune or select a retriever.
 
 ## Active checkpoint baseline-0034 - single-pass bounded retrieval latency

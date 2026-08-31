@@ -1,5 +1,12 @@
 # Development log
 
+## 2026-08-31 BASELINE-0035 rendered-dashboard fail-closed correction
+
+- Retained two source API/dashboard failures. Attempt 001 passed 130/131 API checks but observed no screenshot before the asynchronous Edge write completed; original-detail inspection of the later 35,883-byte PNG showed `ERR_CONNECTION_REFUSED`. Attempt 002 nominally passed all 131 API and 72 native checks, but its freshly rewritten 35,884-byte PNG was the same error surface. Neither attempt is release evidence; exact artifacts remain under `C:\Projects\Verification`, and the second failed PNG is retained in-repository.
+- Corrected only `scripts/verify_live_api.ps1`: each run removes the prior PNG, uses a unique repository-local Edge profile, starts Edge hidden, waits for the process tree, requires zero exit plus a produced file before stopping the synthetic API, and safely removes the temporary profile. The product runtime, agent, retriever, evaluation semantics, policy, approvals, executor, and external boundary are unchanged. One focused guard brings the release-identity set to 8/8.
+- A diagnostic corrected run passes 131/131 API and 72/72 native checks. Its 101,938-byte 1440-by-1000 dashboard was inspected at original detail: all 35 metric and boundary cards plus both persisted incidents are complete with no clipping. It validates the harness correction only and is not post-manifest release evidence.
+- Preserved all earlier evaluation/package attempts. The predecessor 650,685-byte archive at SHA-256 `34aecb8e...` is in exact external custody and removed from `dist`; it is superseded, not rewritten. Renewed active/companion manifests remain 164 files and 20,021 bytes but now hash to `e7a09788...`. The complete regression passes 180/180, and fresh source attempt 006 passes 57 scenarios, 171 attempts, all 136 Boolean gates, retrieval verification, and an anchored 261-event trace. Publish this corrected prebuild seal before rebuilding an archive.
+
 ## 2026-08-31 BASELINE-0035 prebuild manifest seal
 
 - Renewed `eval/manifest.json` and the immutable companion `artifacts/verification/baseline-0035-prebuild-source-manifest.json` from public exact implementation record `a669699932e59c3b8f92eb51f13e9712262dbd1d`. The files are byte-identical: 20,021 bytes, SHA-256 `085433c14caee718c79a74d162ef3d917577c6b1bf326c088f19259fd939ae04`, 164 unique project identities, and zero missing or mismatched paths.

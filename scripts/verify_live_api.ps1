@@ -7,6 +7,18 @@ $stderrPath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0035
 $databasePath = Join-Path (Get-Location) 'var\live-api-baseline-0035.db'
 $tracePath = Join-Path (Get-Location) 'artifacts\runtime\live-api-baseline-0035-traces.jsonl'
 $traceAnchorPath = "$tracePath.anchor.json"
+$screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0035.png'
+$edgeProfileRoot = Join-Path (Get-Location) 'var\edge-baseline-0035'
+$edgeProfilePath = Join-Path $edgeProfileRoot ([guid]::NewGuid().ToString('N'))
+$edgeProfileRootFull = [System.IO.Path]::GetFullPath($edgeProfileRoot)
+$edgeProfilePathFull = [System.IO.Path]::GetFullPath($edgeProfilePath)
+$edgeProfilePrefix = $edgeProfileRootFull.TrimEnd(
+    [System.IO.Path]::DirectorySeparatorChar,
+    [System.IO.Path]::AltDirectorySeparatorChar
+) + [System.IO.Path]::DirectorySeparatorChar
+if (-not $edgeProfilePathFull.StartsWith($edgeProfilePrefix, [System.StringComparison]::OrdinalIgnoreCase)) {
+    throw 'Edge profile path escaped the repository-local runtime directory'
+}
 $generatedRuntimeFiles = @(
     $databasePath,
     "$databasePath-wal",
@@ -14,7 +26,8 @@ $generatedRuntimeFiles = @(
     $tracePath,
     $traceAnchorPath,
     $stdoutPath,
-    $stderrPath
+    $stderrPath,
+    $screenshotPath
 )
 foreach ($generatedPath in $generatedRuntimeFiles) {
     if (Test-Path -LiteralPath $generatedPath) {
@@ -316,14 +329,28 @@ try {
     if (-not $edge) {
         throw 'Microsoft Edge executable not found'
     }
-    $screenshotPath = Join-Path (Get-Location) 'artifacts\verification\dashboard-baseline-0035.png'
-    & $edge `
-        --headless `
-        --disable-gpu `
-        --hide-scrollbars `
-        --window-size=1440,1000 `
-        --screenshot=$screenshotPath `
-        http://127.0.0.1:8877/dashboard | Out-Null
+    New-Item -ItemType Directory -Path $edgeProfilePathFull | Out-Null
+    $edgeArguments = @(
+        '--headless=new',
+        '--disable-gpu',
+        '--hide-scrollbars',
+        '--window-size=1440,1000',
+        "--user-data-dir=$edgeProfilePathFull",
+        "--screenshot=$screenshotPath",
+        'http://127.0.0.1:8877/dashboard'
+    )
+    $edgeProcess = Start-Process `
+        -FilePath $edge `
+        -ArgumentList $edgeArguments `
+        -WindowStyle Hidden `
+        -Wait `
+        -PassThru
+    if ($edgeProcess.ExitCode -ne 0) {
+        throw "Microsoft Edge dashboard render exited $($edgeProcess.ExitCode)"
+    }
+    if (-not (Test-Path -LiteralPath $screenshotPath)) {
+        throw 'Microsoft Edge produced no dashboard screenshot'
+    }
 
     if (-not $serverProcess.HasExited) {
         $serverProcess.Kill()
@@ -659,4 +686,7 @@ finally {
     $operatorHeaders = $null
     $operatorCapability = $null
     if ($serverProcess) { $serverProcess.Dispose() }
+    if (Test-Path -LiteralPath $edgeProfilePathFull) {
+        Remove-Item -LiteralPath $edgeProfilePathFull -Recurse -Force
+    }
 }

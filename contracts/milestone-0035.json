@@ -166,7 +166,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Publish and independently verify the record-only receipt for public exact prebuild seal 9df5aaa581c6b939ad91499bba47802e3aef9db1; then build two deterministic v0.0.35 archives before source package and real-surface evaluation. Container construction remains deferred until Docker is live.",
+  "next_action": "Publish and independently verify the fail-closed dashboard-render correction, renewed 164-file prebuild manifest e7a097883f2ee4f61aac695af1b2d7b3034a7c6470739f0cf60693a5c0c8e29f, retained failures, and selected source attempt 006; only then rebuild two deterministic v0.0.35 archives. Container construction remains deferred until Docker is live.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -206,6 +206,9 @@
       "Record-only implementation reconciliation a669699932e59c3b8f92eb51f13e9712262dbd1d tree ca59a02d8e3352e2b2d81cd0571883c512e32e89 is exact across refs anonymous metadata eight Git blobs eight raw paths totaling 1386065 bytes an untruncated 1690-entry tree and rendered commit HTML",
       "The local 164-file prebuild manifest and immutable companion are byte-identical at 20021 bytes and SHA-256 085433c14caee718c79a74d162ef3d917577c6b1bf326c088f19259fd939ae04; a retained 177-of-178 historical-manifest lifecycle stop is followed by the bounded immutable-companion correction, 5 focused adjudication passes, 45 current-applicable validator passes, and 179-of-179 complete regression passes",
       "Public prebuild seal 9df5aaa581c6b939ad91499bba47802e3aef9db1 tree b293ec341891e59d031a48d41aa63f1212144530 is exact across refs anonymous metadata twelve Git blobs twelve raw paths totaling 1470401 bytes an untruncated 1692-entry tree and rendered commit evidence while main release assets deployments and v0.0.35 tag absence remain unchanged"
+      ,"Two retained rendered-source attempts prove the earlier real-surface gate was not satisfied: the first stopped 130 of 131 before the screenshot appeared and the second nominally passed 131 API plus 72 native checks but rendered only ERR_CONNECTION_REFUSED"
+      ,"The bounded synchronous-render correction passes PowerShell parsing 8 focused tests the implemented release-identity verifier a complete 180-test regression and a diagnostic 131-check API 72-check native inspection plus original-detail complete dashboard without changing product runtime or evaluation semantics"
+      ,"Renewed active and companion manifests are byte-identical at 20021 bytes and SHA-256 e7a097883f2ee4f61aac695af1b2d7b3034a7c6470739f0cf60693a5c0c8e29f; fresh source attempt 006 passes 57 scenarios 171 attempts all 136 Boolean gates retrieval verification and an anchored 261-event trace while the earlier archive is superseded and absent from dist"
     ],
     "evidence_paths": [
       "artifacts/verification/baseline-0034-closure-reconciliation-local.json",
@@ -228,12 +231,18 @@
       "artifacts/verification/baseline-0035-prebuild-source-manifest.json",
       "artifacts/verification/baseline-0035-prebuild-manifest-seal-local.json",
       "artifacts/verification/baseline-0035-prebuild-manifest-seal-public.json"
+      ,"artifacts/verification/baseline-0035-dashboard-render-sync-local.json"
+      ,"artifacts/verification/baseline-0035-prebuild-source-manifest-attempt-002-render-sync.json"
+      ,"artifacts/verification/dashboard-source-baseline-0035-attempt-002-visual-failed.png"
+      ,"artifacts/evaluations/runs/baseline-0035-attempt-006.json"
+      ,"artifacts/evaluations/runs/baseline-0035-attempt-006.manifest.json"
+      ,"artifacts/evaluations/runs/baseline-0035-attempt-006.traces.jsonl"
     ]
   },
   "handoff": {
     "resume_from": "contracts/milestone-0035.json",
-    "latest_verified_checkpoint": "public exact prebuild manifest seal 9df5aaa581c6b939ad91499bba47802e3aef9db1 tree b293ec341891e59d031a48d41aa63f1212144530 after public implementation record a669699932e59c3b8f92eb51f13e9712262dbd1d",
-    "resume_rule": "Continue UNIT-004 by publishing and independently reconciling the public prebuild receipt. Do not build an archive before that record gate and do not pull or build a container while Docker remains unavailable.",
+    "latest_verified_checkpoint": "public exact prebuild record b5dafd9a9382a31abb3ca3dd5f0bca47245030ce plus a local unsealed rendered-dashboard correction and renewed source candidate; the earlier archive path is superseded and not release eligible",
+    "resume_rule": "Continue UNIT-004 by publishing and independently reconciling the corrected rendered-dashboard prebuild seal. Do not build a replacement archive before that public gate and do not pull or build a container while Docker remains unavailable.",
     "blocked_on_human": false
   }
 }
