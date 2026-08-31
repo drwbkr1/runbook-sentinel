@@ -36,6 +36,8 @@ Corrected prebuild seal `7ea3309a62322a2a3d932d7f471e2b510342e10a` is public and
 
 Record-only reconciliation `ab859ebdb641b56cf31a3620344cbaf9c72faf10` is public and exact. Two independent 650,685-byte replacement archives reproduce SHA-256 `362d0070...`. Selected source attempt 006 and package attempt 007 each pass 57 scenarios, 171 attempts, all 136 Boolean gates, retrieval verification, and anchored 261-event traces; their complete reports normalize exact at `337faa88...`. Source/package MCP, authenticated API, approval/executor/state/telemetry, and both original-detail dashboards pass. Publish and verify this exact package/source payload and then its record-only receipt. Docker client 29.4.3 is installed but its server is unavailable, so the container gate remains pending and cannot be inferred from historical evidence.
 
+Package/source payload `2a78479662e36df9e18e119a86c79f5422654e88` is now public exact across all 15 changed Git blobs and 3,749,204 anonymous raw bytes, the untruncated 1,722-entry tree, and rendered commit. Main, v0.0.33, two assets, deployments, and v0.0.35 tag absence remain unchanged. Publish and independently reconcile its record-only receipt next. After that gate, run local-only container verification if Docker is live; otherwise continue the non-container clean-clone gate while retaining the container requirement.
+
 The BASELINE-0035 classification result exists and is public, and a local v0.0.35 package candidate is exact and verified across source/package real surfaces. No public package, image, tag, release, or deployment exists. Revealed held-out evidence is used only to diagnose evaluation machinery; it cannot tune or select a retriever.
 
 ## Active checkpoint baseline-0034 - single-pass bounded retrieval latency

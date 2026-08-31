@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0035-PACKAGE-SOURCE-PUBLIC",
+  "checkpoint": "baseline-0035",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-31T23:37:36Z",
+  "status": "pass_public_payload_record_publication_pending",
+  "repository": {
+    "url": "https://github.com/drwbkr1/runbook-sentinel",
+    "visibility": "public",
+    "branch": "codex/baseline-0035-evaluation-contract-integrity",
+    "commit": "2a78479662e36df9e18e119a86c79f5422654e88",
+    "tree": "bddb26f761a5a63fa5de3910bb663cb3d49fb8ab",
+    "parent": "ab859ebdb641b56cf31a3620344cbaf9c72faf10",
+    "subject": "Verify package and real surfaces",
+    "local_tracking_remote_and_anonymous_ref_exact": true,
+    "anonymous_commit_tree_and_parent_exact": true,
+    "changed_paths": 15,
+    "git_blob_mismatches": 0,
+    "anonymous_raw_byte_mismatches": 0,
+    "anonymous_raw_bytes": 3749204,
+    "recursive_tree_entries": 1722,
+    "recursive_tree_truncated": false,
+    "rendered_commit_verified": true
+  },
+  "public_release_truth": {
+    "main": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "main_unchanged": true,
+    "latest_release": "v0.0.33",
+    "latest_release_id": 375120109,
+    "latest_release_asset_count": 2,
+    "latest_release_unchanged": true,
+    "deployments_raw": "[]",
+    "deployments_empty": true,
+    "v0_0_35_tag_http_status": 404,
+    "v0_0_35_tag_absent": true
+  },
+  "bound_evidence": {
+    "local_receipt": {
+      "path": "artifacts/verification/package-source-baseline-0035.json",
+      "bytes": 16587,
+      "sha256": "2ff51102d0b5d89fdc564faf39234e8d1b9f22d8c0fd28fbb0d58a1d497f187e"
+    },
+    "package_report": {
+      "path": "artifacts/evaluations/runs/baseline-0035-attempt-007.json",
+      "bytes": 954188,
+      "sha256": "71dcaa7820999c1b583cfe0171bc511bba6a428782800c2991868ff82fb3b9d3"
+    },
+    "package_manifest": {
+      "path": "artifacts/evaluations/runs/baseline-0035-attempt-007.manifest.json",
+      "bytes": 20021,
+      "sha256": "e7a097883f2ee4f61aac695af1b2d7b3034a7c6470739f0cf60693a5c0c8e29f"
+    },
+    "package_trace": {
+      "path": "artifacts/evaluations/runs/baseline-0035-attempt-007.traces.jsonl",
+      "bytes": 195459,
+      "sha256": "4bb903ef1cbbe10f29262a32e21bd29a0fabc1853a3dbf16d92f7846698f7965",
+      "events": 261,
+      "final_event_sha256": "f906f76677d4a2cb4aa54a396576d21cc881a04965b6d808e2d9c9b1997b8e4f",
+      "valid": true,
+      "anchored": true
+    },
+    "source_dashboard": {
+      "path": "artifacts/verification/dashboard-source-baseline-0035.png",
+      "bytes": 101360,
+      "sha256": "8fef274b8d79198f75114580c0bf5ac1371c88c4db79b3203ca89e443b7be2d7"
+    },
+    "package_dashboard": {
+      "path": "artifacts/verification/dashboard-package-baseline-0035.png",
+      "bytes": 101817,
+      "sha256": "af76406460b820baa27a928ee1d46118a14261644433328bd010cd546d15b354"
+    },
+    "source_native": {
+      "path": "artifacts/verification/native-source-baseline-0035.json",
+      "bytes": 12476,
+      "sha256": "40afc64202dc72b939d6897f8e909450444d30bcfc828ccb91b9f089e558e4ab"
+    },
+    "package_native": {
+      "path": "artifacts/verification/native-package-baseline-0035.json",
+      "bytes": 12478,
+      "sha256": "dbf4d1d25cca1058c8494ff714b35111cc5375e4245febcd3deaae6b0b70a9cb"
+    }
+  },
+  "verification": {
+    "public_verification_custody": "C:/Projects/Verification/baseline-0035-package-source-public-verification.json",
+    "public_verification_bytes": 5665,
+    "public_verification_sha256": "c37ac9d6c029c4ff49f5bf11da826c4fb714e5d9acedff2043a60acca09c22d6",
+    "all_public_checks_exact": true,
+    "archive_sha256": "362d00705bc45102e7e09c69d5bba442ecb791e0feca7b3885041538d86af862",
+    "source_package_normalized_report_sha256": "337faa888811e088abbaf12f1b0ba527e6e90cd751cff1fae4cdc714fce09ce3",
+    "source_package_mcp_api_native_and_dashboard_pass": true,
+    "docker_server_available": false,
+    "container_built": false
+  },
+  "retained_process_observation": {
+    "id": "PUBLIC-PACKAGE-SOURCE-SUMMARY-OUTPUT-0035-001",
+    "description": "The anonymous verifier returned no visible console summary even though it completed with exit zero and wrote the full receipt. A separate read-only parse verified the 5,665-byte receipt, all_exact true, all required fields, and its SHA-256; only the parsed receipt supplies evidence."
+  },
+  "boundaries": {
+    "one_drive_used": false,
+    "model_retrieval_policy_approval_or_executor_changed": false,
+    "new_dependency_external_asset_secret_paid_service_or_real_infrastructure": false,
+    "container_image_built_exported_pushed_published_or_redistributed": false,
+    "main_tag_release_or_deployment_changed": false
+  },
+  "next_gate": "Publish and independently verify this record-only receipt. Only then may local-only container verification start when Docker is available; otherwise continue the non-container clean-clone gate while retaining the container gate as pending."
+}
