@@ -271,10 +271,10 @@
         "public implementation seal before result generation"
       ],
       "gates": {
-        "only_allowed_runtime_path": "pending",
-        "development_v4_returned_ids_exact": "pending",
-        "default_remains_v3": "pending",
-        "security_and_authority_unchanged": "pending",
+        "only_allowed_runtime_path": "pass",
+        "development_v4_returned_ids_exact": "pass",
+        "default_remains_v3": "pass",
+        "security_and_authority_unchanged": "pass",
         "implementation_public_and_exact": "pending"
       },
       "next_dependency": "UNIT-004"
@@ -336,7 +336,7 @@
     }
   ],
   "current_unit": "UNIT-003",
-  "next_action": "Publish and reconcile the exact three-test transition receipt, then apply only the frozen 6,079-byte v5 runtime and 6,998-byte focused-test identities. Require both implementation validators and regressions to pass before any benchmark process.",
+  "next_action": "Publish and anonymously reconcile the exact v5 implementation seal. Do not start any benchmark or comparison process until that public seal and its record are exact.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",

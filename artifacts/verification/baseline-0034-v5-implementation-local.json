@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0034-v5-implementation-local",
+  "checkpoint": "baseline-0034",
+  "unit": "UNIT-003",
+  "observed_at_utc": "2026-08-31T16:59:15Z",
+  "status": "pass",
+  "disposition": "ready_for_public_implementation_seal",
+  "public_prerequisite": {
+    "test_transition_commit": "469932fcba6de6dfd0284caac96e2ce511abe628",
+    "test_transition_record_commit": "62736ca4de5d4805591e3477e1136debcc22ab36",
+    "record_public_and_exact": true
+  },
+  "implemented_identities": {
+    "retrieval_runtime": {"path":"src/runbook_sentinel/retrieval.py","bytes":6079,"sha256":"f5514cb7cb0b7686987d3374bcd80849f868509a2d32676a88585dd40d456b37"},
+    "focused_test": {"path":"tests/test_retrieval_single_pass_contract_0034.py","bytes":6998,"sha256":"11beafbfc65013b0acbedf897dad07c2522d052816750d1d9acc8e10c7f5cfe3"}
+  },
+  "frozen_test_successors": [
+    {"path":"tests/test_retrieval_fixture_phase_correction_0034.py","bytes":3449,"sha256":"ee640f79aba920746e6bfc93550b1d8a6986da4d975b8270285beee8573ab3d6"},
+    {"path":"tests/test_retrieval_successor_lifecycle_0034.py","bytes":4658,"sha256":"09e13990eb92ac8a0d5c506c56178529d4ac27395811749be714d09f13a0c613"},
+    {"path":"tests/test_retrieval_meta_test_lifecycle_correction_0034.py","bytes":3656,"sha256":"b50247ed37b143d67843c23aaa4ad60044ac5b351ceaa9cd707ff6f37f477a35"}
+  ],
+  "verification": {
+    "single_pass_contract_status": "pass",
+    "successor_lifecycle_contract_status": "pass",
+    "phase": "implementation_sealed_no_result",
+    "development_scenario_count": 31,
+    "development_mismatch_count": 0,
+    "held_out_loaded": false,
+    "focused_tests": 61,
+    "focused_seconds": 17.393,
+    "focused_result": "OK",
+    "complete_tests": 151,
+    "complete_seconds": 128.861,
+    "complete_result": "OK"
+  },
+  "boundaries": {
+    "only_allowed_runtime_path_changed": true,
+    "retrieval_behavior_matches_v4_on_development": true,
+    "benchmark_result_present": false,
+    "comparison_result_present": false,
+    "default_configuration": "freshness-priority-lexical-v3",
+    "security_or_authority_changed": false,
+    "dependency_external_asset_secret_service_or_real_infrastructure_changed": false
+  },
+  "next_gate": "Publish and anonymously reconcile this exact v5 implementation seal before starting any benchmark or comparison process."
+}

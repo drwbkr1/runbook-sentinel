@@ -2,7 +2,12 @@ from __future__ import annotations
 
 import re
 
-from .evidence import PROJECT_EVIDENCE_KINDS, is_fresh_project_evidence
+from .evidence import (
+    FRESHNESS_SECONDS,
+    PROJECT_EVIDENCE_KINDS,
+    is_fresh_project_evidence,
+    parse_timestamp,
+)
 
 
 TOKEN_RE = re.compile(r"[a-z0-9_]+")
@@ -19,12 +24,16 @@ LEXICAL_RETRIEVER_V1 = "lexical-token-overlap-v1"
 EVIDENCE_PRIORITY_RETRIEVER_V2 = "evidence-priority-lexical-v2"
 FRESHNESS_PRIORITY_RETRIEVER_V3 = "freshness-priority-lexical-v3"
 BOUNDED_TRUST_TIER_RETRIEVER_V4 = "bounded-trust-tier-lexical-v4"
+SINGLE_PASS_BOUNDED_TRUST_TIER_RETRIEVER_V5 = (
+    "single-pass-bounded-trust-tier-lexical-v5"
+)
 DEFAULT_RETRIEVAL_CONFIGURATION = FRESHNESS_PRIORITY_RETRIEVER_V3
 RETRIEVAL_CONFIGURATIONS = (
     LEXICAL_RETRIEVER_V1,
     EVIDENCE_PRIORITY_RETRIEVER_V2,
     FRESHNESS_PRIORITY_RETRIEVER_V3,
     BOUNDED_TRUST_TIER_RETRIEVER_V4,
+    SINGLE_PASS_BOUNDED_TRUST_TIER_RETRIEVER_V5,
 )
 
 
@@ -59,6 +68,29 @@ class LexicalRetriever:
         eligible = [item for item in ranked if item[0] > 0]
         if self.name == LEXICAL_RETRIEVER_V1:
             return [document for _, _, document in eligible[:limit]]
+        if self.name == SINGLE_PASS_BOUNDED_TRUST_TIER_RETRIEVER_V5:
+            reference_time = parse_timestamp(as_of)
+            fresh_project_evidence: list[tuple[float, str, dict]] = []
+            stale_project_evidence: list[tuple[float, str, dict]] = []
+            untrusted_guidance: list[tuple[float, str, dict]] = []
+            for item in eligible:
+                document = item[2]
+                if document.get("kind") not in PROJECT_EVIDENCE_KINDS:
+                    untrusted_guidance.append(item)
+                    continue
+                observed_at = parse_timestamp(document.get("observed_at"))
+                if reference_time is not None and observed_at is not None:
+                    age_seconds = (reference_time - observed_at).total_seconds()
+                    if 0 <= age_seconds <= FRESHNESS_SECONDS:
+                        fresh_project_evidence.append(item)
+                        continue
+                stale_project_evidence.append(item)
+            prioritized = (
+                fresh_project_evidence[:2]
+                + stale_project_evidence[:1]
+                + untrusted_guidance[:1]
+            )
+            return [document for _, _, document in prioritized[:limit]]
         project_evidence = [
             item for item in eligible if item[2].get("kind") in PROJECT_EVIDENCE_KINDS
         ]

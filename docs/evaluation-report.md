@@ -50,6 +50,8 @@ After exact freeze record `459c9fc...` became public, only the three test succes
 
 Controlled transition `469932fcba6de6dfd0284caac96e2ce511abe628` is public and exact at tree `0e9ca9e...` over record `459c9fc...`. All 12 changed Git blobs and 1,386,986 anonymous raw bytes match, and the 1,644-entry recursive tree is untruncated. This proves publication order and exact test identities, not candidate quality. The retained 56/60 result remains excluded; only exact v5 may now activate the implementation phase before new regression evidence.
 
+After public exact transition record `62736ca...`, the frozen v5 runtime and focused test were reapplied without any other product source change. Both implementation validators pass with zero mismatches across all 31 development scenarios, held-out unloaded, v3 selected, and both result paths absent. The risk-matched suite passes 61/61 in 17.393 seconds and the complete suite passes 151/151 in 128.861 seconds. These are implementation-seal gates, not benchmark or selection evidence.
+
 ## BASELINE-0033 frozen candidate-admissibility overlay
 
 Fresh merged-main evidence commit `acf4cd94ed3c50bf23071afa3722308eb9df3d55`, reconciliation `8ff7f9e985f5dcf4cc83ccd056e9bf12af89131b`, and final audit `29ca0e55d55ee4fa6765c85abf7995ba6624f782` are public and exact. Audited closure `5918f614caae96fe5b9bb3815c1d4a1c90908394`, annotated tag object `522cc2243650568e0a063f8a0918041dca98e111`, non-draft latest release `375120109`, the selected zipapp/checksum, anonymous downloads, and signed-out rendered pages all reconcile. No container-image publication exists.

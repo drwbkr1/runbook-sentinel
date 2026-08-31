@@ -5,6 +5,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,11 +19,11 @@ class RetrievalSinglePassContract0034Tests(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.contract = json.loads(verifier.CONTRACT_PATH.read_text(encoding="utf-8"))
 
-    def test_current_preimplementation_phase_passes(self) -> None:
-        result = verifier.validate(require_phase="frozen_preimplementation")
+    def test_current_implementation_seal_phase_passes(self) -> None:
+        result = verifier.validate(require_phase="implementation_sealed_no_result")
         self.assertEqual(result["status"], "pass")
         self.assertEqual(result["errors"], [])
-        self.assertFalse(result["boundaries"]["candidate_implemented"])
+        self.assertTrue(result["boundaries"]["candidate_implemented"])
         self.assertFalse(result["boundaries"]["benchmark_result_present"])
         self.assertFalse(result["boundaries"]["comparison_result_present"])
 
@@ -31,10 +32,57 @@ class RetrievalSinglePassContract0034Tests(unittest.TestCase):
             verifier.runtime_retrieval.DEFAULT_RETRIEVAL_CONFIGURATION,
             verifier.CONTROL_CONFIGURATION,
         )
-        self.assertNotIn(
+        self.assertIn(
             verifier.CANDIDATE_CONFIGURATION,
             verifier.runtime_retrieval.RETRIEVAL_CONFIGURATIONS,
         )
+
+    def test_candidate_parses_reference_once_and_each_eligible_evidence_once(self) -> None:
+        retriever = verifier.runtime_retrieval.LexicalRetriever(
+            verifier.CANDIDATE_CONFIGURATION
+        )
+        documents = [
+            {
+                "id": "fresh",
+                "kind": "telemetry",
+                "title": "api",
+                "content": "api latency",
+                "observed_at": "2026-08-23T18:30:00Z",
+            },
+            {
+                "id": "stale",
+                "kind": "status",
+                "title": "api",
+                "content": "api latency",
+                "observed_at": "2026-08-23T15:00:00Z",
+            },
+            {
+                "id": "guidance",
+                "kind": "runbook",
+                "title": "api",
+                "content": "api latency",
+                "observed_at": "2026-08-23T18:30:00Z",
+            },
+            {
+                "id": "zero-score-evidence",
+                "kind": "status",
+                "title": "database",
+                "content": "connections",
+                "observed_at": "2026-08-23T18:30:00Z",
+            },
+        ]
+        with mock.patch.object(
+            verifier.runtime_retrieval,
+            "parse_timestamp",
+            wraps=verifier.runtime_retrieval.parse_timestamp,
+        ) as parse:
+            returned = retriever.retrieve(
+                "api",
+                documents,
+                as_of="2026-08-23T19:00:00Z",
+            )
+        self.assertEqual([document["id"] for document in returned], ["fresh", "stale", "guidance"])
+        self.assertEqual(parse.call_count, 3)
 
     def test_development_reference_is_exact_without_loading_held_out(self) -> None:
         result = verifier._development_equivalence()
