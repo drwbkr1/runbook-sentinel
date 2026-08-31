@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0035",
+  "phase": "public_implementation_seal_no_result",
+  "observed_at_utc": "2026-08-31T19:07:44Z",
+  "repository": "https://github.com/drwbkr1/runbook-sentinel",
+  "visibility": "public",
+  "branch": "codex/baseline-0035-evaluation-contract-integrity",
+  "commit": "e972ec9a22f67539b8365e85b49c87da7f03e391",
+  "tree": "610151cde61d729cdf05dd154302d69bb3ff7524",
+  "parent": "58595508fba1e52214fe3d26b248b825b306ffab",
+  "tree_entry_count": 1677,
+  "verification": {
+    "status": "pass",
+    "local_head_exact": true,
+    "local_tree_exact": true,
+    "local_parent_exact": true,
+    "explicit_remote_tracking_ref_exact": true,
+    "ls_remote_exact": true,
+    "anonymous_github_api_commit_exact": true,
+    "anonymous_github_api_tree_exact": true,
+    "anonymous_github_api_parent_exact": true,
+    "recursive_tree_untruncated": true,
+    "all_anonymous_raw_bytes_exact": true,
+    "changed_path_count": 3,
+    "result_absent_from_public_tree": true,
+    "result_anonymous_raw_http_status": 404,
+    "result_absent_locally": true,
+    "worktree_clean_before_record": true
+  },
+  "raw_paths": [
+    {
+      "path": "artifacts/verification/baseline-0035-implementation-seal-local.json",
+      "bytes": 3949,
+      "sha256": "50a07930808e0c44d2b53487743b9586541588cd5edff24bece75345916c7e6b",
+      "exact": true
+    },
+    {
+      "path": "scripts/classify_retrieval_candidate_evidence_0035.py",
+      "bytes": 20858,
+      "sha256": "8f25b39a6bb6988defd35e85b0e7119bc1f657aa35a49f1ab3de93dcb8fecfaa",
+      "exact": true
+    },
+    {
+      "path": "tests/test_retrieval_candidate_evidence_contract_0035.py",
+      "bytes": 10104,
+      "sha256": "ea3a970823562bdb2be00bd4b9d112849530e98d98aa9d298e308567b45e9f67",
+      "exact": true
+    }
+  ],
+  "unchanged_public_state": {
+    "observed_at_utc": "2026-08-31T19:08:11Z",
+    "main": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "latest_release_tag": "v0.0.33",
+    "latest_release_id": 375120109,
+    "latest_release_asset_count": 2,
+    "deployment_count": 0
+  },
+  "boundaries": {
+    "only_new_functional_path": "scripts/classify_retrieval_candidate_evidence_0035.py",
+    "classification_result_present": false,
+    "write_mode_invoked": false,
+    "candidate_selected": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "historical_candidate_disposition": "exclude_and_retain",
+    "runtime_retrieval_evaluator_scenario_manifest_or_security_changed": false,
+    "release_tag_deployment_or_container_image_created": false
+  },
+  "next_action": "Publish and verify this public receipt record, then invoke the fixed one-time writer exactly once and verify the immutable result without changing historical selection."
+}

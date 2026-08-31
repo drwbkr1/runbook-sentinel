@@ -134,11 +134,12 @@
       "inputs": ["public exact semantic freeze", "exact retained reports and comparison"],
       "outputs": ["classifier implementation", "public implementation seal", "immutable BASELINE-0035 classification result"],
       "gates": {
-        "only_allowed_implementation_path": "pending",
-        "semantic_classifier_matches_independent_oracle": "pending",
-        "hard_invariant_mutations_rejected": "pending",
-        "historical_selection_and_disposition_unchanged": "pending",
-        "public_implementation_seal_before_result": "pending"
+        "only_allowed_implementation_path": "pass",
+        "semantic_classifier_matches_independent_oracle": "pass",
+        "hard_invariant_mutations_rejected": "pass",
+        "historical_selection_and_disposition_unchanged": "pass",
+        "public_implementation_seal_before_result": "pass",
+        "immutable_result_written_and_verified": "pending"
       },
       "disposition": "pass",
       "next_dependency": "UNIT-004"
@@ -164,7 +165,7 @@
     }
   ],
   "current_unit": "UNIT-003",
-  "next_action": "Implement only scripts/classify_retrieval_candidate_evidence_0035.py, prove semantic parity and fail-closed behavior while the result remains absent, then publish and anonymously reconcile the implementation seal before generating one immutable classification.",
+  "next_action": "Publish and verify the implementation-seal receipt record, then invoke scripts/classify_retrieval_candidate_evidence_0035.py --write exactly once, verify the immutable result, and preserve v3 selection plus the historical exclude_and_retain disposition.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -194,7 +195,8 @@
       "The independent preimplementation verifier passes with implementation and result absent",
       "Twelve focused semantic and fail-closed mutation tests pass",
       "The complete project-native regression passes all 167 tests in 179.542 seconds",
-      "Public preimplementation freeze 2877ae92f923e4f9dc304e309fb59c07475d6bfe is exact across local tracking and remote refs commit tree parent untruncated recursive tree and all fourteen anonymous raw paths"
+      "Public preimplementation freeze 2877ae92f923e4f9dc304e309fb59c07475d6bfe is exact across local tracking and remote refs commit tree parent untruncated recursive tree and all fourteen anonymous raw paths",
+      "Public implementation seal e972ec9a22f67539b8365e85b49c87da7f03e391 is exact across refs commit tree parent and all three anonymous raw paths while the result is absent from the public tree and returns anonymous HTTP 404"
     ],
     "evidence_paths": [
       "artifacts/verification/baseline-0034-closure-reconciliation-local.json",
@@ -202,13 +204,15 @@
       "artifacts/verification/research-source-gate-baseline-0035-evaluation-contract-integrity.json",
       "eval/retrieval-candidate-evidence-contract-0035.json",
       "artifacts/verification/baseline-0035-preimplementation-freeze-local.json",
-      "artifacts/verification/baseline-0035-preimplementation-freeze-public.json"
+      "artifacts/verification/baseline-0035-preimplementation-freeze-public.json",
+      "artifacts/verification/baseline-0035-implementation-seal-local.json",
+      "artifacts/verification/baseline-0035-implementation-seal-public.json"
     ]
   },
   "handoff": {
     "resume_from": "contracts/milestone-0035.json",
-    "latest_verified_checkpoint": "public exact preimplementation freeze 2877ae92f923e4f9dc304e309fb59c07475d6bfe tree f844a66c1d3e5241fff1e39226a9f213b5c62966 on codex/baseline-0035-evaluation-contract-integrity",
-    "resume_rule": "Continue UNIT-003 only from the exact public semantic freeze. Add only the classifier while keeping the result absent until the implementation seal is public and reconciled; do not reopen v5 or tune a retriever from revealed held-out evidence.",
+    "latest_verified_checkpoint": "public exact implementation seal e972ec9a22f67539b8365e85b49c87da7f03e391 tree 610151cde61d729cdf05dd154302d69bb3ff7524 with the result absent",
+    "resume_rule": "Continue UNIT-003 only from the exact public implementation seal. Publish its receipt record before invoking the fixed one-time writer; do not reopen v5 tune a retriever or change historical selection.",
     "blocked_on_human": false
   }
 }

@@ -10,6 +10,9 @@
 - Retained a process-invalid `python -m pytest` attempt because this dependency-free repository does not install pytest; it collected no tests. No dependency was added.
 - Published preimplementation freeze `2877ae92f923e4f9dc304e309fb59c07475d6bfe`, tree `f844a66c1d3e5241fff1e39226a9f213b5c62966`. Local, explicit tracking, `ls-remote`, anonymous GitHub commit/tree/parent, the untruncated 1,674-entry tree, and all fourteen anonymous raw files are exact. Classifier and result remain absent; UNIT-003 opens.
 - Retained the first aggregate public wrapper as process-invalid because its local tracking ref remained at the predecessor after push while every remote and raw-byte observation was already exact. A targeted read-only fetch and unchanged successor check passed.
+- Implemented one dependency-free classifier at the frozen functional path. It authenticates exact inputs, separates selected-default observations from hard gates, proves closed safe-superset stage/outcome evidence, never performs selection, renders deterministic dry bytes, and uses a fixed exclusive result writer. Sixteen focused tests and all 171 tests pass.
+- Retained the frozen oracle's missing scenario-stage cross-check as `FROZEN-ORACLE-STAGE-EVIDENCE-0035-001`. Exact frozen reports are unaffected; production adds the stricter proof and mutation without rewriting the public freeze.
+- Published implementation seal `e972ec9a22f67539b8365e85b49c87da7f03e391`, tree `610151cde61d729cdf05dd154302d69bb3ff7524`. All three anonymous raw paths are exact, the recursive tree is untruncated, and the result is absent both from the public tree and at its anonymous raw URL.
 
 ## Retained experiment - BASELINE-0034
 

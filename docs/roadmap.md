@@ -12,6 +12,8 @@ UNIT-001 is complete. The closure records are reconciled; the fresh report and t
 
 UNIT-002 is complete. The preimplementation verifier passes with classifier/result absent. Twelve focused tests cover exact v3, all three retained v5 reports, policy failure, unknown stage, missing coverage, ambiguity, scenario outcome mismatch, evidence incompleteness, and a deliberately different additional selected-default observation. The full dependency-free regression passes all 167 tests in 179.542 seconds. Public freeze `2877ae92f923e4f9dc304e309fb59c07475d6bfe`, tree `f844a66c1d3e5241fff1e39226a9f213b5c62966`, is exact across refs, commit graph, untruncated tree, and all fourteen anonymous raw paths. UNIT-003 may implement only the frozen classifier and must publish it exact while the result remains absent.
 
+UNIT-003 implementation is public and exact at `e972ec9a22f67539b8365e85b49c87da7f03e391`, tree `610151cde61d729cdf05dd154302d69bb3ff7524`, while the result is absent from the public tree and returns anonymous HTTP 404. The production classifier matches the independent oracle on exact evidence, adds a stricter report-backed stage proof, produces deterministic dry bytes, and refuses overwrite. Sixteen focused and all 171 tests pass. Publish this receipt record, then write and verify exactly one immutable result before UNIT-004 opens.
+
 No BASELINE-0035 result, default transition, package, image, tag, release, or deployment exists. Revealed held-out evidence is used only to diagnose evaluation machinery; it cannot tune or select a retriever.
 
 ## Active checkpoint baseline-0034 - single-pass bounded retrieval latency
