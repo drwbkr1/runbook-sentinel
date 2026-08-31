@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0034-successor-phase-test-correction-local",
+  "checkpoint": "baseline-0034",
+  "observed_at_utc": "2026-08-23T22:53:40Z",
+  "status": "pass",
+  "retained_failure": {
+    "id": "V5-SUCCESSOR-PHASE-TEST-LIFECYCLE-0034-001",
+    "focused_total": 52,
+    "focused_passed": 49,
+    "focused_failed": 3,
+    "runtime_identity": {"bytes":6079,"sha256":"f5514cb7cb0b7686987d3374bcd80849f868509a2d32676a88585dd40d456b37"},
+    "single_pass_contract_valid": true,
+    "successor_lifecycle_contract_valid": true,
+    "behavior_or_security_failure": false,
+    "positive_evidence": false
+  },
+  "restored_state": {
+    "retrieval": {"bytes":4643,"sha256":"6eb5227b2e20141bf978670cfbbe9edd6d55ca1db69b76a4007b830e13ff864a"},
+    "single_pass_test": {"bytes":5320,"sha256":"f63f8a14d3eb355b1caf10167cabae43543525d938f13e87aab8eb17bf8aef2f"},
+    "fixture_phase_test": {"bytes":3159,"sha256":"ee7c67c27d222761e30e6c45a24b4054cbf5e4e439b16e2b3720370bf026a63f"},
+    "successor_lifecycle_test": {"bytes":4029,"sha256":"7d019d8dcf1bc96ed4365d2482a66839bd2d05d1a067afb5bc47cb2d45b57caa"},
+    "benchmark_result_present": false,
+    "comparison_result_present": false,
+    "default_configuration": "freshness-priority-lexical-v3"
+  },
+  "precomputed_test_successors": [
+    {"path":"tests/test_retrieval_fixture_phase_correction_0034.py","bytes":3449,"sha256":"ee640f79aba920746e6bfc93550b1d8a6986da4d975b8270285beee8573ab3d6"},
+    {"path":"tests/test_retrieval_successor_lifecycle_0034.py","bytes":4658,"sha256":"09e13990eb92ac8a0d5c506c56178529d4ac27395811749be714d09f13a0c613"},
+    {"path":"tests/test_retrieval_meta_test_lifecycle_correction_0034.py","bytes":3656,"sha256":"b50247ed37b143d67843c23aaa4ad60044ac5b351ceaa9cd707ff6f37f477a35"}
+  ],
+  "future_state_verification": {
+    "single_pass_contract_status": "pass",
+    "successor_lifecycle_contract_status": "pass",
+    "phase": "implementation_sealed_no_result",
+    "development_scenario_count": 31,
+    "development_mismatch_count": 0,
+    "held_out_loaded": false,
+    "focused_test_count": 61,
+    "focused_seconds": 34.816,
+    "focused_result": "OK",
+    "complete_test_count": 151,
+    "complete_seconds": 177.917,
+    "complete_result": "OK"
+  },
+  "resumed_predecessor_verification": {
+    "observed_at_utc": "2026-08-31T16:32:43Z",
+    "single_pass_contract_status": "pass",
+    "single_pass_phase": "frozen_preimplementation",
+    "successor_lifecycle_contract_status": "pass",
+    "successor_lifecycle_phase": "bridge_public_predecessor",
+    "development_scenario_count": 31,
+    "development_mismatch_count": 0,
+    "held_out_loaded": false,
+    "focused_test_count": 60,
+    "focused_seconds": 20.669,
+    "focused_result": "OK",
+    "complete_test_count": 150,
+    "complete_seconds": 130.609,
+    "complete_result": "OK",
+    "supersedes_inconclusive_failure": "SUCCESSOR-PHASE-FREEZE-REGRESSION-PAUSED-0034-001"
+  },
+  "boundaries": {
+    "product_runtime_changed": false,
+    "benchmark_or_comparison_result_created": false,
+    "default_changed": false,
+    "release_identity_or_bridge_validator_weakened": false,
+    "admissibility_or_selection_rule_changed": false,
+    "security_or_authority_changed": false
+  },
+  "next_gate": "Publish and reconcile this schema-1.2 revision-3 addendum, then apply only the three precomputed test successors before retrying v5."
+}

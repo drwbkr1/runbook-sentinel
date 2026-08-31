@@ -218,14 +218,47 @@
       "next_dependency": "UNIT-003"
     },
     {
-      "id": "UNIT-003",
-      "purpose": "Implement exactly one standard-library v5 retrieval configuration with v4-exact returned sets and no default change.",
+      "id": "UNIT-002B",
+      "purpose": "Freeze, publish, and implement three exact successor-phase test identities after the exact v5 retry exposes predecessor-only assertions.",
       "depends_on": [
         "UNIT-002A"
       ],
       "action_class": "repository_change",
       "human_gate": false,
       "status": "in_progress",
+      "inputs": [
+        "retained 49-of-52 exact-v5 focused regression",
+        "restored released runtime and current test identities",
+        "schema-1.2 revision-3 successor-phase test addendum"
+      ],
+      "outputs": [
+        "public three-test successor-phase freeze",
+        "three exact phase-aware test replacements",
+        "public test-only implementation receipt",
+        "clean predecessor and exact-v5 complete regressions"
+      ],
+      "gates": {
+        "failed_attempts_retained": "pass",
+        "runtime_and_current_tests_restored_exact": "pass",
+        "three_future_test_identities_precomputed": "pass",
+        "future_state_focused_regression": "pass",
+        "future_state_complete_regression": "pass",
+        "predecessor_freeze_focused_regression": "pass",
+        "predecessor_freeze_complete_regression": "pass",
+        "freeze_public_and_exact": "pending",
+        "three_test_implementation_public_and_exact": "pending"
+      },
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement exactly one standard-library v5 retrieval configuration with v4-exact returned sets and no default change.",
+      "depends_on": [
+        "UNIT-002B"
+      ],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "planned",
       "inputs": [
         "public exact preimplementation freeze",
         "single allowed runtime path src/runbook_sentinel/retrieval.py"
@@ -300,8 +333,8 @@
       }
     }
   ],
-  "current_unit": "UNIT-003",
-  "next_action": "Apply only the exact frozen 6,079-byte v5 runtime and 6,998-byte focused-test identities, prove v4-exact development behavior with v3 still default and results absent, then publish and anonymously reconcile the implementation seal before any benchmark or comparison process.",
+  "current_unit": "UNIT-002B",
+  "next_action": "Publish and anonymously reconcile the exact three-test successor-phase addendum, then implement and publish only those three test identities before retrying v5. Do not generate benchmark or comparison results.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -358,8 +391,8 @@
   },
   "handoff": {
     "resume_from": "contracts/milestone-0034.json",
-    "latest_verified_checkpoint": "public exact release-fixture phase implementation 8b5ba20a26a5728e7c82ee7d55cbbed3e98c35de over retained process-invalid parent 02544a0aacf773356ee7e533c208cc5daec00f7f and verified v0.0.33 main d62e7cba675997eade87169f5acba14de6452c9b",
-    "resume_rule": "Run UNIT-003 from exact public 8b5ba20a26a5728e7c82ee7d55cbbed3e98c35de. Apply only the frozen v5 runtime and focused-test bytes, keep v3 default and both results absent, and make the implementation public and exact before any benchmark.",
+    "latest_verified_checkpoint": "public UNIT-002A record transition d4f8e40ec46f80e0daa9828896cff559643eb45e over exact release-fixture seal 8b5ba20a26a5728e7c82ee7d55cbbed3e98c35de and verified v0.0.33 main d62e7cba675997eade87169f5acba14de6452c9b",
+    "resume_rule": "Run UNIT-002B from exact public d4f8e40ec46f80e0daa9828896cff559643eb45e. Keep v0.0.33 runtime and current tests exact while publishing the three-test freeze; implement those tests publicly before retrying exact v5, and keep results absent until the v5 seal is public.",
     "blocked_on_human": false
   }
 }

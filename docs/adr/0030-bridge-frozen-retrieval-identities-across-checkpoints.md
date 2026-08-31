@@ -36,3 +36,9 @@ The first schema-1.2 implementation retry reached the exact corrected release-te
 ## Revision 3 helper addendum
 
 The first meta-test implementation exposed the same lifecycle assumption in the helper that proves the meta-test projection. The addendum freezes one exact phase-aware helper identity and allows the target plus helper to move together. It adds no further self-referential projection test: the independent lifecycle verifier accepts only the two precomputed identities for each path and rejects unknown bytes. Product and security boundaries remain unchanged.
+
+## Successor-phase test addendum
+
+The first post-UNIT-002A v5 retry proved the runtime and both independent lifecycle validators but exposed three predecessor-only test assertions. The correction remains test-only: freeze current-or-future identities for the fixture-phase test, successor-lifecycle test, and its existing meta helper while keeping schema revision 3. Future sources must accept only the six governed lifecycle phases and must corrupt whichever retrieval identity is active when testing fail-closed behavior.
+
+This addendum changes no runtime, result, default, admissibility, selection, release identity, policy, approval, executor, credential, authority, dependency, or security boundary. The three exact successors must be public before v5 is retried, and v5 must be public before any benchmark or comparison result is generated.

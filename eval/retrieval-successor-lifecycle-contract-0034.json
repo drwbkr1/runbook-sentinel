@@ -2,9 +2,10 @@
   "schema_version": "1.2",
   "schema_revision": 3,
   "meta_test_helper_addendum": 1,
+  "successor_phase_test_addendum": 1,
   "checkpoint": "baseline-0034",
   "contract_id": "retrieval-predecessor-successor-lifecycle-v1",
-  "status": "frozen_meta_test_helper_lifecycle_corrected",
+  "status": "frozen_successor_phase_test_lifecycle_corrected",
   "frozen_at_utc": "2026-08-23T19:08:15Z",
   "lifecycle_correction": {
     "corrected_at_utc": "2026-08-23T19:25:00Z",
@@ -87,6 +88,87 @@
     "product_runtime_changed": false,
     "release_identity_verifier_changed": false,
     "current_tree_bridge_validators_changed": false,
+    "admissibility_or_selection_rule_changed": false,
+    "security_or_authority_changed": false
+  },
+  "successor_phase_test_correction": {
+    "corrected_at_utc": "2026-08-23T22:37:00Z",
+    "retained_failure": "V5-SUCCESSOR-PHASE-TEST-LIFECYCLE-0034-001",
+    "finding": "The exact v5 runtime passed both independent implementation-phase validators, but two predecessor-named test methods rejected the governed implementation phase and one unknown-hash test mutated only the inactive predecessor identity.",
+    "allowed_test_paths": [
+      "tests/test_retrieval_fixture_phase_correction_0034.py",
+      "tests/test_retrieval_successor_lifecycle_0034.py",
+      "tests/test_retrieval_meta_test_lifecycle_correction_0034.py"
+    ],
+    "tests": [
+      {
+        "path": "tests/test_retrieval_fixture_phase_correction_0034.py",
+        "current_identity": {
+          "bytes": 3159,
+          "sha256": "ee7c67c27d222761e30e6c45a24b4054cbf5e4e439b16e2b3720370bf026a63f"
+        },
+        "future_identity": {
+          "bytes": 3449,
+          "sha256": "ee640f79aba920746e6bfc93550b1d8a6986da4d975b8270285beee8573ab3d6"
+        },
+        "current_required_literals": [
+          "test_current_public_bridge_predecessor_phase_passes",
+          "require_phase=\"bridge_public_predecessor\""
+        ],
+        "future_required_literals": [
+          "test_current_governed_lifecycle_phase_passes",
+          "implementation_sealed_no_result",
+          "evaluated_unselected",
+          "selected"
+        ]
+      },
+      {
+        "path": "tests/test_retrieval_successor_lifecycle_0034.py",
+        "current_identity": {
+          "bytes": 4029,
+          "sha256": "7d019d8dcf1bc96ed4365d2482a66839bd2d05d1a067afb5bc47cb2d45b57caa"
+        },
+        "future_identity": {
+          "bytes": 4658,
+          "sha256": "09e13990eb92ac8a0d5c506c56178529d4ac27395811749be714d09f13a0c613"
+        },
+        "current_required_literals": [
+          "test_current_predecessor_bridge_phase_passes",
+          "test_unknown_predecessor_hash_fails_closed"
+        ],
+        "future_required_literals": [
+          "test_current_governed_lifecycle_phase_passes",
+          "test_unknown_active_retrieval_hash_fails_closed",
+          "implementation_sealed_no_result",
+          "exact_experimental_successor"
+        ]
+      },
+      {
+        "path": "tests/test_retrieval_meta_test_lifecycle_correction_0034.py",
+        "current_identity": {
+          "bytes": 3029,
+          "sha256": "a9f499dc4960748bb498ea2370688eec252ebc6fa4114b9e54ead8a873b8909d"
+        },
+        "future_identity": {
+          "bytes": 3656,
+          "sha256": "b50247ed37b143d67843c23aaa4ad60044ac5b351ceaa9cd707ff6f37f477a35"
+        },
+        "current_required_literals": [
+          "test_current_public_meta_test_identity_passes",
+          "test_phase_aware_meta_test_identity_is_precomputed_exactly"
+        ],
+        "future_required_literals": [
+          "test_current_governed_meta_test_identity_passes",
+          "successor_phase_test_addendum",
+          "implementation_sealed_no_result",
+          "future_identity"
+        ]
+      }
+    ],
+    "product_runtime_changed": false,
+    "benchmark_or_comparison_result_created": false,
+    "default_changed": false,
+    "release_identity_or_bridge_validator_weakened": false,
     "admissibility_or_selection_rule_changed": false,
     "security_or_authority_changed": false
   },
@@ -187,5 +269,5 @@
     "dependency_model_service_secret_paid_asset_external_asset_or_real_infrastructure_added": false,
     "container_image_exported_pushed_published_or_redistributed": false
   },
-  "next_gate": "Publish and anonymously reconcile this exact revision-3 helper addendum while runtime and both test targets remain public predecessor identities, then apply and publish only the two precomputed phase-aware test replacements before retrying the frozen release-test replacement."
+  "next_gate": "Publish and anonymously reconcile this exact successor-phase test addendum while schema revision remains 3, runtime remains the released predecessor, and both successor results remain absent. Then apply and publish only the three precomputed test identities before retrying exact v5."
 }

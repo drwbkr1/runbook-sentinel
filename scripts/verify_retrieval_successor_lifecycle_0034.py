@@ -61,6 +61,48 @@ def _exact(path: Path, record: dict[str, Any]) -> bool:
     )
 
 
+def _successor_phase_test_record(
+    contract: dict[str, Any], relative: str
+) -> dict[str, Any]:
+    correction = contract.get("successor_phase_test_correction", {})
+    return next(
+        (
+            record
+            for record in correction.get("tests", [])
+            if record.get("path") == relative
+        ),
+        {},
+    )
+
+
+def _successor_phase_test_exact(
+    root: Path, contract: dict[str, Any], relative: str
+) -> bool:
+    record = _successor_phase_test_record(contract, relative)
+    path = root / relative
+    return _exact(path, record.get("current_identity", {})) or _exact(
+        path, record.get("future_identity", {})
+    )
+
+
+def _successor_phase_test_source_valid(
+    root: Path, contract: dict[str, Any], relative: str
+) -> bool:
+    record = _successor_phase_test_record(contract, relative)
+    path = root / relative
+    if not path.is_file():
+        return False
+    identity = _identity(path)
+    if identity == record.get("current_identity"):
+        required = record.get("current_required_literals", [])
+    elif identity == record.get("future_identity"):
+        required = record.get("future_required_literals", [])
+    else:
+        return False
+    source = path.read_text(encoding="utf-8")
+    return bool(required) and all(str(item) in source for item in required)
+
+
 def _bridge_changed_path_exact(
     root: Path,
     relative: str,
@@ -79,17 +121,23 @@ def _bridge_changed_path_exact(
 
 def _fixture_meta_test_exact(root: Path, contract: dict[str, Any]) -> bool:
     correction = contract.get("meta_test_lifecycle_correction", {})
-    path = root / str(correction.get("allowed_test_path", ""))
-    return _exact(path, correction.get("released_meta_test_identity", {})) or _exact(
-        path, correction.get("corrected_meta_test_identity", {})
+    relative = str(correction.get("allowed_test_path", ""))
+    path = root / relative
+    return (
+        _exact(path, correction.get("released_meta_test_identity", {}))
+        or _exact(path, correction.get("corrected_meta_test_identity", {}))
+        or _successor_phase_test_exact(root, contract, relative)
     )
 
 
 def _meta_test_helper_exact(root: Path, contract: dict[str, Any]) -> bool:
     correction = contract.get("meta_test_helper_correction", {})
-    path = root / str(correction.get("allowed_test_path", ""))
-    return _exact(path, correction.get("released_helper_identity", {})) or _exact(
-        path, correction.get("corrected_helper_identity", {})
+    relative = str(correction.get("allowed_test_path", ""))
+    path = root / relative
+    return (
+        _exact(path, correction.get("released_helper_identity", {}))
+        or _exact(path, correction.get("corrected_helper_identity", {}))
+        or _successor_phase_test_exact(root, contract, relative)
     )
 
 
@@ -207,11 +255,13 @@ def validate(
         errors.append("schema_revision")
     if contract.get("meta_test_helper_addendum") != 1:
         errors.append("meta_test_helper_addendum")
+    if contract.get("successor_phase_test_addendum") != 1:
+        errors.append("successor_phase_test_addendum")
     if contract.get("checkpoint") != "baseline-0034":
         errors.append("checkpoint")
     if contract.get("contract_id") != "retrieval-predecessor-successor-lifecycle-v1":
         errors.append("contract_id")
-    if contract.get("status") != "frozen_meta_test_helper_lifecycle_corrected":
+    if contract.get("status") != "frozen_successor_phase_test_lifecycle_corrected":
         errors.append("contract_status")
     correction = contract.get("lifecycle_correction", {})
     if any(
@@ -327,6 +377,99 @@ def validate(
     if not _meta_test_helper_exact(root, contract):
         errors.append("meta_test_helper_identity")
 
+    successor_phase = contract.get("successor_phase_test_correction", {})
+    if successor_phase.get("retained_failure") != "V5-SUCCESSOR-PHASE-TEST-LIFECYCLE-0034-001":
+        errors.append("successor_phase_test_retained_failure")
+    expected_phase_tests = [
+        {
+            "path": "tests/test_retrieval_fixture_phase_correction_0034.py",
+            "current_identity": {
+                "bytes": 3159,
+                "sha256": "ee7c67c27d222761e30e6c45a24b4054cbf5e4e439b16e2b3720370bf026a63f",
+            },
+            "future_identity": {
+                "bytes": 3449,
+                "sha256": "ee640f79aba920746e6bfc93550b1d8a6986da4d975b8270285beee8573ab3d6",
+            },
+            "current_required_literals": [
+                "test_current_public_bridge_predecessor_phase_passes",
+                'require_phase="bridge_public_predecessor"',
+            ],
+            "future_required_literals": [
+                "test_current_governed_lifecycle_phase_passes",
+                "implementation_sealed_no_result",
+                "evaluated_unselected",
+                "selected",
+            ],
+        },
+        {
+            "path": "tests/test_retrieval_successor_lifecycle_0034.py",
+            "current_identity": {
+                "bytes": 4029,
+                "sha256": "7d019d8dcf1bc96ed4365d2482a66839bd2d05d1a067afb5bc47cb2d45b57caa",
+            },
+            "future_identity": {
+                "bytes": 4658,
+                "sha256": "09e13990eb92ac8a0d5c506c56178529d4ac27395811749be714d09f13a0c613",
+            },
+            "current_required_literals": [
+                "test_current_predecessor_bridge_phase_passes",
+                "test_unknown_predecessor_hash_fails_closed",
+            ],
+            "future_required_literals": [
+                "test_current_governed_lifecycle_phase_passes",
+                "test_unknown_active_retrieval_hash_fails_closed",
+                "implementation_sealed_no_result",
+                "exact_experimental_successor",
+            ],
+        },
+        {
+            "path": "tests/test_retrieval_meta_test_lifecycle_correction_0034.py",
+            "current_identity": {
+                "bytes": 3029,
+                "sha256": "a9f499dc4960748bb498ea2370688eec252ebc6fa4114b9e54ead8a873b8909d",
+            },
+            "future_identity": {
+                "bytes": 3656,
+                "sha256": "b50247ed37b143d67843c23aaa4ad60044ac5b351ceaa9cd707ff6f37f477a35",
+            },
+            "current_required_literals": [
+                "test_current_public_meta_test_identity_passes",
+                "test_phase_aware_meta_test_identity_is_precomputed_exactly",
+            ],
+            "future_required_literals": [
+                "test_current_governed_meta_test_identity_passes",
+                "successor_phase_test_addendum",
+                "implementation_sealed_no_result",
+                "future_identity",
+            ],
+        },
+    ]
+    if successor_phase.get("allowed_test_paths") != [
+        record["path"] for record in expected_phase_tests
+    ]:
+        errors.append("successor_phase_test_allowed_paths")
+    if successor_phase.get("tests") != expected_phase_tests:
+        errors.append("successor_phase_test_records")
+    if any(
+        successor_phase.get(key) is not False
+        for key in (
+            "product_runtime_changed",
+            "benchmark_or_comparison_result_created",
+            "default_changed",
+            "release_identity_or_bridge_validator_weakened",
+            "admissibility_or_selection_rule_changed",
+            "security_or_authority_changed",
+        )
+    ):
+        errors.append("successor_phase_test_boundary")
+    for record in expected_phase_tests:
+        relative = record["path"]
+        if not _successor_phase_test_exact(root, contract, relative):
+            errors.append(f"successor_phase_test_identity:{relative}")
+        elif not _successor_phase_test_source_valid(root, contract, relative):
+            errors.append(f"successor_phase_test_source:{relative}")
+
     public = contract.get("public_preimplementation_sequence", {})
     public_receipt = root / str(public.get("receipt_path", ""))
     if not _exact(
@@ -425,6 +568,7 @@ def validate(
         "schema_version": contract.get("schema_version"),
         "schema_revision": contract.get("schema_revision"),
         "meta_test_helper_addendum": contract.get("meta_test_helper_addendum"),
+        "successor_phase_test_addendum": contract.get("successor_phase_test_addendum"),
         "checkpoint": contract.get("checkpoint"),
         "contract_id": contract.get("contract_id"),
         "status": "pass" if not errors else "fail",

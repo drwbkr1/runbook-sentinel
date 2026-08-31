@@ -352,6 +352,98 @@
       "mutation": false,
       "correction": "Run the same project-owned validator with contracts/milestone-0034.json as its documented positional argument and count only that terminal result.",
       "positive_evidence": false
+    },
+    {
+      "id": "PUBLIC-TREE-QUERY-INTERPOLATION-0034-001",
+      "class": "process_invalid",
+      "operation": "Anonymously reconcile the UNIT-002A record transition recursive tree",
+      "observed_at_utc": "2026-08-23T22:27:10Z",
+      "failure": "The first PowerShell URL interpolated $tree?recursive as a variable name and requested an invalid GitHub endpoint, which returned 404 before tree or byte comparison.",
+      "mutation": false,
+      "correction": "Delimit the tree variable as ${tree}?recursive=1 and count only the clean successor that matched nine blobs, nine raw files, and the untruncated tree.",
+      "positive_evidence": false
+    },
+    {
+      "id": "V5-PATCH-BASE64-DECODE-0034-001",
+      "class": "process_invalid",
+      "operation": "Recover the frozen v5 patch from retained session evidence without a temporary file",
+      "observed_at_utc": "2026-08-23T22:31:05Z",
+      "failure": "The first V8 replay attempted to call unavailable atob and stopped before apply_patch.",
+      "mutation": false,
+      "correction": "Emit the retained UTF-8 patch directly from the session extractor and pass that exact string to apply_patch.",
+      "positive_evidence": false
+    },
+    {
+      "id": "V5-INVERSE-PATCH-DIRECTION-0034-001",
+      "class": "process_invalid",
+      "operation": "Replay the frozen v5 patch from retained session evidence",
+      "observed_at_utc": "2026-08-23T22:31:45Z",
+      "failure": "The first direct replay selected the paired restoration call rather than the forward implementation call. apply_patch rejected its predecessor expectations and changed no file.",
+      "mutation": false,
+      "correction": "Inspect both retained patch headers, select forward call 71268, and verify the resulting two exact SHA-256 identities before testing.",
+      "positive_evidence": false
+    },
+    {
+      "id": "V5-SUCCESSOR-PHASE-TEST-LIFECYCLE-0034-001",
+      "class": "fail",
+      "operation": "Run risk-matched focused regression for the exact v5 runtime after UNIT-002A closure",
+      "observed_at_utc": "2026-08-23T22:35:50Z",
+      "failure": "Both implementation-phase validators passed, but three predecessor-named assertions in two test files stopped the focused suite at 49/52: one required bridge_public_predecessor, one excluded implementation_sealed_no_result, and one corrupted only the inactive predecessor identity.",
+      "mutation": false,
+      "candidate_runtime": {"bytes":6079,"sha256":"f5514cb7cb0b7686987d3374bcd80849f868509a2d32676a88585dd40d456b37"},
+      "behavior_or_security_failure": false,
+      "correction": "Restore exact v0.0.33 runtime and focused tests, freeze exact phase-aware test successors, and publish them before retrying v5.",
+      "positive_evidence": false
+    },
+    {
+      "id": "SUCCESSOR-PHASE-TEST-PREFREEZE-IDENTITY-0034-001",
+      "class": "inconclusive",
+      "operation": "Prototype two phase-aware test successors before their hashes were admitted by the lifecycle verifier",
+      "observed_at_utc": "2026-08-23T22:39:10Z",
+      "failure": "The prototype reached the precomputed test hashes but the still-public verifier correctly rejected both unknown identities, leaving 9/11 tests passing. This is hash-precomputation evidence only.",
+      "mutation": false,
+      "correction": "Restore both tests, freeze their exact identities and source properties in a public addendum, and count only post-freeze validation.",
+      "positive_evidence": false
+    },
+    {
+      "id": "SUCCESSOR-PHASE-FREEZE-SELF-PHASE-0034-001",
+      "class": "fail",
+      "operation": "Run the first future-state focused suite with the new correction test",
+      "observed_at_utc": "2026-08-23T22:43:20Z",
+      "failure": "The new correction test itself required bridge_public_predecessor and stopped the future-state suite at 56/57, repeating the lifecycle assumption being removed.",
+      "mutation": false,
+      "correction": "Make the new test accept only the six governed lifecycle states; the corrected successor passes all 57 focused tests.",
+      "positive_evidence": false
+    },
+    {
+      "id": "SUCCESSOR-PHASE-META-HELPER-0034-001",
+      "class": "fail",
+      "operation": "Run the first complete future-state regression with two precomputed test successors",
+      "observed_at_utc": "2026-08-23T22:47:55Z",
+      "failure": "The suite passed 149/151 but the existing meta-test helper recognized only the prior 2,741/3,159-byte pair and rejected the new 3,449-byte successor.",
+      "mutation": false,
+      "correction": "Add one final precomputed 3,656-byte helper successor to the same addendum. Exact v5 plus all three successors then passes 61 focused and all 151 tests.",
+      "positive_evidence": false
+    },
+    {
+      "id": "SUCCESSOR-PHASE-FREEZE-REGRESSION-PAUSED-0034-001",
+      "class": "inconclusive",
+      "operation": "Run the complete 150-test predecessor-state regression before publishing the successor-phase test addendum",
+      "observed_at_utc": "2026-08-23T22:58:25Z",
+      "failure": "The user explicitly paused while the suite was still running. The process was interrupted without a terminal summary, so passing progress markers supply no positive regression evidence.",
+      "mutation": false,
+      "correction": "Resume from the exact restored predecessor identities and rerun the complete suite from scratch. The independent 2026-08-31 successor passed all 150 tests in 130.609 seconds.",
+      "positive_evidence": false
+    },
+    {
+      "id": "CHANGED-FILE-CREDENTIAL-SCAN-HISTORICAL-LITERAL-0034-001",
+      "class": "process_invalid",
+      "operation": "Scan every changed file for high-specificity credential material before the successor-phase freeze commit",
+      "observed_at_utc": "2026-08-31T16:34:40Z",
+      "failure": "The whole-file scan reported the pre-existing private-key sentinel literal inside a historical devlog sentence that documents an earlier scanner false positive. It is a forbidden-pattern definition, not credential material, and was not introduced by this change.",
+      "mutation": false,
+      "correction": "Scan added diff lines plus new files, retain high-specificity token patterns, and exclude only the exact documented forbidden-pattern definition after confirming it is unchanged historical text.",
+      "positive_evidence": false
     }
   ]
 }
