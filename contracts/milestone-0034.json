@@ -86,23 +86,35 @@
   "exit_conditions": [
     {
       "id": "EXIT-001",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "The frozen five-process retriever benchmark passes with zero v4-v5 returned-ID mismatches and maximum median ratio 0.857175 under the 0.95 ceiling",
+        "The balanced six-report comparison preserves required evidence generation trajectory policy terminal utility attack reliability latency and cost evidence while explicitly excluding and retaining v5"
+      ]
     },
     {
       "id": "EXIT-002",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "Comparison a9a23d1a5e933b10e06004233691f5d72277d3609b116b7812a8bf07c9e0ed1 records nine of ten selection checks passing and the exact frozen five-gate inventory check failing",
+        "V3 remains selected and exact v5 plus all failed process test and lifecycle evidence remain preserved"
+      ]
     },
     {
       "id": "EXIT-003",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "Focused evaluated-phase correction passes 26 tests and the complete suite passes 155 tests without changing runtime default security or result bytes",
+        "Public excluded-result commit 46bfc6c39cf2c4fada5e9526b0ff310c86da7ede and closure commit b6e0c785fe89c34c661e8f397067684959b7f24b are exact on the public branch"
+      ]
     },
     {
       "id": "EXIT-004",
-      "status": "pending",
-      "evidence": []
+      "status": "pass",
+      "evidence": [
+        "Public main remains d62e7cba675997eade87169f5acba14de6452c9b and latest release remains v0.0.33 with two selected assets and zero deployments",
+        "No default transition package image export tag v0.0.34 release deployment real infrastructure secret paid service access ownership or security boundary changed"
+      ]
     }
   ],
   "units": [
@@ -405,7 +417,7 @@
   },
   "handoff": {
     "resume_from": "contracts/milestone-0034.json",
-    "latest_verified_checkpoint": "public exact excluded-result commit 46bfc6c39cf2c4fada5e9526b0ff310c86da7ede with comparison a9a23d1a5e933b10e06004233691f5d72277d3609b116b7812a8bf07c9e0ed1a; v3 remains selected and public main remains d62e7cba675997eade87169f5acba14de6452c9b",
+    "latest_verified_checkpoint": "public exact BASELINE-0034 closure b6e0c785fe89c34c661e8f397067684959b7f24b with excluded-result parent 46bfc6c39cf2c4fada5e9526b0ff310c86da7ede and comparison a9a23d1a5e933b10e06004233691f5d72277d3609b116b7812a8bf07c9e0ed1a; v3 remains selected and public main remains d62e7cba675997eade87169f5acba14de6452c9b",
     "resume_rule": "Start the next cycle from public v0.0.33 and the retained BASELINE-0034 exclusion. Run v3 and inspect fresh traces and separated metrics before freezing one bounded candidate. Do not reopen or rewrite the v5 result.",
     "blocked_on_human": false
   }

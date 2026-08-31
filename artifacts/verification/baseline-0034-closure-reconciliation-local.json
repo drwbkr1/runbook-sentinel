@@ -1,0 +1,157 @@
+{
+  "schema_version": "1.0",
+  "reconciliation_id": "BASELINE-0034-CLOSURE-RECONCILIATION-LOCAL",
+  "project_profile_ref": null,
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "public_verification"
+    ],
+    "verified_at_utc": "2026-08-31T18:02:00Z",
+    "expires_at_utc": null
+  },
+  "observed_at_utc": "2026-08-31T18:02:00Z",
+  "live_facts": [
+    {
+      "id": "git.branch",
+      "status": "observed",
+      "value": "codex/baseline-0035-evaluation-contract-integrity",
+      "source_ref": "git branch --show-current in C:/Projects/Active/runbook-sentinel-baseline-0035",
+      "observed_at_utc": "2026-08-31T18:02:00Z"
+    },
+    {
+      "id": "git.starting_head",
+      "status": "observed",
+      "value": "b6e0c785fe89c34c661e8f397067684959b7f24b",
+      "source_ref": "git rev-parse HEAD and GitHub commit API",
+      "observed_at_utc": "2026-08-31T18:02:00Z"
+    },
+    {
+      "id": "remote.baseline0034_head",
+      "status": "observed",
+      "value": "b6e0c785fe89c34c661e8f397067684959b7f24b",
+      "source_ref": "git ls-remote origin refs/heads/codex/baseline-0034-retrieval-tier-cap-latency and GitHub ref API",
+      "observed_at_utc": "2026-08-31T18:02:00Z"
+    },
+    {
+      "id": "contract.baseline0034.status",
+      "status": "observed",
+      "value": "complete",
+      "source_ref": "contracts/milestone-0034.json and validate_milestone.py",
+      "observed_at_utc": "2026-08-31T18:02:00Z"
+    },
+    {
+      "id": "evaluation.selected_configuration",
+      "status": "observed",
+      "value": "freshness-priority-lexical-v3",
+      "source_ref": "artifacts/evaluations/baseline-0034-retrieval-comparison.json",
+      "observed_at_utc": "2026-08-31T18:02:00Z"
+    },
+    {
+      "id": "evaluation.candidate_disposition",
+      "status": "observed",
+      "value": "exclude_and_retain",
+      "source_ref": "artifacts/evaluations/baseline-0034-retrieval-comparison.json",
+      "observed_at_utc": "2026-08-31T18:02:00Z"
+    },
+    {
+      "id": "release.latest",
+      "status": "observed",
+      "value": "v0.0.33",
+      "source_ref": "GitHub releases/latest API release 375120109",
+      "observed_at_utc": "2026-08-31T18:02:00Z"
+    },
+    {
+      "id": "deployments.count",
+      "status": "observed",
+      "value": 0,
+      "source_ref": "GitHub deployments API",
+      "observed_at_utc": "2026-08-31T18:02:00Z"
+    }
+  ],
+  "recorded_claims": [
+    {
+      "id": "status.active-branch",
+      "fact_id": "git.branch",
+      "surface_ref": "docs/status.md",
+      "scope": "current",
+      "claimed_value": "codex/baseline-0035-evaluation-contract-integrity",
+      "evidence_ref": "Current status branch line"
+    },
+    {
+      "id": "status.most-recent-milestone",
+      "fact_id": "contract.baseline0034.status",
+      "surface_ref": "docs/status.md",
+      "scope": "current",
+      "claimed_value": "complete",
+      "evidence_ref": "Current status most recently completed milestone line"
+    },
+    {
+      "id": "milestone.latest-verified-checkpoint",
+      "fact_id": "remote.baseline0034_head",
+      "surface_ref": "contracts/milestone-0034.json",
+      "scope": "current",
+      "claimed_value": "b6e0c785fe89c34c661e8f397067684959b7f24b",
+      "evidence_ref": "handoff.latest_verified_checkpoint"
+    },
+    {
+      "id": "status.selected-configuration",
+      "fact_id": "evaluation.selected_configuration",
+      "surface_ref": "docs/status.md",
+      "scope": "current",
+      "claimed_value": "freshness-priority-lexical-v3",
+      "evidence_ref": "Most recently completed milestone line"
+    },
+    {
+      "id": "status.candidate-disposition",
+      "fact_id": "evaluation.candidate_disposition",
+      "surface_ref": "docs/status.md",
+      "scope": "current",
+      "claimed_value": "exclude_and_retain",
+      "evidence_ref": "Disposition line"
+    },
+    {
+      "id": "status.latest-release",
+      "fact_id": "release.latest",
+      "surface_ref": "docs/status.md",
+      "scope": "current",
+      "claimed_value": "v0.0.33",
+      "evidence_ref": "Current released version line"
+    },
+    {
+      "id": "status.deployment-count",
+      "fact_id": "deployments.count",
+      "surface_ref": "docs/status.md",
+      "scope": "current",
+      "claimed_value": 0,
+      "evidence_ref": "Current released version and GitHub main lines"
+    }
+  ],
+  "required_fact_ids": [
+    "git.branch",
+    "git.starting_head",
+    "remote.baseline0034_head",
+    "contract.baseline0034.status",
+    "evaluation.selected_configuration",
+    "evaluation.candidate_disposition",
+    "release.latest",
+    "deployments.count"
+  ],
+  "reconciliation": {
+    "requested_action_class": "update_project_records",
+    "intended_surfaces": [
+      "docs/status.md",
+      "contracts/milestone-0034.json"
+    ],
+    "limitations": [
+      "The public BASELINE-0034 closure and retained experiment are not rewritten.",
+      "This record corrects stale current-state pointers only; it does not select v5, change v3, create a release, or open BASELINE-0035 implementation authority."
+    ]
+  }
+}
