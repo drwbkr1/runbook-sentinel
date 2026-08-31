@@ -166,7 +166,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Commit publish and independently verify the record-only receipt for public exact implementation seal 4294af8256c348f83d697f7a51aa631d0ffcaee8; only then renew and publish the release manifest.",
+  "next_action": "Commit push and independently verify the exact BASELINE-0035 prebuild manifest seal; only after its public record is exact may archive or container construction begin.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -202,7 +202,9 @@
       "The local schema-1.2 release-identity freeze passes its frozen-phase verifier seven focused fail-closed tests the warning-free governed milestone validator and all 178 tests while successor package container archive and checksum artifacts remain absent",
       "Public preimplementation identity freeze 598ad61752009f490a07052c4551bb91ad4f0ba1 tree d19beb95dccee0e681526b6e057dd4d78b7bb3f8 is exact across refs metadata twelve Git blobs twelve anonymous raw files an untruncated 1685-entry tree commit HTML unchanged main and latest release and an exact empty deployment response",
       "Local implemented-phase release identity package and container-contract verifiers pass; the corrected focused set passes 13 tests and the complete regression passes all 178 tests in 116.095 seconds while v3 and every functional and security boundary remain unchanged",
-      "Public implementation seal 4294af8256c348f83d697f7a51aa631d0ffcaee8 tree d89621859b5d714564d28f00faeb321e40664a23 is exact across refs anonymous metadata thirty Git blobs thirty raw paths totaling 1910333 bytes an untruncated 1689-entry tree and rendered commit HTML while main release and deployments remain unchanged"
+      "Public implementation seal 4294af8256c348f83d697f7a51aa631d0ffcaee8 tree d89621859b5d714564d28f00faeb321e40664a23 is exact across refs anonymous metadata thirty Git blobs thirty raw paths totaling 1910333 bytes an untruncated 1689-entry tree and rendered commit HTML while main release and deployments remain unchanged",
+      "Record-only implementation reconciliation a669699932e59c3b8f92eb51f13e9712262dbd1d tree ca59a02d8e3352e2b2d81cd0571883c512e32e89 is exact across refs anonymous metadata eight Git blobs eight raw paths totaling 1386065 bytes an untruncated 1690-entry tree and rendered commit HTML",
+      "The local 164-file prebuild manifest and immutable companion are byte-identical at 20021 bytes and SHA-256 085433c14caee718c79a74d162ef3d917577c6b1bf326c088f19259fd939ae04; a retained 177-of-178 historical-manifest lifecycle stop is followed by the bounded immutable-companion correction, 5 focused adjudication passes, 45 current-applicable validator passes, and 179-of-179 complete regression passes"
     ],
     "evidence_paths": [
       "artifacts/verification/baseline-0034-closure-reconciliation-local.json",
@@ -220,13 +222,17 @@
       "artifacts/verification/baseline-0035-release-identity-freeze-local.json",
       "artifacts/verification/baseline-0035-release-identity-freeze-public.json",
       "artifacts/verification/baseline-0035-release-identity-implementation-local.json",
-      "artifacts/verification/baseline-0035-release-identity-implementation-public.json"
+      "artifacts/verification/baseline-0035-release-identity-implementation-public.json",
+      "eval/manifest.json",
+      "artifacts/verification/baseline-0035-prebuild-source-manifest.json",
+      "artifacts/verification/baseline-0035-prebuild-manifest-seal-local.json",
+      "artifacts/verification/baseline-0035-prebuild-manifest-seal-public.json"
     ]
   },
   "handoff": {
     "resume_from": "contracts/milestone-0035.json",
-    "latest_verified_checkpoint": "public exact v0.0.35 identity package and container-contract implementation seal 4294af8256c348f83d697f7a51aa631d0ffcaee8 tree d89621859b5d714564d28f00faeb321e40664a23 with main release and deployments unchanged",
-    "resume_rule": "Continue UNIT-004 by publishing and independently reconciling the record-only public implementation receipt. Do not renew the manifest build an archive or pull or build a container before that public record gate.",
+    "latest_verified_checkpoint": "public exact implementation record a669699932e59c3b8f92eb51f13e9712262dbd1d tree ca59a02d8e3352e2b2d81cd0571883c512e32e89 after exact implementation seal 4294af8256c348f83d697f7a51aa631d0ffcaee8",
+    "resume_rule": "Continue UNIT-004 by committing publishing and independently reconciling the exact local prebuild manifest seal. Do not build an archive or pull or build a container before that public manifest gate.",
     "blocked_on_human": false
   }
 }

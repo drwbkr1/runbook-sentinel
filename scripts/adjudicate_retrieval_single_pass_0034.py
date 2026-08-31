@@ -24,7 +24,10 @@ from runbook_sentinel.telemetry import verify_trace_file  # noqa: E402
 CONTRACT_PATH = ROOT / "eval/retrieval-single-pass-contract-0034.json"
 BENCHMARK_PATH = ROOT / "artifacts/evaluations/baseline-0034-retriever-benchmark.json"
 COMPARISON_PATH = ROOT / "artifacts/evaluations/baseline-0034-retrieval-comparison.json"
-MANIFEST_PATH = ROOT / "eval/manifest.json"
+MANIFEST_PATH = ROOT / "artifacts/verification/baseline-0033-prebuild-source-manifest.json"
+MANIFEST_LOGICAL_PATH = "eval/manifest.json"
+MANIFEST_BYTES = 18484
+MANIFEST_SHA256 = "4f9e9880a9f3a7dd75e94f83018d3f2bef996d4f49b05fd42160f7f62f281b20"
 V4_REPORT_PATH = ROOT / "artifacts/evaluations/baseline-0031-candidate-v4-attempt-001.json"
 BENCHMARK_RUNNER = ROOT / "scripts/verify_retrieval_single_pass_contract_0034.py"
 CONTROL_CONFIGURATION = "freshness-priority-lexical-v3"
@@ -66,6 +69,17 @@ def _identity(path: Path) -> dict[str, Any]:
         "bytes": path.stat().st_size,
         "sha256": _sha256(path),
     }
+
+
+def _historical_manifest_identity() -> dict[str, Any]:
+    identity = _identity(MANIFEST_PATH)
+    if (
+        identity["bytes"] != MANIFEST_BYTES
+        or identity["sha256"] != MANIFEST_SHA256
+    ):
+        raise AdjudicationError("historical_manifest_identity")
+    identity["path"] = MANIFEST_LOGICAL_PATH
+    return identity
 
 
 def _canonical_bytes(value: dict[str, Any]) -> bytes:
@@ -292,7 +306,7 @@ def _load_reports(contract: dict[str, Any]) -> tuple[list[dict[str, Any]], list[
     expected_roles = contract["whole_system_comparison_contract"]["balanced_report_order"]
     if [role for _, role, _ in REPORT_SEQUENCE] != expected_roles:
         raise AdjudicationError("report_sequence_not_frozen")
-    manifest_sha256 = _sha256(MANIFEST_PATH)
+    manifest_sha256 = _historical_manifest_identity()["sha256"]
     records: list[dict[str, Any]] = []
     errors: list[str] = []
     baseline_signature: list[tuple[str, str, tuple[int, ...]]] | None = None
@@ -489,7 +503,7 @@ def build_comparison() -> dict[str, Any]:
         "observed_at_utc": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "status": "complete_candidate_selected" if candidate_selected else "complete_candidate_excluded",
         "benchmark": _identity(BENCHMARK_PATH),
-        "manifest": _identity(MANIFEST_PATH),
+        "manifest": _historical_manifest_identity(),
         "balanced_report_order": [record["role"] for record in records],
         "reports": [
             {

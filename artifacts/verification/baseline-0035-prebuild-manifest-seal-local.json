@@ -1,0 +1,239 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0035-PREBUILD-MANIFEST-SEAL-LOCAL",
+  "checkpoint": "BASELINE-0035",
+  "observed_at_utc": "2026-08-31T21:28:23Z",
+  "status": "local_pass_public_seal_pending",
+  "repository": {
+    "branch": "codex/baseline-0035-evaluation-contract-integrity",
+    "parent_commit": "a669699932e59c3b8f92eb51f13e9712262dbd1d",
+    "parent_tree": "ca59a02d8e3352e2b2d81cd0571883c512e32e89",
+    "public_implementation_commit": "4294af8256c348f83d697f7a51aa631d0ffcaee8",
+    "public_implementation_record_commit": "a669699932e59c3b8f92eb51f13e9712262dbd1d",
+    "public_main_commit": "d62e7cba675997eade87169f5acba14de6452c9b"
+  },
+  "manifest": {
+    "active_path": "eval/manifest.json",
+    "archived_path": "artifacts/verification/baseline-0035-prebuild-source-manifest.json",
+    "checkpoint": "baseline-0035",
+    "frozen_at_utc": "2026-08-31T21:02:31Z",
+    "file_count": 164,
+    "bytes": 20021,
+    "sha256": "085433c14caee718c79a74d162ef3d917577c6b1bf326c088f19259fd939ae04",
+    "active_and_archived_bytes_equal": true,
+    "predecessor_file_count": 153,
+    "predecessor_bytes": 18484,
+    "predecessor_sha256": "4f9e9880a9f3a7dd75e94f83018d3f2bef996d4f49b05fd42160f7f62f281b20",
+    "added_identity_count": 11,
+    "changed_identity_count": 19,
+    "removed_identity_count": 0,
+    "added_identity_paths": [
+      "artifacts/evaluations/baseline-0035-retrieval-evidence-classification.json",
+      "artifacts/verification/baseline-0035-classification-result-public.json",
+      "artifacts/verification/baseline-0035-implementation-seal-public.json",
+      "artifacts/verification/baseline-0035-preimplementation-freeze-public.json",
+      "artifacts/verification/baseline-0035-release-identity-freeze-public.json",
+      "artifacts/verification/baseline-0035-release-identity-implementation-public.json",
+      "eval/release-identity-contract-0035.json",
+      "eval/retrieval-candidate-evidence-contract-0035.json",
+      "scripts/classify_retrieval_candidate_evidence_0035.py",
+      "scripts/verify_release_identity_contract_0035.py",
+      "scripts/verify_retrieval_candidate_evidence_contract_0035.py"
+    ],
+    "changed_identity_paths": [
+      ".dockerignore",
+      "Dockerfile",
+      "eval/container-contract.json",
+      "eval/package-contract.json",
+      "pyproject.toml",
+      "scripts/build_zipapp.py",
+      "scripts/inspect_runtime_evidence.py",
+      "scripts/verify_baseline.py",
+      "scripts/verify_container_contract.py",
+      "scripts/verify_container_runtime.py",
+      "scripts/verify_live_api.ps1",
+      "scripts/verify_mcp_stdio.py",
+      "scripts/verify_package_contract.py",
+      "scripts/verify_retrieval_tier_cap_contract.py",
+      "src/runbook_sentinel/__init__.py",
+      "src/runbook_sentinel/api.py",
+      "src/runbook_sentinel/cli.py",
+      "src/runbook_sentinel/mcp_server.py",
+      "src/runbook_sentinel/retrieval.py"
+    ]
+  },
+  "release_identity": {
+    "phase": "implemented",
+    "functional_product_delta_count": 0,
+    "candidate_evidence_admissible": true,
+    "candidate_selected": false,
+    "selection_performed": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "historical_candidate_disposition": "exclude_and_retain",
+    "new_external_asset_count": 0
+  },
+  "verification": {
+    "manifest_validator": {
+      "status": "pass",
+      "file_count": 164
+    },
+    "historical_adjudication_focused": {
+      "status": "pass",
+      "passed": 5,
+      "failed": 0,
+      "total": 5,
+      "elapsed_seconds": 0.105
+    },
+    "complete_regression": {
+      "status": "pass",
+      "passed": 179,
+      "failed": 0,
+      "total": 179,
+      "elapsed_seconds": 116.853
+    },
+    "initial_corrected_complete_regression": {
+      "status": "pass",
+      "passed": 179,
+      "failed": 0,
+      "total": 179,
+      "elapsed_seconds": 115.787
+    },
+    "applicable_phase_correct_validators": {
+      "status": "pass",
+      "passed": 45,
+      "failed": 0,
+      "total": 45
+    },
+    "release_identity_verifier": "pass",
+    "package_contract_verifier": "pass",
+    "container_contract_prerequisite_verifier": "pass",
+    "historical_comparison_verifier": "pass",
+    "milestone": {
+      "status": "active",
+      "valid": true,
+      "active_unit": "UNIT-004",
+      "errors": 0,
+      "warnings": 0
+    },
+    "python_compile": "pass",
+    "changed_json_parse": "pass",
+    "git_diff_check": "pass",
+    "docker_client_version": "29.4.3",
+    "docker_server_available": false
+  },
+  "retained_failures": [
+    {
+      "id": "PREBUILD-HISTORICAL-MANIFEST-LIFECYCLE-0035-001",
+      "status": "failed",
+      "passed": 177,
+      "failed": 1,
+      "total": 178,
+      "elapsed_seconds": 112.639,
+      "cause": "Historical BASELINE-0034 adjudication dereferenced the mutable current release manifest after BASELINE-0035 renewal.",
+      "disposition": "remediate",
+      "correction": "Authenticate and read the immutable BASELINE-0033 companion while preserving the historical logical eval/manifest.json identity."
+    }
+  ],
+  "retained_process_invalid": [
+    {
+      "id": "PREBUILD-VALIDATOR-MODEL-CONFORMANCE-PHASE-0035-001",
+      "reason": "The default frozen phase was inapplicable after the current implementation transition; the explicit implemented-phase successor passes."
+    },
+    {
+      "id": "PREBUILD-VALIDATOR-TIER-CAP-PHASE-0035-001",
+      "reason": "The default preimplementation phase was inapplicable after implementation; the explicit implemented-phase successor passes."
+    },
+    {
+      "id": "PREBUILD-VALIDATOR-BASE-REFRESH-CURRENT-TREE-0035-001",
+      "reason": "The historical v0.0.32 base-refresh verifier is version-bound and does not apply to current v0.0.35 tree bytes; its exact released fixture passes in the complete suite."
+    },
+    {
+      "id": "PREBUILD-VALIDATOR-RELEASE-IDENTITY-0033-CURRENT-TREE-0035-001",
+      "reason": "The historical BASELINE-0033 release-identity default is version-bound and does not apply to current v0.0.35 tree bytes; governed fixture coverage passes in the complete suite."
+    },
+    {
+      "id": "PREBUILD-PRIVATE-KEY-RG-OPTION-0035-001",
+      "reason": "The first read-only ripgrep scan omitted the option terminator before a hyphen-prefixed marker and supplied no evidence; its corrected successor finds only one pre-existing historical scanner-definition literal and zero added-line markers."
+    }
+  ],
+  "changed_payload": {
+    "excludes_this_receipt": true,
+    "path_count": 11,
+    "files": [
+      {
+        "path": "CHANGELOG.md",
+        "bytes": 153118,
+        "sha256": "5bfa9e6834ecfed7ae4a4a719e4d5d22e34024434b10c5378384e4f480b51977"
+      },
+      {
+        "path": "artifacts/verification/baseline-0035-prebuild-source-manifest.json",
+        "bytes": 20021,
+        "sha256": "085433c14caee718c79a74d162ef3d917577c6b1bf326c088f19259fd939ae04"
+      },
+      {
+        "path": "contracts/milestone-0035.json",
+        "bytes": 15023,
+        "sha256": "bc183e828bf1990f795c2a20b5559651faa1b4104e31c3ee0cd679fbd9de96b9"
+      },
+      {
+        "path": "docs/devlog.md",
+        "bytes": 514958,
+        "sha256": "b2f5153a908e1b1054f6ca51a444bbe6ce4b726cb22fa6074db6263af7e00de9"
+      },
+      {
+        "path": "docs/evaluation-report.md",
+        "bytes": 264104,
+        "sha256": "9532366d1ba139ca618a372034053000bc3b1422fd5bae3f3b15c52fe0294469"
+      },
+      {
+        "path": "docs/roadmap.md",
+        "bytes": 113801,
+        "sha256": "886c23ccdde5f36c1c57a2576f450b969a32e92db81073ffe15ab4352fb842b9"
+      },
+      {
+        "path": "docs/status.md",
+        "bytes": 296797,
+        "sha256": "fa69fa81a0ca82671e039e333b214102e40f99a8b310734bca3828dd5b4d9b18"
+      },
+      {
+        "path": "docs/version-history.md",
+        "bytes": 32129,
+        "sha256": "b0b03ec17a097d7f5aa517ee34d68eaa89cf4676389af38cf6c9f1c72ca34c0c"
+      },
+      {
+        "path": "eval/manifest.json",
+        "bytes": 20021,
+        "sha256": "085433c14caee718c79a74d162ef3d917577c6b1bf326c088f19259fd939ae04"
+      },
+      {
+        "path": "scripts/adjudicate_retrieval_single_pass_0034.py",
+        "bytes": 27499,
+        "sha256": "8bbb277bfaf79f55e528f8b73651b40e9db8e126692efabe911398d45c2626be"
+      },
+      {
+        "path": "tests/test_retrieval_single_pass_adjudication_0034.py",
+        "bytes": 3446,
+        "sha256": "f6db41fca0cc7530ee249a8e7656ad96b7f4d734193541a07b3f8458ecfe4fef"
+      }
+    ]
+  },
+  "prebuild_state": {
+    "v0_0_35_archive_exists": false,
+    "v0_0_35_checksum_exists": false,
+    "container_receipt_exists": false,
+    "candidate_release_evaluation_started": false,
+    "package_or_image_build_started": false
+  },
+  "boundaries": {
+    "runtime_retriever_model_or_default_changed": false,
+    "historical_result_or_disposition_changed": false,
+    "evaluation_case_grader_or_threshold_changed": false,
+    "security_or_authority_changed": false,
+    "package_or_derived_image_built": false,
+    "dependency_secret_paid_service_or_external_asset_added": false,
+    "real_operational_infrastructure_contacted": false,
+    "tag_release_or_deployment_created": false,
+    "container_image_exported_pushed_published_or_redistributed": false
+  },
+  "next_gate": "Commit and publish the exact BASELINE-0035 prebuild manifest seal, reconcile anonymous GitHub metadata, blobs, raw paths, rendered bytes, main, release, assets, and deployments, then publish its record before archive or container construction."
+}

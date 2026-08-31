@@ -24,6 +24,10 @@ The local mechanical projection is implemented and passes the independent releas
 
 Implementation seal `4294af8256c348f83d697f7a51aa631d0ffcaee8` is public and exact across all 30 changed blobs and raw paths, an untruncated 1,689-entry tree, and rendered commit evidence. Main, v0.0.33, its two assets, and deployments remain unchanged. Publish and verify the record-only receipt, then renew and publicly seal the release manifest before any archive or container build.
 
+Record-only implementation reconciliation `a669699932e59c3b8f92eb51f13e9712262dbd1d` is public and exact across all eight changed blobs/raw paths and an untruncated 1,690-entry tree. Renew, validate, publish, and independently reconcile the release manifest next; no archive or container build may precede that public gate.
+
+The local prebuild seal now passes: active and archived manifests are byte-identical at 20,021 bytes, SHA-256 `085433c1...`, and 164 files. A retained 177/178 run exposed mutable historical-manifest lookup; the bounded immutable-companion correction preserves exact BASELINE-0034 semantics, then passes 5/5 focused, 45 applicable validators, and 179/179 complete tests. Publish and independently verify this seal next. Archive and container construction remain closed.
+
 The BASELINE-0035 classification result exists and is public, but no default transition, v0.0.35 package, image, tag, release, or deployment exists. Revealed held-out evidence is used only to diagnose evaluation machinery; it cannot tune or select a retriever.
 
 ## Active checkpoint baseline-0034 - single-pass bounded retrieval latency

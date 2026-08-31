@@ -41,6 +41,21 @@ class RetrievalSinglePassAdjudication0034Tests(unittest.TestCase):
         recorded.pop("observed_at_utc")
         self.assertEqual(rebuilt, recorded)
 
+    def test_historical_comparison_uses_immutable_companion_manifest(self) -> None:
+        self.assertEqual(
+            adjudicator.MANIFEST_PATH,
+            ROOT / "artifacts/verification/baseline-0033-prebuild-source-manifest.json",
+        )
+        self.assertNotEqual(adjudicator.MANIFEST_PATH, ROOT / "eval/manifest.json")
+        self.assertEqual(
+            adjudicator._historical_manifest_identity(),
+            {
+                "path": "eval/manifest.json",
+                "bytes": 18484,
+                "sha256": "4f9e9880a9f3a7dd75e94f83018d3f2bef996d4f49b05fd42160f7f62f281b20",
+            },
+        )
+
     def test_frozen_gate_inventory_mismatch_excludes_candidate(self) -> None:
         self.assertEqual(self.comparison["status"], "complete_candidate_excluded")
         self.assertFalse(self.comparison["candidate_selected"])
