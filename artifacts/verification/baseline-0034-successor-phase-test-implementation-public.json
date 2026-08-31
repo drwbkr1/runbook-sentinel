@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0034-successor-phase-test-implementation-public",
+  "checkpoint": "baseline-0034",
+  "unit": "UNIT-002B",
+  "observed_at_utc": "2026-08-31T16:52:07Z",
+  "execution_status": "complete",
+  "evidence_disposition": "exclude",
+  "positive_evidence": false,
+  "public_transition": {
+    "repository": "https://github.com/drwbkr1/runbook-sentinel",
+    "branch": "codex/baseline-0034-retrieval-tier-cap-latency",
+    "commit": "469932fcba6de6dfd0284caac96e2ce511abe628",
+    "tree": "0e9ca9ee38890a8e7843a8b87a9ed4a4d1dfeb23",
+    "parent": "459c9fc194335a3a6bae41f8ae93a8c37c4c01b8",
+    "subject": "test: apply baseline 0034 phase successors",
+    "changed_path_count": 12,
+    "changed_bytes": 1386986,
+    "recursive_tree_entries": 1644,
+    "recursive_tree_truncated": false,
+    "local_tracking_ls_remote_exact": true,
+    "anonymous_commit_tree_parent_exact": true,
+    "all_git_blobs_exact": true,
+    "all_anonymous_raw_bytes_exact": true
+  },
+  "test_identities": [
+    {"path":"tests/test_retrieval_fixture_phase_correction_0034.py","bytes":3449,"sha256":"ee640f79aba920746e6bfc93550b1d8a6986da4d975b8270285beee8573ab3d6","git_blob":"12b8f9a92153373c6c40bd5f01dd69b624d7130a"},
+    {"path":"tests/test_retrieval_successor_lifecycle_0034.py","bytes":4658,"sha256":"09e13990eb92ac8a0d5c506c56178529d4ac27395811749be714d09f13a0c613","git_blob":"29bd622a01f932d1b42a2f175fafe20f823f0bdc"},
+    {"path":"tests/test_retrieval_meta_test_lifecycle_correction_0034.py","bytes":3656,"sha256":"b50247ed37b143d67843c23aaa4ad60044ac5b351ceaa9cd707ff6f37f477a35","git_blob":"93cb3040ad060fd6dee2ed9f83e705447c33d005"}
+  ],
+  "retained_transition": {
+    "failure_id": "TEST-SUCCESSOR-PREDECESSOR-BRIDGE-TRANSITION-0034-001",
+    "validator_error": "bridge_implementation_identity:tests/test_retrieval_successor_lifecycle_0034.py",
+    "focused_result": "56/60 with four derivative failures",
+    "complete_regression_run": false,
+    "behavior_or_security_failure": false,
+    "reason": "The older public bridge implementation receipt binds the predecessor lifecycle-test blob until the frozen v5 runtime activates the governed implementation phase."
+  },
+  "unchanged_boundaries": {
+    "retrieval_runtime": {"bytes":4643,"sha256":"6eb5227b2e20141bf978670cfbbe9edd6d55ca1db69b76a4007b830e13ff864a"},
+    "single_pass_test": {"bytes":5320,"sha256":"f63f8a14d3eb355b1caf10167cabae43543525d938f13e87aab8eb17bf8aef2f"},
+    "benchmark_result_present": false,
+    "comparison_result_present": false,
+    "default_configuration": "freshness-priority-lexical-v3",
+    "held_out_loaded": false,
+    "security_or_authority_changed": false
+  },
+  "next_gate": "Publish and reconcile this record-only receipt, then apply only exact frozen v5 runtime and focused-test identities. Require both implementation validators and risk-matched regressions to pass before any benchmark process."
+}
