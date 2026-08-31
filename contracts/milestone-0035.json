@@ -110,7 +110,7 @@
       "depends_on": ["UNIT-001"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": ["orientation-baseline-0035.json", "current primary research gate", "exact retained BASELINE-0034 reports and comparison"],
       "outputs": ["semantic contract", "independent verifier", "fail-closed mutation tests", "public preimplementation freeze"],
       "gates": {
@@ -119,7 +119,7 @@
         "focused_mutations_fail_closed": "pass",
         "implementation_and_result_absent": "pass",
         "full_regression": "pass",
-        "public_freeze_exact": "pending"
+        "public_freeze_exact": "pass"
       },
       "disposition": "pass",
       "next_dependency": "UNIT-003"
@@ -130,7 +130,7 @@
       "depends_on": ["UNIT-002"],
       "action_class": "repository_change",
       "human_gate": false,
-      "status": "planned",
+      "status": "in_progress",
       "inputs": ["public exact semantic freeze", "exact retained reports and comparison"],
       "outputs": ["classifier implementation", "public implementation seal", "immutable BASELINE-0035 classification result"],
       "gates": {
@@ -163,8 +163,8 @@
       "disposition": "pass"
     }
   ],
-  "current_unit": "UNIT-002",
-  "next_action": "Complete the local preimplementation freeze, prove implementation and result absence, run focused mutations and the full regression, then publish and anonymously reconcile the exact freeze before adding the classifier.",
+  "current_unit": "UNIT-003",
+  "next_action": "Implement only scripts/classify_retrieval_candidate_evidence_0035.py, prove semantic parity and fail-closed behavior while the result remains absent, then publish and anonymously reconcile the implementation seal before generating one immutable classification.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -193,20 +193,22 @@
       "Current primary RAG and behavioral-evaluation sources pass narrow citation-only review without asset import",
       "The independent preimplementation verifier passes with implementation and result absent",
       "Twelve focused semantic and fail-closed mutation tests pass",
-      "The complete project-native regression passes all 167 tests in 179.542 seconds"
+      "The complete project-native regression passes all 167 tests in 179.542 seconds",
+      "Public preimplementation freeze 2877ae92f923e4f9dc304e309fb59c07475d6bfe is exact across local tracking and remote refs commit tree parent untruncated recursive tree and all fourteen anonymous raw paths"
     ],
     "evidence_paths": [
       "artifacts/verification/baseline-0034-closure-reconciliation-local.json",
       "artifacts/verification/orientation-baseline-0035.json",
       "artifacts/verification/research-source-gate-baseline-0035-evaluation-contract-integrity.json",
       "eval/retrieval-candidate-evidence-contract-0035.json",
-      "artifacts/verification/baseline-0035-preimplementation-freeze-local.json"
+      "artifacts/verification/baseline-0035-preimplementation-freeze-local.json",
+      "artifacts/verification/baseline-0035-preimplementation-freeze-public.json"
     ]
   },
   "handoff": {
     "resume_from": "contracts/milestone-0035.json",
-    "latest_verified_checkpoint": "public exact reconciliation commit 74ec794214929c2df81442e11c1410df5e75c865 on codex/baseline-0035-evaluation-contract-integrity, starting from public BASELINE-0034 closure b6e0c785fe89c34c661e8f397067684959b7f24b",
-    "resume_rule": "Continue UNIT-002 only from the exact semantic freeze. Do not add the classifier or result until the freeze is public and reconciled; do not reopen v5 or tune a retriever from revealed held-out evidence.",
+    "latest_verified_checkpoint": "public exact preimplementation freeze 2877ae92f923e4f9dc304e309fb59c07475d6bfe tree f844a66c1d3e5241fff1e39226a9f213b5c62966 on codex/baseline-0035-evaluation-contract-integrity",
+    "resume_rule": "Continue UNIT-003 only from the exact public semantic freeze. Add only the classifier while keeping the result absent until the implementation seal is public and reconciled; do not reopen v5 or tune a retriever from revealed held-out evidence.",
     "blocked_on_human": false
   }
 }

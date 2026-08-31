@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0035",
+  "phase": "public_preimplementation_freeze",
+  "observed_at_utc": "2026-08-31T18:45:55Z",
+  "repository": "https://github.com/drwbkr1/runbook-sentinel",
+  "visibility": "public",
+  "branch": "codex/baseline-0035-evaluation-contract-integrity",
+  "commit": "2877ae92f923e4f9dc304e309fb59c07475d6bfe",
+  "tree": "f844a66c1d3e5241fff1e39226a9f213b5c62966",
+  "parent": "74ec794214929c2df81442e11c1410df5e75c865",
+  "tree_entry_count": 1674,
+  "verification": {
+    "status": "pass",
+    "local_head_exact": true,
+    "local_tree_exact": true,
+    "local_parent_exact": true,
+    "explicit_remote_tracking_ref_exact_after_targeted_fetch": true,
+    "ls_remote_exact": true,
+    "anonymous_github_api_commit_exact": true,
+    "anonymous_github_api_tree_exact": true,
+    "anonymous_github_api_parent_exact": true,
+    "recursive_tree_untruncated": true,
+    "all_changed_paths_present_in_tree": true,
+    "all_anonymous_raw_bytes_exact": true,
+    "changed_path_count": 14,
+    "worktree_clean_before_record": true
+  },
+  "raw_paths": [
+    {"path": "CHANGELOG.md", "bytes": 147067, "sha256": "7920a71d99023bc59f212c8e1c9e3643923937fe7838aa598fa4a319766693a7", "exact": true},
+    {"path": "artifacts/verification/baseline-0035-preimplementation-freeze-local.json", "bytes": 5535, "sha256": "bf947b059794b954a3b8c2c35e62871a9a7991cf073a4c43dfcddb28fe7217ef", "exact": true},
+    {"path": "artifacts/verification/orientation-baseline-0035.json", "bytes": 5069, "sha256": "c15fcc57e3f1b7e11c06d7a43d977ad4948389a5612b659f8a8eb4ff7193d183", "exact": true},
+    {"path": "artifacts/verification/research-source-gate-baseline-0035-evaluation-contract-integrity.json", "bytes": 6527, "sha256": "621a91498dc6a5591d41082d35ac9bd569f525d748fe5667f8626375960c83a4", "exact": true},
+    {"path": "contracts/milestone-0035.json", "bytes": 11307, "sha256": "22de302676b310a7209354a896724928ef63674f30a0251a326274fb50c31b17", "exact": true},
+    {"path": "docs/adr/0031-classify-candidate-evidence-by-semantics.md", "bytes": 4139, "sha256": "df51eac211772939e88b6180d0319151e573a775900ed82861342b269e9218ba", "exact": true},
+    {"path": "docs/devlog.md", "bytes": 502305, "sha256": "86b237e8c96aab6dc8c1ca5cacd2a125f342bc4c1c6584c7692b0e2c4621bf4a", "exact": true},
+    {"path": "docs/research-ledger.md", "bytes": 29966, "sha256": "1d3794e8473542941c17807d00d140103007caba52ed1a74ea5986576781f6e6", "exact": true},
+    {"path": "docs/roadmap.md", "bytes": 109433, "sha256": "ae53d86f351a2ca2c7998384d30b9359c5f6ce328ffa6b03f924b555a2e6c5a0", "exact": true},
+    {"path": "docs/source-ledger.md", "bytes": 6664, "sha256": "6a5b7324b04138b4cd00337cb641a1049f6458e81de8d1ad4b9ab95680361271", "exact": true},
+    {"path": "docs/status.md", "bytes": 290734, "sha256": "d7432cb5b8eddd3d286fb04b98a97fc866e195d17aaef58071dd5d4bb136b28d", "exact": true},
+    {"path": "eval/retrieval-candidate-evidence-contract-0035.json", "bytes": 12811, "sha256": "0c41971213255b916f9cbd783fafb5267252cb4d20b2a22ca9fe345e371a279a", "exact": true},
+    {"path": "scripts/verify_retrieval_candidate_evidence_contract_0035.py", "bytes": 16387, "sha256": "34861f2a13a68d395f4bb7ca769d1195ea501a5f44793409263315e4a695a624", "exact": true},
+    {"path": "tests/test_retrieval_candidate_evidence_contract_0035.py", "bytes": 7496, "sha256": "ae481c075193b67636b575541b7fe35572d3894b8809e075646c6cc156c00956", "exact": true}
+  ],
+  "retained_failures": [
+    {
+      "id": "REMOTE-TRACKING-REF-OBSERVATION-0035-002",
+      "classification": "process_invalid",
+      "description": "The first aggregate public verifier found the explicit local remote-tracking ref still at 74ec794 after push even though ls-remote, anonymous GitHub commit/tree/parent, all fourteen raw paths, main, release, and deployment observations were already exact. A targeted read-only fetch advanced only that local observation ref; the unchanged successor check passed every dimension.",
+      "positive_evidence": false
+    }
+  ],
+  "unchanged_public_state": {
+    "main": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "latest_release_tag": "v0.0.33",
+    "latest_release_id": 375120109,
+    "latest_release_asset_count": 2,
+    "deployment_count": 0
+  },
+  "boundaries": {
+    "classifier_present_in_public_freeze": false,
+    "classification_result_present_in_public_freeze": false,
+    "historical_candidate_selected": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "historical_candidate_disposition": "exclude_and_retain",
+    "runtime_or_retrieval_changed": false,
+    "security_or_authority_changed": false,
+    "release_tag_or_deployment_created": false
+  },
+  "next_action": "Implement only scripts/classify_retrieval_candidate_evidence_0035.py, test it against the independent oracle and fail-closed mutations, and publish an exact implementation seal while the result remains absent."
+}

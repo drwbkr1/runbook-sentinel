@@ -8,6 +8,8 @@
 - Added ADR 0031, the BASELINE-0035 milestone, current primary-research gate, orientation record, frozen semantic evidence contract, independent verifier, and twelve fail-closed focused tests. The classifier and result remain absent.
 - Local freeze verification passes. All three v5 reports classify as evidence-admissible but not selected; policy, coverage, ambiguity, outcome-proof, and evidence-completeness mutations fail closed; an additional selected-default observation may differ without requiring one exact false inventory. The complete project-native suite passes all 167 tests in 179.542 seconds.
 - Retained a process-invalid `python -m pytest` attempt because this dependency-free repository does not install pytest; it collected no tests. No dependency was added.
+- Published preimplementation freeze `2877ae92f923e4f9dc304e309fb59c07475d6bfe`, tree `f844a66c1d3e5241fff1e39226a9f213b5c62966`. Local, explicit tracking, `ls-remote`, anonymous GitHub commit/tree/parent, the untruncated 1,674-entry tree, and all fourteen anonymous raw files are exact. Classifier and result remain absent; UNIT-003 opens.
+- Retained the first aggregate public wrapper as process-invalid because its local tracking ref remained at the predecessor after push while every remote and raw-byte observation was already exact. A targeted read-only fetch and unchanged successor check passed.
 
 ## Retained experiment - BASELINE-0034
 
