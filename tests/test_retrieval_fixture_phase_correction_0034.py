@@ -20,11 +20,22 @@ class RetrievalFixturePhaseCorrection0034Tests(unittest.TestCase):
         cls.contract = json.loads(verifier.CONTRACT_PATH.read_text(encoding="utf-8"))
         cls.correction = cls.contract["fixture_phase_correction"]
 
-    def test_current_public_bridge_predecessor_phase_passes(self) -> None:
-        result = verifier.validate(require_phase="bridge_public_predecessor")
+    def test_current_governed_lifecycle_phase_passes(self) -> None:
+        result = verifier.validate()
         self.assertEqual(result["status"], "pass")
         self.assertEqual(result["errors"], [])
         self.assertEqual(result["schema_version"], "1.2")
+        self.assertIn(
+            result["phase"],
+            {
+                "bridge_frozen",
+                "bridge_implemented_predecessor",
+                "bridge_public_predecessor",
+                "implementation_sealed_no_result",
+                "evaluated_unselected",
+                "selected",
+            },
+        )
 
     def test_corrected_test_identity_is_precomputed_exactly(self) -> None:
         path = ROOT / self.correction["allowed_test_path"]

@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0034-successor-phase-test-implementation-local",
+  "checkpoint": "baseline-0034",
+  "unit": "UNIT-002B",
+  "observed_at_utc": "2026-08-31T16:47:38Z",
+  "execution_status": "complete",
+  "evidence_disposition": "exclude",
+  "positive_evidence": false,
+  "public_prerequisite": {
+    "freeze_commit": "4971895ba44c650844fcb7fc455b93bd68d90a7c",
+    "freeze_record_commit": "459c9fc194335a3a6bae41f8ae93a8c37c4c01b8",
+    "freeze_record_public_and_exact": true
+  },
+  "implemented_test_identities": [
+    {"path":"tests/test_retrieval_fixture_phase_correction_0034.py","bytes":3449,"sha256":"ee640f79aba920746e6bfc93550b1d8a6986da4d975b8270285beee8573ab3d6"},
+    {"path":"tests/test_retrieval_successor_lifecycle_0034.py","bytes":4658,"sha256":"09e13990eb92ac8a0d5c506c56178529d4ac27395811749be714d09f13a0c613"},
+    {"path":"tests/test_retrieval_meta_test_lifecycle_correction_0034.py","bytes":3656,"sha256":"b50247ed37b143d67843c23aaa4ad60044ac5b351ceaa9cd707ff6f37f477a35"}
+  ],
+  "unchanged_boundaries": {
+    "retrieval_runtime": {"bytes":4643,"sha256":"6eb5227b2e20141bf978670cfbbe9edd6d55ca1db69b76a4007b830e13ff864a"},
+    "single_pass_test": {"bytes":5320,"sha256":"f63f8a14d3eb355b1caf10167cabae43543525d938f13e87aab8eb17bf8aef2f"},
+    "benchmark_result_present": false,
+    "comparison_result_present": false,
+    "default_configuration": "freshness-priority-lexical-v3",
+    "held_out_loaded": false,
+    "security_or_authority_changed": false
+  },
+  "transition_observation": {
+    "retained_failure": "TEST-SUCCESSOR-PREDECESSOR-BRIDGE-TRANSITION-0034-001",
+    "single_pass_contract_status": "pass",
+    "single_pass_phase": "frozen_preimplementation",
+    "successor_lifecycle_contract_status": "fail",
+    "successor_lifecycle_phase": "bridge_public_predecessor",
+    "successor_lifecycle_errors": ["bridge_implementation_identity:tests/test_retrieval_successor_lifecycle_0034.py"],
+    "focused_test_total": 60,
+    "focused_test_passed": 56,
+    "focused_test_failed": 4,
+    "complete_regression_run": false,
+    "reason_complete_regression_not_run": "The risk-matched focused gate already failed on the single expected predecessor receipt identity and its derivative assertions; no partial or broader run is promoted as evidence."
+  },
+  "next_gate": "Publish and anonymously reconcile these exact three test identities as a controlled non-positive transition, then apply only the frozen v5 runtime and focused-test identities before rerunning implementation validators and regressions."
+}

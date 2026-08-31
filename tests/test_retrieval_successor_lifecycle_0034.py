@@ -18,7 +18,7 @@ class RetrievalSuccessorLifecycle0034Tests(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.contract = json.loads(verifier.CONTRACT_PATH.read_text(encoding="utf-8"))
 
-    def test_current_predecessor_bridge_phase_passes(self) -> None:
+    def test_current_governed_lifecycle_phase_passes(self) -> None:
         result = verifier.validate()
         self.assertEqual(result["status"], "pass")
         self.assertEqual(result["errors"], [])
@@ -28,6 +28,9 @@ class RetrievalSuccessorLifecycle0034Tests(unittest.TestCase):
                 "bridge_frozen",
                 "bridge_implemented_predecessor",
                 "bridge_public_predecessor",
+                "implementation_sealed_no_result",
+                "evaluated_unselected",
+                "selected",
             },
         )
         self.assertFalse(result["held_out_loaded_by_bridge"])
@@ -42,9 +45,18 @@ class RetrievalSuccessorLifecycle0034Tests(unittest.TestCase):
         self.assertEqual(successor["default_before_selection"], verifier.CONTROL_CONFIGURATION)
         self.assertTrue(successor["held_out_may_not_be_loaded_by_bridge"])
 
-    def test_unknown_predecessor_hash_fails_closed(self) -> None:
+    def test_unknown_active_retrieval_hash_fails_closed(self) -> None:
         mutated = json.loads(json.dumps(self.contract))
-        mutated["retrieval_lifecycle"]["released_predecessor"]["sha256"] = "0" * 64
+        lifecycle = mutated["retrieval_lifecycle"]
+        current = verifier._identity(ROOT / "src/runbook_sentinel/retrieval.py")
+        released = lifecycle["released_predecessor"]
+        successor = lifecycle["exact_experimental_successor"]
+        if current == {"bytes": released["bytes"], "sha256": released["sha256"]}:
+            released["sha256"] = "0" * 64
+        elif current == {"bytes": successor["bytes"], "sha256": successor["sha256"]}:
+            successor["sha256"] = "0" * 64
+        else:
+            self.fail(f"unexpected current retrieval identity: {current}")
         with tempfile.TemporaryDirectory(prefix="sentinel-successor-contract-") as directory:
             path = Path(directory) / "contract.json"
             path.write_text(json.dumps(mutated), encoding="utf-8")

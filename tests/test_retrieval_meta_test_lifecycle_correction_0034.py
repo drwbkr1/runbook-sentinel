@@ -20,12 +20,24 @@ class RetrievalMetaTestLifecycleCorrection0034Tests(unittest.TestCase):
         cls.contract = json.loads(verifier.CONTRACT_PATH.read_text(encoding="utf-8"))
         cls.correction = cls.contract["meta_test_lifecycle_correction"]
 
-    def test_current_public_meta_test_identity_passes(self) -> None:
+    def test_current_governed_meta_test_identity_passes(self) -> None:
         self.assertTrue(verifier._fixture_meta_test_exact(ROOT, self.contract))
-        result = verifier.validate(require_phase="bridge_public_predecessor")
+        result = verifier.validate()
         self.assertEqual(result["status"], "pass")
         self.assertEqual(result["schema_version"], "1.2")
         self.assertEqual(result["schema_revision"], 3)
+        self.assertEqual(result["successor_phase_test_addendum"], 1)
+        self.assertIn(
+            result["phase"],
+            {
+                "bridge_frozen",
+                "bridge_implemented_predecessor",
+                "bridge_public_predecessor",
+                "implementation_sealed_no_result",
+                "evaluated_unselected",
+                "selected",
+            },
+        )
 
     def test_phase_aware_meta_test_identity_is_precomputed_exactly(self) -> None:
         path = ROOT / self.correction["allowed_test_path"]
@@ -33,7 +45,12 @@ class RetrievalMetaTestLifecycleCorrection0034Tests(unittest.TestCase):
         identity = {"bytes": len(payload), "sha256": hashlib.sha256(payload).hexdigest()}
         released = self.correction["released_meta_test_identity"]
         corrected = self.correction["corrected_meta_test_identity"]
-        self.assertIn(identity, (released, corrected))
+        successor = verifier._successor_phase_test_record(
+            self.contract, self.correction["allowed_test_path"]
+        )
+        self.assertEqual(successor["current_identity"], corrected)
+        future = successor["future_identity"]
+        self.assertIn(identity, (released, corrected, future))
         if identity == released:
             source = payload.decode("utf-8")
             replacement = self.correction["exact_block_replacement"]
@@ -46,8 +63,8 @@ class RetrievalMetaTestLifecycleCorrection0034Tests(unittest.TestCase):
                 replacement["to"],
                 replacement["required_occurrence_count"],
             ).encode("utf-8")
-        self.assertEqual(len(payload), corrected["bytes"])
-        self.assertEqual(hashlib.sha256(payload).hexdigest(), corrected["sha256"])
+            identity = {"bytes": len(payload), "sha256": hashlib.sha256(payload).hexdigest()}
+        self.assertIn(identity, (corrected, future))
 
     def test_unknown_meta_test_identity_fails_closed(self) -> None:
         with tempfile.TemporaryDirectory(prefix="sentinel-meta-test-0034-") as directory:

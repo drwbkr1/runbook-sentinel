@@ -444,6 +444,19 @@
       "mutation": false,
       "correction": "Scan added diff lines plus new files, retain high-specificity token patterns, and exclude only the exact documented forbidden-pattern definition after confirming it is unchanged historical text.",
       "positive_evidence": false
+    },
+    {
+      "id": "TEST-SUCCESSOR-PREDECESSOR-BRIDGE-TRANSITION-0034-001",
+      "class": "fail",
+      "operation": "Run predecessor-phase lifecycle validation and focused tests after applying only the three publicly frozen test identities",
+      "observed_at_utc": "2026-08-31T16:47:38Z",
+      "failure": "The exact three test successors were present, but the older public bridge implementation receipt still bound the predecessor lifecycle-test blob. The lifecycle validator reported bridge_implementation_identity for tests/test_retrieval_successor_lifecycle_0034.py and four derivative assertions stopped the focused suite at 56/60.",
+      "mutation": false,
+      "candidate_test_identities_exact": true,
+      "product_runtime_changed": false,
+      "behavior_or_security_failure": false,
+      "correction": "Preserve the test-only state as a non-positive controlled transition, make its exact identities public, then apply the already frozen v5 runtime so the governed implementation phase can validate before any benchmark result is generated.",
+      "positive_evidence": false
     }
   ]
 }

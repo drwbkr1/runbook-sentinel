@@ -46,6 +46,8 @@ The first 150-test predecessor-state freeze run was explicitly paused without a 
 
 Successor-phase freeze `4971895ba44c650844fcb7fc455b93bd68d90a7c` is now public and exact at tree `a720b72...` over parent `d4f8e40...`. All 14 changed Git blobs and 1,471,614 anonymous raw bytes match locally, the recursive 1,642-entry tree is untruncated, and the signed-out commit page exposes the exact SHA and subject. This remains test-lifecycle freeze evidence only: the three tests and runtime stay at predecessor identities, v3 stays default, and no benchmark or comparison result exists.
 
+After exact freeze record `459c9fc...` became public, only the three test successors were applied. Their precomputed hashes match, but this deliberately intermediate state is not positive evaluation evidence: the older public bridge receipt binds the predecessor lifecycle-test blob while runtime is still predecessor, so the validator reports that single identity error and four derivative focused assertions stop at 56/60. The failure is retained; a complete regression is not inferred or run. Runtime, default, results, held-out state, and security boundaries remain unchanged.
+
 ## BASELINE-0033 frozen candidate-admissibility overlay
 
 Fresh merged-main evidence commit `acf4cd94ed3c50bf23071afa3722308eb9df3d55`, reconciliation `8ff7f9e985f5dcf4cc83ccd056e9bf12af89131b`, and final audit `29ca0e55d55ee4fa6765c85abf7995ba6624f782` are public and exact. Audited closure `5918f614caae96fe5b9bb3815c1d4a1c90908394`, annotated tag object `522cc2243650568e0a063f8a0918041dca98e111`, non-draft latest release `375120109`, the selected zipapp/checksum, anonymous downloads, and signed-out rendered pages all reconcile. No container-image publication exists.
