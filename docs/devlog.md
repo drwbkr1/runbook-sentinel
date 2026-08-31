@@ -1,5 +1,14 @@
 # Development log
 
+## 2026-08-31 BASELINE-0035 release-identity freeze
+
+- Resumed UNIT-004 from public exact result-record head `4eee0cfbef87c8948eae71c752da0cd181624b5a`, tree `c41488e97c97397d72118fd04dd385dc29410d33`; the live GitHub branch matches, public main remains `d62e7cba675997eade87169f5acba14de6452c9b`, and the latest release remains v0.0.33 with two assets and zero deployments.
+- Froze `release-identity-transition/v1.2` before any successor identity or artifact exists. It binds the 10,198-byte classification result and public receipt, preserves `candidate_selected=false`, `selection_performed=false`, selected v3, and historical `exclude_and_retain`, and permits no functional product delta. Four product identity substitutions are prehashed; the other twenty product files, closed 24-file inventory, 43-entry package boundary, and exact admitted container base remain fixed.
+- JSON parsing, the independent frozen-phase verifier, seven focused fail-closed tests in 3.309 seconds, the governed milestone validator without warning, and all 178 tests in 112.321 seconds pass. No successor package/container contract, archive, checksum, manifest renewal, container pull, image export, push, publication, tag, release, deployment, or real-infrastructure interaction occurred.
+- Retained `IDENTITY-INVENTORY-POWERSHELL-0035-001`: a read-only PowerShell inventory wrapper used duplicate case-insensitive hashtable keys and stopped in parsing before reading a file. Also retained the earlier paused full-suite attempt as process-inconclusive because its output/session handle was unavailable after resume and no matching process survived. Neither is positive evidence; the unchanged fresh suite provides the terminal result.
+- Retained `PRECOMMIT-SECRET-SCAN-HISTORICAL-LITERAL-0035-001`: the first whole-file scan matched one pre-existing historical documentation literal that names the private-key marker used by a prior scanner. It found no newly introduced material and is not positive evidence. The corrected scope checks all 40 added tracked lines plus all four new files and reports zero high-signal secret matches; the repository has zero model-artifact files.
+- Retained `RELEASE-IDENTITY-HASH-INVENTORY-POWERSHELL-0035-001`: the first post-record hash wrapper placed a pipe directly after a PowerShell `foreach` statement and stopped during parsing before reading a file. It changed no state and provides no evidence; the corrected `$records` wrapper is used for the bound inventory.
+
 ## 2026-08-31 BASELINE-0035 evaluation-contract integrity freeze
 
 - Resumed from exact public BASELINE-0034 closure `b6e0c785fe89c34c661e8f397067684959b7f24b`, created `C:/Projects/Active/runbook-sentinel-baseline-0035` on `codex/baseline-0035-evaluation-contract-integrity`, and never used OneDrive for repository or verification work.

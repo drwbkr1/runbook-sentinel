@@ -1,5 +1,13 @@
 # Evaluation report
 
+## BASELINE-0035 semantic classification and release-identity freeze
+
+The immutable 10,198-byte BASELINE-0035 result at SHA-256 `99c32fb6917fae5481898f375cd2ba22b0ede6a646bcc646e5338db607c8321d` classifies all three exact retained v5 reports as evidence-admissible with zero hard invariant failures. It does not perform selection: `candidate_selected` and `selection_performed` remain false, `freshness-priority-lexical-v3` remains selected, and the historical candidate disposition remains `exclude_and_retain`. Public result commit `8b57f7220449ad8fe762ea2c1de83782fc5adbe8` and its record are anonymously exact.
+
+UNIT-004 freezes a mechanical release projection before implementation. The schema-1.2 contract closes the product runtime inventory at 24 files, precomputes only four baseline/version substitutions, and requires the other twenty product files byte-exact. It reuses the exact 43-entry dependency-free package boundary and already-admitted digest-pinned local container base without adding a dependency or external asset. Retrieval selection, agent behavior, evaluation semantics, policy, approvals, executor authority, credentials, replay controls, and real-infrastructure boundaries cannot change.
+
+The frozen-phase verifier passes, seven focused mutations fail closed in a 3.309-second run, the governed milestone validator is warning-free, and all 178 tests pass in 112.321 seconds. Successor package and container contracts, the v0.0.35 archive, and its checksum are absent. Two PowerShell parser stops, an earlier paused full-suite run with no recoverable output handle, and an over-broad whole-file secret scan that matched one historical scanner-definition literal are retained as non-positive process evidence. Corrected successors pass, including zero high-signal matches across the exact delta. No v0.0.35 release claim is made before public freeze reconciliation and renewed real-surface gates.
+
 ## BASELINE-0034 preimplementation orientation
 
 Exact public main `d62e7cba675997eade87169f5acba14de6452c9b` is the clean start. Public v0.0.33 remains latest at audited closure `5918f614caae96fe5b9bb3815c1d4a1c90908394`, annotated tag object `522cc2243650568e0a063f8a0918041dca98e111`, release `375120109`, two selected uploads, zero deployments, and no container-image publication.

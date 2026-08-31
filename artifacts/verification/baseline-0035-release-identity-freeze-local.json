@@ -1,0 +1,174 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0035",
+  "receipt_id": "baseline-0035-release-identity-freeze-local",
+  "phase": "frozen_before_successor_identity_implementation",
+  "status": "pass",
+  "observed_at_utc": "2026-08-31T19:47:25Z",
+  "repository": {
+    "worktree": "C:/Projects/Active/runbook-sentinel-baseline-0035",
+    "branch": "codex/baseline-0035-evaluation-contract-integrity",
+    "starting_public_record_commit": "4eee0cfbef87c8948eae71c752da0cd181624b5a",
+    "starting_public_record_tree": "c41488e97c97397d72118fd04dd385dc29410d33",
+    "starting_public_record_parent": "8b57f7220449ad8fe762ea2c1de83782fc5adbe8",
+    "live_branch_at_observation": "4eee0cfbef87c8948eae71c752da0cd181624b5a",
+    "public_main_at_observation": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "one_drive_authoritative": false
+  },
+  "classification": {
+    "result_path": "artifacts/evaluations/baseline-0035-retrieval-evidence-classification.json",
+    "result_bytes": 10198,
+    "result_sha256": "99c32fb6917fae5481898f375cd2ba22b0ede6a646bcc646e5338db607c8321d",
+    "public_receipt_path": "artifacts/verification/baseline-0035-classification-result-public.json",
+    "public_receipt_sha256": "18a4488a8e0473347bdee330725e7c60c10b0d4abd185f107ed438c500e03059",
+    "candidate_selected": false,
+    "selection_performed": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "historical_candidate_disposition": "exclude_and_retain",
+    "historical_result_changed": false
+  },
+  "release_identity": {
+    "contract": "eval/release-identity-contract-0035.json",
+    "contract_bytes": 10235,
+    "contract_sha256": "a06ad0bd11d4a774000e872fd378857cb748240cd08aa8f91be531225b53d084",
+    "schema": "runbook-sentinel/release-identity-transition/v1.2",
+    "from_version": "0.0.33",
+    "to_version": "0.0.35",
+    "skipped_version": "0.0.34",
+    "skipped_version_reason": "BASELINE-0034 closed excluded and retained without a package tag release or deployment.",
+    "functional_product_delta_count": 0,
+    "mechanical_product_identity_path_count": 4,
+    "unchanged_product_runtime_path_count": 20,
+    "closed_product_runtime_path_count": 24,
+    "package_entry_count": 43,
+    "predecessor_package_contract_sha256": "3a3994c821490754144c22a7d19771218f1813971eb16a315cacc311113e7c8e",
+    "predecessor_container_contract_sha256": "54067e1a7447f09eae990196dc8a5c90c0815ef35055ac4f95099afeb4f9fc54",
+    "base_reference": "cgr.dev/chainguard/python@sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+    "base_platform_manifest_digest": "sha256:e15765ff7066a0eaf91e1b6fd5000c1bba47d62b9f9731f2da560711d910c4f3",
+    "new_dependency_count": 0,
+    "new_external_asset_count": 0
+  },
+  "verification": {
+    "changed_json_parse": "pass",
+    "release_identity_verifier": "pass_frozen",
+    "focused_fail_closed_tests": {
+      "status": "pass",
+      "count": 7,
+      "test_elapsed_seconds": 3.309
+    },
+    "complete_regression": {
+      "status": "pass",
+      "count": 178,
+      "test_elapsed_seconds": 112.321,
+      "process_elapsed_seconds": 112.642
+    },
+    "milestone_validator": "pass_no_warnings_unit_004_active",
+    "git_diff_check": "pass",
+    "delta_high_signal_secret_match_count": 0,
+    "repository_model_artifact_match_count": 0,
+    "successor_package_contract_absent": true,
+    "successor_container_contract_absent": true,
+    "successor_archive_absent": true,
+    "successor_checksum_absent": true,
+    "manifest_renewed": false,
+    "archive_or_container_built": false,
+    "failed_or_inconclusive_process_attempts_counted_as_positive_evidence": false
+  },
+  "retained_process_observations": [
+    {
+      "id": "IDENTITY-INVENTORY-POWERSHELL-0035-001",
+      "status": "process_invalid",
+      "positive_evidence": false,
+      "effect": "A read-only PowerShell inventory wrapper declared duplicate case-insensitive hashtable keys and stopped during parsing before reading a file or changing project state."
+    },
+    {
+      "id": "RELEASE-IDENTITY-FULL-SUITE-PAUSED-0035-001",
+      "status": "process_inconclusive",
+      "positive_evidence": false,
+      "effect": "The earlier full-suite invocation lost its output/session handle across the explicit pause. On resume no matching unittest process survived, so no terminal outcome is inferred; the unchanged fresh 178-test run is the positive result."
+    },
+    {
+      "id": "PRECOMMIT-SECRET-SCAN-HISTORICAL-LITERAL-0035-001",
+      "status": "scope_over_broad",
+      "positive_evidence": false,
+      "effect": "The first whole-file scan matched one pre-existing historical documentation literal naming a private-key marker. The corrected scan covers all 40 added tracked lines and all four new files with zero high-signal matches."
+    },
+    {
+      "id": "RELEASE-IDENTITY-HASH-INVENTORY-POWERSHELL-0035-001",
+      "status": "process_invalid",
+      "positive_evidence": false,
+      "effect": "The first post-record hash wrapper placed a pipe directly after a PowerShell foreach statement and stopped during parsing before reading a file or changing project state. The corrected records-variable wrapper supplies the bound inventory."
+    }
+  ],
+  "frozen_paths_excluding_this_receipt": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 149892,
+      "sha256": "3bf18ed5661646acee0226ee3db056391b3f293e4e9578175f27ce8dcdc06e57"
+    },
+    {
+      "path": "contracts/milestone-0035.json",
+      "bytes": 12992,
+      "sha256": "91edfd0da6e2c20bcb0c74b0ccdb6db070309b4862a70186ccfc901a0001e4a1"
+    },
+    {
+      "path": "docs/devlog.md",
+      "bytes": 507906,
+      "sha256": "126d918b67056ca5cd253c4592c0bc535a564e6b14cdcf531f86b2dcf5c23f41"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "bytes": 260327,
+      "sha256": "dc497d3db11b50fce5478fddb29b40aec74f3390d62c671029775da3e351437d"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 111645,
+      "sha256": "8cc12783a437ca4a9c9d2e06b16f4f56cdc76879bb2e072d23243330ca808258"
+    },
+    {
+      "path": "docs/status.md",
+      "bytes": 293753,
+      "sha256": "8243a805e5e8057ecfbd082b8af18cfc86ad947a26dc8f77b901aeb4a55914f1"
+    },
+    {
+      "path": "docs/threat-model.md",
+      "bytes": 25315,
+      "sha256": "8a783f6962da79cd4229531a80cd102632fa502396601a0bbce612e02bc31164"
+    },
+    {
+      "path": "docs/version-history.md",
+      "bytes": 31531,
+      "sha256": "2478e9ddd30b7c52f90e361ae161306a75ed34b77bf5dd8f5537f4d917a50c54"
+    },
+    {
+      "path": "eval/release-identity-contract-0035.json",
+      "bytes": 10235,
+      "sha256": "a06ad0bd11d4a774000e872fd378857cb748240cd08aa8f91be531225b53d084"
+    },
+    {
+      "path": "scripts/verify_release_identity_contract_0035.py",
+      "bytes": 9538,
+      "sha256": "ac6d3579c9aaf02e8647c6092f55f8d428f3db893a09ed1bded2dcd0551da050"
+    },
+    {
+      "path": "tests/test_release_identity_contract_0035.py",
+      "bytes": 5348,
+      "sha256": "e2b520993c80ea74c5e243ab46b8b14b0b5233ba633242e97a1ce402223ccdfd"
+    }
+  ],
+  "frozen_path_count_excluding_this_receipt": 11,
+  "total_commit_path_count_expected": 12,
+  "boundaries": {
+    "runtime_behavior_or_default_changed": false,
+    "candidate_selected_or_promoted": false,
+    "historical_result_rewritten": false,
+    "security_or_authority_weakened": false,
+    "dependency_model_service_secret_or_paid_asset_added": false,
+    "external_asset_or_base_identity_changed": false,
+    "real_operational_infrastructure_contacted": false,
+    "container_image_pulled_built_exported_pushed_published_or_redistributed": false,
+    "tag_release_or_deployment_created": false
+  },
+  "next_gate": "Commit and publish only these 12 freeze paths on the candidate branch, anonymously reconcile every changed public byte while main remains unchanged, then publish a separate public receipt before successor identity implementation."
+}

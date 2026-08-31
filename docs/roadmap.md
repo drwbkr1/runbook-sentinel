@@ -16,7 +16,9 @@ UNIT-003 implementation is public and exact at `e972ec9a22f67539b8365e85b49c87da
 
 UNIT-003 is complete. One exclusive write produced 10,198-byte result SHA-256 `99c32fb6...`; result-present verification, sixteen focused tests, and all 171 tests pass. Public commit `8b57f7220449ad8fe762ea2c1de83782fc5adbe8`, tree `c6ee3e460e662acca211de2fa828134ed0bbb089`, is exact across both anonymous raw paths, and anonymous semantics preserve no selection, v3 selected, and the historical excluded disposition. UNIT-004 now validates every current real surface and release gate before any merge or release.
 
-No BASELINE-0035 result, default transition, package, image, tag, release, or deployment exists. Revealed held-out evidence is used only to diagnose evaluation machinery; it cannot tune or select a retriever.
+UNIT-004 has a local preimplementation release-identity freeze. Schema 1.2 permits no functional product delta: four precomputed baseline/version substitutions are the only product identity changes, the other twenty runtime paths and closed 24-file inventory remain exact, v3 stays selected, and security/authority boundaries stay unchanged. The dependency-free 43-entry package boundary and exact already-admitted local container base are inherited; no new dependency or external asset is introduced. The verifier, seven focused tests, governed milestone validation, and all 178 tests pass. Four process observations are retained without positive evidentiary weight; corrected successors pass, including a delta-only secret scan with zero matches. Publish and anonymously reconcile this freeze before any v0.0.35 source identity, successor package/container contract, manifest, archive, or container build.
+
+The BASELINE-0035 classification result exists and is public, but no default transition, v0.0.35 package, image, tag, release, or deployment exists. Revealed held-out evidence is used only to diagnose evaluation machinery; it cannot tune or select a retriever.
 
 ## Active checkpoint baseline-0034 - single-pass bounded retrieval latency
 

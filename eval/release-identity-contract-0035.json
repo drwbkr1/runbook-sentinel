@@ -1,0 +1,176 @@
+{
+  "schema_version": "runbook-sentinel/release-identity-transition/v1.2",
+  "checkpoint": "baseline-0035",
+  "contract_status": "frozen_before_successor_identity_implementation",
+  "frozen_at_utc": "2026-08-31T19:29:20Z",
+  "starting_checkpoint": {
+    "branch": "codex/baseline-0035-evaluation-contract-integrity",
+    "public_record_commit": "4eee0cfbef87c8948eae71c752da0cd181624b5a",
+    "public_record_tree": "c41488e97c97397d72118fd04dd385dc29410d33",
+    "public_record_parent": "8b57f7220449ad8fe762ea2c1de83782fc5adbe8",
+    "public_main_commit": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "released_version": "0.0.33",
+    "released_checkpoint": "baseline-0033",
+    "released_tag": "v0.0.33",
+    "latest_release_id": 375120109,
+    "latest_release_asset_count": 2,
+    "deployment_count": 0
+  },
+  "classification_result": {
+    "path": "artifacts/evaluations/baseline-0035-retrieval-evidence-classification.json",
+    "bytes": 10198,
+    "sha256": "99c32fb6917fae5481898f375cd2ba22b0ede6a646bcc646e5338db607c8321d",
+    "public_receipt_path": "artifacts/verification/baseline-0035-classification-result-public.json",
+    "public_receipt_bytes": 2734,
+    "public_receipt_sha256": "18a4488a8e0473347bdee330725e7c60c10b0d4abd185f107ed438c500e03059",
+    "all_reports_candidate_evidence_admissible": true,
+    "all_reports_hard_invariant_failure_count": 0,
+    "candidate_selected": false,
+    "selection_performed": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "historical_candidate_disposition": "exclude_and_retain",
+    "historical_result_changed": false
+  },
+  "bounded_change": {
+    "functional_product_delta": [],
+    "mechanical_release_identity": {
+      "from_checkpoint": "baseline-0033",
+      "to_checkpoint": "baseline-0035",
+      "from_version": "0.0.33",
+      "to_version": "0.0.35",
+      "skipped_version": "0.0.34",
+      "skipped_version_reason": "BASELINE-0034 closed with its v5 candidate excluded and no package tag release or deployment; v0.0.34 was never created.",
+      "from_package_contract": "eval/package-contract-0033.json",
+      "to_package_contract": "eval/package-contract-0035.json",
+      "from_container_contract": "eval/container-contract-0033-v13.json",
+      "to_container_contract": "eval/container-contract-0035-v14.json",
+      "purpose": "Make source package API MCP dashboard container and public release identities describe the verified BASELINE-0035 evaluation-contract improvement without changing incident-agent behavior or retrieval selection."
+    },
+    "new_project_dependencies": [],
+    "new_external_assets": [],
+    "new_model_or_retrieval_configuration": [],
+    "allowed_changes": [
+      "the four precomputed product identity substitutions",
+      "mechanical v0.0.35 package container manifest harness test and documentation identities",
+      "project-authored package checksum evaluation runtime dashboard audit review merge release and public verification evidence",
+      "local-only derived container verification with the already admitted exact base"
+    ],
+    "forbidden_changes": [
+      "agent diagnosis evidence-request action-proposal or abstention behavior",
+      "retrieval corpus index ranking selected freshness-priority-lexical-v3 configuration or historical v4/v5 dispositions",
+      "generation decision context prompt model adapter or model configuration",
+      "synthetic scenarios splits expected terminal states graders thresholds or evaluation semantics",
+      "authorization capabilities approval proposal hashing expiry idempotency replay postconditions credentials or execution authority",
+      "dependency framework model service secret account paid asset external code data or real-infrastructure connector",
+      "container base digest security controls image export registry authentication push publication or redistribution",
+      "rewriting removing relabeling or rescuing failed blocked stale superseded stopped or unfavorable evidence"
+    ]
+  },
+  "runtime_identity": {
+    "inventory_root": "src/runbook_sentinel",
+    "tracked_file_count": 24,
+    "mechanical_paths": {
+      "src/runbook_sentinel/__init__.py": {
+        "before_sha256": "95cc2ef7e0245f372c6059781325b9d7d5aaa6e7c4d48cc2fc20af1f74b43d41",
+        "after_sha256": "ebb68dc741f3428fba5ef0534462e54daf5282becaec7c6b9a9b3f71aca6c752",
+        "replacements": [["0.0.33", "0.0.35", 1]]
+      },
+      "src/runbook_sentinel/api.py": {
+        "before_sha256": "606dc0f57c7f0bebb4adb29fea3ef301cd233091c0c5208cec1c1418872d02a1",
+        "after_sha256": "18bf4835544d8d5654f30b1c31542cbf301e430fe094eb58c95d1222994a3ff4",
+        "replacements": [["baseline-0033", "baseline-0035", 1]]
+      },
+      "src/runbook_sentinel/cli.py": {
+        "before_sha256": "3bb3119995118860b08714c2acca8667af6ecde69f3ff38edd03b444ff20d913",
+        "after_sha256": "000eb7b6bafee77f59b5b2372a4ada409dd6fb48ff49f0a462ea9ef736c64cef",
+        "replacements": [["baseline-0033", "baseline-0035", 1]]
+      },
+      "src/runbook_sentinel/mcp_server.py": {
+        "before_sha256": "7b245ea84de9716038a757069ccc0436dcdf9a84f2332ae172812fcb685836ed",
+        "after_sha256": "50aa4acc073a1fc6a0069f1be2f0f2ac92d64f36fd36c55d89c7794d2f99c5bb",
+        "replacements": [["0.0.33", "0.0.35", 1]]
+      }
+    },
+    "unchanged_paths": {
+      "src/runbook_sentinel/__main__.py": "eff3aef1ed0a4e55867dea88e940fc652ce7d3dee819930d58b48b4935b75f55",
+      "src/runbook_sentinel/agent.py": "b04ac41d48708028733a31ff2d8b11a6f7f109a17f1f52f6f9ca273a171579e6",
+      "src/runbook_sentinel/approval_lifetime_evaluation.py": "59f39d5d94968c32b199e201a04d068339d221c189f82544ea66d82b7924430b",
+      "src/runbook_sentinel/catalog.py": "85c4b98e252106b1ec056a76e99bb5390fc943d41a111459ca469f0acdc1113c",
+      "src/runbook_sentinel/data/scenarios.json": "f9e3fb24bf1cb74487796de0cd7c78b3594fa9fc46d1cacb957f755c0ca8a242",
+      "src/runbook_sentinel/errors.py": "5214806e489726f6dc5625afd4aa128e2b4ef2ba5874cf0f45d07295ca31d6ca",
+      "src/runbook_sentinel/evaluation.py": "2d93c112b4ad59ad9a7f3ff718bc105b5e066ed72e2342b02233c21a645b66c2",
+      "src/runbook_sentinel/evidence.py": "6614bac067bbe0487cce416339c8da80d7a9a7c61a72e02258dc2fd24563d0d2",
+      "src/runbook_sentinel/idempotency_authorization_evaluation.py": "e3d7aa31ae6d88b7e3c0945bfe5e796d3302c40c2bad486bda9e5b5d5f7739fb",
+      "src/runbook_sentinel/live_trace_anchor_evaluation.py": "c415eabb77e67c0eb94e2dbd7f5bb2bc5dba61b47803bbf0c45a8152a3007108",
+      "src/runbook_sentinel/model_adapter.py": "a769b4b8f871eff813562e6149aef6adbf74ded15037fe8c004a64d98e154ec4",
+      "src/runbook_sentinel/operator_auth.py": "9431e7101a0289c68893c51a245aa9db594d9df275dccbb196b3cc4835859ea0",
+      "src/runbook_sentinel/operator_authentication_evaluation.py": "0a8594d64d220f15cb65c3e2bb97c1172d3605a746b95b0a4d57b26275ff917b",
+      "src/runbook_sentinel/policy.py": "1b23a56b14527347ec723a4c83595414987f9ef7288b532afda49fb4fb7bd1aa",
+      "src/runbook_sentinel/retrieval.py": "f5514cb7cb0b7686987d3374bcd80849f868509a2d32676a88585dd40d456b37",
+      "src/runbook_sentinel/retrieval_quality.py": "dbd230ed8274c686a99bc67551be1349cf76139a871c10718ff7ef79c95ac387",
+      "src/runbook_sentinel/service.py": "9c19a3d597b06a53adfa45c77ea6f83b820c54e808b555e1a6618a7cb3a6beb0",
+      "src/runbook_sentinel/storage.py": "1a02cbc9b7250941e264b28a2a9d7e106f961c5cae03c0e762199f5f2d337212",
+      "src/runbook_sentinel/telemetry.py": "1e136b8642fc37f76bd803e720d5849123867fe8565426c8ce43ec5b21245815",
+      "src/runbook_sentinel/trace_integrity_evaluation.py": "aab63e902297aa2c26734cbaef46b9106c07074696c5cf1d4cef2a1b70690d4a"
+    }
+  },
+  "predecessors": {
+    "active_package_contract": {
+      "path": "eval/package-contract.json",
+      "bytes": 17698,
+      "sha256": "3a3994c821490754144c22a7d19771218f1813971eb16a315cacc311113e7c8e"
+    },
+    "versioned_package_contract": {
+      "path": "eval/package-contract-0033.json",
+      "bytes": 17698,
+      "sha256": "3a3994c821490754144c22a7d19771218f1813971eb16a315cacc311113e7c8e"
+    },
+    "active_container_contract": {
+      "path": "eval/container-contract.json",
+      "bytes": 14502,
+      "sha256": "54067e1a7447f09eae990196dc8a5c90c0815ef35055ac4f95099afeb4f9fc54"
+    },
+    "versioned_container_contract": {
+      "path": "eval/container-contract-0033-v13.json",
+      "bytes": 14502,
+      "sha256": "54067e1a7447f09eae990196dc8a5c90c0815ef35055ac4f95099afeb4f9fc54"
+    }
+  },
+  "successors": {
+    "package_contract": "eval/package-contract-0035.json",
+    "container_contract": "eval/container-contract-0035-v14.json",
+    "manifest": "eval/manifest.json",
+    "archive": "dist/runbook-sentinel-0.0.35.pyz",
+    "checksum": "dist/runbook-sentinel-0.0.35.pyz.sha256",
+    "container_receipt": "artifacts/verification/container-baseline-0035.json",
+    "version": "0.0.35",
+    "checkpoint": "baseline-0035",
+    "container_contract_id": "container-runtime-v14",
+    "package_entry_count": 43
+  },
+  "external_asset_reuse": {
+    "base_reference": "cgr.dev/chainguard/python@sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+    "platform_manifest_digest": "sha256:e15765ff7066a0eaf91e1b6fd5000c1bba47d62b9f9731f2da560711d910c4f3",
+    "source_gate": {
+      "path": "artifacts/verification/container-source-gate-baseline-0032-chainguard-python.json",
+      "bytes": 11818,
+      "sha256": "f6317c0a7c4d01041c4676e221dff705475c1e7f171e356c2c344122c8994fc4"
+    },
+    "intake_receipt": {
+      "path": "artifacts/verification/container-base-intake-baseline-0032.json",
+      "bytes": 4741,
+      "sha256": "1172c50f7794ec6cc6f855f8b61fc1cf448df2c76221d7487fc3f03829cdf142"
+    },
+    "new_pull_before_public_freeze_allowed": false,
+    "export_push_publish_or_redistribute_allowed": false
+  },
+  "verification_contract": {
+    "public_preimplementation_freeze_required": true,
+    "successor_contracts_and_archive_absent_at_freeze": true,
+    "implementation_seal_required_before_manifest_or_archive": true,
+    "source_package_and_container_real_surfaces_required": true,
+    "clean_public_clone_required": true,
+    "release_truth_audit_required": true,
+    "failure_disposition": "stop_and_retain"
+  }
+}

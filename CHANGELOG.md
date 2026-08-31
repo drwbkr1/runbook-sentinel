@@ -15,6 +15,8 @@
 - Published implementation seal `e972ec9a22f67539b8365e85b49c87da7f03e391`, tree `610151cde61d729cdf05dd154302d69bb3ff7524`. All three anonymous raw paths are exact, the recursive tree is untruncated, and the result is absent both from the public tree and at its anonymous raw URL.
 - Invoked the fixed exclusive writer exactly once. The 10,198-byte result at SHA-256 `99c32fb6...` reconstructs deterministically, passes the implemented-result verifier, sixteen focused tests, and all 171 tests, and records admissibility without selection or historical rewrite.
 - Published immutable result commit `8b57f7220449ad8fe762ea2c1de83782fc5adbe8`, tree `c6ee3e460e662acca211de2fa828134ed0bbb089`. Both anonymous raw paths and parsed public result semantics are exact; UNIT-003 closes and UNIT-004 opens.
+- Froze the preimplementation v0.0.35 release-identity transition under schema 1.2. It changes no incident-agent, retrieval, evaluator, scenario, grader, model, policy, authority, dependency, or external-asset behavior; only four product identity substitutions are precomputed while twenty other product files and the closed 24-file inventory remain exact. The 43-entry package boundary and digest-pinned local container base are inherited.
+- The frozen-phase verifier, seven focused fail-closed tests, governed milestone validation, and all 178 project tests pass. Successor package/container contracts, archive, and checksum remain absent. Four parser, paused-output, and over-broad-scan observations contribute no positive evidence; their corrected successors pass, including zero high-signal matches across the exact delta.
 
 ## Retained experiment - BASELINE-0034
 
