@@ -18,6 +18,8 @@ UNIT-003 is complete. One exclusive write produced 10,198-byte result SHA-256 `9
 
 UNIT-004 has a local preimplementation release-identity freeze. Schema 1.2 permits no functional product delta: four precomputed baseline/version substitutions are the only product identity changes, the other twenty runtime paths and closed 24-file inventory remain exact, v3 stays selected, and security/authority boundaries stay unchanged. The dependency-free 43-entry package boundary and exact already-admitted local container base are inherited; no new dependency or external asset is introduced. The verifier, seven focused tests, governed milestone validation, and all 178 tests pass. Four process observations are retained without positive evidentiary weight; corrected successors pass, including a delta-only secret scan with zero matches. Publish and anonymously reconcile this freeze before any v0.0.35 source identity, successor package/container contract, manifest, archive, or container build.
 
+The preimplementation seal is public and exact at `598ad61752009f490a07052c4551bb91ad4f0ba1`, tree `d19beb95dccee0e681526b6e057dd4d78b7bb3f8`, across all twelve changed bytes and an untruncated 1,685-entry tree. Main, v0.0.33, two assets, and the empty deployments response remain unchanged. Publish and reconcile the record-only receipt, then implement the frozen mechanical projection; archive and container construction remain closed.
+
 The BASELINE-0035 classification result exists and is public, but no default transition, v0.0.35 package, image, tag, release, or deployment exists. Revealed held-out evidence is used only to diagnose evaluation machinery; it cannot tune or select a retriever.
 
 ## Active checkpoint baseline-0034 - single-pass bounded retrieval latency

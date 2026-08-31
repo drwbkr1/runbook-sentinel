@@ -8,6 +8,8 @@ UNIT-004 freezes a mechanical release projection before implementation. The sche
 
 The frozen-phase verifier passes, seven focused mutations fail closed in a 3.309-second run, the governed milestone validator is warning-free, and all 178 tests pass in 112.321 seconds. Successor package and container contracts, the v0.0.35 archive, and its checksum are absent. Two PowerShell parser stops, an earlier paused full-suite run with no recoverable output handle, and an over-broad whole-file secret scan that matched one historical scanner-definition literal are retained as non-positive process evidence. Corrected successors pass, including zero high-signal matches across the exact delta. No v0.0.35 release claim is made before public freeze reconciliation and renewed real-surface gates.
 
+Public freeze commit `598ad61752009f490a07052c4551bb91ad4f0ba1` is exact at tree `d19beb95dccee0e681526b6e057dd4d78b7bb3f8` across all twelve changed Git blobs and anonymous raw files; its 1,685-entry recursive tree is untruncated and the public commit HTML exposes the expected subject. Public main, latest v0.0.33 release with two assets, and the exact empty deployments response remain unchanged. Three wrapper-level tracking, empty-array, and receipt-check quoting failures are retained and excluded from positive evidence; corrected successors pass.
+
 ## BASELINE-0034 preimplementation orientation
 
 Exact public main `d62e7cba675997eade87169f5acba14de6452c9b` is the clean start. Public v0.0.33 remains latest at audited closure `5918f614caae96fe5b9bb3815c1d4a1c90908394`, annotated tag object `522cc2243650568e0a063f8a0918041dca98e111`, release `375120109`, two selected uploads, zero deployments, and no container-image publication.

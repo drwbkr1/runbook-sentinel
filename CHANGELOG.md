@@ -17,6 +17,7 @@
 - Published immutable result commit `8b57f7220449ad8fe762ea2c1de83782fc5adbe8`, tree `c6ee3e460e662acca211de2fa828134ed0bbb089`. Both anonymous raw paths and parsed public result semantics are exact; UNIT-003 closes and UNIT-004 opens.
 - Froze the preimplementation v0.0.35 release-identity transition under schema 1.2. It changes no incident-agent, retrieval, evaluator, scenario, grader, model, policy, authority, dependency, or external-asset behavior; only four product identity substitutions are precomputed while twenty other product files and the closed 24-file inventory remain exact. The 43-entry package boundary and digest-pinned local container base are inherited.
 - The frozen-phase verifier, seven focused fail-closed tests, governed milestone validation, and all 178 project tests pass. Successor package/container contracts, archive, and checksum remain absent. Four parser, paused-output, and over-broad-scan observations contribute no positive evidence; their corrected successors pass, including zero high-signal matches across the exact delta.
+- Published preimplementation release-identity seal `598ad61752009f490a07052c4551bb91ad4f0ba1`, tree `d19beb95dccee0e681526b6e057dd4d78b7bb3f8`. Explicit tracking, remote, anonymous metadata, all twelve Git blobs/raw files, the untruncated 1,685-entry tree, commit HTML, unchanged main/latest release, and exact empty deployments response reconcile. Three public-check/receipt wrapper failures are retained; corrected checks pass.
 
 ## Retained experiment - BASELINE-0034
 

@@ -166,7 +166,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Commit publish and independently verify the preimplementation v0.0.35 release-identity freeze while successor identities contracts manifest archive checksum and container remain absent; only then implement the exact frozen mechanical projection.",
+  "next_action": "Commit publish and independently verify the record-only receipt for public exact preimplementation freeze 598ad61752009f490a07052c4551bb91ad4f0ba1; only then implement the exact frozen v0.0.35 mechanical projection.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -199,7 +199,8 @@
       "Public preimplementation freeze 2877ae92f923e4f9dc304e309fb59c07475d6bfe is exact across local tracking and remote refs commit tree parent untruncated recursive tree and all fourteen anonymous raw paths",
       "Public implementation seal e972ec9a22f67539b8365e85b49c87da7f03e391 is exact across refs commit tree parent and all three anonymous raw paths while the result is absent from the public tree and returns anonymous HTTP 404",
       "Public immutable result 8b57f7220449ad8fe762ea2c1de83782fc5adbe8 is exact across refs commit tree parent and both anonymous raw paths; anonymous result semantics preserve no selection v3 selected and exclude_and_retain history",
-      "The local schema-1.2 release-identity freeze passes its frozen-phase verifier seven focused fail-closed tests the warning-free governed milestone validator and all 178 tests while successor package container archive and checksum artifacts remain absent"
+      "The local schema-1.2 release-identity freeze passes its frozen-phase verifier seven focused fail-closed tests the warning-free governed milestone validator and all 178 tests while successor package container archive and checksum artifacts remain absent",
+      "Public preimplementation identity freeze 598ad61752009f490a07052c4551bb91ad4f0ba1 tree d19beb95dccee0e681526b6e057dd4d78b7bb3f8 is exact across refs metadata twelve Git blobs twelve anonymous raw files an untruncated 1685-entry tree commit HTML unchanged main and latest release and an exact empty deployment response"
     ],
     "evidence_paths": [
       "artifacts/verification/baseline-0034-closure-reconciliation-local.json",
@@ -214,7 +215,8 @@
       "artifacts/verification/baseline-0035-classification-result-local.json",
       "artifacts/verification/baseline-0035-classification-result-public.json",
       "eval/release-identity-contract-0035.json",
-      "artifacts/verification/baseline-0035-release-identity-freeze-local.json"
+      "artifacts/verification/baseline-0035-release-identity-freeze-local.json",
+      "artifacts/verification/baseline-0035-release-identity-freeze-public.json"
     ]
   },
   "handoff": {

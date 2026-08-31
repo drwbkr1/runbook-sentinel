@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0035",
+  "receipt_id": "baseline-0035-release-identity-freeze-public",
+  "phase": "frozen_before_successor_identity_implementation",
+  "status": "pass",
+  "observed_at_utc": "2026-08-31T20:14:18Z",
+  "repository": {
+    "branch": "codex/baseline-0035-evaluation-contract-integrity",
+    "commit": "598ad61752009f490a07052c4551bb91ad4f0ba1",
+    "tree": "d19beb95dccee0e681526b6e057dd4d78b7bb3f8",
+    "parent": "4eee0cfbef87c8948eae71c752da0cd181624b5a",
+    "public_main": "d62e7cba675997eade87169f5acba14de6452c9b"
+  },
+  "verification": {
+    "local_explicit_tracking_ls_remote_and_anonymous_ref_exact": true,
+    "anonymous_commit_tree_and_parent_exact": true,
+    "recursive_tree_truncated": false,
+    "recursive_tree_entry_count": 1685,
+    "changed_path_count": 12,
+    "git_blob_identity_count": 12,
+    "anonymous_raw_exact_count": 12,
+    "anonymous_commit_html_subject_visible": true,
+    "public_main_unchanged": true,
+    "latest_release_id": 375120109,
+    "latest_release_tag": "v0.0.33",
+    "latest_release_asset_count": 2,
+    "deployment_raw_json": "[]",
+    "deployment_count": 0
+  },
+  "paths": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 149892,
+      "sha256": "3bf18ed5661646acee0226ee3db056391b3f293e4e9578175f27ce8dcdc06e57",
+      "git_blob": "6c00202e23220a3913037b131747dcbdd163fe4c"
+    },
+    {
+      "path": "artifacts/verification/baseline-0035-release-identity-freeze-local.json",
+      "bytes": 7881,
+      "sha256": "13b224e8c37d3df387bfd382e3c300c0939d52c74fe39e815fb8c4c7ae8267c2",
+      "git_blob": "7cdf14f92934f707be2009a32cd16b8bffd0d265"
+    },
+    {
+      "path": "contracts/milestone-0035.json",
+      "bytes": 12992,
+      "sha256": "91edfd0da6e2c20bcb0c74b0ccdb6db070309b4862a70186ccfc901a0001e4a1",
+      "git_blob": "3853558d3df9bdafc297c96bb40dade555ffdf6d"
+    },
+    {
+      "path": "docs/devlog.md",
+      "bytes": 507906,
+      "sha256": "126d918b67056ca5cd253c4592c0bc535a564e6b14cdcf531f86b2dcf5c23f41",
+      "git_blob": "1b855ddf9481286151aa78772824a91352cf18a4"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "bytes": 260327,
+      "sha256": "dc497d3db11b50fce5478fddb29b40aec74f3390d62c671029775da3e351437d",
+      "git_blob": "b54e389fb72eb68f0a28cdb173c284f67388be3b"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 111645,
+      "sha256": "8cc12783a437ca4a9c9d2e06b16f4f56cdc76879bb2e072d23243330ca808258",
+      "git_blob": "9327066041ea19d43a5d9135e58e7bd99ba6d195"
+    },
+    {
+      "path": "docs/status.md",
+      "bytes": 293753,
+      "sha256": "8243a805e5e8057ecfbd082b8af18cfc86ad947a26dc8f77b901aeb4a55914f1",
+      "git_blob": "6505349b4c21c5bffb40c8d35e714c9f3fe82497"
+    },
+    {
+      "path": "docs/threat-model.md",
+      "bytes": 25315,
+      "sha256": "8a783f6962da79cd4229531a80cd102632fa502396601a0bbce612e02bc31164",
+      "git_blob": "b48d36c8bb7284410260ccf5405c1aa69a612a0a"
+    },
+    {
+      "path": "docs/version-history.md",
+      "bytes": 31531,
+      "sha256": "2478e9ddd30b7c52f90e361ae161306a75ed34b77bf5dd8f5537f4d917a50c54",
+      "git_blob": "f5acfdf189e392100c93b1b1e7761bb54ee082e6"
+    },
+    {
+      "path": "eval/release-identity-contract-0035.json",
+      "bytes": 10235,
+      "sha256": "a06ad0bd11d4a774000e872fd378857cb748240cd08aa8f91be531225b53d084",
+      "git_blob": "daa868737d77dbf90a30b97b071b1612f74d6ec6"
+    },
+    {
+      "path": "scripts/verify_release_identity_contract_0035.py",
+      "bytes": 9538,
+      "sha256": "ac6d3579c9aaf02e8647c6092f55f8d428f3db893a09ed1bded2dcd0551da050",
+      "git_blob": "c65d1018e50bb11114d327507aee77c6b84d6fdb"
+    },
+    {
+      "path": "tests/test_release_identity_contract_0035.py",
+      "bytes": 5348,
+      "sha256": "e2b520993c80ea74c5e243ab46b8b14b0b5233ba633242e97a1ce402223ccdfd",
+      "git_blob": "0efac98e84589e8b912ec3f9bffe3c4d54019efb"
+    }
+  ],
+  "retained_process_observations": [
+    {
+      "id": "PUBLIC-FREEZE-TRACKING-REF-0035-001",
+      "status": "process_invalid",
+      "positive_evidence": false,
+      "effect": "Two wrappers used Git upstream shorthand after push. The checkout's narrow fetch refspec does not map this branch for shorthand resolution, so both stopped before API evidence. An explicit targeted fetch and exact named tracking ref pass without changing remote policy."
+    },
+    {
+      "id": "DEPLOYMENT-EMPTY-ARRAY-POWERSHELL-0035-001",
+      "status": "process_invalid",
+      "positive_evidence": false,
+      "effect": "One wrapper converted GitHub's empty JSON array response to null and then wrapped it as one null element. The corrected raw-response check proves the exact response is [] and deployment count is zero."
+    },
+    {
+      "id": "PUBLIC-RECEIPT-GIT-OBJECT-PYTHON-QUOTE-0035-001",
+      "status": "process_invalid",
+      "positive_evidence": false,
+      "effect": "An over-compressed Python one-liner broke its own nested quoting and stopped before checking a Git object. The readable in-memory successor proves all twelve receipt records against exact commit bytes and Git blob identities."
+    }
+  ],
+  "boundaries": {
+    "candidate_selected": false,
+    "selection_performed": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "historical_result_rewritten": false,
+    "functional_product_delta_implemented": false,
+    "successor_product_identity_present": false,
+    "successor_package_contract_present": false,
+    "successor_container_contract_present": false,
+    "successor_archive_present": false,
+    "external_asset_or_base_changed": false,
+    "security_or_authority_changed": false,
+    "public_main_changed": false,
+    "tag_release_or_deployment_created": false
+  },
+  "next_gate": "Publish and anonymously reconcile this record-only receipt, then implement only the exact frozen v0.0.35 identity projection and successor package/container contracts before renewed manifest or artifact construction."
+}
