@@ -18,6 +18,8 @@ UNIT-004 is locally complete with v5 excluded. Five independent development-only
 
 The first post-result regression is retained at 148/151 because three tests asserted the earlier result-absent phase after both governing validators correctly reported `evaluated_unselected`. The phase-only correction changes no result, selection rule, runtime, default, or security boundary; 26 focused and all 155 tests now pass.
 
+UNIT-005 is complete without release. Public result commit `46bfc6c...` is exact across refs, API commit/tree/parent, 27 anonymous raw paths totaling 7,811,205 bytes, an untruncated 1,664-entry tree, and the rendered commit. Public main remains `d62e7cb...`; v0.0.33 remains latest with two assets and zero deployments. BASELINE-0034 closes as a retained exclusion, not a product release.
+
 The first bridge implementation is retained after a 135/136 regression exposed an inherited container-contract hash on the release-identity verifier. Schema 1.1 keeps that verifier byte-exact and uses its frozen release fixture once a later successor exists; only candidate-admissibility and tier-cap validators may bridge the exact v5 identity. The corrected reimplementation now passes that inherited container check and remains a no-runtime prerequisite, not candidate evidence.
 
 The frozen comparison has taken the failure branch: retain and publish the excluded v5 evidence, keep v3 selected, and do not claim or release a Pareto improvement. A default transition, package, container, v0.0.34 tag, release, or deployment is outside the resulting authority.

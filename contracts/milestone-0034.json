@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "milestone_id": "BASELINE-0034",
-  "status": "active",
+  "status": "complete",
   "authority": {
     "mode": "inherited",
     "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
@@ -318,7 +318,7 @@
       ],
       "action_class": "public_release",
       "human_gate": false,
-      "status": "in_progress",
+      "status": "complete",
       "inputs": [
         "frozen comparison disposition",
         "passing selection evidence or retained exclusion"
@@ -333,12 +333,13 @@
         "full_real_surface_matrix_if_selected": "pass",
         "container_local_only": "pass",
         "release_truth_audit_if_selected": "pass",
-        "public_reconciliation": "pending"
-      }
+        "public_reconciliation": "pass"
+      },
+      "disposition": "pass"
     }
   ],
-  "current_unit": "UNIT-005",
-  "next_action": "Publish and independently reconcile the exact UNIT-004 benchmark, six reports and traces, comparison, phase-only correction, and local receipt. Then close BASELINE-0034 excluded without changing the v3 default or creating a package, image, v0.0.34 tag, release, or deployment.",
+  "current_unit": null,
+  "next_action": "Begin the next controlled checkpoint from verified public v0.0.33 with freshness-priority-lexical-v3 selected and the complete BASELINE-0034 v5 exclusion retained. Run the system, inspect fresh traces and separated evaluation metrics, and freeze only one bounded measurable candidate before implementation.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -384,6 +385,7 @@
       ,"Six balanced reports and anchored traces contain 513 attempts per configuration; nine of ten selection checks pass"
       ,"The exact frozen candidate false-gate inventory check fails, so v5 is excluded and v3 remains selected without release"
       ,"The retained 148-of-151 evaluated-phase regression is corrected test-only; 26 focused and all 155 tests pass while result runtime default and security bytes remain unchanged"
+      ,"Public excluded-result commit 46bfc6c39cf2c4fada5e9526b0ff310c86da7ede is exact across refs API commit tree parent all 27 raw paths the untruncated tree and rendered commit; main v0.0.33 and zero deployments remain unchanged"
     ],
     "evidence_paths": [
       "artifacts/verification/orientation-baseline-0034.json",
@@ -397,13 +399,14 @@
       "eval/retrieval-single-pass-contract-0034.json",
       "artifacts/evaluations/baseline-0034-retriever-benchmark.json",
       "artifacts/evaluations/baseline-0034-retrieval-comparison.json",
-      "artifacts/verification/baseline-0034-retrieval-comparison-local.json"
+      "artifacts/verification/baseline-0034-retrieval-comparison-local.json",
+      "artifacts/verification/baseline-0034-retrieval-comparison-public.json"
     ]
   },
   "handoff": {
     "resume_from": "contracts/milestone-0034.json",
-    "latest_verified_checkpoint": "local complete UNIT-004 excluded comparison a9a23d1a5e933b10e06004233691f5d72277d3609b116b7812a8bf07c9e0ed1a over public v5 seal df3303c01260ad49e4b22ee8299a884b0d4bfa12; v3 remains selected and public main remains d62e7cba675997eade87169f5acba14de6452c9b",
-    "resume_rule": "Resume UNIT-005 from the exact excluded UNIT-004 bundle. Publish and reconcile it, then close BASELINE-0034 without default transition, package, image, v0.0.34 tag, release, or deployment. The next improvement cycle must retain this v5 exclusion.",
+    "latest_verified_checkpoint": "public exact excluded-result commit 46bfc6c39cf2c4fada5e9526b0ff310c86da7ede with comparison a9a23d1a5e933b10e06004233691f5d72277d3609b116b7812a8bf07c9e0ed1a; v3 remains selected and public main remains d62e7cba675997eade87169f5acba14de6452c9b",
+    "resume_rule": "Start the next cycle from public v0.0.33 and the retained BASELINE-0034 exclusion. Run v3 and inspect fresh traces and separated metrics before freezing one bounded candidate. Do not reopen or rewrite the v5 result.",
     "blocked_on_human": false
   }
 }

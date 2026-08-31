@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0034-retrieval-comparison-public",
+  "checkpoint": "baseline-0034",
+  "unit": "UNIT-005",
+  "observed_at_utc": "2026-08-31T17:42:30Z",
+  "status": "pass",
+  "candidate_disposition": "exclude_and_retain",
+  "selected_configuration": "freshness-priority-lexical-v3",
+  "public_result_commit": {
+    "commit": "46bfc6c39cf2c4fada5e9526b0ff310c86da7ede",
+    "tree": "6c3479b601857fd41c0754037b4a4ba2bf102bea",
+    "parent": "1938b577fca4aaf31927360aabcad9a8bf0af05c",
+    "branch": "codex/baseline-0034-retrieval-tier-cap-latency",
+    "message": "Record BASELINE-0034 retrieval exclusion",
+    "local_tracking_remote_refs_exact": true,
+    "api_commit_tree_parent_exact": true,
+    "changed_path_count": 27,
+    "anonymous_raw_total_bytes": 7811205,
+    "anonymous_raw_mismatch_count": 0,
+    "recursive_tree_entry_count": 1664,
+    "recursive_tree_truncated": false,
+    "rendered_commit_page_exact": true
+  },
+  "published_results": {
+    "benchmark_path": "artifacts/evaluations/baseline-0034-retriever-benchmark.json",
+    "benchmark_sha256": "3d07f75e116a454b9130e54fad88f0cd7a3b31d24c3060b223c600a08deedd42",
+    "comparison_path": "artifacts/evaluations/baseline-0034-retrieval-comparison.json",
+    "comparison_sha256": "a9a23d1a5e933b10e06004233691f5d72277d3609b116b7812a8bf07c9e0ed1a",
+    "report_count": 6,
+    "anchored_trace_count": 6,
+    "candidate_selected": false,
+    "failed_selection_checks": [
+      "exact_allowed_false_gate_inventory_and_all_other_131_boolean_gates_true"
+    ]
+  },
+  "public_release_state": {
+    "main": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "main_unchanged": true,
+    "latest_release_tag": "v0.0.33",
+    "latest_release_id": 375120109,
+    "latest_release_asset_count": 2,
+    "deployment_count": 0,
+    "v0_0_34_created": false,
+    "container_image_exported_or_published": false
+  },
+  "retained_reconciliation_failures": [
+    {
+      "id": "PUBLIC-RAW-SEQUENCEEQUAL-WRAPPER-0034-001",
+      "classification": "process_invalid",
+      "description": "The first wrapper could not resolve PowerShell's generic SequenceEqual overload and stopped before a result.",
+      "mutation": false,
+      "positive_evidence": false
+    },
+    {
+      "id": "PUBLIC-RAW-ACCEPT-HEADER-WRAPPER-0034-001",
+      "classification": "process_invalid",
+      "description": "The second wrapper reused GitHub's API Accept header for raw content and received HTTP 406 before a result.",
+      "mutation": false,
+      "positive_evidence": false
+    }
+  ],
+  "boundaries": {
+    "frozen_selection_rule_changed": false,
+    "failed_result_rewritten": false,
+    "runtime_or_default_changed": false,
+    "security_or_authority_changed": false,
+    "held_out_used_for_optimization": false,
+    "release_or_deployment_created": false,
+    "research_informed_only": true,
+    "pareto_improvement_claimed": false
+  },
+  "resume_rule": "Future work must start from public v0.0.33 with v3 selected and retain the complete BASELINE-0034 v5 exclusion. Run the current system and inspect fresh traces and separated metrics before freezing another bounded candidate."
+}
