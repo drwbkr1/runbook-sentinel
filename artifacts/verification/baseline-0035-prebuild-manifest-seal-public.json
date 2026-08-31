@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0035-PREBUILD-MANIFEST-SEAL-PUBLIC",
+  "checkpoint": "BASELINE-0035",
+  "observed_at_utc": "2026-08-31T21:36:52Z",
+  "status": "pass",
+  "repository": {
+    "owner": "drwbkr1",
+    "name": "runbook-sentinel",
+    "visibility": "public",
+    "branch": "codex/baseline-0035-evaluation-contract-integrity"
+  },
+  "target": {
+    "commit": "9df5aaa581c6b939ad91499bba47802e3aef9db1",
+    "tree": "b293ec341891e59d031a48d41aa63f1212144530",
+    "parent": "a669699932e59c3b8f92eb51f13e9712262dbd1d",
+    "commit_message": "Freeze BASELINE-0035 prebuild manifest"
+  },
+  "checks": {
+    "local_ref_exact": true,
+    "tracking_ref_exact": true,
+    "ls_remote_branch_exact": true,
+    "anonymous_github_ref_exact": true,
+    "anonymous_github_commit_exact": true,
+    "anonymous_github_tree_exact": true,
+    "anonymous_github_parent_exact": true,
+    "github_tree_not_truncated": true,
+    "changed_git_blobs_exact": true,
+    "anonymous_raw_bytes_exact": true,
+    "rendered_commit_exact": true,
+    "public_main_unchanged": true,
+    "latest_release_unchanged": true,
+    "release_assets_unchanged": true,
+    "deployments_empty": true,
+    "v0_0_35_tag_absent": true
+  },
+  "counts": {
+    "repository_tree_entries": 1692,
+    "changed_paths": 12,
+    "changed_raw_bytes": 1470401,
+    "git_blob_mismatches": 0,
+    "raw_byte_mismatches": 0,
+    "latest_release_asset_count": 2,
+    "deployment_count": 0,
+    "v0_0_35_tag_count": 0
+  },
+  "manifest": {
+    "active_path": "eval/manifest.json",
+    "archived_path": "artifacts/verification/baseline-0035-prebuild-source-manifest.json",
+    "checkpoint": "baseline-0035",
+    "frozen_at_utc": "2026-08-31T21:02:31Z",
+    "file_count": 164,
+    "bytes": 20021,
+    "sha256": "085433c14caee718c79a74d162ef3d917577c6b1bf326c088f19259fd939ae04",
+    "active_and_archived_bytes_equal": true
+  },
+  "verification": {
+    "local_receipt_path": "artifacts/verification/baseline-0035-prebuild-manifest-seal-local.json",
+    "local_receipt_bytes": 9484,
+    "local_receipt_sha256": "58bb45f9d87f39641a578c63d803a3cf71ab8a5afdfa2a7c0a8d0a0faf18ab9c",
+    "complete_regression_passed": 179,
+    "applicable_phase_correct_validators_passed": 45,
+    "manifest_file_count_verified": 164,
+    "candidate_selected": false,
+    "selection_performed": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "historical_candidate_disposition": "exclude_and_retain"
+  },
+  "public_state": {
+    "main_commit": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "latest_release_tag": "v0.0.33",
+    "latest_release_id": 375120109,
+    "deployments_raw": "[]"
+  },
+  "changed_payload": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 153118,
+      "sha256": "5bfa9e6834ecfed7ae4a4a719e4d5d22e34024434b10c5378384e4f480b51977",
+      "git_blob": "0b3d1effd3ecade461c758f49b8f8c0812357103"
+    },
+    {
+      "path": "artifacts/verification/baseline-0035-prebuild-manifest-seal-local.json",
+      "bytes": 9484,
+      "sha256": "58bb45f9d87f39641a578c63d803a3cf71ab8a5afdfa2a7c0a8d0a0faf18ab9c",
+      "git_blob": "3b09e9187456663642ac6df01ed00c2cf85af380"
+    },
+    {
+      "path": "artifacts/verification/baseline-0035-prebuild-source-manifest.json",
+      "bytes": 20021,
+      "sha256": "085433c14caee718c79a74d162ef3d917577c6b1bf326c088f19259fd939ae04",
+      "git_blob": "bfe7adac25998e607a5de3b686c5e0e83316d197"
+    },
+    {
+      "path": "contracts/milestone-0035.json",
+      "bytes": 15023,
+      "sha256": "bc183e828bf1990f795c2a20b5559651faa1b4104e31c3ee0cd679fbd9de96b9",
+      "git_blob": "c50f958578628c2bfee33d56bb549d97b1f89eee"
+    },
+    {
+      "path": "docs/devlog.md",
+      "bytes": 514958,
+      "sha256": "b2f5153a908e1b1054f6ca51a444bbe6ce4b726cb22fa6074db6263af7e00de9",
+      "git_blob": "e81a8f7f1102e8e9a95324515a15c62a51a25694"
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "bytes": 264104,
+      "sha256": "9532366d1ba139ca618a372034053000bc3b1422fd5bae3f3b15c52fe0294469",
+      "git_blob": "81b47f0166ed713e9bea177f5eb1e890e64f3e94"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 113801,
+      "sha256": "886c23ccdde5f36c1c57a2576f450b969a32e92db81073ffe15ab4352fb842b9",
+      "git_blob": "a3451ad902ef0e62b05a9b4c90f53e421ad2d248"
+    },
+    {
+      "path": "docs/status.md",
+      "bytes": 296797,
+      "sha256": "fa69fa81a0ca82671e039e333b214102e40f99a8b310734bca3828dd5b4d9b18",
+      "git_blob": "769e787ebdf650bf76dcde4c33311b4f7cc340c0"
+    },
+    {
+      "path": "docs/version-history.md",
+      "bytes": 32129,
+      "sha256": "b0b03ec17a097d7f5aa517ee34d68eaa89cf4676389af38cf6c9f1c72ca34c0c",
+      "git_blob": "310f1170e4c6779a6ef20bfe837bc138e34ed315"
+    },
+    {
+      "path": "eval/manifest.json",
+      "bytes": 20021,
+      "sha256": "085433c14caee718c79a74d162ef3d917577c6b1bf326c088f19259fd939ae04",
+      "git_blob": "bfe7adac25998e607a5de3b686c5e0e83316d197"
+    },
+    {
+      "path": "scripts/adjudicate_retrieval_single_pass_0034.py",
+      "bytes": 27499,
+      "sha256": "8bbb277bfaf79f55e528f8b73651b40e9db8e126692efabe911398d45c2626be",
+      "git_blob": "9cf58703058fcfeb2d751459735b1384df167464"
+    },
+    {
+      "path": "tests/test_retrieval_single_pass_adjudication_0034.py",
+      "bytes": 3446,
+      "sha256": "f6db41fca0cc7530ee249a8e7656ad96b7f4d734193541a07b3f8458ecfe4fef",
+      "git_blob": "ab24ede90a615b6d19ee0a4ff5cdc2df07fb9023"
+    }
+  ],
+  "retained_process_invalid": [
+    {
+      "id": "PUBLIC-PREBUILD-RAW-RESPONSE-BYTE-CAST-0035-001",
+      "reason": "The first anonymous checker attempted to cast decoded Invoke-WebRequest text directly to bytes and aborted on the first path; it changed no state and supplies no raw-byte evidence. The byte-preserving HttpClient successor passes all twelve paths."
+    }
+  ],
+  "boundaries": {
+    "public_main_moved": false,
+    "package_or_derived_image_built_by_publication": false,
+    "candidate_release_evaluation_started": false,
+    "dependency_secret_paid_service_or_external_asset_added": false,
+    "real_operational_infrastructure_contacted": false,
+    "tag_release_or_deployment_created": false,
+    "container_image_exported_pushed_published_or_redistributed": false
+  },
+  "next_gate": "Publish and independently verify this public reconciliation receipt and living-record update; only then build two deterministic v0.0.35 package attempts and compare exact bytes."
+}

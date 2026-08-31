@@ -28,6 +28,8 @@ Record-only implementation reconciliation `a669699932e59c3b8f92eb51f13e9712262db
 
 The local prebuild seal now passes: active and archived manifests are byte-identical at 20,021 bytes, SHA-256 `085433c1...`, and 164 files. A retained 177/178 run exposed mutable historical-manifest lookup; the bounded immutable-companion correction preserves exact BASELINE-0034 semantics, then passes 5/5 focused, 45 applicable validators, and 179/179 complete tests. Publish and independently verify this seal next. Archive and container construction remain closed.
 
+Prebuild seal `9df5aaa581c6b939ad91499bba47802e3aef9db1` is public and exact across twelve changed blobs/raw paths and an untruncated 1,692-entry tree. Main, v0.0.33, two assets, deployments, and v0.0.35 tag absence are unchanged. Publish and verify its record-only receipt; then build two independent v0.0.35 archives before source/package and real-surface evaluation. Container construction remains deferred until Docker is live.
+
 The BASELINE-0035 classification result exists and is public, but no default transition, v0.0.35 package, image, tag, release, or deployment exists. Revealed held-out evidence is used only to diagnose evaluation machinery; it cannot tune or select a retriever.
 
 ## Active checkpoint baseline-0034 - single-pass bounded retrieval latency
