@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0034-v5-implementation-public",
+  "checkpoint": "baseline-0034",
+  "unit": "UNIT-003",
+  "observed_at_utc": "2026-08-31T17:03:26Z",
+  "status": "pass",
+  "disposition": "exact_public_implementation_seal_reconciled",
+  "public_seal": {
+    "repository": "https://github.com/drwbkr1/runbook-sentinel",
+    "branch": "codex/baseline-0034-retrieval-tier-cap-latency",
+    "commit": "df3303c01260ad49e4b22ee8299a884b0d4bfa12",
+    "tree": "711ce536fe53139e015f2955dda544402b71f4c1",
+    "parent": "62736ca4de5d4805591e3477e1136debcc22ab36",
+    "subject": "feat: seal baseline 0034 retrieval v5",
+    "changed_path_count": 10,
+    "changed_bytes": 1357875,
+    "recursive_tree_entries": 1646,
+    "recursive_tree_truncated": false,
+    "local_tracking_ls_remote_exact": true,
+    "anonymous_commit_tree_parent_exact": true,
+    "all_git_blobs_exact": true,
+    "all_anonymous_raw_bytes_exact": true,
+    "signed_out_commit_page_status": 200,
+    "signed_out_commit_page_sha_and_subject_exact": true
+  },
+  "implementation_identities": {
+    "retrieval_runtime": {"path":"src/runbook_sentinel/retrieval.py","bytes":6079,"sha256":"f5514cb7cb0b7686987d3374bcd80849f868509a2d32676a88585dd40d456b37","git_blob":"2e91b1c71351531cf862ec42511e851438f77c02"},
+    "focused_test": {"path":"tests/test_retrieval_single_pass_contract_0034.py","bytes":6998,"sha256":"11beafbfc65013b0acbedf897dad07c2522d052816750d1d9acc8e10c7f5cfe3","git_blob":"3accf1fa8df4d29f924d1bda1162e18c8066eca9"}
+  },
+  "pre_publication_gate": {
+    "single_pass_contract_status": "pass",
+    "successor_lifecycle_contract_status": "pass",
+    "phase": "implementation_sealed_no_result",
+    "development_scenario_count": 31,
+    "development_mismatch_count": 0,
+    "held_out_loaded": false,
+    "focused_tests": "61/61 pass in 17.393 seconds",
+    "complete_tests": "151/151 pass in 128.861 seconds",
+    "benchmark_result_present": false,
+    "comparison_result_present": false,
+    "default_configuration": "freshness-priority-lexical-v3"
+  },
+  "unchanged_public_state": {
+    "main": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "latest_release_id": 375120109,
+    "latest_release_tag": "v0.0.33",
+    "latest_release_asset_count": 2,
+    "deployment_count": 0
+  },
+  "boundaries": {
+    "benchmark_or_comparison_result_created": false,
+    "default_changed": false,
+    "held_out_used_for_optimization": false,
+    "security_or_authority_changed": false,
+    "package_image_tag_release_or_deployment_changed": false
+  },
+  "next_gate": "Publish and reconcile this record-only receipt. Then run exactly the frozen five independent retriever benchmarks followed by six whole-system reports in order v3,v5,v5,v3,v3,v5."
+}
