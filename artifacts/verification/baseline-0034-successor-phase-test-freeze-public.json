@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0034-successor-phase-test-freeze-public",
+  "checkpoint": "baseline-0034",
+  "unit": "UNIT-002B",
+  "observed_at_utc": "2026-08-31T16:40:23Z",
+  "status": "pass",
+  "disposition": "exact_public_freeze_reconciled",
+  "public_freeze": {
+    "repository": "https://github.com/drwbkr1/runbook-sentinel",
+    "branch": "codex/baseline-0034-retrieval-tier-cap-latency",
+    "commit": "4971895ba44c650844fcb7fc455b93bd68d90a7c",
+    "tree": "a720b72b18dcb6bb6c939dc5a66a959be1b1e1ad",
+    "parent": "d4f8e40ec46f80e0daa9828896cff559643eb45e",
+    "subject": "test: freeze baseline 0034 successor phase tests",
+    "changed_path_count": 14,
+    "changed_bytes": 1471614,
+    "recursive_tree_entries": 1642,
+    "recursive_tree_truncated": false,
+    "local_tracking_ls_remote_exact": true,
+    "anonymous_commit_tree_parent_exact": true,
+    "all_git_blobs_exact": true,
+    "all_anonymous_raw_bytes_exact": true,
+    "signed_out_commit_page_status": 200,
+    "signed_out_commit_page_sha_and_subject_exact": true
+  },
+  "changed_paths": [
+    {"path":"CHANGELOG.md","bytes":142284,"sha256":"283dedc859e4b4747d08b6dd2d1990f71a0e8defc46a2ce455f319b8f110f87e","git_blob":"39772a410acf31c9f4493cefb74b28d7315d3e6d"},
+    {"path":"artifacts/verification/baseline-0034-orientation-failures-001.json","bytes":31845,"sha256":"b350605f743fa17513034443ffeea0a5f4242b46791dde82de2459b6392fa499","git_blob":"dcc6830a2262b9ce66d211220fc92c3a23cf0e08"},
+    {"path":"artifacts/verification/baseline-0034-successor-phase-test-correction-local.json","bytes":3388,"sha256":"d4b3eec62b35380194a680022fe36956598b34154c7d1ccf259baad1454b16dc","git_blob":"58167261016e5fbc3cc86610b30cb6541f56ea35"},
+    {"path":"contracts/milestone-0034.json","bytes":19878,"sha256":"3f6f42f5186ab4a9948b68860d177da0ab2496c72da078a616a95ccf37d85969","git_blob":"9aae70fb899dece502501b125a45e88dc2502592"},
+    {"path":"docs/adr/0030-bridge-frozen-retrieval-identities-across-checkpoints.md","bytes":5010,"sha256":"894a20fcf4ee138cfe7c883f586987d6f78af038110efef2cce2c24f69c5c3ff","git_blob":"be462a521cf2df2401c15084843067c92f2b57dc"},
+    {"path":"docs/devlog.md","bytes":494010,"sha256":"429d52cdbdee48f8c4de1f96cefd9e5ff517ddf513a0d9c107859d8d8cef28f1","git_blob":"d753e27c530676423f1ef7f2fe0ac7c669aa6706"},
+    {"path":"docs/evaluation-contract.md","bytes":48982,"sha256":"1711f2f5c90275540b40a627c4e00b8a0776bc7de3719413159fabb20e8b75e0","git_blob":"c113463d3256913056905c1d49eb816640555df8"},
+    {"path":"docs/evaluation-report.md","bytes":255932,"sha256":"e187842f49420693061392b28036fbd4a098a109e16b6d7a73808e81ff92ac1a","git_blob":"49422e9138391805d2eb602a03b4dfe519e836f0"},
+    {"path":"docs/roadmap.md","bytes":105109,"sha256":"94043a6e8167d6605fd71189f4a0f55c2697ca51a4603a75951c29e8642f6e3e","git_blob":"b61aa13d89e6d9624ba6f445330b0ccd0b0dd77d"},
+    {"path":"docs/status.md","bytes":288518,"sha256":"002a5a869c7aec8ee40058bf7715dccc1285bcb8fbee832c785b2142e581dd52","git_blob":"41dceb8b9e041a5630e299bb08dbe1282172afb1"},
+    {"path":"docs/version-history.md","bytes":30163,"sha256":"81210e9137b9c61e35f8906ac64383e66ff89e9c28e7e306701a73a05b67e5da","git_blob":"5b6b28eaaf96c903b27fc48945c047573060833f"},
+    {"path":"eval/retrieval-successor-lifecycle-contract-0034.json","bytes":16479,"sha256":"60a31cda5321ead0bd6b28c39931b2afb815863e28263022e8726859bfdad434","git_blob":"81e2465c826d320023a0bbed44e68a0be2dbe999"},
+    {"path":"scripts/verify_retrieval_successor_lifecycle_0034.py","bytes":25539,"sha256":"a256ceac3e7a1d09f77b1dd31d3ea45a68e1075be803f64cb606cec83b9c86ad","git_blob":"40aab59e2fc7a65639ac7c3eb9d589d9ce470363"},
+    {"path":"tests/test_retrieval_successor_phase_test_correction_0034.py","bytes":4477,"sha256":"008e2e5726c82a536fffe7bada83124ea12128910819fc54063354c3120c87a6","git_blob":"d0a573495502f389a4cb95df067a447d56f10c99"}
+  ],
+  "pre_publication_gate": {
+    "single_pass_phase": "frozen_preimplementation",
+    "successor_lifecycle_phase": "bridge_public_predecessor",
+    "development_scenarios": 31,
+    "development_mismatches": 0,
+    "held_out_loaded": false,
+    "focused_tests": "60/60 pass in 20.669 seconds",
+    "complete_tests": "150/150 pass in 130.609 seconds",
+    "milestone_errors": 0,
+    "milestone_warnings": 0,
+    "benchmark_result_present": false,
+    "comparison_result_present": false,
+    "default_configuration": "freshness-priority-lexical-v3"
+  },
+  "unchanged_public_state": {
+    "main": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "latest_release_id": 375120109,
+    "latest_release_tag": "v0.0.33",
+    "latest_release_asset_count": 2,
+    "deployment_count": 0
+  },
+  "boundaries": {
+    "product_runtime_changed": false,
+    "test_successor_implemented": false,
+    "benchmark_or_comparison_result_created": false,
+    "default_changed": false,
+    "security_or_authority_changed": false,
+    "package_image_tag_release_or_deployment_changed": false
+  },
+  "next_gate": "Publish and reconcile this record-only receipt, then apply only the three frozen test identities before retrying exact v5."
+}

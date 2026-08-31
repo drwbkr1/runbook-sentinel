@@ -44,6 +44,8 @@ Two incomplete correction trials are retained: 56/57 focused because the new fre
 
 The first 150-test predecessor-state freeze run was explicitly paused without a terminal result and remains inconclusive. A clean resumed run from the same exact restored identities passes both predecessor validators, all 60 focused tests in 20.669 seconds, and all 150 tests in 130.609 seconds. This closes only the local freeze regression gate; it does not make the addendum public or authorize benchmark result generation before the later v5 seal.
 
+Successor-phase freeze `4971895ba44c650844fcb7fc455b93bd68d90a7c` is now public and exact at tree `a720b72...` over parent `d4f8e40...`. All 14 changed Git blobs and 1,471,614 anonymous raw bytes match locally, the recursive 1,642-entry tree is untruncated, and the signed-out commit page exposes the exact SHA and subject. This remains test-lifecycle freeze evidence only: the three tests and runtime stay at predecessor identities, v3 stays default, and no benchmark or comparison result exists.
+
 ## BASELINE-0033 frozen candidate-admissibility overlay
 
 Fresh merged-main evidence commit `acf4cd94ed3c50bf23071afa3722308eb9df3d55`, reconciliation `8ff7f9e985f5dcf4cc83ccd056e9bf12af89131b`, and final audit `29ca0e55d55ee4fa6765c85abf7995ba6624f782` are public and exact. Audited closure `5918f614caae96fe5b9bb3815c1d4a1c90908394`, annotated tag object `522cc2243650568e0a063f8a0918041dca98e111`, non-draft latest release `375120109`, the selected zipapp/checksum, anonymous downloads, and signed-out rendered pages all reconcile. No container-image publication exists.
