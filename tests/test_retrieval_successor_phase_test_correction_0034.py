@@ -55,7 +55,7 @@ class RetrievalSuccessorPhaseTestCorrection0034Tests(unittest.TestCase):
             ),
             "tests/test_retrieval_successor_lifecycle_0034.py": (
                 {"bytes": 4029, "sha256": "7d019d8dcf1bc96ed4365d2482a66839bd2d05d1a067afb5bc47cb2d45b57caa"},
-                {"bytes": 4658, "sha256": "09e13990eb92ac8a0d5c506c56178529d4ac27395811749be714d09f13a0c613"},
+                {"bytes": 5178, "sha256": "42cd3888be6c180d64a378cda093f96c9dac902f4703bbcc8f2867ba7ee411bc"},
             ),
             "tests/test_retrieval_meta_test_lifecycle_correction_0034.py": (
                 {"bytes": 3029, "sha256": "a9f499dc4960748bb498ea2370688eec252ebc6fa4114b9e54ead8a873b8909d"},
@@ -89,11 +89,26 @@ class RetrievalSuccessorPhaseTestCorrection0034Tests(unittest.TestCase):
             "security_or_authority_changed",
         ):
             self.assertFalse(self.correction[key])
-        self.assertFalse(verifier.BENCHMARK_RESULT_PATH.exists())
-        self.assertFalse(verifier.COMPARISON_RESULT_PATH.exists())
+        result = verifier.validate()
+        if result["phase"] in {
+            "bridge_frozen",
+            "bridge_implemented_predecessor",
+            "bridge_public_predecessor",
+            "implementation_sealed_no_result",
+        }:
+            self.assertFalse(verifier.BENCHMARK_RESULT_PATH.exists())
+            self.assertFalse(verifier.COMPARISON_RESULT_PATH.exists())
+        else:
+            self.assertTrue(verifier.BENCHMARK_RESULT_PATH.is_file())
+            self.assertTrue(verifier.COMPARISON_RESULT_PATH.is_file())
+        expected_default = (
+            verifier.CANDIDATE_CONFIGURATION
+            if result["phase"] == "selected"
+            else verifier.CONTROL_CONFIGURATION
+        )
         self.assertEqual(
             verifier.runtime_retrieval.DEFAULT_RETRIEVAL_CONFIGURATION,
-            verifier.CONTROL_CONFIGURATION,
+            expected_default,
         )
 
 

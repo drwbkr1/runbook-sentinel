@@ -84,11 +84,25 @@ class RetrievalSuccessorLifecycle0034Tests(unittest.TestCase):
             {"bytes": release["bytes"], "sha256": release["sha256"]},
         )
 
-    def test_results_remain_absent_at_bridge_freeze(self) -> None:
+    def test_result_presence_matches_governed_phase(self) -> None:
         result = verifier.validate()
-        self.assertFalse(result["benchmark_result_present"])
-        self.assertFalse(result["comparison_result_present"])
-        self.assertEqual(result["default_configuration"], verifier.CONTROL_CONFIGURATION)
+        if result["phase"] in {
+            "bridge_frozen",
+            "bridge_implemented_predecessor",
+            "bridge_public_predecessor",
+            "implementation_sealed_no_result",
+        }:
+            self.assertFalse(result["benchmark_result_present"])
+            self.assertFalse(result["comparison_result_present"])
+        else:
+            self.assertTrue(result["benchmark_result_present"])
+            self.assertTrue(result["comparison_result_present"])
+        expected_default = (
+            verifier.CANDIDATE_CONFIGURATION
+            if result["phase"] == "selected"
+            else verifier.CONTROL_CONFIGURATION
+        )
+        self.assertEqual(result["default_configuration"], expected_default)
 
     def test_two_current_tree_validators_use_the_bridge(self) -> None:
         for relative in self.contract["bridge_implementation"]["allowed_validator_paths"]:

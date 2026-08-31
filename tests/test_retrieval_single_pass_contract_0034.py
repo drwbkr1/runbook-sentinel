@@ -19,13 +19,30 @@ class RetrievalSinglePassContract0034Tests(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.contract = json.loads(verifier.CONTRACT_PATH.read_text(encoding="utf-8"))
 
-    def test_current_implementation_seal_phase_passes(self) -> None:
-        result = verifier.validate(require_phase="implementation_sealed_no_result")
+    def test_current_governed_phase_passes(self) -> None:
+        expected_phase = (
+            "selected"
+            if verifier.runtime_retrieval.DEFAULT_RETRIEVAL_CONFIGURATION
+            == verifier.CANDIDATE_CONFIGURATION
+            else (
+                "evaluated_unselected"
+                if verifier.BENCHMARK_RESULT_PATH.is_file()
+                or verifier.COMPARISON_RESULT_PATH.is_file()
+                else "implementation_sealed_no_result"
+            )
+        )
+        result = verifier.validate(require_phase=expected_phase)
         self.assertEqual(result["status"], "pass")
         self.assertEqual(result["errors"], [])
         self.assertTrue(result["boundaries"]["candidate_implemented"])
-        self.assertFalse(result["boundaries"]["benchmark_result_present"])
-        self.assertFalse(result["boundaries"]["comparison_result_present"])
+        self.assertEqual(
+            result["boundaries"]["benchmark_result_present"],
+            verifier.BENCHMARK_RESULT_PATH.is_file(),
+        )
+        self.assertEqual(
+            result["boundaries"]["comparison_result_present"],
+            verifier.COMPARISON_RESULT_PATH.is_file(),
+        )
 
     def test_product_default_remains_v3_before_selection(self) -> None:
         self.assertEqual(

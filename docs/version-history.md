@@ -1,5 +1,9 @@
 # Version history
 
+## BASELINE-0034 excluded candidate - 2026-08-31
+
+The single-pass v5 retrieval candidate remains experimental and is not a product version. It passed the frozen retriever benchmark and nine of ten whole-system selection checks, but failed the exact candidate false-gate inventory. V3 and public v0.0.33 remain selected. No v0.0.34 tag, package, release, deployment, or container publication was created.
+
 | Version | Checkpoint | Status | Evidence |
 |---|---|---|---|
 | Unreleased | baseline-0034 | active UNIT-004 after public exact v5 seal `df3303c...`; no benchmark result, default change, tag, release, or deployment exists | exact public v0.0.33 start; fresh accepted-v3 run and retained v4 exclusion; lifecycle sequence through UNIT-002A record `d4f8e40...`; retained 49/52, 56/57, 149/151, paused, and controlled 56/60 observations; public freeze `4971895...`, record `459c9fc...`, controlled transition `469932f...`, transition record `62736ca...`, and v5 seal `df3303c...` exact; v5 runtime `f5514cb7...` plus focused test `11beafb...` pass both implementation validators, 61 focused, and all 151 tests with v3 default, held-out unloaded, and results absent; frozen benchmark sequence is next |

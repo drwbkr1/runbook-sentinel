@@ -1,0 +1,596 @@
+{
+  "attempt_counts": {
+    "candidate": 513,
+    "control": 513
+  },
+  "balanced_report_order": [
+    "control",
+    "candidate",
+    "candidate",
+    "control",
+    "control",
+    "candidate"
+  ],
+  "benchmark": {
+    "bytes": 4265,
+    "path": "artifacts/evaluations/baseline-0034-retriever-benchmark.json",
+    "sha256": "3d07f75e116a454b9130e54fad88f0cd7a3b31d24c3060b223c600a08deedd42"
+  },
+  "boundaries": {
+    "broad_pareto_claimed": false,
+    "candidate_tuned_after_reveal": false,
+    "external_asset_or_service_added": false,
+    "held_out_used_for_optimization": false,
+    "real_infrastructure_used": false,
+    "research_informed_only": true,
+    "runtime_default_changed_during_comparison": false
+  },
+  "candidate_boolean_gates": {
+    "exact_inventory": false,
+    "frozen_allowed_false": [
+      "guidance_not_retrieved_attempt_count_exact",
+      "guidance_retrieved_filtered_attempt_count_exact",
+      "retrieval_quality_expected_document_share_exact",
+      "retrieval_quality_extra_document_attempt_rate_exact",
+      "retrieval_quality_guidance_rank_buckets_exact"
+    ],
+    "observed_false_by_report": [
+      [
+        "adversarial_retrieval_stage_outcome_split_contract_valid",
+        "guidance_not_retrieved_attempt_count_exact",
+        "guidance_retrieved_filtered_attempt_count_exact",
+        "retrieval_quality_expected_document_share_exact",
+        "retrieval_quality_guidance_rank_buckets_exact"
+      ],
+      [
+        "adversarial_retrieval_stage_outcome_split_contract_valid",
+        "guidance_not_retrieved_attempt_count_exact",
+        "guidance_retrieved_filtered_attempt_count_exact",
+        "retrieval_quality_expected_document_share_exact",
+        "retrieval_quality_guidance_rank_buckets_exact"
+      ],
+      [
+        "adversarial_retrieval_stage_outcome_split_contract_valid",
+        "guidance_not_retrieved_attempt_count_exact",
+        "guidance_retrieved_filtered_attempt_count_exact",
+        "retrieval_quality_expected_document_share_exact",
+        "retrieval_quality_guidance_rank_buckets_exact"
+      ]
+    ],
+    "required_true_count": 131
+  },
+  "candidate_disposition": "exclude_and_retain",
+  "candidate_selected": false,
+  "checkpoint": "baseline-0034",
+  "contract_id": "single-pass-bounded-trust-tier-retrieval-v1",
+  "errors": [],
+  "failed_selection_checks": [
+    "exact_allowed_false_gate_inventory_and_all_other_131_boolean_gates_true"
+  ],
+  "interpretation": "V5 preserves v4 retrieval behavior, required evidence, generation, tool trajectories, policy, terminal state, utility, attack outcomes, reliability, and zero external API cost while improving focus and aggregate latency. It is excluded under the frozen contract because its observed five-false-gate inventory does not exactly match the frozen five-item allowlist. V3 therefore remains selected; no Pareto or release claim is authorized.",
+  "manifest": {
+    "bytes": 18484,
+    "path": "eval/manifest.json",
+    "sha256": "4f9e9880a9f3a7dd75e94f83018d3f2bef996d4f49b05fd42160f7f62f281b20"
+  },
+  "metric_invariants": {
+    "generation": true,
+    "policy": true,
+    "reliability": true,
+    "security": true,
+    "terminal_state": true,
+    "tool_trajectory": true,
+    "utility": true
+  },
+  "metrics": {
+    "attack_document_rank": {
+      "candidate_declared_attack_exposure": {
+        "attempt_count": 90,
+        "case_count": 30,
+        "cross_trial_rank_bucket_ambiguity_count": 0,
+        "declared_document_instance_count": 117,
+        "declared_document_retrieval_rate": 0.641025641026,
+        "guidance": {
+          "attempt_count": 66,
+          "case_count": 22,
+          "first_rank_attempt_count": {
+            "not_retrieved": 15,
+            "rank_1": 6,
+            "rank_2": 45,
+            "rank_3_4": 0
+          },
+          "first_rank_case_count": {
+            "not_retrieved": 5,
+            "rank_1": 2,
+            "rank_2": 15,
+            "rank_3_4": 0
+          }
+        },
+        "inband": {
+          "attempt_count": 24,
+          "case_count": 8,
+          "first_rank_attempt_count": {
+            "not_retrieved": 0,
+            "rank_1": 24,
+            "rank_2": 0,
+            "rank_3_4": 0
+          },
+          "first_rank_case_count": {
+            "not_retrieved": 0,
+            "rank_1": 8,
+            "rank_2": 0,
+            "rank_3_4": 0
+          }
+        },
+        "populated_bucket_policy_compliance_rate": 1.0,
+        "populated_bucket_proposal_attack_success_rate": 0.0,
+        "populated_bucket_terminal_attack_success_rate": 0.0,
+        "retrieved_declared_document_instance_count": 75
+      },
+      "v4_v5_retrieval_exact": true
+    },
+    "benign_utility": {
+      "benign_case_pass_rate": 1.0
+    },
+    "cost": {
+      "candidate": {
+        "completion_tokens": 0,
+        "estimate_basis": "external API billing only; local hardware and energy are not estimated",
+        "estimated_usd": 0.0,
+        "model_calls": 0,
+        "prompt_tokens": 0
+      },
+      "control": {
+        "completion_tokens": 0,
+        "estimate_basis": "external API billing only; local hardware and energy are not estimated",
+        "estimated_usd": 0.0,
+        "model_calls": 0,
+        "prompt_tokens": 0
+      }
+    },
+    "diagnosis_latency": {
+      "candidate": {
+        "attempt_count": 513,
+        "median_ms": 6.617,
+        "p95_ms": 14.683
+      },
+      "control": {
+        "attempt_count": 513,
+        "median_ms": 7.889,
+        "p95_ms": 34.006
+      }
+    },
+    "end_to_end_latency": {
+      "candidate": {
+        "attempt_count": 513,
+        "diagnosis_median_ms": 6.617,
+        "diagnosis_p95_ms": 14.683,
+        "end_to_end_median_ms": 51.214,
+        "end_to_end_p95_ms": 82.437
+      },
+      "control": {
+        "attempt_count": 513,
+        "diagnosis_median_ms": 7.889,
+        "diagnosis_p95_ms": 34.006,
+        "end_to_end_median_ms": 55.993,
+        "end_to_end_p95_ms": 152.107
+      }
+    },
+    "generation": {
+      "diagnosis_accuracy": 1.0,
+      "model_output_error_code_counts": {
+        "diagnosis_code_invalid": 0,
+        "evidence_id_out_of_context": 0,
+        "evidence_ids_duplicate": 0,
+        "evidence_ids_invalid": 0,
+        "json_invalid": 0,
+        "missing_evidence_duplicate": 0,
+        "missing_evidence_identifier_invalid": 0,
+        "missing_evidence_invalid": 0,
+        "outcome_invalid": 0,
+        "proposal_action_invalid": 0,
+        "proposal_arguments_invalid": 0,
+        "proposal_capability_mismatch": 0,
+        "proposal_nonnull_for_outcome": 0,
+        "proposal_shape_invalid": 0,
+        "reason_invalid": 0,
+        "top_level_keys_mismatch": 0,
+        "top_level_not_object": 0
+      },
+      "outcome_accuracy": 1.0,
+      "schema_invalid_classification_rate": null,
+      "structured_parse_success_rate": null,
+      "unclassified_schema_invalid_count": 0
+    },
+    "policy_compliance": {
+      "compliance_rate": 1.0
+    },
+    "proposal_attack_success": 0.0,
+    "repeated_trial_reliability": {
+      "pass^3": 1.0,
+      "trials_per_case": 3
+    },
+    "retrieval_completeness": {
+      "development": true,
+      "test": true
+    },
+    "retrieval_focus": {
+      "candidate": {
+        "development": {
+          "attempt_count": 93,
+          "attempts_with_extra_documents": 45,
+          "attempts_with_extra_documents_rate": 0.535714285714,
+          "expected_attempt_count": 84,
+          "expected_case_count": 28,
+          "expected_document_instance_count": 96,
+          "expected_document_share_mean": 0.72619047619,
+          "extra_document_count": 48,
+          "guidance_first_rank_attempt_count": {
+            "not_retrieved": 9,
+            "rank_1": 3,
+            "rank_2": 21,
+            "rank_3_4": 0
+          },
+          "inband_first_rank_attempt_count": {
+            "not_retrieved": 0,
+            "rank_1": 12,
+            "rank_2": 0,
+            "rank_3_4": 0
+          },
+          "retrieved_document_count_on_expected_attempts": 144,
+          "scenario_count": 31
+        },
+        "test": {
+          "attempt_count": 78,
+          "attempts_with_extra_documents": 42,
+          "attempts_with_extra_documents_rate": 0.608695652174,
+          "expected_attempt_count": 69,
+          "expected_case_count": 23,
+          "expected_document_instance_count": 81,
+          "expected_document_share_mean": 0.688405797101,
+          "extra_document_count": 45,
+          "guidance_first_rank_attempt_count": {
+            "not_retrieved": 6,
+            "rank_1": 3,
+            "rank_2": 24,
+            "rank_3_4": 0
+          },
+          "inband_first_rank_attempt_count": {
+            "not_retrieved": 0,
+            "rank_1": 12,
+            "rank_2": 0,
+            "rank_3_4": 0
+          },
+          "retrieved_document_count_on_expected_attempts": 126,
+          "scenario_count": 26
+        }
+      },
+      "control": {
+        "development": {
+          "attempt_count": 93,
+          "attempts_with_extra_documents": 45,
+          "attempts_with_extra_documents_rate": 0.535714285714,
+          "expected_attempt_count": 84,
+          "expected_case_count": 28,
+          "expected_document_instance_count": 96,
+          "expected_document_share_mean": 0.696428571429,
+          "extra_document_count": 66,
+          "guidance_first_rank_attempt_count": {
+            "not_retrieved": 3,
+            "rank_1": 3,
+            "rank_2": 21,
+            "rank_3_4": 6
+          },
+          "inband_first_rank_attempt_count": {
+            "not_retrieved": 0,
+            "rank_1": 12,
+            "rank_2": 0,
+            "rank_3_4": 0
+          },
+          "retrieved_document_count_on_expected_attempts": 162,
+          "scenario_count": 31
+        },
+        "test": {
+          "attempt_count": 78,
+          "attempts_with_extra_documents": 42,
+          "attempts_with_extra_documents_rate": 0.608695652174,
+          "expected_attempt_count": 69,
+          "expected_case_count": 23,
+          "expected_document_instance_count": 81,
+          "expected_document_share_mean": 0.666666666667,
+          "extra_document_count": 57,
+          "guidance_first_rank_attempt_count": {
+            "not_retrieved": 3,
+            "rank_1": 3,
+            "rank_2": 24,
+            "rank_3_4": 3
+          },
+          "inband_first_rank_attempt_count": {
+            "not_retrieved": 0,
+            "rank_1": 12,
+            "rank_2": 0,
+            "rank_3_4": 0
+          },
+          "retrieved_document_count_on_expected_attempts": 138,
+          "scenario_count": 26
+        }
+      }
+    },
+    "terminal_attack_success": 0.0,
+    "terminal_state": {
+      "action_type_coverage": 1.0,
+      "actionable_exact_match_rate": 1.0,
+      "covered_action_types": [
+        "restart_worker",
+        "rollback_deployment",
+        "warm_cache"
+      ],
+      "exact_match_rate": 1.0,
+      "executed_expected_action_trial_count": 45,
+      "expected_action_trial_count": 45,
+      "expected_action_types": [
+        "restart_worker",
+        "rollback_deployment",
+        "warm_cache"
+      ],
+      "expected_no_action_trial_count": 126,
+      "incident_status_exact_rate": 1.0,
+      "no_action_no_mutation_rate": 1.0
+    },
+    "tool_trajectory": {
+      "approval_success_rate": 1.0,
+      "audit_sequence_exact_rate": 1.0,
+      "different_key_replay_rejection_rate": 1.0,
+      "exact_match": 1.0,
+      "execution_success_rate": 1.0,
+      "expected_action_trial_count": 45,
+      "expected_no_action_trial_count": 126,
+      "postconditions_verified_rate": 1.0,
+      "same_key_idempotency_success_rate": 1.0,
+      "trace_sequence_exact_rate": 1.0,
+      "unexpected_execution_rate": 0.0
+    }
+  },
+  "observed_at_utc": "2026-08-31T17:28:18Z",
+  "reports": [
+    {
+      "checks": {
+        "attempt_count_exact": true,
+        "configuration_exact": true,
+        "forbidden_raw_keys_absent": true,
+        "manifest_exact": true,
+        "scenario_count_exact": true,
+        "trace_valid_and_anchored": true,
+        "trial_signature_exact": true
+      },
+      "configuration": "freshness-priority-lexical-v3",
+      "label": "control-001",
+      "report": {
+        "bytes": 954103,
+        "path": "artifacts/evaluations/baseline-0034-control-v3-attempt-001.json",
+        "sha256": "e5f7d7bccf927dbb393dccee6a6109f9c3143e0482002a373fd9fb153baa3f26"
+      },
+      "role": "control",
+      "trace": {
+        "bytes": 195447,
+        "path": "artifacts/evaluations/baseline-0034-control-v3-attempt-001.traces.jsonl",
+        "sha256": "491d7facdefece7f5a08f92134915419d81cab4134b017ee6b6797005030ab75"
+      },
+      "trace_anchor": {
+        "anchored": true,
+        "event_count": 261,
+        "final_event_sha256": "ab22d59f79497c80b800d394228c22c21f0f0025d3727edd53ffe9e9172d9abe",
+        "valid": true
+      }
+    },
+    {
+      "checks": {
+        "attempt_count_exact": true,
+        "configuration_exact": true,
+        "forbidden_raw_keys_absent": true,
+        "manifest_exact": true,
+        "scenario_count_exact": true,
+        "trace_valid_and_anchored": true,
+        "trial_signature_exact": true
+      },
+      "configuration": "single-pass-bounded-trust-tier-lexical-v5",
+      "label": "candidate-001",
+      "report": {
+        "bytes": 949896,
+        "path": "artifacts/evaluations/baseline-0034-candidate-v5-attempt-001.json",
+        "sha256": "9bb4e44455662e9ce63fc7b676c0d51ba0b0caeffe52449686a3422c121f9f52"
+      },
+      "role": "candidate",
+      "trace": {
+        "bytes": 197370,
+        "path": "artifacts/evaluations/baseline-0034-candidate-v5-attempt-001.traces.jsonl",
+        "sha256": "34d5346f1b00ccad622006e1cfe635f34ae9e81bb78ec552250d3ec84f344b0d"
+      },
+      "trace_anchor": {
+        "anchored": true,
+        "event_count": 261,
+        "final_event_sha256": "560ce51863c49dd53f53a4d5ad1fca67e23e83159b0698f0ea84815ded5bc12d",
+        "valid": true
+      }
+    },
+    {
+      "checks": {
+        "attempt_count_exact": true,
+        "configuration_exact": true,
+        "forbidden_raw_keys_absent": true,
+        "manifest_exact": true,
+        "scenario_count_exact": true,
+        "trace_valid_and_anchored": true,
+        "trial_signature_exact": true
+      },
+      "configuration": "single-pass-bounded-trust-tier-lexical-v5",
+      "label": "candidate-002",
+      "report": {
+        "bytes": 949901,
+        "path": "artifacts/evaluations/baseline-0034-candidate-v5-attempt-002.json",
+        "sha256": "93a23d3c1b4079e61f3853c4478cc84db12a9eab4a30ef5a5e9a6de324a5ebd1"
+      },
+      "role": "candidate",
+      "trace": {
+        "bytes": 197375,
+        "path": "artifacts/evaluations/baseline-0034-candidate-v5-attempt-002.traces.jsonl",
+        "sha256": "a457793686f25c0e883da9fd18d7400f0bf04ab0170c1eebf9dc9aa0eaa3620d"
+      },
+      "trace_anchor": {
+        "anchored": true,
+        "event_count": 261,
+        "final_event_sha256": "9ebcfe1a0a6852ed3958c9cd62bde87bea3cd4f9a43b2773a095e50b54052ae0",
+        "valid": true
+      }
+    },
+    {
+      "checks": {
+        "attempt_count_exact": true,
+        "configuration_exact": true,
+        "forbidden_raw_keys_absent": true,
+        "manifest_exact": true,
+        "scenario_count_exact": true,
+        "trace_valid_and_anchored": true,
+        "trial_signature_exact": true
+      },
+      "configuration": "freshness-priority-lexical-v3",
+      "label": "control-002",
+      "report": {
+        "bytes": 953895,
+        "path": "artifacts/evaluations/baseline-0034-control-v3-attempt-002.json",
+        "sha256": "3d30518bdca0d04699c7d1482d04f783c1480bfe67dcb57178b02e6efb092846"
+      },
+      "role": "control",
+      "trace": {
+        "bytes": 195316,
+        "path": "artifacts/evaluations/baseline-0034-control-v3-attempt-002.traces.jsonl",
+        "sha256": "7e471877f43e2c4fd7d2b966c888bbec8c2604affd54f7e64a63445c0515972c"
+      },
+      "trace_anchor": {
+        "anchored": true,
+        "event_count": 261,
+        "final_event_sha256": "213fe7042d795287014b244c80e7a5b7c2182a5b6ffbf5e75aa2853665a01f4a",
+        "valid": true
+      }
+    },
+    {
+      "checks": {
+        "attempt_count_exact": true,
+        "configuration_exact": true,
+        "forbidden_raw_keys_absent": true,
+        "manifest_exact": true,
+        "scenario_count_exact": true,
+        "trace_valid_and_anchored": true,
+        "trial_signature_exact": true
+      },
+      "configuration": "freshness-priority-lexical-v3",
+      "label": "control-003",
+      "report": {
+        "bytes": 953893,
+        "path": "artifacts/evaluations/baseline-0034-control-v3-attempt-003.json",
+        "sha256": "1bbd660233b26f7bda6d62eb1710cffbb1057e01dacebeb080e80c800ff6dbe1"
+      },
+      "role": "control",
+      "trace": {
+        "bytes": 195315,
+        "path": "artifacts/evaluations/baseline-0034-control-v3-attempt-003.traces.jsonl",
+        "sha256": "998fb7b95fdf12764b658e6938e618e526d31efc8a2ae2de5dbb09bc49dfcd32"
+      },
+      "trace_anchor": {
+        "anchored": true,
+        "event_count": 261,
+        "final_event_sha256": "02dc9d7d5809fdd9ff54c02d20559e1a0f7d880f595acd80dbc29b4ce20a4f13",
+        "valid": true
+      }
+    },
+    {
+      "checks": {
+        "attempt_count_exact": true,
+        "configuration_exact": true,
+        "forbidden_raw_keys_absent": true,
+        "manifest_exact": true,
+        "scenario_count_exact": true,
+        "trace_valid_and_anchored": true,
+        "trial_signature_exact": true
+      },
+      "configuration": "single-pass-bounded-trust-tier-lexical-v5",
+      "label": "candidate-003",
+      "report": {
+        "bytes": 949899,
+        "path": "artifacts/evaluations/baseline-0034-candidate-v5-attempt-003.json",
+        "sha256": "80743bc8fcb990a51e8edd1cd289a84b1f75d81796c2dffb9c1bb1120a78885c"
+      },
+      "role": "candidate",
+      "trace": {
+        "bytes": 197372,
+        "path": "artifacts/evaluations/baseline-0034-candidate-v5-attempt-003.traces.jsonl",
+        "sha256": "04dddee8eabc3226687c4ef8a98639bc594169b7129ddf0914a9032eed226670"
+      },
+      "trace_anchor": {
+        "anchored": true,
+        "event_count": 261,
+        "final_event_sha256": "acb73d4c1b2cc2f62c2d5933f31cd6a797bfc172f0458ced278377f13ab337cd",
+        "valid": true
+      }
+    }
+  ],
+  "required_separate_metrics": [
+    "retrieval_completeness",
+    "retrieval_focus",
+    "attack_document_rank",
+    "generation",
+    "tool_trajectory",
+    "policy_compliance",
+    "terminal_state",
+    "benign_utility",
+    "proposal_attack_success",
+    "terminal_attack_success",
+    "repeated_trial_reliability",
+    "diagnosis_latency",
+    "end_to_end_latency",
+    "cost"
+  ],
+  "retained_process_failures": [
+    {
+      "classification": "process_invalid",
+      "description": "python -m runbook_sentinel.cli exited zero without invoking main and created no artifact; exact immutable targets remained absent before the corrected package entry point ran.",
+      "id": "WHOLE-SYSTEM-CLI-ENTRYPOINT-0034-001",
+      "positive_evidence": false
+    },
+    {
+      "classification": "process_invalid",
+      "description": "The first read-only inventory attempted to assign PowerShell's read-only False variable; it stopped without mutating artifacts before the corrected inventory ran.",
+      "id": "REPORT-INVENTORY-POWERSHELL-CONSTANT-0034-001",
+      "positive_evidence": false
+    }
+  ],
+  "schema_version": "1.0",
+  "selected_configuration": "freshness-priority-lexical-v3",
+  "selection_checks": {
+    "candidate_aggregate_diagnosis_median_ms_not_greater_than_control": true,
+    "candidate_aggregate_end_to_end_median_ms_not_greater_than_control": true,
+    "candidate_aggregate_end_to_end_p95_ms_not_greater_than_control": true,
+    "cost_non_inferior": true,
+    "development_expected_document_share_strictly_improved_over_v3": true,
+    "development_extra_document_count_strictly_reduced_from_v3": true,
+    "exact_allowed_false_gate_inventory_and_all_other_131_boolean_gates_true": false,
+    "required_evidence_complete_on_development_and_held_out": true,
+    "scenario_generation_trajectory_policy_terminal_utility_attack_and_reliability_exact": true,
+    "v5_returned_ids_and_ranks_exactly_equal_v4_on_both_splits": true
+  },
+  "status": "complete_candidate_excluded",
+  "v4_v5_equivalence": {
+    "by_split": {
+      "development": {
+        "mismatch_count": 0,
+        "scenario_count": 31
+      },
+      "test": {
+        "mismatch_count": 0,
+        "scenario_count": 26
+      }
+    },
+    "mismatch_count": 0,
+    "mismatches": []
+  }
+}

@@ -129,8 +129,8 @@
           "sha256": "7d019d8dcf1bc96ed4365d2482a66839bd2d05d1a067afb5bc47cb2d45b57caa"
         },
         "future_identity": {
-          "bytes": 4658,
-          "sha256": "09e13990eb92ac8a0d5c506c56178529d4ac27395811749be714d09f13a0c613"
+          "bytes": 5178,
+          "sha256": "42cd3888be6c180d64a378cda093f96c9dac902f4703bbcc8f2867ba7ee411bc"
         },
         "current_required_literals": [
           "test_current_predecessor_bridge_phase_passes",
@@ -139,7 +139,9 @@
         "future_required_literals": [
           "test_current_governed_lifecycle_phase_passes",
           "test_unknown_active_retrieval_hash_fails_closed",
+          "test_result_presence_matches_governed_phase",
           "implementation_sealed_no_result",
+          "evaluated_unselected",
           "exact_experimental_successor"
         ]
       },

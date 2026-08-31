@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "baseline-0034-retrieval-comparison-local",
+  "checkpoint": "baseline-0034",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-31T17:37:43Z",
+  "status": "pass_candidate_excluded",
+  "candidate_disposition": "exclude_and_retain",
+  "selected_configuration": "freshness-priority-lexical-v3",
+  "benchmark": {
+    "path": "artifacts/evaluations/baseline-0034-retriever-benchmark.json",
+    "bytes": 4265,
+    "sha256": "3d07f75e116a454b9130e54fad88f0cd7a3b31d24c3060b223c600a08deedd42",
+    "independent_process_count": 5,
+    "maximum_candidate_over_control_ratio": 0.857175,
+    "ratio_ceiling": 0.95,
+    "returned_id_mismatch_count": 0,
+    "held_out_loaded": false,
+    "status": "pass"
+  },
+  "comparison": {
+    "path": "artifacts/evaluations/baseline-0034-retrieval-comparison.json",
+    "bytes": 20479,
+    "sha256": "a9a23d1a5e933b10e06004233691f5d72277d3609b116b7812a8bf07c9e0ed1a",
+    "balanced_report_order": [
+      "control",
+      "candidate",
+      "candidate",
+      "control",
+      "control",
+      "candidate"
+    ],
+    "report_count": 6,
+    "anchored_trace_count": 6,
+    "control_attempt_count": 513,
+    "candidate_attempt_count": 513,
+    "selection_checks_passed": 9,
+    "selection_checks_failed": 1,
+    "failed_selection_checks": [
+      "exact_allowed_false_gate_inventory_and_all_other_131_boolean_gates_true"
+    ],
+    "candidate_selected": false
+  },
+  "separate_metrics": {
+    "v4_v5_returned_id_and_rank_mismatch_count": 0,
+    "development_required_evidence_complete": true,
+    "held_out_required_evidence_complete": true,
+    "development_control_expected_document_share_mean": 0.696428571429,
+    "development_candidate_expected_document_share_mean": 0.72619047619,
+    "development_control_extra_document_count": 66,
+    "development_candidate_extra_document_count": 48,
+    "generation_exact": true,
+    "tool_trajectory_exact": true,
+    "policy_compliance_exact": true,
+    "terminal_state_exact": true,
+    "benign_utility_exact": true,
+    "proposal_attack_success_zero": true,
+    "terminal_attack_success_zero": true,
+    "repeated_trial_reliability_exact": true,
+    "control_aggregate_diagnosis_median_ms": 7.889,
+    "candidate_aggregate_diagnosis_median_ms": 6.617,
+    "control_aggregate_end_to_end_median_ms": 55.993,
+    "candidate_aggregate_end_to_end_median_ms": 51.214,
+    "control_aggregate_end_to_end_p95_ms": 152.107,
+    "candidate_aggregate_end_to_end_p95_ms": 82.437,
+    "cost_non_inferior": true
+  },
+  "gate_inventory": {
+    "required_true_boolean_gate_count": 131,
+    "observed_true_boolean_gate_count_per_candidate_report": 131,
+    "frozen_allowed_false_gate_missing_from_observation": "retrieval_quality_extra_document_attempt_rate_exact",
+    "unlisted_observed_false_gate": "adversarial_retrieval_stage_outcome_split_contract_valid",
+    "exact": false,
+    "selection_consequence": "candidate excluded without modifying the frozen allowlist"
+  },
+  "adjudicator": {
+    "path": "scripts/adjudicate_retrieval_single_pass_0034.py",
+    "bytes": 26937,
+    "sha256": "0f358d085579a584d0b34bd52b4bd49756d7bf2cb072093d0468b331bce35862",
+    "in_memory_reproduction_exact_except_observation_time": true,
+    "result_writer_exclusive": true
+  },
+  "retained_failures": [
+    {
+      "id": "WHOLE-SYSTEM-CLI-ENTRYPOINT-0034-001",
+      "classification": "process_invalid",
+      "positive_evidence": false
+    },
+    {
+      "id": "REPORT-INVENTORY-POWERSHELL-CONSTANT-0034-001",
+      "classification": "process_invalid",
+      "positive_evidence": false
+    },
+    {
+      "id": "EVALUATED-PHASE-REGRESSION-0034-001",
+      "classification": "failed",
+      "focused_result": "15_passed_2_failed_of_17",
+      "complete_result": "148_passed_3_failed_of_151",
+      "finding": "Three tests asserted result absence after the governing validators had correctly advanced to evaluated_unselected.",
+      "selection_or_product_evidence": false
+    }
+  ],
+  "phase_correction": {
+    "scope": [
+      "eval/retrieval-successor-lifecycle-contract-0034.json",
+      "scripts/verify_retrieval_successor_lifecycle_0034.py",
+      "tests/test_retrieval_single_pass_contract_0034.py",
+      "tests/test_retrieval_successor_lifecycle_0034.py",
+      "tests/test_retrieval_successor_phase_test_correction_0034.py",
+      "tests/test_retrieval_single_pass_adjudication_0034.py"
+    ],
+    "focused_tests_passed": 26,
+    "complete_tests_passed": 155,
+    "complete_tests_failed": 0,
+    "complete_seconds": 107.068,
+    "selection_rule_changed": false,
+    "benchmark_or_report_byte_changed": false,
+    "product_runtime_or_default_changed": false,
+    "security_or_authority_changed": false
+  },
+  "boundaries": {
+    "held_out_used_for_optimization": false,
+    "candidate_tuned_after_reveal": false,
+    "research_informed_only": true,
+    "pareto_improvement_claimed": false,
+    "release_authorized": false,
+    "package_image_tag_release_or_deployment_created": false,
+    "external_asset_service_secret_or_real_infrastructure_added": false,
+    "container_image_exported_or_published": false
+  },
+  "next_gate": "Publish and independently reconcile the exact excluded-result bundle, then close BASELINE-0034 without a v0.0.34 release or default transition."
+}
