@@ -1,0 +1,383 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0035-PACKAGE-SOURCE-LOCAL",
+  "checkpoint": "baseline-0035",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-31T23:25:14Z",
+  "status": "pass_local_package_source_container_unavailable",
+  "public_input": {
+    "repository": "https://github.com/drwbkr1/runbook-sentinel",
+    "visibility": "public",
+    "branch": "codex/baseline-0035-evaluation-contract-integrity",
+    "record_commit": "ab859ebdb641b56cf31a3620344cbaf9c72faf10",
+    "record_tree": "8ff32411af9b0192207dce9eb797481228fe14b3",
+    "record_parent": "7ea3309a62322a2a3d932d7f471e2b510342e10a",
+    "record_reconciliation": {
+      "all_refs_commit_tree_and_parent_exact": true,
+      "repository_tree_entries": 1714,
+      "repository_tree_truncated": false,
+      "changed_paths": 7,
+      "git_blob_mismatches": 0,
+      "anonymous_raw_byte_mismatches": 0,
+      "anonymous_raw_bytes": 1376984,
+      "rendered_commit_verified": true
+    },
+    "public_receipt": {
+      "path": "artifacts/verification/baseline-0035-dashboard-render-sync-public.json",
+      "bytes": 5094,
+      "sha256": "1251896f6476057035f6fe7a92af66f325911e27401fa92c91b3c78f6bb42414"
+    },
+    "public_verification_custody": {
+      "path": "C:/Projects/Verification/baseline-0035-dashboard-render-sync-record-public-verification.json",
+      "bytes": 865,
+      "sha256": "4118aecc5d6c2693044c13a90b63b465778974e57feaf43ada7a029e046b1223"
+    },
+    "public_main": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "public_main_moved": false,
+    "latest_release": "v0.0.33",
+    "latest_release_id": 375120109,
+    "latest_release_asset_count": 2,
+    "deployments_empty": true,
+    "v0_0_35_tag_absent": true,
+    "one_drive_used": false
+  },
+  "source_identity": {
+    "manifest_path": "eval/manifest.json",
+    "archived_manifest_path": "artifacts/verification/baseline-0035-prebuild-source-manifest-attempt-002-render-sync.json",
+    "manifest_bytes": 20021,
+    "manifest_sha256": "e7a097883f2ee4f61aac695af1b2d7b3034a7c6470739f0cf60693a5c0c8e29f",
+    "manifest_file_count": 164,
+    "active_and_archived_byte_exact": true,
+    "package_contract_path": "eval/package-contract-0035.json",
+    "package_contract_bytes": 18247,
+    "package_contract_sha256": "2f648f7159fc054bd3167cd82aa03543f85a9bf63e4880484152db5dab0dd200",
+    "container_contract_path": "eval/container-contract-0035-v14.json",
+    "container_contract_bytes": 14641,
+    "container_contract_sha256": "086814ea722078b7772de3e97ddb79427dcc74adcda17ec7b1310efae9a4e9ae"
+  },
+  "archive": {
+    "path": "dist/runbook-sentinel-0.0.35.pyz",
+    "bytes": 650685,
+    "sha256": "362d00705bc45102e7e09c69d5bba442ecb791e0feca7b3885041538d86af862",
+    "checksum_path": "dist/runbook-sentinel-0.0.35.pyz.sha256",
+    "checksum_bytes": 94,
+    "checksum_sha256": "a65d28f372fa22f20c2d7082ab9238533e7ccb67e842a6a50d427d3427ac050e",
+    "independent_build_custody": [
+      "C:/Projects/Verification/runbook-sentinel-baseline-0035-package-render-sync-attempt-001",
+      "C:/Projects/Verification/runbook-sentinel-baseline-0035-package-render-sync-attempt-002"
+    ],
+    "independent_build_archive_bytes_exact": true,
+    "independent_build_checksum_bytes_exact": true,
+    "entry_count": 43,
+    "runtime_dependencies": [],
+    "both_package_contract_checks": "pass",
+    "cli_help": "pass",
+    "evaluate_help": "pass"
+  },
+  "evaluation": {
+    "source_report": {
+      "path": "artifacts/evaluations/runs/baseline-0035-attempt-006.json",
+      "bytes": 953896,
+      "sha256": "ab94306f271f3186d324591935d428233b509eee7f60a339026376245bb5aec0"
+    },
+    "source_manifest": {
+      "path": "artifacts/evaluations/runs/baseline-0035-attempt-006.manifest.json",
+      "bytes": 20021,
+      "sha256": "e7a097883f2ee4f61aac695af1b2d7b3034a7c6470739f0cf60693a5c0c8e29f"
+    },
+    "source_trace": {
+      "path": "artifacts/evaluations/runs/baseline-0035-attempt-006.traces.jsonl",
+      "bytes": 195325,
+      "sha256": "d8095e19986d3a9e098fc750b2d0ae76b4f7d5897c429d391fed5f40b0d16293",
+      "events": 261,
+      "final_event_sha256": "94122fcd00239d377df697d6734579c50413c9b2cbbd38a747de54169a8af8aa",
+      "valid": true,
+      "anchored": true
+    },
+    "package_report": {
+      "path": "artifacts/evaluations/runs/baseline-0035-attempt-007.json",
+      "bytes": 954188,
+      "sha256": "71dcaa7820999c1b583cfe0171bc511bba6a428782800c2991868ff82fb3b9d3"
+    },
+    "package_manifest": {
+      "path": "artifacts/evaluations/runs/baseline-0035-attempt-007.manifest.json",
+      "bytes": 20021,
+      "sha256": "e7a097883f2ee4f61aac695af1b2d7b3034a7c6470739f0cf60693a5c0c8e29f"
+    },
+    "package_trace": {
+      "path": "artifacts/evaluations/runs/baseline-0035-attempt-007.traces.jsonl",
+      "bytes": 195459,
+      "sha256": "4bb903ef1cbbe10f29262a32e21bd29a0fabc1853a3dbf16d92f7846698f7965",
+      "events": 261,
+      "final_event_sha256": "f906f76677d4a2cb4aa54a396576d21cc881a04965b6d808e2d9c9b1997b8e4f",
+      "valid": true,
+      "anchored": true
+    },
+    "latest_report_sha256": "71dcaa7820999c1b583cfe0171bc511bba6a428782800c2991868ff82fb3b9d3",
+    "latest_is_byte_identical_to_package_report": true,
+    "configuration": {
+      "agent": "deterministic-control-v2",
+      "retriever": "freshness-priority-lexical-v3",
+      "decision_context": "fresh-content-stale-metadata-context-v3"
+    },
+    "historical_v5_disposition": {
+      "candidate_selected": false,
+      "selected_default": "freshness-priority-lexical-v3",
+      "disposition": "exclude_and_retain",
+      "rewritten": false
+    },
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "boolean_gates": {
+      "source_true": 136,
+      "source_false": 0,
+      "package_true": 136,
+      "package_false": 0
+    },
+    "raw_leaf_difference_count": 407,
+    "declared_runtime_varying_leaf_keys": [
+      "database_sha256_after",
+      "database_sha256_before",
+      "diagnosis_latency_ms",
+      "diagnosis_median_ms",
+      "diagnosis_p95_ms",
+      "file_name",
+      "final_event_sha256",
+      "latency_ms",
+      "median",
+      "median_ms",
+      "operator_identity",
+      "p95",
+      "p95_ms",
+      "state_after_approval_sha256",
+      "state_before_sha256",
+      "trace_sha256_after",
+      "trace_sha256_before"
+    ],
+    "unexpected_leaf_keys": [],
+    "normalized_report_bytes": 560780,
+    "normalized_report_sha256": "337faa888811e088abbaf12f1b0ba527e6e90cd751cff1fae4cdc714fce09ce3",
+    "source_package_normalized_reports_exact": true,
+    "source_latency_ms": {
+      "median": 53.56,
+      "p95": 82.715,
+      "diagnosis_median": 7.301,
+      "diagnosis_p95": 15.131
+    },
+    "package_latency_ms": {
+      "median": 144.514,
+      "p95": 256.602,
+      "diagnosis_median": 19.094,
+      "diagnosis_p95": 43.952
+    },
+    "model_calls": 0,
+    "external_api_cost": 0,
+    "metric_families_reported_separately": [
+      "approval_lifetime",
+      "behavioral_relations",
+      "cost",
+      "coverage",
+      "generation",
+      "idempotency_authorization",
+      "latency",
+      "live_trace_endpoint_anchor",
+      "operator_authentication",
+      "policy",
+      "proposal",
+      "reliability",
+      "retrieval",
+      "retrieval_quality",
+      "retrieval_stress",
+      "security",
+      "stale_evidence_stress",
+      "stale_payload_projection",
+      "telemetry_integrity",
+      "terminal_state",
+      "tool_trajectory",
+      "utility"
+    ]
+  },
+  "mcp": {
+    "protocol_version": "2025-11-25",
+    "server_version": "0.0.35",
+    "tool_names": [
+      "list_synthetic_scenarios",
+      "diagnose_synthetic_incident",
+      "get_synthetic_incident"
+    ],
+    "approval_or_execution_tool_exposed": false,
+    "attack_document_in_decision_context": false,
+    "full_retrieval_audit_retained": true,
+    "source": {
+      "receipt_sha256": "210b190370876a0791881e2b1177bd989a70ad880b84fbe08d7fa7958e1dac4c",
+      "database_sha256": "e79fe6d4b445dd9113eb162ff25dc4a3e6443d15f5ff7ba5ca0628ce71fea064",
+      "trace_sha256": "0db8a73cb29fca127f689f488f0ddef05297bbfdecfda91af728fca204d3ea03",
+      "trace_events": 2,
+      "trace_final_event_sha256": "8a9d7e8a048b715ea69c024230064b8f6cd66cf5effe2b9c46fdac347cdb5d97",
+      "trace_anchor_sha256": "c8bb637ffbc3fc2fb1e803db1893f0c89b5611318ee3435b3107c5362592aad3",
+      "anchor_file_sha256": "0740218b6ffec5251e6e367c852e9e31466cd4c9543d0c0d6ec6d85e29c13687"
+    },
+    "package": {
+      "receipt_sha256": "f13403a1cdf9df3d973d2beab377db9ee0093107f08440af295af785d36ec897",
+      "database_sha256": "493d48e2c49448f56ef228c435c28f8795a1c6e792c7d7365cb09a6ac8e81302",
+      "trace_sha256": "9683e7d93995af4415e093ad415e9fe09d14fba11c90bd0ec0138800ea553d2f",
+      "trace_events": 2,
+      "trace_final_event_sha256": "05e9e802650727a4b72d87f05fbb4ae8548990baf3a1cd6e0694260dccc76427",
+      "trace_anchor_sha256": "71b740ed11d986245a8c9044f79c6aadbfbd9daf91ff87228628be5fc427fd47",
+      "anchor_file_sha256": "1aa18692643dd8c353d269ea7e8cd135cf20479dab7fec887f9eab77bf9ee947"
+    },
+    "both_trace_chains_valid_and_anchored": true
+  },
+  "authenticated_api": {
+    "check_definitions": 131,
+    "source_status": "pass",
+    "package_status": "pass",
+    "source_boolean_true_checks": 130,
+    "package_boolean_true_checks": 130,
+    "source_false_boolean_checks": 0,
+    "package_false_boolean_checks": 0,
+    "dashboard_csp_present_is_observed_header_array": true,
+    "operator_identity_server_derived": true,
+    "authorization_approval_action_hash_idempotency_replay_and_postconditions_exact": true,
+    "authentication_material_absent_from_trace_anchor_dashboard_database_and_logs": true,
+    "source": {
+      "receipt_sha256": "2fc2cfd83c6985f0ffdf954091ad5e16ae50d99b2a2e67c22e4834b515b443b1",
+      "database_sha256": "a46a56497b7520b9c5757a705f0a6a3483909f22c39170baccb3f22719fa5631",
+      "trace_sha256": "e525d51eb261ddb59aa8c541e53a385a83cf47c2fa4b09b68dd1e25a6da16490",
+      "trace_events": 5,
+      "trace_final_event_sha256": "5d89f50679f911628fd75a279ef627abd3bfc5cff92103651979c47643c6bc1b",
+      "trace_anchor_sha256": "a8d25f815e22e9fbe31623b0e23d7bccf0da3e3d0a890337798fb4007228db7a",
+      "anchor_file_sha256": "a3a926a4860a33df7855ae1c1c681d0de4f6e3a3cef79df0661dc49793bb2b77"
+    },
+    "package": {
+      "receipt_sha256": "b523b03b62f468527d756ba64234cc1a585599d5dde2bec10cf95248fb724b61",
+      "database_sha256": "e08766c30f95dd629b168255c4d963e13dd6c505bfc55fef1a39572916ca08a1",
+      "trace_sha256": "09ec4bc441d336ad0c47f1cd3935cddca2069cb2b4d8ac4317a252f5adf5b936",
+      "trace_events": 5,
+      "trace_final_event_sha256": "4623724444e076269408f467f682156080aa922d9f1b03a7c3c6e1d143b7777a",
+      "trace_anchor_sha256": "058df6600b3fa12bbfac6ba09470f8307202cb0b395adb51ac0f1c88bd023f9d",
+      "anchor_file_sha256": "bca8a85acd97bbdbf2860578a41e2c2bb609c98ce2dd13ff30e519f202a5d015"
+    }
+  },
+  "native_evidence": {
+    "source": {
+      "path": "artifacts/verification/native-source-baseline-0035.json",
+      "bytes": 12476,
+      "sha256": "40afc64202dc72b939d6897f8e909450444d30bcfc828ccb91b9f089e558e4ab",
+      "checks": "72/72"
+    },
+    "package": {
+      "path": "artifacts/verification/native-package-baseline-0035.json",
+      "bytes": 12478,
+      "sha256": "dbf4d1d25cca1058c8494ff714b35111cc5375e4245febcd3deaae6b0b70a9cb",
+      "checks": "72/72"
+    },
+    "check_names_exact": true,
+    "database_counts_and_audit_event_sequence_exact": true,
+    "logs_exact": true,
+    "launch_specific_operator_database_telemetry_and_dashboard_hashes_observed_separately": true
+  },
+  "dashboards": {
+    "source": {
+      "path": "artifacts/verification/dashboard-source-baseline-0035.png",
+      "bytes": 101360,
+      "sha256": "8fef274b8d79198f75114580c0bf5ac1371c88c4db79b3203ca89e443b7be2d7",
+      "dimensions": [1440, 1000]
+    },
+    "package": {
+      "path": "artifacts/verification/dashboard-package-baseline-0035.png",
+      "bytes": 101817,
+      "sha256": "af76406460b820baa27a928ee1d46118a14261644433328bd010cd546d15b354",
+      "dimensions": [1440, 1000]
+    },
+    "both_freshly_rendered_before_api_shutdown": true,
+    "both_visually_inspected_at_original_detail": true,
+    "baseline_identity_and_35_metric_cards_visible": true,
+    "authorization_and_execution_boundaries_visible": true,
+    "persisted_incident_header_and_two_rows_visible": true,
+    "real_infrastructure_disconnected_visible": true,
+    "clipping_observed": false,
+    "edge_profile_residue_count": 0
+  },
+  "retained_failures_and_superseded_evidence": {
+    "source_api_attempt_001": {
+      "custody": "C:/Projects/Verification/runbook-sentinel-baseline-0035-api-source-attempt-001-process-invalid",
+      "disposition": "process_invalid_130_of_131_screenshot_arrived_after_shutdown"
+    },
+    "source_api_attempt_002": {
+      "custody": "C:/Projects/Verification/runbook-sentinel-baseline-0035-api-source-attempt-002-visual-failed",
+      "screenshot_path": "artifacts/verification/dashboard-source-baseline-0035-attempt-002-visual-failed.png",
+      "screenshot_sha256": "de824c21a7f0b4a2abc2150d7d2902cbfdcfc134712ba99a18fbfda36413344c",
+      "disposition": "visual_fail_err_connection_refused"
+    },
+    "render_sync_diagnostic": {
+      "custody": "C:/Projects/Verification/runbook-sentinel-baseline-0035-api-source-attempt-003-render-sync-diagnostic",
+      "disposition": "pass_diagnostic_only_pre_renewal_manifest"
+    },
+    "superseded_archive": {
+      "custody": "C:/Projects/Verification/runbook-sentinel-baseline-0035-pre-render-sync-package-superseded",
+      "sha256": "34aecb8e431a723fbfb668122981d62bf63cd7ba8eedd928609222b237e52a0f",
+      "selected": false
+    },
+    "historical_v5_candidate_remains_excluded": true,
+    "historical_results_rewritten": false,
+    "process_invalid_wrappers_retained": [
+      "reserved_false_summary_assignment",
+      "historical_private_key_marker_literal_whole_document_scan",
+      "literal_windows_wildcard_after_rg_separator",
+      "unquoted_head_tree_revision",
+      "github_html_request_with_api_accept_header",
+      "powershell_pipe_after_foreach",
+      "api_check_wrapper_miscounted_non_boolean_csp_observation",
+      "powershell_inline_if_path_resolution_hash_summary",
+      "package_source_whole_changed_file_secret_scan_historical_literal",
+      "delta_scan_powershell_colon_interpolation"
+    ]
+  },
+  "docker_availability": {
+    "checked_at_utc": "2026-08-31T23:25:14Z",
+    "client_version": "29.4.3",
+    "context": "desktop-linux",
+    "server_available": false,
+    "engine_pipe_present": false,
+    "container_built": false,
+    "disposition": "defer_until_daemon_available_after_public_package_source_record"
+  },
+  "verification": {
+    "source_evaluation_trace": "pass_valid_anchored_261",
+    "package_evaluation_trace": "pass_valid_anchored_261",
+    "source_retrieval_quality": "pass",
+    "package_retrieval_quality": "pass",
+    "manifest_validator": "pass_164_files",
+    "selected_package_contract": "pass_43_entries",
+    "repeat_package_contract": "pass_43_entries",
+    "release_identity_contract": "pass_implemented",
+    "container_v14_contract": "pass_implemented_receipt_absent",
+    "full_tests_passed": 180,
+    "full_tests_failed": 0,
+    "source_api": "pass_131_definitions_no_false_boolean_checks",
+    "package_api": "pass_131_definitions_no_false_boolean_checks",
+    "source_native": "pass_72_of_72",
+    "package_native": "pass_72_of_72",
+    "focused_release_identity_tests": "pass_8_of_8",
+    "changed_json_files_parsed": 7,
+    "package_trace_jsonl_records_parsed": 261,
+    "bounded_delta_and_new_file_scan": "pass_37_added_lines_6_new_text_files_zero_high_signal_matches",
+    "model_artifacts_found": 0,
+    "png_signatures_valid": true,
+    "archive_duplicate_entries": 0
+  },
+  "boundaries": {
+    "model_has_credentials": false,
+    "model_has_final_execution_authority": false,
+    "mcp_has_approval_or_execution_authority": false,
+    "real_infrastructure_contacted": false,
+    "new_dependency_secret_paid_service_or_external_asset_added": false,
+    "derived_container_image_built": false,
+    "container_runtime_started": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "tag_release_deployment_or_publication_created": false,
+    "public_main_moved": false
+  },
+  "next_gate": "Publish and independently reconcile this exact package/source payload and a record-only public receipt before any local-only container build. If Docker remains unavailable, proceed with non-container clean-clone verification and retain the container gate as pending."
+}

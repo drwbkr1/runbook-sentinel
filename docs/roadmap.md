@@ -34,7 +34,9 @@ The first real rendered-source gate rejected that package path before release: o
 
 Corrected prebuild seal `7ea3309a62322a2a3d932d7f471e2b510342e10a` is public and exact across all 32 changed blobs and 9,516,672 raw bytes, an untruncated 1,713-entry tree, and rendered commit evidence. Main, v0.0.33, two assets, deployments, and v0.0.35 tag absence remain unchanged. Publish and verify its record-only receipt, then build two independent replacement archives before repeating source/package and real-surface evaluation.
 
-The BASELINE-0035 classification result exists and is public, but no default transition, v0.0.35 package, image, tag, release, or deployment exists. Revealed held-out evidence is used only to diagnose evaluation machinery; it cannot tune or select a retriever.
+Record-only reconciliation `ab859ebdb641b56cf31a3620344cbaf9c72faf10` is public and exact. Two independent 650,685-byte replacement archives reproduce SHA-256 `362d0070...`. Selected source attempt 006 and package attempt 007 each pass 57 scenarios, 171 attempts, all 136 Boolean gates, retrieval verification, and anchored 261-event traces; their complete reports normalize exact at `337faa88...`. Source/package MCP, authenticated API, approval/executor/state/telemetry, and both original-detail dashboards pass. Publish and verify this exact package/source payload and then its record-only receipt. Docker client 29.4.3 is installed but its server is unavailable, so the container gate remains pending and cannot be inferred from historical evidence.
+
+The BASELINE-0035 classification result exists and is public, and a local v0.0.35 package candidate is exact and verified across source/package real surfaces. No public package, image, tag, release, or deployment exists. Revealed held-out evidence is used only to diagnose evaluation machinery; it cannot tune or select a retriever.
 
 ## Active checkpoint baseline-0034 - single-pass bounded retrieval latency
 
