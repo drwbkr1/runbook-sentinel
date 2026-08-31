@@ -162,6 +162,17 @@ FILES = [
     "scripts/evaluate_model_output_failures.py",
     "scripts/build_zipapp.py",
     "scripts/verify_package_contract.py",
+    "eval/retrieval-candidate-evidence-contract-0035.json",
+    "eval/release-identity-contract-0035.json",
+    "artifacts/evaluations/baseline-0035-retrieval-evidence-classification.json",
+    "artifacts/verification/baseline-0035-preimplementation-freeze-public.json",
+    "artifacts/verification/baseline-0035-implementation-seal-public.json",
+    "artifacts/verification/baseline-0035-classification-result-public.json",
+    "artifacts/verification/baseline-0035-release-identity-freeze-public.json",
+    "artifacts/verification/baseline-0035-release-identity-implementation-public.json",
+    "scripts/verify_retrieval_candidate_evidence_contract_0035.py",
+    "scripts/classify_retrieval_candidate_evidence_0035.py",
+    "scripts/verify_release_identity_contract_0035.py",
 ]
 
 
@@ -175,7 +186,7 @@ def sha256(path: Path) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--checkpoint", default="baseline-0033")
+    parser.add_argument("--checkpoint", default="baseline-0035")
     parser.add_argument("--frozen-at")
     parser.add_argument("--output", default="eval/manifest.json")
     args = parser.parse_args()

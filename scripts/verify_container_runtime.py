@@ -25,16 +25,16 @@ BASE_REFRESH_CONTRACT_PATH = ROOT / "eval/container-base-security-refresh-contra
 BASE_INTAKE_RECEIPT_PATH = ROOT / "artifacts/verification/container-base-intake-baseline-0032.json"
 BASE_REFRESH_CONTRACT_SHA256 = "4bd27c43c6309cf3efa24a87e1651679607cda4275c293ed17ae5f48d1e44cf7"
 BASE_INTAKE_RECEIPT_SHA256 = "1172c50f7794ec6cc6f855f8b61fc1cf448df2c76221d7487fc3f03829cdf142"
-PACKAGE_PATH = ROOT / "dist/runbook-sentinel-0.0.33.pyz"
+PACKAGE_PATH = ROOT / "dist/runbook-sentinel-0.0.35.pyz"
 EVALUATION_PATH = ROOT / "artifacts/evaluations/latest.json"
 SOURCE_DATE_EPOCH_RECEIPT = (
-    ROOT / "artifacts/verification/baseline-0032-preimplementation-freeze-public.json"
+    ROOT / "artifacts/verification/baseline-0035-release-identity-freeze-public.json"
 )
 SOURCE_DATE_EPOCH_RECEIPT_SHA256 = (
-    "9ae2df9c48627c418ec8e38bffd0c8aa8c1edfd9c731b9cbe12dd07703cc9f91"
+    "22a2b7d49b2e13beaee410b127bdc4577a70aef0eb10d3f6a149f801742c8843"
 )
-SOURCE_DATE_EPOCH = "1787421483"
-SOURCE_DATE_EPOCH_UTC = "2026-08-22T17:58:03Z"
+SOURCE_DATE_EPOCH = "1788207258"
+SOURCE_DATE_EPOCH_UTC = "2026-08-31T20:14:18Z"
 IMAGE_APP = "/opt/runbook-sentinel/runbook-sentinel.pyz"
 BASE_REFERENCE = (
     "cgr.dev/chainguard/python@"
@@ -46,7 +46,7 @@ PLATFORM_MANIFEST = (
 EXPECTED_LABELS = {
     "org.opencontainers.image.title": "Runbook Sentinel",
     "org.opencontainers.image.description": "Research-informed synthetic SRE incident-agent preview",
-    "org.opencontainers.image.version": "0.0.33",
+    "org.opencontainers.image.version": "0.0.35",
     "org.opencontainers.image.source": "https://github.com/drwbkr1/runbook-sentinel",
     "dev.runbook-sentinel.base.digest": BASE_REFERENCE.split("@", 1)[1],
 }
@@ -206,7 +206,7 @@ recovery = json.loads(recovery_raw)
 result = {
     "status": "pass",
     "checks": {
-        "health_checkpoint_exact": health.get("checkpoint") == "baseline-0033",
+        "health_checkpoint_exact": health.get("checkpoint") == "baseline-0035",
         "missing_capability_rejected_before_body": missing_status == 401 and "Sentinel-Capability" in missing_headers.get("Www-Authenticate", missing_headers.get("WWW-Authenticate", "")),
         "wrong_capability_rejected": wrong_status == 401,
         "caller_actor_rejected": caller_status == 400,
@@ -222,11 +222,11 @@ result = {
         "same_key_idempotent": cached_status == 200 and cached == execution,
         "different_key_replay_rejected": replay_status == 409,
         "terminal_state_exact": incident["status"] == "mitigated" and incident["state"]["worker_healthy"] is True and incident["state"]["restart_count"] == 1,
-        "evaluation_checkpoint_exact": evaluation["checkpoint"] == "baseline-0033",
+        "evaluation_checkpoint_exact": evaluation["checkpoint"] == "baseline-0035",
         "evaluation_pass": evaluation["gates"]["baseline_disposition"] == "pass",
         "dashboard_http_ok": dashboard_status == 200,
         "dashboard_csp_exact": "frame-ancestors 'none'" in dashboard_headers.get("Content-Security-Policy", ""),
-        "dashboard_identity_exact": b"Baseline 0033" in dashboard_raw and b"authenticated external operator" in dashboard_raw and b"Real infrastructure" in dashboard_raw and b"disconnected" in dashboard_raw,
+        "dashboard_identity_exact": b"Baseline 0035" in dashboard_raw and b"authenticated external operator" in dashboard_raw and b"Real infrastructure" in dashboard_raw and b"disconnected" in dashboard_raw,
     },
     "evidence": {
         "health": health,
@@ -444,7 +444,7 @@ def validate_prerequisites(evaluation: dict) -> dict:
     release_identity_result = run(
         [
             sys.executable,
-            "scripts/verify_release_identity_contract_0033.py",
+            "scripts/verify_release_identity_contract_0035.py",
             "--phase",
             "implemented",
         ]
@@ -477,7 +477,7 @@ def validate_prerequisites(evaluation: dict) -> dict:
     base_refresh_validation = {
         "valid": base_refresh_sha256 == BASE_REFRESH_CONTRACT_SHA256
         and contract_validation.get("status") == "pass"
-        and contract_validation.get("implementation_phase") == "implemented_v13",
+        and contract_validation.get("implementation_phase") == "implemented_v14",
         "phase": "inherited_exact_released_v0.0.32",
         "contract_sha256": base_refresh_sha256,
         "expected_contract_sha256": BASE_REFRESH_CONTRACT_SHA256,
@@ -487,15 +487,15 @@ def validate_prerequisites(evaluation: dict) -> dict:
     retrieval_selection_validation = json.loads(retrieval_selection_result.stdout)
     checks = {
         "container_contract": contract_validation.get("status") == "pass"
-        and contract_validation.get("implementation_phase") == "implemented_v13",
-        "release_identity": release_identity_validation.get("valid") is True
+        and contract_validation.get("implementation_phase") == "implemented_v14",
+        "release_identity": release_identity_validation.get("status") == "pass"
         and release_identity_validation.get("phase") == "implemented"
         and release_identity_validation.get("candidate_selected") is False
         and release_identity_validation.get("selected_configuration")
         == "freshness-priority-lexical-v3",
         "manifest": manifest_validation.get("status") == "pass",
         "package": package_validation.get("status") == "pass",
-        "evaluation_checkpoint": evaluation.get("checkpoint") == "baseline-0033"
+        "evaluation_checkpoint": evaluation.get("checkpoint") == "baseline-0035"
         and evaluation.get("gates", {}).get("baseline_disposition") == "pass",
         "base_security_refresh": base_refresh_validation.get("valid") is True
         and base_refresh_validation.get("phase") == "inherited_exact_released_v0.0.32",
@@ -939,7 +939,7 @@ def run_mcp(container: str, evidence_dir: Path) -> dict:
         }
         if not (
             result["protocol"] == "2025-11-25"
-            and result["version"] == "0.0.33"
+            and result["version"] == "0.0.35"
             and len(names) == 3
             and not result["approval_or_execution_tool_exposed"]
             and result["attack_retrieved"]
@@ -1108,7 +1108,7 @@ def full_verification(args: argparse.Namespace) -> dict:
     builder = inspect_builder()
     source_date_epoch = validate_source_date_epoch()
     token = uuid.uuid4().hex[:10]
-    tags = [f"runbook-sentinel:baseline-0033-a-{token}", f"runbook-sentinel:baseline-0033-b-{token}"]
+    tags = [f"runbook-sentinel:baseline-0035-a-{token}", f"runbook-sentinel:baseline-0035-b-{token}"]
     build_started_at_ns = time.time_ns() - EVENT_WINDOW_GRACE_NANOSECONDS
     build_records = [build_image(tag, evidence_dir / f"build-{index + 1}.log") for index, tag in enumerate(tags)]
     build_finished_at_ns = time.time_ns() + EVENT_WINDOW_GRACE_NANOSECONDS
@@ -1121,7 +1121,7 @@ def full_verification(args: argparse.Namespace) -> dict:
     )
     base = image_inspect(BASE_REFERENCE)
     image_validation = validate_image(tags[0], builds[0], base)
-    keeper = f"rs-b0033-{token}"
+    keeper = f"rs-b0035-{token}"
     create_keeper(keeper, tags[0])
     api_process: subprocess.Popen[str] | None = None
     try:
@@ -1261,7 +1261,7 @@ def full_verification(args: argparse.Namespace) -> dict:
         )
         result = {
             "schema_version": "1.0",
-            "checkpoint": "baseline-0033",
+            "checkpoint": "baseline-0035",
             "status": "local-pass-clean-clone-pending",
             "observed_at_utc": utc_now(),
             "contract_sha256": sha256_file(CONTRACT_PATH),
@@ -1324,7 +1324,7 @@ def clean_build(args: argparse.Namespace) -> dict:
     prerequisites = validate_prerequisites(evaluation)
     builder = inspect_builder()
     source_date_epoch = validate_source_date_epoch()
-    tag = f"runbook-sentinel:baseline-0033-clean-{uuid.uuid4().hex[:10]}"
+    tag = f"runbook-sentinel:baseline-0035-clean-{uuid.uuid4().hex[:10]}"
     build_started_at_ns = time.time_ns() - EVENT_WINDOW_GRACE_NANOSECONDS
     build = build_image(tag, evidence_dir / "clean-build.log")
     build_finished_at_ns = time.time_ns() + EVENT_WINDOW_GRACE_NANOSECONDS
@@ -1341,7 +1341,7 @@ def clean_build(args: argparse.Namespace) -> dict:
     )
     result = {
         "schema_version": "1.0",
-        "checkpoint": "baseline-0033",
+        "checkpoint": "baseline-0035",
         "status": "pass" if exact else "fail",
         "observed_at_utc": utc_now(),
         "image_id": inspect["Id"],

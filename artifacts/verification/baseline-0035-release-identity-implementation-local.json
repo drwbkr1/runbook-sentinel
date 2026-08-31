@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0035",
+  "receipt_id": "baseline-0035-release-identity-implementation-local",
+  "status": "pass",
+  "observed_at_utc": "2026-08-31T20:49:43Z",
+  "starting_public_state": {
+    "branch_commit": "cb601ea0ffb37ece0e46271028e02e5e0b72e2af",
+    "branch_record_status": "public_exact",
+    "main_commit": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "released_tag": "v0.0.33",
+    "one_drive_authoritative": false
+  },
+  "release_identity": {
+    "contract_schema": "runbook-sentinel/release-identity-transition/v1.2",
+    "phase": "implemented",
+    "status": "pass",
+    "functional_product_delta_count": 0,
+    "product_runtime_file_count": 24,
+    "mechanical_identity_path_count": 4,
+    "unchanged_runtime_path_count": 20,
+    "candidate_selected": false,
+    "selection_performed": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "historical_candidate_disposition": "exclude_and_retain",
+    "new_external_asset_count": 0
+  },
+  "package_contract": {
+    "active_and_versioned_equal": true,
+    "sha256": "2f648f7159fc054bd3167cd82aa03543f85a9bf63e4880484152db5dab0dd200",
+    "entry_count": 43,
+    "status": "frozen_before_archive_build",
+    "archive_checked": false
+  },
+  "container_contract": {
+    "active_and_versioned_equal": true,
+    "contract_id": "container-runtime-v14",
+    "sha256": "086814ea722078b7772de3e97ddb79427dcc74adcda17ec7b1310efae9a4e9ae",
+    "implementation_phase": "implemented_v14",
+    "required_check_count": 49,
+    "receipt_state": "absent",
+    "inherited_contract": "eval/container-contract-0033-v13.json",
+    "inherited_contract_sha256": "54067e1a7447f09eae990196dc8a5c90c0815ef35055ac4f95099afeb4f9fc54",
+    "inherited_receipt_sha256": "3c2970c2cf3684c956ab9b38040ca3160d6f6e8388636a3549ac9d42f4ca0d0e",
+    "base_reference": "cgr.dev/chainguard/python@sha256:1f6779775c9f466890da563e411cb677045a6c20b6a65160eefad1deffb5012c",
+    "base_platform_manifest_digest": "sha256:e15765ff7066a0eaf91e1b6fd5000c1bba47d62b9f9731f2da560711d910c4f3",
+    "release_identity_prerequisite_required": true
+  },
+  "verification": {
+    "release_identity_verifier": "pass",
+    "package_contract_verifier": "pass",
+    "container_contract_verifier": "pass",
+    "focused_tests": {
+      "count": 13,
+      "passed": 13,
+      "elapsed_seconds": 3.417
+    },
+    "complete_regression": {
+      "count": 178,
+      "passed": 178,
+      "elapsed_seconds": 116.095
+    },
+    "predecessor_manifest": {
+      "status": "expected_mismatch",
+      "mismatch_count": 19,
+      "paths": [
+        ".dockerignore",
+        "Dockerfile",
+        "eval/container-contract.json",
+        "eval/package-contract.json",
+        "pyproject.toml",
+        "scripts/build_zipapp.py",
+        "scripts/inspect_runtime_evidence.py",
+        "scripts/verify_baseline.py",
+        "scripts/verify_container_contract.py",
+        "scripts/verify_container_runtime.py",
+        "scripts/verify_live_api.ps1",
+        "scripts/verify_mcp_stdio.py",
+        "scripts/verify_package_contract.py",
+        "scripts/verify_retrieval_tier_cap_contract.py",
+        "src/runbook_sentinel/__init__.py",
+        "src/runbook_sentinel/api.py",
+        "src/runbook_sentinel/cli.py",
+        "src/runbook_sentinel/mcp_server.py",
+        "src/runbook_sentinel/retrieval.py"
+      ],
+      "positive_claim": "The predecessor manifest fails closed on the bounded implementation and historical retrieval successor; it is not relabeled as current."
+    },
+    "python_compile": "pass",
+    "changed_json_parse": "pass",
+    "git_diff_check": "pass",
+    "milestone_validation": "pass_without_warning",
+    "high_signal_credential_or_private_key_match_count": 0,
+    "high_signal_bearer_match_count": 0,
+    "model_artifact_match_count": 0,
+    "docker_client_version": "29.4.3",
+    "docker_server_state": "unavailable_not_container_evidence"
+  },
+  "implementation_identities": {
+    ".dockerignore": "3568f0ef1ebe632181725a72260b503d87aff678e44e162b1aef0697e2d99600",
+    "Dockerfile": "fa067bd409fb4c5e247ae6cf819b80c62040dc9f5cf7e007b877df43fa0839a2",
+    "eval/container-contract.json": "086814ea722078b7772de3e97ddb79427dcc74adcda17ec7b1310efae9a4e9ae",
+    "eval/container-contract-0035-v14.json": "086814ea722078b7772de3e97ddb79427dcc74adcda17ec7b1310efae9a4e9ae",
+    "eval/package-contract.json": "2f648f7159fc054bd3167cd82aa03543f85a9bf63e4880484152db5dab0dd200",
+    "eval/package-contract-0035.json": "2f648f7159fc054bd3167cd82aa03543f85a9bf63e4880484152db5dab0dd200",
+    "pyproject.toml": "45beef58d3525dcb3ee867caa0087ed31ae7c71b1ac28734f746fa3bf8b88c95",
+    "scripts/build_zipapp.py": "71f966e7861a32e6280e8e27ee0d6face6a5272007986607ae088caef404514a",
+    "scripts/freeze_manifest.py": "468ecf29dd23bbfd15f0e91c65826e7cb00944cb28efa178a73618dfb8cef520",
+    "scripts/inspect_runtime_evidence.py": "17aa9a1a6eb845b7ea68828f41b3bc00faf1c3344cc3bceb357cdf80937f7dcd",
+    "scripts/verify_baseline.py": "1263766826cdc4f206aea649bb367c15e1500db0885a9e87b7283187e379c98d",
+    "scripts/verify_container_contract.py": "a5274b240c5399da1cf3860ececcfd977e33010320cd70cf99723af75e84948a",
+    "scripts/verify_container_runtime.py": "ce498f9ecdd241db93fa93e7c7b032280f4bc052efe20163fac331326e404bb2",
+    "scripts/verify_live_api.ps1": "2bf404002c8717aade1b5d924e2fb82941ac304c7c747e13a51f492a91b34435",
+    "scripts/verify_mcp_stdio.py": "4418bb0a99d3a162259bee5c6ade80a097cca5747a86e30a7f2e9e36f373fab9",
+    "scripts/verify_package_contract.py": "91dfe211a381a70defca4098d50718203bb015437aef84e03f66b3a945957c0e",
+    "src/runbook_sentinel/__init__.py": "ebb68dc741f3428fba5ef0534462e54daf5282becaec7c6b9a9b3f71aca6c752",
+    "src/runbook_sentinel/api.py": "18bf4835544d8d5654f30b1c31542cbf301e430fe094eb58c95d1222994a3ff4",
+    "src/runbook_sentinel/cli.py": "000eb7b6bafee77f59b5b2372a4ada409dd6fb48ff49f0a462ea9ef736c64cef",
+    "src/runbook_sentinel/mcp_server.py": "50aa4acc073a1fc6a0069f1be2f0f2ac92d64f36fd36c55d89c7794d2f99c5bb",
+    "tests/test_baseline.py": "c6ccb989b63d94d665d4830f8a7b4b57e7f924c3cf6e7a1ef0375022965d8509",
+    "tests/test_release_identity_contract_0035.py": "e17e5576752b06261ee01d1a75ea29160e6580b07acfe56a78806084ae6c82f7"
+  },
+  "retained_observations": [
+    {
+      "id": "RELEASE-IDENTITY-FOCUSED-IMPLEMENTED-PHASE-0035-001",
+      "status": "fail",
+      "passed": 11,
+      "total": 13,
+      "reason": "Two release-identity tests still asserted frozen predecessor bytes and successor absence after the permitted transition."
+    },
+    {
+      "id": "PREDECESSOR-MANIFEST-MISMATCH-0035-001",
+      "status": "expected_mismatch",
+      "reason": "The BASELINE-0033 manifest remains predecessor evidence and rejects nineteen later bounded identities."
+    },
+    {
+      "id": "DOCKER-DAEMON-UNAVAILABLE-0035-001",
+      "status": "not_run",
+      "reason": "The Docker client is installed but the Linux daemon socket is unavailable; no client output is treated as container evidence."
+    }
+  ],
+  "artifact_boundaries": {
+    "v0_0_35_archive_present": false,
+    "v0_0_35_checksum_present": false,
+    "container_receipt_present": false,
+    "container_build_invoked": false,
+    "container_image_exported_pushed_published_or_redistributed": false,
+    "tag_release_or_deployment_created": false,
+    "runtime_behavior_or_default_changed": false,
+    "security_or_authority_changed": false,
+    "dependency_model_service_secret_or_external_asset_changed": false,
+    "real_operational_infrastructure_contacted": false
+  },
+  "next_gate": "Commit, publish, and anonymously reconcile this implementation seal before renewing the release manifest or building any v0.0.35 archive or image."
+}

@@ -157,8 +157,8 @@ class BaselineTest(unittest.TestCase):
         self.assertEqual(selected, active)
         self.assertEqual(errors, ["selection_manifest_archive_identity"])
 
-    def test_container_v13_build_command_is_frozen_and_local_only(self):
-        tag = "runbook-sentinel:baseline-0033-test"
+    def test_container_v14_build_command_is_frozen_and_local_only(self):
+        tag = "runbook-sentinel:baseline-0035-test"
         command = build_command(tag)
         verifier_source = (ROOT / "scripts/verify_container_runtime.py").read_text(
             encoding="utf-8"
@@ -173,24 +173,24 @@ class BaselineTest(unittest.TestCase):
         self.assertIn("--sbom=false", command)
         self.assertEqual(
             command[command.index("--output") + 1],
-            "type=image,name=runbook-sentinel:baseline-0033-test,"
+            "type=image,name=runbook-sentinel:baseline-0035-test,"
             "rewrite-timestamp=true,unpack=false,store=true,push=false",
         )
-        self.assertEqual(SOURCE_DATE_EPOCH, "1787421483")
-        self.assertEqual(SOURCE_DATE_EPOCH_UTC, "2026-08-22T17:58:03Z")
+        self.assertEqual(SOURCE_DATE_EPOCH, "1788207258")
+        self.assertEqual(SOURCE_DATE_EPOCH_UTC, "2026-08-31T20:14:18Z")
         self.assertEqual(EXPECTED_BUILDER["buildkit"], "0.29.0")
-        self.assertIn('keeper = f"rs-b0033-{token}"', verifier_source)
-        self.assertNotIn('keeper = f"rs-b0032-{token}"', verifier_source)
+        self.assertIn('keeper = f"rs-b0035-{token}"', verifier_source)
+        self.assertNotIn('keeper = f"rs-b0033-{token}"', verifier_source)
         self.assertIn("all 49 checks true", verifier_source)
         self.assertNotIn("all 43 checks true", verifier_source)
 
-    def test_container_v13_prerequisite_requires_current_implementation_phase(self):
+    def test_container_v14_prerequisite_requires_current_implementation_phase(self):
         contract = {
             "status": "pass",
-            "implementation_phase": "implemented_v13",
+            "implementation_phase": "implemented_v14",
         }
         release_identity = {
-            "valid": True,
+            "status": "pass",
             "phase": "implemented",
             "candidate_selected": False,
             "selected_configuration": "freshness-priority-lexical-v3",
@@ -207,7 +207,7 @@ class BaselineTest(unittest.TestCase):
             "selected_configuration": "freshness-priority-lexical-v3",
         }
         evaluation = {
-            "checkpoint": "baseline-0033",
+            "checkpoint": "baseline-0035",
             "gates": {"baseline_disposition": "pass"},
         }
 
@@ -271,7 +271,7 @@ class BaselineTest(unittest.TestCase):
             with self.assertRaisesRegex(AssertionError, '"container_contract": false'):
                 validate_prerequisites(evaluation)
 
-        contract["implementation_phase"] = "implemented_v13"
+        contract["implementation_phase"] = "implemented_v14"
         release_identity["candidate_selected"] = True
         with mock.patch(
             "scripts.verify_container_runtime.run",
@@ -496,7 +496,7 @@ class BaselineTest(unittest.TestCase):
         )
         self.assertFalse(local_content_digest_matches_image_id({"Id": image_id, "RepoDigests": []}))
 
-        tags = ["runbook-sentinel:baseline-0033-a-test", "runbook-sentinel:baseline-0033-b-test"]
+        tags = ["runbook-sentinel:baseline-0035-a-test", "runbook-sentinel:baseline-0035-b-test"]
         events = [
             {
                 "Action": "tag",
@@ -1250,7 +1250,7 @@ class BaselineTest(unittest.TestCase):
         server = MCPServer(self.service)
         initialized = server.handle({"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}})
         self.assertEqual(initialized["result"]["protocolVersion"], "2025-11-25")
-        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.33")
+        self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.0.35")
         listed = server.handle({"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
         self.assertEqual({tool["name"] for tool in listed["result"]["tools"]}, names)
         called = server.handle(
@@ -1518,7 +1518,7 @@ class BaselineTest(unittest.TestCase):
                 )
                 self.assertIn("frame-ancestors 'none'", response.headers["Content-Security-Policy"])
             with urlopen(f"http://127.0.0.1:{server.server_port}/health") as response:
-                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0033")
+                self.assertEqual(json.loads(response.read())["checkpoint"], "baseline-0035")
             with urlopen(
                 f"http://127.0.0.1:{server.server_port}/api/evaluation"
             ) as response:
@@ -1544,11 +1544,11 @@ class BaselineTest(unittest.TestCase):
     def test_live_api_verifier_requires_current_dashboard_checkpoint(self):
         verifier = (ROOT / "scripts/verify_live_api.ps1").read_text(encoding="utf-8")
         self.assertIn(
-            "dashboard_baseline_0033 = $dashboardResponse.Content.Contains('Baseline 0033')",
+            "dashboard_baseline_0035 = $dashboardResponse.Content.Contains('Baseline 0035')",
             verifier,
         )
         self.assertIn(
-            "dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0033",
+            "dashboard_baseline_exact = [bool]$verification.dashboard_baseline_0035",
             verifier,
         )
         self.assertNotIn("dashboard_baseline_0027 =", verifier)
@@ -1558,14 +1558,14 @@ class BaselineTest(unittest.TestCase):
         )
         self.assertNotIn("Headers['WWW-Authenticate']", verifier)
 
-    def test_container_v13_verifier_requires_current_dashboard_checkpoint(self):
+    def test_container_v14_verifier_requires_current_dashboard_checkpoint(self):
         runtime = (ROOT / "scripts/verify_container_runtime.py").read_text(encoding="utf-8")
         validator = (ROOT / "scripts/verify_container_contract.py").read_text(encoding="utf-8")
-        self.assertIn('b"Baseline 0033" in dashboard_raw', runtime)
-        self.assertNotIn('b"Baseline 0031" in dashboard_raw', runtime)
-        self.assertIn("'b\"Baseline 0032\" in dashboard_raw' not in runtime_text", validator)
+        self.assertIn('b"Baseline 0035" in dashboard_raw', runtime)
+        self.assertNotIn('b"Baseline 0033" in dashboard_raw', runtime)
+        self.assertIn("'b\"Baseline 0033\" in dashboard_raw' not in runtime_text", validator)
 
-    def test_container_v13_retrieval_quality_projection_fails_closed(self):
+    def test_container_v14_retrieval_quality_projection_fails_closed(self):
         report = json.loads(
             (
                 ROOT

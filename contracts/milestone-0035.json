@@ -155,7 +155,7 @@
       "outputs": ["verified v0.0.35 checkpoint or retained non-release", "public reconciliation", "exact next-cycle handoff"],
       "gates": {
         "release_identity_freeze": "pass",
-        "full_regression": "pending",
+        "full_regression": "pass",
         "real_surface_matrix": "pending",
         "clean_clone": "pending",
         "container_local_only": "pending",
@@ -166,7 +166,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Commit publish and independently verify the record-only receipt for public exact preimplementation freeze 598ad61752009f490a07052c4551bb91ad4f0ba1; only then implement the exact frozen v0.0.35 mechanical projection.",
+  "next_action": "Commit publish and independently verify the exact v0.0.35 identity package and container-contract implementation seal; only then publish its record and renew the release manifest.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -200,7 +200,8 @@
       "Public implementation seal e972ec9a22f67539b8365e85b49c87da7f03e391 is exact across refs commit tree parent and all three anonymous raw paths while the result is absent from the public tree and returns anonymous HTTP 404",
       "Public immutable result 8b57f7220449ad8fe762ea2c1de83782fc5adbe8 is exact across refs commit tree parent and both anonymous raw paths; anonymous result semantics preserve no selection v3 selected and exclude_and_retain history",
       "The local schema-1.2 release-identity freeze passes its frozen-phase verifier seven focused fail-closed tests the warning-free governed milestone validator and all 178 tests while successor package container archive and checksum artifacts remain absent",
-      "Public preimplementation identity freeze 598ad61752009f490a07052c4551bb91ad4f0ba1 tree d19beb95dccee0e681526b6e057dd4d78b7bb3f8 is exact across refs metadata twelve Git blobs twelve anonymous raw files an untruncated 1685-entry tree commit HTML unchanged main and latest release and an exact empty deployment response"
+      "Public preimplementation identity freeze 598ad61752009f490a07052c4551bb91ad4f0ba1 tree d19beb95dccee0e681526b6e057dd4d78b7bb3f8 is exact across refs metadata twelve Git blobs twelve anonymous raw files an untruncated 1685-entry tree commit HTML unchanged main and latest release and an exact empty deployment response",
+      "Local implemented-phase release identity package and container-contract verifiers pass; the corrected focused set passes 13 tests and the complete regression passes all 178 tests in 116.095 seconds while v3 and every functional and security boundary remain unchanged"
     ],
     "evidence_paths": [
       "artifacts/verification/baseline-0034-closure-reconciliation-local.json",
@@ -216,13 +217,15 @@
       "artifacts/verification/baseline-0035-classification-result-public.json",
       "eval/release-identity-contract-0035.json",
       "artifacts/verification/baseline-0035-release-identity-freeze-local.json",
-      "artifacts/verification/baseline-0035-release-identity-freeze-public.json"
+      "artifacts/verification/baseline-0035-release-identity-freeze-public.json",
+      "artifacts/verification/baseline-0035-release-identity-implementation-local.json",
+      "artifacts/verification/baseline-0035-release-identity-implementation-public.json"
     ]
   },
   "handoff": {
     "resume_from": "contracts/milestone-0035.json",
-    "latest_verified_checkpoint": "public exact immutable classification result 8b57f7220449ad8fe762ea2c1de83782fc5adbe8 tree c6ee3e460e662acca211de2fa828134ed0bbb089 preserving v3 selection and historical exclude_and_retain",
-    "resume_rule": "Continue UNIT-004 by publishing and independently reconciling the local release-identity freeze before successor implementation. Do not reopen v5 change retrieval renew the manifest build an archive or pull/build a container before that public gate.",
+    "latest_verified_checkpoint": "public exact release-identity freeze record cb601ea0ffb37ece0e46271028e02e5e0b72e2af after exact freeze 598ad61752009f490a07052c4551bb91ad4f0ba1 with main release and deployments unchanged",
+    "resume_rule": "Continue UNIT-004 by publishing and independently reconciling the local v0.0.35 identity package and container-contract implementation seal. Do not renew the manifest build an archive or pull or build a container before that public gate.",
     "blocked_on_human": false
   }
 }

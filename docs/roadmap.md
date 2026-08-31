@@ -20,6 +20,8 @@ UNIT-004 has a local preimplementation release-identity freeze. Schema 1.2 permi
 
 The preimplementation seal is public and exact at `598ad61752009f490a07052c4551bb91ad4f0ba1`, tree `d19beb95dccee0e681526b6e057dd4d78b7bb3f8`, across all twelve changed bytes and an untruncated 1,685-entry tree. Main, v0.0.33, two assets, and the empty deployments response remain unchanged. Publish and reconcile the record-only receipt, then implement the frozen mechanical projection; archive and container construction remain closed.
 
+The local mechanical projection is implemented and passes the independent release-identity, 43-entry package, and 49-check container-contract prerequisite verifiers. One 11/13 phase-stale focused attempt is retained; its corrected successor passes 13/13, and all 178 tests pass. The predecessor manifest remains intentionally stale and rejects nineteen later identities. Commit, publish, and anonymously reconcile this exact implementation seal before renewing the manifest; package archive and container construction remain closed.
+
 The BASELINE-0035 classification result exists and is public, but no default transition, v0.0.35 package, image, tag, release, or deployment exists. Revealed held-out evidence is used only to diagnose evaluation machinery; it cannot tune or select a retriever.
 
 ## Active checkpoint baseline-0034 - single-pass bounded retrieval latency

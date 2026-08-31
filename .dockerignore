@@ -1,6 +1,6 @@
 **
 !dist/
-!dist/runbook-sentinel-0.0.33.pyz
+!dist/runbook-sentinel-0.0.35.pyz
 !artifacts/
 !artifacts/evaluations/
 !artifacts/evaluations/latest.json

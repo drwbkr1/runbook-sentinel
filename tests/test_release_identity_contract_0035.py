@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import shutil
 import sys
 import tempfile
@@ -21,27 +22,28 @@ class ReleaseIdentityContract0035Tests(unittest.TestCase):
             verifier.CONTRACT_PATH.read_text(encoding="utf-8")
         )
 
-    def test_current_frozen_transition_passes(self) -> None:
-        result = verifier.evaluate(ROOT, "frozen")
+    def test_current_implemented_transition_passes(self) -> None:
+        result = verifier.evaluate(ROOT, "implemented")
         self.assertEqual(result["status"], "pass", result["errors"])
         self.assertEqual(result["product_runtime_file_count"], 24)
         self.assertFalse(result["candidate_selected"])
         self.assertFalse(result["selection_performed"])
         self.assertEqual(result["selected_configuration"], "freshness-priority-lexical-v3")
-        self.assertFalse(result["successor_package_present"])
-        self.assertFalse(result["successor_container_present"])
+        self.assertTrue(result["successor_package_present"])
+        self.assertTrue(result["successor_container_present"])
 
-    def test_future_product_identities_are_precomputed_exactly(self) -> None:
+    def test_implemented_product_identities_match_precomputed_exactly(self) -> None:
         for relative, identity in self.contract["runtime_identity"]["mechanical_paths"].items():
-            text = (ROOT / relative).read_text(encoding="utf-8")
+            data = (ROOT / relative).read_bytes()
+            self.assertEqual(hashlib.sha256(data).hexdigest(), identity["after_sha256"])
             for old, new, count in identity["replacements"]:
-                self.assertEqual(text.count(old), count)
-                text = text.replace(old, new)
-            import hashlib
-
+                old_bytes = old.encode("utf-8")
+                new_bytes = new.encode("utf-8")
+                self.assertEqual(data.count(new_bytes), count)
+                data = data.replace(new_bytes, old_bytes)
             self.assertEqual(
-                hashlib.sha256(text.encode("utf-8")).hexdigest(),
-                identity["after_sha256"],
+                hashlib.sha256(data).hexdigest(),
+                identity["before_sha256"],
             )
 
     def test_classification_cannot_be_rewritten_as_selection(self) -> None:
@@ -110,6 +112,16 @@ class ReleaseIdentityContract0035Tests(unittest.TestCase):
             destination = root / relative
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(source, destination)
+        for relative, identity in self.contract["runtime_identity"]["mechanical_paths"].items():
+            destination = root / relative
+            data = destination.read_bytes()
+            for old, new, count in identity["replacements"]:
+                old_bytes = old.encode("utf-8")
+                new_bytes = new.encode("utf-8")
+                if data.count(new_bytes) != count:
+                    raise AssertionError(f"unexpected implemented identity in {relative}")
+                data = data.replace(new_bytes, old_bytes)
+            destination.write_bytes(data)
         return _TemporaryRoot(temporary, root)
 
 
