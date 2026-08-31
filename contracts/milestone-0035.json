@@ -1,0 +1,212 @@
+{
+  "schema_version": "1.0",
+  "milestone_id": "BASELINE-0035",
+  "status": "active",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal in Codex task 019fd836-f77d-70f3-b529-fe691c8e6de2",
+    "authorized_action_classes": [
+      "local_verification",
+      "evidence_preservation",
+      "repository_change",
+      "local_commit",
+      "github_push",
+      "github_review",
+      "github_merge",
+      "public_release",
+      "public_verification"
+    ],
+    "active_contract": "contracts/milestone-0035.json",
+    "verified_at_utc": "2026-08-31T18:11:36Z",
+    "expires_at_utc": null
+  },
+  "scope": {
+    "objective": "Replace brittle exact false-gate allowlists with one configuration-neutral, fail-closed semantic evidence classifier while preserving the BASELINE-0034 exclusion, v3 default, frozen evidence, and every security boundary.",
+    "allowed_paths": [
+      "C:/Projects/Active/runbook-sentinel-baseline-0035",
+      "C:/Projects/Verification"
+    ],
+    "forbidden_work": [
+      "Use OneDrive for repository or verification work",
+      "Modify overwrite reclassify select or promote the BASELINE-0034 v5 result",
+      "Use revealed held-out evidence to tune or select a retriever",
+      "Change retrieval evaluator scenarios manifest agent model prompt policy approval executor credential capability authorization replay postcondition API MCP telemetry or real-infrastructure behavior",
+      "Waive a hard policy security behavior terminal trajectory utility reliability trace coverage ambiguity evidence latency or cost failure",
+      "Add a dependency external asset model prompt judge service secret paid asset multi-agent system fine-tuning Kubernetes or real-infrastructure connector",
+      "Export push publish attach or redistribute container image bytes",
+      "Create a tag release or deployment before all real-surface and release-truth gates pass"
+    ],
+    "reversible_actions": [
+      "Publish project-authored orientation research gate semantic contract verifier tests ADR milestone and living records",
+      "Implement one standard-library classifier and one immutable classification result after the public freeze",
+      "Retain and expose every mutation failure and historical unfavorable result",
+      "Version commit push review merge and release only after source package clean-clone local-container API MCP approval executor state telemetry dashboard and public gates pass"
+    ],
+    "stop_conditions": [
+      "Core product thesis would change",
+      "A security boundary or explicit no-go would weaken",
+      "Spend paid service secret access ownership or authentication is required",
+      "External rights integrity provenance or safety remains unresolved",
+      "Real operational infrastructure interaction is required",
+      "An irreversible action is required",
+      "The checkpoint or any shipped surface cannot be verified"
+    ]
+  },
+  "entry_conditions": [
+    {
+      "id": "ENTRY-001",
+      "status": "pass",
+      "evidence": [
+        "Public BASELINE-0034 branch closes exact at b6e0c785fe89c34c661e8f397067684959b7f24b and the reconciled BASELINE-0035 branch starts at public exact 74ec794214929c2df81442e11c1410df5e75c865",
+        "Public main remains d62e7cba675997eade87169f5acba14de6452c9b latest release remains v0.0.33 and deployments remain zero"
+      ]
+    },
+    {
+      "id": "ENTRY-002",
+      "status": "pass",
+      "evidence": [
+        "Fresh v3 execution passes 57 scenarios 171 attempts all 136 Boolean gates and an independently valid anchored 261-event trace",
+        "Retrieval generation trajectory policy terminal utility attack reliability latency and cost remain separately observable"
+      ]
+    },
+    {
+      "id": "ENTRY-003",
+      "status": "pass",
+      "evidence": [
+        "BASELINE-0034 passes nine of ten selection checks and fails only the exact hand-authored false-gate inventory",
+        "The selected bounded improvement changes evaluation classification only and neither reopens v5 nor tunes a retriever"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {"id": "EXIT-001", "status": "pending", "evidence": []},
+    {"id": "EXIT-002", "status": "pending", "evidence": []},
+    {"id": "EXIT-003", "status": "pending", "evidence": []},
+    {"id": "EXIT-004", "status": "pending", "evidence": []}
+  ],
+  "units": [
+    {
+      "id": "UNIT-001",
+      "purpose": "Reconcile the prior closure, run selected v3, inspect traces and separate metrics, and identify one measurable weakness.",
+      "depends_on": [],
+      "action_class": "evidence_preservation",
+      "human_gate": false,
+      "status": "complete",
+      "inputs": ["public BASELINE-0034 closure", "fresh v3 report and trace", "retained v5 comparison"],
+      "outputs": ["closure reconciliation", "orientation-baseline-0035.json", "evaluation-contract integrity weakness"],
+      "gates": {
+        "public_checkpoint_reconciled": "pass",
+        "fresh_system_run_and_trace_inspected": "pass",
+        "separate_metrics_inspected": "pass",
+        "highest_leverage_weakness_selected": "pass",
+        "historical_v5_exclusion_preserved": "pass"
+      },
+      "disposition": "pass",
+      "next_dependency": "UNIT-002"
+    },
+    {
+      "id": "UNIT-002",
+      "purpose": "Freeze, independently verify, test, publish, and reconcile the semantic evidence-classification contract before implementation.",
+      "depends_on": ["UNIT-001"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "in_progress",
+      "inputs": ["orientation-baseline-0035.json", "current primary research gate", "exact retained BASELINE-0034 reports and comparison"],
+      "outputs": ["semantic contract", "independent verifier", "fail-closed mutation tests", "public preimplementation freeze"],
+      "gates": {
+        "contract_valid": "pass",
+        "research_gate_ready": "pass",
+        "focused_mutations_fail_closed": "pass",
+        "implementation_and_result_absent": "pass",
+        "full_regression": "pass",
+        "public_freeze_exact": "pending"
+      },
+      "disposition": "pass",
+      "next_dependency": "UNIT-003"
+    },
+    {
+      "id": "UNIT-003",
+      "purpose": "Implement the one standard-library classifier, seal it publicly before result generation, and write one immutable retained-evidence classification.",
+      "depends_on": ["UNIT-002"],
+      "action_class": "repository_change",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": ["public exact semantic freeze", "exact retained reports and comparison"],
+      "outputs": ["classifier implementation", "public implementation seal", "immutable BASELINE-0035 classification result"],
+      "gates": {
+        "only_allowed_implementation_path": "pending",
+        "semantic_classifier_matches_independent_oracle": "pending",
+        "hard_invariant_mutations_rejected": "pending",
+        "historical_selection_and_disposition_unchanged": "pending",
+        "public_implementation_seal_before_result": "pending"
+      },
+      "disposition": "pass",
+      "next_dependency": "UNIT-004"
+    },
+    {
+      "id": "UNIT-004",
+      "purpose": "Run risk-matched source package clean-clone local-container API MCP approval executor state telemetry dashboard and public release verification, or retain the checkpoint without release if any gate fails.",
+      "depends_on": ["UNIT-003"],
+      "action_class": "public_release",
+      "human_gate": false,
+      "status": "planned",
+      "inputs": ["public implementation seal", "immutable classification", "unchanged v3 runtime and security boundaries"],
+      "outputs": ["verified v0.0.35 checkpoint or retained non-release", "public reconciliation", "exact next-cycle handoff"],
+      "gates": {
+        "full_regression": "pending",
+        "real_surface_matrix": "pending",
+        "clean_clone": "pending",
+        "container_local_only": "pending",
+        "release_truth": "pending",
+        "public_reconciliation": "pending"
+      },
+      "disposition": "pass"
+    }
+  ],
+  "current_unit": "UNIT-002",
+  "next_action": "Complete the local preimplementation freeze, prove implementation and result absence, run focused mutations and the full regression, then publish and anonymously reconcile the exact freeze before adding the classifier.",
+  "path_efficiency": {
+    "max_consecutive_no_progress_units": 3,
+    "review_action_class": "local_verification",
+    "review_human_gate": false
+  },
+  "verification": {
+    "changed_risks": [
+      "An observational exemption could hide a hard security or behavior failure",
+      "A contextual safe-superset rule could accept malformed or incomplete coverage",
+      "Historical excluded evidence could be silently reinterpreted as selected",
+      "A classifier could become coupled to one exact candidate inventory",
+      "Evaluation-only changes could leave package or public identities stale"
+    ],
+    "required_checks": [
+      "Exact public starting checkpoint and fresh accepted-system run",
+      "Exact retained report comparison and source identities",
+      "All 136 Boolean gates categorized without an exact candidate false-set requirement",
+      "Policy security behavior terminal trajectory utility reliability trace evidence latency cost coverage ambiguity and evidence completeness remain hard",
+      "Mutation proving an additional selected-default observation may differ while hard invariants remain exact",
+      "Historical v5 selected false and exclude_and_retain remain unchanged",
+      "Source package clean-clone local-container API MCP approval executor state telemetry dashboard review merge release and public-tag verification if release proceeds"
+    ],
+    "completed_checks": [
+      "Public BASELINE-0034 closure and local reconciliation commit are exact",
+      "Fresh v3 orientation passes all 136 gates with a valid anchored trace",
+      "Current primary RAG and behavioral-evaluation sources pass narrow citation-only review without asset import",
+      "The independent preimplementation verifier passes with implementation and result absent",
+      "Twelve focused semantic and fail-closed mutation tests pass",
+      "The complete project-native regression passes all 167 tests in 179.542 seconds"
+    ],
+    "evidence_paths": [
+      "artifacts/verification/baseline-0034-closure-reconciliation-local.json",
+      "artifacts/verification/orientation-baseline-0035.json",
+      "artifacts/verification/research-source-gate-baseline-0035-evaluation-contract-integrity.json",
+      "eval/retrieval-candidate-evidence-contract-0035.json",
+      "artifacts/verification/baseline-0035-preimplementation-freeze-local.json"
+    ]
+  },
+  "handoff": {
+    "resume_from": "contracts/milestone-0035.json",
+    "latest_verified_checkpoint": "public exact reconciliation commit 74ec794214929c2df81442e11c1410df5e75c865 on codex/baseline-0035-evaluation-contract-integrity, starting from public BASELINE-0034 closure b6e0c785fe89c34c661e8f397067684959b7f24b",
+    "resume_rule": "Continue UNIT-002 only from the exact semantic freeze. Do not add the classifier or result until the freeze is public and reconciled; do not reopen v5 or tune a retriever from revealed held-out evidence.",
+    "blocked_on_human": false
+  }
+}

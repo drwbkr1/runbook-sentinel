@@ -1,0 +1,105 @@
+{
+  "contract_version": "source-gate/v1",
+  "assessment_id": "baseline-0035-evaluation-contract-integrity-20260831",
+  "assessed_at": "2026-08-31T18:11:36Z",
+  "authority": {
+    "mode": "inherited",
+    "authority_ref": "Active Runbook Sentinel director goal and contracts/milestone-0035.json",
+    "authorized_actions": [
+      "review and cite current primary evaluation research",
+      "freeze and implement project-authored deterministic evidence classification",
+      "verify exact retained synthetic reports without importing external assets"
+    ],
+    "expires_at_utc": null
+  },
+  "intended_use": {
+    "summary": "Use primary research only for the narrow principles that RAG modules need separate diagnostics, capability-specific tests can reveal failures hidden by aggregate metrics, and consistent benchmarking is needed to compare configurations. The exact gate categories, safe-superset proof, mutations, thresholds, classifier, and result are project-authored.",
+    "external_code_data_model_prompt_metric_package_benchmark_or_document_bytes_imported": false
+  },
+  "sources": [
+    {
+      "source_id": "ragchecker-neurips-2024",
+      "name": "RAGChecker: A Fine-grained Framework for Diagnosing Retrieval-Augmented Generation",
+      "locator": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/27245589131d17368cccdfa990cbf16e-Abstract-Datasets_and_Benchmarks_Track.html",
+      "identity": "NeurIPS 2024 Datasets and Benchmarks Track primary proceedings record",
+      "authority": "Peer-reviewed primary conference paper",
+      "rights": "Citation and narrow paraphrase only; no paper code data metric implementation or benchmark bytes imported",
+      "integrity": "Exact proceedings locator and paper title reviewed live",
+      "fitness": "Supports fine-grained diagnostics for retrieval and generation modules; it does not justify this project's exact classifier semantics or thresholds",
+      "reproducibility": "Project result uses frozen local synthetic reports and deterministic standard-library code rather than the external framework",
+      "security": "No executable content service model data secret or real infrastructure accessed",
+      "status": "pass"
+    },
+    {
+      "source_id": "ragas-eacl-2024",
+      "name": "RAGAs: Automated Evaluation of Retrieval Augmented Generation",
+      "locator": "https://aclanthology.org/2024.eacl-demo.16/",
+      "identity": "ACL Anthology 2024.eacl-demo.16, DOI 10.18653/v1/2024.eacl-demo.16",
+      "authority": "Peer-reviewed EACL 2024 primary publisher record",
+      "rights": "ACL record identifies post-2016 materials as CC BY 4.0; this project uses citation and narrow paraphrase only",
+      "integrity": "Exact Anthology ID DOI authors venue and abstract reviewed live",
+      "fitness": "Supports evaluating focused retrieval context, faithful use, and generation quality as different dimensions",
+      "reproducibility": "No RAGAs prompt API metric code dataset or model is used",
+      "security": "No executable content personal data secret service or real infrastructure accessed",
+      "status": "pass"
+    },
+    {
+      "source_id": "checklist-acl-2020",
+      "name": "Beyond Accuracy: Behavioral Testing of NLP Models with CheckList",
+      "locator": "https://aclanthology.org/2020.acl-main.442/",
+      "identity": "ACL Anthology 2020.acl-main.442, DOI 10.18653/v1/2020.acl-main.442",
+      "authority": "Peer-reviewed ACL 2020 primary publisher record",
+      "rights": "Citation and narrow paraphrase only; no paper code tests examples or assets imported",
+      "integrity": "Exact Anthology record reviewed live",
+      "fitness": "Supports explicit capability tests that expose actionable failures hidden by aggregate results",
+      "reproducibility": "All Runbook Sentinel mutations and expected outputs are project-authored and deterministic",
+      "security": "No external executable content dataset model service secret or real infrastructure accessed",
+      "status": "pass"
+    },
+    {
+      "source_id": "bergen-findings-emnlp-2024",
+      "name": "BERGEN: A Benchmarking Library for Retrieval-Augmented Generation",
+      "locator": "https://aclanthology.org/2024.findings-emnlp.449/",
+      "identity": "ACL Anthology 2024.findings-emnlp.449, DOI 10.18653/v1/2024.findings-emnlp.449",
+      "authority": "Peer-reviewed Findings of EMNLP 2024 primary publisher record",
+      "rights": "Citation and narrow paraphrase only; no library code configuration dataset metric or paper bytes imported",
+      "integrity": "Exact Anthology ID DOI authors venue and abstract reviewed live",
+      "fitness": "Supports standardized, reproducible RAG configuration comparisons and identifies inconsistent benchmarking as a comparison problem",
+      "reproducibility": "The project retains exact local report identities and implements its own deterministic classifier",
+      "security": "No external executable content dependency service model data secret or real infrastructure accessed",
+      "status": "pass"
+    }
+  ],
+  "reused_project_gates": [
+    {
+      "path": "artifacts/verification/research-source-gate-baseline-0029-retrieval-quality.json",
+      "bytes": 10540,
+      "sha256": "c269809d7ff3b1c8fc67a2eb17967fd178964a79eddbf5e5750f3247e350152b",
+      "scope": "separate retrieval and generation diagnostics plus focus versus completeness"
+    },
+    {
+      "path": "artifacts/verification/research-source-gate-baseline-0019.json",
+      "bytes": 7604,
+      "sha256": "b7b52377c576a8590145256a0e54387ca88ee21023a4a3cd3f56a9d49ba4ae61",
+      "scope": "capability-by-test evaluation rather than aggregate-only evidence"
+    }
+  ],
+  "decision": {
+    "status": "ready",
+    "blocking_reasons": [],
+    "approved_actions": [
+      "retain exact source identities citations narrow paraphrases and limitations",
+      "freeze implement and verify project-authored semantic evidence classification over retained synthetic reports"
+    ]
+  },
+  "write_boundary": {
+    "permitted_without_further_authorization": [
+      "project-authored contract verifier tests classifier and immutable result",
+      "repository records and public source release verification already authorized by the active goal"
+    ],
+    "requires_explicit_authorization": [
+      "import external paper code prompt figure dataset model metric package service or benchmark bytes",
+      "authenticate purchase accept new terms add a secret call a paid or remote model or interact with real infrastructure"
+    ]
+  }
+}

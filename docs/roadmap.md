@@ -1,5 +1,19 @@
 # Roadmap
 
+## Active checkpoint baseline-0035 - retrieval candidate evidence semantics
+
+Resume from exact public BASELINE-0034 closure `b6e0c785fe89c34c661e8f397067684959b7f24b` and reconciled successor `74ec794214929c2df81442e11c1410df5e75c865`, not from new ideation. A fresh selected-v3 run passes 57 scenarios, 171 attempts, all 136 Boolean gates, and an independently valid anchored 261-event trace. Retrieval, generation, trajectory, policy, terminal state, utility, attack success, repeated reliability, latency, and cost remain separately visible; v3 still returns 123 extra records and remains selected.
+
+The highest-leverage weakness is evaluation-contract integrity. BASELINE-0034's v4-exact v5 candidate passes nine of ten selection checks but is excluded because a hand-authored five-false-gate allowlist names the wrong fifth observation. The missing expected gate stays true; a configuration-dependent retrieval-stage contract-validity gate becomes false even though required coverage remains 1.0 in both splits, missing cells remain empty, ambiguity remains zero, and all scenario outcomes and safety metrics remain exact. The historical exclusion is preserved.
+
+BASELINE-0035 freezes a reusable semantic classifier. Five selected-v3 exact-value gates are observations. The retrieval-stage contract-validity gate is observational only when its entire error inventory consists of closed, report-backed safe-superset stage/outcome pairs and every coverage, ambiguity, trial, and outcome proof passes. Every other false Boolean gate is hard; evidence completeness also remains hard. Classification never performs selection or waives latency or cost.
+
+UNIT-001 is complete. The closure records are reconciled; the fresh report and trace are externally retained; current primary RAG and behavioral-evaluation sources pass citation-only identity, authority, rights, integrity, fitness, reproducibility, and security review without importing any external asset.
+
+UNIT-002 is locally ready for publication. The preimplementation verifier passes with classifier/result absent. Twelve focused tests cover exact v3, all three retained v5 reports, policy failure, unknown stage, missing coverage, ambiguity, scenario outcome mismatch, evidence incompleteness, and a deliberately different additional selected-default observation. The full dependency-free regression passes all 167 tests in 179.542 seconds. Publish and anonymously reconcile this exact freeze before UNIT-003 creates the classifier.
+
+No BASELINE-0035 result, default transition, package, image, tag, release, or deployment exists. Revealed held-out evidence is used only to diagnose evaluation machinery; it cannot tune or select a retriever.
+
 ## Active checkpoint baseline-0034 - single-pass bounded retrieval latency
 
 Begin from verified public v0.0.33 at exact public main `d62e7cba675997eade87169f5acba14de6452c9b`, not new ideation. A fresh accepted-v3 run passes 57 scenarios, 171 attempts, all 136 Boolean gates, and an anchored 261-event trace while reproducing 123 extra document instances across 87 eligible attempts. Retained admissible v4 still reduces extras to 93 but remains excluded on its immutable 65.443 ms versus 64.377 ms median-latency comparison.

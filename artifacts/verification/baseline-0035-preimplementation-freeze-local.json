@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0035",
+  "phase": "frozen_preimplementation",
+  "observed_at_utc": "2026-08-31T18:11:36Z",
+  "reconciled_at_utc": "2026-08-31T18:40:33Z",
+  "starting_commit": "74ec794214929c2df81442e11c1410df5e75c865",
+  "starting_tree": "895801d317b570756ea8b7abee0063c7a72a28a7",
+  "branch": "codex/baseline-0035-evaluation-contract-integrity",
+  "contract_id": "retrieval-candidate-evidence-semantics-v1",
+  "file_identities": [
+    {"path": "eval/retrieval-candidate-evidence-contract-0035.json", "bytes": 12811, "sha256": "0c41971213255b916f9cbd783fafb5267252cb4d20b2a22ca9fe345e371a279a"},
+    {"path": "scripts/verify_retrieval_candidate_evidence_contract_0035.py", "bytes": 16387, "sha256": "34861f2a13a68d395f4bb7ca769d1195ea501a5f44793409263315e4a695a624"},
+    {"path": "tests/test_retrieval_candidate_evidence_contract_0035.py", "bytes": 7496, "sha256": "ae481c075193b67636b575541b7fe35572d3894b8809e075646c6cc156c00956"},
+    {"path": "contracts/milestone-0035.json", "bytes": 11307, "sha256": "22de302676b310a7209354a896724928ef63674f30a0251a326274fb50c31b17"},
+    {"path": "docs/adr/0031-classify-candidate-evidence-by-semantics.md", "bytes": 4139, "sha256": "df51eac211772939e88b6180d0319151e573a775900ed82861342b269e9218ba"},
+    {"path": "artifacts/verification/orientation-baseline-0035.json", "bytes": 5069, "sha256": "c15fcc57e3f1b7e11c06d7a43d977ad4948389a5612b659f8a8eb4ff7193d183"},
+    {"path": "artifacts/verification/research-source-gate-baseline-0035-evaluation-contract-integrity.json", "bytes": 6527, "sha256": "621a91498dc6a5591d41082d35ac9bd569f525d748fe5667f8626375960c83a4"},
+    {"path": "docs/status.md", "bytes": 290734, "sha256": "d7432cb5b8eddd3d286fb04b98a97fc866e195d17aaef58071dd5d4bb136b28d"},
+    {"path": "docs/roadmap.md", "bytes": 109433, "sha256": "ae53d86f351a2ca2c7998384d30b9359c5f6ce328ffa6b03f924b555a2e6c5a0"},
+    {"path": "docs/research-ledger.md", "bytes": 29966, "sha256": "1d3794e8473542941c17807d00d140103007caba52ed1a74ea5986576781f6e6"},
+    {"path": "docs/source-ledger.md", "bytes": 6664, "sha256": "6a5b7324b04138b4cd00337cb641a1049f6458e81de8d1ad4b9ab95680361271"},
+    {"path": "CHANGELOG.md", "bytes": 147067, "sha256": "7920a71d99023bc59f212c8e1c9e3643923937fe7838aa598fa4a319766693a7"},
+    {"path": "docs/devlog.md", "bytes": 502305, "sha256": "86b237e8c96aab6dc8c1ca5cacd2a125f342bc4c1c6584c7692b0e2c4621bf4a"}
+  ],
+  "verification": {
+    "contract_verifier": {
+      "status": "pass",
+      "phase": "frozen_preimplementation",
+      "control_report_count": 3,
+      "candidate_report_count": 3,
+      "candidate_evidence_admissible_count": 3,
+      "candidate_selected": false,
+      "selected_configuration": "freshness-priority-lexical-v3",
+      "historical_candidate_disposition": "exclude_and_retain",
+      "errors": []
+    },
+    "focused_tests": {
+      "command": "python -m unittest tests.test_retrieval_candidate_evidence_contract_0035 -v",
+      "status": "pass",
+      "test_count": 12,
+      "failures": 0,
+      "errors": 0
+    },
+    "complete_regression": {
+      "command": "python -m unittest discover -s tests -v",
+      "status": "pass",
+      "test_count": 167,
+      "duration_seconds": 179.542,
+      "failures": 0,
+      "errors": 0
+    },
+    "milestone_validator": {
+      "status": "pass",
+      "valid": true,
+      "active_units": ["UNIT-002"],
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "retained_failures": [
+    {
+      "id": "MILESTONE-UNIT-STATUS-0035-001",
+      "classification": "structural_invalid",
+      "description": "The first milestone projection used pending for three unit execution statuses; the governing schema rejected those values before publication. The corrected contract uses in_progress and planned and validates without error.",
+      "positive_evidence": false
+    },
+    {
+      "id": "PYTEST-RUNTIME-ABSENT-0035-001",
+      "classification": "process_invalid",
+      "description": "python -m pytest exited before collection because pytest is intentionally absent from this dependency-free repository. The separate project-native unittest discovery supplies the complete regression evidence.",
+      "positive_evidence": false
+    },
+    {
+      "id": "LOCAL-RECEIPT-HASH-0035-001",
+      "classification": "process_invalid",
+      "description": "The first local receipt projection recorded the milestone identity before adding the receipt path to that milestone. Recomputed byte evidence detected the mismatch before staging or publication; this reconciled receipt records the final milestone identity.",
+      "positive_evidence": false
+    }
+  ],
+  "boundaries": {
+    "implementation_present": false,
+    "result_present": false,
+    "historical_v5_result_changed": false,
+    "candidate_selected": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "retrieval_changed": false,
+    "evaluation_runtime_changed": false,
+    "scenario_or_manifest_changed": false,
+    "security_or_authority_changed": false,
+    "held_out_used_for_retriever_tuning": false,
+    "external_asset_imported": false,
+    "dependency_service_secret_or_paid_asset_added": false,
+    "real_infrastructure_used": false,
+    "release_or_deployment_created": false,
+    "container_image_exported_or_published": false
+  },
+  "next_action": "Commit and push this exact preimplementation freeze, verify public commit tree parent and every raw changed path, record the public receipt, and only then implement the classifier without writing the result."
+}

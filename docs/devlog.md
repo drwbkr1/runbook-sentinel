@@ -1,5 +1,16 @@
 # Development log
 
+## 2026-08-31 BASELINE-0035 evaluation-contract integrity freeze
+
+- Resumed from exact public BASELINE-0034 closure `b6e0c785fe89c34c661e8f397067684959b7f24b`, created `C:/Projects/Active/runbook-sentinel-baseline-0035` on `codex/baseline-0035-evaluation-contract-integrity`, and never used OneDrive for repository or verification work.
+- Reconciled stale current-state fields and four pending exit conditions without changing the retained v5 result. Commit `74ec794214929c2df81442e11c1410df5e75c865` is exact across local/tracking/remote refs, GitHub commit/tree/parent, and all three anonymous raw files. V3 remains selected; public main, latest v0.0.33, two assets, and zero deployments remain unchanged.
+- Inspected the fresh v3 orientation report and trace. All 136 gates pass; the trace is valid and anchored at 261 events. Stable behavior and safety remain exact, while retrieval still carries 123 extra records across 87 eligible attempts.
+- Identified evaluation-contract integrity as the higher-leverage weakness. BASELINE-0034 passes nine of ten selection checks but its exact false-gate allowlist expected `retrieval_quality_extra_document_attempt_rate_exact` and omitted `adversarial_retrieval_stage_outcome_split_contract_valid`. The actual contextual difference is a three-pair safe superset with complete split coverage and zero ambiguity. No v5 selection or historical rewrite follows from this diagnosis.
+- Refreshed RAGChecker, RAGAs, CheckList, and BERGEN at primary publisher records. Their narrow admitted principles are modular diagnostics, capability tests, and reproducible configuration comparison. No external asset was imported.
+- Froze `retrieval-candidate-evidence-semantics-v1`. Five selected-default exact-value gates are observational. The contextual retrieval-stage validity gate is observational only with complete closed-pair, scenario, trial, outcome, coverage, and ambiguity proof. Every other false gate and incomplete required evidence remains hard; selection, latency, and cost remain separate.
+- The independent verifier passes all three controls and all three candidates with the classifier and result absent. Twelve focused tests reject hard-policy, unknown-stage, missing-cell, ambiguity, outcome-mismatch, and evidence-completeness mutations while proving the classifier does not depend on one exact false inventory.
+- The first complete-suite wrapper used unavailable `pytest` and exited before collection; it is retained as process-invalid and no dependency was installed. The corrected native `unittest` discovery passes all 167 tests in 179.542 seconds.
+
 ## 2026-08-23 BASELINE-0034 single-pass retrieval orientation and freeze
 
 - Resumed from exact public main `d62e7cba675997eade87169f5acba14de6452c9b` and verified public v0.0.33, not from new ideation. Created clean `C:/Projects/Active/runbook-sentinel-baseline-0034` on `codex/baseline-0034-retrieval-tier-cap-latency`; no OneDrive path is authoritative.

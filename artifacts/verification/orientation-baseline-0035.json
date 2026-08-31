@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0035",
+  "observed_at_utc": "2026-08-31T18:11:36Z",
+  "starting_checkpoint": {
+    "public_baseline_0034_closure": "b6e0c785fe89c34c661e8f397067684959b7f24b",
+    "reconciled_successor_commit": "74ec794214929c2df81442e11c1410df5e75c865",
+    "branch": "codex/baseline-0035-evaluation-contract-integrity",
+    "worktree": "C:/Projects/Active/runbook-sentinel-baseline-0035",
+    "outside_onedrive": true,
+    "selected_retrieval_configuration": "freshness-priority-lexical-v3",
+    "public_main": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "latest_release": "v0.0.33",
+    "release_id": 375120109,
+    "deployment_count": 0
+  },
+  "fresh_system_run": {
+    "report_path": "C:/Projects/Verification/runbook-sentinel-baseline-0035-orientation-attempt-001/accepted-v3.json",
+    "report_bytes": 954021,
+    "report_sha256": "977fa81e2a655a8a7e89bdce5031da744cef700c691befe4973b161d8e1e61ad",
+    "trace_path": "C:/Projects/Verification/runbook-sentinel-baseline-0035-orientation-attempt-001/accepted-v3.traces.jsonl",
+    "trace_bytes": 195410,
+    "trace_sha256": "2001853f65477832fa524e9a7a17b738748c197f19fd05ea5b41c8e2e25ee2ce",
+    "manifest_sha256": "4f9e9880a9f3a7dd75e94f83018d3f2bef996d4f49b05fd42160f7f62f281b20",
+    "scenario_count": 57,
+    "attempt_count": 171,
+    "trials_per_scenario": 3,
+    "boolean_gate_count": 136,
+    "boolean_false_gate_count": 0,
+    "disposition": "pass",
+    "trace": {
+      "event_count": 261,
+      "final_event_sha256": "e9dba01be3ead1206b5462a6b6d5383e5ef7d54b2b8b09240a8e3503e40ba168",
+      "valid": true,
+      "anchored": true,
+      "errors": [],
+      "event_name_counts": {
+        "sentinel.run": 171,
+        "sentinel.approval": 45,
+        "sentinel.execute": 45
+      }
+    }
+  },
+  "separate_metrics": {
+    "retrieval": {
+      "all_expected_retrieved_rate": 1.0,
+      "expected_document_share_mean": 0.683006535948,
+      "extra_document_count": 123,
+      "attempts_with_extra_documents": 87,
+      "eligible_attempt_count": 153,
+      "declared_attack_document_retrieval_rate": 0.820512820513
+    },
+    "generation_exact": 1.0,
+    "tool_trajectory_exact": 1.0,
+    "policy_compliance": 1.0,
+    "terminal_state_exact": 1.0,
+    "benign_utility": 1.0,
+    "proposal_attack_success": 0.0,
+    "terminal_attack_success": 0.0,
+    "pass_cubed": 1.0,
+    "diagnosis_latency_ms": {"median": 11.546, "p95": 26.516},
+    "end_to_end_latency_ms": {"median": 88.832, "p95": 155.053},
+    "model_call_count": 0,
+    "estimated_external_api_cost_usd": 0.0
+  },
+  "highest_leverage_weakness": {
+    "category": "evaluation_contract_integrity",
+    "description": "The BASELINE-0034 comparison used a hand-authored exact false-gate inventory and excluded an otherwise complete candidate when one expected selected-v3 observation stayed true and one semantically safe configuration-dependent coverage-validity gate became false.",
+    "evidence": {
+      "comparison_path": "artifacts/evaluations/baseline-0034-retrieval-comparison.json",
+      "comparison_sha256": "a9a23d1a5e933b10e06004233691f5d72277d3609b116b7812a8bf07c9e0ed1a",
+      "selection_checks_passed": 9,
+      "selection_checks_total": 10,
+      "only_failed_selection_check": "exact_allowed_false_gate_inventory_and_all_other_131_boolean_gates_true",
+      "frozen_allowlist_only_gate": "retrieval_quality_extra_document_attempt_rate_exact",
+      "observed_only_gate": "adversarial_retrieval_stage_outcome_split_contract_valid"
+    },
+    "bounded_candidate": "A reusable semantic classifier that treats default observations as observations, admits only fully proved safe-superset stage differences, and keeps every unclassified false gate hard.",
+    "retrieval_candidate_added_or_tuned": false,
+    "held_out_used_for_retriever_tuning": false,
+    "historical_v5_result_reopened": false
+  },
+  "retained_process_failures": [
+    {
+      "id": "PYTEST-RUNTIME-ABSENT-0035-001",
+      "classification": "process_invalid",
+      "description": "The first complete-suite wrapper invoked python -m pytest, but this dependency-free repository does not install pytest. Python exited before test collection. The corrected project-native unittest discovery ran separately and passed all 167 tests.",
+      "positive_evidence": false
+    },
+    {
+      "id": "REMOTE-TRACKING-REF-OBSERVATION-0035-001",
+      "classification": "process_invalid",
+      "description": "The first public reconciliation wrapper tried to resolve an absent explicit local remote-tracking ref after push -u. Git ls-remote, GitHub API, and all anonymous raw bytes were already exact; a targeted fetch materialized the ref and the corrected check passed.",
+      "positive_evidence": false
+    }
+  ],
+  "boundaries": {
+    "runtime_changed": false,
+    "default_changed": false,
+    "security_boundary_changed": false,
+    "external_asset_imported": false,
+    "real_infrastructure_used": false,
+    "paid_service_or_secret_added": false,
+    "release_or_deployment_created": false,
+    "research_informed_only": true
+  }
+}

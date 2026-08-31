@@ -1,6 +1,15 @@
 # Changelog
 
-## Unreleased - BASELINE-0034
+## Unreleased - BASELINE-0035
+
+- Reconciled the stale BASELINE-0034 current-state header and pending exit conditions against exact public closure `b6e0c785...`; v5 remains excluded and retained, v3 remains selected, public main/release/deployment state is unchanged, and the correction is public at `74ec794...`.
+- Ran a fresh selected-v3 orientation: 57 scenarios, 171 attempts, all 136 Boolean gates, and an independently valid anchored 261-event trace pass. Retrieval, generation, trajectory, policy, terminal state, utility, attacks, reliability, latency, and cost remain separately recorded.
+- Selected one evaluation-contract reliability weakness: BASELINE-0034's hand-authored exact false-gate inventory excluded an otherwise complete candidate because its expected and observed fifth observation names differed. The historical exclusion remains immutable and no retriever is retuned.
+- Added ADR 0031, the BASELINE-0035 milestone, current primary-research gate, orientation record, frozen semantic evidence contract, independent verifier, and twelve fail-closed focused tests. The classifier and result remain absent.
+- Local freeze verification passes. All three v5 reports classify as evidence-admissible but not selected; policy, coverage, ambiguity, outcome-proof, and evidence-completeness mutations fail closed; an additional selected-default observation may differ without requiring one exact false inventory. The complete project-native suite passes all 167 tests in 179.542 seconds.
+- Retained a process-invalid `python -m pytest` attempt because this dependency-free repository does not install pytest; it collected no tests. No dependency was added.
+
+## Retained experiment - BASELINE-0034
 
 - Resumed from verified public v0.0.33 at exact public main `d62e7cb...`; a fresh accepted-v3 run passes 57 scenarios, 171 attempts, all 136 Boolean gates, and an anchored 261-event trace while reproducing 123 extra returned records across 87 eligible attempts.
 - Froze `single-pass-bounded-trust-tier-lexical-v5` before implementation. It must preserve v4 IDs, ranks, caps, no-backfill behavior, audit records, and decision projection while parsing `as_of` once and classifying each eligible project-evidence item once. V3 remains default.
