@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0035",
+  "phase": "implemented_result",
+  "observed_at_utc": "2026-08-31T19:16:02Z",
+  "starting_public_record_commit": "11b34e4a6f7bb193aec6dc778060f97b6040dfea",
+  "starting_public_record_tree": "90b7f697cd6f6f872495352d822cca6c3046a63b",
+  "starting_public_record_parent": "e972ec9a22f67539b8365e85b49c87da7f03e391",
+  "branch": "codex/baseline-0035-evaluation-contract-integrity",
+  "contract_id": "retrieval-candidate-evidence-semantics-v1",
+  "classifier_version": "retrieval-candidate-evidence-classifier/v1",
+  "writer": {
+    "command": "python scripts/classify_retrieval_candidate_evidence_0035.py --write",
+    "invocation_count": 1,
+    "status": "written",
+    "fixed_path": "artifacts/evaluations/baseline-0035-retrieval-evidence-classification.json",
+    "exclusive_no_overwrite": true,
+    "ambiguous_or_retried": false
+  },
+  "result_identity": {
+    "path": "artifacts/evaluations/baseline-0035-retrieval-evidence-classification.json",
+    "bytes": 10198,
+    "sha256": "99c32fb6917fae5481898f375cd2ba22b0ede6a646bcc646e5338db607c8321d",
+    "deterministic_dry_reconstruction_exact": true
+  },
+  "result_semantics": {
+    "all_reports_candidate_evidence_admissible": true,
+    "all_reports_hard_invariant_failure_count": 0,
+    "candidate_selected": false,
+    "selection_performed": false,
+    "selected_configuration": "freshness-priority-lexical-v3",
+    "historical_candidate_selected": false,
+    "historical_candidate_disposition": "exclude_and_retain",
+    "historical_result_changed": false,
+    "disposition": "pass"
+  },
+  "verification": {
+    "implemented_result_verifier": {
+      "command": "python scripts/verify_retrieval_candidate_evidence_contract_0035.py --phase implemented_result",
+      "status": "pass",
+      "control_report_count": 3,
+      "candidate_report_count": 3,
+      "candidate_evidence_admissible_count": 3,
+      "errors": []
+    },
+    "focused_tests": {
+      "command": "python -m unittest tests.test_retrieval_candidate_evidence_contract_0035 -v",
+      "status": "pass",
+      "test_count": 16,
+      "duration_seconds": 0.528,
+      "failures": 0,
+      "errors": 0
+    },
+    "complete_regression": {
+      "command": "python -m unittest discover -s tests -v",
+      "status": "pass",
+      "test_count": 171,
+      "duration_seconds": 164.395,
+      "failures": 0,
+      "errors": 0
+    }
+  },
+  "boundaries": {
+    "historical_v5_reports_or_comparison_modified": false,
+    "retriever_default_or_selection_changed": false,
+    "runtime_evaluator_scenario_manifest_model_or_prompt_changed": false,
+    "policy_approval_executor_authority_or_security_changed": false,
+    "dependency_external_asset_service_secret_or_paid_asset_added": false,
+    "real_infrastructure_used": false,
+    "package_container_tag_release_or_deployment_created": false
+  },
+  "next_action": "Commit and publish this exact immutable result plus local receipt, anonymously reconcile both public byte streams, then close UNIT-003 and open UNIT-004 real-surface verification."
+}
