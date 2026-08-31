@@ -8,6 +8,8 @@ The bounded correction changes only the project-authored API verification harnes
 
 The prior archive is retained externally as superseded and is absent from `dist`. A renewed 164-file manifest and companion are byte-identical at 20,021 bytes and SHA-256 `e7a097883f2ee4f61aac695af1b2d7b3034a7c6470739f0cf60693a5c0c8e29f`. The complete suite passes 180/180 in 110.406 seconds. Fresh source attempt 006 passes 57 scenarios, 171 attempts, all 136 Boolean gates, retrieval-quality verification, and an anchored 261-event trace; `latest.json` is byte-exact to it. Public resealing remains required before any replacement archive is built.
 
+Corrected prebuild seal `7ea3309a62322a2a3d932d7f471e2b510342e10a` is now public exact: refs, commit/tree/parent, all 32 Git blobs, 9,516,672 anonymous raw bytes, the untruncated 1,713-entry tree, and rendered commit agree. Public main and v0.0.33 remain unchanged, deployments remain empty, and v0.0.35 remains absent. Record-only receipt publication is the final gate before rebuilding the replacement archive.
+
 ## BASELINE-0035 semantic classification and release-identity freeze
 
 The immutable 10,198-byte BASELINE-0035 result at SHA-256 `99c32fb6917fae5481898f375cd2ba22b0ede6a646bcc646e5338db607c8321d` classifies all three exact retained v5 reports as evidence-admissible with zero hard invariant failures. It does not perform selection: `candidate_selected` and `selection_performed` remain false, `freshness-priority-lexical-v3` remains selected, and the historical candidate disposition remains `exclude_and_retain`. Public result commit `8b57f7220449ad8fe762ea2c1de83782fc5adbe8` and its record are anonymously exact.

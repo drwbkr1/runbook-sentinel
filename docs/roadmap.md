@@ -32,6 +32,8 @@ Prebuild seal `9df5aaa581c6b939ad91499bba47802e3aef9db1` is public and exact acr
 
 The first real rendered-source gate rejected that package path before release: one run stopped at 130/131 while Edge wrote asynchronously, and a nominal 131/131 plus 72/72 successor rendered only `ERR_CONNECTION_REFUSED`. Both exact dashboards and runtime artifacts are retained. The bounded harness correction makes the PNG fresh and the Edge process synchronous without changing product runtime or evaluation semantics. A diagnostic corrected dashboard is complete at original detail; renewed manifest `e7a09788...`, 180/180 regression, and fresh source attempt 006 with all 136 gates now pass locally. The earlier archive is superseded in external custody and absent from `dist`. Publish and independently verify this corrected prebuild seal before any replacement archive build.
 
+Corrected prebuild seal `7ea3309a62322a2a3d932d7f471e2b510342e10a` is public and exact across all 32 changed blobs and 9,516,672 raw bytes, an untruncated 1,713-entry tree, and rendered commit evidence. Main, v0.0.33, two assets, deployments, and v0.0.35 tag absence remain unchanged. Publish and verify its record-only receipt, then build two independent replacement archives before repeating source/package and real-surface evaluation.
+
 The BASELINE-0035 classification result exists and is public, but no default transition, v0.0.35 package, image, tag, release, or deployment exists. Revealed held-out evidence is used only to diagnose evaluation machinery; it cannot tune or select a retriever.
 
 ## Active checkpoint baseline-0034 - single-pass bounded retrieval latency

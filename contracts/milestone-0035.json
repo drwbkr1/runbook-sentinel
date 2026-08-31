@@ -166,7 +166,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Publish and independently verify the fail-closed dashboard-render correction, renewed 164-file prebuild manifest e7a097883f2ee4f61aac695af1b2d7b3034a7c6470739f0cf60693a5c0c8e29f, retained failures, and selected source attempt 006; only then rebuild two deterministic v0.0.35 archives. Container construction remains deferred until Docker is live.",
+  "next_action": "Publish and independently verify the record-only receipt for public corrected prebuild seal 7ea3309a62322a2a3d932d7f471e2b510342e10a; only then rebuild two deterministic v0.0.35 archives. Container construction remains deferred until Docker is live.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -209,6 +209,7 @@
       ,"Two retained rendered-source attempts prove the earlier real-surface gate was not satisfied: the first stopped 130 of 131 before the screenshot appeared and the second nominally passed 131 API plus 72 native checks but rendered only ERR_CONNECTION_REFUSED"
       ,"The bounded synchronous-render correction passes PowerShell parsing 8 focused tests the implemented release-identity verifier a complete 180-test regression and a diagnostic 131-check API 72-check native inspection plus original-detail complete dashboard without changing product runtime or evaluation semantics"
       ,"Renewed active and companion manifests are byte-identical at 20021 bytes and SHA-256 e7a097883f2ee4f61aac695af1b2d7b3034a7c6470739f0cf60693a5c0c8e29f; fresh source attempt 006 passes 57 scenarios 171 attempts all 136 Boolean gates retrieval verification and an anchored 261-event trace while the earlier archive is superseded and absent from dist"
+      ,"Corrected prebuild seal 7ea3309a62322a2a3d932d7f471e2b510342e10a tree cec954ecd90e3ad02722e9a1f8d9370911f06a13 is exact across refs anonymous metadata thirty-two Git blobs 9516672 raw bytes an untruncated 1713-entry tree and rendered commit evidence while main release deployments and v0.0.35 tag absence remain unchanged"
     ],
     "evidence_paths": [
       "artifacts/verification/baseline-0034-closure-reconciliation-local.json",
@@ -237,12 +238,13 @@
       ,"artifacts/evaluations/runs/baseline-0035-attempt-006.json"
       ,"artifacts/evaluations/runs/baseline-0035-attempt-006.manifest.json"
       ,"artifacts/evaluations/runs/baseline-0035-attempt-006.traces.jsonl"
+      ,"artifacts/verification/baseline-0035-dashboard-render-sync-public.json"
     ]
   },
   "handoff": {
     "resume_from": "contracts/milestone-0035.json",
-    "latest_verified_checkpoint": "public exact prebuild record b5dafd9a9382a31abb3ca3dd5f0bca47245030ce plus a local unsealed rendered-dashboard correction and renewed source candidate; the earlier archive path is superseded and not release eligible",
-    "resume_rule": "Continue UNIT-004 by publishing and independently reconciling the corrected rendered-dashboard prebuild seal. Do not build a replacement archive before that public gate and do not pull or build a container while Docker remains unavailable.",
+    "latest_verified_checkpoint": "public exact corrected prebuild seal 7ea3309a62322a2a3d932d7f471e2b510342e10a tree cec954ecd90e3ad02722e9a1f8d9370911f06a13 after public record b5dafd9a9382a31abb3ca3dd5f0bca47245030ce",
+    "resume_rule": "Continue UNIT-004 by publishing and independently reconciling the record-only receipt for corrected seal 7ea3309a62322a2a3d932d7f471e2b510342e10a. Do not build a replacement archive before that record gate and do not pull or build a container while Docker remains unavailable.",
     "blocked_on_human": false
   }
 }

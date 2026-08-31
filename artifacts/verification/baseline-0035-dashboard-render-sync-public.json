@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0035-DASHBOARD-RENDER-SYNC-PUBLIC",
+  "checkpoint": "baseline-0035",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-08-31T23:10:18Z",
+  "status": "pass_public_record_publication_pending",
+  "repository": {
+    "url": "https://github.com/drwbkr1/runbook-sentinel",
+    "visibility": "public",
+    "branch": "codex/baseline-0035-evaluation-contract-integrity",
+    "commit": "7ea3309a62322a2a3d932d7f471e2b510342e10a",
+    "tree": "cec954ecd90e3ad02722e9a1f8d9370911f06a13",
+    "parent": "b5dafd9a9382a31abb3ca3dd5f0bca47245030ce",
+    "subject": "Fail closed on dashboard rendering",
+    "local_tracking_remote_and_anonymous_ref_exact": true,
+    "anonymous_commit_tree_and_parent_exact": true,
+    "changed_paths": 32,
+    "git_blob_mismatches": 0,
+    "anonymous_raw_byte_mismatches": 0,
+    "anonymous_raw_bytes": 9516672,
+    "recursive_tree_entries": 1713,
+    "recursive_tree_truncated": false,
+    "rendered_commit_verified": true
+  },
+  "public_release_truth": {
+    "main": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "main_unchanged": true,
+    "latest_release": "v0.0.33",
+    "latest_release_id": 375120109,
+    "latest_release_asset_count": 2,
+    "latest_release_unchanged": true,
+    "deployments_raw": "[]",
+    "deployments_empty": true,
+    "v0_0_35_tag_http_status": 404,
+    "v0_0_35_tag_absent": true
+  },
+  "bound_evidence": {
+    "local_receipt": {
+      "path": "artifacts/verification/baseline-0035-dashboard-render-sync-local.json",
+      "bytes": 9852,
+      "sha256": "bdf17a4013a629293b193852760e9a6b1d69e85c4bc47be32510648ff4ee78b7"
+    },
+    "renewed_manifest": {
+      "path": "artifacts/verification/baseline-0035-prebuild-source-manifest-attempt-002-render-sync.json",
+      "bytes": 20021,
+      "sha256": "e7a097883f2ee4f61aac695af1b2d7b3034a7c6470739f0cf60693a5c0c8e29f"
+    },
+    "selected_source_report": {
+      "path": "artifacts/evaluations/runs/baseline-0035-attempt-006.json",
+      "bytes": 953896,
+      "sha256": "ab94306f271f3186d324591935d428233b509eee7f60a339026376245bb5aec0"
+    },
+    "selected_source_manifest": {
+      "path": "artifacts/evaluations/runs/baseline-0035-attempt-006.manifest.json",
+      "bytes": 20021,
+      "sha256": "e7a097883f2ee4f61aac695af1b2d7b3034a7c6470739f0cf60693a5c0c8e29f"
+    },
+    "selected_source_trace": {
+      "path": "artifacts/evaluations/runs/baseline-0035-attempt-006.traces.jsonl",
+      "bytes": 195325,
+      "sha256": "d8095e19986d3a9e098fc750b2d0ae76b4f7d5897c429d391fed5f40b0d16293",
+      "events": 261,
+      "final_event_sha256": "94122fcd00239d377df697d6734579c50413c9b2cbbd38a747de54169a8af8aa",
+      "valid": true,
+      "anchored": true
+    },
+    "retained_visual_failure": {
+      "path": "artifacts/verification/dashboard-source-baseline-0035-attempt-002-visual-failed.png",
+      "bytes": 35884,
+      "sha256": "de824c21a7f0b4a2abc2150d7d2902cbfdcfc134712ba99a18fbfda36413344c"
+    }
+  },
+  "retained_process_invalid": [
+    {
+      "id": "POSTCOMMIT-POWERSHELL-REVPARSE-TREE-0035-001",
+      "description": "The first post-commit metadata wrapper left HEAD^{tree} unquoted, so PowerShell treated the brace token as syntax and produced an invalid tree field. The corrected quoted revision proves commit 7ea3309a62322a2a3d932d7f471e2b510342e10a, tree cec954ecd90e3ad02722e9a1f8d9370911f06a13, and parent b5dafd9a9382a31abb3ca3dd5f0bca47245030ce."
+    },
+    {
+      "id": "PUBLIC-RENDERED-COMMIT-ACCEPT-HEADER-0035-001",
+      "description": "The first anonymous verifier reused the GitHub API Accept header for the rendered commit page and received HTTP 406 before producing a receipt. The separate API and browser-content clients pass."
+    },
+    {
+      "id": "PUBLIC-RECEIPT-HASH-INVENTORY-PIPE-0035-001",
+      "description": "The first receipt hash inventory placed a pipe directly after a PowerShell foreach block and stopped during parsing before reading a file. The corrected explicit collection binds every listed identity."
+    }
+  ],
+  "verification": {
+    "public_verification_custody": "C:/Projects/Verification/baseline-0035-dashboard-render-sync-public-verification.json",
+    "public_verification_bytes": 981,
+    "public_verification_sha256": "f27c3fed72838867991a19b83abf546b02250521a0748163916c59386f95be09",
+    "all_public_checks_exact": true,
+    "source_evaluation": "57 scenarios 171 attempts all 136 Boolean gates true",
+    "complete_regression": "180/180",
+    "dashboard_failure_preserved": true,
+    "replacement_archive_present": false,
+    "container_receipt_present": false
+  },
+  "boundaries": {
+    "one_drive_used": false,
+    "product_runtime_changed": false,
+    "model_retrieval_policy_approval_or_executor_changed": false,
+    "new_dependency_external_asset_secret_paid_service_or_real_infrastructure": false,
+    "main_tag_release_deployment_or_container_publication_changed": false
+  },
+  "next_gate": "Commit and publish this record-only receipt, verify its exact public bytes, then build two independent replacement v0.0.35 archives from the public corrected manifest."
+}
