@@ -14,6 +14,8 @@ The bounded v0.0.35 implementation now matches the frozen projection exactly. Al
 
 The first focused implementation run is retained as an 11/13 failure because two tests still asserted predecessor-phase bytes. Correcting only those phase-aware assertions yields 13/13 in 3.417 seconds, and the complete suite passes 178/178 in 116.095 seconds. The predecessor manifest rejects nineteen later bounded identities as expected and is not rewritten. No archive, checksum, container receipt, image build, tag, release, or deployment exists. Docker client presence is not counted as container evidence because the daemon is unavailable. Publication and anonymous reconciliation of the implementation seal remain prerequisites to manifest renewal and artifact construction.
 
+Implementation seal `4294af8256c348f83d697f7a51aa631d0ffcaee8`, tree `d89621859b5d714564d28f00faeb321e40664a23`, is public and exact across the live branch, `ls-remote`, anonymous ref/commit/tree metadata, 30 Git blobs, 30 anonymous raw byte streams totaling 1,910,333 bytes, the untruncated 1,689-entry tree, and rendered commit HTML. Public main, v0.0.33, its two assets, and deployments are unchanged. One stale local tracking observation is retained; an explicit fetch passed. The record-only public receipt must be reconciled before manifest renewal.
+
 ## BASELINE-0034 preimplementation orientation
 
 Exact public main `d62e7cba675997eade87169f5acba14de6452c9b` is the clean start. Public v0.0.33 remains latest at audited closure `5918f614caae96fe5b9bb3815c1d4a1c90908394`, annotated tag object `522cc2243650568e0a063f8a0918041dca98e111`, release `375120109`, two selected uploads, zero deployments, and no container-image publication.

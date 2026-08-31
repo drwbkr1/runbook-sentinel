@@ -22,6 +22,8 @@ The preimplementation seal is public and exact at `598ad61752009f490a07052c4551b
 
 The local mechanical projection is implemented and passes the independent release-identity, 43-entry package, and 49-check container-contract prerequisite verifiers. One 11/13 phase-stale focused attempt is retained; its corrected successor passes 13/13, and all 178 tests pass. The predecessor manifest remains intentionally stale and rejects nineteen later identities. Commit, publish, and anonymously reconcile this exact implementation seal before renewing the manifest; package archive and container construction remain closed.
 
+Implementation seal `4294af8256c348f83d697f7a51aa631d0ffcaee8` is public and exact across all 30 changed blobs and raw paths, an untruncated 1,689-entry tree, and rendered commit evidence. Main, v0.0.33, its two assets, and deployments remain unchanged. Publish and verify the record-only receipt, then renew and publicly seal the release manifest before any archive or container build.
+
 The BASELINE-0035 classification result exists and is public, but no default transition, v0.0.35 package, image, tag, release, or deployment exists. Revealed held-out evidence is used only to diagnose evaluation machinery; it cannot tune or select a retriever.
 
 ## Active checkpoint baseline-0034 - single-pass bounded retrieval latency
