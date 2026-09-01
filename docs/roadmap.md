@@ -38,6 +38,10 @@ Record-only reconciliation `ab859ebdb641b56cf31a3620344cbaf9c72faf10` is public 
 
 Package/source payload `2a78479662e36df9e18e119a86c79f5422654e88` is now public exact across all 15 changed Git blobs and 3,749,204 anonymous raw bytes, the untruncated 1,722-entry tree, and rendered commit. Main, v0.0.33, two assets, deployments, and v0.0.35 tag absence remain unchanged. Publish and independently reconcile its record-only receipt next. After that gate, run local-only container verification if Docker is live; otherwise continue the non-container clean-clone gate while retaining the container requirement.
 
+Record-only reconciliation `8810f187958fb95ee315b1f86c4352d2349b0111` is public exact across seven blobs and 1,388,729 anonymous raw bytes, the untruncated 1,723-entry tree, and rendered commit. Main/release/deployment/tag state remains unchanged. Docker remains unavailable at the post-record check, so the next eligible work is a credential-disabled no-alternates clone of exact `8810f187...`, an independent exact archive rebuild, and renewed source/package real-surface checks. Container verification remains pending and cannot be waived.
+
+That clean-clone gate now passes: 180 tests, exact archive reconstruction, renewed source/package evaluations and traces, bounded MCP, authenticated API/approval/executor/state/telemetry, and two complete original-detail dashboards are bound by `clean-clone-baseline-0035.json` at SHA-256 `589f13d0...`. Publish and independently reconcile this receipt next. Afterward, start Docker Desktop and satisfy the frozen local-only container contract before premerge release-truth work.
+
 The BASELINE-0035 classification result exists and is public, and a local v0.0.35 package candidate is exact and verified across source/package real surfaces. No public package, image, tag, release, or deployment exists. Revealed held-out evidence is used only to diagnose evaluation machinery; it cannot tune or select a retriever.
 
 ## Active checkpoint baseline-0034 - single-pass bounded retrieval latency
