@@ -166,7 +166,7 @@
     }
   ],
   "current_unit": "UNIT-004",
-  "next_action": "Publish and independently verify clean-clone receipt artifacts/verification/clean-clone-baseline-0035.json. Then start Docker Desktop and run the frozen local-only container contract; do not begin premerge release truth while that container gate is pending.",
+  "next_action": "Publish and independently verify record-only receipt artifacts/verification/clean-clone-baseline-0035-public.json. Then start Docker Desktop and run the frozen local-only container contract; do not begin premerge release truth while that container gate is pending.",
   "path_efficiency": {
     "max_consecutive_no_progress_units": 3,
     "review_action_class": "local_verification",
@@ -216,6 +216,7 @@
       ,"Package/source payload 2a78479662e36df9e18e119a86c79f5422654e88 tree bddb26f761a5a63fa5de3910bb663cb3d49fb8ab is public exact across refs fifteen Git blobs 3749204 anonymous raw bytes the untruncated 1722-entry tree and rendered commit while main release deployments and v0.0.35 tag absence remain unchanged"
       ,"Record-only package/source reconciliation 8810f187958fb95ee315b1f86c4352d2349b0111 tree 5ccfc18585cb48cc1776e43a7242379c1ff05310 is public exact across refs seven Git blobs 1388729 anonymous raw bytes the untruncated 1723-entry tree and rendered commit; Docker remains unavailable and no container evidence is claimed"
       ,"A credential-disabled no-alternates clone of public exact 8810f187958fb95ee315b1f86c4352d2349b0111 passes git fsck compilation 180 tests an exact 650685-byte archive rebuild source and package 136-gate evaluations normalized parity bounded MCP authenticated API 72-check native state and telemetry inspection and original-detail dashboard review; clean-clone receipt SHA-256 is 589f13d0b9d017ae99a7e1df5f7f13977e70014af3f4ad49572637845e45dfc5"
+      ,"Clean-clone payload 98833203cc06fd8415ff460414ced1ac8c841880 tree a5c623399f6b5981416f7a75772f9e169952c783 is public exact across refs seven Git blobs 1404079 anonymous raw bytes the untruncated 1724-entry tree and rendered commit; the failed stale-tracking aggregate is retained and the full unchanged retry passes"
     ],
     "evidence_paths": [
       "artifacts/verification/baseline-0034-closure-reconciliation-local.json",
@@ -255,12 +256,13 @@
       ,"artifacts/verification/package-source-baseline-0035.json"
       ,"artifacts/verification/package-source-baseline-0035-public.json"
       ,"artifacts/verification/clean-clone-baseline-0035.json"
+      ,"artifacts/verification/clean-clone-baseline-0035-public.json"
     ]
   },
   "handoff": {
     "resume_from": "contracts/milestone-0035.json",
-    "latest_verified_checkpoint": "public exact package/source record 8810f187958fb95ee315b1f86c4352d2349b0111 plus local exact no-alternates clean-clone receipt SHA-256 589f13d0b9d017ae99a7e1df5f7f13977e70014af3f4ad49572637845e45dfc5",
-    "resume_rule": "Continue UNIT-004 by publishing and independently verifying artifacts/verification/clean-clone-baseline-0035.json. Then run the frozen local-only container contract once Docker Desktop is live; do not waive the pending container gate or start premerge release truth before it passes.",
+    "latest_verified_checkpoint": "public exact clean-clone payload 98833203cc06fd8415ff460414ced1ac8c841880 tree a5c623399f6b5981416f7a75772f9e169952c783 with local record-only receipt SHA-256 453c960a6ccabc0f6ac2dab64c7daeeb6bf88fc8e06218f7e3d2da5350b7511e",
+    "resume_rule": "Continue UNIT-004 by publishing and independently verifying artifacts/verification/clean-clone-baseline-0035-public.json. Then run the frozen local-only container contract once Docker Desktop is live; do not waive the pending container gate or start premerge release truth before it passes.",
     "blocked_on_human": false
   }
 }

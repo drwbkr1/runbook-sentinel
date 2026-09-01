@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": "baseline-0035",
+  "status": "pass",
+  "disposition": "public_clean_clone_payload_exact",
+  "observed_at_utc": "2026-09-01T00:34:08.7598683Z",
+  "payload": {
+    "branch": "codex/baseline-0035-evaluation-contract-integrity",
+    "commit": "98833203cc06fd8415ff460414ced1ac8c841880",
+    "tree": "a5c623399f6b5981416f7a75772f9e169952c783",
+    "parent": "8810f187958fb95ee315b1f86c4352d2349b0111",
+    "subject": "Verify baseline 0035 clean clone",
+    "changed_path_count": 7,
+    "anonymous_raw_bytes": 1404079,
+    "remote_tree_entry_count": 1724,
+    "remote_tree_truncated": false,
+    "refs_exact": true,
+    "commit_metadata_exact": true,
+    "all_git_blobs_exact": true,
+    "all_raw_bytes_exact": true,
+    "rendered_commit_exact": true
+  },
+  "clean_clone_receipt": {
+    "path": "artifacts/verification/clean-clone-baseline-0035.json",
+    "bytes": 12057,
+    "sha256": "589f13d0b9d017ae99a7e1df5f7f13977e70014af3f4ad49572637845e45dfc5",
+    "status": "pass",
+    "container_verified": false
+  },
+  "external_verification": {
+    "path": "C:/Projects/Verification/baseline-0035-clean-clone-public-verification.json",
+    "bytes": 4679,
+    "sha256": "131405122627d1951315b19817e617254473d09597a0ca352da78bdcccf4e519",
+    "all_exact": true
+  },
+  "retained_attempts": [
+    {
+      "id": "PUBLIC-CLEAN-CLONE-TREE-URL-0035-001",
+      "status": "process_invalid",
+      "artifact_written": false,
+      "reason": "PowerShell parsed the unbraced tree variable together with the query string and requested /git/trees/=1, which returned HTTP 404 before receipt creation."
+    },
+    {
+      "id": "PUBLIC-CLEAN-CLONE-TRACKING-REF-0035-001",
+      "status": "fail",
+      "path": "C:/Projects/Verification/baseline-0035-clean-clone-public-verification-attempt-001.json",
+      "bytes": 4681,
+      "sha256": "6231f27ae471851218d4e75e19ba38fd253e7ed4dd2f7936ee906f6e5a20b5a5",
+      "all_exact": false,
+      "false_checks": ["local_tracking_ref"],
+      "reason": "The push succeeded but did not refresh the local remote-tracking ref. All anonymous remote checks passed; the aggregate remained false."
+    }
+  ],
+  "corrective_action": {
+    "credential_helper_disabled": true,
+    "terminal_prompt_disabled": true,
+    "exact_branch_only_fetch": true,
+    "fetched_tracking_ref": "98833203cc06fd8415ff460414ced1ac8c841880",
+    "unfavorable_attempt_rewritten": false,
+    "full_anonymous_verification_repeated": true
+  },
+  "public_state": {
+    "main": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "latest_release": "v0.0.33",
+    "latest_release_id": 375120109,
+    "latest_release_asset_count": 2,
+    "deployment_count": 0,
+    "v0_0_35_tag_present": false
+  },
+  "post_receipt_observation": {
+    "detached_help_probe_terminal_result_available": false,
+    "generated_attempt": "artifacts/evaluations/runs/baseline-0035-attempt-008.json",
+    "classification": "inconclusive",
+    "reason": "The diagnostic --help probe later exited and left generated files, but its final attached output and exit record are unavailable. Those files remain in clean-clone custody and do not supply positive evidence."
+  },
+  "boundaries": {
+    "public_main_changed": false,
+    "release_created": false,
+    "deployment_created": false,
+    "v0_0_35_tag_created": false,
+    "container_verified": false,
+    "container_gate": "pending_not_waived"
+  },
+  "next_gate": "Publish and independently verify this record-only receipt, then start Docker Desktop and run the frozen local-only container contract before premerge release-truth review."
+}

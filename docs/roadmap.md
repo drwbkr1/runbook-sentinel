@@ -42,6 +42,8 @@ Record-only reconciliation `8810f187958fb95ee315b1f86c4352d2349b0111` is public 
 
 That clean-clone gate now passes: 180 tests, exact archive reconstruction, renewed source/package evaluations and traces, bounded MCP, authenticated API/approval/executor/state/telemetry, and two complete original-detail dashboards are bound by `clean-clone-baseline-0035.json` at SHA-256 `589f13d0...`. Publish and independently reconcile this receipt next. Afterward, start Docker Desktop and satisfy the frozen local-only container contract before premerge release-truth work.
 
+Clean-clone payload `98833203cc06fd8415ff460414ced1ac8c841880` is public exact across seven blobs and 1,404,079 anonymous raw bytes, the untruncated 1,724-entry tree, and rendered commit. Its retained first aggregate is false only because the post-push tracking ref was stale; the full post-fetch retry passes. Publish and reconcile `clean-clone-baseline-0035-public.json` next, then start Docker Desktop for the mandatory local-only container gate.
+
 The BASELINE-0035 classification result exists and is public, and a local v0.0.35 package candidate is exact and verified across source/package real surfaces. No public package, image, tag, release, or deployment exists. Revealed held-out evidence is used only to diagnose evaluation machinery; it cannot tune or select a retriever.
 
 ## Active checkpoint baseline-0034 - single-pass bounded retrieval latency
