@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0035-DOCKER-HOST-PREFLIGHT-FAILURE-001",
+  "checkpoint": "BASELINE-0035",
+  "unit": "UNIT-004",
+  "observed_at_utc": "2026-09-01T01:03:32.7720229Z",
+  "status": "retained_failure",
+  "disposition": "remediate",
+  "input": {
+    "repository_root": "C:/Projects/Active/runbook-sentinel-baseline-0035",
+    "branch": "codex/baseline-0035-evaluation-contract-integrity",
+    "head": "eee7c6a25d99be6729007e2c4b82d59bf54ed6f5",
+    "tree": "629d76ff36cf824e699a7809c9fb0daa4e06729d",
+    "public_branch_head": "eee7c6a25d99be6729007e2c4b82d59bf54ed6f5",
+    "clean_clone_receipt": "artifacts/verification/clean-clone-baseline-0035.json",
+    "clean_clone_receipt_sha256": "589f13d0b9d017ae99a7e1df5f7f13977e70014af3f4ad49572637845e45dfc5",
+    "container_contract": "eval/container-contract-0035-v14.json",
+    "container_build_attempted": false
+  },
+  "host_runtime": {
+    "docker_client_version": "29.4.3",
+    "docker_client_path": "C:/Program Files/Docker/Docker/resources/bin/docker.exe",
+    "docker_client_sha256": "f527c90b0961cec328a9ac07bdc7530408dad89708e0502c82f1f088b3e777b4",
+    "docker_desktop_version": "4.74.0.227015",
+    "docker_desktop_path": "C:/Program Files/Docker/Docker/Docker Desktop.exe",
+    "docker_desktop_sha256": "15c7d03e38e36a3e5fd8c0ce82ac6cb3411db022d55b3f73aea3946a5ef36df7",
+    "docker_desktop_authenticode": {
+      "status": "Valid",
+      "signer": "Docker Inc",
+      "certificate_thumbprint": "cacb4f507942c182c47ef14e7b9050cbde780eb9"
+    },
+    "context": "desktop-linux",
+    "server_observed": null,
+    "desktop_linux_engine_pipe_present": false,
+    "legacy_engine_pipe_present": false,
+    "docker_process_count_after_cleanup": 0
+  },
+  "attempts": [
+    {
+      "attempt_id": "HOST-PREFLIGHT-001",
+      "action": "start Docker Desktop through the installed CLI and bound the wait to the original process tree",
+      "outcome": "retained_failure",
+      "evidence": "The desktop-linux server never appeared; the launcher surfaced Docker Desktop's unexpected-error dialog and the exact process tree was stopped.",
+      "positive_container_evidence": false
+    },
+    {
+      "attempt_id": "HOST-PREFLIGHT-002",
+      "action": "launch the installed Authenticode-valid Docker Desktop executable directly after a reversible EnableDockerAI=false diagnostic",
+      "outcome": "retained_failure",
+      "failure_observed_at_utc": "2026-09-01T00:52:27.5747888Z",
+      "evidence": "The backend crashed while initializing Inference manager because it could not remove and rebind <LOCALAPPDATA>/Docker/run/dockerInference.",
+      "settings_restored_after_attempt": true,
+      "positive_container_evidence": false
+    },
+    {
+      "attempt_id": "HOST-PREFLIGHT-003",
+      "action": "preserve the prior Docker runtime directory under controlled external quarantine, recreate an empty runtime directory, and relaunch",
+      "outcome": "retained_failure",
+      "failure_observed_at_utc": "2026-09-01T00:55:44.8174802Z",
+      "evidence": "Inference initialization passed, but the backend crashed while initializing Secrets Engine because it could not remove and rebind <LOCALAPPDATA>/docker-secrets-engine/engine.sock.",
+      "positive_container_evidence": false
+    },
+    {
+      "attempt_id": "HOST-PREFLIGHT-004",
+      "action": "preserve the prior secrets-engine directory under controlled external quarantine, recreate it empty, and relaunch",
+      "outcome": "retained_failure",
+      "failure_observed_at_utc": "2026-09-01T00:58:45.1530588Z",
+      "evidence": "The backend recreated dockerInference and then again crashed while trying to remove and rebind that newly created endpoint.",
+      "positive_container_evidence": false
+    }
+  ],
+  "recovery_custody": {
+    "external_root": "C:/Projects/Verification/docker-desktop-recovery-20260901T0050Z",
+    "settings_backup": {
+      "path": "settings-store.before.json",
+      "bytes": 220,
+      "sha256": "94f72e482ee23af197d6d6dbb18af3e3fcf9f1cca02de81bb28b1c121993914d"
+    },
+    "current_settings": {
+      "path": "<APPDATA>/Docker/settings-store.json",
+      "bytes": 220,
+      "sha256": "94f72e482ee23af197d6d6dbb18af3e3fcf9f1cca02de81bb28b1c121993914d",
+      "byte_identical_to_backup": true
+    },
+    "preserved_runtime_endpoints": [
+      "run.before/dockerInference",
+      "run.before/userAnalyticsOtlpHttp.sock",
+      "docker-secrets-engine.before/engine.sock",
+      "run.attempt-003/dockerInference"
+    ],
+    "current_docker_run_directory_recreated_empty": true,
+    "current_secrets_engine_directory_recreated_empty": true,
+    "factory_reset_attempted": false
+  },
+  "source_evidence": {
+    "backend_log": "<LOCALAPPDATA>/Docker/log/host/com.docker.backend.exe.log",
+    "backend_log_bytes": 150392,
+    "backend_log_sha256": "3c17dba85b250d745765afff31eaf63ab4803a89664e78d96d5a9ef16033f853",
+    "exact_failure_classes": [
+      "Inference manager AF_UNIX endpoint remove/rebind failure",
+      "Secrets Engine AF_UNIX endpoint remove/rebind failure"
+    ]
+  },
+  "assessment": {
+    "scope": "Docker Desktop host runtime endpoint lifecycle",
+    "exact_vendor_defect_or_host_filesystem_cause_proven": false,
+    "reason": "The failures occur before the Linux engine becomes available and persist after bounded endpoint quarantine; the evidence localizes the failure but does not distinguish a Docker Desktop defect from a host-level AF_UNIX or reparse-point defect.",
+    "container_contract_status": "pending",
+    "release_truth_eligible": false
+  },
+  "boundaries": {
+    "container_created": false,
+    "image_built": false,
+    "image_exported": false,
+    "image_pushed": false,
+    "image_published": false,
+    "registry_authentication_used": false,
+    "external_installer_downloaded": false,
+    "external_code_imported": false,
+    "paid_service_or_secret_added": false,
+    "real_operational_infrastructure_contacted": false,
+    "product_or_security_boundary_changed": false,
+    "positive_evidence_inferred_from_failed_attempt": false
+  },
+  "next_action": "Owner decision required: either authorize a gated import and installation of an official Docker Desktop update, or repair/start Docker Desktop manually. Reverify the signed runtime and live desktop-linux engine before running the frozen local-only container contract. Do not reset Docker Desktop, build a container, or begin premerge release truth while this host gate is unresolved."
+}
