@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "BASELINE-0035-DOCKER-HOST-PREFLIGHT-FAILURE-001-PUBLIC",
+  "observed_at_utc": "2026-09-01T01:14:52.0930976Z",
+  "status": "pass",
+  "disposition": "retain_non_release",
+  "repository": "drwbkr1/runbook-sentinel",
+  "visibility": "public",
+  "branch": "codex/baseline-0035-evaluation-contract-integrity",
+  "payload": {
+    "commit": "b2fe07bde106879ec330981faf4487c9052a9ea2",
+    "tree": "9295dcc1adb03d855667b0a7b1b0effe4a04f886",
+    "parent": "eee7c6a25d99be6729007e2c4b82d59bf54ed6f5",
+    "commit_subject": "Retain Docker host preflight failure",
+    "ref_exact": true,
+    "commit_exact": true,
+    "tree_exact": true,
+    "parent_exact": true,
+    "recursive_tree_truncated": false,
+    "recursive_tree_entry_count": 1726,
+    "rendered_commit_contains_full_sha": true
+  },
+  "changed_paths": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 158359,
+      "sha256": "c4a39aae3ae22ce0ba3b3032ba5b8e0d13426e906f5b01ea7032f58a68333833",
+      "git_blob": "87af5c172959e3cb4f0a6a1ecc8d9360637fb499",
+      "raw_exact": true,
+      "blob_exact": true
+    },
+    {
+      "path": "artifacts/verification/baseline-0035-docker-host-preflight-failure-001.json",
+      "bytes": 6452,
+      "sha256": "713e3da28211aac068b3927524af0da8dde38ac0e2f713614ff1840ed7c25b6d",
+      "git_blob": "bb8846f691f6232599a1d3ab42b5ccc98061148f",
+      "raw_exact": true,
+      "blob_exact": true
+    },
+    {
+      "path": "contracts/milestone-0035.json",
+      "bytes": 22348,
+      "sha256": "1a6e40dca5f307c96cfb300d570c7678c155cb0792e746a71c3cdccd3505d7b0",
+      "git_blob": "271a8672053058ab87e8b35f3b110b7423cc314a",
+      "raw_exact": true,
+      "blob_exact": true
+    },
+    {
+      "path": "docs/devlog.md",
+      "bytes": 528487,
+      "sha256": "c5991f5929a9620299a3bea68958aac744f70ce2c2bff4d007377df3e759f3f5",
+      "git_blob": "171bb512d3074d51401360c17f7ff169d2edb8a0",
+      "raw_exact": true,
+      "blob_exact": true
+    },
+    {
+      "path": "docs/evaluation-report.md",
+      "bytes": 272109,
+      "sha256": "b1a6de04ea7c9b2251e6e93d7e64b220395d7e4f84932a8434f921e901cb34fe",
+      "git_blob": "ed06777e35f1ee8ded54df64da74202c9d644701",
+      "raw_exact": true,
+      "blob_exact": true
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 118880,
+      "sha256": "ea837aeadfb7987a3cd0668bb6924c65f077d31201bd567d1765c0cf9220272c",
+      "git_blob": "977050aaf60d481de3e89ed351443e05c5c8a34d",
+      "raw_exact": true,
+      "blob_exact": true
+    },
+    {
+      "path": "docs/status.md",
+      "bytes": 303387,
+      "sha256": "9859b4d39ba4c6ff06f3818377782d9d3300b91a77e0cbda61cdb6fcd7f24e72",
+      "git_blob": "dc6fa7287b2f9680a4d15eab34b3013a8ecae8a6",
+      "raw_exact": true,
+      "blob_exact": true
+    }
+  ],
+  "changed_path_count": 7,
+  "changed_raw_bytes": 1410022,
+  "all_raw_sha256_exact": true,
+  "all_git_blobs_exact": true,
+  "unchanged_public_release_state": {
+    "main": "d62e7cba675997eade87169f5acba14de6452c9b",
+    "latest_release_id": 375120109,
+    "latest_release_tag": "v0.0.33",
+    "latest_release_asset_count": 2,
+    "deployment_count": 0,
+    "v0.0.35_tag_http_status": 404,
+    "v0.0.35_tag_absent": true
+  },
+  "external_custody": {
+    "root": "C:/Projects/Verification/runbook-sentinel-baseline-0035-b2fe07b-public",
+    "file_count": 15,
+    "metadata": [
+      {"path": "commit.json", "bytes": 1147, "sha256": "d47123d95ec7f82ac159d3fad733450eae721fedc5b6d01419c96d69fecf67e9"},
+      {"path": "tree.json", "bytes": 482227, "sha256": "af0f60a79ee301da6caee559fb61c46ac858e8928799f4fe698a49c242b7b2c7"},
+      {"path": "ref.json", "bytes": 499, "sha256": "a778377002a4b4dfbbc08e4dcd3de8a95c2904e150c89168ba1d467e0d413dc9"},
+      {"path": "main-ref.json", "bytes": 346, "sha256": "9e497a157b2f0002ae5fd5d501520752794dad230ab2d07261759b5cc1a1147f"},
+      {"path": "latest-release.json", "bytes": 6033, "sha256": "90cd9f9c9759737c9e4fd3dacda0e145b8301530e029232eb3373ed792d80acf"},
+      {"path": "deployments.json", "bytes": 2, "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"},
+      {"path": "tag-v0.0.35.json", "bytes": 114, "sha256": "e2e3c64edab172132f77ce89a0e8c190db1cd30936a096344f45893bd5b75f8a"},
+      {"path": "commit.html", "bytes": 672281, "sha256": "b3a50f483ab0961a13a3fd59dba6ffe1c8c7173d5a78fe6a3f576ad3f99da385"}
+    ]
+  },
+  "retained_process_observations": [
+    {
+      "id": "PUBLIC-RECEIPT-METADATA-WRAPPER-0035-001",
+      "status": "retained_process_invalid",
+      "observation": "The first read-only metadata-summary wrapper placed a pipeline immediately after a foreach statement and stopped at a PowerShell parser error before producing any summary value.",
+      "correction": "The unchanged successor materialized the loop into an array and reproduced all metadata hashes and counts.",
+      "positive_evidence_inferred": false
+    }
+  ],
+  "boundaries": {
+    "container_result_claimed": false,
+    "release_or_deployment_changed": false,
+    "image_exported_pushed_published_or_redistributed": false,
+    "factory_reset_attempted": false,
+    "external_installer_downloaded": false,
+    "product_or_security_boundary_changed": false
+  },
+  "all_exact": true,
+  "next_action": "Publish and verify this record-only receipt. Then stop for the owner to authorize a gated official Docker Desktop update or repair/start Docker manually; reverify the signed runtime and live desktop-linux engine before running the frozen local-only container contract."
+}
